@@ -34,6 +34,8 @@ describe("standalone reference site build", () => {
     expect(html).not.toContain("fonts.gstatic.com");
     expect(html).not.toContain("sourceRefs");
     expect(html).not.toContain("generatedFrom");
+    expect(html).not.toContain("Catalog build —");
+    expect(html).toContain("topbar__meta-short");
   });
 
   it("keeps the sticky detail header paint flush with the detail scroll top", () => {
@@ -58,6 +60,18 @@ describe("standalone reference site build", () => {
     expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;");
     expect(html).toContain("min-height: 2.35rem;");
     expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;\n  background: transparent;");
+    expect(html).toContain(".toolbar__clear[hidden]");
+  });
+
+  it("recomposes the reference layout for mobile browse and detail panels", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain('.layout[data-mobile-panel="browse"] .col--detail');
+    expect(html).toContain('.layout[data-mobile-panel="detail"] .col--nav');
+    expect(html).toContain("Back to results");
+    expect(html).toContain("content: attr(data-label);");
+    expect(html).toContain(".object__props td::before");
+    expect(html).toContain(".form__params td::before");
   });
 
   it("links command property coverage to Object Tree-only schemas", () => {

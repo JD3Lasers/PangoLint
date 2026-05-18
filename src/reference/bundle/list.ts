@@ -121,6 +121,9 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
       ? "Search commands, aliases, descriptions…"
       : "Search object schemas + property names…";
     if (search.value !== state.filter.query) search.value = state.filter.query;
+    const hasFilters = Boolean(state.filter.query || (isCommands && state.filter.category));
+    clearBtn.hidden = !hasFilters;
+    clearBtn.disabled = !hasFilters;
   };
 
   const renderPills = (): void => {
@@ -529,13 +532,13 @@ function cssEscape(value: string): string {
 }
 
 /**
- * On narrow viewports the layout stacks vertically, so the detail pane is
- * below the list. Scroll it into view after a selection so the user does not
- * have to manually scroll down to read the result.
+ * On narrow viewports the layout shows one panel at a time. Move to the
+ * detail panel after a selection so the result is immediately readable.
  */
 function scrollToDetailOnNarrow(): void {
   if (window.innerWidth > 880) return;
   requestAnimationFrame(() => {
-    document.querySelector(".col--detail")?.scrollIntoView({ behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("reference:mobile-panel", { detail: "detail" }));
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }

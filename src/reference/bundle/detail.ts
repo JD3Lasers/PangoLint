@@ -48,7 +48,11 @@ export function objectPropertyPathDisplay(
   return { primaryPath: path, secondaryLabel: null, secondaryPath: null };
 }
 
-export function renderDetailColumn(state: ReferenceState): HTMLElement {
+export interface DetailColumnOptions {
+  onBackToResults?: () => void;
+}
+
+export function renderDetailColumn(state: ReferenceState, options: DetailColumnOptions = {}): HTMLElement {
   const root = el("section", {
     className: "col col--detail",
     attrs: { "aria-live": "polite", "aria-label": "Detail" },
@@ -59,6 +63,9 @@ export function renderDetailColumn(state: ReferenceState): HTMLElement {
   const render = (): void => {
     clear(root);
     const selectedPropertyPath = state.selectedObjectPropertyPath;
+    if (hasDetailSelection(state) && options.onBackToResults) {
+      root.append(renderMobileBackButton(options.onBackToResults));
+    }
     if (state.selectedObjectReference) {
       const objectReference = findObjectReferenceDetail(state);
       root.append(
@@ -90,6 +97,22 @@ export function renderDetailColumn(state: ReferenceState): HTMLElement {
   render();
 
   return root;
+}
+
+function hasDetailSelection(state: ReferenceState): boolean {
+  return Boolean(state.selectedCanonical || state.selectedObject || state.selectedObjectReference);
+}
+
+function renderMobileBackButton(onBackToResults: () => void): HTMLElement {
+  return el(
+    "button",
+    {
+      className: "mobile-detail-back",
+      attrs: { type: "button" },
+      on: { click: onBackToResults },
+    },
+    "Back to results",
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -339,11 +362,13 @@ function renderForm(form: ReferenceForm): HTMLElement {
     const tbody = el("tbody", {});
     for (const p of form.parameters) {
       const row = el("tr", {});
-      row.append(el("td", {}, el("code", {}, p.name)));
-      row.append(el("td", {}, p.type ?? "—"));
-      row.append(el("td", {}, p.required ? "✓" : ""));
-      row.append(el("td", {}, formatParameterRange(p)));
-      row.append(el("td", { className: "form__params-desc" }, p.description ?? ""));
+      row.append(el("td", { attrs: { "data-label": "Name" } }, el("code", {}, p.name)));
+      row.append(el("td", { attrs: { "data-label": "Type" } }, p.type ?? "—"));
+      row.append(el("td", { attrs: { "data-label": "Req" } }, p.required ? "✓" : ""));
+      row.append(el("td", { attrs: { "data-label": "Range" } }, formatParameterRange(p)));
+      row.append(
+        el("td", { className: "form__params-desc", attrs: { "data-label": "Description" } }, p.description ?? ""),
+      );
       tbody.append(row);
     }
     table.append(tbody);
@@ -548,7 +573,7 @@ function renderObjectPropertyTableRow(
     },
   });
 
-  const pathCell = el("td", { className: "object__prop-cell" });
+  const pathCell = el("td", { className: "object__prop-cell", attrs: { "data-label": "Property" } });
   const pathDisplay = objectPropertyPathDisplay(p.path, pathDisplayContext);
   pathCell.append(el("code", {}, pathDisplay.primaryPath));
   if (pathDisplay.secondaryPath) {
@@ -567,7 +592,7 @@ function renderObjectPropertyTableRow(
   row.append(pathCell);
 
   const behaviorSummary = objectBehaviorSummary(p.propertyCard?.classification ?? p.classification);
-  const behaviorCell = el("td", { className: "object__behavior" });
+  const behaviorCell = el("td", { className: "object__behavior", attrs: { "data-label": "Behavior" } });
   if (behaviorSummary) {
     behaviorCell.append(el("span", { className: "object__value-line" }, behaviorSummary));
   } else {
@@ -580,7 +605,7 @@ function renderObjectPropertyTableRow(
     objectReadbackCardSummary(p.propertyCard?.readbackSummary) ??
     buildObjectValueSummaryText(p.valueMetadata) ??
     objectReadbackSummary(p.readbackMetadata);
-  const valueCell = el("td", { className: "object__value" });
+  const valueCell = el("td", { className: "object__value", attrs: { "data-label": "Value" } });
   if (valueSummary) {
     valueCell.append(el("span", { className: "object__value-line" }, valueSummary));
   } else {
@@ -588,7 +613,7 @@ function renderObjectPropertyTableRow(
   }
   row.append(valueCell);
 
-  const settersCell = el("td", { className: "object__setters-cell" });
+  const settersCell = el("td", { className: "object__setters-cell", attrs: { "data-label": "Set by" } });
   if (p.setters.length === 0) {
     settersCell.append(el("span", { className: "object__setters-empty" }, "—"));
   } else {
