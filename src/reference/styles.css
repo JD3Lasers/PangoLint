@@ -392,18 +392,6 @@ kbd {
   color: var(--amber-soft);
 }
 
-.nav__footer {
-  border-top: 1px solid var(--rule);
-  padding: 1rem 1.25rem 1.25rem;
-  flex-shrink: 0;
-  background: var(--paper-2);
-}
-.nav__footer-build {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: var(--muted-2);
-}
-
 /* ──────────────  List column toolbar  ────────────── */
 
 .toolbar {
@@ -423,9 +411,11 @@ kbd {
   background: var(--paper-2);
   border: 1px solid var(--rule-2);
   border-radius: 4px;
+  box-sizing: border-box;
   color: var(--ink);
   font: inherit;
   font-size: 13px;
+  min-height: 2.35rem;
   padding: 0.45rem 0.7rem;
   width: 100%;
   outline: none;
@@ -435,13 +425,17 @@ kbd {
   box-shadow: 0 0 0 1px var(--amber-soft);
 }
 .toolbar__clear {
+  grid-column: 1 / -1;
   background: transparent;
   border: 1px solid var(--rule-2);
   border-radius: 4px;
+  box-sizing: border-box;
   color: var(--muted);
   font: inherit;
-  font-size: 12px;
-  padding: 0.3rem 0.7rem;
+  font-size: 13px;
+  min-height: 2.35rem;
+  padding: 0.45rem 0.7rem;
+  width: 100%;
   cursor: pointer;
 }
 .toolbar__clear:hover {

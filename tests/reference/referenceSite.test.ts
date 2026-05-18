@@ -44,6 +44,22 @@ describe("standalone reference site build", () => {
     expect(html).not.toContain("margin: -2rem -2.5rem 1.25rem;");
   });
 
+  it("omits the navigation generated-date footer from the offline reference page", () => {
+    const html = readReferenceHtml();
+
+    expect(html).not.toContain("nav__footer");
+    expect(html).not.toContain("Generated 2026-");
+  });
+
+  it("keeps mobile toolbar search and clear controls aligned", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain(".toolbar__search {\n  grid-column: 1 / -1;");
+    expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;");
+    expect(html).toContain("min-height: 2.35rem;");
+    expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;\n  background: transparent;");
+  });
+
   it("links command property coverage to Object Tree-only schemas", () => {
     const catalog = readCatalog();
     const command = catalog.commands.find((candidate) => candidate.canonical === "SetCueCaptionColor");
