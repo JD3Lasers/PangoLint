@@ -132,19 +132,6 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
     body.append(list);
   };
 
-  // ── Footer: build info ────────────────────────────────────────
-  const footer = el("div", { className: "nav__footer" });
-  footer.append(
-    el(
-      "div",
-      { className: "nav__footer-build" },
-      state.catalog.meta.catalogBuild
-        ? `Catalog build ${state.catalog.meta.catalogBuild}`
-        : `Generated ${formatDate(state.catalog.meta.generatedAt)}`,
-    ),
-  );
-  root.append(footer);
-
   // Wire updates
   state.subscribe((change) => {
     if (change === "mode" || change === "section") {
@@ -156,12 +143,4 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
   renderCategories();
 
   return root;
-}
-
-function formatDate(iso: string): string {
-  try {
-    return new Date(iso).toISOString().slice(0, 10);
-  } catch {
-    return iso;
-  }
 }
