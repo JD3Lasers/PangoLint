@@ -168,6 +168,7 @@ function metadataSummary(summary: ValueSummary | undefined): string | undefined 
 
 function readbackSummary(summary: ReadbackSummary | undefined): string | undefined {
   if (!summary) return undefined;
+  if (!summary.valueType && summary.observedValue === undefined && !summary.locationKind) return undefined;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (summary.valueType) parts.push(summary.valueType);
   if (summary.observedValue !== undefined) parts.push(`observed ${String(summary.observedValue)}`);
@@ -177,12 +178,7 @@ function readbackSummary(summary: ReadbackSummary | undefined): string | undefin
 
 function behaviorSummary(classification: BehaviorClassification | undefined): string | undefined {
   if (!classification) return undefined;
-  const parts = [
-    behaviorLabel(classification.accessMode),
-    behaviorLabel(classification.behaviorKind),
-    behaviorLabel(classification.writeTestStatus),
-    behaviorLabel(classification.readbackStatus),
-  ].filter(Boolean);
+  const parts = [behaviorLabel(classification.accessMode), behaviorLabel(classification.behaviorKind)].filter(Boolean);
   return parts.length > 0 ? parts.join("; ") : undefined;
 }
 

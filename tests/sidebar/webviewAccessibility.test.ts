@@ -67,6 +67,17 @@ describe("sidebar webview accessibility contracts", () => {
     expect(formatRangeBlock).toContain('range.maxInclusive === false ? "<" : "<="');
     expect(formatRangeBlock).toContain("`$" + "{min}..$" + "{max}`");
   });
+
+  it("keeps internal object test status out of visible sidebar summaries", () => {
+    const source = readSource("src/sidebar/view/webview/objects-bundle/main.ts");
+    const readbackSummaryBlock = extractFunction(source, "readbackSummary");
+    const behaviorSummaryBlock = extractFunction(source, "behaviorSummary");
+
+    expect(readbackSummaryBlock).toContain("summary.observedValue === undefined");
+    expect(readbackSummaryBlock).toContain("!summary.locationKind");
+    expect(behaviorSummaryBlock).not.toContain("writeTestStatus");
+    expect(behaviorSummaryBlock).not.toContain("readbackStatus");
+  });
 });
 
 function readSource(relativePath: string): string {

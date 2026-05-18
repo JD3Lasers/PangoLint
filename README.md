@@ -27,7 +27,7 @@ PangoLint is not on the VS Code Marketplace yet. Install from a [GitHub Release 
 ```bash
 npm ci
 npm run package:vsix
-code --install-extension pangolint-0.4.0.vsix --force
+code --install-extension pangolint-0.4.1.vsix --force
 ```
 
 Reload the VS Code window after installing. To uninstall:
