@@ -1,0 +1,20 @@
+// PangoLint expect: unsupported-quoted-goto-label
+// PangoLint candidate: quoted goto target
+// Purpose: verify BEYOND rejects a quoted label target.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Illegal goto label: Start.
+// BEYOND parser location: line 12, text `goto "Start"`
+
+var requestId
+var sequence
+
+requestId = "pangolint-candidate-quoted-goto-001"
+sequence = 1
+
+goto "Start"
+
+Start:
+OscOutTTS "/pangolint/candidate/quoted-goto/start", "si", requestId, sequence
+sequence = sequence + 1
+OscOutTTS "/pangolint/candidate/quoted-goto/done", "si", requestId, sequence
+exit

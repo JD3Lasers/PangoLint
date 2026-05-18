@@ -1,0 +1,14 @@
+// PangoLint expect: wrong-arg-count, unknown-command, unused-variable
+// PangoLint candidate: multiline command continuation
+// Purpose: verify BEYOND rejects a split OscOutTTS command call.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Incorrect OscOutTTS parameters count, should be at least two - address and tts.
+// BEYOND parser location: line 11, text `OscOutTTS "/pangolint/candidate/continuation/done",`
+
+var requestId
+
+requestId = "pangolint-candidate-line-continuation-001"
+OscOutTTS "/pangolint/candidate/continuation/done",
+  "s",
+  requestId
+exit

@@ -1,0 +1,1004 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-17T02:58:10.628Z",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Retested the 17 baseline-only FX readback rows with command write/readback probes and baseline restore. Rows that accepted writes moved to value metadata; rows that ignored sampled writes remain readback-only."
+  },
+  "entries": [
+    {
+      "objectPath": "FX.CAPTION",
+      "probePath": "FX.CAPTION",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.CAPTION\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"FX.CAPTION\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"FX.CAPTION\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored FX.CAPTION to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.CAPTION did not change the FX.CAPTION readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.CAPTION",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.ChaseTimeMode",
+      "probePath": "FX.0.0.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.0.0.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.0.0.ChaseTimeMode\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.ChaseTimeMode to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.ChaseTimeMode did not change the FX.0.0.ChaseTimeMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.ChaseTimeMode",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.N.Value1",
+      "probePath": "FX.1.0.0.Keys.0.Value1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key value 1",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value1\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value1\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value1\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.0.Value1 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.N.Value1 using FX.1.0.0.Keys.0.Value1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.0.Value1",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.N.Value2",
+      "probePath": "FX.1.0.0.Keys.0.Value2",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key value 2",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value2\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value2\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value2\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.0.Value2 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.N.Value2 using FX.1.0.0.Keys.0.Value2.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.0.Value2",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.N.Value3",
+      "probePath": "FX.1.0.0.Keys.0.Value3",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key value 3",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value3\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value3\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value3\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value3\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.0.Value3\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.0.Value3 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.N.Value3 using FX.1.0.0.Keys.0.Value3.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.0.Value3",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.X",
+      "probePath": "FX.1.0.0.Keys.X",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key X coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.X\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.X\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.X\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.X\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.X to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.X using FX.1.0.0.Keys.X.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.X",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Y",
+      "probePath": "FX.1.0.0.Keys.Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key Y coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.Y\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.Y\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.Y\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.Y\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.Y to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.Y using FX.1.0.0.Keys.Y.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.Y",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Z",
+      "probePath": "FX.1.0.0.Keys.Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 120000,
+        "unit": "QuickFX key Z coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.0.Keys.Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.0.0.Keys.Z\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.0.Keys.Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.0.Keys.Z\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.1.0.0.Keys.Z\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored FX.1.0.0.Keys.Z to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.Keys.Z using FX.1.0.0.Keys.Z.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.0.Keys.Z",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.RouterInZone",
+      "probePath": "FX.0.0.0.RouterInZone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.0.0.0.RouterInZone\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"FX.0.0.0.RouterInZone\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"FX.0.0.0.RouterInZone\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored FX.0.0.0.RouterInZone to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.N.RouterInZone did not change the FX.0.0.0.RouterInZone readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.RouterInZone",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.RouterOutZone",
+      "probePath": "FX.0.0.0.RouterOutZone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.0.0.0.RouterOutZone\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"FX.0.0.0.RouterOutZone\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"FX.0.0.0.RouterOutZone\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored FX.0.0.0.RouterOutZone to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.N.RouterOutZone did not change the FX.0.0.0.RouterOutZone readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.RouterOutZone",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeClock",
+      "probePath": "FX.0.0.0.TimeClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 120000,
+        "unit": "QuickFX time clock",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.0.TimeClock\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.0.TimeClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.0.TimeClock\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.0.0.0.TimeClock\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.0.0.0.TimeClock\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.0.TimeClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.TimeClock using FX.0.0.0.TimeClock.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.TimeClock",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeDuration",
+      "probePath": "FX.0.0.0.TimeDuration",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 120000,
+        "unit": "QuickFX time duration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.0.TimeDuration\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.0.TimeDuration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.0.TimeDuration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.0.0.0.TimeDuration\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.0.0.0.TimeDuration\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.0.TimeDuration to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.TimeDuration using FX.0.0.0.TimeDuration.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.TimeDuration",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeMetro",
+      "probePath": "FX.0.0.0.TimeMetro",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 120000,
+        "unit": "QuickFX time metro",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.0.TimeMetro\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.0.TimeMetro\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.0.TimeMetro\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.0.0.0.TimeMetro\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.0.0.0.TimeMetro\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.0.TimeMetro to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed value metadata for FX.N.N.N.TimeMetro using FX.0.0.0.TimeMetro.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.TimeMetro",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeName",
+      "probePath": "FX.0.0.0.TimeName",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.0.0.0.TimeName\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"FX.0.0.0.TimeName\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"FX.0.0.0.TimeName\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored FX.0.0.0.TimeName to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.N.TimeName did not change the FX.0.0.0.TimeName readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.TimeName",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeStateCanRestart",
+      "probePath": "FX.0.0.0.TimeStateCanRestart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.0.TimeStateCanRestart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.0.TimeStateCanRestart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.0.TimeStateCanRestart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FX.0.0.0.TimeStateCanRestart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.0.TimeStateCanRestart to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.N.TimeStateCanRestart did not change the FX.0.0.0.TimeStateCanRestart readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.0.TimeStateCanRestart",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.Zone",
+      "probePath": "FX.0.0.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.0.0.Zone\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"FX.0.0.Zone\", \"pangolint-audit\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"FX.0.0.Zone\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The probe restored FX.0.0.Zone to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.Zone did not change the FX.0.0.Zone readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.Zone",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.ZoneMode",
+      "probePath": "FX.0.0.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.0.0.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FX.0.0.ZoneMode\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FX.0.0.ZoneMode to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #216 confirmed sampled writes to FX.N.N.ZoneMode did not change the FX.0.0.ZoneMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.ZoneMode",
+        "notes": "Runtime evidence used concrete QuickFX paths from the loaded show."
+      }
+    }
+  ]
+}

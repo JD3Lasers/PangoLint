@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 366,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used conservative SetProp writes to Zone.0.VisualizationId and ZoneAlias.VisualizationId, then restored the observed baseline after every write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.VisualizationId",
+      "probePath": "Zone.0.VisualizationId",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 255,
+        "unit": "visualization id",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Zone.0.VisualizationId\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.VisualizationId\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.VisualizationId\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.VisualizationId\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 128,
+          "command": "SetProp \"Zone.0.VisualizationId\", 128",
+          "readback": 128,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Zone.0.VisualizationId\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Zone.0.VisualizationId\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"Zone.0.VisualizationId\", 999",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #366 confirmed Zone.N.VisualizationId at Zone.0.VisualizationId uses -1..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.VisualizationId."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.VisualizationId",
+      "probePath": "ZoneAlias.VisualizationId",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 255,
+        "unit": "visualization id",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 128,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 128",
+          "readback": 128,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"ZoneAlias.VisualizationId\", 999",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before finishing the slice."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #366 confirmed ZoneAlias.VisualizationId uses -1..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used the literal ZoneAlias.VisualizationId path for the loaded show."
+      }
+    }
+  ]
+}

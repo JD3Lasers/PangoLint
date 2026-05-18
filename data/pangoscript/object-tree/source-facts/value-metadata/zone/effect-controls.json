@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore from Zone.0.Effect.ChasePeriod.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.ClockLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore from Zone.0.Effect.ClockLimit.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.ClockShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore from Zone.0.Effect.ClockShift.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.EnableClockLimit.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. Zone.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. Zone.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.EnableMetroLimit.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. Zone.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. Zone.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.MetroLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore from Zone.0.Effect.MetroLimit.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct Zone.0 writes to Zone.N.Effect.MetroShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #331 confirmed Zone.N.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore from Zone.0.Effect.MetroShift.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0 in the loaded show."
+      }
+    }
+  ]
+}

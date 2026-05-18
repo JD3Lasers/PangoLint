@@ -1,0 +1,42 @@
+# Dependency installs
+node_modules/
+
+# Build, test, and generated runtime output
+dist/
+coverage/
+.vscode-test/
+.pangolint/
+media/reference/
+_site/
+
+# Package and release artifacts
+artifacts/
+*.vsix
+*.vsix.sha256
+*.tgz
+
+# MCP package staging copied by scripts/copyMcpData.cjs
+mcp/data/
+mcp/docs/
+mcp/LICENSE
+
+# Local editor and agent files
+.vscode/settings.json
+AGENTS.md
+CLAUDE.md
+.claude/
+
+# Local investigation and scratch files
+.local-scripts/
+.trash/
+
+# Root-level generated data files
+data/*.json
+
+# Local environment and OS noise
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+*.exe

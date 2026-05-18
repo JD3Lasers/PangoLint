@@ -1,0 +1,16 @@
+//CHANNEL 1 ON/OFF FOR BUTTON - GOLD
+if (Channels.1.Value = 0) goto MAX
+if (Channels.1.Value > 0) goto MIN
+exit
+
+MIN:
+midiout 0x90, 0x52, 0x00
+ChannelOut 1, 0
+exit
+
+MAX:
+midiout 0x9A, 0x52, 0x7E
+midiout 0x90, 0x53, 0x00
+ChannelOut 1, 1000
+ChannelOut 2, 0
+exit

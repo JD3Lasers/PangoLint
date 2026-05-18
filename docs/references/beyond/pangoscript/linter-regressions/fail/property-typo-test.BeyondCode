@@ -1,0 +1,16 @@
+// PangoLint expect: property-typo
+// PangoLint candidate: property typo
+// Purpose: verify property typo diagnostics against BEYOND editor behavior.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Unknown function, undeclared or not initialized variable: master.rotoangex.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 10, text `badValue = Master.RotoAngeX`
+
+var requestId
+var badValue
+
+requestId = "pangolint-candidate-property-typo-001"
+badValue = Master.RotoAngeX
+
+OscOutTTS "/pangolint/candidate/property-typo/value", "sf", requestId, badValue
+exit

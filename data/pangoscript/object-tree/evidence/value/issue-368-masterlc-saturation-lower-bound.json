@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 368,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used direct object assignment on MasterLC.Saturation and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "MasterLC.Saturation",
+      "probePath": "MasterLC.Saturation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "saturation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "MasterLC.Saturation = -100000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1001,
+          "command": "MasterLC.Saturation = -1001",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1000,
+          "command": "MasterLC.Saturation = -1000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -101,
+          "command": "MasterLC.Saturation = -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "MasterLC.Saturation = -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -99,
+          "command": "MasterLC.Saturation = -99",
+          "readback": -99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2,
+          "command": "MasterLC.Saturation = -2",
+          "readback": -2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.Saturation = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.Saturation = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.Saturation = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.Saturation = 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.Saturation = 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.Saturation = 101",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "MasterLC.Saturation = 1000",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before completing."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #368 confirmed MasterLC.Saturation uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": false
+    }
+  ]
+}

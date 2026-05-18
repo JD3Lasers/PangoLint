@@ -1,0 +1,263 @@
+/* PangoLint Objects webview — themed via VS Code CSS variables. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size, 13px);
+  color: var(--vscode-sideBar-foreground, var(--vscode-foreground));
+  background: var(--vscode-sideBar-background, transparent);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ============================================================
+   Search row (input + OSC toggle button)
+   ============================================================ */
+
+.search-row {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--vscode-sideBarSectionHeader-border, var(--vscode-panel-border, transparent));
+}
+
+.search {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 6px 10px;
+  font: inherit;
+  color: var(--vscode-input-foreground);
+  background: var(--vscode-input-background);
+  border: none;
+  outline: none;
+}
+
+.search:focus {
+  outline: 1px solid var(--vscode-focusBorder);
+  outline-offset: -1px;
+}
+
+.mode-btn {
+  flex: 0 0 auto;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 11px;
+  color: var(--vscode-button-secondaryForeground, var(--vscode-foreground));
+  background: var(--vscode-button-secondaryBackground, transparent);
+  border: none;
+  border-left: 1px solid var(--vscode-sideBarSectionHeader-border, var(--vscode-panel-border, transparent));
+  cursor: pointer;
+}
+
+.mode-btn:hover {
+  background: var(--vscode-button-secondaryHoverBackground, var(--vscode-list-hoverBackground));
+}
+
+.mode-btn--active {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+/* ============================================================
+   Tree viewport
+   ============================================================ */
+
+.viewport {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.tree {
+  padding: 4px 0;
+}
+
+/* ============================================================
+   Collapsible sections (details/summary)
+   ============================================================ */
+
+details {
+  display: block;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.section__hd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* padding-left set per-node by JS based on depth */
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 8px;
+  border-left: 2px solid var(--vscode-activityBar-activeBorder, var(--vscode-focusBorder, transparent));
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+
+.section__hd:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.section__hd::before {
+  content: "▶";
+  font-size: 8px;
+  color: var(--vscode-descriptionForeground);
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 100ms;
+}
+
+details[open] > .section__hd::before {
+  transform: rotate(90deg);
+}
+
+.section__label {
+  font-weight: 600;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section__desc {
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Property leaves
+   ============================================================ */
+
+.prop {
+  /* padding-left set per-node by JS based on depth */
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--vscode-editor-font-family, ui-monospace, monospace);
+  font-size: var(--vscode-editor-font-size, 12px);
+  overflow: hidden;
+  outline: none;
+}
+
+.prop__path,
+.prop__meta {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prop__meta {
+  margin-top: 1px;
+  font-family: var(--vscode-font-family);
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+}
+
+.prop__meta--probe {
+  opacity: 0.82;
+}
+
+.prop:hover,
+.prop:focus-visible {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.prop--has-commands .prop__path::after {
+  content: "⌘";
+  margin-left: 5px;
+  font-size: 0.75em;
+  opacity: 0.45;
+  font-family: var(--vscode-font-family);
+}
+
+.context-menu {
+  position: fixed;
+  z-index: 20;
+  min-width: 152px;
+  padding: 3px 0;
+  color: var(--vscode-menu-foreground, var(--vscode-foreground));
+  background: var(--vscode-menu-background, var(--vscode-sideBar-background));
+  border: 1px solid var(--vscode-menu-border, var(--vscode-panel-border));
+  box-shadow: 0 4px 12px rgb(0 0 0 / 28%);
+}
+
+.context-menu__item {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  color: inherit;
+  background: transparent;
+  border: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.context-menu__item:hover,
+.context-menu__item:focus-visible {
+  color: var(--vscode-menu-selectionForeground, var(--vscode-list-activeSelectionForeground));
+  background: var(--vscode-menu-selectionBackground, var(--vscode-list-activeSelectionBackground));
+  outline: none;
+}
+
+/* Informational leaf (FX effect name with no matching properties) */
+.leaf {
+  /* padding-left set per-node by JS */
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 8px;
+  color: var(--vscode-descriptionForeground);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================
+   Filter section headers
+   ============================================================ */
+
+.filter-hd {
+  padding: 4px 8px 2px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vscode-descriptionForeground);
+}
+
+/* ============================================================
+   Empty state
+   ============================================================ */
+
+.empty {
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--vscode-descriptionForeground);
+  font-size: 12px;
+}

@@ -1,0 +1,17 @@
+// PangoLint expect: unsupported-property-index-access
+// PangoLint candidate: indexed property access
+// Purpose: verify BEYOND rejects direct reads of bracket-indexed Zone point paths.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Invalid array index value: 1.
+// BEYOND parser error: Unknown function, undeclared or not initialized variable: zone.0.points[0].x.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 8, text `pointX = Zone.0.Points[0].X`
+
+var requestId
+var pointX
+
+requestId = "pangolint-candidate-index-access-001"
+pointX = Zone.0.Points[0].X
+
+OscOutTTS "/pangolint/candidate/index/value", "sf", requestId, pointX
+exit

@@ -1,0 +1,104 @@
+{
+  "Label and goto loop": {
+    "prefix": "loop",
+    "description": "Labeled loop using PangoScript's only conditional-loop pattern (label + If + Goto).",
+    "body": [
+      "${1:loopStart}:",
+      "\t${2:// loop body}",
+      "\tif (${3:condition}) goto ${1:loopStart}",
+      "exit"
+    ]
+  },
+
+  "Counted label/goto loop": {
+    "prefix": "for",
+    "description": "Counted loop using the verified label/goto pattern.",
+    "body": [
+      "var ${1:i}",
+      "${1:i} = ${2:1}",
+      "${3:loopStart}:",
+      "\t${4:// loop body}",
+      "\t${1:i} = ${1:i} + 1",
+      "\tif (${1:i} <= ${5:10}) goto ${3:loopStart}",
+      "exit"
+    ]
+  },
+
+  "If/Goto guard": {
+    "prefix": "ifguard",
+    "description": "Guard a block by jumping forward to a final label.",
+    "body": [
+      "if (${1:skipCondition}) goto ${2:afterBlock}",
+      "\t${3:// guarded body}",
+      "${2:afterBlock}:",
+      "exit"
+    ]
+  },
+
+  "OscOutTTS readback skeleton": {
+    "prefix": "oscread",
+    "description": "Capture a property value into a var and emit it on a unique OSC address (Tier-1 readback pattern).",
+    "body": [
+      "var ${1:value}",
+      "${1:value} = ${2:Master.Brightness}",
+      "OscOutTTS \"/${3:pangolint/readback/}${4:request-id}\", \"${5:f}\", ${1:value}",
+      "exit"
+    ]
+  },
+
+  "RegisterOscFeedback (with run-prefixed cleanup)": {
+    "prefix": "oscfeedback",
+    "description": "Subscribe to property-change callbacks via RegisterOscFeedback. Use a unique run-prefixed address per CLAUDE.md (registrations leak until BEYOND restart).",
+    "body": [
+      "RegisterOscFeedback \"${1:master.brightness}\", \"/${2:pangolint/run-${3:run-id}/${1:master.brightness}}\""
+    ]
+  },
+
+  "Begin/End script wrapper": {
+    "prefix": "script",
+    "description": "BeginScript/EndScript block scaffold.",
+    "body": [
+      "BeginScript",
+      "\t$0",
+      "EndScript"
+    ]
+  },
+
+  "OnClick handler with init guard": {
+    "prefix": "onclick",
+    "description": "Universe-button handler that exits during init and runs only on click.",
+    "body": [
+      "// Init",
+      "exit",
+      "",
+      "OnClick:",
+      "\t$0"
+    ]
+  },
+
+  "Variable declaration with assignment": {
+    "prefix": "var",
+    "description": "Declare and initialize a local variable in one line.",
+    "body": [
+      "var ${1:name}; ${1:name} = ${2:0}"
+    ]
+  },
+
+  "SelectZone + ControlZone destination prefix": {
+    "prefix": "selectzone",
+    "description": "Select a zone for subsequent destination-scoped writes (1-indexed; SelectZone is required before ControlZone).",
+    "body": [
+      "SelectZone ${1:1}",
+      "ControlZone ${1:1}",
+      "$0"
+    ]
+  },
+
+  "Zone property assignment (recommended over destination prefix)": {
+    "prefix": "zonewrite",
+    "description": "Direct property assignment — recommended over SelectZone+ControlZone+command when available (no destination state to manage).",
+    "body": [
+      "Zone.${1:0}.${2:Brightness} = ${3:50}"
+    ]
+  }
+}

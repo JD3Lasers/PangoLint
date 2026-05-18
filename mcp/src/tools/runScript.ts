@@ -1,0 +1,137 @@
+// Tool: runScript — sends a straight-line PangoScript command batch to the
+// configured BEYOND host via Talk UDP. The lint-before-run gate refuses
+// `error`-severity diagnostics or analysis-limited lint results, and the shared
+// runtime transport refuses control-flow scripts because Talk UDP is not BEYOND
+// editor-equivalent. Hint and warning diagnostics are reported but do not block;
+// agents are expected to surface them to the user.
+//
+// Wraps src/runtime/runScript.runScript so the existing transport seam
+// (and its `send` injection point for tests) is reused unchanged.
+
+import type { CommandCatalog } from "../../../src/knowledge/catalog";
+import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
+import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
+import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
+import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
+import { lintPangoScript, type PangoDiagnostic } from "../../../src/language/diagnostics";
+import { runScript as runtimeRunScript } from "../../../src/runtime/runScript";
+import type { McpConfig } from "../config";
+import { fail, ok, type ToolResult } from "../config";
+
+export interface RunScriptInput {
+  text: string;
+}
+
+export interface RunScriptOutput {
+  /** True when Talk UDP transmission completed without error. */
+  ok: boolean;
+  /** Lint summary returned regardless of whether send was attempted. */
+  diagnostics: PangoDiagnostic[];
+  errorCount: number;
+  warningCount: number;
+  hintCount: number;
+  /** Number of non-blank, non-comment lines transmitted (0 when refused). */
+  linesSent: number;
+  /** Number of UDP datagrams transmitted. */
+  payloadsSent: number;
+  /** Total bytes transmitted. */
+  bytesSent: number;
+  /** Reason for refusal or transport failure, when applicable. */
+  error?: string;
+  /** True iff send was refused due to error-severity diagnostics. */
+  refusedDueToErrors?: boolean;
+  /** True iff send was refused because linting intentionally skipped analysis. */
+  refusedDueToAnalysisLimit?: boolean;
+}
+
+export type RunScriptResult = ToolResult<RunScriptOutput>;
+
+export interface RunScriptDeps {
+  /** Transport seam; defaults to the real Talk UDP sender. */
+  send?: (host: string, port: number, payload: Buffer) => Promise<void>;
+}
+
+interface LintInput {
+  catalog: CommandCatalog;
+  knowledgeByName: Map<string, CommandKnowledgeEntry>;
+  propertyIndex: PropertyIndex;
+  objectPropertyIndex?: ObjectPropertyIndex;
+}
+
+export async function runScript(
+  input: RunScriptInput,
+  config: McpConfig,
+  lintInput: LintInput,
+  deps: RunScriptDeps = {},
+): Promise<RunScriptResult> {
+  if (!config.runtimeWriteEnabled) {
+    return fail("runtime write disabled — set PANGOLINT_MCP_RUNTIME_WRITE=enabled to enable runScript", true);
+  }
+  if (typeof input.text !== "string") return fail("text is required");
+  const textLimitReason = mcpTextLimitReason(input.text);
+  if (textLimitReason) return fail(`text exceeds MCP runScript limit: ${textLimitReason}`);
+
+  const diagnostics = lintPangoScript(
+    input.text,
+    lintInput.catalog,
+    lintInput.knowledgeByName,
+    lintInput.propertyIndex,
+    lintInput.objectPropertyIndex,
+  );
+  let errorCount = 0;
+  let warningCount = 0;
+  let hintCount = 0;
+  for (const d of diagnostics) {
+    if (d.severity === "error") errorCount++;
+    else if (d.severity === "warning") warningCount++;
+    else hintCount++;
+  }
+  const analysisLimited = diagnostics.some((diagnostic) => diagnostic.code === "analysis-limited");
+
+  if (errorCount > 0) {
+    return ok({
+      ok: false,
+      diagnostics,
+      errorCount,
+      warningCount,
+      hintCount,
+      linesSent: 0,
+      payloadsSent: 0,
+      bytesSent: 0,
+      error: `refused: script has ${errorCount} error-severity diagnostic${errorCount === 1 ? "" : "s"} — fix these and retry`,
+      refusedDueToErrors: true,
+    });
+  }
+  if (analysisLimited) {
+    return ok({
+      ok: false,
+      diagnostics,
+      errorCount,
+      warningCount,
+      hintCount,
+      linesSent: 0,
+      payloadsSent: 0,
+      bytesSent: 0,
+      error: "refused: script analysis was skipped or capped by PangoLint limits",
+      refusedDueToAnalysisLimit: true,
+    });
+  }
+
+  const sendResult = await runtimeRunScript(input.text, {
+    talkHost: config.beyondTalkHost,
+    talkPort: config.beyondTalkPort,
+    send: deps.send,
+  });
+
+  return ok({
+    ok: sendResult.ok,
+    diagnostics,
+    errorCount,
+    warningCount,
+    hintCount,
+    linesSent: sendResult.linesSent,
+    payloadsSent: sendResult.payloadsSent,
+    bytesSent: sendResult.bytesSent,
+    error: sendResult.error,
+  });
+}

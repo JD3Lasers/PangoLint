@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 410,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "talkHost": "127.0.0.1",
+    "talkPort": 16062,
+    "oscListenHost": "0.0.0.0",
+    "oscListenPort": 7000,
+    "notes": "Readback-only probes through pangolint-mcp 0.3.1. A separate scratch write probe for issue #410 showed the same paths stayed at baseline after SetProp writes, so no value range metadata shipped."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Effect.ChaseTimeMode",
+      "probePath": "Zone.2.Effect.ChaseTimeMode",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect chase time mode reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.ZoneMode",
+      "probePath": "Zone.2.Effect.ZoneMode",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect zone mode reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeStateCanRestart",
+      "probePath": "Zone.2.Effect.0.TimeStateCanRestart",
+      "probeMode": "readback-only",
+      "valueType": "boolean",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect slot 0 time state restart flag reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 effect slot 0 from the loaded show",
+        "notes": "Zone.N and Effect.N use zero-based indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.Zone",
+      "probePath": "Zone.2.Effect.Zone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect zone string reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.RouterInZone",
+      "probePath": "Zone.2.Effect.0.RouterInZone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect slot 0 router input zone reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 effect slot 0 from the loaded show",
+        "notes": "Zone.N and Effect.N use zero-based indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.RouterOutZone",
+      "probePath": "Zone.2.Effect.0.RouterOutZone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect slot 0 router output zone reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 effect slot 0 from the loaded show",
+        "notes": "Zone.N and Effect.N use zero-based indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeName",
+      "probePath": "Zone.2.Effect.0.TimeName",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 effect slot 0 time name reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 effect slot 0 from the loaded show",
+        "notes": "Zone.N and Effect.N use zero-based indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.ChaseTimeMode",
+      "probePath": "ZoneAlias.Effect.ChaseTimeMode",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect chase time mode reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.ZoneMode",
+      "probePath": "ZoneAlias.Effect.ZoneMode",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect zone mode reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.TimeStateCanRestart",
+      "probePath": "ZoneAlias.Effect.0.TimeStateCanRestart",
+      "probeMode": "readback-only",
+      "valueType": "boolean",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect slot 0 time state restart flag reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias effect slot 0",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.Zone",
+      "probePath": "ZoneAlias.Effect.Zone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect zone string reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.RouterInZone",
+      "probePath": "ZoneAlias.Effect.0.RouterInZone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect slot 0 router input zone reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias effect slot 0",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.RouterOutZone",
+      "probePath": "ZoneAlias.Effect.0.RouterOutZone",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect slot 0 router output zone reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias effect slot 0",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.TimeName",
+      "probePath": "ZoneAlias.Effect.0.TimeName",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias effect slot 0 time name reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias effect slot 0",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    }
+  ]
+}

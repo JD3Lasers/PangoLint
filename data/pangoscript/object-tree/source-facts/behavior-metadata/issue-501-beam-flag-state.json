@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Beam.N.Active",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Beam.N.Active persists 0 and 1 as beam state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Beam.N.AllowRecolor",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Beam.N.AllowRecolor persists 0 and 1 as beam recolor state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Beam.N.LockPos",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Beam.N.LockPos persists 0 and 1 as beam lock state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Beam.N.Mute",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Beam.N.Mute persists 0 and 1 as beam mute state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    }
+  ]
+}

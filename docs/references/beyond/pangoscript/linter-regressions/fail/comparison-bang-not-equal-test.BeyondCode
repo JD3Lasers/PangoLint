@@ -1,0 +1,36 @@
+// PangoLint expect: unsupported-bang-not-equal-operator
+// PangoLint candidate: bang not-equal comparison
+// Purpose: verify BEYOND rejects != as a not-equal operator.
+// BEYOND validation 2026-05-07: parser errors were reported on `!=`, but the callback before the invalid condition still emitted.
+// BEYOND parser error: Operation expected: !.
+// BEYOND parser location: line 19, text `if (leftValue != rightValue) goto NotEqual`
+// PangoLint observed callback: /pangolint/candidate/not-equal-bang/start (sii) "pangolint-candidate-not-equal-bang-001" 1 4
+
+var requestId
+var sequence
+var leftValue
+var rightValue
+
+requestId = "pangolint-candidate-not-equal-bang-001"
+sequence = 1
+leftValue = 4
+rightValue = 2
+
+OscOutTTS "/pangolint/candidate/not-equal-bang/start", "sii", requestId, sequence, leftValue
+sequence = sequence + 1
+if (leftValue != rightValue) goto NotEqual
+goto Equal
+
+NotEqual:
+OscOutTTS "/pangolint/candidate/not-equal-bang/not-equal", "siii", requestId, sequence, leftValue, rightValue
+sequence = sequence + 1
+goto Done
+
+Equal:
+OscOutTTS "/pangolint/candidate/not-equal-bang/equal", "siii", requestId, sequence, leftValue, rightValue
+sequence = sequence + 1
+goto Done
+
+Done:
+OscOutTTS "/pangolint/candidate/not-equal-bang/done", "siii", requestId, sequence, leftValue, rightValue
+exit

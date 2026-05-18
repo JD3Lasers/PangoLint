@@ -1,0 +1,36 @@
+// PangoLint candidate: conditional branch merge
+// Purpose: verify two branch paths can merge into a shared done section.
+// BEYOND validation 2026-05-06: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/branch/start (si) "pangolint-candidate-branch-merge-001" 1
+// PangoLint expected callback: /pangolint/candidate/branch/zero (sii) "pangolint-candidate-branch-merge-001" 2 0
+// PangoLint expected callback: /pangolint/candidate/branch/done (sii) "pangolint-candidate-branch-merge-001" 3 0
+// PangoLint observed callback: /pangolint/candidate/branch/start (si) "pangolint-candidate-branch-merge-001" 1
+// PangoLint observed callback: /pangolint/candidate/branch/zero (sii) "pangolint-candidate-branch-merge-001" 2 0
+// PangoLint observed callback: /pangolint/candidate/branch/done (sii) "pangolint-candidate-branch-merge-001" 3 0
+
+var requestId
+var sequence
+var branchValue
+
+requestId = "pangolint-candidate-branch-merge-001"
+sequence = 1
+branchValue = 0
+
+OscOutTTS "/pangolint/candidate/branch/start", "si", requestId, sequence
+sequence = sequence + 1
+if (branchValue = 0) goto ZeroBranch
+goto NonzeroBranch
+
+ZeroBranch:
+OscOutTTS "/pangolint/candidate/branch/zero", "sii", requestId, sequence, branchValue
+sequence = sequence + 1
+goto Done
+
+NonzeroBranch:
+OscOutTTS "/pangolint/candidate/branch/nonzero", "sii", requestId, sequence, branchValue
+sequence = sequence + 1
+goto Done
+
+Done:
+OscOutTTS "/pangolint/candidate/branch/done", "sii", requestId, sequence, branchValue
+exit

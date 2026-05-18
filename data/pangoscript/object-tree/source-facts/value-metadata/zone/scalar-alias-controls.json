@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.ColorSlider at Zone.0.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.ColorSlider."
+      }
+    },
+    {
+      "path": "Zone.N.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.Hue at Zone.0.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.Hue."
+      }
+    },
+    {
+      "path": "Zone.N.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccX at Zone.0.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.RotoAccX."
+      }
+    },
+    {
+      "path": "Zone.N.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccY at Zone.0.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.RotoAccY."
+      }
+    },
+    {
+      "path": "Zone.N.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccZ at Zone.0.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.RotoAccZ."
+      }
+    }
+  ]
+}

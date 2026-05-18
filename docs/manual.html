@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PangoLint - User Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #0f0d0a;
+    --paper-2:      #181410;
+    --paper-3:      #221c16;
+    --ink:          #ece4d2;
+    --ink-2:        #d4ccba;
+    --muted:        #9a8e7c;
+    --muted-2:      #6e6555;
+    --rule:         #2a241d;
+    --rule-2:       #3c352b;
+    --amber:        #f3b277;
+    --amber-soft:   #c98852;
+    --amber-bg:     rgba(243, 178, 119, 0.11);
+    --safety:       #f08a5d;
+    --safety-bg:    rgba(240, 138, 93, 0.12);
+    --code-bg:      #1c1813;
+
+    --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-body:    "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+    --font-mono:    "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+
+    --measure: 68ch;
+    --content-max: 720px;
+    --rail-width: 248px;
+  }
+
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 16.5px;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 700px at 82% -180px, rgba(243, 178, 119, 0.085), transparent 62%),
+      radial-gradient(900px 500px at -8% 110%, rgba(240, 138, 93, 0.06), transparent 58%),
+      var(--paper);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: var(--amber-bg);
+    color: var(--ink);
+  }
+
+  /* ───────────────  Cover  ─────────────── */
+
+  .cover {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 4vw, 4rem);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .cover::after {
+    content: "";
+    position: absolute;
+    left: clamp(1.5rem, 4vw, 4rem);
+    right: clamp(1.5rem, 4vw, 4rem);
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber) 20%, var(--amber) 80%, transparent);
+    opacity: 0.35;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 360px);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: end;
+  }
+
+  @media (max-width: 880px) {
+    .cover-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  .cover-icon {
+    display: block;
+    width: 120px;
+    height: 120px;
+    image-rendering: -webkit-optimize-contrast;
+    filter: drop-shadow(0 6px 18px rgba(243, 178, 119, 0.18));
+    align-self: center;
+    justify-self: center;
+  }
+
+  @media (max-width: 880px) {
+    .cover-icon { width: 80px; height: 80px; align-self: start; justify-self: start; }
+  }
+
+  @media print {
+    .cover-icon { filter: none; }
+  }
+
+  .cover-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cover-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+  }
+
+  .cover-title em {
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 350;
+    color: var(--ink-2);
+  }
+
+  .cover-lede {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 36, "wght" 350;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 36ch;
+    margin: 0;
+  }
+
+  .cover-meta {
+    border-left: 1px solid var(--rule);
+    padding-left: 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .cover-meta dt {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 10.5px;
+    color: var(--muted-2);
+    margin-top: 0.85rem;
+  }
+
+  .cover-meta dt:first-child { margin-top: 0; }
+
+  .cover-meta dd {
+    margin: 0.1rem 0 0;
+    color: var(--ink-2);
+  }
+
+  .cover-disclaimer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 720px) {
+    .cover-disclaimer { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+
+  .cover-disclaimer strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ───────────────  Layout  ─────────────── */
+
+  .layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem) 4rem;
+    display: grid;
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* ───────────────  Nav rail  ─────────────── */
+
+  .nav {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding-right: 0.75rem;
+    font-size: 13.5px;
+    line-height: 1.45;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-2) transparent;
+  }
+
+  @media (max-width: 980px) {
+    .nav {
+      position: static;
+      max-height: none;
+      padding: 1.25rem;
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+  }
+
+  .nav::-webkit-scrollbar { width: 6px; }
+  .nav::-webkit-scrollbar-thumb { background: var(--rule-2); border-radius: 3px; }
+  .nav::-webkit-scrollbar-track { background: transparent; }
+
+  .nav-title {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin: 0 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: section;
+  }
+
+  .nav ol ol {
+    margin: 0.25rem 0 0.5rem 0.85rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  .nav li { margin-bottom: 0.25rem; }
+
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.65rem;
+    margin-left: -0.65rem;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+
+  .nav a:hover { color: var(--ink); }
+
+  .nav a.is-active {
+    color: var(--ink);
+    border-left-color: var(--amber);
+    font-weight: 500;
+  }
+
+  .nav .top-level > a {
+    color: var(--ink-2);
+    font-weight: 500;
+    font-size: 13.5px;
+    letter-spacing: 0.005em;
+    counter-increment: section;
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+  }
+
+  .nav .top-level > a::before {
+    content: counter(section, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--muted-2);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .nav .top-level > a.is-active::before { color: var(--amber); }
+
+  /* ───────────────  Content  ─────────────── */
+
+  .content {
+    max-width: var(--content-max);
+    min-width: 0;
+  }
+
+  .content section + section { margin-top: 4.5rem; }
+
+  .content h2 {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 80, "SOFT" 20, "wght" 450;
+    font-size: clamp(2rem, 3.4vw, 2.65rem);
+    line-height: 1.05;
+    letter-spacing: -0.018em;
+    margin: 0 0 0.4rem;
+    color: var(--ink);
+    scroll-margin-top: 2rem;
+  }
+
+  .content h2 .h2-num {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.85rem;
+    font-variation-settings: normal;
+  }
+
+  .content h3 {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 36, "wght" 500;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    margin: 2.75rem 0 0.85rem;
+    color: var(--ink);
+    scroll-margin-top: 2rem;
+  }
+
+  .content h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 1.75rem 0 0.5rem;
+    color: var(--ink-2);
+  }
+
+  .content p {
+    margin: 0 0 1rem;
+    max-width: var(--measure);
+  }
+
+  .content p + p { margin-top: 0; }
+
+  .content a {
+    color: var(--ink);
+    text-decoration: none;
+    background-image: linear-gradient(var(--amber), var(--amber));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    padding-bottom: 1px;
+    transition: background-size 150ms ease, color 150ms ease;
+  }
+
+  .content a:hover {
+    color: var(--amber);
+    background-size: 100% 2px;
+  }
+
+  .section-intro {
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 24, "wght" 350;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    margin: 1.25rem 0 1.75rem;
+    max-width: 56ch;
+  }
+
+  /* ───────────  Lists  ─────────── */
+
+  .content ul,
+  .content ol {
+    max-width: var(--measure);
+    padding-left: 1.5rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .content li { margin-bottom: 0.4rem; }
+
+  .content li::marker { color: var(--amber-soft); }
+
+  .content ol > li::marker {
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+  }
+
+  .content ul ul,
+  .content ol ol,
+  .content ul ol,
+  .content ol ul { margin: 0.4rem 0; }
+
+  /* ───────────  Inline / code  ─────────── */
+
+  .content code,
+  .content kbd {
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+  }
+
+  .content code {
+    background: var(--code-bg);
+    padding: 0.12em 0.45em;
+    border-radius: 3px;
+    color: var(--ink);
+    border: 1px solid rgba(255, 240, 210, 0.05);
+  }
+
+  .content kbd {
+    display: inline-block;
+    background: var(--paper-3);
+    border: 1px solid var(--rule-2);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding: 0.05em 0.45em;
+    font-size: 0.78em;
+    color: var(--ink);
+    line-height: 1.2;
+    box-shadow: inset 0 1px 0 rgba(255, 240, 210, 0.04);
+  }
+
+  .content strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .content em { font-style: italic; }
+
+  /* ───────────  Code blocks  ─────────── */
+
+  .content pre {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    background: var(--paper-2);
+    color: var(--ink-2);
+    padding: 1.1rem 1.25rem;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--amber-soft);
+    overflow-x: auto;
+    margin: 1.25rem 0 1.5rem;
+    max-width: var(--measure);
+    position: relative;
+  }
+
+  .content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  .content pre[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.55rem;
+    right: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+
+  /* ───────────  Tables  ─────────── */
+
+  .table-wrap {
+    margin: 1.25rem 0 1.75rem;
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+  }
+
+  .content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .content th,
+  .content td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .content th {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule-2);
+  }
+
+  .content td:first-child code { white-space: nowrap; }
+
+  .content tr:last-child td { border-bottom: none; }
+
+  .content tr:hover td { background: rgba(243, 178, 119, 0.055); }
+
+  /* ───────────  Callouts  ─────────── */
+
+  .callout {
+    margin: 1.5rem 0 1.75rem;
+    padding: 1.1rem 1.35rem 1.1rem 1.5rem;
+    border-radius: 3px;
+    border-left: 2px solid var(--amber);
+    background: var(--amber-bg);
+    max-width: var(--measure);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .callout p:last-child { margin-bottom: 0; }
+  .callout p:first-of-type { margin-top: 0; }
+
+  .callout--reference {
+    background: var(--paper-2);
+    border-left-color: var(--ink-2);
+  }
+  .callout--reference .callout-label { color: var(--ink-2); }
+
+  .callout--safety {
+    background: var(--safety-bg);
+    border-left-color: var(--safety);
+  }
+  .callout--safety .callout-label { color: var(--safety); }
+
+  .callout--note {
+    background: var(--paper-2);
+    border-left-color: var(--muted-2);
+  }
+  .callout--note .callout-label { color: var(--muted); }
+
+  /* ───────────  Section divider  ─────────── */
+
+  .content hr,
+  hr.divider {
+    border: none;
+    height: 1px;
+    background: var(--rule);
+    margin: 4rem 0 0;
+    max-width: var(--measure);
+    position: relative;
+  }
+
+  hr.divider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  /* ───────────  Figures  ─────────── */
+
+  .content figure.figure {
+    margin: 1.75rem 0 2rem;
+    max-width: 920px;
+  }
+
+  .content figure.figure--narrow { max-width: var(--measure); }
+  .content figure.figure--inline { max-width: 540px; }
+  .content figure.figure--wide   { max-width: 1040px; }
+
+  .content figure.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 12px 24px -16px rgba(0,0,0,0.6);
+  }
+
+  .content figure.figure figcaption {
+    margin-top: 0.75rem;
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 18, "wght" 350;
+    font-size: 13.5px;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .content figure.figure figcaption .fig-num {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-soft);
+    margin-right: 0.5em;
+  }
+
+  .figure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.75rem 0 2rem;
+    max-width: 1100px;
+  }
+
+  .figure-grid .figure { margin: 0; max-width: none; }
+
+  @media (max-width: 720px) {
+    .figure-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ───────────  Footer  ─────────── */
+
+  .doc-footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem clamp(1.5rem, 4vw, 4rem) 4rem;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .doc-footer { grid-template-columns: 1fr; }
+  }
+
+  .doc-footer p { margin: 0 0 0.6rem; max-width: 60ch; }
+
+  .doc-footer-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--muted-2);
+    text-align: right;
+  }
+
+  @media (max-width: 720px) { .doc-footer-meta { text-align: left; } }
+
+  .doc-footer a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-color: var(--rule-2);
+    text-underline-offset: 3px;
+  }
+
+  .doc-footer a:hover { color: var(--amber); }
+
+  /* ───────────  Print  ─────────── */
+
+  @media print {
+    :root {
+      --paper:    #ffffff;
+      --paper-2:  #f6f3ec;
+      --paper-3:  #efeadb;
+      --ink:      #161310;
+      --ink-2:    #2a241f;
+      --muted:    #5e564b;
+      --muted-2:  #8a8275;
+      --rule:     #d8d2c3;
+      --rule-2:   #c8c1ad;
+      --amber:    #9b3a1a;
+      --amber-soft: #c2774a;
+      --amber-bg: #f7ecdc;
+      --safety:   #8a2818;
+      --safety-bg:#f5e3d8;
+      --code-bg:  #f1ecdf;
+    }
+    body { background: white; color: var(--ink); }
+    .nav { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0 1.5rem; }
+    .cover { padding: 1rem 1.5rem; border-bottom: 2px solid var(--ink); }
+    .cover-title { font-size: 2.5rem; }
+    .content section { page-break-inside: avoid; }
+    .content h2 { page-break-after: avoid; }
+    .callout, .content pre, .table-wrap { page-break-inside: avoid; }
+    .content code, .content kbd { box-shadow: none; }
+  }
+
+  /* ───────────  Reduced motion  ─────────── */
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *,
+    *::before,
+    *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-eyebrow">PangoLint v0.4.0</div>
+  <div class="cover-grid">
+    <div>
+      <h1 class="cover-title">PangoLint <em>User Manual</em></h1>
+      <p class="cover-lede">
+        Developer tooling for Pangolin BEYOND PangoScript: a VS Code
+        extension and a companion <code style="font-family:var(--font-mono);font-size:0.9em;">pangolint-mcp</code>
+        server for AI coding agents.
+      </p>
+    </div>
+    <img class="cover-icon" src="assets/manual/icon.png" alt="PangoLint icon">
+    <dl class="cover-meta">
+      <dt>Document</dt>
+      <dd>User manual, end-user reference</dd>
+      <dt>Prepared for</dt>
+      <dd>Pangolin Laser Systems, Inc.</dd>
+      <dt>Purpose</dt>
+      <dd>Naming &amp; reference-data review</dd>
+      <dt>Date</dt>
+      <dd>2026-05-08</dd>
+    </dl>
+  </div>
+
+  <div class="cover-disclaimer">
+    <div>
+      <strong>Independent software</strong>
+      PangoLint is independent software and is not affiliated with,
+      endorsed by, or sponsored by Pangolin Laser Systems, Inc.
+      "Pangolin," "BEYOND," and "PangoScript" are referenced for
+      descriptive interoperability; all trademarks remain the property
+      of their respective owners.
+    </div>
+    <div>
+      <strong>Reference data</strong>
+      PangoLint ships a curated knowledge base of command names,
+      signatures, and object-tree property paths. It does
+      <em>not</em> redistribute Pangolin manuals, help files, BEYOND
+      command exports, OSC HTML, or any other verbatim Pangolin
+      reference material.
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="nav" aria-label="Table of contents">
+  <p class="nav-title">Contents</p>
+  <ol>
+    <li class="top-level"><a href="#quick-start">Quick start</a></li>
+    <li class="top-level">
+      <a href="#the-editor">The editor</a>
+      <ol>
+        <li><a href="#syntax-highlighting">Syntax &amp; semantic highlighting</a></li>
+        <li><a href="#diagnostics">Diagnostics</a></li>
+        <li><a href="#completions">Completions, hover, signature help</a></li>
+        <li><a href="#quick-fixes">Quick fixes</a></li>
+        <li><a href="#formatting">Formatting</a></li>
+        <li><a href="#snippets">Snippets</a></li>
+        <li><a href="#color-decorators">Color decorators</a></li>
+        <li><a href="#navigation">Navigation: Goto, references, labels</a></li>
+      </ol>
+    </li>
+    <li class="top-level">
+      <a href="#the-sidebar">The sidebar</a>
+      <ol>
+        <li><a href="#commands-view">Commands view</a></li>
+        <li><a href="#objects-view">Objects view</a></li>
+        <li><a href="#diagnostics-view">Diagnostics view</a></li>
+      </ol>
+    </li>
+    <li class="top-level">
+      <a href="#beyond-runtime">BEYOND runtime integration</a>
+      <ol>
+        <li><a href="#test-connection">Test BEYOND connection</a></li>
+        <li><a href="#user-objects">User objects</a></li>
+        <li><a href="#send-talk-batch">Send Talk batch</a></li>
+        <li><a href="#fetch-set">Fetch / set object values</a></li>
+        <li><a href="#watcher">Watcher</a></li>
+        <li><a href="#validate-objects">Validate objects against BEYOND</a></li>
+        <li><a href="#live-hover">Live hover values</a></li>
+      </ol>
+    </li>
+    <li class="top-level">
+      <a href="#mcp-server">The PangoLint MCP server</a>
+      <ol>
+        <li><a href="#when-to-use">When to use it</a></li>
+        <li><a href="#install-configure">Install &amp; configure</a></li>
+        <li><a href="#knowledge-tools">Knowledge tools</a></li>
+        <li><a href="#runtime-tools">Runtime tools</a></li>
+        <li><a href="#mcp-resources">MCP resources</a></li>
+      </ol>
+    </li>
+    <li class="top-level"><a href="#ref-settings">Reference: settings</a></li>
+    <li class="top-level"><a href="#ref-commands">Reference: commands</a></li>
+    <li class="top-level"><a href="#ref-keybindings">Reference: keybindings</a></li>
+    <li class="top-level"><a href="#safety">Safety, privacy, and data</a></li>
+    <li class="top-level"><a href="#troubleshooting">Troubleshooting</a></li>
+  </ol>
+</aside>
+
+<main class="content">
+
+  <p class="section-intro" style="margin-top:0;">
+    This manual is the end-user reference for everything the project
+    ships: the VS Code extension and the companion <code>pangolint-mcp</code>
+    server for AI coding agents.
+  </p>
+
+  <div class="callout callout--note">
+    <span class="callout-label">Quick orientation</span>
+    <p>
+      If you write <code>.BeyondCode</code> files in VS Code, install the
+      extension. If you also work with an AI coding agent (Claude,
+      Codex, Cursor, etc.) and want it to verify command names against
+      PangoLint's curated catalog and lint generated PangoScript, also
+      install the MCP server. Both ship from the same repo and read
+      the same curated knowledge base.
+    </p>
+  </div>
+
+  <hr class="divider" style="margin-top:2.5rem;">
+
+  <!-- ───────────  Quick start  ─────────── -->
+  <section id="quick-start">
+    <h2><span class="h2-num">§ 01</span>Quick start</h2>
+
+    <figure class="figure figure--wide">
+      <img src="assets/manual/window-overview.png" alt="VS Code with the PangoLint extension active: a syntax-highlighted .BeyondCode file in the editor on the left, the PangoLint sidebar on the right showing the Commands, Objects, Diagnostics, and BEYOND Watcher panels.">
+      <figcaption><span class="fig-num">Fig 01</span>The full layout: editor with syntax highlighting and color decorators, plus the PangoLint sidebar's Commands, Objects, Diagnostics, and BEYOND Watcher panels.</figcaption>
+    </figure>
+
+    <ol>
+      <li>Install the VSIX:
+        <pre data-lang="bash"><code>npm ci
+npm run package:vsix
+code --install-extension pangolint-0.4.0.vsix --force</code></pre>
+      </li>
+      <li>Open any <code>.BeyondCode</code> file. Syntax highlighting,
+      diagnostics, completions, and the activity-bar sidebar light up
+      automatically.</li>
+      <li>Open the <strong>PangoLint</strong> view container
+      (laser-warning icon in the activity bar) to browse commands and
+      objects.</li>
+      <li>To enable BEYOND runtime features, configure
+      <code>pangolint.beyond.talkHost</code> to point at your dev BEYOND
+      machine and run <code>PangoLint: Test BEYOND Connection</code>
+      from the Command Palette.</li>
+    </ol>
+
+    <p>That's it for the extension. For the MCP server, see
+    <a href="#mcp-server">The PangoLint MCP server</a> below.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  The editor  ─────────── -->
+  <section id="the-editor">
+    <h2><span class="h2-num">§ 02</span>The editor</h2>
+
+    <h3 id="syntax-highlighting">Syntax &amp; semantic highlighting</h3>
+    <p>PangoLint registers <code>.BeyondCode</code> as the
+    <code>pangoscript</code> language. You get:</p>
+    <ul>
+      <li>TextMate grammar with scopes for labels, commands,
+      expression functions, variables, object paths, operators, OSC
+      addresses, and string/comment forms.</li>
+      <li>Semantic tokens so commands that PangoLint actually knows
+      about render differently from unknown identifiers - useful for
+      spotting typos at a glance.</li>
+      <li>A document outline (Outline view, breadcrumbs) generated
+      from script labels.</li>
+    </ul>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-syntax-highlighting.png" alt="A PangoScript file showing semantic-token highlighting: known commands like ColorChannel, COLORPICKER and SATSLIDER render in their canonical colors; labels, keywords, numbers, and comments are each distinctly styled.">
+      <figcaption><span class="fig-num">Fig 02.1</span>Semantic highlighting on a real <code>.BeyondCode</code> file. Known commands and object roots take catalog-aware colors; unknown identifiers stay neutral so typos are easy to spot.</figcaption>
+    </figure>
+
+    <h3 id="diagnostics">Diagnostics</h3>
+    <p>PangoLint ships <strong>21 diagnostic codes</strong>. The full
+    reference with cause and how-to-fix lives in
+    <code>docs/references/diagnostics/README.md</code>; this is the
+    summary.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Code</th><th>Severity</th><th>What it catches</th></tr></thead>
+      <tbody>
+        <tr><td><code>unclosed-string</code></td><td>error</td><td>A line opens <code>"</code> with no closing quote.</td></tr>
+        <tr><td><code>unbalanced-parentheses</code></td><td>warning</td><td>Unequal <code>(</code> / <code>)</code>, or <code>)(</code> order.</td></tr>
+        <tr><td><code>unknown-command</code></td><td>warning</td><td>Identifier isn't in the curated catalog and isn't a recognized control-flow keyword.</td></tr>
+        <tr><td><code>wrong-arg-count</code></td><td>warning</td><td>Curated command called with the wrong number of arguments. Includes the zero-arity case (<code>EnableLaserOutput 1</code>).</td></tr>
+        <tr><td><code>missing-label</code></td><td>warning</td><td><code>Goto X</code> jumps to a label that doesn't exist in the file.</td></tr>
+        <tr><td><code>unsupported-quoted-goto-label</code></td><td>warning</td><td><code>Goto "X"</code> - quoted labels aren't recognized by BEYOND.</td></tr>
+        <tr><td><code>uninitialized-variable</code></td><td>hint</td><td><code>var</code> is read before any assignment.</td></tr>
+        <tr><td><code>unsupported-loop</code></td><td>hint</td><td><code>While</code> / <code>Do</code> / <code>Repeat</code> / <code>Until</code> / <code>Loop</code> - points to the label + <code>If &lt;cond&gt; Goto &lt;label&gt;</code> pattern.</td></tr>
+        <tr><td><code>unsupported-for-range-syntax</code></td><td>hint</td><td><code>for x = a to b</code> - BEYOND only supports <code>for x = a, b</code>.</td></tr>
+        <tr><td><code>unsupported-logical-operator</code></td><td>hint</td><td><code>&amp;&amp;</code> / <code>||</code> - BEYOND uses <code>and</code> / <code>or</code> only.</td></tr>
+        <tr><td><code>unsupported-bang-not-equal-operator</code></td><td>hint</td><td><code>!=</code> - BEYOND uses <code>&lt;&gt;</code>.</td></tr>
+        <tr><td><code>unsupported-property-index-access</code></td><td>warning</td><td>Direct reads of <code>Zone.0.Points[0].X</code> - BEYOND reports invalid array index.</td></tr>
+        <tr><td><code>unsupported-deltavalue-assignment</code></td><td>warning</td><td><code>DeltaValue = …</code> outside its allowed editor context.</td></tr>
+        <tr><td><code>unsupported-deltavalue-command-argument</code></td><td>warning</td><td><code>DeltaValue</code> passed as a command argument outside trigger handlers.</td></tr>
+        <tr><td><code>deltavalue-midi-slot-context</code></td><td>hint</td><td><code>DeltaValue</code> MIDI slot context misalignment.</td></tr>
+        <tr><td><code>unsupported-exit-semicolon</code></td><td>hint</td><td><code>exit;</code> - BEYOND wants bare <code>exit</code>.</td></tr>
+        <tr><td><code>missing-terminal-exit</code></td><td>hint</td><td>Script doesn't end with <code>exit</code>.</td></tr>
+        <tr><td><code>extvalue-define-midi-trigger-default</code></td><td>hint</td><td><code>ExtValue</code> editor default in a <code>DefineMidiTrigger</code> body.</td></tr>
+        <tr><td><code>unused-variable</code></td><td>hint</td><td><code>var x</code> declared but never referenced.</td></tr>
+        <tr><td><code>unused-label</code></td><td>hint</td><td>Label declared but never <code>Goto</code>'d.</td></tr>
+        <tr><td><code>property-typo</code></td><td>hint</td><td><code>Object.PropertyName</code> doesn't match a known property; suggests the closest valid name.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>PangoLint biases <strong>permissive</strong> - most rules are
+    warning or hint level. Real errors are reserved for unambiguous
+    syntax failures (<code>unclosed-string</code>, unbalanced parens).
+    Click any diagnostic in the <strong>Diagnostics</strong> sidebar
+    panel and use the <code>Why?</code> action to open the bundled
+    reference scrolled to that rule's section.</p>
+
+    <p>Run <strong>PangoLint: Validate Current Script</strong> from
+    the Command Palette to refresh diagnostics for the active
+    <code>.BeyondCode</code> buffer and write a portable report to the
+    <code>PangoLint: Validation</code> Output channel. The report lists
+    severity, rule code, line / column, and the same human-readable
+    explanation shown by the editor hover. The completion toast offers
+    shortcuts to the Diagnostics sidebar, the Output channel, and the
+    Problems panel.</p>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-diagnostics.png" alt="A test file demonstrating an unsupported While/Loop construct, with the offending lines flagged in the editor and a corresponding red marker in the minimap.">
+      <figcaption><span class="fig-num">Fig 02.2a</span>The <code>unsupported-loop</code> diagnostic on a candidate While/Loop file. The minimap on the right surfaces a red marker for at-a-glance navigation; the matching entry appears in the sidebar's Diagnostics panel (Fig&nbsp;03.3b).</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="assets/manual/validate-current-script-output.png" alt="The PangoLint: Validation output channel showing four diagnostic entries: WARNING unbalanced-parentheses [Ln 21, Col 1] - Parentheses are not balanced on this line; WARNING missing-label [Ln 28, Col 1] - Goto target 'DefinitelyNotALabel' does not match a label in this file; WARNING uninitialized-variable [Ln 32, Col 22] - Variable 'zoneName' is read before a local assignment in this file; HINT missing-terminal-exit [Ln 42, Col 1] - BEYOND accepts this shape, but `exit` is recommended to prevent fall-through between script sections. The Problems tab shows a badge of 5.">
+      <figcaption><span class="fig-num">Fig 02.2b</span>The <code>PangoLint: Validation</code> output channel after <strong>Validate Current Script</strong>. Each entry carries severity, rule code, source location, and the same explanation the editor shows on hover, so the channel doubles as a portable transcript of the file's diagnostics.</figcaption>
+    </figure>
+
+    <h3 id="completions">Completions, hover, signature help</h3>
+    <ul>
+      <li><strong>Command completions</strong> - type a command name
+      and PangoLint suggests matches from the bundled catalog (529
+      commands: build 2044 plus curated documented additions). Each suggestion carries a
+      description, syntax form, and safety tier.</li>
+      <li><strong>Property completions</strong> - type
+      <code>Master.</code> (or <code>Zone.0.</code>,
+      <code>FX.0.</code>, etc.) and PangoLint suggests properties
+      from the schemas.</li>
+      <li><strong>Hover tooltips</strong> - hover any command name for
+      a Markdown card with the syntax form, parameters, safety tier,
+      and a primary example. Hover an object path for property
+      listings, with segment-aware detail (root, array index/button
+      name, property segment).</li>
+      <li><strong>Signature help</strong> - start typing a command's
+      arguments to get an inline signature panel with parameter
+      names, types, and ranges.</li>
+    </ul>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-completions.png" alt="A completion popup over a partial 'chan' identifier: ChannelOut, SetChannelToChannelRatio, WaitForChannel, SetDmxToChannelRatio, SetFFTToChannelRatio, MeshPointChan, SetEffectChannelAction, WaitForPageChange, SetDmxEditorChannel - the first entry shows ChannelOut 1, 1000 in the inline detail panel.">
+      <figcaption><span class="fig-num">Fig 02.3a</span>Command completions ranked from the curated catalog. The right-hand detail strip shows the canonical signature for the highlighted entry.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-hover.png" alt="A Markdown hover card over the COLORPICKER root: 'folder-scoped universe panel  COLORPICKER - 49 discovered controls. Inherits the canonical UniversePanel schema (17 properties). Auto-discovered from 39 sibling .BeyondCode files; classify it explicitly with the lightbulb code action to lock the type in, or run Validate objects against BEYOND to confirm against a live host.'">
+      <figcaption><span class="fig-num">Fig 02.3b</span>Hover tooltip on a folder-scoped universe panel. PangoLint reports both the inherited schema and how it inferred the type, with a pointer to the lightbulb code action that locks classification in.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-inline-completions.png" alt="A property path being typed: color.channel. - with the rest of the path '1.color = 255' shown as italic ghost text inline.">
+      <figcaption><span class="fig-num">Fig 02.3c</span>Inline ghost-text suggestions for property paths. Press <kbd>Tab</kbd> to accept.</figcaption>
+    </figure>
+
+    <figure class="figure figure--narrow">
+      <img src="assets/manual/editor-signature-help.png" alt="A line reading OscOutTTS (&quot;/colorpicker/bluebutton2/click&quot;, &quot;i&quot;, 1) - the trailing 1 argument is shown in italic, as a parameter placeholder hint, with a yellow squiggle on the OscOutTTS call signaling a wrong-arg-count diagnostic.">
+      <figcaption><span class="fig-num">Fig 02.3d</span>A function template inserted from the completion list. PangoLint expands the call with parameter placeholders (italic) so you can <kbd>Tab</kbd> through them; if the count is wrong for the call site, the diagnostic surfaces immediately.</figcaption>
+    </figure>
+
+    <h3 id="quick-fixes">Quick fixes</h3>
+    <p>Click the lightbulb (or <kbd>Cmd</kbd>+<kbd>.</kbd> /
+    <kbd>Ctrl</kbd>+<kbd>.</kbd>) on:</p>
+    <ul>
+      <li>An <code>unknown-command</code> warning - accept a
+      Levenshtein-ranked replacement.</li>
+      <li>A <code>property-typo</code> hint - accept the closest valid
+      property name.</li>
+      <li>An unknown property-path root - register it as a <strong>user
+      universe</strong> (inherits <code>UniversePanel</code>), a
+      <strong>zone alias</strong> (inherits <code>Zone</code>), or a
+      <strong>master alias</strong> (inherits <code>Master</code>).
+      See <a href="#user-objects">User objects</a>.</li>
+    </ul>
+
+    <figure class="figure figure--narrow">
+      <img src="assets/manual/editor-quick-fixes.png" alt="A line flagged with a yellow gutter dot. The Quick Fix popover offers two actions: 'Fix' and 'Explain'.">
+      <figcaption><span class="fig-num">Fig 02.4</span>Quick fixes on a flagged line. <kbd>Cmd</kbd>+<kbd>.</kbd> opens the menu; pick <strong>Fix</strong> to apply the suggested replacement, or <strong>Explain</strong> to surface the rule's reference entry.</figcaption>
+    </figure>
+
+    <h3 id="formatting">Formatting</h3>
+    <p>Run <strong>Format Document</strong>
+    (<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd>) or wire format-on-save:</p>
+
+    <pre data-lang="jsonc"><code>// .vscode/settings.json
+{
+  "[pangoscript]": {
+    "editor.defaultFormatter": "jd3.pangolint",
+    "editor.formatOnSave": true
+  }
+}</code></pre>
+
+    <p>The formatter is <strong>intentionally conservative</strong>:</p>
+    <ul>
+      <li>Preserves command order, strings, comments, labels, and
+      unknown syntax verbatim.</li>
+      <li>Normalizes whitespace and indentation only where it can do
+      so safely.</li>
+      <li>Will not collapse, reorder, or transform any line it
+      doesn't fully recognize.</li>
+    </ul>
+
+    <h3 id="snippets">Snippets</h3>
+    <p>Type the prefix and press <kbd>Tab</kbd>. All 10 snippets:</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Prefix</th><th>Inserts</th></tr></thead>
+      <tbody>
+        <tr><td><code>loop</code></td><td>Label + <code>if (cond) goto label</code> loop scaffold with <code>exit</code>.</td></tr>
+        <tr><td><code>for</code></td><td>Counted <code>i = 1; loop; i = i + 1; if (i &lt;= 10) goto loop</code> pattern.</td></tr>
+        <tr><td><code>ifguard</code></td><td><code>if (cond) goto afterBlock; … afterBlock:</code> skip pattern.</td></tr>
+        <tr><td><code>oscread</code></td><td><code>OscOutTTS</code> readback skeleton with a typed return.</td></tr>
+        <tr><td><code>oscfeedback</code></td><td><code>RegisterOscFeedback</code> with a run-prefixed cleanup.</td></tr>
+        <tr><td><code>script</code></td><td><code>BeginScript</code> / <code>EndScript</code> wrapper.</td></tr>
+        <tr><td><code>onclick</code></td><td><code>OnClick:</code> handler with an init guard.</td></tr>
+        <tr><td><code>var</code></td><td><code>var name; name = 0</code> declaration + initial assignment.</td></tr>
+        <tr><td><code>selectzone</code></td><td><code>SelectZone</code> + <code>ControlZone</code> destination prefix.</td></tr>
+        <tr><td><code>zonewrite</code></td><td>Direct <code>Zone.0.Brightness = 50</code> property assignment (recommended over the destination-prefix form).</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-snippets.png" alt="The completion list after typing 'loop' on a fresh line. The first entry, 'loop', carries a snippet icon (a small square) and the inline description 'Label and goto loop'. Below it, three command suggestions - LoadWorkspace, PlayersSetLoop, ProTrackSetLoop - show with the standard command (cube) icon.">
+      <figcaption><span class="fig-num">Fig 02.6</span>The <code>loop</code> snippet ranks above unrelated command matches. The square icon distinguishes snippets from catalog commands; press <kbd>Tab</kbd> to expand and tab through the placeholders.</figcaption>
+    </figure>
+
+    <h3 id="color-decorators">Color decorators</h3>
+    <p>Inline color swatches appear next to the value for:</p>
+    <ul>
+      <li><code>ColorBGR &lt;hex&gt;</code> literals</li>
+      <li><code>ColorRGB &lt;hex&gt;</code> literals</li>
+      <li><code>&lt;Object&gt;.Color = &lt;int&gt;</code> literal assignments</li>
+    </ul>
+    <p>Click the swatch to open VS Code's color picker. The picker
+    round-trips the change back into the source format (BGR stays BGR,
+    RGB stays RGB, integer literals stay integer literals).</p>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-color-decorators.png" alt="A ColorChannel.1.Color = 16711680 line with its inline blue swatch, and VS Code's color picker open above it. The picker shows the hex value 16711680, a square saturation/value field, and a vertical hue slider on the right.">
+      <figcaption><span class="fig-num">Fig 02.7</span>Click a swatch to open VS Code's color picker. PangoLint round-trips the change back into the source format - BGR stays BGR, RGB stays RGB, integer literals stay integer literals.</figcaption>
+    </figure>
+
+    <h3 id="navigation">Navigation: Goto label, references, label highlighting</h3>
+    <ul>
+      <li><strong>Go to Definition</strong> (<kbd>F12</kbd>) on
+      <code>Goto MyLabel</code> jumps to <code>MyLabel:</code>.</li>
+      <li>Cursor on a label (declaration or any <code>Goto</code>
+      reference) <strong>highlights every other occurrence</strong>
+      in the file.</li>
+      <li>Optional <strong>References code lens</strong> above each
+      label declaration - enable with
+      <code>pangolint.codeLens.labelReferences: true</code>.</li>
+    </ul>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-navigation.png" alt="A PangoScript file with the cursor on a 'goto Blue2Off' on line 9. The 'Blue2Off' identifier is highlighted there and again at its declaration 'Blue2Off:' near line 35.">
+      <figcaption><span class="fig-num">Fig 02.8</span>Label-aware highlighting. With the cursor on a <code>Goto</code> reference, every other occurrence of the same label - including its declaration - is highlighted in the editor.</figcaption>
+    </figure>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  The sidebar  ─────────── -->
+  <section id="the-sidebar">
+    <h2><span class="h2-num">§ 03</span>The sidebar</h2>
+
+    <p class="section-intro">Click the laser-warning icon in the
+    activity bar. The <strong>PangoLint</strong> view container has
+    four stacked panels: Commands, Objects, Diagnostics, and the
+    BEYOND Watcher.</p>
+
+    <h3 id="commands-view">Commands view</h3>
+    <p>A webview browser over 521 browsable PangoScript commands plus
+    7 expression functions. Prototype, internal, and do-not-use commands
+    remain known for diagnostics and direct lookup, but stay out of the
+    browsable list.</p>
+    <ul>
+      <li><strong>Full-text search</strong> across canonical name,
+      aliases, description, and BEYOND category. Type into the search
+      box at the top.</li>
+      <li><strong>Category groups</strong> partition the catalog into
+      35 BEYOND-style categories (General, Cue Clicking, Main Toolbar,
+      Transition, Live Control, FX, and more). Click a category header
+      to collapse / expand its commands; <strong>Expand All</strong>
+      opens every group at once.</li>
+      <li>Click any command row to expand the inline <strong>detail
+      panel</strong> - signature, BEYOND category, primary example.</li>
+      <li>Detail-panel actions:
+        <ul>
+          <li><strong>Insert at cursor</strong> - drops the example into the active editor.</li>
+          <li><strong>Copy signature</strong> - copies the syntax form to clipboard.</li>
+          <li><strong>View in full reference</strong> - opens the bundled offline PangoScript reference site in your default browser, deep-linked to that command.</li>
+        </ul>
+      </li>
+      <li><strong>Keyboard insert.</strong> With a row focused, press
+      <kbd>Cmd</kbd>+<kbd>Enter</kbd> (macOS) /
+      <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows / Linux) to insert
+      the example at the cursor - no mouse needed.</li>
+      <li><strong>Cross-link from the editor.</strong> In any
+      <code>.BeyondCode</code> file, hover a command name and click
+      <code>View in Commands sidebar</code>, or right-click →
+      <code>View in Commands sidebar</code>. The Commands view
+      scrolls to that command and expands its detail panel.</li>
+    </ul>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/sidebar-commands-expanded.png" alt="The Commands panel with the General category expanded. Visible entries include AddSms, BlackOut, CaptureToClipboard, DisableLaserOutput, DisplayPopup, DisplayPopupOnTop, DisplayPreview, EnableLaserOutput, HtmlBody, HtmlClearBody, HtmlClearHead, HtmlHead - each with a one-line description and a 'General' chip on the right. Footer reads '521 commands + 7 functions'.">
+      <figcaption><span class="fig-num">Fig 03.1a</span>Commands panel with a category expanded. Each row shows the canonical name, a one-line description, and the BEYOND category chip.</figcaption>
+    </figure>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/sidebar-command-detail.png" alt="A command detail panel for MasterEffectMetroShift. The card shows a paragraph description, two SIGNATURE blocks listing the available forms (MasterEffectMetroShift 0; MasterEffectMetroShift &lt;beats&gt;), parameter rows with name/type/required/range/description columns, MASTER / FX / TIMING tags, and 'Insert at cursor' / 'Copy signature' action buttons.">
+      <figcaption><span class="fig-num">Fig 03.1b</span>Click any row to drill into its detail panel. Both signature forms are shown with parameter tables; <strong>Insert at cursor</strong> drops the canonical example into the active editor.</figcaption>
+    </figure>
+
+    <h3 id="objects-view">Objects view</h3>
+    <p>A webview browser over BEYOND's object surface, organized into
+    three sections:</p>
+    <ol>
+      <li><strong>FX Effects</strong> - every visualizer FX category and effect.</li>
+      <li><strong>Cue Types</strong> - every cue-type code with its description.</li>
+      <li><strong>Objects</strong> - Master, Zone, UniversePanel,
+      ColorChannel, DmxOutput, Projector, ProTrack, QShift, and the
+      rest of the bundled schemas with their property listings.</li>
+    </ol>
+    <p>Search filters across all three sections in one pass.
+    Right-click any property path:</p>
+    <ul>
+      <li>If a setter command is mapped, <strong>Insert</strong> drops
+      it at the cursor (e.g. right-click <code>Master.BPM</code> →
+      inserts <code>SetBpm</code>).</li>
+      <li><strong>View in Commands sidebar</strong> - jump to the
+      matching command in the Commands view.</li>
+    </ul>
+    <p>The Objects view reads only bundled data - no network access,
+    no live BEYOND inspection. (For live values, see
+    <a href="#live-hover">Live hover values</a> and the
+    <a href="#watcher">Watcher</a>.)</p>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/sidebar-objects.png" alt="The Objects panel drilled into FX Effects → Oscillating effect → Geometric → Size X. The expanded Size X effect lists its full property surface: .Enabled, .Oscillator.Absinvert, .Oscillator.Absrevwave, .Oscillator.CENTERX, .Oscillator.Channel, .Oscillator.Damping, .Oscillator.Finish, .Oscillator.Period, .Oscillator.Phase, .Oscillator.Secondwave, .Oscillator.Start, .Oscillator.Waveform, .Oscillator.Waveperiod, .Oscillator.Wavespeed, .Oscillator.Width, .RouterInZone, .RouterMode, .RouterOutZone, .TimeActive, .TimeClock, .TimeDuration, .TimeDurationInBeat, .TimeEnabled, .TimeMetro, .TimeName, .TimeStateCanRestart. Sibling effects Size Y, Size Z, Roto Y, Roto X, Roto Z, Position X, Position Y, Position Z are shown collapsed below.">
+      <figcaption><span class="fig-num">Fig 03.2a</span>The Objects panel drilled into a specific FX effect (<code>Oscillating effect → Geometric → Size&nbsp;X</code>). Every leaf is a real OSC-addressable property - right-click to <strong>Insert</strong> the matching setter command, or jump to the corresponding entry in the Commands view.</figcaption>
+    </figure>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/sidebar-objects-osc.png" alt="The Objects panel with the OSC toggle in the top-right active (highlighted blue). FX Effects, Cue Types, ActGridFocusedCue, and Beam are shown collapsed; Channels is expanded and its properties render as OSC addresses: /b/Channels/N/Attraction, /b/Channels/N/Color, /b/Channels/N/Friction, /b/Channels/N/Mass, /b/Channels/N/Name, /b/Channels/N/PhActive, /b/Channels/N/Reflection, /b/Channels/N/Value.">
+      <figcaption><span class="fig-num">Fig 03.2b</span>Click the <strong>OSC</strong> toggle (top-right) to flip the entire tree from PangoScript paths to the equivalent OSC addresses - useful when wiring up external OSC senders. Click again to flip back.</figcaption>
+    </figure>
+
+    <h3 id="diagnostics-view">Diagnostics view</h3>
+    <p>Issues in the active <code>.BeyondCode</code> file, grouped by
+    rule. Each rule group has:</p>
+    <ul>
+      <li>A row per diagnostic. Click to jump to the source range.</li>
+      <li>A <code>Why?</code> action that opens the bundled
+      diagnostics reference scrolled to that rule's section - works
+      offline, no internet needed.</li>
+    </ul>
+
+    <div class="figure-grid">
+      <figure class="figure">
+        <img src="assets/manual/sidebar-diagnostics-empty.png" alt="The Diagnostics panel showing 'No diagnostics in the active file.' with an info icon.">
+        <figcaption><span class="fig-num">Fig 03.3a</span>Clean file - empty state.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/manual/sidebar-diagnostics-populated.png" alt="The Diagnostics panel showing one rule group titled 'unsupported-loop' with 2 issues: 'While' and 'Loop' are not PangoScript constructs. A 'Why? Open docs' action sits below the entries.">
+        <figcaption><span class="fig-num">Fig 03.3b</span>Active file with diagnostics. Click any row to jump to its source range; <code>Why?</code> opens the bundled rule reference offline.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  BEYOND runtime integration  ─────────── -->
+  <section id="beyond-runtime">
+    <h2><span class="h2-num">§ 04</span>BEYOND runtime integration</h2>
+
+    <p>PangoLint can talk to a developer-local BEYOND for connection
+    checks, property readbacks, and gated script-batch sends.
+    <strong>All runtime features require a trusted workspace.</strong>
+    Readback-only features require an explicit command or
+    <code>pangolint.beyond.liveHoverValues: true</code>.
+    Write/script execution features additionally require
+    <code>pangolint.beyond.allowScriptExecution: true</code> and an
+    in-app confirmation prompt. Runtime target settings are
+    machine-scoped so a workspace cannot silently repoint PangoLint at
+    a different BEYOND host.</p>
+
+    <div class="callout callout--safety">
+      <span class="callout-label">Operator responsibility · Laser safety</span>
+      <p>
+        Runtime integration is intended for developer-local testing
+        only. Users remain responsible for validating all scripts
+        inside BEYOND and for following all laser safety, zoning,
+        output, and show-control procedures. PangoLint's lint gate is
+        a <strong>syntax check, not a safety check</strong> - it
+        cannot reason about beam paths, audience separation,
+        scan-fail behavior, or any other operational laser-safety
+        concern.
+      </p>
+    </div>
+
+    <h3 id="test-connection">Test BEYOND connection</h3>
+    <p>Command Palette → <strong>PangoLint: Test BEYOND
+    Connection</strong>.</p>
+    <p>PangoLint sends a small <code>OscOutTTS</code> ping over Talk
+    UDP to the configured
+    <code>pangolint.beyond.talkHost:talkPort</code>, then waits for
+    the OSC echo on
+    <code>oscListenHost:oscListenPort</code>. The status bar reports
+    success or the specific failure mode (DNS lookup, bind, no
+    callback, etc.). <strong>Readback-only</strong> - no projector,
+    output, geometry, or zoning state is touched.</p>
+
+    <figure class="figure">
+      <img src="assets/manual/test-connection-palette.png" alt="The VS Code Command Palette with '>pangolint: te' typed. The top match - 'PangoLint: Test BEYOND Connection' - is highlighted; below it are other PangoLint commands: Clear all watched properties, Focus on BEYOND Watcher View, Focus on Commands View, Focus on Diagnostics View, Focus on Objects View.">
+      <figcaption><span class="fig-num">Fig 04.1a</span>Reach the connection check from the Command Palette - every PangoLint command is prefixed <code>PangoLint:</code> for fast filtering.</figcaption>
+    </figure>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/test-connection-toast.png" alt="A VS Code notification toast: 'BEYOND readback succeeded: pangolint-1778279554896-3937963a - Source: PangoLint'.">
+      <figcaption><span class="fig-num">Fig 04.1b</span>A successful round-trip surfaces as a notification carrying the unique request id. Failures use the same toast slot with the specific failure mode (DNS lookup, bind, no callback, etc.).</figcaption>
+    </figure>
+
+    <h3 id="user-objects">User objects (register a universe / zone alias)</h3>
+    <p>PangoScript code commonly references workspace-scoped
+    identifiers like <code>MyUniverse.Button1.X</code> or
+    <code>MainStage.Brightness</code>. PangoLint doesn't know these
+    out of the box. When such a path appears, PangoLint surfaces a
+    code action lightbulb:</p>
+    <ul>
+      <li><strong>Register <code>&lt;Root&gt;</code> as a user
+      universe</strong> - inherits the <code>UniversePanel</code>
+      schema, with workspace-scanned button names merged in as
+      <code>arrayIndices</code>.</li>
+      <li><strong>Register <code>&lt;Root&gt;</code> as a zone
+      alias</strong> - inherits the <code>Zone</code> schema.</li>
+      <li><strong>Register <code>&lt;Root&gt;</code> as a master
+      alias</strong> - inherits the <code>Master</code> schema.</li>
+    </ul>
+
+    <figure class="figure">
+      <img src="assets/manual/editor-user-objects-lightbulb.png" alt="A line of PangoScript reading 'COLORPICKER.SECONDARYCOLOR.ColorOff = colourSat' with a lightbulb in the gutter. The Quick Fix menu is open and shows three options, each marked with its own lightbulb: 'PangoLint: add COLORPICKER as user universe' (highlighted), 'PangoLint: add COLORPICKER as zone alias (inherits Zone schema)', and 'PangoLint: add COLORPICKER as Master alias (inherits Master schema)'.">
+      <figcaption><span class="fig-num">Fig 04.2</span>The user-objects code action menu. Pick the schema that matches your runtime object - the choice persists in <code>.pangolint/user-objects.json</code> and immediately rescopes diagnostics, completions, and hovers for that root.</figcaption>
+    </figure>
+
+    <p>Registry persists at
+    <code>.pangolint/user-objects.json</code> (workspace-rooted).
+    View / remove entries via <strong>PangoLint: Show User
+    Objects</strong> and <strong>PangoLint: Remove User
+    Object</strong> in the Command Palette.</p>
+    <p>When <code>pangolint.folderScopedUniverses: true</code>
+    (default), PangoLint also auto-discovers universe panels by
+    scanning sibling <code>.BeyondCode</code> files - if an unknown
+    root appears in 2+ files in the same parent folder, it's treated
+    as a universe panel without explicit classification. This mirrors
+    BEYOND's workspace-scoped object visibility.</p>
+
+    <h3 id="send-talk-batch">Send Talk batch to BEYOND</h3>
+    <p>Two commands send straight-line PangoScript over Talk UDP:</p>
+    <ul>
+      <li><strong>PangoLint: Send Talk Batch to BEYOND</strong> -
+      sends the entire active <code>.BeyondCode</code> file.</li>
+      <li><strong>PangoLint: Send Selection as Talk Batch</strong> -
+      sends just the highlighted selection. Right-click →
+      <code>Send Selection as Talk Batch</code> works inside any
+      <code>.BeyondCode</code> editor.</li>
+    </ul>
+    <p>Both gates:</p>
+    <ol>
+      <li><code>pangolint.beyond.allowScriptExecution: true</code> -
+      explicit opt-in.</li>
+      <li>Workspace must be <strong>trusted</strong>.</li>
+      <li>Confirm modal - by default,
+      <code>confirmRunEachSession: true</code> shows the modal
+      <em>every</em> run, not just the first. Recommended on for
+      safety.</li>
+      <li><strong>Lint-before-send</strong> refuses any text that
+      fires an error-severity diagnostic, or any text where PangoLint's
+      analysis limits prevent a full lint pass. Hint and warning
+      diagnostics surface in the response but don't block.</li>
+      <li><strong>Control-flow blocked</strong> - Talk UDP isn't
+      editor-equivalent. PangoLint blocks labels, <code>goto</code>,
+      <code>if</code>, loops, waits, and <code>exit</code> in this
+      path. Paste full control-flow scripts directly into BEYOND's
+      PangoScript editor instead.</li>
+    </ol>
+    <p>After a successful send, <strong>PangoLint: Re-send last Talk
+    Batch</strong> replays the same batch (skips the lint, keeps the
+    gates) - useful for tight iteration when nothing's changed.</p>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/talk-batch-confirm.png" alt="A modal warning dialog with a yellow caution triangle. Header: 'Send 36 executable lines from this document as a Talk UDP command batch to BEYOND at &lt;beyond-host&gt;:16062?'. Body: 'Talk UDP is not the BEYOND editor runner. PangoLint blocks labels, goto, if, loops, waits, and exit; paste full control-flow scripts into BEYOND's PangoScript editor.' Buttons: Cancel and Run.">
+      <figcaption><span class="fig-num">Fig 04.3a</span>The Talk-batch confirmation modal. The header carries the line count and exact host:port; the body re-states the control-flow restriction so it's impossible to miss before clicking <strong>Run</strong>.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="assets/manual/talk-batch-error.png" alt="A red-bordered error notification: 'PangoLint run failed: Talk UDP can only send straight-line command batches. This script contains label control flow at line 2: OnClick:. (11 more control-flow lines found) Paste/run it directly in BEYOND's PangoScript editor to test full script control flow.' Source: PangoLint.">
+      <figcaption><span class="fig-num">Fig 04.3b</span>If a script contains control flow, PangoLint refuses the send with a precise message - the first offending line, the count of additional offenders, and a pointer at the right runner (BEYOND's PangoScript editor).</figcaption>
+    </figure>
+
+    <div class="callout callout--note">
+      <span class="callout-label">CRLF reminder</span>
+      <p>BEYOND's PangoScript editor paste path treats LF-only
+      clipboard text as one logical line. <code>.BeyondCode</code>
+      files intentionally check out with CRLF endings. Confirm CRLF
+      before copying when you bypass PangoLint and paste directly.</p>
+    </div>
+
+    <h3 id="fetch-set">Fetch / set object values</h3>
+    <ul>
+      <li><strong>PangoLint: Fetch object value from BEYOND</strong>
+      - Command Palette or right-click → reads a property path you
+      enter (e.g. <code>Master.Brightness</code>). Sends
+      <code>OscOutTTS</code> with a typed return tag, awaits the OSC
+      callback, and shows the value inline.</li>
+      <li><strong>PangoLint: Set object value on BEYOND</strong> -
+      Command Palette or right-click → writes a value to a property
+      path. Gated like
+      <a href="#send-talk-batch">Send Talk batch</a>. String values are
+      entered without wrapping quotes; PangoLint serializes exactly one
+      assignment line before sending.</li>
+    </ul>
+
+    <figure class="figure">
+      <img src="assets/manual/output-fetch-result.png" alt="The PangoLint: Run output channel showing two log lines: '[2026-05-08T22:50:53.047Z] fetch ColorChannel.1.Color ← &lt;beyond-host&gt;:16062' and 'ok - ColorChannel.1.Color = 29051'.">
+      <figcaption><span class="fig-num">Fig 04.4</span>A successful <strong>Fetch object value</strong> round-trip in the <code>PangoLint: Run</code> output channel. The first line records the request, the source, and the listening port; the <code>ok</code> line reports the resolved value.</figcaption>
+    </figure>
+
+    <h3 id="watcher">Watcher: pin a property</h3>
+    <p>The <strong>BEYOND Watcher</strong> is the bottom panel of the
+    PangoLint sidebar. It's always visible; pinned properties appear
+    inside it. Pin / unpin from the editor:</p>
+    <ul>
+      <li>Right-click a property path → <strong>Pin property to
+      BEYOND Watcher</strong>.</li>
+      <li>Right-click a watched item in the view →
+      <strong>Unpin from Watcher</strong>.</li>
+    </ul>
+    <p>Watcher view actions:</p>
+    <ul>
+      <li><strong>Refresh Watcher</strong> - re-reads every pinned
+      property in one batch.</li>
+      <li><strong>Clear all watched properties</strong>.</li>
+    </ul>
+    <p>The watcher does <strong>not</strong> poll automatically -
+    refreshes are explicit. This keeps network traffic predictable.</p>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/sidebar-watcher-live.png" alt="The BEYOND Watcher panel showing one pinned property - ColorChannel.1.Color = 29051 - with refresh and unpin actions.">
+      <figcaption><span class="fig-num">Fig 04.5</span>The BEYOND Watcher with a live readback. After <strong>Refresh Watcher</strong>, each pinned property shows its current BEYOND value; until then it stays as <em>not yet fetched</em>. The panel never polls on its own.</figcaption>
+    </figure>
+
+    <h3 id="validate-objects">Validate objects in this file against BEYOND</h3>
+    <p>Command Palette → <strong>PangoLint: Validate objects in this
+    file against BEYOND</strong>.</p>
+    <p>PangoLint walks every property path referenced in the active
+    file and issues a readback against BEYOND. Paths that resolve are
+    cached as live-confirmed; paths that time out or return an error are
+    reported in the <code>PangoLint: Run</code> Output channel and
+    summarized in a notification. Useful as a pre-flight before sending
+    a script, especially when you've added new universes / zone aliases
+    since the last verified send.</p>
+
+    <h3 id="live-hover">Live hover values</h3>
+    <p>Set <code>pangolint.beyond.liveHoverValues: true</code> to
+    augment property-path hover tooltips with the current BEYOND
+    value. Cached for 30 seconds per path. <strong>Off by
+    default</strong> - generates network traffic on every hover. A
+    nice quick-glance feature when actively tuning, but unnecessary
+    the rest of the time.</p>
+
+    <figure class="figure figure--inline">
+      <img src="assets/manual/editor-live-hover.png" alt="A hover popup over Master.BPM. Header: 'Master.BPM'. Body: 'Verified property on Master.' followed by 'Live value: 120'.">
+      <figcaption><span class="fig-num">Fig 04.7</span>A live-hover tooltip on <code>Master.BPM</code>. The static schema info (verified property on <code>Master</code>) is augmented with the current BEYOND readback - here, the metronome is at 120 BPM.</figcaption>
+    </figure>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  MCP server  ─────────── -->
+  <section id="mcp-server">
+    <h2><span class="h2-num">§ 05</span>The PangoLint MCP server</h2>
+
+    <p><code>pangolint-mcp</code> is a
+    <a href="https://modelcontextprotocol.io">Model Context
+    Protocol</a> stdio server that exposes the same curated knowledge
+    to AI coding agents. It ships from the <code>mcp/</code>
+    workspace in this repo and reads from the same
+    <code>data/pangoscript/</code> knowledge base the extension uses,
+    so upgrades stay in lockstep.</p>
+
+    <h3 id="when-to-use">When to use it</h3>
+    <ul>
+      <li>You ask Claude / Codex / Cursor / another agent to write or
+      edit PangoScript and you want command-name verification against
+      PangoLint's curated catalog, not hallucinated names from
+      training data.</li>
+      <li>You want the agent to lint generated PangoScript before
+      showing you the result.</li>
+      <li>(Opt-in) You want the agent to send lint-clean PangoScript
+      to a developer-local BEYOND for fast visual feedback.</li>
+    </ul>
+    <p>If you don't use AI agents in your PangoScript workflow, you
+    don't need the MCP server.</p>
+
+    <h3 id="install-configure">Install &amp; configure</h3>
+    <p>Install the <code>pangolint-mcp</code> tarball attached to a
+    GitHub Release:</p>
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.4.0.tgz
+which pangolint-mcp</code></pre>
+
+    <p>For local development, build the same tarball from this
+    repo:</p>
+    <pre data-lang="bash"><code>npm run package:mcp
+npm install -g ./mcp/pangolint-mcp-0.4.0.tgz
+which pangolint-mcp</code></pre>
+
+    <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
+    <p>Use <code>PangoLint</code> as the client-side server key when
+    your client allows mixed-case names. Some clients show this key in
+    tool-call UI.</p>
+
+    <h4>Claude Desktop (<code>claude_desktop_config.json</code>)</h4>
+    <pre data-lang="json"><code>{
+  "mcpServers": {
+    "PangoLint": { "command": "pangolint-mcp" }
+  }
+}</code></pre>
+
+    <h4>Claude Code (<code>.claude/mcp.json</code> or your CLI's MCP config)</h4>
+    <pre data-lang="json"><code>{
+  "mcpServers": {
+    "PangoLint": { "command": "pangolint-mcp" }
+  }
+}</code></pre>
+
+    <h4>Codex CLI</h4>
+    <pre data-lang="bash"><code>codex mcp add PangoLint -- "$(which pangolint-mcp)"
+codex mcp get PangoLint</code></pre>
+
+    <p>If the old lowercase <code>pangolint</code> alias is already
+    registered, run <code>codex mcp remove pangolint</code> first, then
+    add it again.</p>
+
+    <p>To enable read runtime tools in Codex, add the startup env vars
+    when you register the server:</p>
+    <pre data-lang="bash"><code>codex mcp add PangoLint \
+  --env PANGOLINT_MCP_RUNTIME_READ=enabled \
+  --env PANGOLINT_MCP_BEYOND_TALK_HOST=127.0.0.1 \
+  --env PANGOLINT_MCP_BEYOND_TALK_PORT=16062 \
+  -- "$(which pangolint-mcp)"</code></pre>
+
+    <h4>Cursor / VS Code (with MCP)</h4>
+    <pre data-lang="json"><code>{
+  "servers": {
+    "PangoLint": { "command": "pangolint-mcp" }
+  }
+}</code></pre>
+
+    <p>To enable read runtime tools (network access to a local
+    BEYOND), pass <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code> and
+    your BEYOND target as env vars. Add
+    <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code> only when you also
+    want agents to send scripts through <code>runScript</code>.</p>
+    <pre data-lang="json"><code>{
+  "mcpServers": {
+    "PangoLint": {
+      "command": "pangolint-mcp",
+      "env": {
+        "PANGOLINT_MCP_RUNTIME_READ": "enabled",
+        "PANGOLINT_MCP_BEYOND_TALK_HOST": "127.0.0.1",
+        "PANGOLINT_MCP_BEYOND_TALK_PORT": "16062"
+      }
+    }
+  }
+}</code></pre>
+
+    <p>The full env-var list lives in <code>mcp/README.md</code>.</p>
+
+    <h3 id="knowledge-tools">Knowledge tools (always on)</h3>
+    <p>Nine offline tools the agent can call without any opt-in:</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>lookupCommand</code></td><td>Curated entry for one command name (canonical or alias).</td></tr>
+        <tr><td><code>searchCommands</code></td><td>Task-intent search over names, aliases, descriptions, categories, forms, parameters, notes, and tags, with optional <code>safetyTier</code> filter.</td></tr>
+        <tr><td><code>lookupObject</code></td><td>Unified object lookup for canonical schemas and exact Object Tree paths (for example <code>WS.N.N.Caption</code> and <code>FX.N.N.N.Oscillator.Period</code>).</td></tr>
+        <tr><td><code>listObjects</code></td><td>Object roots from canonical schemas plus Object Tree-only families such as <code>WS</code>, <code>FX</code>, and <code>DmxOutput</code>.</td></tr>
+        <tr><td><code>searchObjectProperties</code></td><td>Ranked search over BEYOND Object Tree property paths (e.g. <code>Master.ShowSpeed</code>, <code>FX.N.N.N.Oscillator.Period</code>).</td></tr>
+        <tr><td><code>lookupObjectProperty</code></td><td>Exact lookup for a single property path.</td></tr>
+        <tr><td><code>lintScript</code></td><td>Run PangoLint diagnostics over text and return the structured diagnostic list.</td></tr>
+        <tr><td><code>explainDiagnostic</code></td><td>Markdown documentation for one diagnostic code.</td></tr>
+        <tr><td><code>getServerConfig</code></td><td>Current config and which tools are available. Agents are instructed to call this first.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="runtime-tools">Runtime tools (opt-in)</h3>
+    <p>Three tools that talk to the configured BEYOND host. Read
+    runtime and write runtime are separate opt-ins. Each tool returns
+    <code>{ ok: false, blocked: true }</code> unless the matching
+    runtime tier was enabled at server startup.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>Tier</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>healthCheck</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. DNS + UDP-socket reachability of the configured BEYOND target. Doesn't verify BEYOND is listening.</td></tr>
+        <tr><td><code>readBeyondProperty</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Single readback of a property path (<code>Master.Brightness</code>, <code>Zone.0.Red</code>, …) and returns the value.</td></tr>
+        <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via Talk UDP.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout callout--reference">
+      <span class="callout-label">Lint gate · syntax not safety</span>
+      <p>
+        <code>runScript</code>'s lint-before-send gate is the
+        <strong>load-bearing developer behavior</strong>:
+        <code>runScript</code> blocks script text that produces an
+        error-severity PangoLint diagnostic before any Talk UDP send
+        is attempted. Hint and warning diagnostics surface in the
+        response but don't block the send. This is a syntax gate,
+        not a safety gate - it does not validate operational
+        laser-safety concerns.
+      </p>
+    </div>
+
+    <h3 id="mcp-resources">MCP resources</h3>
+    <p>Eight resources for browsing the bundled knowledge base
+    directly:</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>URI</th><th>Contents</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangoscript://catalog/commands</code></td><td>Command catalog (JSON).</td></tr>
+        <tr><td><code>pangoscript://schemas/objects</code></td><td>Object schema (JSON).</td></tr>
+        <tr><td><code>pangoscript://diagnostics/codes</code></td><td>Diagnostics doc page (Markdown).</td></tr>
+        <tr><td><code>pangoscript://reference/operators</code></td><td>Operator reference (Markdown).</td></tr>
+        <tr><td><code>pangoscript://reference/syntax</code></td><td>Parser-shape reference (Markdown).</td></tr>
+        <tr><td><code>pangoscript://reference/command-reference</code></td><td>Full command reference (Markdown).</td></tr>
+        <tr><td><code>pangoscript://reference/master-object-tree</code></td><td>Object Tree root reference (Markdown).</td></tr>
+        <tr><td><code>pangoscript://reference/object-model</code></td><td>Object model overview (Markdown).</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Each advertises a <code>size</code> hint so MCP clients can
+    budget context before fetching.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  Reference: settings  ─────────── -->
+  <section id="ref-settings">
+    <h2><span class="h2-num">§ 06</span>Reference: settings</h2>
+    <p>All settings live under the <code>pangolint.*</code> namespace.
+    The <code>pangolint.beyond.*</code> runtime settings are
+    machine-scoped; configure them in user or machine settings, not
+    workspace settings.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Setting</th><th>Default</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangolint.beyond.talkHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND host for Talk UDP commands.</td></tr>
+        <tr><td><code>pangolint.beyond.talkPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP port.</td></tr>
+        <tr><td><code>pangolint.beyond.oscListenHost</code></td><td><code>0.0.0.0</code></td><td>Local interface used for OSC callbacks from BEYOND.</td></tr>
+        <tr><td><code>pangolint.beyond.oscListenPort</code></td><td><code>7000</code></td><td>Local UDP port used for OSC callbacks from BEYOND.</td></tr>
+        <tr><td><code>pangolint.beyond.readbackTimeoutMs</code></td><td><code>3000</code></td><td>Timeout for OSC readback callbacks (ms).</td></tr>
+        <tr><td><code>pangolint.beyond.allowScriptExecution</code></td><td><code>false</code></td><td>Allow sending Talk UDP command batches to BEYOND. Off by default.</td></tr>
+        <tr><td><code>pangolint.beyond.confirmRunEachSession</code></td><td><code>true</code></td><td>Confirm modal before each script-run (recommended on).</td></tr>
+        <tr><td><code>pangolint.beyond.liveHoverValues</code></td><td><code>false</code></td><td>Augment hover tooltips with live BEYOND values. Generates network traffic per hover.</td></tr>
+        <tr><td><code>pangolint.codeLens.labelReferences</code></td><td><code>false</code></td><td>Show <code>N references</code> code lens above each label declaration.</td></tr>
+        <tr><td><code>pangolint.folderScopedUniverses</code></td><td><code>true</code></td><td>Auto-discover universe panels by scanning sibling <code>.BeyondCode</code> files.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  Reference: commands  ─────────── -->
+  <section id="ref-commands">
+    <h2><span class="h2-num">§ 07</span>Reference: commands</h2>
+    <p>Every command is also reachable from the Command Palette under
+    <strong>PangoLint:</strong>.</p>
+
+    <h3>Editor &amp; validation</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangolint.validateCurrentScript</code></td><td>Re-run diagnostics on the active <code>.BeyondCode</code> file and write a report to the <code>PangoLint: Validation</code> Output channel.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>BEYOND runtime</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangolint.checkBeyondConnection</code></td><td>Test BEYOND Connection (readback-only ping).</td></tr>
+        <tr><td><code>pangolint.runScript</code></td><td>Send the current file as a Talk batch (gated).</td></tr>
+        <tr><td><code>pangolint.runSelection</code></td><td>Send the current selection as a Talk batch (gated).</td></tr>
+        <tr><td><code>pangolint.replayLastScript</code></td><td>Re-send the last Talk batch verbatim.</td></tr>
+        <tr><td><code>pangolint.fetchObjectValue</code></td><td>Read a property path from BEYOND.</td></tr>
+        <tr><td><code>pangolint.setObjectValue</code></td><td>Write a property path on BEYOND (gated).</td></tr>
+        <tr><td><code>pangolint.validateObjectsAgainstBeyond</code></td><td>Walk every property path in this file and confirm it resolves on BEYOND.</td></tr>
+        <tr><td><code>pangolint.pinToWatcher</code></td><td>Pin a property path to the BEYOND Watcher.</td></tr>
+        <tr><td><code>pangolint.unpinFromWatcher</code></td><td>Unpin a property from the Watcher.</td></tr>
+        <tr><td><code>pangolint.refreshWatcher</code></td><td>Re-read every pinned property.</td></tr>
+        <tr><td><code>pangolint.clearWatcher</code></td><td>Unpin all watched properties.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>User objects</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangolint.addUserObject</code></td><td>Internal - invoked by the code-action lightbulb.</td></tr>
+        <tr><td><code>pangolint.removeUserObject</code></td><td>Remove a registered universe / zone alias / master alias.</td></tr>
+        <tr><td><code>pangolint.showUserObjects</code></td><td>List currently registered user objects.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Sidebar</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>pangolint.sidebar.refresh</code></td><td>Refresh sidebar (Commands / Objects / Diagnostics).</td></tr>
+        <tr><td><code>pangolint.sidebar.filterCommands</code></td><td>Open the filter prompt for the Commands view.</td></tr>
+        <tr><td><code>pangolint.sidebar.clearFilter</code></td><td>Clear the Commands filter.</td></tr>
+        <tr><td><code>pangolint.sidebar.insertAtCursor</code></td><td>Insert the focused command's example at the cursor.</td></tr>
+        <tr><td><code>pangolint.sidebar.insertSelectedCommand</code></td><td>Same, bound to <kbd>Cmd</kbd>+<kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd> when the Commands view is focused.</td></tr>
+        <tr><td><code>pangolint.sidebar.copySignature</code></td><td>Copy the focused command's signature to the clipboard.</td></tr>
+        <tr><td><code>pangolint.openReferenceSite</code></td><td>Open the bundled offline PangoScript reference site in the default browser.</td></tr>
+        <tr><td><code>pangolint.sidebar.revealDiagnostic</code></td><td>Reveal the focused diagnostic at its source range.</td></tr>
+        <tr><td><code>pangolint.sidebar.openDiagnosticDocs</code></td><td>Open the bundled diagnostics doc scrolled to the focused rule.</td></tr>
+        <tr><td><code>pangolint.sidebar.showCommandAtCursor</code></td><td>View the command at the editor cursor in the Commands sidebar.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  Reference: keybindings  ─────────── -->
+  <section id="ref-keybindings">
+    <h2><span class="h2-num">§ 08</span>Reference: keybindings</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Combo (macOS / others)</th><th>Command</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Cmd</kbd>+<kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td><code>pangolint.sidebar.insertSelectedCommand</code></td><td>Commands view focused, editor open on a <code>.BeyondCode</code> file.</td></tr>
+        <tr><td><kbd>Cmd</kbd>+<kbd>.</kbd> / <kbd>Ctrl</kbd>+<kbd>.</kbd></td><td>(VS Code default) Quick fix</td><td>On any diagnostic with a code action.</td></tr>
+        <tr><td><kbd>F12</kbd></td><td>(VS Code default) Go to Definition</td><td>On a <code>Goto MyLabel</code> reference.</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd></td><td>(VS Code default) Format Document</td><td>In a <code>.BeyondCode</code> file.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  Safety, privacy, data  ─────────── -->
+  <section id="safety">
+    <h2><span class="h2-num">§ 09</span>Safety, privacy, and data</h2>
+    <p>PangoLint biases conservative on three axes:</p>
+    <ul>
+      <li><strong>Network behavior.</strong> Nothing on the network
+      unless you've explicitly configured a BEYOND host <em>and</em>
+      invoked a runtime command.
+        <ul>
+          <li>Knowledge tools, sidebar, completions, hover (without
+          <code>liveHoverValues</code>), formatting, diagnostics -
+          all 100% offline.</li>
+          <li><code>Test BEYOND Connection</code> is readback-only
+          (an <code>OscOutTTS</code> ping).</li>
+          <li><code>Send Talk Batch</code>, <code>Set object
+          value</code>, and the MCP <code>runScript</code> require
+          explicit opt-in
+          (<code>allowScriptExecution: true</code> for the extension;
+          <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code> for the MCP
+          server) and a trusted workspace.</li>
+        </ul>
+      </li>
+      <li><strong>Workspace mutations.</strong> PangoLint writes to
+      two places only:
+      <code>.pangolint/user-objects.json</code> (when you accept a
+      register-as code action) and the active editor (when you
+      explicitly insert a command / accept a quick fix). No silent
+      edits.</li>
+      <li><strong>What's bundled.</strong> The repo ships a curated
+      knowledge base derived from BEYOND's published exports.
+      Verbatim Pangolin reference materials (BEYOND command export
+      <code>.txt</code>, OSC HTML, local help) are <strong>not</strong>
+      in the public repo. End users get the pre-generated <code>data/pangoscript/commands.merged.json</code> and do not need private source inputs.</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ───────────  Troubleshooting  ─────────── -->
+  <section id="troubleshooting">
+    <h2><span class="h2-num">§ 10</span>Troubleshooting</h2>
+
+    <h4>Test BEYOND Connection times out.</h4>
+    <p>Confirm <code>pangolint.beyond.talkHost</code> matches the
+    BEYOND machine's IP (not <code>127.0.0.1</code> if BEYOND is on a
+    separate box). Confirm BEYOND is configured to send OSC Out
+    callbacks back to your laptop's IP on
+    <code>pangolint.beyond.oscListenPort</code>. macOS / Windows
+    firewall must allow the listener port.</p>
+
+    <h4>Talk batch sent, BEYOND unchanged.</h4>
+    <p>Check whether the script uses control flow
+    (<code>label:</code> / <code>goto</code> / <code>if</code> /
+    loops / waits / <code>exit</code>). Talk UDP is for straight-line
+    command batches only; paste full scripts directly into BEYOND's
+    PangoScript editor. The <code>BEYOND Notification Center</code>
+    (in BEYOND itself) is the runtime oracle for failed sends; check
+    it when a probe inexplicably no-ops.</p>
+
+    <h4>Pasted script collapsed into one line.</h4>
+    <p>BEYOND's paste path treats LF-only clipboard text as one
+    logical line. <code>.BeyondCode</code> files intentionally check
+    out with CRLF endings. Confirm CRLF before copying.</p>
+
+    <h4>Property hover says "unknown root".</h4>
+    <p>The root identifier isn't in the canonical schemas and hasn't
+    been registered as a user object yet. Click the lightbulb on the
+    unknown root to register it as a universe / zone alias / master
+    alias, or enable <code>pangolint.folderScopedUniverses</code> so
+    PangoLint auto-discovers universes from sibling files.</p>
+
+    <h4>MCP runtime tool returns
+    <code>{ ok: false, blocked: true }</code>.</h4>
+    <p>The server was started without the required runtime tier. Add
+    <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code> for
+    <code>healthCheck</code> / <code>readBeyondProperty</code>, or
+    <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code> for
+    <code>runScript</code>, then restart the client. The agent is
+    instructed not to retry - it should tell you how to enable runtime
+    instead.</p>
+
+    <h4>Markdown reference link from <code>Why?</code> doesn't open.</h4>
+    <p>The bundled diagnostics doc lives inside the VSIX. Reload the
+    VS Code window after upgrading PangoLint so the new doc path
+    resolves.</p>
+  </section>
+
+</main>
+</div>
+
+<footer class="doc-footer">
+  <div>
+    <p>
+      PangoLint is independent software and is not affiliated with,
+      endorsed by, or sponsored by Pangolin Laser Systems, Inc.
+      All product names, logos, and brands are property of their
+      respective owners.
+    </p>
+    <p>
+      "Pangolin," "BEYOND," and "PangoScript" are referenced
+      throughout this document for the sole purpose of describing
+      interoperability and supported file formats. Use of those
+      names does not imply endorsement.
+    </p>
+  </div>
+  <div class="doc-footer-meta">
+    PangoLint &nbsp;·&nbsp; v0.4.0<br>
+    Catalog build 2044<br>
+    Document revised 2026-05-18
+  </div>
+</footer>
+
+<script>
+  // Active TOC highlighting via IntersectionObserver
+  (function () {
+    const links = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+    const byId = new Map();
+    links.forEach(a => byId.set(a.getAttribute('href').slice(1), a));
+
+    const targets = links
+      .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+      .filter(Boolean);
+
+    if (!('IntersectionObserver' in window) || targets.length === 0) return;
+
+    let active = null;
+    const visible = new Map();
+
+    function setActive(id) {
+      if (active === id) return;
+      links.forEach(a => a.classList.remove('is-active'));
+      const a = byId.get(id);
+      if (a) a.classList.add('is-active');
+      active = id;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) visible.set(e.target.id, e.intersectionRatio);
+        else visible.delete(e.target.id);
+      });
+      if (visible.size > 0) {
+        const [id] = [...visible.entries()].sort((a, b) => b[1] - a[1])[0];
+        setActive(id);
+      }
+    }, {
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: [0, 0.1, 0.5, 1.0]
+    });
+
+    targets.forEach(t => io.observe(t));
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 288,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Example evidence report for validator tests."
+  },
+  "entries": [
+    {
+      "objectPath": "UserInterface.FrontView",
+      "probePath": "UserInterface.FrontView",
+      "probeMode": "command-readback",
+      "shipsMetadata": true,
+      "valueType": "enum",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 2,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 3,
+        "unit": "main view mode"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "GRID"
+        },
+        {
+          "value": 1,
+          "label": "TIMELINE"
+        },
+        {
+          "value": 2,
+          "label": "PLAYLIST"
+        },
+        {
+          "value": 3,
+          "label": "UNIVERSE"
+        }
+      ],
+      "testedValues": [
+        {
+          "command": "SetGridView",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "command": "SetTimelineView",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "command": "SetPlayListView",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "command": "SetUniverseView",
+          "readback": 3,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 2,
+        "notes": "SetPlayListView restored the observed baseline."
+      },
+      "evidenceNote": "T1 view commands moved UserInterface.FrontView through the observed readback domain.",
+      "locationAware": false
+    }
+  ]
+}

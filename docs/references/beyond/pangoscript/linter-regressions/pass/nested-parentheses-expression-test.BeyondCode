@@ -1,0 +1,16 @@
+// PangoLint candidate: nested arithmetic parentheses
+// Purpose: verify arithmetic expression grouping and callback values.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/nested-expression/result (si) "pangolint-candidate-nested-expression-001" 15
+// PangoLint observed callback: /pangolint/candidate/nested-expression/result (si) "pangolint-candidate-nested-expression-001" 15
+
+var requestId
+var value
+var resultValue
+
+requestId = "pangolint-candidate-nested-expression-001"
+value = 2
+resultValue = (value + 3) * (value + 1)
+
+OscOutTTS "/pangolint/candidate/nested-expression/result", "si", requestId, resultValue
+exit

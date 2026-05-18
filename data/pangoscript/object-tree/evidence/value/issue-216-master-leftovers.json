@@ -1,0 +1,1041 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used literal Master paths, tried sampled SetProp writes including values above 100000, fractional values, and signed 32-bit edges, restored observed baselines, shipped pass-through ranges where writes changed readback, and classified unchanged rows as readback-only."
+  },
+  "entries": [
+    {
+      "objectPath": "Master.CueUnPauseTime",
+      "probePath": "Master.CueUnPauseTime",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.CueUnPauseTime\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.CueUnPauseTime\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.CueUnPauseTime\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.CueUnPauseTime\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.CueUnPauseTime\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.CueUnPauseTime\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.CueUnPauseTime\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.CueUnPauseTime\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.CueUnPauseTime\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.CueUnPauseTime\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.CueUnPauseTime\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.CueUnPauseTime\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.CueUnPauseTime\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.CueUnPauseTime did not change the Master.CueUnPauseTime readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.FX7",
+      "probePath": "Master.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.FX7\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.FX7\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.FX7\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.FX7\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.FX7\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.FX7\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.FX7\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.FX7\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.FX7\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.FX7\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.FX7 did not change the Master.FX7 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.FX8",
+      "probePath": "Master.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.FX8\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.FX8\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.FX8\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.FX8\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.FX8\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.FX8\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.FX8\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.FX8\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.FX8\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.FX8\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.FX8 did not change the Master.FX8 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.LCScrollSpeed",
+      "probePath": "Master.LCScrollSpeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 11,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "live control scroll speed",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.LCScrollSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.LCScrollSpeed\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.LCScrollSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.LCScrollSpeed\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.LCScrollSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.LCScrollSpeed\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.LCScrollSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.LCScrollSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.LCScrollSpeed\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.LCScrollSpeed\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.LCScrollSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.LCScrollSpeed\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.LCScrollSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 11,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 11."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.LCScrollSpeed uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.MasterBrightness",
+      "probePath": "Master.MasterBrightness",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.MasterBrightness\", -2147483648",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.MasterBrightness\", -100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.MasterBrightness\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.MasterBrightness\", -0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.MasterBrightness\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.MasterBrightness\", 0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.MasterBrightness\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.MasterBrightness\", 1.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.MasterBrightness\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.MasterBrightness\", 100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.MasterBrightness\", 120000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.MasterBrightness\", 1000000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.MasterBrightness\", 2147483647",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.MasterBrightness did not change the Master.MasterBrightness readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.SatShift",
+      "probePath": "Master.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.SatShift\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.SatShift\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.SatShift\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.SatShift\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.SatShift\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.SatShift\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.SatShift\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.SatShift\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.SatShift\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.SatShift\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.SatShift did not change the Master.SatShift readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.ShowSpeed",
+      "probePath": "Master.ShowSpeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "show speed",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.ShowSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.ShowSpeed\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.ShowSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.ShowSpeed\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.ShowSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.ShowSpeed\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.ShowSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.ShowSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.ShowSpeed\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.ShowSpeed\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.ShowSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.ShowSpeed\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.ShowSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.ShowSpeed uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.TimecodeShift",
+      "probePath": "Master.TimecodeShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "timecode shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.TimecodeShift\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.TimecodeShift\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.TimecodeShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.TimecodeShift\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.TimecodeShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.TimecodeShift\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.TimecodeShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.TimecodeShift\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.TimecodeShift\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.TimecodeShift\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.TimecodeShift\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.TimecodeShift\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.TimecodeShift\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.TimecodeShift uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.VisiblePointsEnd",
+      "probePath": "Master.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.VisiblePointsEnd\", -2147483648",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.VisiblePointsEnd\", -100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.VisiblePointsEnd\", -0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 1.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 120000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 1000000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.VisiblePointsEnd\", 2147483647",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.VisiblePointsEnd did not change the Master.VisiblePointsEnd readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.VisiblePointsStart",
+      "probePath": "Master.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.VisiblePointsStart\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Master.VisiblePointsStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Master.VisiblePointsStart\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Master.VisiblePointsStart\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.VisiblePointsStart\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Master.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Master.VisiblePointsStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.VisiblePointsStart\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Master.VisiblePointsStart\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.VisiblePointsStart\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Master.VisiblePointsStart did not change the Master.VisiblePointsStart readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    }
+  ]
+}

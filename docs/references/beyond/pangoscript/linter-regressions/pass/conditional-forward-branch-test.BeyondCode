@@ -1,0 +1,35 @@
+// PangoLint conditional forward-branch runtime test
+// Purpose: verify If <condition> Goto <label> can skip intervening lines.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/test/branch/start (si) "pangolint-branch-forward-test-001" 1
+// PangoLint expected callback: /pangolint/test/branch/zero (sii) "pangolint-branch-forward-test-001" 2 0
+// PangoLint expected callback: /pangolint/test/branch/done (sii) "pangolint-branch-forward-test-001" 3 1
+// PangoLint observed callback: /pangolint/test/branch/start (si) "pangolint-branch-forward-test-001" 1
+// PangoLint observed callback: /pangolint/test/branch/zero (sii) "pangolint-branch-forward-test-001" 2 0
+// PangoLint observed callback: /pangolint/test/branch/done (sii) "pangolint-branch-forward-test-001" 3 1
+// The nonzero callback should not be emitted when branchValue starts at 0.
+// Readback-only: emits OscOutTTS callbacks and ends with explicit exit.
+
+var requestId
+var sequence
+var branchValue
+
+requestId = "pangolint-branch-forward-test-001"
+sequence = 1
+branchValue = 0
+
+goto Start
+
+Start:
+OscOutTTS "/pangolint/test/branch/start", "si", requestId, sequence
+sequence = sequence + 1
+if (branchValue = 0) goto BranchZero
+OscOutTTS "/pangolint/test/branch/nonzero", "sii", requestId, sequence, branchValue
+sequence = sequence + 1
+
+BranchZero:
+OscOutTTS "/pangolint/test/branch/zero", "sii", requestId, sequence, branchValue
+sequence = sequence + 1
+branchValue = branchValue + 1
+OscOutTTS "/pangolint/test/branch/done", "sii", requestId, sequence, branchValue
+exit

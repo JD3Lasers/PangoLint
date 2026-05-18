@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "UniversePanelAlias.Control.N.Caption",
+      "valueType": "string",
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Caption accepted string lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Caption at UserUniverse.0.Caption. The equivalent Universe.1.0.Caption readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.ChasePeriod confirmed 1..10 write/readback behavior: 0->1, 1->1, 5->5, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.ChasePeriod at UserUniverse.0.Effect.ChasePeriod. The equivalent Universe.1.0.Effect.ChasePeriod readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.ClockLimit confirmed -10..10 write/readback behavior: -11->-10, -10->-10, 0->0, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.ClockLimit at UserUniverse.0.Effect.ClockLimit. The equivalent Universe.1.0.Effect.ClockLimit readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.ClockShift confirmed -10..10 write/readback behavior: -11->-10, -10->-10, 0->0, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.ClockShift at UserUniverse.0.Effect.ClockShift. The equivalent Universe.1.0.Effect.ClockShift readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.EnableClockLimit confirmed 0..1 write/readback behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.EnableClockLimit at UserUniverse.0.Effect.EnableClockLimit. The equivalent Universe.1.0.Effect.EnableClockLimit readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableClockLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableClockLimit to ON."
+        }
+      ]
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.EnableMetroLimit confirmed 0..1 write/readback behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.EnableMetroLimit at UserUniverse.0.Effect.EnableMetroLimit. The equivalent Universe.1.0.Effect.EnableMetroLimit readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableMetroLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableMetroLimit to ON."
+        }
+      ]
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.MetroLimit confirmed -10..10 write/readback behavior: -11->-10, -10->-10, 0->0, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.MetroLimit at UserUniverse.0.Effect.MetroLimit. The equivalent Universe.1.0.Effect.MetroLimit readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.MetroShift confirmed -10..10 write/readback behavior: -11->-10, -10->-10, 0->0, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.MetroShift at UserUniverse.0.Effect.MetroShift. The equivalent Universe.1.0.Effect.MetroShift readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.N.Effect.Name",
+      "valueType": "string",
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "UserUniverse.0.Effect.Name accepted string lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-15 issue #354 confirmed UniversePanelAlias.Control.N.Effect.Name at UserUniverse.0.Effect.Name. The equivalent Universe.1.0.Effect.Name readback matched each tested write and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control.N collapses a show-defined Universe panel alias, zero-based control index, and property path.",
+        "notes": "The probe used the loaded UserUniverse alias for Universe page index 1. Universe alias roots and control placement depend on the loaded show."
+      }
+    }
+  ]
+}

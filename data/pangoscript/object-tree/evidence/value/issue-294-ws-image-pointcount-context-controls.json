@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe covered WS image paths with 6 to 32 generated variants and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.PointCount",
+      "probePath": "WS.0.3.Image.PointCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 1000,
+        "unit": "point count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 999",
+          "readback": 999,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1001,
+          "command": "SetProp \"WS.0.3.Image.PointCount\", 1001",
+          "readback": 1000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 point-count contexts confirmed WS.N.N.Image.PointCount for Shape at WS.0.3.Image.PointCount uses 1..1000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PointCount",
+      "probePath": "WS.0.10.Image.PointCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "point count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 199",
+          "readback": 199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.10.Image.PointCount\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 point-count contexts confirmed WS.N.N.Image.PointCount for Particles at WS.0.10.Image.PointCount uses 1..200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    }
+  ]
+}

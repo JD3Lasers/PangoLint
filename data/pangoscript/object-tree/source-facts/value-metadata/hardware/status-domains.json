@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Status.LaserEnabled",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "DisableLaserOutput read back 0 and EnableLaserOutput read back 1 after a short settle wait. Out-of-domain assignments were not tested because this is command-driven state."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Status.LaserEnabled reads OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Status.LaserEnabled reads ON."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command/readback on 2026-05-13 issue #298 confirmed Status.LaserEnabled as a 0/1 domain with no laser connected and final DisableLaserOutput restore."
+    },
+    {
+      "path": "Status.Locked",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "LockScreen read back 1 when a UI-side lock password was configured, and UnLockScreen read back 0. Out-of-domain assignments were not tested because this is command-driven state."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Status.Locked reads OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Status.Locked reads ON."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command/readback evidence from 2026-05-06 confirmed Status.Locked as a 0/1 domain. The 2026-05-13 issue #298 status pass read baseline 0 and did not re-run LockScreen to avoid disrupting the BEYOND UI."
+    }
+  ]
+}

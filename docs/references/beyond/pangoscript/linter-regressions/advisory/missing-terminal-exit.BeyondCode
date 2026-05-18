@@ -1,0 +1,12 @@
+// PangoLint expect: missing-terminal-exit
+// PangoLint advisory: omitted terminal exit
+// Purpose: verify BEYOND accepts a script whose final executable line is not exit,
+// while PangoLint keeps a best-practice hint for fall-through safety.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/fail/missing-exit (s) "pangolint-fail-missing-exit-001"
+// PangoLint observed callback: /pangolint/fail/missing-exit (s) "pangolint-fail-missing-exit-001"
+
+var requestId
+
+requestId = "pangolint-fail-missing-exit-001"
+OscOutTTS "/pangolint/fail/missing-exit", "s", requestId

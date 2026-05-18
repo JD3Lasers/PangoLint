@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ProTrack.N.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack.0.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack.N.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack.0.ColorSlider.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree ProTrack index.",
+        "notes": "Runtime evidence used concrete ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "path": "ProTrack.N.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack.0.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack.N.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack.0.Hue.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree ProTrack index.",
+        "notes": "Runtime evidence used concrete ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "path": "ProTrack.N.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack.0.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack.N.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack.0.RotoAccX.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree ProTrack index.",
+        "notes": "Runtime evidence used concrete ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "path": "ProTrack.N.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack.0.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack.N.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack.0.RotoAccY.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree ProTrack index.",
+        "notes": "Runtime evidence used concrete ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "path": "ProTrack.N.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack.0.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack.N.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack.0.RotoAccZ.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree ProTrack index.",
+        "notes": "Runtime evidence used concrete ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "path": "ProTrack1.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack1.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack1.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack1.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack1 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack1.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack1.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack1.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack1.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack1.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack1 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack1.Hue."
+      }
+    },
+    {
+      "path": "ProTrack1.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack1.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack1.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack1.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack1 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack1.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack1.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack1.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack1.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack1.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack1 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack1.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack1.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack1.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack1.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack1.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack1 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack1.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack2.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack2.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack2.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack2.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack2 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack2.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack2.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack2.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack2.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack2.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack2 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack2.Hue."
+      }
+    },
+    {
+      "path": "ProTrack2.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack2.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack2.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack2.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack2 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack2.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack2.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack2.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack2.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack2.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack2 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack2.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack2.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack2.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack2.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack2.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack2 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack2.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack3.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack3.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack3.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack3.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack3 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack3.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack3.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack3.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack3.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack3.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack3 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack3.Hue."
+      }
+    },
+    {
+      "path": "ProTrack3.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack3.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack3.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack3.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack3 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack3.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack3.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack3.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack3.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack3.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack3 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack3.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack3.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack3.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack3.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack3.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack3 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack3.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack4.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack4.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack4.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack4.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack4 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack4.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack4.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack4.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack4.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack4.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack4 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack4.Hue."
+      }
+    },
+    {
+      "path": "ProTrack4.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack4.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack4.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack4.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack4 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack4.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack4.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack4.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack4.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack4.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack4 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack4.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack4.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack4.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack4.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack4.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack4 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack4.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack5.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack5.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack5.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack5.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack5 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack5.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack5.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack5.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack5.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack5.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack5 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack5.Hue."
+      }
+    },
+    {
+      "path": "ProTrack5.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack5.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack5.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack5.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack5 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack5.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack5.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack5.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack5.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack5.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack5 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack5.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack5.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack5.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack5.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack5.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack5 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack5.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack6.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack6.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack6.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack6.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack6 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack6.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack6.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack6.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack6.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack6.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack6 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack6.Hue."
+      }
+    },
+    {
+      "path": "ProTrack6.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack6.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack6.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack6.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack6 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack6.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack6.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack6.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack6.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack6.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack6 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack6.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack6.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack6.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack6.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack6.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack6 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack6.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack7.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack7.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack7.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack7.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack7 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack7.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack7.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack7.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack7.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack7.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack7 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack7.Hue."
+      }
+    },
+    {
+      "path": "ProTrack7.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack7.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack7.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack7.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack7 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack7.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack7.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack7.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack7.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack7.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack7 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack7.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack7.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack7.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack7.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack7.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack7 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack7.RotoAccZ."
+      }
+    },
+    {
+      "path": "ProTrack8.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack8.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack8.ColorSlider uses 0..255 with clamp behavior and baseline restore from ProTrack8.ColorSlider.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack8 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack8.ColorSlider."
+      }
+    },
+    {
+      "path": "ProTrack8.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack8.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack8.Hue uses -1..720 with clamp behavior and baseline restore from ProTrack8.Hue.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack8 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack8.Hue."
+      }
+    },
+    {
+      "path": "ProTrack8.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack8.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack8.RotoAccX uses -36000..36000 with clamp behavior and baseline restore from ProTrack8.RotoAccX.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack8 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack8.RotoAccX."
+      }
+    },
+    {
+      "path": "ProTrack8.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack8.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack8.RotoAccY uses -36000..36000 with clamp behavior and baseline restore from ProTrack8.RotoAccY.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack8 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack8.RotoAccY."
+      }
+    },
+    {
+      "path": "ProTrack8.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ProTrack8.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #348 confirmed ProTrack8.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore from ProTrack8.RotoAccZ.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ProTrack8 is a direct ProTrack alias in the loaded show.",
+        "notes": "Runtime evidence used literal ProTrack8.RotoAccZ."
+      }
+    }
+  ]
+}

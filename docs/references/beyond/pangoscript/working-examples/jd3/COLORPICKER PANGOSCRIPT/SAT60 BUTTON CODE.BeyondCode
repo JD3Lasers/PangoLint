@@ -1,0 +1,30 @@
+// SAT60 button — “SAT -60 %” (60 % desaturation)
+OnClick:
+    if (value > 0.5) goto Sat60On
+
+    // Turning OFF: reset to 0 and clear all buttons
+    COLORPICKER.SATSLIDER.Tag = 1
+    COLORPICKER.SAT20.value   = 0
+    COLORPICKER.SAT40.value   = 0
+    COLORPICKER.SAT80.value   = 0
+    COLORPICKER.SAT100.value  = 0
+    COLORPICKER.SATSLIDER.value = 0
+    exit
+
+Sat60On:
+    COLORPICKER.SATSLIDER.Tag = 1
+    // Clear all other increment buttons
+    COLORPICKER.SAT20.value   = 0
+    COLORPICKER.SAT40.value   = 0
+    COLORPICKER.SAT80.value   = 0
+    COLORPICKER.SAT100.value  = 0
+    // Set slider to –60
+    COLORPICKER.SATSLIDER.value = -60
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

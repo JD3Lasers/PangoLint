@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 360,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used literal ZoneAlias boolean-style paths and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "ZoneAlias.Active",
+      "probePath": "ZoneAlias.Active",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Active."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Active."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Active\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Active\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Active\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Active\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Active accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Active."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.BlockZone",
+      "probePath": "ZoneAlias.BlockZone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.BlockZone."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.BlockZone."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.BlockZone\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.BlockZone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.BlockZone\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.BlockZone\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.BlockZone accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.BlockZone."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Mute",
+      "probePath": "ZoneAlias.Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Mute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Mute\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Mute accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Mute."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Visible",
+      "probePath": "ZoneAlias.Visible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Visible."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Visible."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Visible accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Visible."
+      }
+    }
+  ]
+}

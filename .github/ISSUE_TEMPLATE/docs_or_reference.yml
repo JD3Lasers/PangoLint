@@ -1,0 +1,34 @@
+name: Docs Or Reference Site Issue
+description: Report unclear, stale, or broken public documentation.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for the user manual, GitHub Pages site, README, runbooks, or the published PangoScript reference browser.
+  - type: input
+    id: page
+    attributes:
+      label: Page or section
+      placeholder: "Example: manual section 05, reference browser Objects tab, README install section"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or unclear?
+      placeholder: "Describe the broken link, stale wording, missing screenshot, confusing explanation, or incorrect reference text."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Suggested correction
+      placeholder: "What should the docs say or show instead?"
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Include links, screenshots, browser details, or the PangoLint version if relevant.

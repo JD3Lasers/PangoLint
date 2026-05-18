@@ -1,0 +1,17 @@
+// PangoLint expect: unused-variable
+// PangoLint advisory: unused declarations
+// Purpose: verify BEYOND accepts unused declarations,
+// while PangoLint keeps a hygiene hint for unread local variables.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/unused/done (s) "pangolint-candidate-unused-001"
+// PangoLint observed callback: /pangolint/candidate/unused/done (s) "pangolint-candidate-unused-001"
+
+var requestId
+var unusedValue
+
+requestId = "pangolint-candidate-unused-001"
+
+UnusedSection:
+
+OscOutTTS "/pangolint/candidate/unused/done", "s", requestId
+exit

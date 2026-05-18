@@ -1,0 +1,3461 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:abstraction",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Abstraction at WS.0.4.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:abstraction",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Abstraction at WS.0.4.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:abstraction",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Abstraction at WS.0.4.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:abstraction",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Abstraction at WS.0.4.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:abstraction",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Abstraction at WS.0.4.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:abstraction",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Abstraction at WS.0.4.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:abstraction",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Abstraction at WS.0.4.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:abstraction",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.4.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Abstraction at WS.0.4.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.4, the loaded Abstraction cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Classic LD2000 Abstract at WS.0.5.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Classic LD2000 Abstract at WS.0.5.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Classic LD2000 Abstract at WS.0.5.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Classic LD2000 Abstract at WS.0.5.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Classic LD2000 Abstract at WS.0.5.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Classic LD2000 Abstract at WS.0.5.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Classic LD2000 Abstract at WS.0.5.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.5.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Classic LD2000 Abstract at WS.0.5.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:clock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Clock at WS.0.7.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:clock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Clock at WS.0.7.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:clock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Clock at WS.0.7.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:clock",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Clock at WS.0.7.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:clock",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Clock at WS.0.7.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:clock",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Clock at WS.0.7.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:clock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Clock at WS.0.7.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:clock",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.7.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Clock at WS.0.7.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.7, the loaded Clock cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:destination",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Destination at WS.0.17.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:destination",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Destination at WS.0.17.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:destination",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Destination at WS.0.17.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:destination",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Destination at WS.0.17.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:destination",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Destination at WS.0.17.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:destination",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Destination at WS.0.17.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:destination",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Destination at WS.0.17.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:destination",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.17.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Destination at WS.0.17.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.17, the loaded Destination cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for DMX-Image at WS.0.15.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for DMX-Image at WS.0.15.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for DMX-Image at WS.0.15.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for DMX-Image at WS.0.15.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for DMX-Image at WS.0.15.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for DMX-Image at WS.0.15.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for DMX-Image at WS.0.15.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:dmx-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.15.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for DMX-Image at WS.0.15.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.15, the loaded DMX-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for FIFO Image at WS.0.11.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for FIFO Image at WS.0.11.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for FIFO Image at WS.0.11.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for FIFO Image at WS.0.11.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for FIFO Image at WS.0.11.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for FIFO Image at WS.0.11.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for FIFO Image at WS.0.11.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.11.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for FIFO Image at WS.0.11.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Frames (Advanced) at WS.0.1.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Frames (Advanced) at WS.0.1.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Frames (Advanced) at WS.0.1.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Frames (Advanced) at WS.0.1.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Frames (Advanced) at WS.0.1.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Frames (Advanced) at WS.0.1.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Frames (Advanced) at WS.0.1.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:frames-advanced",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.1.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Frames (Advanced) at WS.0.1.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.1, the loaded Frames (Advanced) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Frames (Simple) at WS.0.0.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Frames (Simple) at WS.0.0.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Frames (Simple) at WS.0.0.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Frames (Simple) at WS.0.0.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Frames (Simple) at WS.0.0.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Frames (Simple) at WS.0.0.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Frames (Simple) at WS.0.0.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:frames-simple",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.0.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Frames (Simple) at WS.0.0.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, the loaded Frames (Simple) cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Multi Effect at WS.0.16.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Multi Effect at WS.0.16.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Multi Effect at WS.0.16.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Multi Effect at WS.0.16.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Multi Effect at WS.0.16.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Multi Effect at WS.0.16.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Multi Effect at WS.0.16.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:multi-effect",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.16.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Multi Effect at WS.0.16.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.16, the loaded Multi Effect cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:node-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Node-Image at WS.0.9.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:node-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Node-Image at WS.0.9.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:node-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Node-Image at WS.0.9.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:node-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Node-Image at WS.0.9.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:node-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Node-Image at WS.0.9.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:node-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Node-Image at WS.0.9.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:node-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Node-Image at WS.0.9.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:node-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.9.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Node-Image at WS.0.9.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.9, the loaded Node-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:object-animator",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Object Animator at WS.0.13.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:object-animator",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Object Animator at WS.0.13.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:object-animator",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Object Animator at WS.0.13.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:object-animator",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Object Animator at WS.0.13.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:object-animator",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Object Animator at WS.0.13.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:object-animator",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Object Animator at WS.0.13.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:object-animator",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Object Animator at WS.0.13.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:object-animator",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.13.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Object Animator at WS.0.13.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Parametric-Image at WS.0.6.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Parametric-Image at WS.0.6.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Parametric-Image at WS.0.6.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Parametric-Image at WS.0.6.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Parametric-Image at WS.0.6.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Parametric-Image at WS.0.6.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Parametric-Image at WS.0.6.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Parametric-Image at WS.0.6.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Particles at WS.0.10.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Particles at WS.0.10.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Particles at WS.0.10.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Particles at WS.0.10.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:particles",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Particles at WS.0.10.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:particles",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Particles at WS.0.10.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Particles at WS.0.10.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.10.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Particles at WS.0.10.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Real Time Video Tracer at WS.0.14.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Real Time Video Tracer at WS.0.14.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Real Time Video Tracer at WS.0.14.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Real Time Video Tracer at WS.0.14.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Real Time Video Tracer at WS.0.14.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Real Time Video Tracer at WS.0.14.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Real Time Video Tracer at WS.0.14.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:real-time-video-tracer",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.14.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Real Time Video Tracer at WS.0.14.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.14, the loaded Real Time Video Tracer cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Shape at WS.0.3.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Shape at WS.0.3.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Shape at WS.0.3.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Shape at WS.0.3.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Shape at WS.0.3.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Shape at WS.0.3.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Shape at WS.0.3.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Shape at WS.0.3.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Synthesized Image at WS.0.8.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Synthesized Image at WS.0.8.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Synthesized Image at WS.0.8.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Synthesized Image at WS.0.8.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Synthesized Image at WS.0.8.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Synthesized Image at WS.0.8.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Synthesized Image at WS.0.8.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Synthesized Image at WS.0.8.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Text at WS.0.2.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Text at WS.0.2.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Text at WS.0.2.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Text at WS.0.2.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:text",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Text at WS.0.2.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:text",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Text at WS.0.2.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Text at WS.0.2.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Text at WS.0.2.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.ClickMode",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 6->4, 7->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.ClickMode for Write-Out / Path following at WS.0.12.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ChasePeriod",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10, 100->10, 101->10, 1000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ChasePeriod for Write-Out / Path following at WS.0.12.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockLimit",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.ClockLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockLimit for Write-Out / Path following at WS.0.12.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.ClockShift",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.ClockShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.ClockShift for Write-Out / Path following at WS.0.12.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.EnableClockLimit",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableClockLimit for Write-Out / Path following at WS.0.12.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. WS.N.N.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. WS.N.N.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.EnableMetroLimit",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.EnableMetroLimit for Write-Out / Path following at WS.0.12.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. WS.N.N.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. WS.N.N.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Effect.MetroLimit",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.MetroLimit confirmed -10..10 clamp readbacks: -100->-10, -11->-10, -10->-10, -2->-2, -1->-1, 0->0, 1->1, 10->10, 11->10, 100->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroLimit for Write-Out / Path following at WS.0.12.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    },
+    {
+      "path": "WS.N.N.Effect.MetroShift",
+      "contextId": "cue-type:write-out-path-following",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.12.Effect.MetroShift confirmed -10..10 clamp readbacks: -10000->-10, -100->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 100->10, 10000->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #294 confirmed WS.N.N.Effect.MetroShift for Write-Out / Path following at WS.0.12.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.12, the loaded Write-Out / Path following cue sample. This row applies only to that cue-type context."
+      }
+    }
+  ]
+}

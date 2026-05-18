@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 362,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used populated WS Object Animator and FIFO Image cue paths and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Ani.0.Muted",
+      "probePath": "WS.0.13.Ani.0.Muted",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.Muted."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.Muted."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.Muted = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.Muted = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.Muted = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.Muted = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #362 confirmed WS.N.N.Ani.0.Muted for Object Animator at WS.0.13.Ani.0.Muted accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.PreventReroute",
+      "probePath": "WS.0.13.Ani.0.PreventReroute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.PreventReroute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.PreventReroute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.PreventReroute = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.PreventReroute = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.PreventReroute = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.PreventReroute = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #362 confirmed WS.N.N.Ani.0.PreventReroute for Object Animator at WS.0.13.Ani.0.PreventReroute accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.Solo",
+      "probePath": "WS.0.13.Ani.0.Solo",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.Solo."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.Solo."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.Solo = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.Solo = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.Solo = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.Solo = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #362 confirmed WS.N.N.Ani.0.Solo for Object Animator at WS.0.13.Ani.0.Solo accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AutoRecord",
+      "probePath": "WS.0.11.Image.AutoRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.AutoRecord."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.AutoRecord."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.11.Image.AutoRecord = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.11.Image.AutoRecord = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.11.Image.AutoRecord = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.11.Image.AutoRecord = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #362 confirmed WS.N.N.Image.AutoRecord for FIFO Image at WS.0.11.Image.AutoRecord accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used the populated FIFO Image cell at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.EnableRecord",
+      "probePath": "WS.0.11.Image.EnableRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableRecord."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableRecord."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.11.Image.EnableRecord = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.11.Image.EnableRecord = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.11.Image.EnableRecord = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.11.Image.EnableRecord = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #362 confirmed WS.N.N.Image.EnableRecord for FIFO Image at WS.0.11.Image.EnableRecord accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used the populated FIFO Image cell at WS.0.11."
+      }
+    }
+  ]
+}

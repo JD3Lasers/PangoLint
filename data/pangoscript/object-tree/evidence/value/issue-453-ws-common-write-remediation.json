@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 453,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.0 Frames (Simple) top-level common rows. The bench had no lasers connected. Every sampled write read back the observed baseline, and every restore readback matched the baseline."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.ContainEndScript",
+      "probePath": "WS.0.0.ContainEndScript",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.0.ContainEndScript\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint",
+          "command": "SetProp \"WS.0.0.ContainEndScript\", \"pangolint\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainEndScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainEndScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainEndScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored WS.0.0.ContainEndScript to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.ContainEndScript at WS.0.0.ContainEndScript stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: 0 chars, 9 chars, 32 chars, 254 chars, 255 chars. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.ContainStartScript",
+      "probePath": "WS.0.0.ContainStartScript",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.0.ContainStartScript\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint",
+          "command": "SetProp \"WS.0.0.ContainStartScript\", \"pangolint\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainStartScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainStartScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"WS.0.0.ContainStartScript\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe restored WS.0.0.ContainStartScript to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.ContainStartScript at WS.0.0.ContainStartScript stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: 0 chars, 9 chars, 32 chars, 254 chars, 255 chars. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.CueType",
+      "probePath": "WS.0.0.CueType",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.CueType\", 1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.CueType\", 2",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.0.CueType\", 3",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.0.CueType\", 4",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.CueType\", 10",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.0.CueType to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.CueType at WS.0.0.CueType stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Effect.ChaseTimeMode",
+      "probePath": "WS.0.0.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.Effect.ChaseTimeMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.Effect.ChaseTimeMode to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.Effect.ChaseTimeMode at WS.0.0.Effect.ChaseTimeMode stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Effect.Zone",
+      "probePath": "WS.0.0.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.0.Effect.Zone\", \"\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "Main",
+          "command": "SetProp \"WS.0.0.Effect.Zone\", \"Main\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "Zone 1",
+          "command": "SetProp \"WS.0.0.Effect.Zone\", \"Zone 1\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint",
+          "command": "SetProp \"WS.0.0.Effect.Zone\", \"pangolint\"",
+          "readback": "",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The probe restored WS.0.0.Effect.Zone to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.Effect.Zone at WS.0.0.Effect.Zone stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: 0 chars, 4 chars, 6 chars, 9 chars. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Effect.ZoneMode",
+      "probePath": "WS.0.0.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.Effect.ZoneMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.Effect.ZoneMode to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.Effect.ZoneMode at WS.0.0.Effect.ZoneMode stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX7",
+      "probePath": "WS.0.0.FX7",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.FX7\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.FX7\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.0.FX7\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.0.FX7\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.FX7\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.FX7 to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.FX7 at WS.0.0.FX7 stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX8",
+      "probePath": "WS.0.0.FX8",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.FX8\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.FX8\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.0.FX8\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.0.FX8\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.FX8\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.FX8 to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.FX8 at WS.0.0.FX8 stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.SatShift",
+      "probePath": "WS.0.0.SatShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.0.SatShift\", -10000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.0.SatShift\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.0.SatShift\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.0.SatShift\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.0.SatShift\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.SatShift\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.0.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.0.SatShift\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.0.SatShift\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.0.SatShift\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.0.SatShift\", 10000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.SatShift to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.SatShift at WS.0.0.SatShift stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -10000, -401, -400, -101, -100, -1, 0, 1, 100, 101, 400, 401, 10000. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.VisiblePointsEnd",
+      "probePath": "WS.0.0.VisiblePointsEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", 50",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.0.VisiblePointsEnd\", 101",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.0.VisiblePointsEnd to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.VisiblePointsEnd at WS.0.0.VisiblePointsEnd stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 50, 100, 101. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.VisiblePointsStart",
+      "probePath": "WS.0.0.VisiblePointsStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", 50",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.0.VisiblePointsStart\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.VisiblePointsStart to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #453 confirmed WS.N.N.VisiblePointsStart at WS.0.0.VisiblePointsStart stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 50, 100, 101. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

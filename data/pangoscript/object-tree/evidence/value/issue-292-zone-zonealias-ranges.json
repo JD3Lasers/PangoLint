@@ -1,0 +1,5828 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 292,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. Each shipped row used a concrete Zone.0 path and was restored to the observed baseline after probing."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.FX1",
+      "probePath": "Zone.0.FX1",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2",
+      "probePath": "Zone.0.FX2",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3",
+      "probePath": "Zone.0.FX3",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4",
+      "probePath": "Zone.0.FX4",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5",
+      "probePath": "Zone.0.FX5",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6",
+      "probePath": "Zone.0.FX6",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99,
+          "readback": 99,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "readback": 99,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6 uses -1..99 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1Action",
+      "probePath": "Zone.0.FX1Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1Mute",
+      "probePath": "Zone.0.FX1Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeMulClock",
+      "probePath": "Zone.0.FX1TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeScaleClock",
+      "probePath": "Zone.0.FX1TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeShiftClock",
+      "probePath": "Zone.0.FX1TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeMulMetro",
+      "probePath": "Zone.0.FX1TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeScaleMetro",
+      "probePath": "Zone.0.FX1TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX1TimeShiftMetro",
+      "probePath": "Zone.0.FX1TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX1TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2Action",
+      "probePath": "Zone.0.FX2Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2Mute",
+      "probePath": "Zone.0.FX2Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeMulClock",
+      "probePath": "Zone.0.FX2TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeScaleClock",
+      "probePath": "Zone.0.FX2TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeShiftClock",
+      "probePath": "Zone.0.FX2TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeMulMetro",
+      "probePath": "Zone.0.FX2TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeScaleMetro",
+      "probePath": "Zone.0.FX2TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX2TimeShiftMetro",
+      "probePath": "Zone.0.FX2TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX2TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3Action",
+      "probePath": "Zone.0.FX3Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3Mute",
+      "probePath": "Zone.0.FX3Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeMulClock",
+      "probePath": "Zone.0.FX3TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeScaleClock",
+      "probePath": "Zone.0.FX3TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeShiftClock",
+      "probePath": "Zone.0.FX3TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeMulMetro",
+      "probePath": "Zone.0.FX3TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeScaleMetro",
+      "probePath": "Zone.0.FX3TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX3TimeShiftMetro",
+      "probePath": "Zone.0.FX3TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX3TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4Action",
+      "probePath": "Zone.0.FX4Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4Mute",
+      "probePath": "Zone.0.FX4Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeMulClock",
+      "probePath": "Zone.0.FX4TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeScaleClock",
+      "probePath": "Zone.0.FX4TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeShiftClock",
+      "probePath": "Zone.0.FX4TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeMulMetro",
+      "probePath": "Zone.0.FX4TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeScaleMetro",
+      "probePath": "Zone.0.FX4TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX4TimeShiftMetro",
+      "probePath": "Zone.0.FX4TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX4TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5Action",
+      "probePath": "Zone.0.FX5Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5Mute",
+      "probePath": "Zone.0.FX5Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeMulClock",
+      "probePath": "Zone.0.FX5TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeScaleClock",
+      "probePath": "Zone.0.FX5TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeShiftClock",
+      "probePath": "Zone.0.FX5TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeMulMetro",
+      "probePath": "Zone.0.FX5TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeScaleMetro",
+      "probePath": "Zone.0.FX5TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX5TimeShiftMetro",
+      "probePath": "Zone.0.FX5TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX5TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6Action",
+      "probePath": "Zone.0.FX6Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6Mute",
+      "probePath": "Zone.0.FX6Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeMulClock",
+      "probePath": "Zone.0.FX6TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeScaleClock",
+      "probePath": "Zone.0.FX6TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeShiftClock",
+      "probePath": "Zone.0.FX6TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeMulMetro",
+      "probePath": "Zone.0.FX6TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeScaleMetro",
+      "probePath": "Zone.0.FX6TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX6TimeShiftMetro",
+      "probePath": "Zone.0.FX6TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX6TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7Action",
+      "probePath": "Zone.0.FX7Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7Mute",
+      "probePath": "Zone.0.FX7Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeMulClock",
+      "probePath": "Zone.0.FX7TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeScaleClock",
+      "probePath": "Zone.0.FX7TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeShiftClock",
+      "probePath": "Zone.0.FX7TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeMulMetro",
+      "probePath": "Zone.0.FX7TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeScaleMetro",
+      "probePath": "Zone.0.FX7TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX7TimeShiftMetro",
+      "probePath": "Zone.0.FX7TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX7TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8Action",
+      "probePath": "Zone.0.FX8Action",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8Mute",
+      "probePath": "Zone.0.FX8Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeMulClock",
+      "probePath": "Zone.0.FX8TimeMulClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeScaleClock",
+      "probePath": "Zone.0.FX8TimeScaleClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeShiftClock",
+      "probePath": "Zone.0.FX8TimeShiftClock",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeMulMetro",
+      "probePath": "Zone.0.FX8TimeMulMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeScaleMetro",
+      "probePath": "Zone.0.FX8TimeScaleMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.FX8TimeShiftMetro",
+      "probePath": "Zone.0.FX8TimeShiftMetro",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.FX8TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.HueShift",
+      "probePath": "Zone.0.HueShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "readback": 720,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10000,
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.HueShift uses 0..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Mesh.IndexX",
+      "probePath": "Zone.0.Mesh.IndexX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "mesh index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Mesh.IndexX uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Mesh.IndexY",
+      "probePath": "Zone.0.Mesh.IndexY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "mesh index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Mesh.IndexY uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Muted",
+      "probePath": "Zone.0.Muted",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Muted uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Pan",
+      "probePath": "Zone.0.Pan",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "readback": 400,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Pan uses -400..400 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.PositionZ",
+      "probePath": "Zone.0.PositionZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "readback": 400,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.PositionZ uses -400..400 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.PreviewAsBeams",
+      "probePath": "Zone.0.PreviewAsBeams",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.PreviewAsBeams uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RGBColor",
+      "probePath": "Zone.0.RGBColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "RGB color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.RGBColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoAngleY",
+      "probePath": "Zone.0.RotoAngleY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2880,
+        "max": 2880,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2881,
+          "readback": -2880,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2880,
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "readback": 2880,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.RotoAngleY uses -2880..2880 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoAngleZ",
+      "probePath": "Zone.0.RotoAngleZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2880,
+        "max": 2880,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2881,
+          "readback": -2880,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2880,
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "readback": 2880,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.RotoAngleZ uses -2880..2880 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoSpeedY",
+      "probePath": "Zone.0.RotoSpeedY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1440,
+        "max": 1440,
+        "unit": "rotation speed",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1441,
+          "readback": -1440,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1440,
+          "readback": -1440,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1440,
+          "readback": 1440,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1441,
+          "readback": 1440,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.RotoSpeedY uses -1440..1440 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoSpeedZ",
+      "probePath": "Zone.0.RotoSpeedZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1440,
+        "max": 1440,
+        "unit": "rotation speed",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1441,
+          "readback": -1440,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1440,
+          "readback": -1440,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1440,
+          "readback": 1440,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1441,
+          "readback": 1440,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.RotoSpeedZ uses -1440..1440 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Saturation",
+      "probePath": "Zone.0.Saturation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Saturation uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.SizeZ",
+      "probePath": "Zone.0.SizeZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "readback": 400,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.SizeZ uses -400..400 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.StrobeAcc",
+      "probePath": "Zone.0.StrobeAcc",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.StrobeAcc uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.TestFrame",
+      "probePath": "Zone.0.TestFrame",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "test frame",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99,
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.TestFrame uses 0..2 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Tilt",
+      "probePath": "Zone.0.Tilt",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "readback": 400,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.Tilt uses -400..400 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    },
+    {
+      "objectPath": "Zone.N.VisiblePointStart",
+      "probePath": "Zone.0.VisiblePointStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #292 confirmed Zone.N.VisiblePointStart uses 0..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The loaded show populated Zone.0 for direct object write/readback probing."
+      }
+    }
+  ]
+}

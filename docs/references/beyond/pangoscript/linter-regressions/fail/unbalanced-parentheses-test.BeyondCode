@@ -1,0 +1,18 @@
+// PangoLint expect: unbalanced-parentheses
+// PangoLint candidate: unbalanced parentheses
+// Purpose: verify syntax diagnostics and BEYOND editor error text.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: 'if" - condition is not finished.
+// BEYOND parser location: line 11, text `if ((value = 1) goto Done`
+
+var requestId
+var value
+
+requestId = "pangolint-candidate-unbalanced-parentheses-001"
+value = 1
+
+if ((value = 1) goto Done
+
+Done:
+OscOutTTS "/pangolint/candidate/unbalanced/done", "s", requestId
+exit

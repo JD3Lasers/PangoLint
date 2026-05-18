@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FB3-XXXXX.Connected",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Readbacks confirmed FB3-XXXXX.Connected returns 0 when disconnected and 1 when connected. Out-of-domain writes were not tested because this is hardware connection state."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "DISCONNECTED",
+          "description": "FB3-XXXXX.Connected reads disconnected."
+        },
+        {
+          "value": 1,
+          "label": "CONNECTED",
+          "description": "FB3-XXXXX.Connected reads connected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB3-XXXXX.Connected as a 0/1 hardware connection domain after an operator-supervised disconnect pass.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "The runtime probe used the same connected FB3 hardware root before and after operator-supervised disconnect; the serial-bearing root is redacted in public metadata."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.Connected",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Readbacks confirmed FB4-XXXXX.Connected returns 0 when disconnected and 1 when connected. Out-of-domain writes were not tested because this is hardware connection state."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "DISCONNECTED",
+          "description": "FB4-XXXXX.Connected reads disconnected."
+        },
+        {
+          "value": 1,
+          "label": "CONNECTED",
+          "description": "FB4-XXXXX.Connected reads connected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB4-XXXXX.Connected as a 0/1 hardware connection domain after an operator-supervised disconnect and reconnect pass.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "The runtime probe used the same connected FB4 hardware root before and after operator-supervised reconnect; the serial-bearing root is redacted in public metadata."
+      }
+    }
+  ]
+}

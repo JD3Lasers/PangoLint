@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Master.LCScrollSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "live control scroll speed",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.LCScrollSpeed uses tested -2147483648..1000000 pass-through readbacks with baseline restore."
+    },
+    {
+      "path": "Master.ShowSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "show speed",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.ShowSpeed uses tested -2147483648..1000000 pass-through readbacks with baseline restore."
+    },
+    {
+      "path": "Master.TimecodeShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "timecode shift",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Master.TimecodeShift uses tested -2147483648..1000000 pass-through readbacks with baseline restore."
+    }
+  ]
+}

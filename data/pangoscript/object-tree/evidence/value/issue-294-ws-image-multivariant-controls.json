@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe covered WS image paths with 2 to 5 generated variants and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.Count",
+      "probePath": "WS.0.10.Image.Count",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "image count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Count\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Count\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.Count\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.0.10.Image.Count\", 199",
+          "readback": 199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.Count\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.10.Image.Count\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.Count for Particles at WS.0.10.Image.Count uses 1..200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CursorX",
+      "probePath": "WS.0.3.Image.CursorX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.3.Image.CursorX\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorX for Shape at WS.0.3.Image.CursorX uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CursorY",
+      "probePath": "WS.0.3.Image.CursorY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.3.Image.CursorY\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorY for Shape at WS.0.3.Image.CursorY uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CursorZ",
+      "probePath": "WS.0.3.Image.CursorZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.3.Image.CursorZ\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorZ for Shape at WS.0.3.Image.CursorZ uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Loops",
+      "probePath": "WS.0.3.Image.Loops",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 8,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "loop count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.Loops\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.Loops\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.3.Image.Loops\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetProp \"WS.0.3.Image.Loops\", 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetProp \"WS.0.3.Image.Loops\", 17",
+          "readback": 16,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 8,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.Loops for Shape at WS.0.3.Image.Loops uses 1..16 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.RecordInterval",
+      "probePath": "WS.0.3.Image.RecordInterval",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 30,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 5,
+        "max": 500,
+        "unit": "record interval",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 4",
+          "readback": 5,
+          "behavior": "clamp"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 499,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 499",
+          "readback": 499,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 500,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 500",
+          "readback": 500,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 501,
+          "command": "SetProp \"WS.0.3.Image.RecordInterval\", 501",
+          "readback": 500,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 30,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.RecordInterval for Shape at WS.0.3.Image.RecordInterval uses 5..500 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    }
+  ]
+}

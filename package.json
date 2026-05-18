@@ -1,0 +1,594 @@
+{
+  "name": "pangolint",
+  "displayName": "PangoLint",
+  "description": "Conservative linting, formatting, and BEYOND runtime readback checks for Pangolin BEYOND PangoScript.",
+  "version": "0.4.0",
+  "publisher": "jd3",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JD3Lasers/PangoLint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JD3Lasers/PangoLint/issues"
+  },
+  "homepage": "https://github.com/JD3Lasers/PangoLint#readme",
+  "engines": {
+    "vscode": "^1.118.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Formatters"
+  ],
+  "keywords": [
+    "pangoscript",
+    "pangolin",
+    "beyond",
+    "laser",
+    "lighting",
+    "lint",
+    "BeyondCode"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#0f0d0a",
+    "theme": "dark"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/JD3Lasers/PangoLint?color=informational",
+      "href": "https://github.com/JD3Lasers/PangoLint/blob/main/LICENSE",
+      "description": "License: GPL-3.0-or-later"
+    },
+    {
+      "url": "https://img.shields.io/github/v/release/JD3Lasers/PangoLint?include_prereleases&sort=semver&label=release",
+      "href": "https://github.com/JD3Lasers/PangoLint/releases",
+      "description": "Latest release"
+    }
+  ],
+  "main": "./dist/extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "PangoScript language features work in Restricted Mode. BEYOND network readback checks, live value reads/writes, Talk UDP command batches, and workspace user-object registry writes require a trusted workspace.",
+      "restrictedConfigurations": [
+        "pangolint.beyond.talkHost",
+        "pangolint.beyond.talkPort",
+        "pangolint.beyond.oscListenHost",
+        "pangolint.beyond.oscListenPort",
+        "pangolint.beyond.readbackTimeoutMs",
+        "pangolint.beyond.allowScriptExecution",
+        "pangolint.beyond.confirmRunEachSession",
+        "pangolint.beyond.liveHoverValues"
+      ]
+    },
+    "virtualWorkspaces": {
+      "supported": "limited",
+      "description": "Single-file PangoScript language features work in virtual workspaces. Workspace scans and user-object registry writes require a local file-backed workspace; BEYOND runtime commands also require a trusted workspace and operator-enabled settings."
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "pangoscript",
+        "aliases": [
+          "PangoScript",
+          "Pangolin PangoScript"
+        ],
+        "extensions": [
+          ".BeyondCode"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pangoscript",
+        "scopeName": "source.pangoscript",
+        "path": "./syntaxes/pangoscript.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "pangoscript",
+        "path": "./snippets/pangoscript.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pangolint.validateCurrentScript",
+        "title": "PangoLint: Validate Current Script"
+      },
+      {
+        "command": "pangolint.checkBeyondConnection",
+        "title": "PangoLint: Test BEYOND Connection"
+      },
+      {
+        "command": "pangolint.addUserObject",
+        "title": "PangoLint: Add User Object"
+      },
+      {
+        "command": "pangolint.removeUserObject",
+        "title": "PangoLint: Remove User Object"
+      },
+      {
+        "command": "pangolint.showUserObjects",
+        "title": "PangoLint: Show User Objects"
+      },
+      {
+        "command": "pangolint.runScript",
+        "title": "PangoLint: Send Talk Batch to BEYOND",
+        "icon": "$(play)"
+      },
+      {
+        "command": "pangolint.runSelection",
+        "title": "PangoLint: Send Selection as Talk Batch"
+      },
+      {
+        "command": "pangolint.fetchObjectValue",
+        "title": "PangoLint: Fetch object value from BEYOND"
+      },
+      {
+        "command": "pangolint.setObjectValue",
+        "title": "PangoLint: Set object value on BEYOND"
+      },
+      {
+        "command": "pangolint.replayLastScript",
+        "title": "PangoLint: Re-send last Talk Batch",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "pangolint.pinToWatcher",
+        "title": "PangoLint: Pin property to BEYOND Watcher",
+        "icon": "$(pin)"
+      },
+      {
+        "command": "pangolint.unpinFromWatcher",
+        "title": "PangoLint: Unpin from Watcher",
+        "icon": "$(close)"
+      },
+      {
+        "command": "pangolint.refreshWatcher",
+        "title": "PangoLint: Refresh Watcher",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "pangolint.clearWatcher",
+        "title": "PangoLint: Clear all watched properties",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "pangolint.validateObjectsAgainstBeyond",
+        "title": "PangoLint: Validate objects in this file against BEYOND",
+        "icon": "$(check)"
+      },
+      {
+        "command": "pangolint.sidebar.refresh",
+        "title": "PangoLint: Refresh sidebar",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "pangolint.sidebar.insertAtCursor",
+        "title": "PangoLint: Insert at cursor (sidebar)"
+      },
+      {
+        "command": "pangolint.sidebar.copySignature",
+        "title": "PangoLint: Copy signature (sidebar)"
+      },
+      {
+        "command": "pangolint.sidebar.revealDiagnostic",
+        "title": "PangoLint: Reveal diagnostic (sidebar)"
+      },
+      {
+        "command": "pangolint.sidebar.openDiagnosticDocs",
+        "title": "PangoLint: Open diagnostic docs (sidebar)"
+      },
+      {
+        "command": "pangolint.sidebar.filterCommands",
+        "title": "PangoLint: Filter commands…",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "pangolint.sidebar.clearFilter",
+        "title": "PangoLint: Clear command filter",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "pangolint.sidebar.insertSelectedCommand",
+        "title": "PangoLint: Insert selected command at cursor"
+      },
+      {
+        "command": "pangolint.sidebar.showCommand",
+        "title": "PangoLint: Show command in sidebar"
+      },
+      {
+        "command": "pangolint.sidebar.showCommandAtCursor",
+        "title": "PangoLint: View command details in sidebar"
+      },
+      {
+        "command": "pangolint.openReferenceSite",
+        "title": "PangoLint: Open PangoScript Reference",
+        "icon": "$(book)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pangolint",
+          "title": "PangoLint",
+          "icon": "media/icon-activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "pangolint": [
+        {
+          "id": "pangolint.commandsView",
+          "name": "Commands",
+          "type": "webview",
+          "icon": "$(symbol-function)",
+          "contextualTitle": "PangoLint"
+        },
+        {
+          "id": "pangolint.objectsView",
+          "name": "Objects",
+          "type": "webview",
+          "icon": "$(symbol-class)",
+          "contextualTitle": "PangoLint"
+        },
+        {
+          "id": "pangolint.diagnosticsView",
+          "name": "Diagnostics",
+          "icon": "$(warning)",
+          "contextualTitle": "PangoLint"
+        },
+        {
+          "id": "pangolintWatcher",
+          "name": "BEYOND Watcher",
+          "icon": "$(eye)",
+          "contextualTitle": "PangoLint"
+        }
+      ]
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "pangolint.addUserObject",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.insertAtCursor",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.copySignature",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.revealDiagnostic",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.openDiagnosticDocs",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.insertSelectedCommand",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.showCommand",
+          "when": "false"
+        },
+        {
+          "command": "pangolint.sidebar.showCommandAtCursor",
+          "when": "resourceLangId == pangoscript"
+        },
+        {
+          "command": "pangolint.removeUserObject",
+          "when": "isWorkspaceTrusted"
+        },
+        {
+          "command": "pangolint.checkBeyondConnection",
+          "when": "isWorkspaceTrusted"
+        },
+        {
+          "command": "pangolint.runScript",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution"
+        },
+        {
+          "command": "pangolint.runSelection",
+          "when": "resourceLangId == pangoscript && editorHasSelection && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution"
+        },
+        {
+          "command": "pangolint.fetchObjectValue",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted"
+        },
+        {
+          "command": "pangolint.setObjectValue",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution"
+        },
+        {
+          "command": "pangolint.replayLastScript",
+          "when": "isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution"
+        },
+        {
+          "command": "pangolint.validateObjectsAgainstBeyond",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted"
+        },
+        {
+          "command": "pangolint.refreshWatcher",
+          "when": "isWorkspaceTrusted"
+        },
+        {
+          "command": "pangolint.unpinFromWatcher",
+          "when": "false"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "pangolint.runScript",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "pangolint.runSelection",
+          "when": "resourceLangId == pangoscript && editorHasSelection && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution",
+          "group": "1_modification"
+        },
+        {
+          "command": "pangolint.fetchObjectValue",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted",
+          "group": "9_pangolint@1"
+        },
+        {
+          "command": "pangolint.setObjectValue",
+          "when": "resourceLangId == pangoscript && isWorkspaceTrusted && config.pangolint.beyond.allowScriptExecution",
+          "group": "9_pangolint@2"
+        },
+        {
+          "command": "pangolint.pinToWatcher",
+          "when": "resourceLangId == pangoscript",
+          "group": "9_pangolint@3"
+        },
+        {
+          "command": "pangolint.sidebar.showCommandAtCursor",
+          "when": "resourceLangId == pangoscript",
+          "group": "9_pangolint@4"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "pangolint.refreshWatcher",
+          "when": "view == pangolintWatcher && isWorkspaceTrusted",
+          "group": "navigation@1"
+        },
+        {
+          "command": "pangolint.clearWatcher",
+          "when": "view == pangolintWatcher",
+          "group": "navigation@2"
+        },
+        {
+          "command": "pangolint.openReferenceSite",
+          "when": "view == pangolint.commandsView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "pangolint.sidebar.filterCommands",
+          "when": "view == pangolint.commandsView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "pangolint.sidebar.clearFilter",
+          "when": "view == pangolint.commandsView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "pangolint.sidebar.refresh",
+          "when": "view == pangolint.commandsView",
+          "group": "navigation@4"
+        },
+        {
+          "command": "pangolint.openReferenceSite",
+          "when": "view == pangolint.objectsView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "pangolint.sidebar.refresh",
+          "when": "view == pangolint.objectsView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "pangolint.sidebar.refresh",
+          "when": "view == pangolint.diagnosticsView",
+          "group": "navigation@1"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "pangolint.unpinFromWatcher",
+          "when": "view == pangolintWatcher && viewItem == watchedProperty",
+          "group": "inline"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "pangolint.sidebar.insertSelectedCommand",
+        "key": "ctrl+enter",
+        "mac": "cmd+enter",
+        "when": "focusedView == pangolint.commandsView && editorIsOpen && resourceLangId == pangoscript"
+      }
+    ],
+    "viewsWelcome": [
+      {
+        "view": "pangolint.commandsView",
+        "contents": "No commands match the current filter.\n\n[Clear filter](command:pangolint.sidebar.clearFilter)"
+      },
+      {
+        "view": "pangolint.diagnosticsView",
+        "contents": "Open a `.BeyondCode` file to see diagnostics for the active document.\n\n[Refresh](command:pangolint.sidebar.refresh)"
+      }
+    ],
+    "configurationDefaults": {
+      "[pangoscript]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggest.showWords": false,
+        "files.eol": "\r\n"
+      }
+    },
+    "configuration": {
+      "title": "PangoLint",
+      "properties": {
+        "pangolint.beyond.talkHost": {
+          "type": "string",
+          "scope": "machine",
+          "default": "127.0.0.1",
+          "description": "BEYOND host for Talk UDP commands."
+        },
+        "pangolint.beyond.talkPort": {
+          "type": "number",
+          "scope": "machine",
+          "default": 16062,
+          "description": "BEYOND Talk UDP port."
+        },
+        "pangolint.beyond.oscListenHost": {
+          "type": "string",
+          "scope": "machine",
+          "default": "0.0.0.0",
+          "description": "Local interface used for OSC callbacks from BEYOND."
+        },
+        "pangolint.beyond.oscListenPort": {
+          "type": "number",
+          "scope": "machine",
+          "default": 7000,
+          "description": "Local UDP port used for OSC callbacks from BEYOND."
+        },
+        "pangolint.beyond.readbackTimeoutMs": {
+          "type": "number",
+          "scope": "machine",
+          "default": 3000,
+          "description": "Timeout for BEYOND OSC readback callbacks."
+        },
+        "pangolint.beyond.allowScriptExecution": {
+          "type": "boolean",
+          "scope": "machine",
+          "default": false,
+          "description": "Allow PangoLint to send straight-line Talk UDP command batches to BEYOND. Control-flow scripts are blocked; paste labels/goto/if/loops/waits/exit scripts directly into BEYOND's PangoScript editor. WARNING: commands run with full BEYOND permissions including projector / output / geometry commands. Disabled by default."
+        },
+        "pangolint.beyond.confirmRunEachSession": {
+          "type": "boolean",
+          "scope": "machine",
+          "default": true,
+          "description": "Show a confirm modal before each script-run command (not just the first per session). Recommended on for safety."
+        },
+        "pangolint.beyond.liveHoverValues": {
+          "type": "boolean",
+          "scope": "machine",
+          "default": false,
+          "description": "Augment property-path hover tooltips with the current value fetched from BEYOND via Talk UDP / OSC readback. Cached for 30 seconds per path. Off by default — generates network traffic on every hover."
+        },
+        "pangolint.codeLens.labelReferences": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a 'N references' code lens above every label declaration. Click to open the References peek view. Off by default to keep the editor uncluttered for short scripts."
+        },
+        "pangolint.folderScopedUniverses": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-discover universe panels by scanning sibling .BeyondCode files in trusted workspaces. When an unknown property-path root appears in 2+ files in the same parent folder, treat it as a registered universe (inherits UniversePanel) without explicit classification. Mirrors BEYOND's workspace-scoped object visibility."
+        },
+        "pangolint.diagnostics.highlightStyle": {
+          "type": "string",
+          "enum": [
+            "squiggleOnly",
+            "background",
+            "lineBackground"
+          ],
+          "enumDescriptions": [
+            "Only the default VSCode squiggle (no extra highlight).",
+            "Tint the diagnostic range with a translucent severity-colored background.",
+            "Tint the whole line and add a 2px severity-colored left border (most visible)."
+          ],
+          "default": "lineBackground",
+          "description": "How to visually emphasize PangoLint diagnostics in the editor. Layered on top of the standard squiggle and gutter icon."
+        },
+        "pangolint.diagnostics.inlineMessages": {
+          "type": "string",
+          "enum": [
+            "off",
+            "warningsAndAbove",
+            "all"
+          ],
+          "enumDescriptions": [
+            "Don't render diagnostic messages inline.",
+            "Show inline messages for errors and warnings only.",
+            "Show inline messages for every diagnostic (errors, warnings, info, hints)."
+          ],
+          "default": "off",
+          "description": "Append the diagnostic message after the line of code (Error Lens style). Useful when you want to read the issue without hovering, but adds visual noise on dense files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "archive:source": "git archive --format=zip --output ../PangoLint-source.zip HEAD",
+    "build:icon": "node scripts/buildIcon.cjs",
+    "build:knowledge": "esbuild scripts/generateKnowledgeBase.ts --bundle --platform=node --format=cjs --outfile=dist/generateKnowledgeBase.cjs && node dist/generateKnowledgeBase.cjs",
+    "build:object-properties": "esbuild scripts/generateObjectPropertyIndex.ts --bundle --platform=node --format=cjs --outfile=dist/generateObjectPropertyIndex.cjs && node dist/generateObjectPropertyIndex.cjs",
+    "build:object-behavior-audit": "esbuild scripts/generateObjectBehaviorAudit.ts --bundle --platform=node --format=cjs --outfile=dist/generateObjectBehaviorAudit.cjs && node dist/generateObjectBehaviorAudit.cjs",
+    "build:object-data-quality-audit": "esbuild scripts/generateObjectDataQualityAudit.ts --bundle --platform=node --format=cjs --outfile=dist/generateObjectDataQualityAudit.cjs && node dist/generateObjectDataQualityAudit.cjs",
+    "build:mcp-control-reference": "esbuild scripts/generateMcpControlReference.ts --bundle --platform=node --format=cjs --outfile=dist/generateMcpControlReference.cjs && node dist/generateMcpControlReference.cjs",
+    "build:known-properties": "esbuild scripts/generateKnownProperties.ts --bundle --platform=node --format=cjs --outfile=dist/generateKnownProperties.cjs && node dist/generateKnownProperties.cjs",
+    "build:reference": "esbuild scripts/buildReferenceSite.ts --bundle --platform=node --format=cjs --outfile=dist/buildReferenceSite.cjs && node dist/buildReferenceSite.cjs",
+    "compile": "tsc --noEmit && tsc --noEmit -p tests/tsconfig.json && tsc --noEmit -p src/sidebar/view/webview/bundle/tsconfig.json && tsc --noEmit -p src/sidebar/view/webview/objects-bundle/tsconfig.json && tsc --noEmit -p src/reference/bundle/tsconfig.json && esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.js && npm run build:sidebar-bundle && npm run build:objects-bundle && npm run build:reference",
+    "build:sidebar-bundle": "esbuild src/sidebar/view/webview/bundle/main.ts --bundle --platform=browser --format=esm --target=es2022 --outfile=dist/sidebar-commands-webview.js",
+    "build:objects-bundle": "esbuild src/sidebar/view/webview/objects-bundle/main.ts --bundle --platform=browser --format=esm --target=es2022 --outfile=dist/sidebar-objects-webview.js",
+    "compile:tests": "tsc -p tsconfig.test.json",
+    "package:vsix": "npm run check:public && vsce package --no-dependencies && node scripts/writeVsixSha256.cjs",
+    "package:mcp": "npm --workspace mcp run package:tarball",
+    "release:version": "node scripts/releaseVersion.cjs",
+    "release:preflight": "node scripts/checkReleasePreflight.cjs",
+    "lint": "biome check src tests scripts mcp/src mcp/tests",
+    "lint:fix": "biome check --write src tests scripts mcp/src mcp/tests",
+    "lint:examples": "esbuild scripts/lintCorpus.ts --bundle --platform=node --format=cjs --outfile=dist/lintCorpus.cjs && node dist/lintCorpus.cjs",
+    "validate:object-range-evidence": "esbuild scripts/validateObjectRangeEvidence.ts --bundle --platform=node --format=cjs --outfile=dist/validateObjectRangeEvidence.cjs && node dist/validateObjectRangeEvidence.cjs",
+    "report:gaps": "esbuild scripts/reportCatalogGaps.ts --bundle --platform=node --format=cjs --outfile=dist/reportCatalogGaps.cjs && node dist/reportCatalogGaps.cjs",
+    "test": "vitest run",
+    "test:extension-host": "npm run compile && npm run compile:tests && vscode-test",
+    "verify:package": "npm run compile && esbuild scripts/verifyPackageContents.ts --bundle --platform=node --format=cjs --outfile=dist/verifyPackageContents.cjs && node dist/verifyPackageContents.cjs",
+    "check:mcp": "npm --workspace mcp run verify:tarball",
+    "vscode:prepublish": "npm run compile",
+    "audit:prod": "npm audit --omit=dev",
+    "check:public": "npm run compile && npm run lint && npm test && npm run lint:examples && npm run verify:package",
+    "check:release": "npm run check:public && npm run check:mcp",
+    "check": "npm run build:knowledge && npm run build:mcp-control-reference && npm run build:object-data-quality-audit && npm run check:public && npm run check:mcp"
+  },
+  "workspaces": [
+    "mcp"
+  ],
+  "overrides": {
+    "diff": "^8.0.3",
+    "serialize-javascript": "^7.0.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.0.0",
+    "@types/vscode": "^1.118.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.1",
+    "esbuild": "^0.28.0",
+    "fuse.js": "^7.3.0",
+    "mocha": "^11.7.5",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.3.2"
+  }
+}

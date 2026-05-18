@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Status.CpuUseLong",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "Status.CpuUseLong",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.CpuUseLong did not change the status readback. This row remains readback-only after write attempts."
+    },
+    {
+      "path": "Status.CpuUseShort",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "Status.CpuUseShort",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.CpuUseShort did not change the status readback. This row remains readback-only after write attempts."
+    },
+    {
+      "path": "Status.Projector.Count",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Status.Projector.Count",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.Count did not change the status readback. This row remains readback-only after write attempts."
+    },
+    {
+      "path": "Status.Projector.N.Connected",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Status.Projector.0.Connected",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Connected did not change the status readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Status.Projector.N uses BEYOND's projector status index. The probe used Status.Projector.0.",
+        "notes": "This readback-only batch covers the current projector status row exposed by the local test bench. It does not infer writable ranges."
+      }
+    },
+    {
+      "path": "Status.Projector.N.FPS",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "Status.Projector.0.FPS",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.FPS did not change the status readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Status.Projector.N uses BEYOND's projector status index. The probe used Status.Projector.0.",
+        "notes": "This readback-only batch covers the current projector status row exposed by the local test bench. It does not infer writable ranges."
+      }
+    },
+    {
+      "path": "Status.Projector.N.Model",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "Status.Projector.0.Model",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Model did not change the status readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Status.Projector.N uses BEYOND's projector status index. The probe used Status.Projector.0.",
+        "notes": "This readback-only batch covers the current projector status row exposed by the local test bench. It does not infer writable ranges."
+      }
+    },
+    {
+      "path": "Status.Projector.N.Points",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Status.Projector.0.Points",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Points did not change the status readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Status.Projector.N uses BEYOND's projector status index. The probe used Status.Projector.0.",
+        "notes": "This readback-only batch covers the current projector status row exposed by the local test bench. It does not infer writable ranges."
+      }
+    },
+    {
+      "path": "Status.Projector.N.Serial",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "Status.Projector.0.Serial",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Serial did not change the status readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Status.Projector.N uses BEYOND's projector status index. The probe used Status.Projector.0.",
+        "notes": "This readback-only batch covers the current projector status row exposed by the local test bench. It does not infer writable ranges."
+      }
+    }
+  ]
+}

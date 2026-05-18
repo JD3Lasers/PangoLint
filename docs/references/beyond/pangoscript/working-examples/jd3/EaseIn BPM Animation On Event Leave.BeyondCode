@@ -1,0 +1,16 @@
+///////////////////////////////////////////////////////////////////////
+//Put script below On Event Leave//
+
+
+
+
+// Interrupt the animation of the Master.BPM property
+//DeletePropAni "Master.BPM"
+
+CodeName "Interrupt Animation"
+AutoStart
+
+// Stop the animation by setting the control variable to FALSE
+animationRunning = FALSE
+SetBPM 128
+exit

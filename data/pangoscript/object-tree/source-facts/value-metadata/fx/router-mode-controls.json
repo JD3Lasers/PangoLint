@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FX.N.N.N.RouterMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "router mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 145 generated FX.N.N.N.RouterMode concrete effect paths confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 8->4, 99->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #375 confirmed FX.N.N.N.RouterMode across all 145 generated QuickFX effect paths uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N.N uses QuickFX panel, cell, and effect indices.",
+        "notes": "The runtime probe covered all 145 generated concrete QuickFX effect paths in the loaded show."
+      }
+    }
+  ]
+}

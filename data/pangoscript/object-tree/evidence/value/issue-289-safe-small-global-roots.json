@@ -1,0 +1,2201 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime probed through PangoLint MCP runtime at 127.0.0.1:16062 with OSC readback on port 7000."
+  },
+  "parentIssue": 216,
+  "batchIssue": 289,
+  "entries": [
+    {
+      "objectPath": "Config.CaptureAsLocal",
+      "probePath": "Config.CaptureAsLocal",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline 0."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Config.CaptureAsLocal.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.FocusMidiClicks",
+      "probePath": "Config.FocusMidiClicks",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline 0."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Config.FocusMidiClicks.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.HideOutputPreviewInMutedProjectionZones",
+      "probePath": "Config.HideOutputPreviewInMutedProjectionZones",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline 1."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Config.HideOutputPreviewInMutedProjectionZones.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.ShowAudioTab",
+      "probePath": "Config.ShowAudioTab",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline 0."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Config.ShowAudioTab.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Visible",
+      "probePath": "VideoOutput1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline 0."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for VideoOutput1.Visible.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Location.N.X",
+      "probePath": "Location.0.X",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0.5,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.5,
+        "notes": "Final readback matched the observed baseline 0.5."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Location.N.X.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0.X",
+        "notes": "Runtime probe used Location.0 in the loaded show fixture. Location indices are show-dependent."
+      }
+    },
+    {
+      "objectPath": "Location.N.Y",
+      "probePath": "Location.0.Y",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0.5,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.5,
+        "notes": "Final readback matched the observed baseline 0.5."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Location.N.Y.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0.Y",
+        "notes": "Runtime probe used Location.0 in the loaded show fixture. Location indices are show-dependent."
+      }
+    },
+    {
+      "objectPath": "Location.N.Z",
+      "probePath": "Location.0.Z",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0.5,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.5,
+        "notes": "Final readback matched the observed baseline 0.5."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Location.N.Z.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0.Z",
+        "notes": "Runtime probe used Location.0 in the loaded show fixture. Location indices are show-dependent."
+      }
+    },
+    {
+      "objectPath": "Location.N.Name",
+      "probePath": "Location.0.Name",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "1",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "Location range probe",
+          "readback": "Location range probe",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "readback": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+          "readback": "1",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "1",
+        "notes": "Final readback matched the observed baseline \"1\"."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for Location.N.Name.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0.Name",
+        "notes": "Runtime probe used Location.0 in the loaded show fixture. Location indices are show-dependent."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.Active",
+      "probePath": "TouchPoints.0.Active",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline 0."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 verified manual-ready metadata for TouchPoints.N.Active.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0.Active",
+        "notes": "Runtime probe used TouchPoints.0 with TouchPoints.Count baseline 10."
+      }
+    },
+    {
+      "objectPath": "CoreManager.OnlineMode",
+      "probePath": "CoreManager.OnlineMode",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent for this deferred entry."
+      },
+      "evidenceNote": "Readback-only probe on 2026-05-13 did not verify manual-ready range metadata for CoreManager.OnlineMode.",
+      "deferReason": "Readback-only baseline was collected, but this safe batch did not write-probe online mode.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.AnimationSliderMax",
+      "probePath": "Config.AnimationSliderMax",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 400,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 400,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred Config.AnimationSliderMax because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified maximum.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.AnimationSliderMin",
+      "probePath": "Config.AnimationSliderMin",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred Config.AnimationSliderMin because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified minimum or maximum.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.FxRowCount",
+      "probePath": "Config.FxRowCount",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 8,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": 8,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "readback": 8,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "readback": 8,
+          "behavior": "unknown"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 8,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "readback": 8,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 8,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred Config.FxRowCount because no manual-ready range or domain was verified.",
+      "deferReason": "Direct writes stayed at the observed baseline 8, so no assignable range or domain was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.SizeSliderMax",
+      "probePath": "Config.SizeSliderMax",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred Config.SizeSliderMax because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified maximum.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Location.N.Color",
+      "probePath": "Location.0.Color",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1316044,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1316044,
+          "readback": 1316044,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "readback": 16777216,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 20000000,
+          "readback": 20000000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1316044,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred Location.N.Color because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified color integer maximum.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0.Color",
+        "notes": "Concrete indexed path was used for this deferred probe."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.X",
+      "probePath": "TouchPoints.0.X",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 2,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred TouchPoints.N.X because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified coordinate range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0.X",
+        "notes": "Concrete indexed path was used for this deferred probe."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.Y",
+      "probePath": "TouchPoints.0.Y",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "readback": 2,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred TouchPoints.N.Y because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified coordinate range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0.Y",
+        "notes": "Concrete indexed path was used for this deferred probe."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.WindowX",
+      "probePath": "TouchPoints.0.WindowX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred TouchPoints.N.WindowX because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified pixel range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0.WindowX",
+        "notes": "Concrete indexed path was used for this deferred probe."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.WindowY",
+      "probePath": "TouchPoints.0.WindowY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred TouchPoints.N.WindowY because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified pixel range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0.WindowY",
+        "notes": "Concrete indexed path was used for this deferred probe."
+      }
+    },
+    {
+      "objectPath": "VideoOutput1.Left",
+      "probePath": "VideoOutput1.Left",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred VideoOutput1.Left because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified horizontal position range.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Top",
+      "probePath": "VideoOutput1.Top",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred VideoOutput1.Top because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span passed through without a verified vertical position range.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Width",
+      "probePath": "VideoOutput1.Width",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 393,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "readback": 48,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "readback": 48,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 393,
+          "readback": 393,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 393,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred VideoOutput1.Width because no manual-ready range or domain was verified.",
+      "deferReason": "A minimum of 48 was observed, but no maximum was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Height",
+      "probePath": "VideoOutput1.Height",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 275,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "readback": 48,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "readback": 48,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 275,
+          "readback": 275,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 275,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred VideoOutput1.Height because no manual-ready range or domain was verified.",
+      "deferReason": "A minimum of 48 was observed, but no maximum was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.BeamCueLimit",
+      "probePath": "MultiCue.BeamCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.BeamCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.DmxCueLimit",
+      "probePath": "MultiCue.DmxCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.DmxCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.FlashCueLimit",
+      "probePath": "MultiCue.FlashCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.FlashCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.HoldCueLimit",
+      "probePath": "MultiCue.HoldCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.HoldCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.PerGridLimit",
+      "probePath": "MultiCue.PerGridLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 8,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 8,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.PerGridLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.PerZoneLimit",
+      "probePath": "MultiCue.PerZoneLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.PerZoneLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.ScriptCueLimit",
+      "probePath": "MultiCue.ScriptCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.ScriptCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.ShowCueLimit",
+      "probePath": "MultiCue.ShowCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred MultiCue.ShowCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.BeamCueLimit",
+      "probePath": "OneCue.BeamCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.BeamCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.DmxCueLimit",
+      "probePath": "OneCue.DmxCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.DmxCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.FlashCueLimit",
+      "probePath": "OneCue.FlashCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.FlashCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.HoldCueLimit",
+      "probePath": "OneCue.HoldCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.HoldCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.PerGridLimit",
+      "probePath": "OneCue.PerGridLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.PerGridLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.PerZoneLimit",
+      "probePath": "OneCue.PerZoneLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.PerZoneLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.ScriptCueLimit",
+      "probePath": "OneCue.ScriptCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.ScriptCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.ShowCueLimit",
+      "probePath": "OneCue.ShowCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 8,
+          "readback": 8,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 9,
+          "readback": 9,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Final readback matched the observed baseline after restore."
+      },
+      "evidenceNote": "Same-batch write/readback probe on 2026-05-13 deferred OneCue.ShowCueLimit because no manual-ready range or domain was verified.",
+      "deferReason": "The tested span from -1 through 100 passed through, so no bounded range was verified.",
+      "locationAware": false
+    }
+  ]
+}

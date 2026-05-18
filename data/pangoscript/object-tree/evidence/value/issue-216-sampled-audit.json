@@ -1,0 +1,3454 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-17T02:43:31.166Z",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Final seeded sampled audit for issue #216. The probe used command write/readback attempts across boolean, integer, number, string, clamp, pass-through, no-op, deferred readback-only, and location-aware Object Tree rows, including negative numeric samples, values above 100000, and 254-character strings. Each sampled write used an observed baseline restore."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.PhysicsActive",
+      "probePath": "WS.0.3.Image.PhysicsActive",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.PhysicsActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.PhysicsActive."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.3.Image.PhysicsActive\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.3.Image.PhysicsActive\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.3.Image.PhysicsActive\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.3.Image.PhysicsActive\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.3.Image.PhysicsActive to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.PhysicsActive with command write/readback on WS.0.3.Image.PhysicsActive; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.EnableMetroLimit",
+      "probePath": "WS.1.23.Image.Effect.EnableMetroLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.Effect.EnableMetroLimit."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.23.Image.Effect.EnableMetroLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.23.Image.Effect.EnableMetroLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.23.Image.Effect.EnableMetroLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.1.23.Image.Effect.EnableMetroLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.1.23.Image.Effect.EnableMetroLimit to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Effect.EnableMetroLimit with command write/readback on WS.1.23.Image.Effect.EnableMetroLimit; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.23 Parametric-Image vector grid",
+        "notes": "The runtime probe used the populated Parametric-Image vector grid cell at WS.1.23."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.EnableClockLimit",
+      "probePath": "WS.1.27.Image.Effect.EnableClockLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.Effect.EnableClockLimit."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.27.Image.Effect.EnableClockLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.27.Image.Effect.EnableClockLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.27.Image.Effect.EnableClockLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.1.27.Image.Effect.EnableClockLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.1.27.Image.Effect.EnableClockLimit to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Effect.EnableClockLimit with command write/readback on WS.1.27.Image.Effect.EnableClockLimit; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.27 Parametric-Image random dots",
+        "notes": "The runtime probe used the populated Parametric-Image random dots cell at WS.1.27."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Oscillator.Absinvert",
+      "probePath": "FX.0.0.11.Oscillator.Absinvert",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FX.N.N.N.Oscillator.Absinvert to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FX.N.N.N.Oscillator.Absinvert to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.11.Oscillator.Absinvert\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.11.Oscillator.Absinvert\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.11.Oscillator.Absinvert\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FX.0.0.11.Oscillator.Absinvert\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored FX.0.0.11.Oscillator.Absinvert to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.Oscillator.Absinvert with command write/readback on FX.0.0.11.Oscillator.Absinvert; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.11 Hue",
+        "notes": "The runtime probe used the populated Hue QuickFX effect at FX.0.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX3Mute",
+      "probePath": "WS.0.12.FX3Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.FX3Mute mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Mute WS.N.N.FX3Mute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.12.FX3Mute\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.12.FX3Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.12.FX3Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.12.FX3Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.12.FX3Mute to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX3Mute with command write/readback on WS.0.12.FX3Mute; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.12 Write-Out / Path following",
+        "notes": "The runtime probe used the populated Write-Out / Path following cue cell at WS.0.12."
+      }
+    },
+    {
+      "objectPath": "Master.FX6Mute",
+      "probePath": "Master.FX6Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Master.FX6Mute\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.FX6Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.FX6Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Master.FX6Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Master.FX6Mute to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Master.FX6Mute with command write/readback on Master.FX6Mute; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "WS.N.N.FX1Mute",
+      "probePath": "WS.0.17.FX1Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.FX1Mute mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Mute WS.N.N.FX1Mute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.17.FX1Mute\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.17.FX1Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.17.FX1Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.17.FX1Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.17.FX1Mute to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX1Mute with command write/readback on WS.0.17.FX1Mute; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.17 Destination",
+        "notes": "The runtime probe used the populated Destination cue cell at WS.0.17."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.TimeEnabled",
+      "probePath": "FX.2.0.4.TimeEnabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FX.N.N.N.TimeEnabled to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FX.N.N.N.TimeEnabled to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.2.0.4.TimeEnabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.2.0.4.TimeEnabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.2.0.4.TimeEnabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FX.2.0.4.TimeEnabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored FX.2.0.4.TimeEnabled to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.TimeEnabled with command write/readback on FX.2.0.4.TimeEnabled; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.2.0.4 Palette",
+        "notes": "The runtime probe used the populated Palette QuickFX effect at FX.2.0.4."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.Name",
+      "probePath": "FX.1.4.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FX.1.4.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"FX.1.4.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "command": "SetProp \"FX.1.4.Name\", \"SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\"",
+          "readback": "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored FX.1.4.Name to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.Name with command write/readback on FX.1.4.Name; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.Name",
+      "probePath": "WS.1.25.Image.Effect.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.1.25.Image.Effect.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"WS.1.25.Image.Effect.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"WS.1.25.Image.Effect.Name\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored WS.1.25.Image.Effect.Name to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Effect.Name with command write/readback on WS.1.25.Image.Effect.Name; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.25 Parametric Image grid point oriented",
+        "notes": "The runtime probe used the populated Parametric Image grid point oriented object path at WS.1.25.Image.Effect.Name."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Caption",
+      "probePath": "WS.0.12.Caption",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "Cue 13",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.12.Caption\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"WS.0.12.Caption\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"WS.0.12.Caption\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "Cue 13",
+        "notes": "The audit restored WS.0.12.Caption to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Caption with command write/readback on WS.0.12.Caption; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.12 Write-Out / Path Following",
+        "notes": "The runtime probe used the populated Write-Out / Path Following object path at WS.0.12.Caption."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Webcam1.Caption",
+      "probePath": "Universe.0.Webcam1.Caption",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"Universe.0.Webcam1.Caption\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"Universe.0.Webcam1.Caption\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"Universe.0.Webcam1.Caption\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored Universe.0.Webcam1.Caption to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Universe.N.Webcam1.Caption with command write/readback on Universe.0.Webcam1.Caption; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Webcam1.Caption",
+        "notes": "The runtime probe used Universe.0.Webcam1.Caption, the loaded Universe string path for Universe.N.Webcam1."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Effect.Name",
+      "probePath": "WS.0.8.Effect.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.8.Effect.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"WS.0.8.Effect.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"WS.0.8.Effect.Name\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored WS.0.8.Effect.Name to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Effect.Name with command write/readback on WS.0.8.Effect.Name; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image object path at WS.0.8.Effect.Name."
+      }
+    },
+    {
+      "objectPath": "Universe.N.SpatEff1.Caption",
+      "probePath": "Universe.0.SpatEff1.Caption",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"Universe.0.SpatEff1.Caption\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"Universe.0.SpatEff1.Caption\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"Universe.0.SpatEff1.Caption\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored Universe.0.SpatEff1.Caption to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Universe.N.SpatEff1.Caption with command write/readback on Universe.0.SpatEff1.Caption; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.SpatEff1.Caption",
+        "notes": "The runtime probe used Universe.0.SpatEff1.Caption, the loaded Universe string path for Universe.N.SpatEff1."
+      }
+    },
+    {
+      "objectPath": "Universe.N.GunEff1.Effect.Name",
+      "probePath": "Universe.0.GunEff1.Effect.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"Universe.0.GunEff1.Effect.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"Universe.0.GunEff1.Effect.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"Universe.0.GunEff1.Effect.Name\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The audit restored Universe.0.GunEff1.Effect.Name to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Universe.N.GunEff1.Effect.Name with command write/readback on Universe.0.GunEff1.Effect.Name; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.GunEff1.Effect.Name",
+        "notes": "The runtime probe used Universe.0.GunEff1.Effect.Name, the loaded Universe string path for Universe.N.GunEff1.Effect."
+      }
+    },
+    {
+      "objectPath": "QShift.N.Name",
+      "probePath": "QShift.0.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": "Size",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"QShift.0.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"QShift.0.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "command": "SetProp \"QShift.0.Name\", \"SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\"",
+          "readback": "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "Size",
+        "notes": "The audit restored QShift.0.Name to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked QShift.N.Name with command write/readback on QShift.0.Name; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.WaveStillState",
+      "probePath": "WS.0.13.Ani.0.WaveStillState",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 2,
+        "unit": "wave state",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.13.Ani.0.WaveStillState to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Ani.0.WaveStillState with command write/readback on WS.0.13.Ani.0.WaveStillState; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.StartZ",
+      "probePath": "WS.1.6.Image.StartZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.6.Image.StartZ\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.6.Image.StartZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.6.Image.StartZ\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.1.6.Image.StartZ to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.StartZ with command write/readback on WS.1.6.Image.StartZ; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.6 Parametric-Image line",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Size",
+      "probePath": "WS.1.2.Image.Size",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.Size\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.Size\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.Size\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.Size\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The audit restored WS.1.2.Image.Size to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Size with command write/readback on WS.1.2.Image.Size; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Duration",
+      "probePath": "WS.0.10.Image.Duration",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "time",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.10.Image.Duration\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.10.Image.Duration to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Duration with command write/readback on WS.0.10.Image.Duration; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PosY",
+      "probePath": "WS.0.11.Image.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.11.Image.PosY to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.PosY with command write/readback on WS.0.11.Image.PosY; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PosX",
+      "probePath": "WS.0.11.Image.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.11.Image.PosX to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.PosX with command write/readback on WS.0.11.Image.PosX; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Color",
+      "probePath": "WS.0.2.Image.Color",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 16777215,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 16777216,
+        "unit": "RGB color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.2.Image.Color\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.2.Image.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"WS.0.2.Image.Color\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"WS.0.2.Image.Color\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 16777215,
+        "notes": "The audit restored WS.0.2.Image.Color to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Color with command write/readback on WS.0.2.Image.Color; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MinY",
+      "probePath": "WS.0.10.Image.MinY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.10.Image.MinY\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The audit restored WS.0.10.Image.MinY to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.MinY with command write/readback on WS.0.10.Image.MinY; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.StartX",
+      "probePath": "WS.1.6.Image.StartX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.6.Image.StartX\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.6.Image.StartX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.6.Image.StartX\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -50,
+        "notes": "The audit restored WS.1.6.Image.StartX to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.StartX with command write/readback on WS.1.6.Image.StartX; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.6 Parametric-Image line",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AnchorsOut",
+      "probePath": "WS.1.16.Image.AnchorsOut",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.1.16.Image.AnchorsOut\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.16.Image.AnchorsOut\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.16.Image.AnchorsOut\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.1.16.Image.AnchorsOut\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.1.16.Image.AnchorsOut to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.AnchorsOut with command write/readback on WS.1.16.Image.AnchorsOut; fresh readbacks confirmed pass-through behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.16 Parametric-Image poly star",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX8",
+      "probePath": "WS.0.0.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.0.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.0.FX8\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.0.FX8\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.0.FX8\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.0.FX8 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX8 with command write/readback on WS.0.0.FX8; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple) cue, top-level common branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.CpuUseShort",
+      "probePath": "Status.CpuUseShort",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Status.CpuUseShort\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.CpuUseShort\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.CpuUseShort\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.CpuUseShort\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Status.CpuUseShort to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Status.CpuUseShort with command write/readback on Status.CpuUseShort; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "ProTrack.N.FX8",
+      "probePath": "ProTrack.0.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ProTrack.0.FX8\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack.0.FX8\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"ProTrack.0.FX8\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ProTrack.0.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored ProTrack.0.FX8 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack.N.FX8 with command write/readback on ProTrack.0.FX8; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "The runtime probe used generated ProTrack.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ZoneMode",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.8.Image.LIST.0.Effect.ZoneMode to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.LIST.0.Effect.ZoneMode with command write/readback on WS.0.8.Image.LIST.0.Effect.ZoneMode; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.N.Points",
+      "probePath": "Status.Projector.0.Points",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Status.Projector.0.Points\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.Projector.0.Points\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.Projector.0.Points\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.Projector.0.Points\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Status.Projector.0.Points to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Status.Projector.N.Points with command write/readback on Status.Projector.0.Points; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.Caption",
+      "probePath": "ProTrack.0.Caption",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"ProTrack.0.Caption\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"ProTrack.0.Caption\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"ProTrack.0.Caption\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The audit restored ProTrack.0.Caption to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack.N.Caption with command write/readback on ProTrack.0.Caption; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "The runtime probe used generated ProTrack.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "Master.VisiblePointsStart",
+      "probePath": "Master.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.VisiblePointsStart\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.VisiblePointsStart\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Master.VisiblePointsStart to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Master.VisiblePointsStart with command write/readback on Master.VisiblePointsStart; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "ProTrack6.Caption",
+      "probePath": "ProTrack6.Caption",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"ProTrack6.Caption\", \"\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint-audit",
+          "command": "SetProp \"ProTrack6.Caption\", \"pangolint-audit\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+          "command": "SetProp \"ProTrack6.Caption\", \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The audit restored ProTrack6.Caption to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack6.Caption with command write/readback on ProTrack6.Caption; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankStart",
+      "probePath": "Projector.0.Optimisation.BlankStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Projector.0.Optimisation.BlankStart to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Projector.N.Optimisation.BlankStart with command write/readback on Projector.0.Optimisation.BlankStart; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankStart",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.NoDot",
+      "probePath": "Projector.0.Optimisation.NoDot",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Projector.0.Optimisation.NoDot to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Projector.N.Optimisation.NoDot with command write/readback on Projector.0.Optimisation.NoDot; fresh readbacks confirmed no-op behavior with baseline restore.",
+      "deferReason": "Fresh sampled command write/readback attempts did not change the observed readback, so this row remains readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.NoDot",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX8TimeMulClock",
+      "probePath": "WS.0.4.FX8TimeMulClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.4.FX8TimeMulClock\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.4.FX8TimeMulClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.4.FX8TimeMulClock\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.4.FX8TimeMulClock\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.4.FX8TimeMulClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX8TimeMulClock with command write/readback on WS.0.4.FX8TimeMulClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used the populated Abstraction cue cell at WS.0.4."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX3Action",
+      "probePath": "WS.0.11.FX3Action",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.FX3Action\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.FX3Action\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.FX3Action\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.FX3Action\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The audit restored WS.0.11.FX3Action to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX3Action with command write/readback on WS.0.11.FX3Action; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used the populated FIFO Image cue cell at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.ClockShift",
+      "probePath": "WS.1.6.Image.Effect.ClockShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.6.Image.Effect.ClockShift\", -10000",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.6.Image.Effect.ClockShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.6.Image.Effect.ClockShift\", 100",
+          "readback": 10,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.6.Image.Effect.ClockShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.1.6.Image.Effect.ClockShift to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Image.Effect.ClockShift with command write/readback on WS.1.6.Image.Effect.ClockShift; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.6 Parametric-Image line",
+        "notes": "The runtime probe used the populated Parametric-Image line cell at WS.1.6."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Oscillator.Wavespeed",
+      "probePath": "FX.0.0.25.Oscillator.Wavespeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.0.0.25.Oscillator.Wavespeed\", -10000",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"FX.0.0.25.Oscillator.Wavespeed\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"FX.0.0.25.Oscillator.Wavespeed\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.0.0.25.Oscillator.Wavespeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored FX.0.0.25.Oscillator.Wavespeed to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.Oscillator.Wavespeed with command write/readback on FX.0.0.25.Oscillator.Wavespeed; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.25 Mirror Y",
+        "notes": "The runtime probe used the populated Mirror Y QuickFX effect at FX.0.0.25."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX5TimeShiftClock",
+      "probePath": "WS.0.8.FX5TimeShiftClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.FX5TimeShiftClock\", -10000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.FX5TimeShiftClock\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.FX5TimeShiftClock\", 10000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.FX5TimeShiftClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.8.FX5TimeShiftClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX5TimeShiftClock with command write/readback on WS.0.8.FX5TimeShiftClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cue cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.StrobeSpeed",
+      "probePath": "WS.0.4.StrobeSpeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "speed",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.4.StrobeSpeed\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.4.StrobeSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.4.StrobeSpeed\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.4.StrobeSpeed\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.4.StrobeSpeed to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.StrobeSpeed with command write/readback on WS.0.4.StrobeSpeed; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used the populated Abstraction cue cell at WS.0.4."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX1",
+      "probePath": "WS.0.13.FX1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"WS.0.13.FX1\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.FX1\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.FX1\", 100",
+          "readback": 99,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99,
+          "command": "SetProp \"WS.0.13.FX1\", 99",
+          "readback": 99,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -1,
+        "notes": "The audit restored WS.0.13.FX1 to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX1 with command write/readback on WS.0.13.FX1; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cue cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Enabled",
+      "probePath": "FX.1.2.1.Enabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FX.N.N.N.Enabled to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FX.N.N.N.Enabled to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Enabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FX.1.2.1.Enabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Enabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FX.1.2.1.Enabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored FX.1.2.1.Enabled to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.Enabled with command write/readback on FX.1.2.1.Enabled; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1 RGB Matrix",
+        "notes": "The runtime probe used the populated RGB Matrix QuickFX effect at FX.1.2.1."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PageIndex",
+      "probePath": "ProTrack4.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ProTrack4.PageIndex\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack4.PageIndex\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ProTrack4.PageIndex\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ProTrack4.PageIndex\", 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -1,
+        "notes": "The audit restored ProTrack4.PageIndex to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack4.PageIndex with command write/readback on ProTrack4.PageIndex; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Grid.CellIndex",
+      "probePath": "Grid.CellIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid.Count",
+          "sourcePaths": [
+            "Grid.Count"
+          ],
+          "notes": "Grid.Count read back 60 in the loaded 10 by 6 workspace grid."
+        },
+        "unit": "cell index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid.CellIndex\", -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid.CellIndex\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "SetProp \"Grid.CellIndex\", 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 61,
+          "command": "SetProp \"Grid.CellIndex\", 61",
+          "readback": 60,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored Grid.CellIndex to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Grid.CellIndex with command write/readback on Grid.CellIndex; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Grid2.PageIndex",
+      "probePath": "Grid2.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 2,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "loaded workspace page count",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2.PageIndex\", -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2.PageIndex\", 1",
+          "readback": 2,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Grid2.PageIndex\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"Grid2.PageIndex\", 999",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 2,
+        "notes": "The audit restored Grid2.PageIndex to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Grid2.PageIndex with command write/readback on Grid2.PageIndex; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "ProTrack.N.PageIndex",
+      "probePath": "ProTrack.0.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ProTrack.0.PageIndex\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack.0.PageIndex\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ProTrack.0.PageIndex\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ProTrack.0.PageIndex\", 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -1,
+        "notes": "The audit restored ProTrack.0.PageIndex to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack.N.PageIndex with command write/readback on ProTrack.0.PageIndex; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0 in loaded two-page workspace",
+        "notes": "The generic path uses the zero-based Object Tree track index and the upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PageIndex",
+      "probePath": "ProTrack8.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ProTrack8.PageIndex\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack8.PageIndex\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ProTrack8.PageIndex\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ProTrack8.PageIndex\", 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -1,
+        "notes": "The audit restored ProTrack8.PageIndex to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack8.PageIndex with command write/readback on ProTrack8.PageIndex; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "FX.N.N.N.Oscillator.Period",
+      "probePath": "FX.0.0.9.Oscillator.Period",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0.1,
+        "max": 16,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FX.0.0.9.Oscillator.Period\", -1",
+          "readback": 0.10000000149011612,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"FX.0.0.9.Oscillator.Period\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetProp \"FX.0.0.9.Oscillator.Period\", 17",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.9.Oscillator.Period\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored FX.0.0.9.Oscillator.Period to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.Oscillator.Period with command write/readback on FX.0.0.9.Oscillator.Period; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.9 Position Z",
+        "notes": "The runtime probe used the populated Position Z QuickFX effect at FX.0.0.9."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.SizeZ",
+      "probePath": "WS.0.8.SizeZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.SizeZ\", -401",
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.SizeZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.SizeZ\", 401",
+          "readback": 400,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.SizeZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The audit restored WS.0.8.SizeZ to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.SizeZ with command write/readback on WS.0.8.SizeZ; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cue cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX1TimeShiftClock",
+      "probePath": "WS.0.1.FX1TimeShiftClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.1.FX1TimeShiftClock\", -10000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.1.FX1TimeShiftClock\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.1.FX1TimeShiftClock\", 10000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.1.FX1TimeShiftClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored WS.0.1.FX1TimeShiftClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX1TimeShiftClock with command write/readback on WS.0.1.FX1TimeShiftClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.1 Frames (Advanced)",
+        "notes": "The runtime probe used the populated Frames (Advanced) cue cell at WS.0.1."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Green",
+      "probePath": "WS.0.4.Green",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 255,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.4.Green\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.4.Green\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"WS.0.4.Green\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        },
+        {
+          "input": 12.5,
+          "command": "SetProp \"WS.0.4.Green\", 12.5",
+          "readback": 12,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 255,
+        "notes": "The audit restored WS.0.4.Green to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.Green with command write/readback on WS.0.4.Green; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used the populated Abstraction cue cell at WS.0.4."
+      }
+    },
+    {
+      "objectPath": "MasterLC.FX4TimeShiftClock",
+      "probePath": "MasterLC.FX4TimeShiftClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"MasterLC.FX4TimeShiftClock\", -10000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.FX4TimeShiftClock\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"MasterLC.FX4TimeShiftClock\", 10000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.FX4TimeShiftClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored MasterLC.FX4TimeShiftClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked MasterLC.FX4TimeShiftClock with command write/readback on MasterLC.FX4TimeShiftClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "WS.N.N.FX7TimeScaleMetro",
+      "probePath": "WS.0.10.FX7TimeScaleMetro",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.FX7TimeScaleMetro\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.FX7TimeScaleMetro\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.FX7TimeScaleMetro\", 1000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.FX7TimeScaleMetro\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.10.FX7TimeScaleMetro to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX7TimeScaleMetro with command write/readback on WS.0.10.FX7TimeScaleMetro; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used the populated Particles cue cell at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "Universe.N.SpatEff1.Y",
+      "probePath": "Universe.0.SpatEff1.Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "normalized position"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Universe.0.SpatEff1.Y\", -1000",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.SpatEff1.Y\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Universe.0.SpatEff1.Y\", 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Universe.0.SpatEff1.Y\", 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored Universe.0.SpatEff1.Y to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked Universe.N.SpatEff1.Y with command write/readback on Universe.0.SpatEff1.Y; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.SpatEff1.Y",
+        "notes": "The runtime probe used the populated Universe control path Universe.0.SpatEff1.Y."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.FX4TimeScaleClock",
+      "probePath": "WS.0.10.FX4TimeScaleClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.FX4TimeScaleClock\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.FX4TimeScaleClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.FX4TimeScaleClock\", 1000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.FX4TimeScaleClock\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored WS.0.10.FX4TimeScaleClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked WS.N.N.FX4TimeScaleClock with command write/readback on WS.0.10.FX4TimeScaleClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used the populated Particles cue cell at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.FX4TimeShiftClock",
+      "probePath": "ProTrack5.FX4TimeShiftClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"ProTrack5.FX4TimeShiftClock\", -10000",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ProTrack5.FX4TimeShiftClock\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"ProTrack5.FX4TimeShiftClock\", 10000",
+          "readback": 100,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack5.FX4TimeShiftClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored ProTrack5.FX4TimeShiftClock to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack5.FX4TimeShiftClock with command write/readback on ProTrack5.FX4TimeShiftClock; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "ProTrack1.PositionZ",
+      "probePath": "ProTrack1.PositionZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"ProTrack1.PositionZ\", -401",
+          "readback": -400,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ProTrack1.PositionZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ProTrack1.PositionZ\", 401",
+          "readback": 400,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ProTrack1.PositionZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The audit restored ProTrack1.PositionZ to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked ProTrack1.PositionZ with command write/readback on ProTrack1.PositionZ; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "FX.N.N.N.Oscillator.Waveperiod",
+      "probePath": "FX.0.0.14.Oscillator.Waveperiod",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0.1,
+        "max": 10,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.0.0.14.Oscillator.Waveperiod\", -10000",
+          "readback": 0.10000000149011612,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"FX.0.0.14.Oscillator.Waveperiod\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"FX.0.0.14.Oscillator.Waveperiod\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.0.0.14.Oscillator.Waveperiod\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The audit restored FX.0.0.14.Oscillator.Waveperiod to the observed baseline after each sampled write."
+      },
+      "evidenceNote": "Seeded sampled audit for issue #216 rechecked FX.N.N.N.Oscillator.Waveperiod with command write/readback on FX.0.0.14.Oscillator.Waveperiod; fresh readbacks confirmed clamp behavior with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.0.0.14 Erase In",
+        "notes": "The runtime probe used the populated Erase In QuickFX effect at FX.0.0.14."
+      }
+    }
+  ]
+}

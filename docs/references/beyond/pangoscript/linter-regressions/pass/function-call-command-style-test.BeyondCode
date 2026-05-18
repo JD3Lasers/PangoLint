@@ -1,0 +1,11 @@
+// PangoLint pass: command-style function call
+// Purpose: verify BEYOND accepts command calls with parenthesized arguments.
+// BEYOND validation 2026-05-07: parser accepted parenthesized command-call syntax and emitted the expected callback.
+// PangoLint expected callback: /pangolint/candidate/command-call/done (s) "pangolint-candidate-command-call-001"
+// PangoLint observed callback: /pangolint/candidate/command-call/done (s) "pangolint-candidate-command-call-001"
+
+var requestId
+
+requestId = "pangolint-candidate-command-call-001"
+OscOutTTS("/pangolint/candidate/command-call/done", "s", requestId)
+exit

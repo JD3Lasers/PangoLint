@@ -1,0 +1,3610 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 350,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0. The probe used literal focused-cue alias paths and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "ActGridFocusedCue.ColorSlider",
+      "probePath": "ActGridFocusedCue.ColorSlider",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 127.5,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", 127.5",
+          "readback": 128,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"ActGridFocusedCue.ColorSlider\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed ActGridFocusedCue.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.ColorSlider."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.ContainEndScript",
+      "probePath": "ActGridFocusedCue.ContainEndScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.ContainEndScript at ActGridFocusedCue.ContainEndScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.ContainEndScript."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.ContainStartScript",
+      "probePath": "ActGridFocusedCue.ContainStartScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.ContainStartScript at ActGridFocusedCue.ContainStartScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.ContainStartScript."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.CueType",
+      "probePath": "ActGridFocusedCue.CueType",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 100",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 1000",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.CueType at ActGridFocusedCue.CueType.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.CueType."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probePath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.Effect.ChaseTimeMode at ActGridFocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.Effect.ChaseTimeMode."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.Zone",
+      "probePath": "ActGridFocusedCue.Effect.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.Effect.Zone at ActGridFocusedCue.Effect.Zone.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.Effect.Zone."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probePath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.Effect.ZoneMode at ActGridFocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.Effect.ZoneMode."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.FX7",
+      "probePath": "ActGridFocusedCue.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.FX7 at ActGridFocusedCue.FX7.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.FX7."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.FX8",
+      "probePath": "ActGridFocusedCue.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.FX8 at ActGridFocusedCue.FX8.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.FX8."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Hue",
+      "probePath": "ActGridFocusedCue.Hue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359.5,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", 359.5",
+          "readback": 359.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"ActGridFocusedCue.Hue\", 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed ActGridFocusedCue.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.Hue."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosX",
+      "probePath": "ActGridFocusedCue.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.PosX at ActGridFocusedCue.PosX.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.PosX."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosY",
+      "probePath": "ActGridFocusedCue.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.PosY at ActGridFocusedCue.PosY.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.PosY."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosZ",
+      "probePath": "ActGridFocusedCue.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.PosZ at ActGridFocusedCue.PosZ.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.PosZ."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.RotoAccX",
+      "probePath": "ActGridFocusedCue.RotoAccX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccX\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed ActGridFocusedCue.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.RotoAccX."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.RotoAccY",
+      "probePath": "ActGridFocusedCue.RotoAccY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccY\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed ActGridFocusedCue.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.RotoAccY."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.RotoAccZ",
+      "probePath": "ActGridFocusedCue.RotoAccZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ActGridFocusedCue.RotoAccZ\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed ActGridFocusedCue.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.RotoAccZ."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.SatShift",
+      "probePath": "ActGridFocusedCue.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.SatShift at ActGridFocusedCue.SatShift.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.SatShift."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.VisiblePointsEnd",
+      "probePath": "ActGridFocusedCue.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 1000",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.VisiblePointsEnd at ActGridFocusedCue.VisiblePointsEnd.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.VisiblePointsEnd."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.VisiblePointsStart",
+      "probePath": "ActGridFocusedCue.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred ActGridFocusedCue.VisiblePointsStart at ActGridFocusedCue.VisiblePointsStart.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "The runtime probe used literal ActGridFocusedCue.VisiblePointsStart."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.ColorSlider",
+      "probePath": "Grid1FocusedCue.ColorSlider",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 127.5,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", 127.5",
+          "readback": 128,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Grid1FocusedCue.ColorSlider\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid1FocusedCue.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.ColorSlider."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.ContainEndScript",
+      "probePath": "Grid1FocusedCue.ContainEndScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid1FocusedCue.ContainEndScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.ContainEndScript at Grid1FocusedCue.ContainEndScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.ContainEndScript."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.ContainStartScript",
+      "probePath": "Grid1FocusedCue.ContainStartScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid1FocusedCue.ContainStartScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.ContainStartScript at Grid1FocusedCue.ContainStartScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.ContainStartScript."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.CueType",
+      "probePath": "Grid1FocusedCue.CueType",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.CueType\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.CueType\", 100",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.CueType\", 1000",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.CueType at Grid1FocusedCue.CueType.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.CueType."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ChaseTimeMode",
+      "probePath": "Grid1FocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ChaseTimeMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.Effect.ChaseTimeMode at Grid1FocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.Effect.ChaseTimeMode."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.Zone",
+      "probePath": "Grid1FocusedCue.Effect.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.Zone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.Effect.Zone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.Zone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.Effect.Zone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.Effect.Zone\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.Effect.Zone at Grid1FocusedCue.Effect.Zone.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.Effect.Zone."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ZoneMode",
+      "probePath": "Grid1FocusedCue.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.Effect.ZoneMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.Effect.ZoneMode at Grid1FocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.Effect.ZoneMode."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.FX7",
+      "probePath": "Grid1FocusedCue.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.FX7\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.FX7\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.FX7 at Grid1FocusedCue.FX7.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.FX7."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.FX8",
+      "probePath": "Grid1FocusedCue.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.FX8\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.FX8\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.FX8 at Grid1FocusedCue.FX8.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.FX8."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Hue",
+      "probePath": "Grid1FocusedCue.Hue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359.5,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", 359.5",
+          "readback": 359.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"Grid1FocusedCue.Hue\", 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid1FocusedCue.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.Hue."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.PosX",
+      "probePath": "Grid1FocusedCue.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.PosX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.PosX\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.PosX\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.PosX at Grid1FocusedCue.PosX.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.PosX."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.PosY",
+      "probePath": "Grid1FocusedCue.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.PosY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.PosY\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.PosY\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.PosY at Grid1FocusedCue.PosY.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.PosY."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.PosZ",
+      "probePath": "Grid1FocusedCue.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.PosZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.PosZ\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.PosZ\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.PosZ at Grid1FocusedCue.PosZ.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.PosZ."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.RotoAccX",
+      "probePath": "Grid1FocusedCue.RotoAccX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccX\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid1FocusedCue.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.RotoAccX."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.RotoAccY",
+      "probePath": "Grid1FocusedCue.RotoAccY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccY\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid1FocusedCue.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.RotoAccY."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.RotoAccZ",
+      "probePath": "Grid1FocusedCue.RotoAccZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid1FocusedCue.RotoAccZ\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid1FocusedCue.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.RotoAccZ."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.SatShift",
+      "probePath": "Grid1FocusedCue.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.SatShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.SatShift\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.SatShift at Grid1FocusedCue.SatShift.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.SatShift."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.VisiblePointsEnd",
+      "probePath": "Grid1FocusedCue.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsEnd\", 1000",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.VisiblePointsEnd at Grid1FocusedCue.VisiblePointsEnd.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.VisiblePointsEnd."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.VisiblePointsStart",
+      "probePath": "Grid1FocusedCue.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid1FocusedCue.VisiblePointsStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid1FocusedCue.VisiblePointsStart at Grid1FocusedCue.VisiblePointsStart.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "The runtime probe used literal Grid1FocusedCue.VisiblePointsStart."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.ColorSlider",
+      "probePath": "Grid2FocusedCue.ColorSlider",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 127.5,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", 127.5",
+          "readback": 128,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Grid2FocusedCue.ColorSlider\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid2FocusedCue.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.ColorSlider."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.ContainEndScript",
+      "probePath": "Grid2FocusedCue.ContainEndScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.ContainEndScript at Grid2FocusedCue.ContainEndScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.ContainEndScript."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.ContainStartScript",
+      "probePath": "Grid2FocusedCue.ContainStartScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"A\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 32,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 14,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"FocusedCueSeed\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "0",
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.ContainStartScript at Grid2FocusedCue.ContainStartScript.",
+      "deferReason": "String writes stayed at the observed baseline and did not prove a string length range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.ContainStartScript."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.CueType",
+      "probePath": "Grid2FocusedCue.CueType",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 100",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 1000",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.CueType at Grid2FocusedCue.CueType.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.CueType."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probePath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.Effect.ChaseTimeMode at Grid2FocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.Effect.ChaseTimeMode."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.Zone",
+      "probePath": "Grid2FocusedCue.Effect.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.Effect.Zone at Grid2FocusedCue.Effect.Zone.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.Effect.Zone."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probePath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.Effect.ZoneMode at Grid2FocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.Effect.ZoneMode."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.FX7",
+      "probePath": "Grid2FocusedCue.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.FX7 at Grid2FocusedCue.FX7.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.FX7."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.FX8",
+      "probePath": "Grid2FocusedCue.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.FX8 at Grid2FocusedCue.FX8.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.FX8."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Hue",
+      "probePath": "Grid2FocusedCue.Hue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359.5,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", 359.5",
+          "readback": 359.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"Grid2FocusedCue.Hue\", 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid2FocusedCue.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.Hue."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosX",
+      "probePath": "Grid2FocusedCue.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.PosX at Grid2FocusedCue.PosX.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.PosX."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosY",
+      "probePath": "Grid2FocusedCue.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.PosY at Grid2FocusedCue.PosY.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.PosY."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosZ",
+      "probePath": "Grid2FocusedCue.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.PosZ at Grid2FocusedCue.PosZ.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.PosZ."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.RotoAccX",
+      "probePath": "Grid2FocusedCue.RotoAccX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccX\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid2FocusedCue.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.RotoAccX."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.RotoAccY",
+      "probePath": "Grid2FocusedCue.RotoAccY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccY\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid2FocusedCue.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.RotoAccY."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.RotoAccZ",
+      "probePath": "Grid2FocusedCue.RotoAccZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Grid2FocusedCue.RotoAccZ\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 confirmed Grid2FocusedCue.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.RotoAccZ."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.SatShift",
+      "probePath": "Grid2FocusedCue.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.SatShift at Grid2FocusedCue.SatShift.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.SatShift."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.VisiblePointsEnd",
+      "probePath": "Grid2FocusedCue.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 1000",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.VisiblePointsEnd at Grid2FocusedCue.VisiblePointsEnd.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.VisiblePointsEnd."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.VisiblePointsStart",
+      "probePath": "Grid2FocusedCue.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #350 deferred Grid2FocusedCue.VisiblePointsStart at Grid2FocusedCue.VisiblePointsStart.",
+      "deferReason": "Direct writes stayed at the observed baseline or did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "The runtime probe used literal Grid2FocusedCue.VisiblePointsStart."
+      }
+    }
+  ]
+}

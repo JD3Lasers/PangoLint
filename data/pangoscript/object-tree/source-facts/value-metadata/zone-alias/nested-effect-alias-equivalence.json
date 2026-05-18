@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.Effect.N.Enabled",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias is a user-configured zone-name alias for a Zone.N index. Zone.0.Effect.0.Enabled write/readback evidence confirmed 0..1 clamp behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.Enabled uses the Zone.N.Effect.N.Enabled 0..1 clamp domain through zone-name alias equivalence.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias denotes a user-configured zone name that resolves to the same Object Tree zone as Zone.N by index.",
+        "notes": "Runtime readback in the loaded show confirmed the alias named ZoneAlias maps to Zone.2 by name, while range evidence used the populated Zone.0.Effect.0 slot."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.Enabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.Enabled."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.Effect.N.RouterMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "router mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias is a user-configured zone-name alias for a Zone.N index. Zone.0.Effect.0.RouterMode write/readback evidence confirmed 0..4 clamp behavior: -1->0, 0->0, 4->4, 5->4, 8->4, 9->4, 99->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.RouterMode uses the Zone.N.Effect.N.RouterMode 0..4 clamp range through zone-name alias equivalence.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias denotes a user-configured zone name that resolves to the same Object Tree zone as Zone.N by index.",
+        "notes": "Runtime readback in the loaded show confirmed the alias named ZoneAlias maps to Zone.2 by name, while range evidence used the populated Zone.0.Effect.0 slot."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeActive",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias is a user-configured zone-name alias for a Zone.N index. Zone.0.Effect.0.TimeActive write/readback evidence confirmed 0..1 clamp behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeActive uses the Zone.N.Effect.N.TimeActive 0..1 clamp domain through zone-name alias equivalence.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias denotes a user-configured zone name that resolves to the same Object Tree zone as Zone.N by index.",
+        "notes": "Runtime readback in the loaded show confirmed the alias named ZoneAlias maps to Zone.2 by name, while range evidence used the populated Zone.0.Effect.0 slot."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeActive."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeDurationInBeat",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias is a user-configured zone-name alias for a Zone.N index. Zone.0.Effect.0.TimeDurationInBeat write/readback evidence confirmed 0..1 clamp behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeDurationInBeat uses the Zone.N.Effect.N.TimeDurationInBeat 0..1 clamp domain through zone-name alias equivalence.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias denotes a user-configured zone name that resolves to the same Object Tree zone as Zone.N by index.",
+        "notes": "Runtime readback in the loaded show confirmed the alias named ZoneAlias maps to Zone.2 by name, while range evidence used the populated Zone.0.Effect.0 slot."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeDurationInBeat."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeDurationInBeat."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeEnabled",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias is a user-configured zone-name alias for a Zone.N index. Zone.0.Effect.0.TimeEnabled write/readback evidence confirmed 0..1 clamp behavior: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeEnabled uses the Zone.N.Effect.N.TimeEnabled 0..1 clamp domain through zone-name alias equivalence.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias denotes a user-configured zone name that resolves to the same Object Tree zone as Zone.N by index.",
+        "notes": "Runtime readback in the loaded show confirmed the alias named ZoneAlias maps to Zone.2 by name, while range evidence used the populated Zone.0.Effect.0 slot."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeEnabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeEnabled."
+        }
+      ]
+    }
+  ]
+}

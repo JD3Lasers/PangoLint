@@ -1,0 +1,32 @@
+// PangoLint candidate: arithmetic and comparisons
+// Purpose: verify assignment arithmetic and comparison operators in conditions.
+// BEYOND validation 2026-05-06: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/arithmetic/start (sii) "pangolint-candidate-arithmetic-001" 1 6
+// PangoLint expected callback: /pangolint/candidate/arithmetic/passed (sii) "pangolint-candidate-arithmetic-001" 2 6
+// PangoLint observed callback: /pangolint/candidate/arithmetic/start (sii) "pangolint-candidate-arithmetic-001" 1 6
+// PangoLint observed callback: /pangolint/candidate/arithmetic/passed (sii) "pangolint-candidate-arithmetic-001" 2 6
+
+var requestId
+var sequence
+var leftValue
+var rightValue
+var resultValue
+
+requestId = "pangolint-candidate-arithmetic-001"
+sequence = 1
+leftValue = 4
+rightValue = 2
+resultValue = leftValue + rightValue
+
+OscOutTTS "/pangolint/candidate/arithmetic/start", "sii", requestId, sequence, resultValue
+sequence = sequence + 1
+if (resultValue >= 6) goto Passed
+goto Failed
+
+Failed:
+OscOutTTS "/pangolint/candidate/arithmetic/failed", "sii", requestId, sequence, resultValue
+exit
+
+Passed:
+OscOutTTS "/pangolint/candidate/arithmetic/passed", "sii", requestId, sequence, resultValue
+exit

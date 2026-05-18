@@ -1,0 +1,768 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used concrete TouchPoints paths, tried sampled SetProp writes including values above 100000, fractional values where the row supports float readback, and signed 32-bit edges, restored observed baselines, and shipped pass-through ranges where writes changed readback."
+  },
+  "entries": [
+    {
+      "objectPath": "TouchPoints.ActiveCount",
+      "probePath": "TouchPoints.ActiveCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "active touch point count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.ActiveCount\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.ActiveCount\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.ActiveCount\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.ActiveCount\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.ActiveCount uses tested -2147483648..2147483647 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "TouchPoints.N.WindowX",
+      "probePath": "TouchPoints.0.WindowX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.0.WindowX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.0.WindowX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.0.WindowX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.0.WindowX\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 1.5",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.0.WindowX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.WindowX uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0",
+        "notes": "The runtime probe used generated TouchPoints.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.WindowY",
+      "probePath": "TouchPoints.0.WindowY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.0.WindowY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.0.WindowY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.0.WindowY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.0.WindowY\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 1.5",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.0.WindowY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.WindowY uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0",
+        "notes": "The runtime probe used generated TouchPoints.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.X",
+      "probePath": "TouchPoints.0.X",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.0.X\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.0.X\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.0.X\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.0.X\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.0.X\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.0.X\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.0.X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.0.X\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.0.X\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.0.X\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.0.X\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.0.X\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.0.X\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.X uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0",
+        "notes": "The runtime probe used generated TouchPoints.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.N.Y",
+      "probePath": "TouchPoints.0.Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.0.Y\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.0.Y\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.0.Y\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.0.Y\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.0.Y\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.0.Y\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.0.Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.0.Y\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.0.Y\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.0.Y\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.0.Y\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.0.Y\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.0.Y\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.Y uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "TouchPoints.0",
+        "notes": "The runtime probe used generated TouchPoints.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.WindowHeight",
+      "probePath": "TouchPoints.WindowHeight",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.WindowHeight\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.WindowHeight\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.WindowHeight\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.WindowHeight\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 1.5",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.WindowHeight\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.WindowHeight uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "TouchPoints.WindowWidth",
+      "probePath": "TouchPoints.WindowWidth",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"TouchPoints.WindowWidth\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"TouchPoints.WindowWidth\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"TouchPoints.WindowWidth\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"TouchPoints.WindowWidth\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 1.5",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"TouchPoints.WindowWidth\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.WindowWidth uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    }
+  ]
+}

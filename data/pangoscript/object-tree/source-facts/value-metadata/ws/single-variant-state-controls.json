@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.BeamConnect",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.BeamConnect confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamConnect for Shape at WS.0.3.Image.BeamConnect uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BeamConnect."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BeamConnect."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.BeamRepeat",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "unit": "beam repeat count",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EnableRecording",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.EnableRecording confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.EnableRecording for Shape at WS.0.3.Image.EnableRecording uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableRecording."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableRecording."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.EnableStaticMode",
+      "contextId": "cue-type:text",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Image.EnableStaticMode confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.EnableStaticMode for Text at WS.0.2.Image.EnableStaticMode uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableStaticMode."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableStaticMode."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.FftMode",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "FFT mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.FftMode confirmed 0..6 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.FftMode for Shape at WS.0.3.Image.FftMode uses 0..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Mode",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "image mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.Mode confirmed 0..2 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->2, 4->2, 5->2, 10->2."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.Mode for Shape at WS.0.3.Image.Mode uses 0..2 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MonoSpaced",
+      "contextId": "cue-type:text",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.2.Image.MonoSpaced confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.MonoSpaced for Text at WS.0.2.Image.MonoSpaced uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.MonoSpaced."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.MonoSpaced."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.NGonCount",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 6,
+        "unit": "N-gon count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.NGonCount confirmed 1..6 clamp readbacks: -1->1, 0->1, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6, 100->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.NGonCount for Shape at WS.0.3.Image.NGonCount uses 1..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PhysicsActive",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.PhysicsActive confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.PhysicsActive for Shape at WS.0.3.Image.PhysicsActive uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.PhysicsActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.PhysicsActive."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.ShowCorners",
+      "contextId": "cue-type:shape",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.ShowCorners confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ShowCorners for Shape at WS.0.3.Image.ShowCorners uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.ShowCorners."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.ShowCorners."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.StartShape",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "shape selector",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.3.Image.StartShape confirmed 0..6 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.StartShape for Shape at WS.0.3.Image.StartShape uses 0..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.BeamConnect",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.BeamConnect confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamConnect for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamConnect uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.BeamConnect."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.BeamConnect."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "unit": "beam repeat count",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.EnableRecording",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.EnableRecording confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.EnableRecording for Synthesized Image at WS.0.8.Image.LIST.0.Image.EnableRecording uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.EnableRecording."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.EnableRecording."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.FftMode",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "FFT mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.FftMode confirmed 0..6 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.FftMode for Synthesized Image at WS.0.8.Image.LIST.0.Image.FftMode uses 0..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.Loops",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "loop count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.Loops confirmed 1..16 clamp readbacks: -1->1, 0->1, 1->1, 2->2, 3->3, 4->4, 5->5, 10->10, 16->16, 17->16, 100->16."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.Loops for Synthesized Image at WS.0.8.Image.LIST.0.Image.Loops uses 1..16 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.PointCount",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 1000,
+        "unit": "point count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.PointCount confirmed 1..1000 readbacks: -1->1, 0->1, 1->1, 2->2, 1000->1000, 1000.5->1000, 1001->1000, 100000->1000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.PointCount for Synthesized Image at WS.0.8.Image.LIST.0.Image.PointCount uses 1..1000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.Mode",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "image mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.Mode confirmed 0..2 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->2, 4->2, 5->2, 10->2."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.Mode for Synthesized Image at WS.0.8.Image.LIST.0.Image.Mode uses 0..2 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.NGonCount",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 6,
+        "unit": "N-gon count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.NGonCount confirmed 1..6 clamp readbacks: -1->1, 0->1, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6, 100->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.NGonCount for Synthesized Image at WS.0.8.Image.LIST.0.Image.NGonCount uses 1..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.PhysicsActive",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.PhysicsActive confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.PhysicsActive for Synthesized Image at WS.0.8.Image.LIST.0.Image.PhysicsActive uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.PhysicsActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.PhysicsActive."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.ShowCorners",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.ShowCorners confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.ShowCorners for Synthesized Image at WS.0.8.Image.LIST.0.Image.ShowCorners uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.ShowCorners."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.ShowCorners."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.StartShape",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "shape selector",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.StartShape confirmed 0..6 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->6, 10->6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.StartShape for Synthesized Image at WS.0.8.Image.LIST.0.Image.StartShape uses 0..6 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Muted",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Muted confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Muted for Synthesized Image at WS.0.8.Image.LIST.0.Muted uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Muted."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Muted."
+        }
+      ]
+    }
+  ]
+}

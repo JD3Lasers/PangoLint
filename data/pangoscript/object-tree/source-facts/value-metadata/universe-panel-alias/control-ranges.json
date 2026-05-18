@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "UniversePanelAlias.Control.Caption",
+      "valueType": "string",
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Caption accepted string lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Caption on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.ChasePeriod confirmed 1..10 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.ChasePeriod on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.ClockLimit confirmed -10..10 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.ClockLimit on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.ClockShift confirmed -10..10 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.ClockShift on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.EnableClockLimit confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.EnableClockLimit on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.Effect.EnableClockLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.Effect.EnableClockLimit to ON."
+        }
+      ]
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.EnableMetroLimit confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.EnableMetroLimit on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.Effect.EnableMetroLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.Effect.EnableMetroLimit to ON."
+        }
+      ]
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.MetroLimit confirmed -10..10 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.MetroLimit on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.MetroShift confirmed -10..10 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.MetroShift on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Effect.Name",
+      "valueType": "string",
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Effect.Name accepted string lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Effect.Name on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Selected",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Selected confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Selected on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.Selected to ON."
+        }
+      ]
+    },
+    {
+      "path": "UniversePanelAlias.Control.Value",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Value confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Value on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.X",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized position",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.X confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.X on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    },
+    {
+      "path": "UniversePanelAlias.Control.Y",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized position",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "UniversePanelAlias.Control.Y confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Y on a loaded Universe panel alias control with baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
+        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+      }
+    }
+  ]
+}

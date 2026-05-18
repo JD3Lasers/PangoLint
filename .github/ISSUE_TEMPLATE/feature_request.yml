@@ -1,0 +1,45 @@
+name: Feature Request
+description: Suggest an improvement to PangoLint.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow or problem
+      description: Describe the PangoScript, BEYOND, VS Code, or MCP workflow this would improve.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the feature or behavior you want.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - VS Code editor
+        - VS Code sidebar
+        - PangoScript reference browser
+        - BEYOND runtime readback or Talk UDP send
+        - MCP server
+        - Packaging or installation
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or prior art
+      description: Include scripts, screenshots, links, or another tool that handles this well.
+  - type: textarea
+    id: safety
+    attributes:
+      label: Runtime safety notes
+      description: If this touches BEYOND runtime writes, Talk UDP, OSC feedback, or live readback, describe the safety expectation.

@@ -1,0 +1,14 @@
+// PangoLint candidate: globalvar declaration
+// Purpose: verify globalvar declaration and assignment syntax.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/globalvar/value (si) "pangolint-candidate-globalvar-001" 1
+// PangoLint observed callback: /pangolint/candidate/globalvar/value (si) "pangolint-candidate-globalvar-001" 1
+
+globalvar sharedCounter
+var requestId
+
+requestId = "pangolint-candidate-globalvar-001"
+sharedCounter = 1
+
+OscOutTTS "/pangolint/candidate/globalvar/value", "si", requestId, sharedCounter
+exit

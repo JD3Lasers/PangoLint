@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "createdForIssue": "#530",
+  "objectTreeRoot": "data/pangoscript/object-tree",
+  "targetFolders": [
+    {
+      "path": "source-facts/",
+      "role": "Tracked public-safe source facts for Object Tree paths, value metadata, readback metadata, and behavior metadata."
+    },
+    {
+      "path": "runtime-indexes/",
+      "role": "Generated indexes loaded by extension, MCP, sidebar, diagnostics, and reference-site consumers."
+    },
+    {
+      "path": "evidence/",
+      "role": "Runtime evidence that supports source facts and future Object Tree cleanup."
+    },
+    {
+      "path": "audits/",
+      "role": "Generated Object Tree audit reports for data quality and remaining review work."
+    },
+    {
+      "path": "package-projections/",
+      "role": "Compact consumer-specific Object Tree package data, when a package needs less than a full runtime index."
+    }
+  ],
+  "dataGroups": [
+    {
+      "id": "object-path-source-facts",
+      "role": "source facts",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/object-paths.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/object-paths.json"
+      ],
+      "consumers": [
+        "scripts/generateObjectPropertyIndex.ts",
+        "scripts/generateKnownProperties.ts"
+      ],
+      "generator": "Checked-in source facts are read by Object Tree generators.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Normal workflows read tracked source facts."
+    },
+    {
+      "id": "known-properties-runtime-index",
+      "role": "generated runtime index",
+      "currentPaths": [
+        "data/pangoscript/object-tree/runtime-indexes/known-properties.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/runtime-indexes/known-properties.json"
+      ],
+      "consumers": [
+        "src/knowledge/propertyIndex.ts",
+        "mcp/src/knowledgeBase.ts",
+        "scripts/buildReferenceSite.ts",
+        "scripts/copyMcpData.cjs",
+        "scripts/verifyPackageContents.ts",
+        "tests/propertyIndex.test.ts"
+      ],
+      "generator": "scripts/generateKnownProperties.ts writes this runtime index.",
+      "packageSurface": "approved VSIX and MCP runtime data",
+      "retirementPolicy": "Delete old root generated files when the generator reproduces them."
+    },
+    {
+      "id": "object-property-runtime-index",
+      "role": "generated runtime index",
+      "currentPaths": [
+        "data/pangoscript/object-tree/runtime-indexes/object-property-index.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/runtime-indexes/object-property-index.json"
+      ],
+      "consumers": [
+        "src/knowledge/objectPropertyIndex.ts",
+        "mcp/src/knowledgeBase.ts",
+        "scripts/buildReferenceSite.ts",
+        "scripts/generateMcpControlReference.ts",
+        "scripts/copyMcpData.cjs",
+        "scripts/verifyPackageContents.ts",
+        "tests/objectPropertyIndex.test.ts"
+      ],
+      "generator": "scripts/generateObjectPropertyIndex.ts writes this runtime index.",
+      "packageSurface": "approved VSIX and MCP runtime data",
+      "retirementPolicy": "Delete old root generated files when the generator reproduces them."
+    },
+    {
+      "id": "value-metadata",
+      "role": "source facts",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/value-metadata/root.json",
+        "data/pangoscript/object-tree/source-facts/value-metadata/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/value-metadata/"
+      ],
+      "consumers": [
+        "scripts/generateObjectPropertyIndex.ts",
+        "tests/knowledgeBaseData.test.ts",
+        "tests/objectPropertyClassificationData.test.ts"
+      ],
+      "generator": "Hand-authored source facts validated by Object Tree metadata tests and generated into the runtime index.",
+      "packageSurface": "not packaged directly",
+      "retirementPolicy": "Active source facts now live under the target path. Rename remaining issue-era filenames by root or property family in later cleanup PRs."
+    },
+    {
+      "id": "readback-metadata",
+      "role": "source facts",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/readback-metadata/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/readback-metadata/"
+      ],
+      "consumers": [
+        "scripts/generateObjectPropertyIndex.ts",
+        "scripts/generateObjectBehaviorAudit.ts",
+        "tests/knowledgeBaseData.test.ts",
+        "tests/objectBehaviorAudit.test.ts"
+      ],
+      "generator": "Hand-authored readback source facts validated by Object Tree metadata and audit tests.",
+      "packageSurface": "not packaged directly",
+      "retirementPolicy": "Active source facts now live under the target path. Rename remaining issue-era filenames by root or property family in later cleanup PRs."
+    },
+    {
+      "id": "behavior-metadata",
+      "role": "source facts",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/behavior-metadata/root.json",
+        "data/pangoscript/object-tree/source-facts/behavior-metadata/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/behavior-metadata/"
+      ],
+      "consumers": [
+        "scripts/generateObjectPropertyIndex.ts",
+        "scripts/generateObjectDataQualityAudit.ts",
+        "tests/knowledgeBaseData.test.ts",
+        "tests/objectPropertyClassificationData.test.ts"
+      ],
+      "generator": "Hand-authored behavior source facts validated by Object Tree behavior classification tests.",
+      "packageSurface": "not packaged directly",
+      "retirementPolicy": "Active source facts now live under the target path. Rename remaining issue-era filenames by root or behavior family in later cleanup PRs."
+    },
+    {
+      "id": "value-metadata-schema",
+      "role": "schema",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/value-metadata.schema.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/value-metadata.schema.json"
+      ],
+      "consumers": [
+        "metadata editors",
+        "future schema validation tests"
+      ],
+      "generator": "Hand-authored schema file.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active schema now lives under the target path."
+    },
+    {
+      "id": "readback-metadata-schema",
+      "role": "schema",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/readback-metadata.schema.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/readback-metadata.schema.json"
+      ],
+      "consumers": [
+        "metadata editors",
+        "future schema validation tests"
+      ],
+      "generator": "Hand-authored schema file.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active schema now lives under the target path."
+    },
+    {
+      "id": "behavior-metadata-schema",
+      "role": "schema",
+      "currentPaths": [
+        "data/pangoscript/object-tree/source-facts/behavior-metadata.schema.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/source-facts/behavior-metadata.schema.json"
+      ],
+      "consumers": [
+        "metadata editors",
+        "future schema validation tests"
+      ],
+      "generator": "Hand-authored schema file.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active schema now lives under the target path."
+    },
+    {
+      "id": "value-evidence",
+      "role": "evidence",
+      "currentPaths": [
+        "data/pangoscript/object-tree/evidence/value/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/evidence/value/"
+      ],
+      "consumers": [
+        "tests/objectRangeEvidence.test.ts",
+        "tests/knowledgeBaseData.test.ts",
+        "Object Tree review runbooks"
+      ],
+      "generator": "Runtime probe output curated into public-safe evidence reports.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Keep issue provenance in evidence names when useful. Remove retired evidence only after source facts and tests no longer read it."
+    },
+    {
+      "id": "readback-evidence",
+      "role": "evidence",
+      "currentPaths": [
+        "data/pangoscript/object-tree/evidence/readback/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/evidence/readback/"
+      ],
+      "consumers": [
+        "tests/knowledgeBaseData.test.ts",
+        "Object Tree review runbooks"
+      ],
+      "generator": "Runtime readback probe output curated into public-safe evidence reports.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Keep issue provenance in evidence names when useful. Remove retired evidence only after source facts and tests no longer read it."
+    },
+    {
+      "id": "behavior-evidence",
+      "role": "evidence",
+      "currentPaths": [
+        "data/pangoscript/object-tree/evidence/behavior/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/evidence/behavior/"
+      ],
+      "consumers": [
+        "tests/objectPropertyClassificationData.test.ts",
+        "Object Tree review runbooks"
+      ],
+      "generator": "Runtime behavior probe output curated into public-safe evidence reports.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Keep issue provenance in evidence names when useful. Remove retired evidence only after source facts and tests no longer read it."
+    },
+    {
+      "id": "value-evidence-schema",
+      "role": "schema",
+      "currentPaths": [
+        "data/pangoscript/object-tree/evidence/value.schema.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/evidence/value.schema.json"
+      ],
+      "consumers": [
+        "scripts/validateObjectRangeEvidence.ts",
+        "tests/objectRangeEvidence.test.ts"
+      ],
+      "generator": "Hand-authored schema file.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active value evidence schema now lives under the target path."
+    },
+    {
+      "id": "readback-evidence-schema",
+      "role": "schema",
+      "currentPaths": [
+        "data/pangoscript/object-tree/evidence/readback.schema.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/evidence/readback.schema.json"
+      ],
+      "consumers": [
+        "metadata editors",
+        "future schema validation tests"
+      ],
+      "generator": "Hand-authored schema file.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active readback evidence schema now lives under the target path."
+    },
+    {
+      "id": "behavior-audits",
+      "role": "audit output",
+      "currentPaths": [
+        "data/pangoscript/object-tree/audits/behavior/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/audits/behavior/"
+      ],
+      "consumers": [
+        "scripts/generateObjectBehaviorAudit.ts",
+        "tests/objectBehaviorAudit.test.ts",
+        "Object Tree review runbooks"
+      ],
+      "generator": "scripts/generateObjectBehaviorAudit.ts",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active behavior audit output now lives under the target path."
+    },
+    {
+      "id": "readback-audits",
+      "role": "audit output",
+      "currentPaths": [
+        "data/pangoscript/object-tree/audits/readback/"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/audits/readback/"
+      ],
+      "consumers": [
+        "tests/objectReadbackWriteAudit.test.ts",
+        "Object Tree review runbooks"
+      ],
+      "generator": "Readback write-test audit workflow.",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active readback audit output now lives under the target path."
+    },
+    {
+      "id": "data-quality-audits",
+      "role": "audit output",
+      "currentPaths": [
+        "data/pangoscript/object-tree/audits/data-quality/final-object-data-quality-audit.json"
+      ],
+      "targetPaths": [
+        "data/pangoscript/object-tree/audits/data-quality/final-object-data-quality-audit.json"
+      ],
+      "consumers": [
+        "scripts/generateObjectDataQualityAudit.ts",
+        "tests/objectDataQualityAudit.test.ts",
+        "tests/objectPropertyClassificationData.test.ts"
+      ],
+      "generator": "scripts/generateObjectDataQualityAudit.ts",
+      "packageSurface": "not packaged",
+      "retirementPolicy": "Active data-quality audit output now lives under the target path."
+    }
+  ]
+}

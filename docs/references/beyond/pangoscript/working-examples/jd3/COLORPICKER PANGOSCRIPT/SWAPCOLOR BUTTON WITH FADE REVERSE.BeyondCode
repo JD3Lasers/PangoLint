@@ -1,0 +1,641 @@
+// SWAP PRIMARY/SECONDARY BUTTONS AND COLOURS (numeric tags) WITH BLACK AND PASTEL MODES
+// Adds SNAP/FADE behavior controlled by COLORPICKER.SWAPMODE.Tag
+//  - 0 = SNAP (instant swap, original behavior)
+//  - 1 = FADE (crossfade A<->B over ~0.25 seconds)
+
+// ---------- Persistent globals ----------
+var myFadeId          // current fade instance id (for aborting older fades)
+var swapA             // remembered original Primary colour (start of session)
+var swapB             // remembered original Secondary colour (start of session)
+var swapTarget        // 0 = target ORIGINAL orientation, 1 = target SWAPPED orientation
+var swapActive        // 0 = not in a swap session, 1 = in session (so keep swapA/B)
+
+// ---------- Click handler ----------
+OnClick:
+    // Reset swap session if a manual pick occurred before this press
+    if (COLORPICKER.SWAP_RESETSESSION.Tag > 0.5) {
+        swapActive = 0
+        COLORPICKER.SWAP_RESETSESSION.Tag = 0
+    }
+
+    if (value <= 0.5) exit
+
+    // New click => new fade id (aborts any older loops)
+    COLORPICKER.SWAPCOUNTER.Tag = COLORPICKER.SWAPCOUNTER.Tag + 1
+    myFadeId = COLORPICKER.SWAPCOUNTER.Tag
+
+    // Read current selected tags (0 means black / none)
+    var p
+    p = COLORPICKER.PRIMARYSELECTED.Tag
+    var s
+    s = COLORPICKER.SECONDARYSELECTED.Tag
+
+    // Skip swap only if BOTH are black (no colour selected)
+    if (p = 0) goto CheckSecondary
+    goto BeginSwap
+
+CheckSecondary:
+    if (s = 0) goto EndSwap
+    // otherwise continue into swap
+
+BeginSwap:
+    // Start or reverse a session:
+    if (swapActive = 0) goto StartNewSession
+    goto ReverseDirection
+
+StartNewSession:
+    // First click of a session: remember endpoints and aim for SWAPPED
+    swapA = ColorChannel.0.Color
+    swapB = ColorChannel.1.Color
+    swapTarget = 1          // head toward swapped on first click
+    swapActive = 1
+    goto ComputeFromCurrent
+
+ReverseDirection:
+    // Mid-session: toggle target to reverse direction
+    if (swapTarget = 1) goto SetTargetOriginal
+    goto SetTargetSwapped
+
+SetTargetOriginal:
+    swapTarget = 0
+    goto ComputeFromCurrent
+
+SetTargetSwapped:
+    swapTarget = 1
+    // Keep swapA/swapB as the original endpoints from the first click
+    goto ComputeFromCurrent
+
+ComputeFromCurrent:
+    // Current colours become the start of THIS animation
+    var old0
+    old0 = ColorChannel.0.Color
+    var old1
+    old1 = ColorChannel.1.Color
+
+    // Compute target endpoints from remembered originals and desired orientation
+    var dest0
+    var dest1
+    if (swapTarget = 1) goto DestSwapped
+    goto DestOriginal
+
+DestSwapped:
+    dest0 = swapB
+    dest1 = swapA
+    goto UpdateButtonSelections
+
+DestOriginal:
+    dest0 = swapA
+    dest1 = swapB
+    // fallthrough to button updates
+
+UpdateButtonSelections:
+    // Clear ALL primary & secondary palette buttons to avoid mismatches
+    COLORPICKER.REDBUTTON1.value     = 0
+    COLORPICKER.ORANGEBUTTON1.value  = 0
+    COLORPICKER.YELLOWBUTTON1.value  = 0
+    COLORPICKER.LIMEBUTTON1.value    = 0
+    COLORPICKER.GREENBUTTON1.value   = 0
+    COLORPICKER.CLOVERBUTTON1.value  = 0
+    COLORPICKER.CYANBUTTON1.value    = 0
+    COLORPICKER.AQUABUTTON1.value    = 0
+    COLORPICKER.BLUEBUTTON1.value    = 0
+    COLORPICKER.PURPLEBUTTON1.value  = 0
+    COLORPICKER.MAGENTABUTTON1.value = 0
+    COLORPICKER.ROSEBUTTON1.value    = 0
+    COLORPICKER.WHITEBUTTON1.value   = 0
+
+    COLORPICKER.REDBUTTON2.value     = 0
+    COLORPICKER.ORANGEBUTTON2.value  = 0
+    COLORPICKER.YELLOWBUTTON2.value  = 0
+    COLORPICKER.LIMEBUTTON2.value    = 0
+    COLORPICKER.GREENBUTTON2.value   = 0
+    COLORPICKER.CLOVERBUTTON2.value  = 0
+    COLORPICKER.CYANBUTTON2.value    = 0
+    COLORPICKER.AQUABUTTON2.value    = 0
+    COLORPICKER.BLUEBUTTON2.value    = 0
+    COLORPICKER.PURPLEBUTTON2.value  = 0
+    COLORPICKER.MAGENTABUTTON2.value = 0
+    COLORPICKER.ROSEBUTTON2.value    = 0
+    COLORPICKER.WHITEBUTTON2.value   = 0
+
+    // Turn on buttons according to TARGET orientation:
+    // If swapTarget=1 (swapped): primary<-s, secondary<-p
+    // If swapTarget=0 (original): primary<-p, secondary<-s
+    var priTag
+    var secTag
+    if (swapTarget = 1) goto UseSwappedTags
+    goto UseOriginalTags
+
+UseSwappedTags:
+    priTag = s
+    secTag = p
+    goto ApplyTagButtons
+
+UseOriginalTags:
+    priTag = p
+    secTag = s
+    // fallthrough
+
+ApplyTagButtons:
+    // Primary side (tag 1..13)
+    if (priTag = 1)  COLORPICKER.REDBUTTON1.value    = 1
+    if (priTag = 2)  COLORPICKER.ORANGEBUTTON1.value = 1
+    if (priTag = 3)  COLORPICKER.YELLOWBUTTON1.value = 1
+    if (priTag = 4)  COLORPICKER.LIMEBUTTON1.value   = 1
+    if (priTag = 5)  COLORPICKER.GREENBUTTON1.value  = 1
+    if (priTag = 6)  COLORPICKER.CLOVERBUTTON1.value = 1
+    if (priTag = 7)  COLORPICKER.CYANBUTTON1.value   = 1
+    if (priTag = 8)  COLORPICKER.AQUABUTTON1.value   = 1
+    if (priTag = 9)  COLORPICKER.BLUEBUTTON1.value   = 1
+    if (priTag = 10) COLORPICKER.PURPLEBUTTON1.value = 1
+    if (priTag = 11) COLORPICKER.MAGENTABUTTON1.value= 1
+    if (priTag = 12) COLORPICKER.ROSEBUTTON1.value   = 1
+    if (priTag = 13) COLORPICKER.WHITEBUTTON1.value  = 1
+
+    // Secondary side (tag 1..13)
+    if (secTag = 1)  COLORPICKER.REDBUTTON2.value    = 1
+    if (secTag = 2)  COLORPICKER.ORANGEBUTTON2.value = 1
+    if (secTag = 3)  COLORPICKER.YELLOWBUTTON2.value = 1
+    if (secTag = 4)  COLORPICKER.LIMEBUTTON2.value   = 1
+    if (secTag = 5)  COLORPICKER.GREENBUTTON2.value  = 1
+    if (secTag = 6)  COLORPICKER.CLOVERBUTTON2.value = 1
+    if (secTag = 7)  COLORPICKER.CYANBUTTON2.value   = 1
+    if (secTag = 8)  COLORPICKER.AQUABUTTON2.value   = 1
+    if (secTag = 9)  COLORPICKER.BLUEBUTTON2.value   = 1
+    if (secTag = 10) COLORPICKER.PURPLEBUTTON2.value = 1
+    if (secTag = 11) COLORPICKER.MAGENTABUTTON2.value= 1
+    if (secTag = 12) COLORPICKER.ROSEBUTTON2.value   = 1
+    if (secTag = 13) COLORPICKER.WHITEBUTTON2.value  = 1
+
+    // ============================
+    // SNAP/FADE CHANNEL SWAP LOGIC
+    // ============================
+    var mode
+    mode = COLORPICKER.SWAPMODE.Tag      // 0 = SNAP, 1 = FADE
+
+    if (mode = 0) goto DoSnapSwap
+    goto DoFadeSwap
+
+// ---------- SNAP (instant) ----------
+DoSnapSwap:
+    // No fade: ensure flags are clear
+    COLORPICKER.SWAP_FADEACTIVE.Tag = 0
+    COLORPICKER.SWAP_HOLD0.Tag = 0
+    COLORPICKER.SWAP_HOLD1.Tag = 0
+    ColorChannel.0.Color = dest0
+    ColorChannel.1.Color = dest1
+    goto UpdateSwatchesAfterSwap
+
+// ---------- FADE (linear RGB crossfade toward dest0/dest1) ----------
+DoFadeSwap:
+    // Mark that a fade is running, and clear per-channel holds
+    COLORPICKER.SWAP_FADEACTIVE.Tag = 1
+    COLORPICKER.SWAP_HOLD0.Tag = 0
+    COLORPICKER.SWAP_HOLD1.Tag = 0
+
+    // Local copies so this instance is stable even if globals change
+    var localId
+    localId = myFadeId
+    var d0
+    d0 = dest0
+    var d1
+    d1 = dest1
+
+    // Fade settings
+    var steps
+    steps = 20
+    var total
+    total = 250           // ms
+    var dt
+    dt = total / steps
+
+    // Decode start colours (old0/old1) and destinations (d0/d1)
+    var rA0; rA0 = (old0 >> 16) & 255
+    var gA0; gA0 = (old0 >> 8)  & 255
+    var bA0; bA0 = old0 & 255
+
+    var rB0; rB0 = (old1 >> 16) & 255
+    var gB0; gB0 = (old1 >> 8)  & 255
+    var bB0; bB0 = old1 & 255
+
+    var rA1; rA1 = (d0 >> 16) & 255
+    var gA1; gA1 = (d0 >> 8)  & 255
+    var bA1; bA1 = d0 & 255
+
+    var rB1; rB1 = (d1 >> 16) & 255
+    var gB1; gB1 = (d1 >> 8)  & 255
+    var bB1; bB1 = d1 & 255
+
+    var i
+    i = 0
+FadeLoop:
+    // Abort if a newer swap was triggered
+    if (localId <> COLORPICKER.SWAPCOUNTER.Tag) goto FadeAbort
+
+    if (i > steps) goto FadeDone
+
+    // Linear interpolation factor (0..1000)
+    var t
+    t = (i * 1000) / steps
+    // Optional ease-in/out:
+    // t = (t * t) / 1000
+
+    // Channel 0: old0 -> d0
+    var rA; rA = rA0 + ((rA1 - rA0) * t) / 1000
+    var gA; gA = gA0 + ((gA1 - gA0) * t) / 1000
+    var bA; bA = bA0 + ((bA1 - bA0) * t) / 1000
+
+    // Channel 1: old1 -> d1
+    var rB; rB = rB0 + ((rB1 - rB0) * t) / 1000
+    var gB; gB = gB0 + ((gB1 - gB0) * t) / 1000
+    var bB; bB = bB0 + ((bB1 - bB0) * t) / 1000
+
+    // Encode colours back into BGR
+    var cA; cA = (bA | (gA << 8) | (rA << 16))
+    var cB; cB = (bB | (gB << 8) | (rB << 16))
+
+    
+    // Respect per-channel holds during fade
+    var h0; h0 = COLORPICKER.SWAP_HOLD0.Tag
+    var h1; h1 = COLORPICKER.SWAP_HOLD1.Tag
+    // If both sides have been manually snapped, finish early
+    if ((h0 > 0.5) & (h1 > 0.5)) goto FadeDone
+
+    // Write channel 0 unless held
+    if (h0 <= 0.5) goto WriteChan0
+    goto SkipChan0
+WriteChan0:
+    ColorChannel.0.Color = cA
+    COLORPICKER.PRIMARYCOLOR.ColorOff    = cA
+    COLORPICKER.PRIMARYCOLOR.ColorOn     = cA
+    COLORPICKER.PRIMARYCOLOR.ColorActive = cA
+SkipChan0:
+
+    // Write channel 1 unless held
+    if (h1 <= 0.5) goto WriteChan1
+    goto SkipChan1
+WriteChan1:
+    ColorChannel.1.Color = cB
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = cB
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = cB
+    COLORPICKER.SECONDARYCOLOR.ColorActive = cB
+SkipChan1:
+
+WaitForTime 0,0,0,dt
+
+    i = i + 1
+    goto FadeLoop
+
+FadeAbort:
+    // Clear fade/hold flags
+    COLORPICKER.SWAP_FADEACTIVE.Tag = 0
+    COLORPICKER.SWAP_HOLD0.Tag = 0
+    COLORPICKER.SWAP_HOLD1.Tag = 0
+    // A new click started; let the new instance take over
+    exit
+
+FadeDone:
+    // Clear fade/hold flags
+    COLORPICKER.SWAP_FADEACTIVE.Tag = 0
+    COLORPICKER.SWAP_HOLD0.Tag = 0
+    COLORPICKER.SWAP_HOLD1.Tag = 0
+    // Snap to exact destination
+    ColorChannel.0.Color = d0
+    ColorChannel.1.Color = d1
+    goto UpdateSwatchesAfterSwap
+
+// ---------- Common post-swap swatch refresh ----------
+UpdateSwatchesAfterSwap:
+    // Update swatch blocks to the final channel colours
+    var new0
+    new0 = ColorChannel.0.Color
+    COLORPICKER.PRIMARYCOLOR.ColorOff    = new0
+    COLORPICKER.PRIMARYCOLOR.ColorOn     = new0
+    COLORPICKER.PRIMARYCOLOR.ColorActive = new0
+
+    var new1
+    new1 = ColorChannel.1.Color
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = new1
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = new1
+    COLORPICKER.SECONDARYCOLOR.ColorActive = new1
+
+    // Update selection tags + pastel, depending on target orientation
+    if (swapTarget = 1) goto ApplySwappedTags
+    goto ApplyOriginalTags
+
+ApplySwappedTags:
+    // Final state is SWAPPED (respect holds)
+    if (COLORPICKER.SWAP_HOLD0.Tag <= 0.5) COLORPICKER.PRIMARYSELECTED.Tag   = s
+    if (COLORPICKER.SWAP_HOLD1.Tag <= 0.5) COLORPICKER.SECONDARYSELECTED.Tag = p
+    // Swap pastel states only if neither side is held
+    if ((COLORPICKER.SWAP_HOLD0.Tag <= 0.5) & (COLORPICKER.SWAP_HOLD1.Tag <= 0.5)) {
+        var ppast
+        ppast = COLORPICKER.PASTELMODEPRIMARY.value
+        var spast
+        spast = COLORPICKER.PASTELMODESECONDARY.value
+        COLORPICKER.PASTELMODEPRIMARY.value   = spast
+        COLORPICKER.PASTELMODESECONDARY.value = ppast
+    }
+    goto RefreshPalettes
+
+ApplyOriginalTags:
+    // Final state is ORIGINAL (respect holds; no pastel swap)
+    if (COLORPICKER.SWAP_HOLD0.Tag <= 0.5) COLORPICKER.PRIMARYSELECTED.Tag   = p
+    if (COLORPICKER.SWAP_HOLD1.Tag <= 0.5) COLORPICKER.SECONDARYSELECTED.Tag = s
+    goto RefreshPalettes
+
+RefreshPalettes:
+    // Refresh primary palette
+    if (COLORPICKER.PASTELMODEPRIMARY.value > 0.5) goto PrimaryPastel
+    goto PrimaryNormal
+
+PrimaryPastel:
+    COLORPICKER.REDBUTTON1.ColorOff    = 0
+    COLORPICKER.REDBUTTON1.ColorOn     = 8421631
+    COLORPICKER.REDBUTTON1.ColorActive = 8421631
+    COLORPICKER.REDBUTTON1.Caption     = "P.RED"
+
+    COLORPICKER.ORANGEBUTTON1.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON1.ColorOn     = 8438015
+    COLORPICKER.ORANGEBUTTON1.ColorActive = 8438015
+    COLORPICKER.ORANGEBUTTON1.Caption     = "P.ORANGE"
+
+    COLORPICKER.YELLOWBUTTON1.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON1.ColorOn     = 8454143
+    COLORPICKER.YELLOWBUTTON1.ColorActive = 8454143
+    COLORPICKER.YELLOWBUTTON1.Caption     = "P.YELLOW"
+
+    COLORPICKER.LIMEBUTTON1.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON1.ColorOn     = 8454080
+    COLORPICKER.LIMEBUTTON1.ColorActive = 8454080
+    COLORPICKER.LIMEBUTTON1.Caption     = "P.LIME"
+
+    COLORPICKER.GREENBUTTON1.ColorOff    = 0
+    COLORPICKER.GREENBUTTON1.ColorOn     = 8454016
+    COLORPICKER.GREENBUTTON1.ColorActive = 8454016
+    COLORPICKER.GREENBUTTON1.Caption     = "P.GREEN"
+
+    COLORPICKER.CLOVERBUTTON1.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON1.ColorOn     = 12648320
+    COLORPICKER.CLOVERBUTTON1.ColorActive = 12648320
+    COLORPICKER.CLOVERBUTTON1.Caption     = "P.CLOVER"
+
+    COLORPICKER.CYANBUTTON1.ColorOff    = 0
+    COLORPICKER.CYANBUTTON1.ColorOn     = 16777088
+    COLORPICKER.CYANBUTTON1.ColorActive = 16777088
+    COLORPICKER.CYANBUTTON1.Caption     = "P.CYAN"
+
+    COLORPICKER.AQUABUTTON1.ColorOff    = 0
+    COLORPICKER.AQUABUTTON1.ColorOn     = 16760960
+    COLORPICKER.AQUABUTTON1.ColorActive = 16760960
+    COLORPICKER.AQUABUTTON1.Caption     = "P.AQUA"
+
+    COLORPICKER.BLUEBUTTON1.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON1.ColorOn     = 16744576
+    COLORPICKER.BLUEBUTTON1.ColorActive = 16744576
+    COLORPICKER.BLUEBUTTON1.Caption     = "P.BLUE"
+
+    COLORPICKER.PURPLEBUTTON1.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON1.ColorOn     = 16744640
+    COLORPICKER.PURPLEBUTTON1.ColorActive = 16744640
+    COLORPICKER.PURPLEBUTTON1.Caption     = "P.PURPLE"
+
+    COLORPICKER.MAGENTABUTTON1.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON1.ColorOn     = 16744703
+    COLORPICKER.MAGENTABUTTON1.ColorActive = 16744703
+    COLORPICKER.MAGENTABUTTON1.Caption     = "P.MAGENTA"
+
+    COLORPICKER.ROSEBUTTON1.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON1.ColorOn     = 12615935
+    COLORPICKER.ROSEBUTTON1.ColorActive = 12615935
+    COLORPICKER.ROSEBUTTON1.Caption     = "P.ROSE"
+
+    COLORPICKER.WHITEBUTTON1.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON1.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON1.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON1.Caption     = "WHITE"
+
+    goto UpdateSecondaryPalette
+
+PrimaryNormal:
+    COLORPICKER.REDBUTTON1.ColorOff    = 0
+    COLORPICKER.REDBUTTON1.ColorOn     = 255
+    COLORPICKER.REDBUTTON1.ColorActive = 255
+    COLORPICKER.REDBUTTON1.Caption     = "RED"
+
+    COLORPICKER.ORANGEBUTTON1.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON1.ColorOn     = 33023
+    COLORPICKER.ORANGEBUTTON1.ColorActive = 33023
+    COLORPICKER.ORANGEBUTTON1.Caption     = "ORANGE"
+
+    COLORPICKER.YELLOWBUTTON1.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON1.ColorOn     = 65535
+    COLORPICKER.YELLOWBUTTON1.ColorActive = 65535
+    COLORPICKER.YELLOWBUTTON1.Caption     = "YELLOW"
+
+    COLORPICKER.LIMEBUTTON1.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON1.ColorOn     = 65408
+    COLORPICKER.LIMEBUTTON1.ColorActive = 65408
+    COLORPICKER.LIMEBUTTON1.Caption     = "LIME"
+
+    COLORPICKER.GREENBUTTON1.ColorOff    = 0
+    COLORPICKER.GREENBUTTON1.ColorOn     = 65280
+    COLORPICKER.GREENBUTTON1.ColorActive = 65280
+    COLORPICKER.GREENBUTTON1.Caption     = "GREEN"
+
+    COLORPICKER.CLOVERBUTTON1.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON1.ColorOn     = 8453888
+    COLORPICKER.CLOVERBUTTON1.ColorActive = 8453888
+    COLORPICKER.CLOVERBUTTON1.Caption     = "CLOVER"
+
+    COLORPICKER.CYANBUTTON1.ColorOff    = 0
+    COLORPICKER.CYANBUTTON1.ColorOn     = 16776960
+    COLORPICKER.CYANBUTTON1.ColorActive = 16776960
+    COLORPICKER.CYANBUTTON1.Caption     = "CYAN"
+
+    COLORPICKER.AQUABUTTON1.ColorOff    = 0
+    COLORPICKER.AQUABUTTON1.ColorOn     = 16744448
+    COLORPICKER.AQUABUTTON1.ColorActive = 16744448
+    COLORPICKER.AQUABUTTON1.Caption     = "AQUA"
+
+    COLORPICKER.BLUEBUTTON1.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON1.ColorOn     = 16711680
+    COLORPICKER.BLUEBUTTON1.ColorActive = 16711680
+    COLORPICKER.BLUEBUTTON1.Caption     = "BLUE"
+
+    COLORPICKER.PURPLEBUTTON1.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON1.ColorOn     = 16711808
+    COLORPICKER.PURPLEBUTTON1.ColorActive = 16711808
+    COLORPICKER.PURPLEBUTTON1.Caption     = "PURPLE"
+
+    COLORPICKER.MAGENTABUTTON1.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON1.ColorOn     = 16711935
+    COLORPICKER.MAGENTABUTTON1.ColorActive = 16711935
+    COLORPICKER.MAGENTABUTTON1.Caption     = "MAGENTA"
+
+    COLORPICKER.ROSEBUTTON1.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON1.ColorOn     = 8388863
+    COLORPICKER.ROSEBUTTON1.ColorActive = 8388863
+    COLORPICKER.ROSEBUTTON1.Caption     = "ROSE"
+
+    COLORPICKER.WHITEBUTTON1.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON1.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON1.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON1.Caption     = "WHITE"
+
+    goto UpdateSecondaryPalette
+
+// Update secondary palette
+UpdateSecondaryPalette:
+    if (COLORPICKER.PASTELMODESECONDARY.value > 0.5) goto SecondaryPastel
+    goto SecondaryNormal
+
+SecondaryPastel:
+    COLORPICKER.REDBUTTON2.ColorOff    = 0
+    COLORPICKER.REDBUTTON2.ColorOn     = 8421631
+    COLORPICKER.REDBUTTON2.ColorActive = 8421631
+    COLORPICKER.REDBUTTON2.Caption     = "P.RED"
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 8438015
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 8438015
+    COLORPICKER.ORANGEBUTTON2.Caption     = "P.ORANGE"
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 8454143
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 8454143
+    COLORPICKER.YELLOWBUTTON2.Caption     = "P.YELLOW"
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 8454080
+    COLORPICKER.LIMEBUTTON2.ColorActive = 8454080
+    COLORPICKER.LIMEBUTTON2.Caption     = "P.LIME"
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0
+    COLORPICKER.GREENBUTTON2.ColorOn     = 8454016
+    COLORPICKER.GREENBUTTON2.ColorActive = 8454016
+    COLORPICKER.GREENBUTTON2.Caption     = "P.GREEN"
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 12648320
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 12648320
+    COLORPICKER.CLOVERBUTTON2.Caption     = "P.CLOVER"
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16777088
+    COLORPICKER.CYANBUTTON2.ColorActive = 16777088
+    COLORPICKER.CYANBUTTON2.Caption     = "P.CYAN"
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16760960
+    COLORPICKER.AQUABUTTON2.ColorActive = 16760960
+    COLORPICKER.AQUABUTTON2.Caption     = "P.AQUA"
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16744576
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16744576
+    COLORPICKER.BLUEBUTTON2.Caption     = "P.BLUE"
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16744640
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16744640
+    COLORPICKER.PURPLEBUTTON2.Caption     = "P.PURPLE"
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16744703
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16744703
+    COLORPICKER.MAGENTABUTTON2.Caption     = "P.MAGENTA"
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 12615935
+    COLORPICKER.ROSEBUTTON2.ColorActive = 12615935
+    COLORPICKER.ROSEBUTTON2.Caption     = "P.ROSE"
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE"
+    goto FinalizeSwap
+
+SecondaryNormal:
+    COLORPICKER.REDBUTTON2.ColorOff    = 0
+    COLORPICKER.REDBUTTON2.ColorOn     = 255
+    COLORPICKER.REDBUTTON2.ColorActive = 255
+    COLORPICKER.REDBUTTON2.Caption     = "RED"
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 33023
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 33023
+    COLORPICKER.ORANGEBUTTON2.Caption     = "ORANGE"
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 65535
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 65535
+    COLORPICKER.YELLOWBUTTON2.Caption     = "YELLOW"
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 65408
+    COLORPICKER.LIMEBUTTON2.ColorActive = 65408
+    COLORPICKER.LIMEBUTTON2.Caption     = "LIME"
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0
+    COLORPICKER.GREENBUTTON2.ColorOn     = 65280
+    COLORPICKER.GREENBUTTON2.ColorActive = 65280
+    COLORPICKER.GREENBUTTON2.Caption     = "GREEN"
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 8453888
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 8453888
+    COLORPICKER.CLOVERBUTTON2.Caption     = "CLOVER"
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16776960
+    COLORPICKER.CYANBUTTON2.ColorActive = 16776960
+    COLORPICKER.CYANBUTTON2.Caption     = "CYAN"
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16744448
+    COLORPICKER.AQUABUTTON2.ColorActive = 16744448
+    COLORPICKER.AQUABUTTON2.Caption     = "AQUA"
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16711680
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16711680
+    COLORPICKER.BLUEBUTTON2.Caption     = "BLUE"
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16711808
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16711808
+    COLORPICKER.PURPLEBUTTON2.Caption     = "PURPLE"
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16711935
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16711935
+    COLORPICKER.MAGENTABUTTON2.Caption     = "MAGENTA"
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 8388863
+    COLORPICKER.ROSEBUTTON2.ColorActive = 8388863
+    COLORPICKER.ROSEBUTTON2.Caption     = "ROSE"
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE"
+
+    goto FinalizeSwap
+
+FinalizeSwap:
+    // This swap session is complete
+    swapActive = 0
+    goto EndSwap
+
+EndSwap:
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \\__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \\____/_____/____/

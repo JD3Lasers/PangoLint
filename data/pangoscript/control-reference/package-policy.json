@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tracked public release data",
+  "controlReferenceRoot": "data/pangoscript/control-reference",
+  "publicCheckoutContract": {
+    "trackedFilesOnly": true,
+    "ignoredInputsNotRequired": [],
+    "normalPublicGates": [
+      "npm run build:knowledge",
+      "npm run compile",
+      "npm test",
+      "npm run verify:package",
+      "npm --workspace mcp run verify:tarball",
+      "npm run check"
+    ]
+  },
+  "dataGroups": [
+    {
+      "id": "object-control-reference",
+      "path": "data/pangoscript/control-reference/object-control-reference/",
+      "intendedConsumers": [
+        "VS Code extension reference UI",
+        "offline reference site build",
+        "compact MCP control-reference projection source"
+      ],
+      "vsixSurface": "not packaged in VSIX after issue #518; generated reference HTML is the shipped reference surface",
+      "mcpSurface": "source for compact MCP projection, not approved as a direct full MCP package surface after issue #517"
+    },
+    {
+      "id": "osc-control-reference",
+      "path": "data/pangoscript/control-reference/osc-control-reference/",
+      "intendedConsumers": [
+        "VS Code extension reference UI",
+        "offline reference site build",
+        "compact MCP control-reference projection source"
+      ],
+      "vsixSurface": "not packaged in VSIX after issue #518; generated reference HTML is the shipped reference surface",
+      "mcpSurface": "source for compact MCP projection, not approved as a direct full MCP package surface after issue #517"
+    },
+    {
+      "id": "command-control-reference",
+      "path": "data/pangoscript/control-reference/command-control-reference/",
+      "intendedConsumers": [
+        "VS Code extension reference UI",
+        "offline reference site build",
+        "compact MCP control-reference projection source"
+      ],
+      "vsixSurface": "not packaged in VSIX after issue #518; generated reference HTML is the shipped reference surface",
+      "mcpSurface": "source for compact MCP projection, not approved as a direct full MCP package surface after issue #517"
+    },
+    {
+      "id": "control-crosswalk",
+      "path": "data/pangoscript/control-reference/control-crosswalk/",
+      "intendedConsumers": [
+        "VS Code extension reference UI",
+        "offline reference site build",
+        "compact MCP property-control lookup projection source"
+      ],
+      "vsixSurface": "not packaged in VSIX after issue #518; generated reference HTML is the shipped reference surface",
+      "mcpSurface": "source for compact MCP property-control lookup projection, not approved as a direct full MCP package surface after issue #517"
+    },
+    {
+      "id": "package-policy",
+      "path": "data/pangoscript/control-reference/package-policy.json",
+      "intendedConsumers": ["package verification", "MCP package tests", "future data layout planning"],
+      "vsixSurface": "not packaged in VSIX after issue #518; package verification reads the tracked source file",
+      "mcpSurface": "approved policy manifest when package tests need consumer decisions"
+    },
+    {
+      "id": "mcp-control-reference",
+      "path": "data/pangoscript/control-reference/mcp-control-reference/",
+      "intendedConsumers": ["MCP property control lookup tools", "MCP package verification"],
+      "vsixSurface": "not required by the VS Code extension",
+      "mcpSurface": "approved compact MCP package surface for property control lookup after issue #517"
+    }
+  ],
+  "forbiddenPublicPackageInputs": [
+    "maintainer-only evidence"
+  ],
+  "followUpIssues": {
+    "layoutPlan": "#519",
+    "compactMcpObjectLookups": "#516",
+    "compactMcpControlReferenceProjection": "#517",
+    "packageTrimming": "#518"
+  }
+}

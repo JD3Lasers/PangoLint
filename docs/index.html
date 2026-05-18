@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PangoLint Documentation</title>
+<link rel="icon" href="./assets/manual/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:        #0f0d0a;
+  --paper-2:      #181410;
+  --paper-3:      #221c16;
+  --ink:          #ece4d2;
+  --ink-2:        #d4ccba;
+  --muted:        #9a8e7c;
+  --muted-2:      #6e6555;
+  --rule:         #2a241d;
+  --amber:        #f3b277;
+  --amber-bg:     rgba(243, 178, 119, 0.11);
+
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body:    "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 700px at 82% -180px, rgba(243, 178, 119, 0.085), transparent 62%),
+    radial-gradient(900px 500px at -8% 110%, rgba(240, 138, 93, 0.06), transparent 58%),
+    var(--paper);
+  background-attachment: fixed;
+}
+
+::selection { background: var(--amber-bg); color: var(--ink); }
+
+/* Cover */
+.cover {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 4vw, 4rem);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  left: clamp(1.5rem, 4vw, 4rem);
+  right: clamp(1.5rem, 4vw, 4rem);
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber) 20%, var(--amber) 80%, transparent);
+  opacity: 0.35;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .cover-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .cover-icon { order: -1; }
+}
+
+.cover-icon {
+  display: block;
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 6px 18px rgba(243, 178, 119, 0.18));
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 880px) {
+  .cover-icon { width: 80px; height: 80px; }
+}
+
+.cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cover-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+.cover-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+  color: var(--ink);
+}
+
+.cover-lede {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "wght" 350;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 36ch;
+  margin: 0;
+}
+
+/* Cards */
+.cards {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.card {
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-2);
+  color: var(--ink);
+  padding: 1.5rem 1.75rem;
+  text-decoration: none;
+  transition: border-color 150ms, background 150ms;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--amber);
+  background: var(--paper-3);
+  outline: none;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "wght" 450;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-arrow {
+  color: var(--amber);
+  transition: transform 150ms;
+}
+
+.card:hover .card-arrow,
+.card:focus-visible .card-arrow {
+  transform: translateX(2px);
+}
+
+.card-desc {
+  font-size: 0.94rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.55;
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="cover">
+  <div class="cover-grid">
+    <div>
+      <p class="cover-eyebrow">VS Code Extension / Documentation</p>
+      <h1 class="cover-title">PangoLint</h1>
+      <p class="cover-lede">Language tooling, diagnostics, and an offline reference for PangoScript, the scripting language built into Pangolin BEYOND.</p>
+    </div>
+    <img class="cover-icon" src="./assets/manual/icon.png" alt="PangoLint" width="120" height="120">
+  </div>
+</div>
+</header>
+
+<main>
+<nav class="cards" aria-label="Documentation">
+  <a class="card" href="./manual.html">
+    <h2 class="card-title">User Manual <span class="card-arrow" aria-hidden="true">&rarr;</span></h2>
+    <p class="card-desc">Feature reference, setup, runtime safety gates, MCP tools, and troubleshooting.</p>
+  </a>
+  <a class="card" href="./reference/">
+    <h2 class="card-title">PangoScript Reference <span class="card-arrow" aria-hidden="true">&rarr;</span></h2>
+    <p class="card-desc">Searchable command and Object Tree browser built from the shipped PangoLint catalog.</p>
+  </a>
+</nav>
+</main>
+
+</body>
+</html>

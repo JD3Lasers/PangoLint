@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 299,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint MCP runtime readback and SetProp writes. Shipped rows used Gamepad aggregate fields with signed integer readback and final baseline restore. Axis fields remained no-op at baseline and are still deferred in the earlier issue #299 evidence."
+  },
+  "entries": [
+    {
+      "objectPath": "Gamepad.Buttons",
+      "probePath": "Gamepad.Buttons",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed button bitmask"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.Buttons\", -2147483649",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.Buttons\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.Buttons\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.Buttons\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.Buttons\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Gamepad.Buttons\", 65535",
+          "readback": 65535,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.Buttons\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.Buttons\", 2147483648",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Gamepad.Buttons to the observed baseline after the sampled writes and verified the final readback was 0."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.Buttons at Gamepad.Buttons uses a signed 32-bit button bitmask range with final baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.Buttons",
+        "notes": "The probe used the concrete Gamepad.Buttons input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.POV",
+      "probePath": "Gamepad.POV",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed POV value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.POV\", -2147483649",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.POV\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.POV\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.POV\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.POV\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 35999,
+          "command": "SetProp \"Gamepad.POV\", 35999",
+          "readback": 35999,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Gamepad.POV\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.POV\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.POV\", 2147483648",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Gamepad.POV to the observed baseline after the sampled writes and verified the final readback was 0."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.POV at Gamepad.POV uses a signed 32-bit POV range with final baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.POV",
+        "notes": "The probe used the concrete Gamepad.POV input-device path."
+      }
+    }
+  ]
+}

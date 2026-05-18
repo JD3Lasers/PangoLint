@@ -1,0 +1,14 @@
+// PangoLint pass: ExtDelta outside trigger context
+// Purpose: verify BEYOND accepts ExtDelta when pasted/run from the editor without an external delta source.
+// BEYOND validation 2026-05-07: parser accepted ExtDelta(-1) and emitted the default editor callback.
+// PangoLint expected callback: /pangolint/candidate/extdelta/editor (sf) "pangolint-candidate-extdelta-editor-001" 1.000000
+// PangoLint observed callback: /pangolint/candidate/extdelta/editor (sf) "pangolint-candidate-extdelta-editor-001" 1.000000
+
+var requestId
+var extDeltaValue
+
+requestId = "pangolint-candidate-extdelta-editor-001"
+extDeltaValue = ExtDelta(-1)
+
+OscOutTTS "/pangolint/candidate/extdelta/editor", "sf", requestId, extDeltaValue
+exit

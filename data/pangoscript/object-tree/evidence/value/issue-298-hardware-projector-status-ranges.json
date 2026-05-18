@@ -1,0 +1,3390 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. Shipped rows used Beam.0 or Projector.0 paths with write/readback and baseline restore. No metadata was propagated to FB3 or FB4 placeholder roots."
+  },
+  "entries": [
+    {
+      "objectPath": "Beam.N.Active",
+      "probePath": "Beam.0.Active",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Active\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Active\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.Active\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.Active\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Active at Beam.0.Active uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.Active",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.Active to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.Active to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "Beam.N.AllowRecolor",
+      "probePath": "Beam.0.AllowRecolor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.AllowRecolor\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.AllowRecolor\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.AllowRecolor\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.AllowRecolor\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.AllowRecolor at Beam.0.AllowRecolor uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.AllowRecolor",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.AllowRecolor to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.AllowRecolor to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "Beam.N.BlankEnd",
+      "probePath": "Beam.0.BlankEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 20,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam blank endpoint"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.BlankEnd\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.BlankEnd\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.BlankEnd\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 19,
+          "command": "SetProp \"Beam.0.BlankEnd\", 19",
+          "readback": 19,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Beam.0.BlankEnd\", 20",
+          "readback": 20,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 21,
+          "command": "SetProp \"Beam.0.BlankEnd\", 21",
+          "readback": 20,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.BlankEnd\", 100",
+          "readback": 20,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Beam.0.BlankEnd\", 101",
+          "readback": 20,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.BlankEnd at Beam.0.BlankEnd uses 0..20 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.BlankEnd",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.BlankStart",
+      "probePath": "Beam.0.BlankStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 3,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 20,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam blank endpoint"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.BlankStart\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.BlankStart\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 19,
+          "command": "SetProp \"Beam.0.BlankStart\", 19",
+          "readback": 19,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Beam.0.BlankStart\", 20",
+          "readback": 20,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 21,
+          "command": "SetProp \"Beam.0.BlankStart\", 21",
+          "readback": 20,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.BlankStart\", 100",
+          "readback": 20,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Beam.0.BlankStart\", 101",
+          "readback": 20,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.BlankStart at Beam.0.BlankStart uses 0..20 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.BlankStart",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.Color",
+      "probePath": "Beam.0.Color",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16777215,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "BGR packed color"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Color\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.Color\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"Beam.0.Color\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"Beam.0.Color\", 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 16777215,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Color at Beam.0.Color uses 0..16777215 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.Color",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.ColorPalette",
+      "probePath": "Beam.0.ColorPalette",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "enum",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 2,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam color palette"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.ColorPalette\", -1",
+          "readback": 4,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.ColorPalette\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.ColorPalette\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.ColorPalette\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"Beam.0.ColorPalette\", 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Beam.0.ColorPalette\", 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"Beam.0.ColorPalette\", 5",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Beam.0.ColorPalette\", 255",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Beam.0.ColorPalette\", 256",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 2,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with unknown boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.ColorPalette",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "PALETTE_0",
+          "description": "Set Beam.N.ColorPalette to palette 0."
+        },
+        {
+          "value": 1,
+          "label": "PALETTE_1",
+          "description": "Set Beam.N.ColorPalette to palette 1."
+        },
+        {
+          "value": 2,
+          "label": "PALETTE_2",
+          "description": "Set Beam.N.ColorPalette to palette 2."
+        },
+        {
+          "value": 3,
+          "label": "PALETTE_3",
+          "description": "Set Beam.N.ColorPalette to palette 3."
+        },
+        {
+          "value": 4,
+          "label": "PALETTE_4",
+          "description": "Set Beam.N.ColorPalette to palette 4."
+        }
+      ]
+    },
+    {
+      "objectPath": "Beam.N.IsGroup",
+      "probePath": "Beam.0.IsGroup",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.IsGroup\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.IsGroup\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.IsGroup\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.IsGroup\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Beam.N.IsGroup at Beam.0.IsGroup.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.IsGroup",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.LockPos",
+      "probePath": "Beam.0.LockPos",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.LockPos\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.LockPos\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.LockPos\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.LockPos\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.LockPos at Beam.0.LockPos uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.LockPos",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.LockPos to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.LockPos to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "Beam.N.Mute",
+      "probePath": "Beam.0.Mute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Mute\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Mute at Beam.0.Mute uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.Mute",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.Mute to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.Mute to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "Beam.N.PosX",
+      "probePath": "Beam.0.PosX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -32255,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32767,
+        "max": 32767,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Beam.0.PosX\", -32769",
+          "readback": -32767,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Beam.0.PosX\", -32768",
+          "readback": -32767,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Beam.0.PosX\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.PosX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Beam.0.PosX\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Beam.0.PosX\", 32768",
+          "readback": 32767,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -32255,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.PosX at Beam.0.PosX uses -32767..32767 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.PosX",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.PosY",
+      "probePath": "Beam.0.PosY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16383,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32767,
+        "max": 32767,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Beam.0.PosY\", -32769",
+          "readback": -32767,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Beam.0.PosY\", -32768",
+          "readback": -32767,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Beam.0.PosY\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.PosY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Beam.0.PosY\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Beam.0.PosY\", 32768",
+          "readback": 32767,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 16383,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.PosY at Beam.0.PosY uses -32767..32767 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.PosY",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.Power",
+      "probePath": "Beam.0.Power",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Power\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Power\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.Power\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.Power\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Beam.0.Power\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Beam.N.Power at Beam.0.Power.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.Power",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.RotoZ",
+      "probePath": "Beam.0.RotoZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -361,
+          "command": "SetProp \"Beam.0.RotoZ\", -361",
+          "readback": -361,
+          "behavior": "unknown"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Beam.0.RotoZ\", -360",
+          "readback": -360,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.RotoZ\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.RotoZ\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"Beam.0.RotoZ\", 360",
+          "readback": 360,
+          "behavior": "unknown"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"Beam.0.RotoZ\", 361",
+          "readback": 361,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Beam.N.RotoZ at Beam.0.RotoZ.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.RotoZ",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.SizeX",
+      "probePath": "Beam.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 25,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.SizeX\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.SizeX\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.SizeX\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.SizeX\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Beam.0.SizeX\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 25,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Beam.N.SizeX at Beam.0.SizeX.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.SizeX",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.SizeY",
+      "probePath": "Beam.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 25,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.SizeY\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.SizeY\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.SizeY\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.SizeY\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Beam.0.SizeY\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 25,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Beam.N.SizeY at Beam.0.SizeY.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.SizeY",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Projector.N.ColorShift",
+      "probePath": "Projector.0.ColorShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.ColorShift\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.ColorShift\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.ColorShift\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.ColorShift\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.ColorShift\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.ColorShift\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.ColorShift at Projector.0.ColorShift.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.ColorShift",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.IdleCenterOffsetX",
+      "probePath": "Projector.0.IdleCenterOffsetX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetX\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.IdleCenterOffsetX at Projector.0.IdleCenterOffsetX uses -100..100 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.IdleCenterOffsetX",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.IdleCenterOffsetY",
+      "probePath": "Projector.0.IdleCenterOffsetY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.IdleCenterOffsetY\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.IdleCenterOffsetY at Projector.0.IdleCenterOffsetY uses -100..100 with clamp boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.IdleCenterOffsetY",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.InvertY",
+      "probePath": "Projector.0.InvertY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.InvertY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.InvertY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.InvertY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.InvertY\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.InvertY",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Projector.N.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Projector.N.InvertY to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "Projector.N.MaxBlue",
+      "probePath": "Projector.0.MaxBlue",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxBlue\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxBlue\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxBlue\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MaxBlue\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MaxBlue\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MaxBlue at Projector.0.MaxBlue.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MaxBlue",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxGreen",
+      "probePath": "Projector.0.MaxGreen",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxGreen\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxGreen\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxGreen\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MaxGreen\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MaxGreen\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MaxGreen at Projector.0.MaxGreen.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MaxGreen",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxRed",
+      "probePath": "Projector.0.MaxRed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxRed\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxRed\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxRed\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MaxRed\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MaxRed\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MaxRed at Projector.0.MaxRed.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MaxRed",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinBlue",
+      "probePath": "Projector.0.MinBlue",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinBlue\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinBlue\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinBlue\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MinBlue\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MinBlue\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MinBlue at Projector.0.MinBlue.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MinBlue",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinGreen",
+      "probePath": "Projector.0.MinGreen",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinGreen\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinGreen\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinGreen\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MinGreen\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MinGreen\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MinGreen at Projector.0.MinGreen.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MinGreen",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinimumPoints",
+      "probePath": "Projector.0.MinimumPoints",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinimumPoints\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MinimumPoints at Projector.0.MinimumPoints.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MinimumPoints",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinRed",
+      "probePath": "Projector.0.MinRed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinRed\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinRed\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinRed\", 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.MinRed\", 255",
+          "readback": 255,
+          "behavior": "unknown"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.MinRed\", 256",
+          "readback": 256,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.MinRed at Projector.0.MinRed.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MinRed",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.AngleRepeats",
+      "probePath": "Projector.0.Optimisation.AngleRepeats",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.AngleRepeats at Projector.0.Optimisation.AngleRepeats.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.AngleRepeats",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankDensity",
+      "probePath": "Projector.0.Optimisation.BlankDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.BlankDensity at Projector.0.Optimisation.BlankDensity.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankDensity",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankEnd",
+      "probePath": "Projector.0.Optimisation.BlankEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.BlankEnd at Projector.0.Optimisation.BlankEnd.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankEnd",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankOverlap",
+      "probePath": "Projector.0.Optimisation.BlankOverlap",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.BlankOverlap at Projector.0.Optimisation.BlankOverlap.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankOverlap",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankStart",
+      "probePath": "Projector.0.Optimisation.BlankStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.BlankStart at Projector.0.Optimisation.BlankStart.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankStart",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.CornerRepeats",
+      "probePath": "Projector.0.Optimisation.CornerRepeats",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.CornerRepeats at Projector.0.Optimisation.CornerRepeats.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.CornerRepeats",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.DisableCornerFlag",
+      "probePath": "Projector.0.Optimisation.DisableCornerFlag",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.DisableCornerFlag at Projector.0.Optimisation.DisableCornerFlag.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.DisableCornerFlag",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.Enable3dDensity",
+      "probePath": "Projector.0.Optimisation.Enable3dDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.Enable3dDensity at Projector.0.Optimisation.Enable3dDensity.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.Enable3dDensity",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableAngleTable",
+      "probePath": "Projector.0.Optimisation.EnableAngleTable",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.EnableAngleTable at Projector.0.Optimisation.EnableAngleTable.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableAngleTable",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableBlankDensity",
+      "probePath": "Projector.0.Optimisation.EnableBlankDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.EnableBlankDensity at Projector.0.Optimisation.EnableBlankDensity.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableBlankDensity",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableSinBlank",
+      "probePath": "Projector.0.Optimisation.EnableSinBlank",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.EnableSinBlank at Projector.0.Optimisation.EnableSinBlank.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableSinBlank",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableSinVisible",
+      "probePath": "Projector.0.Optimisation.EnableSinVisible",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.EnableSinVisible at Projector.0.Optimisation.EnableSinVisible.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableSinVisible",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableVisibleDensity",
+      "probePath": "Projector.0.Optimisation.EnableVisibleDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.EnableVisibleDensity at Projector.0.Optimisation.EnableVisibleDensity.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableVisibleDensity",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.ForceVectorMode",
+      "probePath": "Projector.0.Optimisation.ForceVectorMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.ForceVectorMode at Projector.0.Optimisation.ForceVectorMode.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.ForceVectorMode",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.IgnoreOriginal",
+      "probePath": "Projector.0.Optimisation.IgnoreOriginal",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.IgnoreOriginal at Projector.0.Optimisation.IgnoreOriginal.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.IgnoreOriginal",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.MinimumPoints",
+      "probePath": "Projector.0.Optimisation.MinimumPoints",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.MinimumPoints at Projector.0.Optimisation.MinimumPoints.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.MinimumPoints",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.NoDot",
+      "probePath": "Projector.0.Optimisation.NoDot",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 2",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.NoDot at Projector.0.Optimisation.NoDot.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.NoDot",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleDensity",
+      "probePath": "Projector.0.Optimisation.VisibleDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.VisibleDensity at Projector.0.Optimisation.VisibleDensity.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleDensity",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleEnd",
+      "probePath": "Projector.0.Optimisation.VisibleEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.VisibleEnd at Projector.0.Optimisation.VisibleEnd.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleEnd",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleOverlap",
+      "probePath": "Projector.0.Optimisation.VisibleOverlap",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.VisibleOverlap at Projector.0.Optimisation.VisibleOverlap.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleOverlap",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleStart",
+      "probePath": "Projector.0.Optimisation.VisibleStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.Optimisation.VisibleStart at Projector.0.Optimisation.VisibleStart.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleStart",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PositionX",
+      "probePath": "Projector.0.PositionX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.PositionX\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.PositionX\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PositionX\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PositionX\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.PositionX\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.PositionX\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.PositionX at Projector.0.PositionX.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionX",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PositionY",
+      "probePath": "Projector.0.PositionY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.PositionY\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.PositionY\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PositionY\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PositionY\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.PositionY\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.PositionY\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.PositionY at Projector.0.PositionY.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionY",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PostRotation",
+      "probePath": "Projector.0.PostRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.PostRotation\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.PostRotation\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PostRotation\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PostRotation\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.PostRotation\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.PostRotation\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.PostRotation at Projector.0.PostRotation.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PostRotation",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PreRotation",
+      "probePath": "Projector.0.PreRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.PreRotation\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.PreRotation\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PreRotation\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PreRotation\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.PreRotation\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.PreRotation\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.PreRotation at Projector.0.PreRotation.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PreRotation",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeX",
+      "probePath": "Projector.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.SizeX\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.SizeX\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.SizeX\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.SizeX\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.SizeX\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.SizeX\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.SizeX at Projector.0.SizeX.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeX",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeY",
+      "probePath": "Projector.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "baseline": {
+        "value": 78,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Projector.0.SizeY\", -101",
+          "readback": -101,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.SizeY\", -100",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.SizeY\", -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.SizeY\", 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.SizeY\", 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.SizeY\", 101",
+          "readback": 101,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 78,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 deferred Projector.N.SizeY at Projector.0.SizeY.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeY",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SwapXY",
+      "probePath": "Projector.0.SwapXY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.SwapXY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.SwapXY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.SwapXY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.SwapXY\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SwapXY",
+        "notes": "The probe used the concrete Projector.0 hardware-instance path with no laser connected."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Projector.N.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Projector.N.SwapXY to ON."
+        }
+      ]
+    }
+  ]
+}

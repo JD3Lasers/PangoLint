@@ -1,0 +1,16 @@
+// PangoLint candidate: WaitForMidi followed by spaced DeltaValue property command
+// Purpose: discover whether WaitForMidi provides enough external context for the MIDI-slot property/control syntax.
+// Setup: paste/run in BEYOND's PangoScript editor, then send one loopMIDI CC 0 value.
+// Object tree note: Master.PhFriction exists in the BEYOND object tree as /b/Master/PhFriction.
+// Safety: T2 operator-supervised. This writes Master.PhFriction if BEYOND accepts the property command.
+// PangoLint expected callback: /pangolint/candidate/deltavalue/waitformidi-property (s) "pangolint-candidate-deltavalue-waitformidi-property-001"
+
+var requestId
+
+requestId = "pangolint-candidate-deltavalue-waitformidi-property-001"
+
+WaitForMidi 0xB0, 0x00, -1
+Master.PhFriction deltavalue (-1,1)
+
+OscOutTTS "/pangolint/candidate/deltavalue/waitformidi-property", "s", requestId
+exit

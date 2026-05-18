@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.PosX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Routed ControlZone command-write/readback confirmed ZoneAlias.PosX uses -400..400 x-axis position with clamp behavior. Out-of-range readbacks show BEYOND float quantization around the clamp boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosX at ZoneAlias.PosX through ControlZone 3 with routed command baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias is a user-configured zone-name alias; this loaded show maps it to Zone.2.",
+        "notes": "Runtime evidence confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias, then used ControlZone 3 and ZoneAlias readback for the position probe."
+      }
+    },
+    {
+      "path": "ZoneAlias.PosY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Routed ControlZone command-write/readback confirmed ZoneAlias.PosY uses -400..400 y-axis position with clamp behavior. Out-of-range readbacks show BEYOND float quantization around the clamp boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosY at ZoneAlias.PosY through ControlZone 3 with routed command baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias is a user-configured zone-name alias; this loaded show maps it to Zone.2.",
+        "notes": "Runtime evidence confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias, then used ControlZone 3 and ZoneAlias readback for the position probe."
+      }
+    },
+    {
+      "path": "ZoneAlias.PosZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Routed ControlZone command-write/readback confirmed ZoneAlias.PosZ uses -400..400 z-axis position with clamp behavior. Out-of-range readbacks show BEYOND float quantization around the clamp boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosZ at ZoneAlias.PosZ through ControlZone 3 with routed command baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias is a user-configured zone-name alias; this loaded show maps it to Zone.2.",
+        "notes": "Runtime evidence confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias, then used ControlZone 3 and ZoneAlias readback for the position probe."
+      }
+    }
+  ]
+}

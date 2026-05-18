@@ -1,0 +1,5827 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 393,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used routed Live Control commands, read object-path values after each write, restored each baseline with the same routed command, and verified final readback before moving to the next path."
+  },
+  "entries": [
+    {
+      "objectPath": "Master.PosX",
+      "probePath": "Master.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.PosX to its observed baseline with ControlMaster and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Master.PosX at Master.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosX",
+      "probePath": "MasterLC.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored MasterLC.PosX to its observed baseline with ControlMaster and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed MasterLC.PosX at MasterLC.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Zone.N.PosX",
+      "probePath": "Zone.0.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 1\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 1\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 1\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 1\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 1\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Zone.0.PosX to its observed baseline with ControlZone 1 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Zone.N.PosX at Zone.0.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used ControlZone 1 for the zero-based Zone.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.PosX",
+      "probePath": "ProTrack.0.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack.0.PosX to its observed baseline with ControlProTrack 1 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack.N.PosX at ProTrack.0.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "The runtime probe used ControlProTrack 1 for the zero-based ProTrack.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.PosX",
+      "probePath": "ProTrack1.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack1.PosX to its observed baseline with ControlProTrack 1 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack1.PosX at ProTrack1.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack1",
+        "notes": "The runtime probe used ControlProTrack 1 for the ProTrack1 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.PosX",
+      "probePath": "ProTrack2.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 2\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 2\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 2\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 2\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 2\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack2.PosX to its observed baseline with ControlProTrack 2 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack2.PosX at ProTrack2.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack2",
+        "notes": "The runtime probe used ControlProTrack 2 for the ProTrack2 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.PosX",
+      "probePath": "ProTrack3.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 3\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 3\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 3\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 3\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 3\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack3.PosX to its observed baseline with ControlProTrack 3 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack3.PosX at ProTrack3.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack3",
+        "notes": "The runtime probe used ControlProTrack 3 for the ProTrack3 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PosX",
+      "probePath": "ProTrack4.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 4\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 4\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 4\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 4\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 4\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack4.PosX to its observed baseline with ControlProTrack 4 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack4.PosX at ProTrack4.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack4",
+        "notes": "The runtime probe used ControlProTrack 4 for the ProTrack4 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.PosX",
+      "probePath": "ProTrack5.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 5\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 5\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 5\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 5\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 5\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack5.PosX to its observed baseline with ControlProTrack 5 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack5.PosX at ProTrack5.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack5",
+        "notes": "The runtime probe used ControlProTrack 5 for the ProTrack5 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.PosX",
+      "probePath": "ProTrack6.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 6\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 6\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 6\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 6\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 6\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack6.PosX to its observed baseline with ControlProTrack 6 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack6.PosX at ProTrack6.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack6",
+        "notes": "The runtime probe used ControlProTrack 6 for the ProTrack6 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.PosX",
+      "probePath": "ProTrack7.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 7\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 7\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 7\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 7\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 7\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack7.PosX to its observed baseline with ControlProTrack 7 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack7.PosX at ProTrack7.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack7",
+        "notes": "The runtime probe used ControlProTrack 7 for the ProTrack7 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PosX",
+      "probePath": "ProTrack8.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 8\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 8\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 8\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 8\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 8\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack8.PosX to its observed baseline with ControlProTrack 8 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack8.PosX at ProTrack8.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack8",
+        "notes": "The runtime probe used ControlProTrack 8 for the ProTrack8 alias path."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.0.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,1\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,1\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,1\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,1\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,1\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.PosX to its observed baseline with ControlCue 1,1 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.0.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.1.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,2\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,2\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,2\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,2\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,2\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.1.PosX to its observed baseline with ControlCue 1,2 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.1.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.1 Frames (Advanced)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.2.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,3\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,3\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,3\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,3\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,3\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.2.PosX to its observed baseline with ControlCue 1,3 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.2.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.3.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,4\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,4\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,4\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,4\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,4\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.3.PosX to its observed baseline with ControlCue 1,4 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.3.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.4.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,5\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,5\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,5\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,5\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,5\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.4.PosX to its observed baseline with ControlCue 1,5 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.4.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.5.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,6\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,6\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,6\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,6\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,6\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.PosX to its observed baseline with ControlCue 1,6 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.5.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.6.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,7\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,7\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,7\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,7\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,7\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.6.PosX to its observed baseline with ControlCue 1,7 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.6.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.7.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,8\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,8\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,8\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,8\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,8\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.7.PosX to its observed baseline with ControlCue 1,8 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.7.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.7 Clock",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.8.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,9\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,9\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,9\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,9\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,9\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.PosX to its observed baseline with ControlCue 1,9 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.8.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.9.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,10\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,10\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,10\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,10\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,10\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.9.PosX to its observed baseline with ControlCue 1,10 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.9.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.9 Node-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.10.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,11\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,11\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,11\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,11\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,11\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.PosX to its observed baseline with ControlCue 1,11 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.10.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.11.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,12\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,12\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,12\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,12\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,12\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.PosX to its observed baseline with ControlCue 1,12 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.11.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.12.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,13\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,13\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,13\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,13\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,13\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.12.PosX to its observed baseline with ControlCue 1,13 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.12.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.12 Write-Out / Path following",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.13.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,14\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,14\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,14\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,14\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,14\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.PosX to its observed baseline with ControlCue 1,14 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.13.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.14.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,15\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,15\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,15\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,15\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,15\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.14.PosX to its observed baseline with ControlCue 1,15 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.14.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.14 Real Time Video Tracer",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.15.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,16\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,16\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,16\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,16\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,16\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.15.PosX to its observed baseline with ControlCue 1,16 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.15.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.15 DMX-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.16.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,17\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,17\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,17\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,17\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,17\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.16.PosX to its observed baseline with ControlCue 1,17 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.16.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.16 Multi Effect",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosX",
+      "probePath": "WS.0.17.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,18\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,18\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,18\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,18\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,18\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.17.PosX to its observed baseline with ControlCue 1,18 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosX at WS.0.17.PosX uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.17 Destination",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Master.PosY",
+      "probePath": "Master.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.PosY to its observed baseline with ControlMaster and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Master.PosY at Master.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosY",
+      "probePath": "MasterLC.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored MasterLC.PosY to its observed baseline with ControlMaster and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed MasterLC.PosY at MasterLC.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Zone.N.PosY",
+      "probePath": "Zone.0.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 1\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 1\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 1\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 1\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 1\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Zone.0.PosY to its observed baseline with ControlZone 1 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Zone.N.PosY at Zone.0.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used ControlZone 1 for the zero-based Zone.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.PosY",
+      "probePath": "ProTrack.0.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack.0.PosY to its observed baseline with ControlProTrack 1 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack.N.PosY at ProTrack.0.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "The runtime probe used ControlProTrack 1 for the zero-based ProTrack.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.PosY",
+      "probePath": "ProTrack1.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack1.PosY to its observed baseline with ControlProTrack 1 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack1.PosY at ProTrack1.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack1",
+        "notes": "The runtime probe used ControlProTrack 1 for the ProTrack1 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.PosY",
+      "probePath": "ProTrack2.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 2\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 2\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 2\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 2\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 2\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack2.PosY to its observed baseline with ControlProTrack 2 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack2.PosY at ProTrack2.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack2",
+        "notes": "The runtime probe used ControlProTrack 2 for the ProTrack2 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.PosY",
+      "probePath": "ProTrack3.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 3\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 3\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 3\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 3\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 3\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack3.PosY to its observed baseline with ControlProTrack 3 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack3.PosY at ProTrack3.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack3",
+        "notes": "The runtime probe used ControlProTrack 3 for the ProTrack3 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PosY",
+      "probePath": "ProTrack4.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 4\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 4\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 4\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 4\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 4\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack4.PosY to its observed baseline with ControlProTrack 4 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack4.PosY at ProTrack4.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack4",
+        "notes": "The runtime probe used ControlProTrack 4 for the ProTrack4 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.PosY",
+      "probePath": "ProTrack5.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 5\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 5\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 5\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 5\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 5\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack5.PosY to its observed baseline with ControlProTrack 5 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack5.PosY at ProTrack5.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack5",
+        "notes": "The runtime probe used ControlProTrack 5 for the ProTrack5 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.PosY",
+      "probePath": "ProTrack6.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 6\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 6\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 6\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 6\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 6\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack6.PosY to its observed baseline with ControlProTrack 6 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack6.PosY at ProTrack6.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack6",
+        "notes": "The runtime probe used ControlProTrack 6 for the ProTrack6 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.PosY",
+      "probePath": "ProTrack7.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 7\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 7\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 7\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 7\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 7\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack7.PosY to its observed baseline with ControlProTrack 7 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack7.PosY at ProTrack7.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack7",
+        "notes": "The runtime probe used ControlProTrack 7 for the ProTrack7 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PosY",
+      "probePath": "ProTrack8.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 8\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 8\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 8\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 8\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 8\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack8.PosY to its observed baseline with ControlProTrack 8 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack8.PosY at ProTrack8.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack8",
+        "notes": "The runtime probe used ControlProTrack 8 for the ProTrack8 alias path."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.0.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,1\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,1\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,1\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,1\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,1\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.PosY to its observed baseline with ControlCue 1,1 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.0.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.1.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,2\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,2\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,2\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,2\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,2\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.1.PosY to its observed baseline with ControlCue 1,2 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.1.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.1 Frames (Advanced)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.2.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,3\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,3\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,3\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,3\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,3\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.2.PosY to its observed baseline with ControlCue 1,3 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.2.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.3.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,4\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,4\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,4\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,4\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,4\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.3.PosY to its observed baseline with ControlCue 1,4 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.3.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.4.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,5\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,5\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,5\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,5\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,5\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.4.PosY to its observed baseline with ControlCue 1,5 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.4.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.5.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,6\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,6\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,6\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,6\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,6\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.PosY to its observed baseline with ControlCue 1,6 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.5.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.6.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,7\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,7\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,7\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,7\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,7\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.6.PosY to its observed baseline with ControlCue 1,7 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.6.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.7.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,8\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,8\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,8\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,8\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,8\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.7.PosY to its observed baseline with ControlCue 1,8 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.7.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.7 Clock",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.8.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,9\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,9\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,9\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,9\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,9\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.PosY to its observed baseline with ControlCue 1,9 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.8.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.9.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,10\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,10\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,10\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,10\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,10\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.9.PosY to its observed baseline with ControlCue 1,10 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.9.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.9 Node-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.10.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,11\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,11\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,11\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,11\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,11\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.PosY to its observed baseline with ControlCue 1,11 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.10.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.11.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,12\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,12\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,12\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,12\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,12\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.PosY to its observed baseline with ControlCue 1,12 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.11.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.12.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,13\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,13\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,13\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,13\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,13\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.12.PosY to its observed baseline with ControlCue 1,13 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.12.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.12 Write-Out / Path following",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.13.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,14\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,14\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,14\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,14\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,14\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.PosY to its observed baseline with ControlCue 1,14 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.13.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.14.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,15\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,15\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,15\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,15\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,15\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.14.PosY to its observed baseline with ControlCue 1,15 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.14.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.14 Real Time Video Tracer",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.15.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,16\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,16\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,16\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,16\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,16\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.15.PosY to its observed baseline with ControlCue 1,16 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.15.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.15 DMX-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.16.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,17\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,17\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,17\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,17\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,17\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.16.PosY to its observed baseline with ControlCue 1,17 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.16.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.16 Multi Effect",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosY",
+      "probePath": "WS.0.17.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,18\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,18\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,18\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,18\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,18\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.17.PosY to its observed baseline with ControlCue 1,18 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosY at WS.0.17.PosY uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.17 Destination",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Master.PosZ",
+      "probePath": "Master.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.PosZ to its observed baseline with ControlMaster and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Master.PosZ at Master.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosZ",
+      "probePath": "MasterLC.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlMaster\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlMaster\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlMaster\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlMaster\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlMaster\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored MasterLC.PosZ to its observed baseline with ControlMaster and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed MasterLC.PosZ at MasterLC.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Zone.N.PosZ",
+      "probePath": "Zone.0.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 1\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 1\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 1\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 1\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 1\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Zone.0.PosZ to its observed baseline with ControlZone 1 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed Zone.N.PosZ at Zone.0.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used ControlZone 1 for the zero-based Zone.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.PosZ",
+      "probePath": "ProTrack.0.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack.0.PosZ to its observed baseline with ControlProTrack 1 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack.N.PosZ at ProTrack.0.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "The runtime probe used ControlProTrack 1 for the zero-based ProTrack.0 Object Tree path."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.PosZ",
+      "probePath": "ProTrack1.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 1\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 1\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 1\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 1\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 1\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack1.PosZ to its observed baseline with ControlProTrack 1 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack1.PosZ at ProTrack1.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack1",
+        "notes": "The runtime probe used ControlProTrack 1 for the ProTrack1 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.PosZ",
+      "probePath": "ProTrack2.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 2\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 2\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 2\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 2\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 2\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack2.PosZ to its observed baseline with ControlProTrack 2 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack2.PosZ at ProTrack2.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack2",
+        "notes": "The runtime probe used ControlProTrack 2 for the ProTrack2 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.PosZ",
+      "probePath": "ProTrack3.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 3\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 3\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 3\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 3\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 3\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack3.PosZ to its observed baseline with ControlProTrack 3 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack3.PosZ at ProTrack3.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack3",
+        "notes": "The runtime probe used ControlProTrack 3 for the ProTrack3 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PosZ",
+      "probePath": "ProTrack4.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 4\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 4\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 4\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 4\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 4\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack4.PosZ to its observed baseline with ControlProTrack 4 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack4.PosZ at ProTrack4.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack4",
+        "notes": "The runtime probe used ControlProTrack 4 for the ProTrack4 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.PosZ",
+      "probePath": "ProTrack5.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 5\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 5\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 5\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 5\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 5\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack5.PosZ to its observed baseline with ControlProTrack 5 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack5.PosZ at ProTrack5.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack5",
+        "notes": "The runtime probe used ControlProTrack 5 for the ProTrack5 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.PosZ",
+      "probePath": "ProTrack6.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 6\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 6\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 6\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 6\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 6\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack6.PosZ to its observed baseline with ControlProTrack 6 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack6.PosZ at ProTrack6.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack6",
+        "notes": "The runtime probe used ControlProTrack 6 for the ProTrack6 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.PosZ",
+      "probePath": "ProTrack7.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 7\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 7\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 7\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 7\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 7\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack7.PosZ to its observed baseline with ControlProTrack 7 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack7.PosZ at ProTrack7.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack7",
+        "notes": "The runtime probe used ControlProTrack 7 for the ProTrack7 alias path."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PosZ",
+      "probePath": "ProTrack8.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlProTrack 8\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlProTrack 8\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlProTrack 8\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlProTrack 8\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlProTrack 8\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ProTrack8.PosZ to its observed baseline with ControlProTrack 8 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed ProTrack8.PosZ at ProTrack8.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack8",
+        "notes": "The runtime probe used ControlProTrack 8 for the ProTrack8 alias path."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.0.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,1\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,1\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,1\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,1\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,1\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.0.PosZ to its observed baseline with ControlCue 1,1 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.0.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 Frames (Simple)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.1.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,2\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,2\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,2\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,2\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,2\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.1.PosZ to its observed baseline with ControlCue 1,2 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.1.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.1 Frames (Advanced)",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.2.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,3\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,3\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,3\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,3\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,3\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.2.PosZ to its observed baseline with ControlCue 1,3 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.2.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.3.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,4\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,4\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,4\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,4\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,4\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.3.PosZ to its observed baseline with ControlCue 1,4 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.3.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.4.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,5\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,5\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,5\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,5\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,5\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.4.PosZ to its observed baseline with ControlCue 1,5 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.4.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.4 Abstraction",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.5.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,6\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,6\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,6\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,6\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,6\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.PosZ to its observed baseline with ControlCue 1,6 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.5.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.6.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,7\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,7\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,7\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,7\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,7\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.6.PosZ to its observed baseline with ControlCue 1,7 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.6.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.7.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,8\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,8\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,8\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,8\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,8\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.7.PosZ to its observed baseline with ControlCue 1,8 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.7.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.7 Clock",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.8.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,9\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,9\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,9\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,9\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,9\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.PosZ to its observed baseline with ControlCue 1,9 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.8.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.9.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,10\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,10\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,10\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,10\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,10\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.9.PosZ to its observed baseline with ControlCue 1,10 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.9.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.9 Node-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.10.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,11\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,11\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,11\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,11\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,11\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.PosZ to its observed baseline with ControlCue 1,11 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.10.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.11.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,12\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,12\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,12\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,12\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,12\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.PosZ to its observed baseline with ControlCue 1,12 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.11.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.12.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,13\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,13\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,13\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,13\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,13\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.12.PosZ to its observed baseline with ControlCue 1,13 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.12.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.12 Write-Out / Path following",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.13.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,14\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,14\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,14\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,14\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,14\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.PosZ to its observed baseline with ControlCue 1,14 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.13.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.14.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,15\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,15\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,15\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,15\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,15\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.14.PosZ to its observed baseline with ControlCue 1,15 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.14.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.14 Real Time Video Tracer",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.15.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,16\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,16\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,16\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,16\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,16\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.15.PosZ to its observed baseline with ControlCue 1,16 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.15.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.15 DMX-Image",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.16.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,17\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,17\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,17\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,17\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,17\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.16.PosZ to its observed baseline with ControlCue 1,17 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.16.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.16 Multi Effect",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.PosZ",
+      "probePath": "WS.0.17.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlCue 1,18\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlCue 1,18\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlCue 1,18\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlCue 1,18\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlCue 1,18\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.17.PosZ to its observed baseline with ControlCue 1,18 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #393 confirmed WS.N.N.PosZ at WS.0.17.PosZ uses -400..400 with clamp behavior and command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.17 Destination",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    }
+  ]
+}

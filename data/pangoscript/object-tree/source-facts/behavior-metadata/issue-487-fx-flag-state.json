@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FX.N.N.EnableClockLimit",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed command-write/readback evidence from issue #338 shows FX.N.N.EnableClockLimit persists 0 and 1 as QuickFX clock-limit enable state across generated FX cell paths and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.EnableMetroLimit",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed command-write/readback evidence from issue #338 shows FX.N.N.EnableMetroLimit persists 0 and 1 as QuickFX metro-limit enable state across generated FX cell paths and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.Enabled",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed Object Tree write/readback evidence from 2026-05-12 and issue #295 shows FX.N.N.N.Enabled persists 0 and 1 as QuickFX effect enable state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.Oscillator.Absinvert",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed write/readback evidence from issue #334 shows FX.N.N.N.Oscillator.Absinvert persists 0 and 1 as oscillator absolute-invert state across generated QuickFX variants and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.Oscillator.Absrevwave",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed write/readback evidence from issue #334 shows FX.N.N.N.Oscillator.Absrevwave persists 0 and 1 as oscillator absolute-reverse-wave state across generated QuickFX variants and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.TimeActive",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed write/readback evidence from issue #334 shows FX.N.N.N.TimeActive persists 0 and 1 as QuickFX time-active state across generated variants and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.TimeDurationInBeat",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed write/readback evidence from issue #334 shows FX.N.N.N.TimeDurationInBeat persists 0 and 1 as QuickFX time-duration-in-beat state across generated variants and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FX.N.N.N.TimeEnabled",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed Object Tree write/readback evidence from 2026-05-12 and issue #295 shows FX.N.N.N.TimeEnabled persists 0 and 1 as QuickFX time enable state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    }
+  ]
+}

@@ -1,0 +1,865 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp command writes against the populated WS.0.5 Classic LD2000 Abstract cell, restored the observed baseline after each write, and verified final readback before moving to the next path."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.0.FreqColor",
+      "probePath": "WS.0.5.Image.0.FreqColor",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqColor\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqColor for Classic LD2000 Abstract at WS.0.5.Image.0.FreqColor uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqMOD1",
+      "probePath": "WS.0.5.Image.0.FreqMOD1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD1\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqMOD1 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqMOD1 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqMOD2",
+      "probePath": "WS.0.5.Image.0.FreqMOD2",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqMOD2\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqMOD2 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqMOD2 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqX1",
+      "probePath": "WS.0.5.Image.0.FreqX1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 30,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX1\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 30,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqX1 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqX1 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqX2",
+      "probePath": "WS.0.5.Image.0.FreqX2",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX2\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqX2 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqX2 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqX3",
+      "probePath": "WS.0.5.Image.0.FreqX3",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqX3\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqX3 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqX3 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqY1",
+      "probePath": "WS.0.5.Image.0.FreqY1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 30,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY1\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 30,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqY1 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqY1 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqY2",
+      "probePath": "WS.0.5.Image.0.FreqY2",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY2\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqY2 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqY2 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqY3",
+      "probePath": "WS.0.5.Image.0.FreqY3",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqY3\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqY3 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqY3 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqZ1",
+      "probePath": "WS.0.5.Image.0.FreqZ1",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ1\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqZ1 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqZ1 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqZ2",
+      "probePath": "WS.0.5.Image.0.FreqZ2",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ2\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqZ2 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqZ2 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.FreqZ3",
+      "probePath": "WS.0.5.Image.0.FreqZ3",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1200,
+        "unit": "abstract frequency",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1199,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", 1199",
+          "readback": 1199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1200,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", 1200",
+          "readback": 1200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1201,
+          "command": "SetProp \"WS.0.5.Image.0.FreqZ3\", 1201",
+          "readback": 1200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #294 frequency confirmed WS.N.N.Image.0.FreqZ3 for Classic LD2000 Abstract at WS.0.5.Image.0.FreqZ3 uses 0..1200 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show."
+      }
+    }
+  ]
+}

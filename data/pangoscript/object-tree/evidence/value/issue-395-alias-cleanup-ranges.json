@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 395,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used routed ControlZone 3 command/readback for ZoneAlias position fields. Every sampled write restored the observed baseline and verified final readback. The same scratch run also proved test_universe.ZonePad2 common fields, but those rows are not shipped because the generated Object Tree index does not currently contain Universe.N.ZonePad2 paths."
+  },
+  "entries": [
+    {
+      "objectPath": "ZoneAlias.PosX",
+      "probePath": "ZoneAlias.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 3\nPositionX -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 3\nPositionX -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 3\nPositionX 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 3\nPositionX 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 3\nPositionX 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ZoneAlias.PosX to its observed baseline with ControlZone 3 and PositionX after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosX at ZoneAlias.PosX uses -400..400 with clamp behavior and routed command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias mapped to Zone.2",
+        "notes": "Runtime readback confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias before the routed ControlZone 3 position probe."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.PosY",
+      "probePath": "ZoneAlias.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 3\nPositionY -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 3\nPositionY -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 3\nPositionY 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 3\nPositionY 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 3\nPositionY 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ZoneAlias.PosY to its observed baseline with ControlZone 3 and PositionY after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosY at ZoneAlias.PosY uses -400..400 with clamp behavior and routed command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias mapped to Zone.2",
+        "notes": "Runtime readback confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias before the routed ControlZone 3 position probe."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.PosZ",
+      "probePath": "ZoneAlias.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "ControlZone 3\nPositionZ -401",
+          "readback": -400.01220703125,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "ControlZone 3\nPositionZ -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ControlZone 3\nPositionZ 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "ControlZone 3\nPositionZ 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "ControlZone 3\nPositionZ 401",
+          "readback": 400.01220703125,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored ZoneAlias.PosZ to its observed baseline with ControlZone 3 and PositionZ after each write, then verified final readback."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #395 confirmed ZoneAlias.PosZ at ZoneAlias.PosZ uses -400..400 with clamp behavior and routed command baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias mapped to Zone.2",
+        "notes": "Runtime readback confirmed ZoneAlias.Name and Zone.2.Name both read back ZoneAlias before the routed ControlZone 3 position probe."
+      }
+    }
+  ]
+}

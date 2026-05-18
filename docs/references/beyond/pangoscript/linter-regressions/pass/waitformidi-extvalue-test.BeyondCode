@@ -1,0 +1,24 @@
+// PangoLint pass: WaitForMidi followed by ExtValue
+// Purpose: verify WaitForMidi provides an external value context for ExtValue after a matching MIDI CC message.
+// Setup: paste/run in BEYOND editor, then send one loopMIDI CC 0 value per run. The script exits after the first matching message.
+// BEYOND validation 2026-05-07: CC 0 values 0, 64, and 127 resumed the script, emitted the observed callbacks, then stopped at exit.
+// PangoLint expected callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 0.000000 0.000000 1.000000
+// PangoLint expected callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 64.000000 4.534929 -0.007874
+// PangoLint expected callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 127.000000 8.999000 -1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 0.000000 0.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 64.000000 4.534929 -0.007874
+// PangoLint observed callback: /pangolint/candidate/extvalue/waitformidi (sfff) "pangolint-candidate-extvalue-waitformidi-001" 127.000000 8.999000 -1.000000
+
+var requestId
+var normalValue
+var fractionalValue
+var reversedValue
+
+requestId = "pangolint-candidate-extvalue-waitformidi-001"
+
+WaitForMidi 0xB0, 0x00, -1
+normalValue = ExtValue(0, 127)
+fractionalValue = ExtValue(0, 8.999)
+reversedValue = ExtValue(1, -1)
+OscOutTTS "/pangolint/candidate/extvalue/waitformidi", "sfff", requestId, normalValue, fractionalValue, reversedValue
+exit

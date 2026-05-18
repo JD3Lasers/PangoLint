@@ -1,0 +1,2312 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 299,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint SetProp write/readback. MobSensor leftover rows were tested with high-value, fractional, and signed 32-bit samples where appropriate and restored to baseline after each write."
+  },
+  "entries": [
+    {
+      "objectPath": "MobSensor.AccelX",
+      "probePath": "MobSensor.AccelX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.01209999993443489,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.AccelX\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.AccelX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.AccelX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.AccelX\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.AccelX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.AccelX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.AccelX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.AccelX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.AccelX\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.AccelX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.AccelX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.AccelX\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.01209999993443489,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelX at MobSensor.AccelX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelX",
+        "notes": "The probe used the concrete MobSensor.AccelX mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.AccelY",
+      "probePath": "MobSensor.AccelY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -0.33184799551963806,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.AccelY\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.AccelY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.AccelY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.AccelY\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.AccelY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.AccelY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.AccelY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.AccelY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.AccelY\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.AccelY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.AccelY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.AccelY\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.33184799551963806,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelY at MobSensor.AccelY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelY",
+        "notes": "The probe used the concrete MobSensor.AccelY mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.AccelZ",
+      "probePath": "MobSensor.AccelZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -0.9232479929924011,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.AccelZ\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.AccelZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.AccelZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.AccelZ\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.AccelZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.AccelZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.AccelZ\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.AccelZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.AccelZ\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.AccelZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.AccelZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.AccelZ\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.9232479929924011,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelZ at MobSensor.AccelZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelZ",
+        "notes": "The probe used the concrete MobSensor.AccelZ mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.BarPressure",
+      "probePath": "MobSensor.BarPressure",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor barometric pressure value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.BarPressure\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.BarPressure\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.BarPressure\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.BarPressure\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.BarPressure\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.BarPressure\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.BarPressure\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.BarPressure\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.BarPressure\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.BarPressure\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.BarPressure\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.BarPressure\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.BarPressure\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.BarPressure\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.BarPressure\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.BarPressure\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.BarPressure at MobSensor.BarPressure accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.BarPressure",
+        "notes": "The probe used the concrete MobSensor.BarPressure mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Buttons",
+      "probePath": "MobSensor.Buttons",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed mobile sensor button bitmask"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Buttons\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Buttons\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.Buttons\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.Buttons\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.Buttons\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 15,
+          "command": "SetProp \"MobSensor.Buttons\", 15",
+          "readback": 15,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetProp \"MobSensor.Buttons\", 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"MobSensor.Buttons\", 65535",
+          "readback": 65535,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Buttons\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Buttons\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Buttons uses signed 32-bit integer storage with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Buttons",
+        "notes": "The probe used the concrete MobSensor.Buttons mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityX",
+      "probePath": "MobSensor.GravityX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.0027310000732541084,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GravityX\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GravityX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GravityX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GravityX\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GravityX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GravityX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GravityX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GravityX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GravityX\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GravityX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GravityX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GravityX\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.0027310000732541084,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityX at MobSensor.GravityX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityX",
+        "notes": "The probe used the concrete MobSensor.GravityX mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityY",
+      "probePath": "MobSensor.GravityY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -0.33325400948524475,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GravityY\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GravityY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GravityY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GravityY\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GravityY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GravityY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GravityY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GravityY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GravityY\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GravityY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GravityY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GravityY\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.33325400948524475,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityY at MobSensor.GravityY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityY",
+        "notes": "The probe used the concrete MobSensor.GravityY mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityZ",
+      "probePath": "MobSensor.GravityZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -0.9428330063819885,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GravityZ\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GravityZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GravityZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GravityZ\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GravityZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GravityZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GravityZ\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GravityZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GravityZ\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GravityZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GravityZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GravityZ\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.9428330063819885,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityZ at MobSensor.GravityZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityZ",
+        "notes": "The probe used the concrete MobSensor.GravityZ mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroX",
+      "probePath": "MobSensor.GyroX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.049612000584602356,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GyroX\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GyroX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GyroX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GyroX\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GyroX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GyroX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GyroX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GyroX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GyroX\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GyroX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GyroX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GyroX\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.049612000584602356,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroX at MobSensor.GyroX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroX",
+        "notes": "The probe used the concrete MobSensor.GyroX mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroY",
+      "probePath": "MobSensor.GyroY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.032735999673604965,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GyroY\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GyroY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GyroY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GyroY\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GyroY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GyroY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GyroY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GyroY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GyroY\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GyroY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GyroY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GyroY\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.032735999673604965,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroY at MobSensor.GyroY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroY",
+        "notes": "The probe used the concrete MobSensor.GyroY mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroZ",
+      "probePath": "MobSensor.GyroZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -0.03495299816131592,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.GyroZ\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.GyroZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.GyroZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.GyroZ\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.GyroZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.GyroZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.GyroZ\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.GyroZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.GyroZ\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.GyroZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.GyroZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.GyroZ\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.03495299816131592,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroZ at MobSensor.GyroZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroZ",
+        "notes": "The probe used the concrete MobSensor.GyroZ mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerX",
+      "probePath": "MobSensor.MagnetometerX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 81.05960083007812,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 81.05960083007812,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerX at MobSensor.MagnetometerX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerX",
+        "notes": "The probe used the concrete MobSensor.MagnetometerX mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerY",
+      "probePath": "MobSensor.MagnetometerY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -23.920486450195312,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -23.920486450195312,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerY at MobSensor.MagnetometerY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerY",
+        "notes": "The probe used the concrete MobSensor.MagnetometerY mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerZ",
+      "probePath": "MobSensor.MagnetometerZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": -1016.264404296875,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1016.264404296875,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerZ at MobSensor.MagnetometerZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerZ",
+        "notes": "The probe used the concrete MobSensor.MagnetometerZ mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Pitch",
+      "probePath": "MobSensor.Pitch",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.33975300192832947,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Pitch\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Pitch\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.Pitch\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.Pitch\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.Pitch\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.Pitch\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.Pitch\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.Pitch\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.Pitch\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.Pitch\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.Pitch\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.Pitch\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.Pitch\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.Pitch\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Pitch\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Pitch\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.33975300192832947,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Pitch at MobSensor.Pitch accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Pitch",
+        "notes": "The probe used the concrete MobSensor.Pitch mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Roll",
+      "probePath": "MobSensor.Roll",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.002896999940276146,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Roll\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Roll\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.Roll\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.Roll\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.Roll\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.Roll\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.Roll\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.Roll\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.Roll\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.Roll\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.Roll\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.Roll\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.Roll\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.Roll\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Roll\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Roll\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.002896999940276146,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Roll at MobSensor.Roll accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Roll",
+        "notes": "The probe used the concrete MobSensor.Roll mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Timestamp",
+      "probePath": "MobSensor.Timestamp",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed mobile sensor timestamp value"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Timestamp\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Timestamp\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.Timestamp\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.Timestamp\", -1.5",
+          "readback": -2,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.Timestamp\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.Timestamp\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.Timestamp\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.Timestamp\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.Timestamp\", 1.5",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.Timestamp\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Timestamp\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Timestamp\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Timestamp uses signed 32-bit integer storage with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Timestamp",
+        "notes": "The probe used the concrete MobSensor.Timestamp mobile sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Yaw",
+      "probePath": "MobSensor.Yaw",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0.3722659945487976,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Yaw\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Yaw\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"MobSensor.Yaw\", -10000000",
+          "readback": -10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"MobSensor.Yaw\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MobSensor.Yaw\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"MobSensor.Yaw\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.Yaw\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.Yaw\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.Yaw\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.Yaw\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MobSensor.Yaw\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MobSensor.Yaw\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MobSensor.Yaw\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"MobSensor.Yaw\", 10000000",
+          "readback": 10000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Yaw\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Yaw\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.3722659945487976,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Yaw at MobSensor.Yaw accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Yaw",
+        "notes": "The probe used the concrete MobSensor.Yaw mobile sensor path."
+      }
+    }
+  ]
+}

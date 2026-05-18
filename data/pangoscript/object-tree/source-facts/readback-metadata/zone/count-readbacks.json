@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.Count",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Zone.Count",
+      "probeMode": "readback-only",
+      "observedValue": 3,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.Count did not change the concrete Zone.Count readback. This remains lookup metadata and does not ship writable value metadata.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "configured projection zones",
+        "notes": "The count depends on the zones loaded in the show."
+      }
+    },
+    {
+      "path": "Zone.N.OutputPointCount",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Zone.0.OutputPointCount",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.OutputPointCount did not change the concrete Zone.0.OutputPointCount readback. This remains lookup metadata and does not ship writable value metadata.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "zero-based zone index",
+        "notes": "The probe used populated Zone.0 from the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.OutputPointCount",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "ZoneAlias.OutputPointCount",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.OutputPointCount did not change the concrete ZoneAlias.OutputPointCount readback. This remains lookup metadata and does not ship writable value metadata.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "user-configured zone name",
+        "notes": "The loaded show supplied the concrete alias used in the probe path. User zone names vary."
+      }
+    }
+  ]
+}

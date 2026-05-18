@@ -1,0 +1,18 @@
+// PangoLint candidate: ExtValue outside trigger context
+// Purpose: discover whether BEYOND accepts ExtValue when pasted/run from the editor without an external trigger value.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/extvalue/editor (sfff) "pangolint-candidate-extvalue-editor-001" 0.000000 0.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/editor (sfff) "pangolint-candidate-extvalue-editor-001" 0.000000 0.000000 1.000000
+
+var requestId
+var normalValue
+var fractionalValue
+var reversedValue
+
+requestId = "pangolint-candidate-extvalue-editor-001"
+normalValue = ExtValue(0, 127)
+fractionalValue = ExtValue(0, 8.999)
+reversedValue = ExtValue(1, -1)
+
+OscOutTTS "/pangolint/candidate/extvalue/editor", "sfff", requestId, normalValue, fractionalValue, reversedValue
+exit

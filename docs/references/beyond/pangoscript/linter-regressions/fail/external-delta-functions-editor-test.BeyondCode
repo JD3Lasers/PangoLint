@@ -1,0 +1,20 @@
+// PangoLint expect: unsupported-deltavalue-assignment
+// PangoLint candidate: external delta expression functions outside trigger context
+// Purpose: verify BEYOND rejects DeltaValue as a general assignment expression.
+// BEYOND validation 2026-05-07: parser error on DeltaValue assignment; no callbacks emitted.
+// BEYOND parser error: Unknown function, undeclared or not initialized variable: deltavalue.
+// BEYOND parser error: Error in command.
+// BEYOND parser location in validated candidate: line 12, text `deltaScaledValue = DeltaValue(-1, 1)`.
+
+var requestId
+var extDeltaValue
+var deltaScaledValue
+var roundedValue
+
+requestId = "pangolint-candidate-external-delta-editor-001"
+extDeltaValue = ExtDelta(-1)
+deltaScaledValue = DeltaValue(-1, 1)
+roundedValue = round(1.6)
+
+OscOutTTS "/pangolint/candidate/external-delta/editor", "sfff", requestId, extDeltaValue, deltaScaledValue, roundedValue
+exit

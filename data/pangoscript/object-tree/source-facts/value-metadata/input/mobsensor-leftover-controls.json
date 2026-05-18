@@ -1,0 +1,401 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "MobSensor.AccelX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.AccelX confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelX at MobSensor.AccelX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.AccelX in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.AccelY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.AccelY confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelY at MobSensor.AccelY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.AccelY in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.AccelZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor acceleration value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.AccelZ confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.AccelZ at MobSensor.AccelZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.AccelZ in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.BarPressure",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor barometric pressure value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.BarPressure confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.BarPressure at MobSensor.BarPressure accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.BarPressure in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.Buttons",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed mobile sensor button bitmask",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.Buttons confirmed signed 32-bit accepted readbacks and wrap at samples just outside the signed 32-bit range."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Buttons uses signed 32-bit integer storage with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.Buttons in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GravityX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GravityX confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityX at MobSensor.GravityX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GravityX in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GravityY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GravityY confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityY at MobSensor.GravityY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GravityY in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GravityZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gravity value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GravityZ confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GravityZ at MobSensor.GravityZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GravityZ in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GyroX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GyroX confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroX at MobSensor.GyroX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GyroX in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GyroY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GyroY confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroY at MobSensor.GyroY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GyroY in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.GyroZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor gyroscope value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.GyroZ confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.GyroZ at MobSensor.GyroZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.GyroZ in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.MagnetometerX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.MagnetometerX confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerX at MobSensor.MagnetometerX accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.MagnetometerX in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.MagnetometerY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.MagnetometerY confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerY at MobSensor.MagnetometerY accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.MagnetometerY in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.MagnetometerZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor magnetometer value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.MagnetometerZ confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.MagnetometerZ at MobSensor.MagnetometerZ accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.MagnetometerZ in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.Pitch",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.Pitch confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Pitch at MobSensor.Pitch accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.Pitch in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.Roll",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.Roll confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Roll at MobSensor.Roll accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.Roll in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.Timestamp",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "signed mobile sensor timestamp value",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.Timestamp confirmed signed 32-bit integer readbacks with wrap outside the signed 32-bit range. Fractional writes rounded to integer readbacks."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Timestamp uses signed 32-bit integer storage with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.Timestamp in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "MobSensor.Yaw",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile sensor orientation degrees",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to MobSensor.Yaw confirmed numeric readbacks across -2147483648..2147483648, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-16 issue #299 confirmed MobSensor.Yaw at MobSensor.Yaw accepts at least -2147483648..2147483648 as a numeric sensor value with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "MobSensor is a BEYOND mobile sensor object root.",
+        "notes": "The runtime probe used MobSensor.Yaw in a local BEYOND setup with no laser connected."
+      }
+    }
+  ]
+}

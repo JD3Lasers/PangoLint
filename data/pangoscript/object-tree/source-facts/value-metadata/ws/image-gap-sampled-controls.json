@@ -1,0 +1,2021 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.AddPerStep",
+      "contextId": "cue-shape:parametric-image:random-dots",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.27.Image.AddPerStep confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 10->10, 1000->1000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.AddPerStep for WS.1.27 Parametric-Image random dots at WS.1.27.Image.AddPerStep accepts at least -1000..1000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.27, the loaded Parametric-Image random dots sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Amplitude",
+      "contextId": "cue-shape:parametric-image:wave",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.0.Image.Amplitude confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Amplitude for WS.1.0 Parametric-Image wave at WS.1.0.Image.Amplitude accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.0, the loaded Parametric-Image wave sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Anchors",
+      "contextId": "cue-shape:parametric-image:polygon",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.4.Image.Anchors confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Anchors for WS.1.4 Parametric-Image polygon at WS.1.4.Image.Anchors accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.4, the loaded Parametric-Image polygon sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AnchorsIn",
+      "contextId": "cue-shape:parametric-image:poly-star",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.16.Image.AnchorsIn confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.AnchorsIn for WS.1.16 Parametric-Image poly star at WS.1.16.Image.AnchorsIn accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.16, the loaded Parametric-Image poly star sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AnchorsOut",
+      "contextId": "cue-shape:parametric-image:poly-star",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.16.Image.AnchorsOut confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.AnchorsOut for WS.1.16 Parametric-Image poly star at WS.1.16.Image.AnchorsOut accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.16, the loaded Parametric-Image poly star sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AngleAmp",
+      "contextId": "cue-shape:parametric-image:slice",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.12.Image.AngleAmp confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.AngleAmp for WS.1.12 Parametric-Image slice at WS.1.12.Image.AngleAmp accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.12, the loaded Parametric-Image slice sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AudioMode",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.AudioMode confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.AudioMode for WS.0.3 Shape at WS.0.3.Image.AudioMode accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Balance",
+      "contextId": "cue-shape:parametric-image:wave",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.0.Image.Balance confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Balance for WS.1.0 Parametric-Image wave at WS.1.0.Image.Balance accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.0, the loaded Parametric-Image wave sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.BeamPower",
+      "contextId": "cue-shape:parametric-image:random-dots",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.27.Image.BeamPower confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.BeamPower for WS.1.27 Parametric-Image random dots at WS.1.27.Image.BeamPower accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.27, the loaded Parametric-Image random dots sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.BlankPoints",
+      "contextId": "cue-shape:parametric-image:elipse-multi-loop",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.10.Image.BlankPoints confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.BlankPoints for WS.1.10 Parametric-Image elipse multi-loop at WS.1.10.Image.BlankPoints accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.10, the loaded Parametric-Image elipse multi-loop sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Bright",
+      "contextId": "cue-shape:parametric-image:cube",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.32.Image.Bright confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Bright for WS.1.32 Parametric-Image cube at WS.1.32.Image.Bright accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.32, the loaded Parametric-Image cube sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Brightness",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Brightness confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Brightness for WS.0.10 Particles at WS.0.10.Image.Brightness accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterX",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterX for WS.0.10 Particles at WS.0.10.Image.CenterX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterXSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterXSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterXSpread for WS.0.10 Particles at WS.0.10.Image.CenterXSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterY",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterY for WS.0.10 Particles at WS.0.10.Image.CenterY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterYSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterYSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterYSpread for WS.0.10 Particles at WS.0.10.Image.CenterYSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterZ",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterZ confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterZ for WS.0.10 Particles at WS.0.10.Image.CenterZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CenterZSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.CenterZSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CenterZSpread for WS.0.10 Particles at WS.0.10.Image.CenterZSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Color",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 16777216,
+        "unit": "RGB color integer",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.Color confirmed pass-through across the shipped tested span -1..16777216. The larger precision sample 99999999 read back 100000000, so it is recorded only in evidence."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Color for WS.0.2 Text at WS.0.2.Image.Color accepts at least -1..16777216 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CornerPower",
+      "contextId": "cue-shape:parametric-image:random-lines",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.29.Image.CornerPower confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CornerPower for WS.1.29 Parametric-Image random lines at WS.1.29.Image.CornerPower accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.29, the loaded Parametric-Image random lines sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Corners",
+      "contextId": "cue-shape:parametric-image:polygon",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.4.Image.Corners confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Corners for WS.1.4 Parametric-Image polygon at WS.1.4.Image.Corners accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.4, the loaded Parametric-Image polygon sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CountX",
+      "contextId": "cue-shape:parametric-image:dot-grid",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.26.Image.CountX confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CountX for WS.1.26 Parametric-Image dot grid at WS.1.26.Image.CountX accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.26, the loaded Parametric-Image dot grid sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CountY",
+      "contextId": "cue-shape:parametric-image:dot-grid",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.26.Image.CountY confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.CountY for WS.1.26 Parametric-Image dot grid at WS.1.26.Image.CountY accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.26, the loaded Parametric-Image dot grid sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Deceleration",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Deceleration confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Deceleration for WS.0.10 Particles at WS.0.10.Image.Deceleration accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DirectionSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.DirectionSpread confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DirectionSpread for WS.0.10 Particles at WS.0.10.Image.DirectionSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DirectionXY",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.DirectionXY confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DirectionXY for WS.0.10 Particles at WS.0.10.Image.DirectionXY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DirectionZ",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.DirectionZ confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DirectionZ for WS.0.10 Particles at WS.0.10.Image.DirectionZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Duration",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "time",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Duration confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 0.01->0.009999999776482582, 0.1->0.10000000149011612, 1->1, 10->10, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Duration for WS.0.10 Particles at WS.0.10.Image.Duration accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DurationSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.DurationSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DurationSpread for WS.0.10 Particles at WS.0.10.Image.DurationSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DX",
+      "contextId": "cue-shape:parametric-image:dot-grid",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.26.Image.DX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DX for WS.1.26 Parametric-Image dot grid at WS.1.26.Image.DX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.26, the loaded Parametric-Image dot grid sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.DY",
+      "contextId": "cue-shape:parametric-image:dot-grid",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.26.Image.DY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.DY for WS.1.26 Parametric-Image dot grid at WS.1.26.Image.DY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.26, the loaded Parametric-Image dot grid sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndAngle",
+      "contextId": "cue-shape:parametric-image:arc-by-two-points",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.11.Image.EndAngle confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.EndAngle for WS.1.11 Parametric-Image arc by two points at WS.1.11.Image.EndAngle accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.11, the loaded Parametric-Image arc by two points sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndRadius",
+      "contextId": "cue-shape:parametric-image:spiral",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.5.Image.EndRadius confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.EndRadius for WS.1.5 Parametric-Image spiral at WS.1.5.Image.EndRadius accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.5, the loaded Parametric-Image spiral sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndX",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.EndX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.EndX for WS.1.6 Parametric-Image line at WS.1.6.Image.EndX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndY",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.EndY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.EndY for WS.1.6 Parametric-Image line at WS.1.6.Image.EndY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndZ",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.EndZ confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.EndZ for WS.1.6 Parametric-Image line at WS.1.6.Image.EndZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ExternalR",
+      "contextId": "cue-shape:parametric-image:poly-star",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.16.Image.ExternalR confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.ExternalR for WS.1.16 Parametric-Image poly star at WS.1.16.Image.ExternalR accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.16, the loaded Parametric-Image poly star sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.FinsihOverlap",
+      "contextId": "cue-shape:parametric-image:elipse",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "time",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.9.Image.FinsihOverlap confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 0.01->0.009999999776482582, 0.1->0.10000000149011612, 1->1, 10->10, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.FinsihOverlap for WS.1.9 Parametric-Image elipse at WS.1.9.Image.FinsihOverlap accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.9, the loaded Parametric-Image elipse sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Gravity",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Gravity confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Gravity for WS.0.10 Particles at WS.0.10.Image.Gravity accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.HeadSize",
+      "contextId": "cue-shape:parametric-image:arrow",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.20.Image.HeadSize confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.HeadSize for WS.1.20 Parametric-Image arrow at WS.1.20.Image.HeadSize accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.20, the loaded Parametric-Image arrow sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Hue",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Hue confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Hue for WS.0.10 Particles at WS.0.10.Image.Hue accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.HueSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.HueSpread confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.HueSpread for WS.0.10 Particles at WS.0.10.Image.HueSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Inner",
+      "contextId": "cue-shape:parametric-image:arrow",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.20.Image.Inner confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Inner for WS.1.20 Parametric-Image arrow at WS.1.20.Image.Inner accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.20, the loaded Parametric-Image arrow sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.InternalR",
+      "contextId": "cue-shape:parametric-image:poly-star",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.16.Image.InternalR confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.InternalR for WS.1.16 Parametric-Image poly star at WS.1.16.Image.InternalR accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.16, the loaded Parametric-Image poly star sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Lines",
+      "contextId": "cue-shape:parametric-image:horizontal-lines",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.3.Image.Lines confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Lines for WS.1.3 Parametric-Image horizontal lines at WS.1.3.Image.Lines accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.3, the loaded Parametric-Image horizontal lines sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MaxX",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MaxX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MaxX for WS.0.10 Particles at WS.0.10.Image.MaxX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MaxY",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MaxY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MaxY for WS.0.10 Particles at WS.0.10.Image.MaxY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MaxZ",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MaxZ confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MaxZ for WS.0.10 Particles at WS.0.10.Image.MaxZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MiddleAnch",
+      "contextId": "cue-shape:parametric-image:rectangle",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.8.Image.MiddleAnch confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MiddleAnch for WS.1.8 Parametric-Image rectangle at WS.1.8.Image.MiddleAnch accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.8, the loaded Parametric-Image rectangle sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MinX",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MinX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MinX for WS.0.10 Particles at WS.0.10.Image.MinX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MinY",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MinY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MinY for WS.0.10 Particles at WS.0.10.Image.MinY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MinZ",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MinZ confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MinZ for WS.0.10 Particles at WS.0.10.Image.MinZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MotionDeceleration",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MotionDeceleration confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MotionDeceleration for WS.0.10 Particles at WS.0.10.Image.MotionDeceleration accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MotionSpeed",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MotionSpeed confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MotionSpeed for WS.0.10 Particles at WS.0.10.Image.MotionSpeed accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.MotionSpeedSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.MotionSpeedSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.MotionSpeedSpread for WS.0.10 Particles at WS.0.10.Image.MotionSpeedSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Periods",
+      "contextId": "cue-shape:parametric-image:wave",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.0.Image.Periods confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Periods for WS.1.0 Parametric-Image wave at WS.1.0.Image.Periods accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.0, the loaded Parametric-Image wave sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Phase",
+      "contextId": "cue-shape:parametric-image:wave",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.0.Image.Phase confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Phase for WS.1.0 Parametric-Image wave at WS.1.0.Image.Phase accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.0, the loaded Parametric-Image wave sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PlayLoopCount",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 10000,
+        "unit": "play loop count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.PlayLoopCount confirmed accepted readbacks from 0 through 10000. Negative samples clamped to 0 and no upper clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.PlayLoopCount for WS.0.2 Text at WS.0.2.Image.PlayLoopCount accepts 0..10000 with lower clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Point/Line",
+      "contextId": "cue-shape:parametric-image:horizontal-lines",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "point or line mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp plus RegisterOscFeedback to WS.1.3.Image.Point/Line confirmed nonzero pass-through across tested values: -1000->-1000, -1->-1, 1->1, 2->2, 10->10, 1000->1000. A zero write produced no feedback callback, consistent with ResetOscFeedback zero-value behavior, and restore callbacks were confirmed."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp plus RegisterOscFeedback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Point/Line for WS.1.3 Parametric-Image horizontal lines at WS.1.3.Image.Point/Line accepts at least -1000..1000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.3, the loaded Parametric-Image horizontal lines sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Points",
+      "contextId": "cue-shape:parametric-image:spiral",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.5.Image.Points confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Points for WS.1.5 Parametric-Image spiral at WS.1.5.Image.Points accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.5, the loaded Parametric-Image spiral sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Radius",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 6553400,
+        "unit": "radius readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.Radius confirmed radius readbacks from 0 through 6553400. Positive inputs are scaled by BEYOND before readback, and high samples read back 6553400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Radius for WS.0.3 Shape at WS.0.3.Image.Radius is writable with 0..6553400 radius readback readbacks and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RadiusX",
+      "contextId": "cue-shape:parametric-image:arc-by-two-points",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.11.Image.RadiusX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RadiusX for WS.1.11 Parametric-Image arc by two points at WS.1.11.Image.RadiusX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.11, the loaded Parametric-Image arc by two points sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RadiusY",
+      "contextId": "cue-shape:parametric-image:arc-by-two-points",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.11.Image.RadiusY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RadiusY for WS.1.11 Parametric-Image arc by two points at WS.1.11.Image.RadiusY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.11, the loaded Parametric-Image arc by two points sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotationX",
+      "contextId": "cue-shape:parametric-image:center-cone",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.19.Image.RotationX confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotationX for WS.1.19 Parametric-Image center cone at WS.1.19.Image.RotationX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.19, the loaded Parametric-Image center cone sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotationY",
+      "contextId": "cue-shape:parametric-image:center-cone",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.19.Image.RotationY confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotationY for WS.1.19 Parametric-Image center cone at WS.1.19.Image.RotationY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.19, the loaded Parametric-Image center cone sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotationZ",
+      "contextId": "cue-shape:parametric-image:center-cone",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.19.Image.RotationZ confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotationZ for WS.1.19 Parametric-Image center cone at WS.1.19.Image.RotationZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.19, the loaded Parametric-Image center cone sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotoDeceleration",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "scaled deceleration readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.RotoDeceleration confirmed scaled deceleration readbacks from -1 through 1. SetProp inputs from -10000 through 10000 read back at a 0.0001 scale."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotoDeceleration for WS.0.10 Particles at WS.0.10.Image.RotoDeceleration is writable with -1..1 scaled deceleration readback readbacks and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotoSpeed",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.RotoSpeed confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotoSpeed for WS.0.10 Particles at WS.0.10.Image.RotoSpeed accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RotoSpeedSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.RotoSpeedSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotoSpeedSpread for WS.0.10 Particles at WS.0.10.Image.RotoSpeedSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Sat",
+      "contextId": "cue-shape:parametric-image:cube",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.32.Image.Sat confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Sat for WS.1.32 Parametric-Image cube at WS.1.32.Image.Sat accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.32, the loaded Parametric-Image cube sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Saturation",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Saturation confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 200->200, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Saturation for WS.0.10 Particles at WS.0.10.Image.Saturation accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScrollingSpeed",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "scrolling speed",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.ScrollingSpeed confirmed integer pass-through across -10000..10000. Fractional sample 0.01 read back 0, so the shipped metadata treats this as integer-like storage."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.ScrollingSpeed for WS.0.2 Text at WS.0.2.Image.ScrollingSpeed accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Shape",
+      "contextId": "cue-shape:parametric-image:random-shapes",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.31.Image.Shape confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Shape for WS.1.31 Parametric-Image random shapes at WS.1.31.Image.Shape accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.31, the loaded Parametric-Image random shapes sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ShapeCount",
+      "contextId": "cue-shape:parametric-image:random-shapes",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "count or mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.31.Image.ShapeCount confirmed pass-through across tested values: -1000->-1000, -1->-1, 0->0, 1->1, 2->2, 10->10, 100->100, 200->200, 201->201, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.ShapeCount for WS.1.31 Parametric-Image random shapes at WS.1.31.Image.ShapeCount accepts at least -1000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.31, the loaded Parametric-Image random shapes sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Size(%)",
+      "contextId": "cue-shape:parametric-image:sphere-spiral",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp plus RegisterOscFeedback to WS.1.17.Image.Size(%) confirmed nonzero pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 1->1, 100->100, 1000->1000, 10000->10000. A zero write produced no feedback callback, consistent with ResetOscFeedback zero-value behavior, and restore callbacks were confirmed."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp plus RegisterOscFeedback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Size(%) for WS.1.17 Parametric-Image sphere spiral at WS.1.17.Image.Size(%) accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.17, the loaded Parametric-Image sphere spiral sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.SpaceX",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.SpaceX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.SpaceX for WS.0.2 Text at WS.0.2.Image.SpaceX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Speed",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Speed confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Speed for WS.0.10 Particles at WS.0.10.Image.Speed accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.SpeedSpread",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "speed or acceleration",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.SpeedSpread confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 0->0, 0.01->0.009999999776482582, 1->1, 10->10, 30->30, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.SpeedSpread for WS.0.10 Particles at WS.0.10.Image.SpeedSpread accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartAngle",
+      "contextId": "cue-shape:parametric-image:polygon",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "degrees",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.4.Image.StartAngle confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartAngle for WS.1.4 Parametric-Image polygon at WS.1.4.Image.StartAngle accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.4, the loaded Parametric-Image polygon sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartLag",
+      "contextId": "cue-type:particles",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "time",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.StartLag confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 0.01->0.009999999776482582, 0.1->0.10000000149011612, 1->1, 10->10, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartLag for WS.0.10 Particles at WS.0.10.Image.StartLag accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartOverlap",
+      "contextId": "cue-shape:parametric-image:elipse",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "time",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.9.Image.StartOverlap confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 0.01->0.009999999776482582, 0.1->0.10000000149011612, 1->1, 10->10, 100->100, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartOverlap for WS.1.9 Parametric-Image elipse at WS.1.9.Image.StartOverlap accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.9, the loaded Parametric-Image elipse sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartRadius",
+      "contextId": "cue-shape:parametric-image:spiral",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.5.Image.StartRadius confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartRadius for WS.1.5 Parametric-Image spiral at WS.1.5.Image.StartRadius accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.5, the loaded Parametric-Image spiral sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartX",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.StartX confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartX for WS.1.6 Parametric-Image line at WS.1.6.Image.StartX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartY",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.StartY confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartY for WS.1.6 Parametric-Image line at WS.1.6.Image.StartY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartZ",
+      "contextId": "cue-shape:parametric-image:line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.6.Image.StartZ confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StartZ for WS.1.6 Parametric-Image line at WS.1.6.Image.StartZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.6, the loaded Parametric-Image line sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StaticDisplayTime",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 10000,
+        "unit": "static display time",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.StaticDisplayTime confirmed accepted readbacks from 0 through 10000. Negative samples read back 0 and no upper clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.StaticDisplayTime for WS.0.2 Text at WS.0.2.Image.StaticDisplayTime accepts 0..10000 with lower clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.TailSize",
+      "contextId": "cue-shape:parametric-image:arrow",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.20.Image.TailSize confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.TailSize for WS.1.20 Parametric-Image arrow at WS.1.20.Image.TailSize accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.20, the loaded Parametric-Image arrow sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Turns(%)",
+      "contextId": "cue-shape:parametric-image:elipse-multi-loop",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "turns percent",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp plus RegisterOscFeedback to WS.1.10.Image.Turns(%) confirmed nonzero pass-through across tested values: -10000->-10000, -1000->-1000, -100->-100, -1->-1, 1->1, 100->100, 1000->1000, 10000->10000. A zero write produced no feedback callback, consistent with ResetOscFeedback zero-value behavior, and restore callbacks were confirmed."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp plus RegisterOscFeedback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Turns(%) for WS.1.10 Parametric-Image elipse multi-loop at WS.1.10.Image.Turns(%) accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.10, the loaded Parametric-Image elipse multi-loop sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Width",
+      "contextId": "cue-shape:parametric-image:wave",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.0.Image.Width confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Width for WS.1.0 Parametric-Image wave at WS.1.0.Image.Width accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.0, the loaded Parametric-Image wave sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.X",
+      "contextId": "cue-shape:parametric-image:beam",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.1.Image.X confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.X for WS.1.1 Parametric-Image beam at WS.1.1.Image.X accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.1, the loaded Parametric-Image beam sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.XCoverage",
+      "contextId": "cue-shape:parametric-image:random-dots",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.27.Image.XCoverage confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.XCoverage for WS.1.27 Parametric-Image random dots at WS.1.27.Image.XCoverage accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.27, the loaded Parametric-Image random dots sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Y",
+      "contextId": "cue-shape:parametric-image:beam",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.1.Image.Y confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Y for WS.1.1 Parametric-Image beam at WS.1.1.Image.Y accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.1, the loaded Parametric-Image beam sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.YCoverage",
+      "contextId": "cue-shape:parametric-image:random-dots",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.27.Image.YCoverage confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.YCoverage for WS.1.27 Parametric-Image random dots at WS.1.27.Image.YCoverage accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.27, the loaded Parametric-Image random dots sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Z",
+      "contextId": "cue-shape:parametric-image:beam",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.1.Image.Z confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Z for WS.1.1 Parametric-Image beam at WS.1.1.Image.Z accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.1, the loaded Parametric-Image beam sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ZCoverage",
+      "contextId": "cue-shape:parametric-image:random-dots",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.27.Image.ZCoverage confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.ZCoverage for WS.1.27 Parametric-Image random dots at WS.1.27.Image.ZCoverage accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.27, the loaded Parametric-Image random dots sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ZPosition",
+      "contextId": "cue-shape:parametric-image:rectangular-lines",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position or size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.30.Image.ZPosition confirmed pass-through across tested values: -10000->-10000, -1000->-1000, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 1000->1000, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.ZPosition for WS.1.30 Parametric-Image rectangular lines at WS.1.30.Image.ZPosition accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.30, the loaded Parametric-Image rectangular lines sample. This row applies only to that context."
+      }
+    }
+  ]
+}

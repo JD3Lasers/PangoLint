@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 340,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used the loaded Zone.0.Effect.0 path, tested tight boundaries around 0 and 1000000, and restored the observed baseline after every write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Effect.N.TimeClock",
+      "probePath": "Zone.0.Effect.0.TimeClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "clock value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 0.01",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 999999,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 999999",
+          "readback": 999999,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 1000001",
+          "readback": 1000000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeClock at Zone.0.Effect.0.TimeClock uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeMetro",
+      "probePath": "Zone.0.Effect.0.TimeMetro",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "metro value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 0.01",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 999999,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 999999",
+          "readback": 999999,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 1000001",
+          "readback": 1000000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeMetro at Zone.0.Effect.0.TimeMetro uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeDuration",
+      "probePath": "Zone.0.Effect.0.TimeDuration",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "time duration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 0.01",
+          "readback": 0.009999999776482582,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 999999,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 999999",
+          "readback": 999999,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 1000001",
+          "readback": 1000000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeDuration at Zone.0.Effect.0.TimeDuration uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    }
+  ]
+}

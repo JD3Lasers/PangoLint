@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used connected FB3 and FB4 hardware roots. Serial-bearing concrete path names are redacted in this public evidence file."
+  },
+  "entries": [
+    {
+      "objectPath": "FB3-XXXXX.Name",
+      "probePath": "FB3-XXXXX.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FBNameSeed001",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"FBNameSeed001\"",
+          "readback": "FBNameSeed001",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+          "command": "SetProp \"FB3-XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": "FBNameSeed001",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "",
+        "notes": "The probe restored the observed baseline after the accepted-value writes and after the over-limit write, then verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.Name on connected FB3 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Name",
+      "probePath": "FB4-XXXXX.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "FBNameSeed001",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"FBNameSeed001\"",
+          "readback": "FBNameSeed001",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+          "command": "SetProp \"FB4-XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": "FBNameSeed001",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "",
+        "notes": "The probe restored the observed baseline after the accepted-value writes and after the over-limit write, then verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.Name on connected FB4 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    }
+  ]
+}

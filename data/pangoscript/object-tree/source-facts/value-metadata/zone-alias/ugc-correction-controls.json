@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.UGC.IndexX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.UGC.IndexX confirmed -1..0 clamp readbacks: -1000->-1, -1->-1, 0->0, 1->0, 1000->0."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed ZoneAlias.UGC.IndexX at ZoneAlias.UGC.IndexX uses -1..0 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.UGC.IndexX."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.IndexY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.UGC.IndexY confirmed -1..0 clamp readbacks: -1000->-1, -1->-1, 0->0, 1->0, 1000->0."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed ZoneAlias.UGC.IndexY at ZoneAlias.UGC.IndexY uses -1..0 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.UGC.IndexY."
+      }
+    }
+  ]
+}

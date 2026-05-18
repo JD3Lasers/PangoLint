@@ -1,0 +1,99 @@
+CodeName "BATCH CHANGE COLOR ALTERNATING 2 COLUMNS" // define name of 
+
+//BATCH CHANGE COLOR ALTERNATING 2 COLUMNS  
+
+// Select Starting Page to Change colors
+var page; page = 1;           // change to page you want to edit
+
+// Color variable values pulled from color picker above hex values
+var red; red = 255;
+var orange; orange = 33023;
+var yellow; yellow = 65535; 
+var green; green = 65280;
+var cyan; cyan = 16776960;    
+var blue; blue = 16711680;
+var magenta; magenta = 16711935;
+var white; white = 16777215;
+
+// Select Color for First Set
+var color1; color1 = magenta; // change to color you want
+
+// Select Color for Second Set
+var color2; color2 = cyan;   // change to color you want
+
+// Total number of pages in the workspace to change
+var totalPages; totalPages = 20;
+
+// Initialize loop variable
+var i; i = 1;
+
+// Loop through iterations
+LoopStart:
+// Set caption color for column 1 to color1
+SetCueCaptionColor(page, 1, color1);
+SetCueCaptionColor(page, 9, color1);
+SetCueCaptionColor(page, 17, color1);
+SetCueCaptionColor(page, 25, color1);
+SetCueCaptionColor(page, 33, color1);
+
+// Set caption color for column 2 to color1
+SetCueCaptionColor(page, 2, color1);
+SetCueCaptionColor(page, 10, color1);
+SetCueCaptionColor(page, 18, color1);
+SetCueCaptionColor(page, 26, color1);
+SetCueCaptionColor(page, 34, color1);
+
+// Set caption color for column 3 to color2
+SetCueCaptionColor(page, 3, color2);
+SetCueCaptionColor(page, 11, color2);
+SetCueCaptionColor(page, 19, color2);
+SetCueCaptionColor(page, 27, color2);
+SetCueCaptionColor(page, 35, color2);
+
+// Set caption color for column 4 to color2
+SetCueCaptionColor(page, 4, color2);
+SetCueCaptionColor(page, 12, color2);
+SetCueCaptionColor(page, 20, color2);
+SetCueCaptionColor(page, 28, color2);
+SetCueCaptionColor(page, 36, color2);
+
+// Set caption color for column 5 to color1
+SetCueCaptionColor(page, 5, color1);
+SetCueCaptionColor(page, 13, color1);
+SetCueCaptionColor(page, 21, color1);
+SetCueCaptionColor(page, 29, color1);
+SetCueCaptionColor(page, 37, color1);
+
+// Set caption color for column 6 to color1
+SetCueCaptionColor(page, 6, color1);
+SetCueCaptionColor(page, 14, color1);
+SetCueCaptionColor(page, 22, color1);
+SetCueCaptionColor(page, 30, color1);
+SetCueCaptionColor(page, 38, color1);
+
+// Set caption color for column 7 to color2
+SetCueCaptionColor(page, 7, color2);
+SetCueCaptionColor(page, 15, color2);
+SetCueCaptionColor(page, 23, color2);
+SetCueCaptionColor(page, 31, color2);
+SetCueCaptionColor(page, 39, color2);
+
+// Set caption color for column 8 to color2
+SetCueCaptionColor(page, 8, color2);
+SetCueCaptionColor(page, 16, color2);
+SetCueCaptionColor(page, 24, color2);
+SetCueCaptionColor(page, 32, color2);
+SetCueCaptionColor(page, 40, color2);
+
+// Increment page number for the next set
+page = page + 1;
+
+// Increment loop variable
+i = i + 1;
+
+// Introduce a delay (adjust the sleep time as needed)
+sleep 100;
+
+// Check if the loop should continue
+if (i <= totalPages) goto LoopStart;
+exit

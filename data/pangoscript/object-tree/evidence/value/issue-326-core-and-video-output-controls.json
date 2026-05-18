@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 326,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. No laser was connected. Probes used singleton Object Tree paths from the loaded show."
+  },
+  "entries": [
+    {
+      "objectPath": "CoreManager.OnlineMode",
+      "probePath": "CoreManager.OnlineMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"CoreManager.OnlineMode\", -100000",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"CoreManager.OnlineMode\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"CoreManager.OnlineMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"CoreManager.OnlineMode\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"CoreManager.OnlineMode\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"CoreManager.OnlineMode\", 100000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "CoreManager.OnlineMode was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-14 confirmed CoreManager.OnlineMode uses boolean 0..1 clamp behavior. 0 and 1 passed through, negative values read back 0, and values above 1 read back 1.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Left",
+      "probePath": "VideoOutput1.Left",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "screen coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"VideoOutput1.Left\", -32769",
+          "readback": -32768,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"VideoOutput1.Left\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"VideoOutput1.Left\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"VideoOutput1.Left\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"VideoOutput1.Left\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"VideoOutput1.Left\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"VideoOutput1.Left\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"VideoOutput1.Left\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"VideoOutput1.Left\", 32768",
+          "readback": 32767,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "VideoOutput1.Left was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-14 confirmed VideoOutput1.Left uses signed 16-bit clamp behavior. -32768 through 32767 passed through, -32769 read back -32768, and 32768 read back 32767.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Top",
+      "probePath": "VideoOutput1.Top",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "screen coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"VideoOutput1.Top\", -32769",
+          "readback": -32768,
+          "behavior": "clamp"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"VideoOutput1.Top\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"VideoOutput1.Top\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"VideoOutput1.Top\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"VideoOutput1.Top\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"VideoOutput1.Top\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"VideoOutput1.Top\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"VideoOutput1.Top\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"VideoOutput1.Top\", 32768",
+          "readback": 32767,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "VideoOutput1.Top was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-14 confirmed VideoOutput1.Top uses signed 16-bit clamp behavior. -32768 through 32767 passed through, -32769 read back -32768, and 32768 read back 32767.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Width",
+      "probePath": "VideoOutput1.Width",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 393,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 48,
+        "max": 65535,
+        "unit": "pixels"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"VideoOutput1.Width\", -1",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"VideoOutput1.Width\", 0",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 47,
+          "command": "SetProp \"VideoOutput1.Width\", 47",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 48,
+          "command": "SetProp \"VideoOutput1.Width\", 48",
+          "readback": 48,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 49,
+          "command": "SetProp \"VideoOutput1.Width\", 49",
+          "readback": 49,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"VideoOutput1.Width\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65534,
+          "command": "SetProp \"VideoOutput1.Width\", 65534",
+          "readback": 65534,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"VideoOutput1.Width\", 65535",
+          "readback": 65535,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65536,
+          "command": "SetProp \"VideoOutput1.Width\", 65536",
+          "readback": 65535,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"VideoOutput1.Width\", 100000",
+          "readback": 65535,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 393,
+        "notes": "VideoOutput1.Width was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-14 confirmed VideoOutput1.Width uses 48..65535 clamp behavior. 48 through 65535 passed through, values below 48 read back 48, and values above 65535 read back 65535.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "VideoOutput1.Height",
+      "probePath": "VideoOutput1.Height",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 275,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 48,
+        "max": 65535,
+        "unit": "pixels"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"VideoOutput1.Height\", -1",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"VideoOutput1.Height\", 0",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 47,
+          "command": "SetProp \"VideoOutput1.Height\", 47",
+          "readback": 48,
+          "behavior": "clamp"
+        },
+        {
+          "input": 48,
+          "command": "SetProp \"VideoOutput1.Height\", 48",
+          "readback": 48,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 49,
+          "command": "SetProp \"VideoOutput1.Height\", 49",
+          "readback": 49,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"VideoOutput1.Height\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65534,
+          "command": "SetProp \"VideoOutput1.Height\", 65534",
+          "readback": 65534,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"VideoOutput1.Height\", 65535",
+          "readback": 65535,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65536,
+          "command": "SetProp \"VideoOutput1.Height\", 65536",
+          "readback": 65535,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"VideoOutput1.Height\", 100000",
+          "readback": 65535,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 275,
+        "notes": "VideoOutput1.Height was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-14 confirmed VideoOutput1.Height uses 48..65535 clamp behavior. 48 through 65535 passed through, values below 48 read back 48, and values above 65535 read back 65535.",
+      "locationAware": false
+    }
+  ]
+}

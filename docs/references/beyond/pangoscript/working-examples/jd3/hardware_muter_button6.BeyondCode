@@ -1,0 +1,18 @@
+//Init
+
+exit
+
+OnClick:
+if ((HardwareMuter.Button1.Value = 0) | (HardwareMuter.Button2.Value = 0) | (HardwareMuter.Button3.Value = 0) | (HardwareMuter.Button4.Value = 0) | (HardwareMuter.Button5.Value = 0) | (HardwareMuter.Button6.Value = 0)) HardwareMuter.Button1T6.Value = 0
+if ((HardwareMuter.Button1.Value = 1) & (HardwareMuter.Button2.Value = 1) & (HardwareMuter.Button3.Value = 1) & (HardwareMuter.Button4.Value = 1) & (HardwareMuter.Button5.Value = 1) & (HardwareMuter.Button6.Value = 1)) HardwareMuter.Button1T6.Value = 1
+if (HardwareMuter.Button6.Value = 1) goto ON
+if (HardwareMuter.Button6.Value = 0) goto OFF
+exit
+
+ON:
+MuteZonesOfProjector 6
+exit
+
+OFF:
+UnMuteZonesOfProjector 6
+exit

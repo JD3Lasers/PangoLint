@@ -1,0 +1,2018 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used connected FB3 and FB4 hardware roots. Serial-bearing concrete path names are redacted in this public evidence file."
+  },
+  "entries": [
+    {
+      "objectPath": "FB3-XXXXX.ColorShift",
+      "probePath": "FB3-XXXXX.ColorShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color shift"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.ColorShift\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.ColorShift on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MaxBlue",
+      "probePath": "FB3-XXXXX.MaxBlue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MaxBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxBlue on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MaxGreen",
+      "probePath": "FB3-XXXXX.MaxGreen",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MaxGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxGreen on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MaxRed",
+      "probePath": "FB3-XXXXX.MaxRed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MaxRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxRed on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MinBlue",
+      "probePath": "FB3-XXXXX.MinBlue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MinBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinBlue on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MinGreen",
+      "probePath": "FB3-XXXXX.MinGreen",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MinGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinGreen on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MinRed",
+      "probePath": "FB3-XXXXX.MinRed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MinRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinRed on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MinimumPoints",
+      "probePath": "FB3-XXXXX.MinimumPoints",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "points"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB3-XXXXX.MinimumPoints\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinimumPoints on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.IdleCenterOffsetX",
+      "probePath": "FB3-XXXXX.IdleCenterOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetX\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.IdleCenterOffsetX on connected FB3 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.IdleCenterOffsetY",
+      "probePath": "FB3-XXXXX.IdleCenterOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FB3-XXXXX.IdleCenterOffsetY\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.IdleCenterOffsetY on connected FB3 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.InvertX",
+      "probePath": "FB3-XXXXX.InvertX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.InvertX to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.InvertX to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.InvertX\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.InvertX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.InvertX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.InvertX\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.InvertX on connected FB3 hardware accepts InvertX values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.InvertY",
+      "probePath": "FB3-XXXXX.InvertY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.InvertY to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.InvertY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.InvertY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.InvertY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.InvertY\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.InvertY on connected FB3 hardware accepts InvertY values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.SwapXY",
+      "probePath": "FB3-XXXXX.SwapXY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.SwapXY to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.SwapXY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.SwapXY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.SwapXY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.SwapXY\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.SwapXY on connected FB3 hardware accepts SwapXY values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.ColorShift",
+      "probePath": "FB4-XXXXX.ColorShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color shift"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.ColorShift\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.ColorShift on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MaxBlue",
+      "probePath": "FB4-XXXXX.MaxBlue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MaxBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxBlue on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MaxGreen",
+      "probePath": "FB4-XXXXX.MaxGreen",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MaxGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxGreen on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MaxRed",
+      "probePath": "FB4-XXXXX.MaxRed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MaxRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxRed on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MinBlue",
+      "probePath": "FB4-XXXXX.MinBlue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MinBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinBlue on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MinGreen",
+      "probePath": "FB4-XXXXX.MinGreen",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MinGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinGreen on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MinRed",
+      "probePath": "FB4-XXXXX.MinRed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "hardware color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MinRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinRed on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MinimumPoints",
+      "probePath": "FB4-XXXXX.MinimumPoints",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "points"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"FB4-XXXXX.MinimumPoints\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinimumPoints on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.IdleCenterOffsetX",
+      "probePath": "FB4-XXXXX.IdleCenterOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetX\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.IdleCenterOffsetX on connected FB4 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.IdleCenterOffsetY",
+      "probePath": "FB4-XXXXX.IdleCenterOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", -101",
+          "readback": -100,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FB4-XXXXX.IdleCenterOffsetY\", 101",
+          "readback": 100,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.IdleCenterOffsetY on connected FB4 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.InvertX",
+      "probePath": "FB4-XXXXX.InvertX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.InvertX to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.InvertX to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.InvertX\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.InvertX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.InvertX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.InvertX\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.InvertX on connected FB4 hardware accepts InvertX values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.InvertY",
+      "probePath": "FB4-XXXXX.InvertY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.InvertY to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.InvertY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.InvertY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.InvertY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.InvertY\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.InvertY on connected FB4 hardware accepts InvertY values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.SwapXY",
+      "probePath": "FB4-XXXXX.SwapXY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.SwapXY to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.SwapXY\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.SwapXY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.SwapXY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.SwapXY\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.SwapXY on connected FB4 hardware accepts SwapXY values 0 and 1 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    }
+  ]
+}

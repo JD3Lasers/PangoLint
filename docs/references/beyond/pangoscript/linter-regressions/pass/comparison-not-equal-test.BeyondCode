@@ -1,0 +1,38 @@
+// PangoLint candidate: angle not-equal comparison
+// Purpose: verify whether BEYOND accepts <> as a not-equal operator.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/not-equal/start (sii) "pangolint-candidate-not-equal-001" 1 4
+// PangoLint expected callback: /pangolint/candidate/not-equal/not-equal (siii) "pangolint-candidate-not-equal-001" 2 4 2
+// PangoLint expected callback: /pangolint/candidate/not-equal/done (siii) "pangolint-candidate-not-equal-001" 3 4 2
+// PangoLint observed callback: /pangolint/candidate/not-equal/start (sii) "pangolint-candidate-not-equal-001" 1 4
+// PangoLint observed callback: /pangolint/candidate/not-equal/not-equal (siii) "pangolint-candidate-not-equal-001" 2 4 2
+// PangoLint observed callback: /pangolint/candidate/not-equal/done (siii) "pangolint-candidate-not-equal-001" 3 4 2
+
+var requestId
+var sequence
+var leftValue
+var rightValue
+
+requestId = "pangolint-candidate-not-equal-001"
+sequence = 1
+leftValue = 4
+rightValue = 2
+
+OscOutTTS "/pangolint/candidate/not-equal/start", "sii", requestId, sequence, leftValue
+sequence = sequence + 1
+if (leftValue <> rightValue) goto NotEqual
+goto Equal
+
+NotEqual:
+OscOutTTS "/pangolint/candidate/not-equal/not-equal", "siii", requestId, sequence, leftValue, rightValue
+sequence = sequence + 1
+goto Done
+
+Equal:
+OscOutTTS "/pangolint/candidate/not-equal/equal", "siii", requestId, sequence, leftValue, rightValue
+sequence = sequence + 1
+goto Done
+
+Done:
+OscOutTTS "/pangolint/candidate/not-equal/done", "siii", requestId, sequence, leftValue, rightValue
+exit

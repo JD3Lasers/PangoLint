@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.VisualizationId",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 255,
+        "unit": "visualization id",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.VisualizationId confirmed -1..255 clamp readbacks: -2->-1, -1->-1, 255->255, 256->255, 999->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #366 confirmed ZoneAlias.VisualizationId at ZoneAlias.VisualizationId uses -1..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used the literal ZoneAlias.VisualizationId path in the loaded show."
+      }
+    }
+  ]
+}

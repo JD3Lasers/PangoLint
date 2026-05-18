@@ -1,0 +1,1665 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used final gap Object Tree paths, tried sampled SetProp writes including values above 100000, fractional values where numeric rows support them, color integer samples, and signed 32-bit edges, restored observed baselines, shipped pass-through ranges where writes changed readback, and classified unchanged rows as readback-only."
+  },
+  "entries": [
+    {
+      "objectPath": "Config.AnimationSliderMax",
+      "probePath": "Config.AnimationSliderMax",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 400,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "animation slider maximum",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Config.AnimationSliderMax\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Config.AnimationSliderMax\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Config.AnimationSliderMax\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Config.AnimationSliderMax\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Config.AnimationSliderMax\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Config.AnimationSliderMax\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Config.AnimationSliderMax\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Config.AnimationSliderMax\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Config.AnimationSliderMax\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Config.AnimationSliderMax\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Config.AnimationSliderMax\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Config.AnimationSliderMax\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Config.AnimationSliderMax\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 400,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 400."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Config.AnimationSliderMax uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.AnimationSliderMin",
+      "probePath": "Config.AnimationSliderMin",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "animation slider minimum",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Config.AnimationSliderMin\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Config.AnimationSliderMin\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Config.AnimationSliderMin\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Config.AnimationSliderMin\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Config.AnimationSliderMin\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Config.AnimationSliderMin\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Config.AnimationSliderMin\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Config.AnimationSliderMin\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Config.AnimationSliderMin\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Config.AnimationSliderMin\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Config.AnimationSliderMin\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Config.AnimationSliderMin\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Config.AnimationSliderMin\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Config.AnimationSliderMin uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.FxRowCount",
+      "probePath": "Config.FxRowCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 8,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Config.FxRowCount\", -2147483648",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Config.FxRowCount\", -100000",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Config.FxRowCount\", -1",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Config.FxRowCount\", -0.5",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Config.FxRowCount\", 0",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Config.FxRowCount\", 0.5",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Config.FxRowCount\", 1",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Config.FxRowCount\", 1.5",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Config.FxRowCount\", 100",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Config.FxRowCount\", 100000",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Config.FxRowCount\", 120000",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Config.FxRowCount\", 1000000",
+          "readback": 8,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Config.FxRowCount\", 2147483647",
+          "readback": 8,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 8,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 8."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Config.FxRowCount did not change the Config.FxRowCount readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.ScanRateSliderMax",
+      "probePath": "Config.ScanRateSliderMax",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "scan rate slider maximum",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Config.ScanRateSliderMax\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Config.ScanRateSliderMax\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Config.ScanRateSliderMax\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Config.ScanRateSliderMax\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Config.ScanRateSliderMax\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Config.ScanRateSliderMax uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Config.SizeSliderMax",
+      "probePath": "Config.SizeSliderMax",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "size slider maximum",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Config.SizeSliderMax\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Config.SizeSliderMax\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Config.SizeSliderMax\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"Config.SizeSliderMax\", -0.5",
+          "readback": -0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Config.SizeSliderMax\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Config.SizeSliderMax\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Config.SizeSliderMax\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Config.SizeSliderMax\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Config.SizeSliderMax\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Config.SizeSliderMax\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Config.SizeSliderMax\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Config.SizeSliderMax\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Config.SizeSliderMax\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Config.SizeSliderMax uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "DmxIO.DoBeep",
+      "probePath": "DmxIO.DoBeep",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"DmxIO.DoBeep\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"DmxIO.DoBeep\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"DmxIO.DoBeep\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"DmxIO.DoBeep\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"DmxIO.DoBeep\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"DmxIO.DoBeep\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"DmxIO.DoBeep\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"DmxIO.DoBeep\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"DmxIO.DoBeep\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"DmxIO.DoBeep\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"DmxIO.DoBeep\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"DmxIO.DoBeep\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"DmxIO.DoBeep\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to DmxIO.DoBeep did not change the DmxIO.DoBeep readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "DmxIO.MuteInput",
+      "probePath": "DmxIO.MuteInput",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"DmxIO.MuteInput\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"DmxIO.MuteInput\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"DmxIO.MuteInput\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"DmxIO.MuteInput\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"DmxIO.MuteInput\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"DmxIO.MuteInput\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"DmxIO.MuteInput\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"DmxIO.MuteInput\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"DmxIO.MuteInput\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"DmxIO.MuteInput\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"DmxIO.MuteInput\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"DmxIO.MuteInput\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"DmxIO.MuteInput\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to DmxIO.MuteInput did not change the DmxIO.MuteInput readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "DmxIO.MuteOutput",
+      "probePath": "DmxIO.MuteOutput",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"DmxIO.MuteOutput\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"DmxIO.MuteOutput\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"DmxIO.MuteOutput\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"DmxIO.MuteOutput\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"DmxIO.MuteOutput\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"DmxIO.MuteOutput\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"DmxIO.MuteOutput\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"DmxIO.MuteOutput\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"DmxIO.MuteOutput\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"DmxIO.MuteOutput\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"DmxIO.MuteOutput\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"DmxIO.MuteOutput\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"DmxIO.MuteOutput\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to DmxIO.MuteOutput did not change the DmxIO.MuteOutput readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Location.N.Color",
+      "probePath": "Location.0.Color",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1316044,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "location color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Location.0.Color\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Location.0.Color\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Location.0.Color\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Location.0.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Location.0.Color\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Location.0.Color\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Location.0.Color\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Location.0.Color\", 65535",
+          "readback": 65535,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"Location.0.Color\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"Location.0.Color\", 16777216",
+          "readback": 16777216,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Location.0.Color\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Location.0.Color\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Location.0.Color\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Location.0.Color\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1316044,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 1316044."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Location.N.Color uses tested -2147483648..2147483647 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0",
+        "notes": "The runtime probe used generated Location.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "Location.N.LastTick",
+      "probePath": "Location.0.LastTick",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "location tick",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Location.0.LastTick\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Location.0.LastTick\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Location.0.LastTick\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Location.0.LastTick\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Location.0.LastTick\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Location.0.LastTick\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Location.0.LastTick\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Location.0.LastTick\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Location.0.LastTick\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Location.0.LastTick\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed Location.N.LastTick uses tested -2147483648..2147483647 pass-through readbacks with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Location.0",
+        "notes": "The runtime probe used generated Location.0 concrete paths."
+      }
+    },
+    {
+      "objectPath": "MasterLC.FX7",
+      "probePath": "MasterLC.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MasterLC.FX7\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MasterLC.FX7\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"MasterLC.FX7\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.FX7\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MasterLC.FX7\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MasterLC.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MasterLC.FX7\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"MasterLC.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MasterLC.FX7\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"MasterLC.FX7\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MasterLC.FX7\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MasterLC.FX7\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to MasterLC.FX7 did not change the MasterLC.FX7 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.FX8",
+      "probePath": "MasterLC.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MasterLC.FX8\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MasterLC.FX8\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"MasterLC.FX8\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.FX8\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MasterLC.FX8\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MasterLC.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MasterLC.FX8\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"MasterLC.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MasterLC.FX8\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"MasterLC.FX8\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MasterLC.FX8\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MasterLC.FX8\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to MasterLC.FX8 did not change the MasterLC.FX8 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.SatShift",
+      "probePath": "MasterLC.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MasterLC.SatShift\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MasterLC.SatShift\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"MasterLC.SatShift\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.SatShift\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MasterLC.SatShift\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MasterLC.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MasterLC.SatShift\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"MasterLC.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MasterLC.SatShift\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"MasterLC.SatShift\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MasterLC.SatShift\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MasterLC.SatShift\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to MasterLC.SatShift did not change the MasterLC.SatShift readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.VisiblePointsEnd",
+      "probePath": "MasterLC.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", -2147483648",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", -100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", -0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 0.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 1.5",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 120000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 1000000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MasterLC.VisiblePointsEnd\", 2147483647",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to MasterLC.VisiblePointsEnd did not change the MasterLC.VisiblePointsEnd readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.VisiblePointsStart",
+      "probePath": "MasterLC.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", -0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 120000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MasterLC.VisiblePointsStart\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to MasterLC.VisiblePointsStart did not change the MasterLC.VisiblePointsStart readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "PlayListState.Duration",
+      "probePath": "PlayListState.Duration",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 3000,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"PlayListState.Duration\", -2147483648",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"PlayListState.Duration\", -100000",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"PlayListState.Duration\", -1",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": -0.5,
+          "command": "SetProp \"PlayListState.Duration\", -0.5",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"PlayListState.Duration\", 0",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"PlayListState.Duration\", 0.5",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"PlayListState.Duration\", 1",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"PlayListState.Duration\", 1.5",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"PlayListState.Duration\", 100",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"PlayListState.Duration\", 100000",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"PlayListState.Duration\", 120000",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"PlayListState.Duration\", 1000000",
+          "readback": 3000,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"PlayListState.Duration\", 2147483647",
+          "readback": 3000,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 3000,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 3000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to PlayListState.Duration did not change the PlayListState.Duration readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    }
+  ]
+}

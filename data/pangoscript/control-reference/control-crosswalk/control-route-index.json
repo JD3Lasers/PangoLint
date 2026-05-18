@@ -1,0 +1,6079 @@
+[
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Brightness",
+    "normalizedPropertyPattern": "ActGridFocusedCue.Brightness",
+    "propertyPattern": "ActGridFocusedCue.Brightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ChannelOut",
+    "normalizedPropertyPattern": "Channels.N.Value",
+    "propertyPattern": "Channels.N.Value",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "DmxOut",
+    "normalizedPropertyPattern": "DmxOutput.N",
+    "propertyPattern": "DmxOutput.N",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "DmxOutRange",
+    "normalizedPropertyPattern": "DmxOutput.N",
+    "propertyPattern": "DmxOutput.N",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-dmx.f",
+    "pathPattern": "/beyond/dmx",
+    "args": [
+      "f[]"
+    ],
+    "normalizedPropertyPattern": "DmxOutput.N",
+    "propertyPattern": "DmxOutput[N]",
+    "routeKind": "gatewayBus",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-dmxout.f-f",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "DmxOutput.N",
+    "propertyPattern": "DmxOutput[N]",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-dmxout.i-i",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "i",
+      "i"
+    ],
+    "normalizedPropertyPattern": "DmxOutput.N",
+    "propertyPattern": "DmxOutput[N]",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FocusCell",
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FocusCellIndex",
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MoveFocus",
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ShiftFocus",
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-cuedown.i-i",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i"
+    ],
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-cuedown.i-i-i",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i",
+      "i"
+    ],
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "partial"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-selectcue.s",
+    "pathPattern": "/beyond/general/SelectCue",
+    "args": [
+      "s"
+    ],
+    "normalizedPropertyPattern": "Grid.CellIndex",
+    "propertyPattern": "Grid.CellIndex",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFlash",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickRestart",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickSelect",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickSoloFlash",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickToggle",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickTrack",
+    "normalizedPropertyPattern": "Grid.ClickMode",
+    "propertyPattern": "Grid.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGridSize",
+    "normalizedPropertyPattern": "Grid.Count",
+    "propertyPattern": "Grid.Count",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGridSize",
+    "normalizedPropertyPattern": "Grid.GetColCount",
+    "propertyPattern": "Grid.GetColCount",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGridSize",
+    "normalizedPropertyPattern": "Grid.GetRowCount",
+    "propertyPattern": "Grid.GetRowCount",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectNextPage",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectNextPageGrid1",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectNextTab",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectNextTabGrid1",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPage",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPageName",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPrevPage",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPrevPageGrid1",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPrevTab",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectPrevTabGrid1",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectTab",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectTabName",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGrid1Page",
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-selectcue.s",
+    "pathPattern": "/beyond/general/SelectCue",
+    "args": [
+      "s"
+    ],
+    "normalizedPropertyPattern": "Grid.PageIndex",
+    "propertyPattern": "Grid.PageIndex",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Brightness",
+    "normalizedPropertyPattern": "Grid1FocusedCue.Brightness",
+    "propertyPattern": "Grid1FocusedCue.Brightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeX",
+    "normalizedPropertyPattern": "Grid1FocusedCue.SizeX",
+    "propertyPattern": "Grid1FocusedCue.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Zoom",
+    "normalizedPropertyPattern": "Grid1FocusedCue.Zoom",
+    "propertyPattern": "Grid1FocusedCue.Zoom",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFlash",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickRestart",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickSelect",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickSoloFlash",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickToggle",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickTrack",
+    "normalizedPropertyPattern": "Grid2.ClickMode",
+    "propertyPattern": "Grid2.ClickMode",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGrid2Page",
+    "normalizedPropertyPattern": "Grid2.PageIndex",
+    "propertyPattern": "Grid2.PageIndex",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetLocation",
+    "normalizedPropertyPattern": "Location.N.X",
+    "propertyPattern": "Location.N.X",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetLocation",
+    "normalizedPropertyPattern": "Location.N.Y",
+    "propertyPattern": "Location.N.Y",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetLocation",
+    "normalizedPropertyPattern": "Location.N.Z",
+    "propertyPattern": "Location.N.Z",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorOn",
+    "normalizedPropertyPattern": "Master.Alpha",
+    "propertyPattern": "Master.Alpha",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBA",
+    "normalizedPropertyPattern": "Master.Alpha",
+    "propertyPattern": "Master.Alpha",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBADelta",
+    "normalizedPropertyPattern": "Master.Alpha",
+    "propertyPattern": "Master.Alpha",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AnimationSpeed",
+    "normalizedPropertyPattern": "Master.AnimationSpeed",
+    "propertyPattern": "Master.AnimationSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AnimationSpeedDelta",
+    "normalizedPropertyPattern": "Master.AnimationSpeed",
+    "propertyPattern": "Master.AnimationSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-anispeed.f",
+    "pathPattern": "/beyond/master/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.AnimationSpeed",
+    "propertyPattern": "Master.AnimationSpeed",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetAudioGain",
+    "normalizedPropertyPattern": "Master.AudioInGain",
+    "propertyPattern": "Master.AudioInGain",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetAudioInGain",
+    "normalizedPropertyPattern": "Master.AudioInGain",
+    "propertyPattern": "Master.AudioInGain",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetAudioInRelease",
+    "normalizedPropertyPattern": "Master.AudioInRelease",
+    "propertyPattern": "Master.AudioInRelease",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetAudioRelease",
+    "normalizedPropertyPattern": "Master.AudioInRelease",
+    "propertyPattern": "Master.AudioInRelease",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterAudioVolume",
+    "normalizedPropertyPattern": "Master.AudioVolume",
+    "propertyPattern": "Master.AudioVolume",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterAudioVolumeMute",
+    "normalizedPropertyPattern": "Master.AudioVolumeMute",
+    "propertyPattern": "Master.AudioVolumeMute",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "BeamBrush",
+    "normalizedPropertyPattern": "Master.BeamBrush",
+    "propertyPattern": "Master.BeamBrush",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "BeamBrushDelta",
+    "normalizedPropertyPattern": "Master.BeamBrush",
+    "propertyPattern": "Master.BeamBrush",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBA",
+    "normalizedPropertyPattern": "Master.Blue",
+    "propertyPattern": "Master.Blue",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBADelta",
+    "normalizedPropertyPattern": "Master.Blue",
+    "propertyPattern": "Master.Blue",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetBpm",
+    "normalizedPropertyPattern": "Master.BPM",
+    "propertyPattern": "Master.BPM",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetBpmDelta",
+    "normalizedPropertyPattern": "Master.BPM",
+    "propertyPattern": "Master.BPM",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-general-setbpm.f",
+    "pathPattern": "/beyond/general/SetBpm",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.BPM",
+    "propertyPattern": "Master.BPM",
+    "routeKind": "dispatcherCommand",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Brightness",
+    "normalizedPropertyPattern": "Master.Brightness",
+    "propertyPattern": "Master.Brightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "BrightnessDelta",
+    "normalizedPropertyPattern": "Master.Brightness",
+    "propertyPattern": "Master.Brightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetChannelToChannelRatio",
+    "normalizedPropertyPattern": "Master.ChannelToChannelRatio",
+    "propertyPattern": "Master.ChannelToChannelRatio",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorSlider",
+    "normalizedPropertyPattern": "Master.ColorSlider",
+    "propertyPattern": "Master.ColorSlider",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorSliderDelta",
+    "normalizedPropertyPattern": "Master.ColorSlider",
+    "propertyPattern": "Master.ColorSlider",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-colorslider.f",
+    "pathPattern": "/beyond/master/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.ColorSlider",
+    "propertyPattern": "Master.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-colorslider.f",
+    "pathPattern": "/beyond/master/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.ColorSlider",
+    "propertyPattern": "Master.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterMetroShift",
+    "normalizedPropertyPattern": "Master.CueBeatShift",
+    "propertyPattern": "Master.CueBeatShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterClockShift",
+    "normalizedPropertyPattern": "Master.CueClockShift",
+    "propertyPattern": "Master.CueClockShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterCueLcSpeed",
+    "normalizedPropertyPattern": "Master.CueLcSpeed",
+    "propertyPattern": "Master.CueLcSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterCueSpeed",
+    "normalizedPropertyPattern": "Master.CueSpeed",
+    "propertyPattern": "Master.CueSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "EnableDmxIn",
+    "normalizedPropertyPattern": "Master.DmxInEnabled",
+    "propertyPattern": "Master.DmxInEnabled",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetDmxToChannelRatio",
+    "normalizedPropertyPattern": "Master.DmxToChannelRatio",
+    "propertyPattern": "Master.DmxToChannelRatio",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction",
+    "propertyPattern": "Master.EffectChannelAction",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction1",
+    "propertyPattern": "Master.EffectChannelAction1",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction2",
+    "propertyPattern": "Master.EffectChannelAction2",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction3",
+    "propertyPattern": "Master.EffectChannelAction3",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction4",
+    "propertyPattern": "Master.EffectChannelAction4",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction5",
+    "propertyPattern": "Master.EffectChannelAction5",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction6",
+    "propertyPattern": "Master.EffectChannelAction6",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction7",
+    "propertyPattern": "Master.EffectChannelAction7",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetEffectChannelAction",
+    "normalizedPropertyPattern": "Master.EffectChannelAction8",
+    "propertyPattern": "Master.EffectChannelAction8",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetVdgPlugin",
+    "normalizedPropertyPattern": "Master.EnableVdjClockForBpmControl",
+    "propertyPattern": "Master.EnableVdjClockForBpmControl",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFFTToChannelRatio",
+    "normalizedPropertyPattern": "Master.FFTToChannelRatio",
+    "propertyPattern": "Master.FFTToChannelRatio",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX1",
+    "propertyPattern": "Master.FX1",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX1",
+    "propertyPattern": "Master.FX1",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX1",
+    "propertyPattern": "Master.FX1",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX",
+    "normalizedPropertyPattern": "Master.FX1",
+    "propertyPattern": "Master.FX1",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX1Action",
+    "propertyPattern": "Master.FX1Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction",
+    "normalizedPropertyPattern": "Master.FX1Action",
+    "propertyPattern": "Master.FX1Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction1",
+    "normalizedPropertyPattern": "Master.FX1Action",
+    "propertyPattern": "Master.FX1Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX1Mute",
+    "propertyPattern": "Master.FX1Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX1TimeMulClock",
+    "propertyPattern": "Master.FX1TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX1TimeMulClock",
+    "propertyPattern": "Master.FX1TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX1TimeMulClock",
+    "propertyPattern": "Master.FX1TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX1TimeMulMetro",
+    "propertyPattern": "Master.FX1TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX1TimeMulMetro",
+    "propertyPattern": "Master.FX1TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX1TimeMulMetro",
+    "propertyPattern": "Master.FX1TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleClock",
+    "propertyPattern": "Master.FX1TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleClock",
+    "propertyPattern": "Master.FX1TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleClock",
+    "propertyPattern": "Master.FX1TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleClock",
+    "propertyPattern": "Master.FX1TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleMetro",
+    "propertyPattern": "Master.FX1TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleMetro",
+    "propertyPattern": "Master.FX1TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleMetro",
+    "propertyPattern": "Master.FX1TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX1TimeScaleMetro",
+    "propertyPattern": "Master.FX1TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX1TimeShiftClock",
+    "propertyPattern": "Master.FX1TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX1TimeShiftMetro",
+    "propertyPattern": "Master.FX1TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX2",
+    "propertyPattern": "Master.FX2",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX2",
+    "propertyPattern": "Master.FX2",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX2",
+    "propertyPattern": "Master.FX2",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX2Action",
+    "propertyPattern": "Master.FX2Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction2",
+    "normalizedPropertyPattern": "Master.FX2Action",
+    "propertyPattern": "Master.FX2Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX2Mute",
+    "propertyPattern": "Master.FX2Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX2TimeMulClock",
+    "propertyPattern": "Master.FX2TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX2TimeMulClock",
+    "propertyPattern": "Master.FX2TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX2TimeMulClock",
+    "propertyPattern": "Master.FX2TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX2TimeMulMetro",
+    "propertyPattern": "Master.FX2TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX2TimeMulMetro",
+    "propertyPattern": "Master.FX2TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX2TimeMulMetro",
+    "propertyPattern": "Master.FX2TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleClock",
+    "propertyPattern": "Master.FX2TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleClock",
+    "propertyPattern": "Master.FX2TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleClock",
+    "propertyPattern": "Master.FX2TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleClock",
+    "propertyPattern": "Master.FX2TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleMetro",
+    "propertyPattern": "Master.FX2TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleMetro",
+    "propertyPattern": "Master.FX2TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleMetro",
+    "propertyPattern": "Master.FX2TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX2TimeScaleMetro",
+    "propertyPattern": "Master.FX2TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX2TimeShiftClock",
+    "propertyPattern": "Master.FX2TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX2TimeShiftMetro",
+    "propertyPattern": "Master.FX2TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX3",
+    "propertyPattern": "Master.FX3",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX3",
+    "propertyPattern": "Master.FX3",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX3",
+    "propertyPattern": "Master.FX3",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX3Action",
+    "propertyPattern": "Master.FX3Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction3",
+    "normalizedPropertyPattern": "Master.FX3Action",
+    "propertyPattern": "Master.FX3Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX3Mute",
+    "propertyPattern": "Master.FX3Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX3TimeMulClock",
+    "propertyPattern": "Master.FX3TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX3TimeMulClock",
+    "propertyPattern": "Master.FX3TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX3TimeMulClock",
+    "propertyPattern": "Master.FX3TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX3TimeMulMetro",
+    "propertyPattern": "Master.FX3TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX3TimeMulMetro",
+    "propertyPattern": "Master.FX3TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX3TimeMulMetro",
+    "propertyPattern": "Master.FX3TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleClock",
+    "propertyPattern": "Master.FX3TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleClock",
+    "propertyPattern": "Master.FX3TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleClock",
+    "propertyPattern": "Master.FX3TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleClock",
+    "propertyPattern": "Master.FX3TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleMetro",
+    "propertyPattern": "Master.FX3TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleMetro",
+    "propertyPattern": "Master.FX3TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleMetro",
+    "propertyPattern": "Master.FX3TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX3TimeScaleMetro",
+    "propertyPattern": "Master.FX3TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX3TimeShiftClock",
+    "propertyPattern": "Master.FX3TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX3TimeShiftMetro",
+    "propertyPattern": "Master.FX3TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX4",
+    "propertyPattern": "Master.FX4",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX4",
+    "propertyPattern": "Master.FX4",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX4",
+    "propertyPattern": "Master.FX4",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX4Action",
+    "propertyPattern": "Master.FX4Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction4",
+    "normalizedPropertyPattern": "Master.FX4Action",
+    "propertyPattern": "Master.FX4Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX4Mute",
+    "propertyPattern": "Master.FX4Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX4TimeMulClock",
+    "propertyPattern": "Master.FX4TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX4TimeMulClock",
+    "propertyPattern": "Master.FX4TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX4TimeMulClock",
+    "propertyPattern": "Master.FX4TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX4TimeMulMetro",
+    "propertyPattern": "Master.FX4TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX4TimeMulMetro",
+    "propertyPattern": "Master.FX4TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX4TimeMulMetro",
+    "propertyPattern": "Master.FX4TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleClock",
+    "propertyPattern": "Master.FX4TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleClock",
+    "propertyPattern": "Master.FX4TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleClock",
+    "propertyPattern": "Master.FX4TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleClock",
+    "propertyPattern": "Master.FX4TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleMetro",
+    "propertyPattern": "Master.FX4TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleMetro",
+    "propertyPattern": "Master.FX4TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleMetro",
+    "propertyPattern": "Master.FX4TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX4TimeScaleMetro",
+    "propertyPattern": "Master.FX4TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX4TimeShiftClock",
+    "propertyPattern": "Master.FX4TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX4TimeShiftMetro",
+    "propertyPattern": "Master.FX4TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX5",
+    "propertyPattern": "Master.FX5",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX5",
+    "propertyPattern": "Master.FX5",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX5",
+    "propertyPattern": "Master.FX5",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX5Action",
+    "propertyPattern": "Master.FX5Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction5",
+    "normalizedPropertyPattern": "Master.FX5Action",
+    "propertyPattern": "Master.FX5Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX5Mute",
+    "propertyPattern": "Master.FX5Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX5TimeMulClock",
+    "propertyPattern": "Master.FX5TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX5TimeMulClock",
+    "propertyPattern": "Master.FX5TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX5TimeMulClock",
+    "propertyPattern": "Master.FX5TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX5TimeMulMetro",
+    "propertyPattern": "Master.FX5TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX5TimeMulMetro",
+    "propertyPattern": "Master.FX5TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX5TimeMulMetro",
+    "propertyPattern": "Master.FX5TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleClock",
+    "propertyPattern": "Master.FX5TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleClock",
+    "propertyPattern": "Master.FX5TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleClock",
+    "propertyPattern": "Master.FX5TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleClock",
+    "propertyPattern": "Master.FX5TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleMetro",
+    "propertyPattern": "Master.FX5TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleMetro",
+    "propertyPattern": "Master.FX5TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleMetro",
+    "propertyPattern": "Master.FX5TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX5TimeScaleMetro",
+    "propertyPattern": "Master.FX5TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX5TimeShiftClock",
+    "propertyPattern": "Master.FX5TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX5TimeShiftMetro",
+    "propertyPattern": "Master.FX5TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ClickFXStopAll",
+    "normalizedPropertyPattern": "Master.FX6",
+    "propertyPattern": "Master.FX6",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FX",
+    "normalizedPropertyPattern": "Master.FX6",
+    "propertyPattern": "Master.FX6",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetMasterFX",
+    "normalizedPropertyPattern": "Master.FX6",
+    "propertyPattern": "Master.FX6",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX6Action",
+    "propertyPattern": "Master.FX6Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction6",
+    "normalizedPropertyPattern": "Master.FX6Action",
+    "propertyPattern": "Master.FX6Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX6Mute",
+    "propertyPattern": "Master.FX6Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX6TimeMulClock",
+    "propertyPattern": "Master.FX6TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX6TimeMulClock",
+    "propertyPattern": "Master.FX6TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX6TimeMulClock",
+    "propertyPattern": "Master.FX6TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX6TimeMulMetro",
+    "propertyPattern": "Master.FX6TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX6TimeMulMetro",
+    "propertyPattern": "Master.FX6TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX6TimeMulMetro",
+    "propertyPattern": "Master.FX6TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleClock",
+    "propertyPattern": "Master.FX6TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleClock",
+    "propertyPattern": "Master.FX6TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleClock",
+    "propertyPattern": "Master.FX6TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleClock",
+    "propertyPattern": "Master.FX6TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleMetro",
+    "propertyPattern": "Master.FX6TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleMetro",
+    "propertyPattern": "Master.FX6TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleMetro",
+    "propertyPattern": "Master.FX6TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX6TimeScaleMetro",
+    "propertyPattern": "Master.FX6TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX6TimeShiftClock",
+    "propertyPattern": "Master.FX6TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX6TimeShiftMetro",
+    "propertyPattern": "Master.FX6TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX7Action",
+    "propertyPattern": "Master.FX7Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction7",
+    "normalizedPropertyPattern": "Master.FX7Action",
+    "propertyPattern": "Master.FX7Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX7Mute",
+    "propertyPattern": "Master.FX7Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX7TimeMulClock",
+    "propertyPattern": "Master.FX7TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX7TimeMulClock",
+    "propertyPattern": "Master.FX7TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX7TimeMulClock",
+    "propertyPattern": "Master.FX7TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX7TimeMulMetro",
+    "propertyPattern": "Master.FX7TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX7TimeMulMetro",
+    "propertyPattern": "Master.FX7TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX7TimeMulMetro",
+    "propertyPattern": "Master.FX7TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleClock",
+    "propertyPattern": "Master.FX7TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleClock",
+    "propertyPattern": "Master.FX7TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleClock",
+    "propertyPattern": "Master.FX7TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleClock",
+    "propertyPattern": "Master.FX7TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleMetro",
+    "propertyPattern": "Master.FX7TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleMetro",
+    "propertyPattern": "Master.FX7TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleMetro",
+    "propertyPattern": "Master.FX7TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX7TimeScaleMetro",
+    "propertyPattern": "Master.FX7TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX7TimeShiftClock",
+    "propertyPattern": "Master.FX7TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX7TimeShiftMetro",
+    "propertyPattern": "Master.FX7TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXAction",
+    "normalizedPropertyPattern": "Master.FX8Action",
+    "propertyPattern": "Master.FX8Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXAction8",
+    "normalizedPropertyPattern": "Master.FX8Action",
+    "propertyPattern": "Master.FX8Action",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMute",
+    "normalizedPropertyPattern": "Master.FX8Mute",
+    "propertyPattern": "Master.FX8Mute",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX8TimeMulClock",
+    "propertyPattern": "Master.FX8TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX8TimeMulClock",
+    "propertyPattern": "Master.FX8TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX8TimeMulClock",
+    "propertyPattern": "Master.FX8TimeMulClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MulFXMulAx",
+    "normalizedPropertyPattern": "Master.FX8TimeMulMetro",
+    "propertyPattern": "Master.FX8TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMul",
+    "normalizedPropertyPattern": "Master.FX8TimeMulMetro",
+    "propertyPattern": "Master.FX8TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFXMulAx",
+    "normalizedPropertyPattern": "Master.FX8TimeMulMetro",
+    "propertyPattern": "Master.FX8TimeMulMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleClock",
+    "propertyPattern": "Master.FX8TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleClock",
+    "propertyPattern": "Master.FX8TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleClock",
+    "propertyPattern": "Master.FX8TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleClock",
+    "propertyPattern": "Master.FX8TimeScaleClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAx",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleMetro",
+    "propertyPattern": "Master.FX8TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleAxReset",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleMetro",
+    "propertyPattern": "Master.FX8TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "FXTimeScaleDeltaAx",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleMetro",
+    "propertyPattern": "Master.FX8TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeScale",
+    "normalizedPropertyPattern": "Master.FX8TimeScaleMetro",
+    "propertyPattern": "Master.FX8TimeScaleMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX8TimeShiftClock",
+    "propertyPattern": "Master.FX8TimeShiftClock",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoneFXTimeShift",
+    "normalizedPropertyPattern": "Master.FX8TimeShiftMetro",
+    "propertyPattern": "Master.FX8TimeShiftMetro",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterFXSpeed",
+    "normalizedPropertyPattern": "Master.FXSpeed",
+    "propertyPattern": "Master.FXSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBA",
+    "normalizedPropertyPattern": "Master.Green",
+    "propertyPattern": "Master.Green",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBADelta",
+    "normalizedPropertyPattern": "Master.Green",
+    "propertyPattern": "Master.Green",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Hue",
+    "normalizedPropertyPattern": "Master.Hue",
+    "propertyPattern": "Master.Hue",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "HueDelta",
+    "normalizedPropertyPattern": "Master.Hue",
+    "propertyPattern": "Master.Hue",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "HueShift",
+    "normalizedPropertyPattern": "Master.HueShift",
+    "propertyPattern": "Master.HueShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "HueShiftDelta",
+    "normalizedPropertyPattern": "Master.HueShift",
+    "propertyPattern": "Master.HueShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterLCSpeed",
+    "normalizedPropertyPattern": "Master.LCSpeed",
+    "propertyPattern": "Master.LCSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterEffectClockShift",
+    "normalizedPropertyPattern": "Master.MasterEffectClockShift",
+    "propertyPattern": "Master.MasterEffectClockShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterEffectMetroShift",
+    "normalizedPropertyPattern": "Master.MasterEffectMetroShift",
+    "propertyPattern": "Master.MasterEffectMetroShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterPause",
+    "normalizedPropertyPattern": "Master.Pause",
+    "propertyPattern": "Master.Pause",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterPauseTime",
+    "normalizedPropertyPattern": "Master.PauseTime",
+    "propertyPattern": "Master.PauseTime",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetPhysicsCheckbox",
+    "normalizedPropertyPattern": "Master.PhActive",
+    "propertyPattern": "Master.PhActive",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetAttractionSlider",
+    "normalizedPropertyPattern": "Master.PhAttraction",
+    "propertyPattern": "Master.PhAttraction",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFrictionSlider",
+    "normalizedPropertyPattern": "Master.PhFriction",
+    "propertyPattern": "Master.PhFriction",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetMassSlider",
+    "normalizedPropertyPattern": "Master.PhMass",
+    "propertyPattern": "Master.PhMass",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Position",
+    "normalizedPropertyPattern": "Master.PositionX",
+    "propertyPattern": "Master.PositionX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionDelta",
+    "normalizedPropertyPattern": "Master.PositionX",
+    "propertyPattern": "Master.PositionX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionIndex",
+    "normalizedPropertyPattern": "Master.PositionX",
+    "propertyPattern": "Master.PositionX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionX",
+    "normalizedPropertyPattern": "Master.PositionX",
+    "propertyPattern": "Master.PositionX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetPosition",
+    "normalizedPropertyPattern": "Master.PositionX",
+    "propertyPattern": "Master.PositionX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Position",
+    "normalizedPropertyPattern": "Master.PositionY",
+    "propertyPattern": "Master.PositionY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionDelta",
+    "normalizedPropertyPattern": "Master.PositionY",
+    "propertyPattern": "Master.PositionY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionIndex",
+    "normalizedPropertyPattern": "Master.PositionY",
+    "propertyPattern": "Master.PositionY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionY",
+    "normalizedPropertyPattern": "Master.PositionY",
+    "propertyPattern": "Master.PositionY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetPosition",
+    "normalizedPropertyPattern": "Master.PositionY",
+    "propertyPattern": "Master.PositionY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Position",
+    "normalizedPropertyPattern": "Master.PositionZ",
+    "propertyPattern": "Master.PositionZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionDelta",
+    "normalizedPropertyPattern": "Master.PositionZ",
+    "propertyPattern": "Master.PositionZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionIndex",
+    "normalizedPropertyPattern": "Master.PositionZ",
+    "propertyPattern": "Master.PositionZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PositionZ",
+    "normalizedPropertyPattern": "Master.PositionZ",
+    "propertyPattern": "Master.PositionZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetPosition",
+    "normalizedPropertyPattern": "Master.PositionZ",
+    "propertyPattern": "Master.PositionZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorBGR",
+    "normalizedPropertyPattern": "Master.Red",
+    "propertyPattern": "Master.Red",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorRGB",
+    "normalizedPropertyPattern": "Master.Red",
+    "propertyPattern": "Master.Red",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBA",
+    "normalizedPropertyPattern": "Master.Red",
+    "propertyPattern": "Master.Red",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBADelta",
+    "normalizedPropertyPattern": "Master.Red",
+    "propertyPattern": "Master.Red",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorBGR",
+    "normalizedPropertyPattern": "Master.RGBColor",
+    "propertyPattern": "Master.RGBColor",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ColorRGB",
+    "normalizedPropertyPattern": "Master.RGBColor",
+    "propertyPattern": "Master.RGBColor",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBA",
+    "normalizedPropertyPattern": "Master.RGBColor",
+    "propertyPattern": "Master.RGBColor",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RGBADelta",
+    "normalizedPropertyPattern": "Master.RGBColor",
+    "propertyPattern": "Master.RGBColor",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetProp",
+    "normalizedPropertyPattern": "Master.RGBColor",
+    "propertyPattern": "Master.RGBColor",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Angle",
+    "normalizedPropertyPattern": "Master.RotoAngleX",
+    "propertyPattern": "Master.RotoAngleX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleDelta",
+    "normalizedPropertyPattern": "Master.RotoAngleX",
+    "propertyPattern": "Master.RotoAngleX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleX",
+    "normalizedPropertyPattern": "Master.RotoAngleX",
+    "propertyPattern": "Master.RotoAngleX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotation",
+    "normalizedPropertyPattern": "Master.RotoAngleX",
+    "propertyPattern": "Master.RotoAngleX",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotationX",
+    "normalizedPropertyPattern": "Master.RotoAngleX",
+    "propertyPattern": "Master.RotoAngleX",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Angle",
+    "normalizedPropertyPattern": "Master.RotoAngleY",
+    "propertyPattern": "Master.RotoAngleY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleDelta",
+    "normalizedPropertyPattern": "Master.RotoAngleY",
+    "propertyPattern": "Master.RotoAngleY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleY",
+    "normalizedPropertyPattern": "Master.RotoAngleY",
+    "propertyPattern": "Master.RotoAngleY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotation",
+    "normalizedPropertyPattern": "Master.RotoAngleY",
+    "propertyPattern": "Master.RotoAngleY",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotationY",
+    "normalizedPropertyPattern": "Master.RotoAngleY",
+    "propertyPattern": "Master.RotoAngleY",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Angle",
+    "normalizedPropertyPattern": "Master.RotoAngleZ",
+    "propertyPattern": "Master.RotoAngleZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleDelta",
+    "normalizedPropertyPattern": "Master.RotoAngleZ",
+    "propertyPattern": "Master.RotoAngleZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "AngleZ",
+    "normalizedPropertyPattern": "Master.RotoAngleZ",
+    "propertyPattern": "Master.RotoAngleZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotation",
+    "normalizedPropertyPattern": "Master.RotoAngleZ",
+    "propertyPattern": "Master.RotoAngleZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ResetRotationZ",
+    "normalizedPropertyPattern": "Master.RotoAngleZ",
+    "propertyPattern": "Master.RotoAngleZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "InvertRotationX",
+    "normalizedPropertyPattern": "Master.RotoSpeedX",
+    "propertyPattern": "Master.RotoSpeedX",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeed",
+    "normalizedPropertyPattern": "Master.RotoSpeedX",
+    "propertyPattern": "Master.RotoSpeedX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedDelta",
+    "normalizedPropertyPattern": "Master.RotoSpeedX",
+    "propertyPattern": "Master.RotoSpeedX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedX",
+    "normalizedPropertyPattern": "Master.RotoSpeedX",
+    "propertyPattern": "Master.RotoSpeedX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "InvertRotationY",
+    "normalizedPropertyPattern": "Master.RotoSpeedY",
+    "propertyPattern": "Master.RotoSpeedY",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeed",
+    "normalizedPropertyPattern": "Master.RotoSpeedY",
+    "propertyPattern": "Master.RotoSpeedY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedDelta",
+    "normalizedPropertyPattern": "Master.RotoSpeedY",
+    "propertyPattern": "Master.RotoSpeedY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedY",
+    "normalizedPropertyPattern": "Master.RotoSpeedY",
+    "propertyPattern": "Master.RotoSpeedY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "InvertRotationZ",
+    "normalizedPropertyPattern": "Master.RotoSpeedZ",
+    "propertyPattern": "Master.RotoSpeedZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeed",
+    "normalizedPropertyPattern": "Master.RotoSpeedZ",
+    "propertyPattern": "Master.RotoSpeedZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedDelta",
+    "normalizedPropertyPattern": "Master.RotoSpeedZ",
+    "propertyPattern": "Master.RotoSpeedZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "RotoSpeedZ",
+    "normalizedPropertyPattern": "Master.RotoSpeedZ",
+    "propertyPattern": "Master.RotoSpeedZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Saturation",
+    "normalizedPropertyPattern": "Master.Saturation",
+    "propertyPattern": "Master.Saturation",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SaturationDelta",
+    "normalizedPropertyPattern": "Master.Saturation",
+    "propertyPattern": "Master.Saturation",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ScanRate",
+    "normalizedPropertyPattern": "Master.ScanRate",
+    "propertyPattern": "Master.ScanRate",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ScanRateDelta",
+    "normalizedPropertyPattern": "Master.ScanRate",
+    "propertyPattern": "Master.ScanRate",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-scanrate.f",
+    "pathPattern": "/beyond/master/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.ScanRate",
+    "propertyPattern": "Master.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-scanrate.f",
+    "pathPattern": "/beyond/master/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.ScanRate",
+    "propertyPattern": "Master.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterShowBrightness",
+    "normalizedPropertyPattern": "Master.ShowBrightness",
+    "propertyPattern": "Master.ShowBrightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterShowShift",
+    "normalizedPropertyPattern": "Master.ShowShift",
+    "propertyPattern": "Master.ShowShift",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterShowSpeed",
+    "normalizedPropertyPattern": "Master.ShowSpeed",
+    "propertyPattern": "Master.ShowSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Size",
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeDelta",
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeIndex",
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeX",
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-sizex.f",
+    "pathPattern": "/beyond/master/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-sizex.f",
+    "pathPattern": "/beyond/master/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Master.SizeX",
+    "propertyPattern": "Master.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Size",
+    "normalizedPropertyPattern": "Master.SizeY",
+    "propertyPattern": "Master.SizeY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeDelta",
+    "normalizedPropertyPattern": "Master.SizeY",
+    "propertyPattern": "Master.SizeY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeIndex",
+    "normalizedPropertyPattern": "Master.SizeY",
+    "propertyPattern": "Master.SizeY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeY",
+    "normalizedPropertyPattern": "Master.SizeY",
+    "propertyPattern": "Master.SizeY",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Size",
+    "normalizedPropertyPattern": "Master.SizeZ",
+    "propertyPattern": "Master.SizeZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeDelta",
+    "normalizedPropertyPattern": "Master.SizeZ",
+    "propertyPattern": "Master.SizeZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeIndex",
+    "normalizedPropertyPattern": "Master.SizeZ",
+    "propertyPattern": "Master.SizeZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeZ",
+    "normalizedPropertyPattern": "Master.SizeZ",
+    "propertyPattern": "Master.SizeZ",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "StrobeSpeed",
+    "normalizedPropertyPattern": "Master.StrobeSpeed",
+    "propertyPattern": "Master.StrobeSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "StrobeSpeedDelta",
+    "normalizedPropertyPattern": "Master.StrobeSpeed",
+    "propertyPattern": "Master.StrobeSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "TimelineEnableTC",
+    "normalizedPropertyPattern": "Master.TcInEnabled",
+    "propertyPattern": "Master.TcInEnabled",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterTransitionIndex",
+    "normalizedPropertyPattern": "Master.TransitionIndex",
+    "propertyPattern": "Master.TransitionIndex",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetTransitionIndex",
+    "normalizedPropertyPattern": "Master.TransitionIndex",
+    "propertyPattern": "Master.TransitionIndex",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterTransition",
+    "normalizedPropertyPattern": "Master.TransitionState",
+    "propertyPattern": "Master.TransitionState",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Transition",
+    "normalizedPropertyPattern": "Master.TransitionState",
+    "propertyPattern": "Master.TransitionState",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetVdjToChannelRatio",
+    "normalizedPropertyPattern": "Master.VdjToChannelRatio",
+    "propertyPattern": "Master.VdjToChannelRatio",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "VisiblePoints",
+    "normalizedPropertyPattern": "Master.VisiblePoints",
+    "propertyPattern": "Master.VisiblePoints",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "VisiblePointsDelta",
+    "normalizedPropertyPattern": "Master.VisiblePoints",
+    "propertyPattern": "Master.VisiblePoints",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MasterZoneFxSpeed",
+    "normalizedPropertyPattern": "Master.ZoneFxSpeed",
+    "propertyPattern": "Master.ZoneFxSpeed",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Zoom",
+    "normalizedPropertyPattern": "Master.Zoom",
+    "propertyPattern": "Master.Zoom",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ZoomDelta",
+    "normalizedPropertyPattern": "Master.Zoom",
+    "propertyPattern": "Master.Zoom",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-anispeed.f",
+    "pathPattern": "/beyond/master/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.AnimationSpeed",
+    "propertyPattern": "MasterLC.AnimationSpeed",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Brightness",
+    "normalizedPropertyPattern": "MasterLC.Brightness",
+    "propertyPattern": "MasterLC.Brightness",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-colorslider.f",
+    "pathPattern": "/beyond/master/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.ColorSlider",
+    "propertyPattern": "MasterLC.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-colorslider.f",
+    "pathPattern": "/beyond/master/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.ColorSlider",
+    "propertyPattern": "MasterLC.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.FX1",
+    "propertyPattern": "MasterLC.FX1",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.FX2",
+    "propertyPattern": "MasterLC.FX2",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.FX3",
+    "propertyPattern": "MasterLC.FX3",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.FX4",
+    "propertyPattern": "MasterLC.FX4",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionX",
+    "propertyPattern": "MasterLC.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionX",
+    "propertyPattern": "MasterLC.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-posx.f",
+    "pathPattern": "/beyond/master/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionX",
+    "propertyPattern": "MasterLC.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionY",
+    "propertyPattern": "MasterLC.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionY",
+    "propertyPattern": "MasterLC.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-posy.f",
+    "pathPattern": "/beyond/master/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionY",
+    "propertyPattern": "MasterLC.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionZ",
+    "propertyPattern": "MasterLC.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-posz.f",
+    "pathPattern": "/beyond/master/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.PositionZ",
+    "propertyPattern": "MasterLC.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-anglex.f",
+    "pathPattern": "/beyond/master/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleX",
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleX",
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-anglex.f",
+    "pathPattern": "/beyond/master/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleX",
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-angley.f",
+    "pathPattern": "/beyond/master/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleY",
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleY",
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-angley.f",
+    "pathPattern": "/beyond/master/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleY",
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-anglez.f",
+    "pathPattern": "/beyond/master/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleZ",
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleZ",
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-anglez.f",
+    "pathPattern": "/beyond/master/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoAngleZ",
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-rotox.f",
+    "pathPattern": "/beyond/master/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoSpeedX",
+    "propertyPattern": "MasterLC.RotoSpeedX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-rotoy.f",
+    "pathPattern": "/beyond/master/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoSpeedY",
+    "propertyPattern": "MasterLC.RotoSpeedY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-rotoz.f",
+    "pathPattern": "/beyond/master/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.RotoSpeedZ",
+    "propertyPattern": "MasterLC.RotoSpeedZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SizeX",
+    "normalizedPropertyPattern": "MasterLC.SizeX",
+    "propertyPattern": "MasterLC.SizeX",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeX",
+    "propertyPattern": "MasterLC.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeX",
+    "propertyPattern": "MasterLC.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-sizex.f",
+    "pathPattern": "/beyond/master/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeX",
+    "propertyPattern": "MasterLC.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-sizex.f",
+    "pathPattern": "/beyond/master/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeX",
+    "propertyPattern": "MasterLC.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeY",
+    "propertyPattern": "MasterLC.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeY",
+    "propertyPattern": "MasterLC.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-sizey.f",
+    "pathPattern": "/beyond/master/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeY",
+    "propertyPattern": "MasterLC.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-sizey.f",
+    "pathPattern": "/beyond/master/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeY",
+    "propertyPattern": "MasterLC.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeZ",
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-livecontrol-sizez.f",
+    "pathPattern": "/beyond/master/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeZ",
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-master-sizez.f",
+    "pathPattern": "/beyond/master/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "MasterLC.SizeZ",
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "Zoom",
+    "normalizedPropertyPattern": "MasterLC.Zoom",
+    "propertyPattern": "MasterLC.Zoom",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetButtonMSL",
+    "normalizedPropertyPattern": "MIDI1.ButtonMSL",
+    "propertyPattern": "MIDI1.ButtonMSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX1MSL",
+    "normalizedPropertyPattern": "MIDI1.FX1MSL",
+    "propertyPattern": "MIDI1.FX1MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX2MSL",
+    "normalizedPropertyPattern": "MIDI1.FX2MSL",
+    "propertyPattern": "MIDI1.FX2MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX3MSL",
+    "normalizedPropertyPattern": "MIDI1.FX3MSL",
+    "propertyPattern": "MIDI1.FX3MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX4MSL",
+    "normalizedPropertyPattern": "MIDI1.FX4MSL",
+    "propertyPattern": "MIDI1.FX4MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX5MSL",
+    "normalizedPropertyPattern": "MIDI1.FX5MSL",
+    "propertyPattern": "MIDI1.FX5MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetFX6MSL",
+    "normalizedPropertyPattern": "MIDI1.FX6MSL",
+    "propertyPattern": "MIDI1.FX6MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGrid1MSL",
+    "normalizedPropertyPattern": "MIDI1.Grid1MSL",
+    "propertyPattern": "MIDI1.Grid1MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetGrid2MSL",
+    "normalizedPropertyPattern": "MIDI1.Grid2MSL",
+    "propertyPattern": "MIDI1.Grid2MSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetMidiLayer",
+    "normalizedPropertyPattern": "MIDI1.Layer",
+    "propertyPattern": "MIDI1.Layer",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetSliderMSL",
+    "normalizedPropertyPattern": "MIDI1.SliderMSL",
+    "propertyPattern": "MIDI1.SliderMSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetZoneMuteMSL",
+    "normalizedPropertyPattern": "MIDI1.ZoneMuteMSL",
+    "propertyPattern": "MIDI1.ZoneMuteMSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetZoneSelMSL",
+    "normalizedPropertyPattern": "MIDI1.ZoneSelMSL",
+    "propertyPattern": "MIDI1.ZoneSelMSL",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListPlay",
+    "normalizedPropertyPattern": "PlayListState.Playing",
+    "propertyPattern": "PlayListState.Playing",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListStop",
+    "normalizedPropertyPattern": "PlayListState.Playing",
+    "propertyPattern": "PlayListState.Playing",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListNext",
+    "normalizedPropertyPattern": "PlayListState.Position",
+    "propertyPattern": "PlayListState.Position",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListPrev",
+    "normalizedPropertyPattern": "PlayListState.Position",
+    "propertyPattern": "PlayListState.Position",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListSetPos",
+    "normalizedPropertyPattern": "PlayListState.Position",
+    "propertyPattern": "PlayListState.Position",
+    "safetyTier": "T2",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "PlayListSetTime",
+    "normalizedPropertyPattern": "PlayListState.Position",
+    "propertyPattern": "PlayListState.Position",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-invx.f",
+    "pathPattern": "/beyond/projector/<projector>/invx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.InvX",
+    "propertyPattern": "Projector.N.InvX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-invy.f",
+    "pathPattern": "/beyond/projector/<projector>/invy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.InvY",
+    "propertyPattern": "Projector.N.InvY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-posx.f",
+    "pathPattern": "/beyond/projector/<projector>/posx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.PosX",
+    "propertyPattern": "Projector.N.PosX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-posy.f",
+    "pathPattern": "/beyond/projector/<projector>/posy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.PosY",
+    "propertyPattern": "Projector.N.PosY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-sizex.f",
+    "pathPattern": "/beyond/projector/<projector>/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.SizeX",
+    "propertyPattern": "Projector.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-sizey.f",
+    "pathPattern": "/beyond/projector/<projector>/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.SizeY",
+    "propertyPattern": "Projector.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-projector-projector-swapxy.f",
+    "pathPattern": "/beyond/projector/<projector>/swapxy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Projector.N.SwapXY",
+    "propertyPattern": "Projector.N.SwapXY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anispeed.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.AnimationSpeed",
+    "propertyPattern": "ProTrack.N.AnimationSpeed",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-colorslider.f",
+    "pathPattern": "/beyond/protrack/<protrack>/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.ColorSlider",
+    "propertyPattern": "ProTrack.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-colorslider.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.ColorSlider",
+    "propertyPattern": "ProTrack.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.FX1",
+    "propertyPattern": "ProTrack.N.FX1",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.FX2",
+    "propertyPattern": "ProTrack.N.FX2",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.FX3",
+    "propertyPattern": "ProTrack.N.FX3",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.FX4",
+    "propertyPattern": "ProTrack.N.FX4",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteAllProTracks",
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleMuteProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteAllProTracks",
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-mute.f",
+    "pathPattern": "/beyond/protrack/<protrack>/mute",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.Mute",
+    "propertyPattern": "ProTrack.N.Mute",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionX",
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionX",
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posx.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionX",
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionY",
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionY",
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posy.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionY",
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionZ",
+    "propertyPattern": "ProTrack.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posz.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.PositionZ",
+    "propertyPattern": "ProTrack.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-anglex.f",
+    "pathPattern": "/beyond/protrack/<protrack>/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleX",
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleX",
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anglex.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleX",
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-angley.f",
+    "pathPattern": "/beyond/protrack/<protrack>/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleY",
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleY",
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angley.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleY",
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-anglez.f",
+    "pathPattern": "/beyond/protrack/<protrack>/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleZ",
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleZ",
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anglez.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoAngleZ",
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotox.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoSpeedX",
+    "propertyPattern": "ProTrack.N.RotoSpeedX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotoy.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoSpeedY",
+    "propertyPattern": "ProTrack.N.RotoSpeedY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotoz.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.RotoSpeedZ",
+    "propertyPattern": "ProTrack.N.RotoSpeedZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-scanrate.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.ScanRate",
+    "propertyPattern": "ProTrack.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-scanrate.f",
+    "pathPattern": "/beyond/protrack/<protrack>/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.ScanRate",
+    "propertyPattern": "ProTrack.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Selected",
+    "propertyPattern": "ProTrack.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleSelectProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Selected",
+    "propertyPattern": "ProTrack.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnselectAllProTracks",
+    "normalizedPropertyPattern": "ProTrack.N.Selected",
+    "propertyPattern": "ProTrack.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnselectProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Selected",
+    "propertyPattern": "ProTrack.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-select.f",
+    "pathPattern": "/beyond/protrack/<protrack>/select",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.Selected",
+    "propertyPattern": "ProTrack.N.Selected",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeX",
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeX",
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizex.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeX",
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-sizex.f",
+    "pathPattern": "/beyond/protrack/<protrack>/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeX",
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeY",
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeY",
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizey.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeY",
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-sizey.f",
+    "pathPattern": "/beyond/protrack/<protrack>/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeY",
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeZ",
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizez.f",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeZ",
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-protrack-protrack-sizez.f",
+    "pathPattern": "/beyond/protrack/<protrack>/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "ProTrack.N.SizeZ",
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SoloProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Solo",
+    "propertyPattern": "ProTrack.N.Solo",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleSoloProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Solo",
+    "propertyPattern": "ProTrack.N.Solo",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnSoloAllProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Solo",
+    "propertyPattern": "ProTrack.N.Solo",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnSoloProTrack",
+    "normalizedPropertyPattern": "ProTrack.N.Solo",
+    "propertyPattern": "ProTrack.N.Solo",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetProTrackZones",
+    "normalizedPropertyPattern": "ProTrack.N.Zones",
+    "propertyPattern": "ProTrack.N.Zones",
+    "safetyTier": "T3",
+    "evidenceLevel": "exported"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "DisableLaserOutput",
+    "normalizedPropertyPattern": "Status.LaserEnabled",
+    "propertyPattern": "Status.LaserEnabled",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "EnableLaserOutput",
+    "normalizedPropertyPattern": "Status.LaserEnabled",
+    "propertyPattern": "Status.LaserEnabled",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "LockScreen",
+    "normalizedPropertyPattern": "Status.Locked",
+    "propertyPattern": "Status.Locked",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnLockScreen",
+    "normalizedPropertyPattern": "Status.Locked",
+    "propertyPattern": "Status.Locked",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anispeed.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.AnimationSpeed",
+    "propertyPattern": "WS.N.N.AnimationSpeed",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SetCueCaptionColor",
+    "normalizedPropertyPattern": "WS.N.N.CaptionColor",
+    "propertyPattern": "WS.N.N.CaptionColor",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-colorslider.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.ColorSlider",
+    "propertyPattern": "WS.N.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-colorslider.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.ColorSlider",
+    "propertyPattern": "WS.N.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.FX1",
+    "propertyPattern": "WS.N.N.FX1",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.FX2",
+    "propertyPattern": "WS.N.N.FX2",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.FX3",
+    "propertyPattern": "WS.N.N.FX3",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.FX4",
+    "propertyPattern": "WS.N.N.FX4",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionX",
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionX",
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posx.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionX",
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionY",
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionY",
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posy.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionY",
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionZ",
+    "propertyPattern": "WS.N.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posz.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.PositionZ",
+    "propertyPattern": "WS.N.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-anglex.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleX",
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleX",
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anglex.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleX",
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-angley.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleY",
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleY",
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angley.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleY",
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-anglez.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleZ",
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleZ",
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anglez.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoAngleZ",
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotox.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoSpeedX",
+    "propertyPattern": "WS.N.N.RotoSpeedX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotoy.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoSpeedY",
+    "propertyPattern": "WS.N.N.RotoSpeedY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotoz.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.RotoSpeedZ",
+    "propertyPattern": "WS.N.N.RotoSpeedZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-scanrate.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.ScanRate",
+    "propertyPattern": "WS.N.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-scanrate.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.ScanRate",
+    "propertyPattern": "WS.N.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeX",
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeX",
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizex.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeX",
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-sizex.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeX",
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeY",
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeY",
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizey.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeY",
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-sizey.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeY",
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeZ",
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizez.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeZ",
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-cue-page-cue-sizez.f",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "WS.N.N.SizeZ",
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anispeed.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.AnimationSpeed",
+    "propertyPattern": "Zone.N.AnimationSpeed",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-colorslider.f",
+    "pathPattern": "/beyond/zone/<zone>/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.ColorSlider",
+    "propertyPattern": "Zone.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-colorslider.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.ColorSlider",
+    "propertyPattern": "Zone.N.ColorSlider",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.FX1",
+    "propertyPattern": "Zone.N.FX1",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.FX2",
+    "propertyPattern": "Zone.N.FX2",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.FX3",
+    "propertyPattern": "Zone.N.FX3",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.FX4",
+    "propertyPattern": "Zone.N.FX4",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteAllZones",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteSelectedZones",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteZone",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteZonesOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleMuteZone",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleMuteZoneOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteAllZone",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteZone",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnMuteZonesOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-mute.f",
+    "pathPattern": "/beyond/zone/<zone>/mute",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.Mute",
+    "propertyPattern": "Zone.N.Mute",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteAllZones",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteSelectedZones",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteZone",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "MuteZonesOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleMuteZone",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleMuteZoneOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteAllZone",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "documented"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnmuteZone",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnMuteZonesOfProjector",
+    "normalizedPropertyPattern": "Zone.N.Muted",
+    "propertyPattern": "Zone.N.Muted",
+    "safetyTier": "T3",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionX",
+    "propertyPattern": "Zone.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionX",
+    "propertyPattern": "Zone.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posx.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionX",
+    "propertyPattern": "Zone.N.PositionX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionY",
+    "propertyPattern": "Zone.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionY",
+    "propertyPattern": "Zone.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posy.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionY",
+    "propertyPattern": "Zone.N.PositionY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionZ",
+    "propertyPattern": "Zone.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posz.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.PositionZ",
+    "propertyPattern": "Zone.N.PositionZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-anglex.f",
+    "pathPattern": "/beyond/zone/<zone>/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleX",
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleX",
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anglex.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleX",
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-angley.f",
+    "pathPattern": "/beyond/zone/<zone>/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleY",
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleY",
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angley.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleY",
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-anglez.f",
+    "pathPattern": "/beyond/zone/<zone>/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleZ",
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleZ",
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anglez.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoAngleZ",
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotox.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoSpeedX",
+    "propertyPattern": "Zone.N.RotoSpeedX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotoy.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoSpeedY",
+    "propertyPattern": "Zone.N.RotoSpeedY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotoz.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.RotoSpeedZ",
+    "propertyPattern": "Zone.N.RotoSpeedZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-scanrate.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.ScanRate",
+    "propertyPattern": "Zone.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-scanrate.f",
+    "pathPattern": "/beyond/zone/<zone>/scanrate",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.ScanRate",
+    "propertyPattern": "Zone.N.ScanRate",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ReStoreZoneSelection",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectAndFocusZone",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectZone",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "SelectZoneName",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "ToggleSelectZone",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnselectAllZones",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnSelectZone",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "pangoScriptCommand",
+    "commandName": "UnSelectZoneName",
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "safetyTier": "T1",
+    "evidenceLevel": "observed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-select.f",
+    "pathPattern": "/beyond/zone/<zone>/select",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.Selected",
+    "propertyPattern": "Zone.N.Selected",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeX",
+    "propertyPattern": "Zone.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeX",
+    "propertyPattern": "Zone.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizex.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeX",
+    "propertyPattern": "Zone.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-sizex.f",
+    "pathPattern": "/beyond/zone/<zone>/sizex",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeX",
+    "propertyPattern": "Zone.N.SizeX",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeY",
+    "propertyPattern": "Zone.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeY",
+    "propertyPattern": "Zone.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizey.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeY",
+    "propertyPattern": "Zone.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-sizey.f",
+    "pathPattern": "/beyond/zone/<zone>/sizey",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeY",
+    "propertyPattern": "Zone.N.SizeY",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeZ",
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizez.f",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeZ",
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "controlKind": "oscCommandRoute",
+    "routeId": "osc.beyond-zone-zone-sizez.f",
+    "pathPattern": "/beyond/zone/<zone>/sizez",
+    "args": [
+      "f"
+    ],
+    "normalizedPropertyPattern": "Zone.N.SizeZ",
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeKind": "propertyMappedCommand",
+    "safetyTier": "T2",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  }
+]

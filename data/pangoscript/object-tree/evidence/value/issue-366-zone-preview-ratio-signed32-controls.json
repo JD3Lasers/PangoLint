@@ -1,0 +1,2149 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 366,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp writes with integer OSC readback to confirm signed 32-bit wrap behavior, then restored the observed baseline after every write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Preview.AsBeams",
+      "probePath": "Zone.2.Preview.AsBeams",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.AsBeams\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.AsBeams at Zone.2.Preview.AsBeams uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.AsBeams."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.AsBeams",
+      "probePath": "ZoneAlias.Preview.AsBeams",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.AsBeams\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.AsBeams at ZoneAlias.Preview.AsBeams uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.AsBeams."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.BeamDiameter",
+      "probePath": "Zone.2.Preview.BeamDiameter",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.BeamDiameter\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline 10 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.BeamDiameter at Zone.2.Preview.BeamDiameter uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.BeamDiameter."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.BeamDiameter",
+      "probePath": "ZoneAlias.Preview.BeamDiameter",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.BeamDiameter\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline 10 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.BeamDiameter at ZoneAlias.Preview.BeamDiameter uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.BeamDiameter."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.ColorOverride",
+      "probePath": "Zone.2.Preview.ColorOverride",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.ColorOverride\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.ColorOverride at Zone.2.Preview.ColorOverride uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.ColorOverride."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.ColorOverride",
+      "probePath": "ZoneAlias.Preview.ColorOverride",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.ColorOverride\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.ColorOverride at ZoneAlias.Preview.ColorOverride uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.ColorOverride."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.FogFrontBrightness",
+      "probePath": "Zone.2.Preview.FogFrontBrightness",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 13,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.FogFrontBrightness\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 13,
+        "notes": "The probe restored the observed baseline 13 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.FogFrontBrightness at Zone.2.Preview.FogFrontBrightness uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.FogFrontBrightness."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.FogFrontBrightness",
+      "probePath": "ZoneAlias.Preview.FogFrontBrightness",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 13,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.FogFrontBrightness\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 13,
+        "notes": "The probe restored the observed baseline 13 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.FogFrontBrightness at ZoneAlias.Preview.FogFrontBrightness uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.FogFrontBrightness."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.FogRearBrightness",
+      "probePath": "Zone.2.Preview.FogRearBrightness",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 71,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.FogRearBrightness\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 71,
+        "notes": "The probe restored the observed baseline 71 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.FogRearBrightness at Zone.2.Preview.FogRearBrightness uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.FogRearBrightness."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.FogRearBrightness",
+      "probePath": "ZoneAlias.Preview.FogRearBrightness",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 71,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.FogRearBrightness\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 71,
+        "notes": "The probe restored the observed baseline 71 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.FogRearBrightness at ZoneAlias.Preview.FogRearBrightness uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.FogRearBrightness."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.GauzeSizeX",
+      "probePath": "Zone.2.Preview.GauzeSizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.GauzeSizeX\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.GauzeSizeX at Zone.2.Preview.GauzeSizeX uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.GauzeSizeX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.GauzeSizeX",
+      "probePath": "ZoneAlias.Preview.GauzeSizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.GauzeSizeX\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.GauzeSizeX at ZoneAlias.Preview.GauzeSizeX uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.GauzeSizeX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.MirrorXProjector",
+      "probePath": "Zone.2.Preview.MirrorXProjector",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.MirrorXProjector\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.MirrorXProjector at Zone.2.Preview.MirrorXProjector uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.MirrorXProjector."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.MirrorXProjector",
+      "probePath": "ZoneAlias.Preview.MirrorXProjector",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.MirrorXProjector\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.MirrorXProjector at ZoneAlias.Preview.MirrorXProjector uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.MirrorXProjector."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.MirroXOutput",
+      "probePath": "Zone.2.Preview.MirroXOutput",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.MirroXOutput\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.MirroXOutput at Zone.2.Preview.MirroXOutput uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.MirroXOutput."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.MirroXOutput",
+      "probePath": "ZoneAlias.Preview.MirroXOutput",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.MirroXOutput\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.MirroXOutput at ZoneAlias.Preview.MirroXOutput uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.MirroXOutput."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.TextureIntencity",
+      "probePath": "Zone.2.Preview.TextureIntencity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 255,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.TextureIntencity\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 255,
+        "notes": "The probe restored the observed baseline 255 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.TextureIntencity at Zone.2.Preview.TextureIntencity uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.TextureIntencity."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.TextureIntencity",
+      "probePath": "ZoneAlias.Preview.TextureIntencity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 255,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.TextureIntencity\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 255,
+        "notes": "The probe restored the observed baseline 255 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.TextureIntencity at ZoneAlias.Preview.TextureIntencity uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.TextureIntencity."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Preview.TextureScrollSpeed",
+      "probePath": "Zone.2.Preview.TextureScrollSpeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.2.Preview.TextureScrollSpeed\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.Preview.TextureScrollSpeed at Zone.2.Preview.TextureScrollSpeed uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2",
+        "notes": "The runtime probe used concrete Zone.2.Preview.TextureScrollSpeed."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Preview.TextureScrollSpeed",
+      "probePath": "ZoneAlias.Preview.TextureScrollSpeed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.Preview.TextureScrollSpeed\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline 0 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.Preview.TextureScrollSpeed at ZoneAlias.Preview.TextureScrollSpeed uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Preview.TextureScrollSpeed."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RatioX",
+      "probePath": "Zone.0.RatioX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.0.RatioX\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.0.RatioX\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.0.RatioX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.RatioX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.RatioX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.RatioX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.0.RatioX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.0.RatioX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.0.RatioX\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline 1 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.RatioX at Zone.0.RatioX uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.RatioX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RatioY",
+      "probePath": "Zone.0.RatioY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"Zone.0.RatioY\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Zone.0.RatioY\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Zone.0.RatioY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.RatioY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.RatioY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.RatioY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Zone.0.RatioY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Zone.0.RatioY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"Zone.0.RatioY\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline 1 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed Zone.N.RatioY at Zone.0.RatioY uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.RatioY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.RatioX",
+      "probePath": "ZoneAlias.RatioX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.RatioX\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.RatioX\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.RatioX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.RatioX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.RatioX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.RatioX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.RatioX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.RatioX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.RatioX\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline 1 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.RatioX at ZoneAlias.RatioX uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.RatioX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.RatioY",
+      "probePath": "ZoneAlias.RatioY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw signed 32-bit integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"ZoneAlias.RatioY\", -4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"ZoneAlias.RatioY\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ZoneAlias.RatioY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.RatioY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.RatioY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.RatioY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ZoneAlias.RatioY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"ZoneAlias.RatioY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"ZoneAlias.RatioY\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline 1 after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-15 issue #366 confirmed ZoneAlias.RatioY at ZoneAlias.RatioY uses signed 32-bit integer range with wrap behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.RatioY."
+      }
+    }
+  ]
+}

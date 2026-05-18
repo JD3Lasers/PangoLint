@@ -1,0 +1,49 @@
+// "Beat Shift" (Best on a center-detent pot) via a quantized Master Cue Shift
+// Quantize a continuous input to 2^x values for Master.CueBeatShift
+// Divides a 0-127 MIDI value into 9 discreet ranges
+// Center is no shift, higher values are negative shifts which is what I typically want
+
+GlobalVar gBeatShiftVal
+Var beatShiftInput
+beatShiftInput = int(ExtValue(0,8.999)) // Scale incoming MIDI value to integer 0..8
+//DisplayPreview "beatShiftInput ", beatShiftInput , 0xffffff
+
+var beatShiftVal // In Beyond, a Master Cue Beat Shift of .5 is ONE beat (!?!)
+
+// beatShiftInput: Beat duration -> weird value Master.CueBeatShift expects
+// 0: +4 beats -> 2
+// 1: +2 beats -> 1
+// 2: +1 beats -> .5
+// 3: +1/2 beats -> .25
+// 4: 0 beats (no shift, normal) -> 0
+// 5: -1/2 beat -> -0.25
+// 6: -1 beats -> -.5
+// 7: -2 beats -> -1
+// 8: -4 beats -> -2
+
+var beatShiftDist
+beatShiftDist = abs(beatShiftInput - 4)
+// DisplayPreview "beatShiftDist  ", beatShiftDist, 0xffffff
+
+beatShiftVal = (1 << beatShiftDist) / 8
+// DisplayPreview "beatShiftVal   ", beatShiftVal, 0xffffff
+
+if (beatShiftDist = 0) beatShiftVal = 0
+if (beatShiftInput >4) beatShiftVal = -beatShiftVal
+
+gBeatShiftVal = beatShiftVal // Make available to other scripts
+
+Master.CueBeatShift = beatShiftVal  // in "Pangolin" beats, where .5 = 1 beat, WTF
+
+var metroAx // If you need a normal "beats" value to pass to the other, normal shift durations
+metroAx = 2 * beatShiftVal
+DisplayPreview "Master shift now " + floatStr(metroAx) + " beats"
+
+// Optional: Display duration / period on Traktor F1 7-seg display
+// Second argument to MidiOutLong should be 41 for unshifted, 78 for shifted display
+//if (metroAx <= 2) MidiOutLong(0xBC, 78, int(2.0 / metroAx)))
+//if (int(metroAx) = 4) MidiOutLong(0xBC, 78, 108)
+//if (int(metroAx) = 8) MidiOutLong(0xBC, 78, 116)
+//if (int(metroAx) = 16) MidiOutLong(0xBC, 78, 132)
+
+exit

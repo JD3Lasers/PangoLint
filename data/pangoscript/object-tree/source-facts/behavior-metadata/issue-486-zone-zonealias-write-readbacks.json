@@ -1,0 +1,914 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.Count",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.Count did not change the concrete Zone.Count readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.Count",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Count changes state through the concrete Zone.0.Count path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value1 changes state through the concrete Zone.2.Effect.0.Keys.0.Value1 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value2 changes state through the concrete Zone.2.Effect.0.Keys.0.Value2 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value3",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value3 changes state through the concrete Zone.2.Effect.0.Keys.0.Value3 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.X",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.X changes state through the concrete Zone.2.Effect.0.Keys.X path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.Y",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.Y changes state through the concrete Zone.2.Effect.0.Keys.Y path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.Z",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.Z changes state through the concrete Zone.2.Effect.0.Keys.Z path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.FX7",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.FX7 did not change the concrete Zone.2.FX7 readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.FX8",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.FX8 did not change the concrete Zone.2.FX8 readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.Mesh.NodeX",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.Mesh.NodeX did not change the concrete Zone.2.Mesh.NodeX readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.Mesh.NodeY",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.Mesh.NodeY did not change the concrete Zone.2.Mesh.NodeY readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.OutputPointCount",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.OutputPointCount did not change the concrete Zone.0.OutputPointCount readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.Preview.PositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.PositionX changes state through the concrete Zone.2.Preview.PositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.PositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.PositionY changes state through the concrete Zone.2.Preview.PositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.ProjPositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.ProjPositionX changes state through the concrete Zone.2.Preview.ProjPositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.ProjPositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.ProjPositionY changes state through the concrete Zone.2.Preview.ProjPositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.SizeX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.SizeX changes state through the concrete Zone.2.Preview.SizeX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.SizeY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.SizeY changes state through the concrete Zone.2.Preview.SizeY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.Preview.WindowRotation",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.WindowRotation changes state through the concrete Zone.2.Preview.WindowRotation path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.ProjectorConnected",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.ProjectorConnected did not change the concrete Zone.2.ProjectorConnected readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.ProjectorExists",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.ProjectorExists did not change the concrete Zone.2.ProjectorExists readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.ProjectorIndex",
+      "accessMode": "read-mostly",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 showed Zone.N.ProjectorIndex writes affect readback through transformed projector numbering, but a projector-domain bracket is still needed before shipping value metadata. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.SatShift",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.SatShift did not change the concrete Zone.2.SatShift readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.UGC.BowOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowOffsetX changes state through the concrete Zone.2.UGC.BowOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.BowOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowOffsetY changes state through the concrete Zone.2.UGC.BowOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.BowX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowX changes state through the concrete Zone.2.UGC.BowX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.BowY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowY changes state through the concrete Zone.2.UGC.BowY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.KeystoneX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.KeystoneX changes state through the concrete Zone.2.UGC.KeystoneX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.KeystoneY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.KeystoneY changes state through the concrete Zone.2.UGC.KeystoneY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.LinearityX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.LinearityX changes state through the concrete Zone.2.UGC.LinearityX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.LinearityY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.LinearityY changes state through the concrete Zone.2.UGC.LinearityY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PincussionOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionOffsetX changes state through the concrete Zone.2.UGC.PincussionOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PincussionOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionOffsetY changes state through the concrete Zone.2.UGC.PincussionOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PincussionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionX changes state through the concrete Zone.2.UGC.PincussionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PincussionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionY changes state through the concrete Zone.2.UGC.PincussionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PositionX changes state through the concrete Zone.2.UGC.PositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.PositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PositionY changes state through the concrete Zone.2.UGC.PositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.RotationZ",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.RotationZ changes state through the concrete Zone.2.UGC.RotationZ path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.ShearX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.ShearX changes state through the concrete Zone.2.UGC.ShearX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.ShearY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.ShearY changes state through the concrete Zone.2.UGC.ShearY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SizeX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SizeX changes state through the concrete Zone.2.UGC.SizeX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SizeY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SizeY changes state through the concrete Zone.2.UGC.SizeY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryOffsetX changes state through the concrete Zone.2.UGC.SymmetryOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryOffsetY changes state through the concrete Zone.2.UGC.SymmetryOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryX changes state through the concrete Zone.2.UGC.SymmetryX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryY changes state through the concrete Zone.2.UGC.SymmetryY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Zone.N.VisiblePointsEnd",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.VisiblePointsEnd did not change the concrete Zone.2.VisiblePointsEnd readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "Zone.N.VisiblePointsStart",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to Zone.N.VisiblePointsStart did not change the concrete Zone.2.VisiblePointsStart readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.Count",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Count changes state through the concrete ZoneAlias.Count path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value1 changes state through the concrete ZoneAlias.Effect.0.Keys.0.Value1 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value2 changes state through the concrete ZoneAlias.Effect.0.Keys.0.Value2 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value3",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value3 changes state through the concrete ZoneAlias.Effect.0.Keys.0.Value3 path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.X",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.X changes state through the concrete ZoneAlias.Effect.0.Keys.X path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.Y",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.Y changes state through the concrete ZoneAlias.Effect.0.Keys.Y path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.Z",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.Z changes state through the concrete ZoneAlias.Effect.0.Keys.Z path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeClock",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeClock changes state through the concrete ZoneAlias.Effect.0.TimeClock path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeDuration",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeDuration changes state through the concrete ZoneAlias.Effect.0.TimeDuration path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeMetro",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeMetro changes state through the concrete ZoneAlias.Effect.0.TimeMetro path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.FX7",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.FX7 did not change the concrete ZoneAlias.FX7 readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.FX8",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.FX8 did not change the concrete ZoneAlias.FX8 readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.Mesh.NodeX",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.Mesh.NodeX did not change the concrete ZoneAlias.Mesh.NodeX readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.Mesh.NodeY",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.Mesh.NodeY did not change the concrete ZoneAlias.Mesh.NodeY readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.Name",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.Name did not change the concrete ZoneAlias.Name readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.OutputPointCount",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.OutputPointCount did not change the concrete ZoneAlias.OutputPointCount readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.PositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.PositionX changes state through the concrete ZoneAlias.Preview.PositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.PositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.PositionY changes state through the concrete ZoneAlias.Preview.PositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.ProjPositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.ProjPositionX changes state through the concrete ZoneAlias.Preview.ProjPositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.ProjPositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.ProjPositionY changes state through the concrete ZoneAlias.Preview.ProjPositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.SizeX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.SizeX changes state through the concrete ZoneAlias.Preview.SizeX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.SizeY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.SizeY changes state through the concrete ZoneAlias.Preview.SizeY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.Preview.WindowRotation",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.WindowRotation changes state through the concrete ZoneAlias.Preview.WindowRotation path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.ProjectorConnected",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.ProjectorConnected did not change the concrete ZoneAlias.ProjectorConnected readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.ProjectorExists",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.ProjectorExists did not change the concrete ZoneAlias.ProjectorExists readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.ProjectorIndex",
+      "accessMode": "read-mostly",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 showed ZoneAlias.ProjectorIndex writes affect readback through transformed projector numbering, but a projector-domain bracket is still needed before shipping value metadata. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.SatShift",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.SatShift did not change the concrete ZoneAlias.SatShift readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.BowOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowOffsetX changes state through the concrete ZoneAlias.UGC.BowOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.BowOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowOffsetY changes state through the concrete ZoneAlias.UGC.BowOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.BowX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowX changes state through the concrete ZoneAlias.UGC.BowX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.BowY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowY changes state through the concrete ZoneAlias.UGC.BowY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.KeystoneX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.KeystoneX changes state through the concrete ZoneAlias.UGC.KeystoneX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.KeystoneY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.KeystoneY changes state through the concrete ZoneAlias.UGC.KeystoneY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.LinearityX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.LinearityX changes state through the concrete ZoneAlias.UGC.LinearityX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.LinearityY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.LinearityY changes state through the concrete ZoneAlias.UGC.LinearityY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionOffsetX changes state through the concrete ZoneAlias.UGC.PincussionOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionOffsetY changes state through the concrete ZoneAlias.UGC.PincussionOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionX changes state through the concrete ZoneAlias.UGC.PincussionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionY changes state through the concrete ZoneAlias.UGC.PincussionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PositionX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PositionX changes state through the concrete ZoneAlias.UGC.PositionX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.PositionY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PositionY changes state through the concrete ZoneAlias.UGC.PositionY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.RotationZ",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.RotationZ changes state through the concrete ZoneAlias.UGC.RotationZ path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.ShearX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.ShearX changes state through the concrete ZoneAlias.UGC.ShearX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.ShearY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.ShearY changes state through the concrete ZoneAlias.UGC.ShearY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SizeX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SizeX changes state through the concrete ZoneAlias.UGC.SizeX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SizeY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SizeY changes state through the concrete ZoneAlias.UGC.SizeY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryOffsetX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryOffsetX changes state through the concrete ZoneAlias.UGC.SymmetryOffsetX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryOffsetY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryOffsetY changes state through the concrete ZoneAlias.UGC.SymmetryOffsetY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryX changes state through the concrete ZoneAlias.UGC.SymmetryX path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryY",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryY changes state through the concrete ZoneAlias.UGC.SymmetryY path. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "ZoneAlias.VisiblePointsEnd",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.VisiblePointsEnd did not change the concrete ZoneAlias.VisiblePointsEnd readback. Readback evidence remains in readback metadata."
+    },
+    {
+      "path": "ZoneAlias.VisiblePointsStart",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "write-no-op-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.VisiblePointsStart did not change the concrete ZoneAlias.VisiblePointsStart readback. Readback evidence remains in readback metadata."
+    }
+  ]
+}

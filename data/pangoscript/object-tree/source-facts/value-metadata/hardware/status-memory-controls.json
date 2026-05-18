@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Status.MemAvailExtendedVirtual",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailExtendedVirtual accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemAvailPageFile",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailPageFile accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemAvailPhys",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailPhys accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemAvailVirtual",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailVirtual accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemoryInfo",
+      "valueType": "string",
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted 0..254 characters and truncated 255 and 512 character writes to 254 characters. BEYOND can still refresh the live memory status text after the write probe."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemoryInfo string write storage from 0 to 254 characters."
+    },
+    {
+      "path": "Status.MemoryLoad",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "percent",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemoryLoad accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemTotalPageFile",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalPageFile accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemTotalPhys",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalPhys accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemTotalVirtual",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalVirtual accepts signed 32-bit storage values."
+    },
+    {
+      "path": "Status.MemVirtualUsed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "megabytes",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit storage values, including values above 100000. This documents Object Tree storage behavior, not normal live status counter limits."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemVirtualUsed accepts signed 32-bit storage values."
+    }
+  ]
+}

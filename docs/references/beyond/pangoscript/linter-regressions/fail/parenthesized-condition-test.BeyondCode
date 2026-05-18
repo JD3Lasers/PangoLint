@@ -1,0 +1,25 @@
+// PangoLint expect: unsupported-logical-operator
+// PangoLint candidate: parenthesized condition
+// Purpose: verify BEYOND rejects textual logical operators in a parenthesized condition.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Operation expected: and.
+// BEYOND parser location: line 13, text `if ((value > 1) and (value < 5)) goto InRange`
+
+var requestId
+var sequence
+var value
+
+requestId = "pangolint-candidate-parentheses-001"
+sequence = 1
+value = 3
+
+if ((value > 1) and (value < 5)) goto InRange
+goto OutOfRange
+
+OutOfRange:
+OscOutTTS "/pangolint/candidate/parentheses/out", "sii", requestId, sequence, value
+exit
+
+InRange:
+OscOutTTS "/pangolint/candidate/parentheses/in", "sii", requestId, sequence, value
+exit

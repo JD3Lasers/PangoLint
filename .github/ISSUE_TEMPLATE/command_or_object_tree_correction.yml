@@ -1,0 +1,65 @@
+name: Command Or Object Tree Correction
+description: Report incorrect PangoScript command metadata, Object Tree data, ranges, or safety notes.
+title: "[Reference correction]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when PangoLint's command or Object Tree knowledge looks wrong. Reports with live BEYOND behavior, public documentation, or a small script are the easiest to verify.
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: Correction type
+      options:
+        - PangoScript command signature
+        - PangoScript command behavior
+        - Command safety tier or warning text
+        - Object Tree path
+        - Object Tree value range
+        - Object Tree readback behavior
+        - FX effect type
+        - Cue type
+        - OSC address or property control route
+        - Other reference data
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Command, property, Object Tree path, or reference item
+      placeholder: "Example: ChannelOut, Master.BPM, FX Effects > Oscillating effect"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What PangoLint currently says or does
+      description: Include the current text, diagnostic, range, signature, or browser entry.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Correct behavior or wording
+      description: Describe what the metadata should say instead.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include public documentation links, BEYOND version, readback output, OSC output, screenshots, or a small `.BeyondCode` script.
+      placeholder: |
+        - BEYOND version:
+        - Source or observation:
+        - Script or command used:
+        - Readback or visible result:
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Explain whether this causes false diagnostics, bad completions, unsafe sends, wrong docs, or MCP lookup errors.

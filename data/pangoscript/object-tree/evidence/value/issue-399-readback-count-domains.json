@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 399,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC readbacks on 0.0.0.0:7000. This was a readback-only count-domain pass and sent no writes."
+  },
+  "entries": [
+    {
+      "objectPath": "Grid2.Count",
+      "probePath": "Grid2.Count",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 60,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 256,
+        "unit": "cue slots",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "Grid2.Count readback",
+          "readback": 60,
+          "behavior": "unknown"
+        },
+        {
+          "input": "Grid2.GetColCount readback",
+          "readback": 10,
+          "behavior": "unknown"
+        },
+        {
+          "input": "Grid2.GetRowCount readback",
+          "readback": 6,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only count probe sent no writes."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Grid2.Count read 60 while Grid2.GetColCount read 10 and Grid2.GetRowCount read 6. Existing observed grid size metadata supplies the dynamic count expression.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "Loaded workspace Grid2 layout",
+        "notes": "The loaded workspace grid was 10 columns by 6 rows during the readback pass."
+      }
+    },
+    {
+      "objectPath": "ColorChannel.Count",
+      "probePath": "ColorChannel.Count",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 256,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 256,
+        "max": 256,
+        "unit": "color channels",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 256,
+          "label": "COUNT",
+          "description": "ColorChannel.Count reads the number of available color channels."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": "ColorChannel.Count readback",
+          "readback": 256,
+          "behavior": "unknown"
+        },
+        {
+          "input": "ColorChannel.255.Name boundary readback",
+          "readback": "Color256",
+          "behavior": "unknown"
+        },
+        {
+          "input": "ColorChannel.256.Name next-index readback",
+          "readback": "0",
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only count probe sent no writes."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed ColorChannel.Count read 256. The final valid zero-based color channel read ColorChannel.255.Name as Color256, while the next index read the invalid-path fallback 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "ColorChannel.255.Name boundary readback",
+        "notes": "ColorChannel.N uses zero-based color channel indices 0..255."
+      }
+    },
+    {
+      "objectPath": "Location.Count",
+      "probePath": "Location.Count",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1024,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1024,
+        "max": 1024,
+        "unit": "locations",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 1024,
+          "label": "COUNT",
+          "description": "Location.Count reads the number of available location slots."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": "Location.Count readback",
+          "readback": 1024,
+          "behavior": "unknown"
+        },
+        {
+          "input": "Location.1023.Name boundary readback",
+          "readback": "1024",
+          "behavior": "unknown"
+        },
+        {
+          "input": "Location.1024.Name next-index readback",
+          "readback": "0",
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only count probe sent no writes."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Location.Count read 1024. The final valid zero-based location read Location.1023.Name as 1024, while the next index read the invalid-path fallback 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "Location.1023.Name boundary readback",
+        "notes": "Location.N uses zero-based location indices 0..1023."
+      }
+    },
+    {
+      "objectPath": "TouchPoints.Count",
+      "probePath": "TouchPoints.Count",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 10,
+        "max": 10,
+        "unit": "touch points",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 10,
+          "label": "COUNT",
+          "description": "TouchPoints.Count reads the number of touch point slots."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": "TouchPoints.Count readback",
+          "readback": 10,
+          "behavior": "unknown"
+        },
+        {
+          "input": "TouchPoints.9.Active boundary readback",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only count probe sent no writes."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed TouchPoints.Count read 10. TouchPoints.9.Active was also read as the final zero-based touch point slot.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "TouchPoints.9.Active boundary readback",
+        "notes": "TouchPoints.N uses zero-based touch point indices 0..9."
+      }
+    }
+  ]
+}

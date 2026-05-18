@@ -1,0 +1,859 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. Each shipped row used a populated single-variant WS image effect path and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.Effect.ChasePeriod",
+      "probePath": "WS.0.6.Image.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.6.Image.Effect.ChasePeriod = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.6.Image.Effect.ChasePeriod = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.6.Image.Effect.ChasePeriod = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.6.Image.Effect.ChasePeriod = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.6.Image.Effect.ChasePeriod = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.Effect.ChasePeriod for Parametric-Image at WS.0.6.Image.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image",
+        "notes": "The runtime probe used the populated Parametric-Image cell at WS.0.6."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.ChaseTimeMode",
+      "probePath": "WS.0.6.Image.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.6.Image.Effect.ChaseTimeMode = 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.Effect.ChaseTimeMode at WS.0.6.Image.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image",
+        "notes": "The runtime probe used the populated Parametric-Image cell at WS.0.6."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ChasePeriod",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChasePeriod = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChasePeriod = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChasePeriod = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChasePeriod = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChasePeriod = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ChasePeriod for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ChaseTimeMode",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode = 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Effect.ChaseTimeMode at WS.0.8.Image.LIST.0.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ClockLimit",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ClockLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ClockShift",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.8.Image.LIST.0.Effect.ClockShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ClockShift for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.EnableClockLimit",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.EnableClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableClockLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableClockLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.EnableClockLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.EnableMetroLimit",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.EnableMetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableMetroLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableMetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableMetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Effect.EnableMetroLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.EnableMetroLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.MetroLimit",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.MetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.MetroLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.MetroShift",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.MetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "WS.0.8.Image.LIST.0.Effect.MetroShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.MetroShift for Synthesized Image at WS.0.8.Image.LIST.0.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.Zone",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "WS.0.8.Image.LIST.0.Effect.Zone = 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Effect.Zone at WS.0.8.Image.LIST.0.Effect.Zone.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ZoneMode",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ZoneMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Effect.ZoneMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Effect.ZoneMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Effect.ZoneMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Effect.ZoneMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Effect.ZoneMode at WS.0.8.Image.LIST.0.Effect.ZoneMode.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+// PASTEL SECONDARY COLOR MODE TOGGLE BUTTON (attached to PASTELMODESECONDARY)
+
+OnClick:
+    // Toggle pastel mode: if the button is on (value > 0.5), enter pastel mode; else normal
+    if (value > 0.5) goto PastelOnSecondary
+    goto PastelOffSecondary
+
+PastelOnSecondary:
+    // --- Set pastel colours for each secondary button (off state remains black) ---
+    COLORPICKER.REDBUTTON2.ColorOff    = 0;
+    COLORPICKER.REDBUTTON2.ColorOn     = 8421631;
+    COLORPICKER.REDBUTTON2.ColorActive = 8421631;
+    COLORPICKER.REDBUTTON2.Caption     = "P.RED";
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0;
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 8438015;
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 8438015;
+    COLORPICKER.ORANGEBUTTON2.Caption     = "P.ORANGE";
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0;
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 8454143;
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 8454143;
+    COLORPICKER.YELLOWBUTTON2.Caption     = "P.YELLOW";
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0;
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 8454080;
+    COLORPICKER.LIMEBUTTON2.ColorActive = 8454080;
+    COLORPICKER.LIMEBUTTON2.Caption     = "P.LIME";
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0;
+    COLORPICKER.GREENBUTTON2.ColorOn     = 8454016;
+    COLORPICKER.GREENBUTTON2.ColorActive = 8454016;
+    COLORPICKER.GREENBUTTON2.Caption     = "P.GREEN";
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0;
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 12648320;
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 12648320;
+    COLORPICKER.CLOVERBUTTON2.Caption     = "P.CLOVER";
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0;
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16777088;
+    COLORPICKER.CYANBUTTON2.ColorActive = 16777088;
+    COLORPICKER.CYANBUTTON2.Caption     = "P.CYAN";
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0;
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16760960;
+    COLORPICKER.AQUABUTTON2.ColorActive = 16760960;
+    COLORPICKER.AQUABUTTON2.Caption     = "P.AQUA";
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0;
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16744576;
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16744576;
+    COLORPICKER.BLUEBUTTON2.Caption     = "P.BLUE";
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0;
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16744640;
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16744640;
+    COLORPICKER.PURPLEBUTTON2.Caption     = "P.PURPLE";
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0;
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16744703;
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16744703;
+    COLORPICKER.MAGENTABUTTON2.Caption     = "P.MAGENTA";
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0;
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 12615935;
+    COLORPICKER.ROSEBUTTON2.ColorActive = 12615935;
+    COLORPICKER.ROSEBUTTON2.Caption     = "P.ROSE";
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0;
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215;
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215;
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE";
+
+    // --- Refresh channel 1 and the secondary swatch based on which button is active ---
+    if (COLORPICKER.REDBUTTON2.value    > 0.5) goto SetRedPastelSecondary
+    if (COLORPICKER.ORANGEBUTTON2.value > 0.5) goto SetOrangePastelSecondary
+    if (COLORPICKER.YELLOWBUTTON2.value > 0.5) goto SetYellowPastelSecondary
+    if (COLORPICKER.LIMEBUTTON2.value   > 0.5) goto SetLimePastelSecondary
+    if (COLORPICKER.GREENBUTTON2.value  > 0.5) goto SetGreenPastelSecondary
+    if (COLORPICKER.CLOVERBUTTON2.value > 0.5) goto SetCloverPastelSecondary
+    if (COLORPICKER.CYANBUTTON2.value   > 0.5) goto SetCyanPastelSecondary
+    if (COLORPICKER.AQUABUTTON2.value   > 0.5) goto SetAquaPastelSecondary
+    if (COLORPICKER.BLUEBUTTON2.value   > 0.5) goto SetBluePastelSecondary
+    if (COLORPICKER.PURPLEBUTTON2.value > 0.5) goto SetPurplePastelSecondary
+    if (COLORPICKER.MAGENTABUTTON2.value> 0.5) goto SetMagentaPastelSecondary
+    if (COLORPICKER.ROSEBUTTON2.value   > 0.5) goto SetRosePastelSecondary
+    if (COLORPICKER.WHITEBUTTON2.value  > 0.5) goto SetWhitePastelSecondary
+    exit
+
+// Pastel colour assignments for channel 1
+SetRedPastelSecondary:
+    ColorChannel.1.Color = 8421631;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetOrangePastelSecondary:
+    ColorChannel.1.Color = 8438015;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetYellowPastelSecondary:
+    ColorChannel.1.Color = 8454143;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetLimePastelSecondary:
+    ColorChannel.1.Color = 8454080;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetGreenPastelSecondary:
+    ColorChannel.1.Color = 8454016;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetCloverPastelSecondary:
+    ColorChannel.1.Color = 12648320;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetCyanPastelSecondary:
+    ColorChannel.1.Color = 16777088;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetAquaPastelSecondary:
+    ColorChannel.1.Color = 16760960;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetBluePastelSecondary:
+    ColorChannel.1.Color = 16744576;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetPurplePastelSecondary:
+    ColorChannel.1.Color = 16744640;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetMagentaPastelSecondary:
+    ColorChannel.1.Color = 16744703;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetRosePastelSecondary:
+    ColorChannel.1.Color = 12615935;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetWhitePastelSecondary:
+    ColorChannel.1.Color = 16777215;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+// -------------------------------------------------------------------------------
+
+PastelOffSecondary:
+    // --- Restore normal colours for each secondary button ---
+    COLORPICKER.REDBUTTON2.ColorOff    = 0;
+    COLORPICKER.REDBUTTON2.ColorOn     = 255;
+    COLORPICKER.REDBUTTON2.ColorActive = 255;
+    COLORPICKER.REDBUTTON2.Caption     = "RED";
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0;
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 33023;
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 33023;
+    COLORPICKER.ORANGEBUTTON2.Caption     = "ORANGE";
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0;
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 65535;
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 65535;
+    COLORPICKER.YELLOWBUTTON2.Caption     = "YELLOW";
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0;
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 65408;
+    COLORPICKER.LIMEBUTTON2.ColorActive = 65408;
+    COLORPICKER.LIMEBUTTON2.Caption     = "LIME";
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0;
+    COLORPICKER.GREENBUTTON2.ColorOn     = 65280;
+    COLORPICKER.GREENBUTTON2.ColorActive = 65280;
+    COLORPICKER.GREENBUTTON2.Caption     = "GREEN";
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0;
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 8453888;
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 8453888;
+    COLORPICKER.CLOVERBUTTON2.Caption     = "CLOVER";
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0;
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16776960;
+    COLORPICKER.CYANBUTTON2.ColorActive = 16776960;
+    COLORPICKER.CYANBUTTON2.Caption     = "CYAN";
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0;
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16744448;
+    COLORPICKER.AQUABUTTON2.ColorActive = 16744448;
+    COLORPICKER.AQUABUTTON2.Caption     = "AQUA";
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0;
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16711680;
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16711680;
+    COLORPICKER.BLUEBUTTON2.Caption     = "BLUE";
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0;
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16711808;
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16711808;
+    COLORPICKER.PURPLEBUTTON2.Caption     = "PURPLE";
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0;
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16711935;
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16711935;
+    COLORPICKER.MAGENTABUTTON2.Caption     = "MAGENTA";
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0;
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 8388863;
+    COLORPICKER.ROSEBUTTON2.ColorActive = 8388863;
+    COLORPICKER.ROSEBUTTON2.Caption     = "ROSE";
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0;
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215;
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215;
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE";
+
+    // --- Refresh channel 1 and the secondary swatch based on the active button ---
+    if (COLORPICKER.REDBUTTON2.value    > 0.5) goto SetRedNormalSecondary
+    if (COLORPICKER.ORANGEBUTTON2.value > 0.5) goto SetOrangeNormalSecondary
+    if (COLORPICKER.YELLOWBUTTON2.value > 0.5) goto SetYellowNormalSecondary
+    if (COLORPICKER.LIMEBUTTON2.value   > 0.5) goto SetLimeNormalSecondary
+    if (COLORPICKER.GREENBUTTON2.value  > 0.5) goto SetGreenNormalSecondary
+    if (COLORPICKER.CLOVERBUTTON2.value > 0.5) goto SetCloverNormalSecondary
+    if (COLORPICKER.CYANBUTTON2.value   > 0.5) goto SetCyanNormalSecondary
+    if (COLORPICKER.AQUABUTTON2.value   > 0.5) goto SetAquaNormalSecondary
+    if (COLORPICKER.BLUEBUTTON2.value   > 0.5) goto SetBlueNormalSecondary
+    if (COLORPICKER.PURPLEBUTTON2.value > 0.5) goto SetPurpleNormalSecondary
+    if (COLORPICKER.MAGENTABUTTON2.value> 0.5) goto SetMagentaNormalSecondary
+    if (COLORPICKER.ROSEBUTTON2.value   > 0.5) goto SetRoseNormalSecondary
+    if (COLORPICKER.WHITEBUTTON2.value  > 0.5) goto SetWhiteNormalSecondary
+    exit
+
+// Normal colour assignments for channel 1
+SetRedNormalSecondary:
+    ColorChannel.1.Color = 255;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetOrangeNormalSecondary:
+    ColorChannel.1.Color = 33023;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetYellowNormalSecondary:
+    ColorChannel.1.Color = 65535;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetLimeNormalSecondary:
+    ColorChannel.1.Color = 65408;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetGreenNormalSecondary:
+    ColorChannel.1.Color = 65280;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetCloverNormalSecondary:
+    ColorChannel.1.Color = 8453888;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetCyanNormalSecondary:
+    ColorChannel.1.Color = 16776960;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetAquaNormalSecondary:
+    ColorChannel.1.Color = 16744448;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetBlueNormalSecondary:
+    ColorChannel.1.Color = 16711680;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetPurpleNormalSecondary:
+    ColorChannel.1.Color = 16711808;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetMagentaNormalSecondary:
+    ColorChannel.1.Color = 16711935;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetRoseNormalSecondary:
+    ColorChannel.1.Color = 8388863;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+SetWhiteNormalSecondary:
+    ColorChannel.1.Color = 16777215;
+    var c; c = ColorChannel.1.Color;
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = c;
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = c;
+    COLORPICKER.SECONDARYCOLOR.ColorActive = c;
+    exit
+
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

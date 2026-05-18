@@ -1,0 +1,719 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:00:00.000Z",
+  "sourceFiles": {
+    "objectPropertyIndex": "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
+    "controlCrosswalkSummary": "data/pangoscript/control-reference/control-crosswalk/summary.json"
+  },
+  "summary": {
+    "totalEntries": 5375,
+    "classifiedEntries": 5375,
+    "unclassifiedEntries": 0,
+    "entriesWithValueMetadata": 3684,
+    "entriesWithReadbackMetadata": 1691,
+    "entriesWithBothValueAndReadbackMetadata": 0,
+    "hardViolationCount": 0,
+    "warningCount": 1,
+    "unverifiedUnknownRows": 0,
+    "readOnlyRowsWithDomainMetadata": 9,
+    "crosswalkPropertiesWithBehaviorClassification": 5375,
+    "crosswalkPropertiesMissingBehaviorClassification": 0
+  },
+  "behaviorCounts": {
+    "accessMode": [
+      {
+        "value": "read-mostly",
+        "count": 33
+      },
+      {
+        "value": "read-only",
+        "count": 1670
+      },
+      {
+        "value": "read-write",
+        "count": 3672
+      }
+    ],
+    "behaviorKind": [
+      {
+        "value": "computed-status",
+        "count": 1670
+      },
+      {
+        "value": "enum-state",
+        "count": 3
+      },
+      {
+        "value": "flag-state",
+        "count": 424
+      },
+      {
+        "value": "state-value",
+        "count": 3220
+      },
+      {
+        "value": "string-state",
+        "count": 58
+      }
+    ],
+    "writeTestStatus": [
+      {
+        "value": "command-readback-tested",
+        "count": 388
+      },
+      {
+        "value": "not-applicable",
+        "count": 5
+      },
+      {
+        "value": "write-no-op-tested",
+        "count": 1665
+      },
+      {
+        "value": "write-readback-tested",
+        "count": 3317
+      }
+    ],
+    "readbackStatus": [
+      {
+        "value": "readback-tested",
+        "count": 5375
+      }
+    ],
+    "evidenceLevel": [
+      {
+        "value": "observed",
+        "count": 5375
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "classification-complete",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Every Object Tree entry must carry a behavior classification object."
+    },
+    {
+      "id": "classification-fields-known",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Classification fields must use the documented Object Tree behavior vocabulary."
+    },
+    {
+      "id": "read-write-has-value-metadata",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Read-write rows must have writable value metadata or context value metadata."
+    },
+    {
+      "id": "read-only-has-readback-or-domain",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Read-only rows must have readback metadata or explicit computed domain metadata."
+    },
+    {
+      "id": "flag-state-domain",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Flag-state rows must have boolean, 0/1 accepted value, or 0..1 integer domain metadata."
+    },
+    {
+      "id": "computed-status-access",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Computed-status rows must be read-only in the current behavior model."
+    },
+    {
+      "id": "observed-classifications-prove-known-behavior",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Observed classifications must not still say access, behavior, or write status is unknown."
+    },
+    {
+      "id": "control-crosswalk-classification-parity",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Control-reference crosswalk behavior classification counts must match the Object Tree index."
+    },
+    {
+      "id": "unverified-unknown-readback-only",
+      "severity": "warning",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Unverified unknown rows are explicit lookup-only documentation and need runtime retest before stronger wording."
+    },
+    {
+      "id": "read-only-domain-metadata-review",
+      "severity": "warning",
+      "status": "warn",
+      "count": 9,
+      "examples": [
+        "ColorChannel.Count",
+        "FB3-XXXXX.Connected",
+        "FB4-XXXXX.Connected",
+        "Grid.ClickMode",
+        "Grid2.ClickMode",
+        "Location.Count",
+        "PlayListState.Position",
+        "Projector.N.Connected",
+        "TouchPoints.Count"
+      ],
+      "message": "Read-only rows with domain metadata need careful public wording so computed domains are not read as writable ranges."
+    }
+  ],
+  "reviewBuckets": [
+    {
+      "id": "unverified-unknown-readback-only",
+      "count": 0,
+      "roots": [],
+      "examples": [],
+      "nextAction": "No unverified unknown readback-only rows remain after the FX write/readback retest."
+    },
+    {
+      "id": "read-only-domain-metadata-review",
+      "count": 9,
+      "roots": [
+        {
+          "root": "ColorChannel",
+          "count": 1
+        },
+        {
+          "root": "FB3-XXXXX",
+          "count": 1
+        },
+        {
+          "root": "FB4-XXXXX",
+          "count": 1
+        },
+        {
+          "root": "Grid",
+          "count": 1
+        },
+        {
+          "root": "Grid2",
+          "count": 1
+        },
+        {
+          "root": "Location",
+          "count": 1
+        },
+        {
+          "root": "PlayListState",
+          "count": 1
+        },
+        {
+          "root": "Projector",
+          "count": 1
+        },
+        {
+          "root": "TouchPoints",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "ColorChannel.Count",
+        "FB3-XXXXX.Connected",
+        "FB4-XXXXX.Connected",
+        "Grid.ClickMode",
+        "Grid2.ClickMode",
+        "Location.Count",
+        "PlayListState.Position",
+        "Projector.N.Connected",
+        "TouchPoints.Count"
+      ],
+      "nextAction": "Keep these as computed-status rows, but review wording so domain metadata is not mistaken for writable range metadata."
+    }
+  ],
+  "spotCheckPlan": [
+    {
+      "path": "ActGridFocusedCue.Alpha",
+      "root": "ActGridFocusedCue",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first state-value behavior row"
+    },
+    {
+      "path": "ActGridFocusedCue.Caption",
+      "root": "ActGridFocusedCue",
+      "accessMode": "read-write",
+      "behaviorKind": "string-state",
+      "evidenceLevel": "observed",
+      "reason": "first string-state behavior row"
+    },
+    {
+      "path": "ActGridFocusedCue.ContainEndScript",
+      "root": "ActGridFocusedCue",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first computed-status behavior row"
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.EnableClockLimit",
+      "root": "ActGridFocusedCue",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first flag-state behavior row"
+    },
+    {
+      "path": "Beam.N.Active",
+      "root": "Beam",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Beam.N.ColorPalette",
+      "root": "Beam",
+      "accessMode": "read-write",
+      "behaviorKind": "enum-state",
+      "evidenceLevel": "observed",
+      "reason": "first enum-state behavior row"
+    },
+    {
+      "path": "Channels.N.Attraction",
+      "root": "Channels",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ColorChannel.Count",
+      "root": "ColorChannel",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Config.AnimationSliderMax",
+      "root": "Config",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "CoreManager.OnlineMode",
+      "root": "CoreManager",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "DmxIO.DoBeep",
+      "root": "DmxIO",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "representative read-only computed-status observed row"
+    },
+    {
+      "path": "DmxMasters.N.Value",
+      "root": "DmxMasters",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "DmxOutput.N",
+      "root": "DmxOutput",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "FB3-XXXXX.ColorShift",
+      "root": "FB3-XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "FB4-XXXXX.ColorShift",
+      "root": "FB4-XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "FX.CAPTION",
+      "root": "FX",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "FX.N.N.N.Chase.Manual",
+      "root": "FX",
+      "accessMode": "read-mostly",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first read-mostly access row"
+    },
+    {
+      "path": "FX.N.N.N.Keys.A",
+      "root": "FX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "representative FX row promoted by write/readback retest"
+    },
+    {
+      "path": "Gamepad.Active",
+      "root": "Gamepad",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Grid.CellIndex",
+      "root": "Grid",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Grid1FocusedCue.Alpha",
+      "root": "Grid1FocusedCue",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Grid2.CellIndex",
+      "root": "Grid2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Grid2FocusedCue.Alpha",
+      "root": "Grid2FocusedCue",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Location.Count",
+      "root": "Location",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Master.AllowTimelineAnimator",
+      "root": "Master",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Master.ShowSpeed",
+      "root": "Master",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "representative read-write state-value observed row"
+    },
+    {
+      "path": "MasterLC.Alpha",
+      "root": "MasterLC",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MIDI1.ButtonMSL",
+      "root": "MIDI1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MIDI2.ButtonMSL",
+      "root": "MIDI2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MIDI3.ButtonMSL",
+      "root": "MIDI3",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MIDI4.ButtonMSL",
+      "root": "MIDI4",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MobSensor.AccelX",
+      "root": "MobSensor",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "MultiCue.BeamCueLimit",
+      "root": "MultiCue",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "OneCue.BeamCueLimit",
+      "root": "OneCue",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "PlayListState.Duration",
+      "root": "PlayListState",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "PlayListState.Position",
+      "root": "PlayListState",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "representative context-dependent computed domain row"
+    },
+    {
+      "path": "Projector.N.ColorShift",
+      "root": "Projector",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack.N.Alpha",
+      "root": "ProTrack",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack1.Alpha",
+      "root": "ProTrack1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack2.Alpha",
+      "root": "ProTrack2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack3.Alpha",
+      "root": "ProTrack3",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack4.Alpha",
+      "root": "ProTrack4",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack5.Alpha",
+      "root": "ProTrack5",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack6.Alpha",
+      "root": "ProTrack6",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack7.Alpha",
+      "root": "ProTrack7",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ProTrack8.Alpha",
+      "root": "ProTrack8",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "QShift.N.A.Alpha",
+      "root": "QShift",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Skeleton1.Active",
+      "root": "Skeleton1",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Skeleton2.Active",
+      "root": "Skeleton2",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Status.CpuUseLong",
+      "root": "Status",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "TouchPoints.ActiveCount",
+      "root": "TouchPoints",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Universe.N.Button1.Caption",
+      "root": "Universe",
+      "accessMode": "read-write",
+      "behaviorKind": "string-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Universe.N.Button1.ColorOff",
+      "root": "Universe",
+      "accessMode": "read-mostly",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "representative read-mostly color state row"
+    },
+    {
+      "path": "UniversePanelAlias.Control.Caption",
+      "root": "UniversePanelAlias",
+      "accessMode": "read-write",
+      "behaviorKind": "string-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "UserInterface.FrontView",
+      "root": "UserInterface",
+      "accessMode": "read-write",
+      "behaviorKind": "enum-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "VideoOutput1.Height",
+      "root": "VideoOutput1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "WS.N.N.Alpha",
+      "root": "WS",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "Zone.Count",
+      "root": "Zone",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    },
+    {
+      "path": "ZoneAlias.Active",
+      "root": "ZoneAlias",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "evidenceLevel": "observed",
+      "reason": "first row for root coverage"
+    }
+  ]
+}

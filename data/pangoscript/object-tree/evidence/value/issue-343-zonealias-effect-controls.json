@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 343,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used literal ZoneAlias effect paths and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "ZoneAlias.Effect.ChasePeriod",
+      "probePath": "ZoneAlias.Effect.ChasePeriod",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.ChasePeriod\", -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.ChasePeriod\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.ChasePeriod\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"ZoneAlias.Effect.ChasePeriod\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"ZoneAlias.Effect.ChasePeriod\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.ChaseTimeMode",
+      "probePath": "ZoneAlias.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"ZoneAlias.Effect.ChaseTimeMode\", 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 deferred ZoneAlias.Effect.ChaseTimeMode at ZoneAlias.Effect.ChaseTimeMode.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.ClockLimit",
+      "probePath": "ZoneAlias.Effect.ClockLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"ZoneAlias.Effect.ClockLimit\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.ClockShift",
+      "probePath": "ZoneAlias.Effect.ClockShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"ZoneAlias.Effect.ClockShift\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.EnableClockLimit",
+      "probePath": "ZoneAlias.Effect.EnableClockLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.EnableClockLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.EnableClockLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.EnableClockLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Effect.EnableClockLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.EnableMetroLimit",
+      "probePath": "ZoneAlias.Effect.EnableMetroLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.EnableMetroLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.EnableMetroLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.EnableMetroLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Effect.EnableMetroLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.MetroLimit",
+      "probePath": "ZoneAlias.Effect.MetroLimit",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"ZoneAlias.Effect.MetroLimit\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.MetroShift",
+      "probePath": "ZoneAlias.Effect.MetroShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"ZoneAlias.Effect.MetroShift\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #343 confirmed ZoneAlias.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias literal path",
+        "notes": "The runtime probe used the literal ZoneAlias path in the loaded show."
+      }
+    }
+  ]
+}

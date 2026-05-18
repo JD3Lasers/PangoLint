@@ -1,0 +1,448 @@
+// PASTEL PRIMARY COLOR MODE TOGGLE BUTTON
+
+OnClick:
+    // If button is on (value > 0.5), enter pastel mode; else normal
+    if (value > 0.5) goto PastelOn
+    goto PastelOff
+
+PastelOn:
+    // --- Update primary button appearance to pastel (ColorOff stays black) ---
+    COLORPICKER.REDBUTTON1.ColorOff    = 0
+    COLORPICKER.REDBUTTON1.ColorOn     = 8421631
+    COLORPICKER.REDBUTTON1.ColorActive = 8421631
+    COLORPICKER.REDBUTTON1.Caption     = "P.RED"
+
+    COLORPICKER.ORANGEBUTTON1.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON1.ColorOn     = 8438015
+    COLORPICKER.ORANGEBUTTON1.ColorActive = 8438015
+    COLORPICKER.ORANGEBUTTON1.Caption     = "P.ORANGE"
+
+    COLORPICKER.YELLOWBUTTON1.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON1.ColorOn     = 8454143
+    COLORPICKER.YELLOWBUTTON1.ColorActive = 8454143
+    COLORPICKER.YELLOWBUTTON1.Caption     = "P.YELLOW"
+
+    COLORPICKER.LIMEBUTTON1.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON1.ColorOn     = 8454080
+    COLORPICKER.LIMEBUTTON1.ColorActive = 8454080
+    COLORPICKER.LIMEBUTTON1.Caption     = "P.LIME"
+
+    COLORPICKER.GREENBUTTON1.ColorOff    = 0
+    COLORPICKER.GREENBUTTON1.ColorOn     = 8454016
+    COLORPICKER.GREENBUTTON1.ColorActive = 8454016
+    COLORPICKER.GREENBUTTON1.Caption     = "P.GREEN"
+
+    COLORPICKER.CLOVERBUTTON1.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON1.ColorOn     = 12648320
+    COLORPICKER.CLOVERBUTTON1.ColorActive = 12648320
+    COLORPICKER.CLOVERBUTTON1.Caption     = "P.CLOVER"
+
+    COLORPICKER.CYANBUTTON1.ColorOff    = 0
+    COLORPICKER.CYANBUTTON1.ColorOn     = 16777088
+    COLORPICKER.CYANBUTTON1.ColorActive = 16777088
+    COLORPICKER.CYANBUTTON1.Caption     = "P.CYAN"
+
+    COLORPICKER.AQUABUTTON1.ColorOff    = 0
+    COLORPICKER.AQUABUTTON1.ColorOn     = 16760960
+    COLORPICKER.AQUABUTTON1.ColorActive = 16760960
+    COLORPICKER.AQUABUTTON1.Caption     = "P.AQUA"
+
+    COLORPICKER.BLUEBUTTON1.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON1.ColorOn     = 16744576
+    COLORPICKER.BLUEBUTTON1.ColorActive = 16744576
+    COLORPICKER.BLUEBUTTON1.Caption     = "P.BLUE"
+
+    COLORPICKER.PURPLEBUTTON1.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON1.ColorOn     = 16744640
+    COLORPICKER.PURPLEBUTTON1.ColorActive = 16744640
+    COLORPICKER.PURPLEBUTTON1.Caption     = "P.PURPLE"
+
+    COLORPICKER.MAGENTABUTTON1.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON1.ColorOn     = 16744703
+    COLORPICKER.MAGENTABUTTON1.ColorActive = 16744703
+    COLORPICKER.MAGENTABUTTON1.Caption     = "P.MAGENTA"
+
+    COLORPICKER.ROSEBUTTON1.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON1.ColorOn     = 12615935
+    COLORPICKER.ROSEBUTTON1.ColorActive = 12615935
+    COLORPICKER.ROSEBUTTON1.Caption     = "P.ROSE"
+
+    COLORPICKER.WHITEBUTTON1.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON1.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON1.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON1.Caption     = "WHITE"
+
+    // --- Immediately refresh the primary channel and swatch based on which button is active (use value) ---
+    if (COLORPICKER.REDBUTTON1.value    > 0.5) goto SetRedPastel
+    if (COLORPICKER.ORANGEBUTTON1.value > 0.5) goto SetOrangePastel
+    if (COLORPICKER.YELLOWBUTTON1.value > 0.5) goto SetYellowPastel
+    if (COLORPICKER.LIMEBUTTON1.value   > 0.5) goto SetLimePastel
+    if (COLORPICKER.GREENBUTTON1.value  > 0.5) goto SetGreenPastel
+    if (COLORPICKER.CLOVERBUTTON1.value > 0.5) goto SetCloverPastel
+    if (COLORPICKER.CYANBUTTON1.value   > 0.5) goto SetCyanPastel
+    if (COLORPICKER.AQUABUTTON1.value   > 0.5) goto SetAquaPastel
+    if (COLORPICKER.BLUEBUTTON1.value   > 0.5) goto SetBluePastel
+    if (COLORPICKER.PURPLEBUTTON1.value > 0.5) goto SetPurplePastel
+    if (COLORPICKER.MAGENTABUTTON1.value> 0.5) goto SetMagentaPastel
+    if (COLORPICKER.ROSEBUTTON1.value   > 0.5) goto SetRosePastel
+    if (COLORPICKER.WHITEBUTTON1.value  > 0.5) goto SetWhitePastel
+    // If none are on, still check monochrome
+    goto SyncMonoPastelCheck
+
+// Individual pastel colour assignments (update channel and primary swatch)
+SetRedPastel:
+    ColorChannel.0.Color = 8421631
+    goto UpdatePrimarySwatchPastel
+SetOrangePastel:
+    ColorChannel.0.Color = 8438015
+    goto UpdatePrimarySwatchPastel
+SetYellowPastel:
+    ColorChannel.0.Color = 8454143
+    goto UpdatePrimarySwatchPastel
+SetLimePastel:
+    ColorChannel.0.Color = 8454080
+    goto UpdatePrimarySwatchPastel
+SetGreenPastel:
+    ColorChannel.0.Color = 8454016
+    goto UpdatePrimarySwatchPastel
+SetCloverPastel:
+    ColorChannel.0.Color = 12648320
+    goto UpdatePrimarySwatchPastel
+SetCyanPastel:
+    ColorChannel.0.Color = 16777088
+    goto UpdatePrimarySwatchPastel
+SetAquaPastel:
+    ColorChannel.0.Color = 16760960
+    goto UpdatePrimarySwatchPastel
+SetBluePastel:
+    ColorChannel.0.Color = 16744576
+    goto UpdatePrimarySwatchPastel
+SetPurplePastel:
+    ColorChannel.0.Color = 16744640
+    goto UpdatePrimarySwatchPastel
+SetMagentaPastel:
+    ColorChannel.0.Color = 16744703
+    goto UpdatePrimarySwatchPastel
+SetRosePastel:
+    ColorChannel.0.Color = 12615935
+    goto UpdatePrimarySwatchPastel
+SetWhitePastel:
+    ColorChannel.0.Color = 16777215
+    goto UpdatePrimarySwatchPastel
+
+UpdatePrimarySwatchPastel:
+    var cp
+    cp = ColorChannel.0.Color
+    COLORPICKER.PRIMARYCOLOR.ColorOff    = cp
+    COLORPICKER.PRIMARYCOLOR.ColorOn     = cp
+    COLORPICKER.PRIMARYCOLOR.ColorActive = cp
+    // fall through to monochrome check
+SyncMonoPastelCheck:
+    if (COLORPICKER.MONOCHROME.Tag > 0.5) goto SyncMonoPastel
+    exit
+
+PastelOff:
+    // --- Update primary button appearance back to normal ---
+    COLORPICKER.REDBUTTON1.ColorOff    = 0
+    COLORPICKER.REDBUTTON1.ColorOn     = 255
+    COLORPICKER.REDBUTTON1.ColorActive = 255
+    COLORPICKER.REDBUTTON1.Caption     = "RED"
+
+    COLORPICKER.ORANGEBUTTON1.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON1.ColorOn     = 33023
+    COLORPICKER.ORANGEBUTTON1.ColorActive = 33023
+    COLORPICKER.ORANGEBUTTON1.Caption     = "ORANGE"
+
+    COLORPICKER.YELLOWBUTTON1.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON1.ColorOn     = 65535
+    COLORPICKER.YELLOWBUTTON1.ColorActive = 65535
+    COLORPICKER.YELLOWBUTTON1.Caption     = "YELLOW"
+
+    COLORPICKER.LIMEBUTTON1.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON1.ColorOn     = 65408
+    COLORPICKER.LIMEBUTTON1.ColorActive = 65408
+    COLORPICKER.LIMEBUTTON1.Caption     = "LIME"
+
+    COLORPICKER.GREENBUTTON1.ColorOff    = 0
+    COLORPICKER.GREENBUTTON1.ColorOn     = 65280
+    COLORPICKER.GREENBUTTON1.ColorActive = 65280
+    COLORPICKER.GREENBUTTON1.Caption     = "GREEN"
+
+    COLORPICKER.CLOVERBUTTON1.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON1.ColorOn     = 8453888
+    COLORPICKER.CLOVERBUTTON1.ColorActive = 8453888
+    COLORPICKER.CLOVERBUTTON1.Caption     = "CLOVER"
+
+    COLORPICKER.CYANBUTTON1.ColorOff    = 0
+    COLORPICKER.CYANBUTTON1.ColorOn     = 16776960
+    COLORPICKER.CYANBUTTON1.ColorActive = 16776960
+    COLORPICKER.CYANBUTTON1.Caption     = "CYAN"
+
+    COLORPICKER.AQUABUTTON1.ColorOff    = 0
+    COLORPICKER.AQUABUTTON1.ColorOn     = 16744448
+    COLORPICKER.AQUABUTTON1.ColorActive = 16744448
+    COLORPICKER.AQUABUTTON1.Caption     = "AQUA"
+
+    COLORPICKER.BLUEBUTTON1.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON1.ColorOn     = 16711680
+    COLORPICKER.BLUEBUTTON1.ColorActive = 16711680
+    COLORPICKER.BLUEBUTTON1.Caption     = "BLUE"
+
+    COLORPICKER.PURPLEBUTTON1.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON1.ColorOn     = 16711808
+    COLORPICKER.PURPLEBUTTON1.ColorActive = 16711808
+    COLORPICKER.PURPLEBUTTON1.Caption     = "PURPLE"
+
+    COLORPICKER.MAGENTABUTTON1.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON1.ColorOn     = 16711935
+    COLORPICKER.MAGENTABUTTON1.ColorActive = 16711935
+    COLORPICKER.MAGENTABUTTON1.Caption     = "MAGENTA"
+
+    COLORPICKER.ROSEBUTTON1.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON1.ColorOn     = 8388863
+    COLORPICKER.ROSEBUTTON1.ColorActive = 8388863
+    COLORPICKER.ROSEBUTTON1.Caption     = "ROSE"
+
+    COLORPICKER.WHITEBUTTON1.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON1.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON1.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON1.Caption     = "WHITE"
+
+    // --- Immediately refresh the primary channel and swatch based on which button is active (use value) ---
+    if (COLORPICKER.REDBUTTON1.value    > 0.5) goto SetRedNormal
+    if (COLORPICKER.ORANGEBUTTON1.value > 0.5) goto SetOrangeNormal
+    if (COLORPICKER.YELLOWBUTTON1.value > 0.5) goto SetYellowNormal
+    if (COLORPICKER.LIMEBUTTON1.value   > 0.5) goto SetLimeNormal
+    if (COLORPICKER.GREENBUTTON1.value  > 0.5) goto SetGreenNormal
+    if (COLORPICKER.CLOVERBUTTON1.value > 0.5) goto SetCloverNormal
+    if (COLORPICKER.CYANBUTTON1.value   > 0.5) goto SetCyanNormal
+    if (COLORPICKER.AQUABUTTON1.value   > 0.5) goto SetAquaNormal
+    if (COLORPICKER.BLUEBUTTON1.value   > 0.5) goto SetBlueNormal
+    if (COLORPICKER.PURPLEBUTTON1.value > 0.5) goto SetPurpleNormal
+    if (COLORPICKER.MAGENTABUTTON1.value> 0.5) goto SetMagentaNormal
+    if (COLORPICKER.ROSEBUTTON1.value   > 0.5) goto SetRoseNormal
+    if (COLORPICKER.WHITEBUTTON1.value  > 0.5) goto SetWhiteNormal
+    // If none are on, still check monochrome
+    goto SyncMonoNormalCheck
+
+// Individual normal colour assignments
+SetRedNormal:
+    ColorChannel.0.Color = 255
+    goto UpdatePrimarySwatchNormal
+SetOrangeNormal:
+    ColorChannel.0.Color = 33023
+    goto UpdatePrimarySwatchNormal
+SetYellowNormal:
+    ColorChannel.0.Color = 65535
+    goto UpdatePrimarySwatchNormal
+SetLimeNormal:
+    ColorChannel.0.Color = 65408
+    goto UpdatePrimarySwatchNormal
+SetGreenNormal:
+    ColorChannel.0.Color = 65280
+    goto UpdatePrimarySwatchNormal
+SetCloverNormal:
+    ColorChannel.0.Color = 8453888
+    goto UpdatePrimarySwatchNormal
+SetCyanNormal:
+    ColorChannel.0.Color = 16776960
+    goto UpdatePrimarySwatchNormal
+SetAquaNormal:
+    ColorChannel.0.Color = 16744448
+    goto UpdatePrimarySwatchNormal
+SetBlueNormal:
+    ColorChannel.0.Color = 16711680
+    goto UpdatePrimarySwatchNormal
+SetPurpleNormal:
+    ColorChannel.0.Color = 16711808
+    goto UpdatePrimarySwatchNormal
+SetMagentaNormal:
+    ColorChannel.0.Color = 16711935
+    goto UpdatePrimarySwatchNormal
+SetRoseNormal:
+    ColorChannel.0.Color = 8388863
+    goto UpdatePrimarySwatchNormal
+SetWhiteNormal:
+    ColorChannel.0.Color = 16777215
+    goto UpdatePrimarySwatchNormal
+
+UpdatePrimarySwatchNormal:
+    var cn
+    cn = ColorChannel.0.Color
+    COLORPICKER.PRIMARYCOLOR.ColorOff    = cn
+    COLORPICKER.PRIMARYCOLOR.ColorOn     = cn
+    COLORPICKER.PRIMARYCOLOR.ColorActive = cn
+    // Check monochrome state
+SyncMonoNormalCheck:
+    if (COLORPICKER.MONOCHROME.Tag > 0.5) goto SyncMonoNormal
+    exit
+
+// ----- MONOCHROME SYNCHRONISATION ROUTINES -----
+
+// Copy primary colour in pastel mode
+SyncMonoPastel:
+    // Copy primary channel to secondary
+    ColorChannel.1.Color = ColorChannel.0.Color
+    // Copy selection code and pastel flag
+    COLORPICKER.SECONDARYSELECTED.Tag = COLORPICKER.PRIMARYSELECTED.Tag
+    COLORPICKER.PASTELMODESECONDARY.value = COLORPICKER.PASTELMODEPRIMARY.value
+
+    // Update secondary swatch
+    var sp
+    sp = ColorChannel.1.Color
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = sp
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = sp
+    COLORPICKER.SECONDARYCOLOR.ColorActive = sp
+
+    // Apply pastel palette to secondary buttons directly
+    COLORPICKER.REDBUTTON2.ColorOff    = 0
+    COLORPICKER.REDBUTTON2.ColorOn     = 8421631
+    COLORPICKER.REDBUTTON2.ColorActive = 8421631
+    COLORPICKER.REDBUTTON2.Caption     = "P.RED"
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 8438015
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 8438015
+    COLORPICKER.ORANGEBUTTON2.Caption     = "P.ORANGE"
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 8454143
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 8454143
+    COLORPICKER.YELLOWBUTTON2.Caption     = "P.YELLOW"
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 8454080
+    COLORPICKER.LIMEBUTTON2.ColorActive = 8454080
+    COLORPICKER.LIMEBUTTON2.Caption     = "P.LIME"
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0
+    COLORPICKER.GREENBUTTON2.ColorOn     = 8454016
+    COLORPICKER.GREENBUTTON2.ColorActive = 8454016
+    COLORPICKER.GREENBUTTON2.Caption     = "P.GREEN"
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 12648320
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 12648320
+    COLORPICKER.CLOVERBUTTON2.Caption     = "P.CLOVER"
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16777088
+    COLORPICKER.CYANBUTTON2.ColorActive = 16777088
+    COLORPICKER.CYANBUTTON2.Caption     = "P.CYAN"
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16760960
+    COLORPICKER.AQUABUTTON2.ColorActive = 16760960
+    COLORPICKER.AQUABUTTON2.Caption     = "P.AQUA"
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16744576
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16744576
+    COLORPICKER.BLUEBUTTON2.Caption     = "P.BLUE"
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16744640
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16744640
+    COLORPICKER.PURPLEBUTTON2.Caption     = "P.PURPLE"
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16744703
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16744703
+    COLORPICKER.MAGENTABUTTON2.Caption     = "P.MAGENTA"
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 12615935
+    COLORPICKER.ROSEBUTTON2.ColorActive = 12615935
+    COLORPICKER.ROSEBUTTON2.Caption     = "P.ROSE"
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE"
+    exit
+
+// Copy primary colour in normal mode
+SyncMonoNormal:
+    ColorChannel.1.Color = ColorChannel.0.Color
+    COLORPICKER.SECONDARYSELECTED.Tag = COLORPICKER.PRIMARYSELECTED.Tag
+    COLORPICKER.PASTELMODESECONDARY.value = COLORPICKER.PASTELMODEPRIMARY.value
+
+    var sn
+    sn = ColorChannel.1.Color
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = sn
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = sn
+    COLORPICKER.SECONDARYCOLOR.ColorActive = sn
+
+    // Apply normal palette to secondary buttons
+    COLORPICKER.REDBUTTON2.ColorOff    = 0
+    COLORPICKER.REDBUTTON2.ColorOn     = 255
+    COLORPICKER.REDBUTTON2.ColorActive = 255
+    COLORPICKER.REDBUTTON2.Caption     = "RED"
+
+    COLORPICKER.ORANGEBUTTON2.ColorOff    = 0
+    COLORPICKER.ORANGEBUTTON2.ColorOn     = 33023
+    COLORPICKER.ORANGEBUTTON2.ColorActive = 33023
+    COLORPICKER.ORANGEBUTTON2.Caption     = "ORANGE"
+
+    COLORPICKER.YELLOWBUTTON2.ColorOff    = 0
+    COLORPICKER.YELLOWBUTTON2.ColorOn     = 65535
+    COLORPICKER.YELLOWBUTTON2.ColorActive = 65535
+    COLORPICKER.YELLOWBUTTON2.Caption     = "YELLOW"
+
+    COLORPICKER.LIMEBUTTON2.ColorOff    = 0
+    COLORPICKER.LIMEBUTTON2.ColorOn     = 65408
+    COLORPICKER.LIMEBUTTON2.ColorActive = 65408
+    COLORPICKER.LIMEBUTTON2.Caption     = "LIME"
+
+    COLORPICKER.GREENBUTTON2.ColorOff    = 0
+    COLORPICKER.GREENBUTTON2.ColorOn     = 65280
+    COLORPICKER.GREENBUTTON2.ColorActive = 65280
+    COLORPICKER.GREENBUTTON2.Caption     = "GREEN"
+
+    COLORPICKER.CLOVERBUTTON2.ColorOff    = 0
+    COLORPICKER.CLOVERBUTTON2.ColorOn     = 8453888
+    COLORPICKER.CLOVERBUTTON2.ColorActive = 8453888
+    COLORPICKER.CLOVERBUTTON2.Caption     = "CLOVER"
+
+    COLORPICKER.CYANBUTTON2.ColorOff    = 0
+    COLORPICKER.CYANBUTTON2.ColorOn     = 16776960
+    COLORPICKER.CYANBUTTON2.ColorActive = 16776960
+    COLORPICKER.CYANBUTTON2.Caption     = "CYAN"
+
+    COLORPICKER.AQUABUTTON2.ColorOff    = 0
+    COLORPICKER.AQUABUTTON2.ColorOn     = 16744448
+    COLORPICKER.AQUABUTTON2.ColorActive = 16744448
+    COLORPICKER.AQUABUTTON2.Caption     = "AQUA"
+
+    COLORPICKER.BLUEBUTTON2.ColorOff    = 0
+    COLORPICKER.BLUEBUTTON2.ColorOn     = 16711680
+    COLORPICKER.BLUEBUTTON2.ColorActive = 16711680
+    COLORPICKER.BLUEBUTTON2.Caption     = "BLUE"
+
+    COLORPICKER.PURPLEBUTTON2.ColorOff    = 0
+    COLORPICKER.PURPLEBUTTON2.ColorOn     = 16711808
+    COLORPICKER.PURPLEBUTTON2.ColorActive = 16711808
+    COLORPICKER.PURPLEBUTTON2.Caption     = "PURPLE"
+
+    COLORPICKER.MAGENTABUTTON2.ColorOff    = 0
+    COLORPICKER.MAGENTABUTTON2.ColorOn     = 16711935
+    COLORPICKER.MAGENTABUTTON2.ColorActive = 16711935
+    COLORPICKER.MAGENTABUTTON2.Caption     = "MAGENTA"
+
+    COLORPICKER.ROSEBUTTON2.ColorOff    = 0
+    COLORPICKER.ROSEBUTTON2.ColorOn     = 8388863
+    COLORPICKER.ROSEBUTTON2.ColorActive = 8388863
+    COLORPICKER.ROSEBUTTON2.Caption     = "ROSE"
+
+    COLORPICKER.WHITEBUTTON2.ColorOff    = 0
+    COLORPICKER.WHITEBUTTON2.ColorOn     = 16777215
+    COLORPICKER.WHITEBUTTON2.ColorActive = 16777215
+    COLORPICKER.WHITEBUTTON2.Caption     = "WHITE"
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

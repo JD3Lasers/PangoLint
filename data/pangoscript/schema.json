@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.jd3/pangolint/pangoscript-knowledge.schema.json",
+  "title": "PangoScript Knowledge Base",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "commands"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/command"
+      }
+    }
+  },
+  "$defs": {
+    "command": {
+      "type": "object",
+      "required": [
+        "canonical",
+        "evidenceLevel",
+        "confidence"
+      ],
+      "properties": {
+        "canonical": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "evidenceLevel": {
+          "enum": [
+            "exported",
+            "documented",
+            "observed",
+            "inferred",
+            "unverified"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "safetyTier": {
+          "enum": [
+            "T0",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "unknown"
+          ]
+        },
+        "forms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/form"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/note"
+          }
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verification"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "BEYOND category for this command. In the overlay (commands.overlay.json) this is an optional override — omit it and the build resolves the category from beyond-category-tree.json. In the merged output (commands.merged.json) every command has category set; that requirement is enforced by the build pipeline (resolveCategoriesStrict), not by this schema, because $defs/command is shared by both files."
+        },
+        "setsProperty": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Object property paths that this command writes. Used by the Objects sidebar to show 'Written by' context. Paths use dot notation (e.g. 'Master.BPM'). Indexed paths use N as the placeholder (e.g. 'Zone.N.Muted')."
+        },
+        "propertyMappingCoverage": {
+          "$ref": "#/$defs/propertyMappingCoverage",
+          "description": "Explicit coverage status for command-to-property mapping work. Commands with setsProperty are treated as mapped even when this field is omitted."
+        }
+      }
+    },
+    "propertyMappingCoverage": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "mapped",
+            "no-direct-property",
+            "deferred",
+            "unknown"
+          ]
+        },
+        "evidenceLevel": {
+          "enum": [
+            "exported",
+            "documented",
+            "observed",
+            "inferred",
+            "unverified"
+          ]
+        },
+        "safetyTier": {
+          "enum": [
+            "T0",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "unknown"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "probe": {
+          "$ref": "#/$defs/propertyMappingProbe"
+        }
+      }
+    },
+    "propertyMappingProbe": {
+      "type": "object",
+      "properties": {
+        "setupScript": {
+          "type": "string"
+        },
+        "triggerScript": {
+          "type": "string"
+        },
+        "readbackPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "restoreScript": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "form": {
+      "type": "object",
+      "required": [
+        "signature"
+      ],
+      "properties": {
+        "signature": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          }
+        }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "required": [
+        "name",
+        "type",
+        "required"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "number",
+            "integer",
+            "float",
+            "string",
+            "boolean",
+            "variadic",
+            "unknown"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "range": {
+          "type": "string"
+        },
+        "valueRange": {
+          "$ref": "#/$defs/valueRange",
+          "description": "Structured numeric range metadata for tools and reference surfaces. Keep range as the compact human-readable string; use valueRange for machine-readable bounds and boundary behavior."
+        },
+        "acceptedValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/acceptedValue"
+          },
+          "description": "Structured enum or token metadata for parameters with a small accepted value set."
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "valueRange": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "minInclusive": {
+          "type": "boolean"
+        },
+        "maxInclusive": {
+          "type": "boolean"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "boundaryBehavior": {
+          "enum": [
+            "clamp",
+            "reject",
+            "no-op",
+            "wrap",
+            "pass-through",
+            "unknown"
+          ]
+        },
+        "evidenceLevel": {
+          "enum": [
+            "exported",
+            "documented",
+            "observed",
+            "inferred",
+            "unverified"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "acceptedValue": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "status",
+        "method",
+        "safetyTier",
+        "cleanup",
+        "operatorRequired"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unverified",
+            "planned",
+            "observed",
+            "blocked"
+          ]
+        },
+        "method": {
+          "enum": [
+            "oscOutTTS",
+            "registerOscFeedback",
+            "controlledWriteReadback",
+            "operatorSupervised"
+          ]
+        },
+        "safetyTier": {
+          "enum": [
+            "T0",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "unknown"
+          ]
+        },
+        "verificationScript": {
+          "type": "string"
+        },
+        "expectedCallback": {
+          "type": "string"
+        },
+        "feedbackAddress": {
+          "type": "string"
+        },
+        "feedbackProperty": {
+          "type": "string"
+        },
+        "triggerScript": {
+          "type": "string"
+        },
+        "restoreScript": {
+          "type": "string"
+        },
+        "cleanup": {
+          "enum": [
+            "none",
+            "restoreScript",
+            "prefixRetire",
+            "beyondRestartOrPrefixRetire",
+            "operatorReset"
+          ]
+        },
+        "operatorRequired": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "note": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

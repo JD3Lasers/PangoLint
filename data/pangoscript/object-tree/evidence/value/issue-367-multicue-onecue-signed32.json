@@ -1,0 +1,1150 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 367,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. The prior #367 probe showed pass-through up to 1000. This follow-up probed signed 32-bit edges and verified wrap behavior with baseline restore for every MultiCue and OneCue limit path."
+  },
+  "entries": [
+    {
+      "objectPath": "MultiCue.BeamCueLimit",
+      "probePath": "MultiCue.BeamCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.BeamCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.BeamCueLimit at MultiCue.BeamCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.DmxCueLimit",
+      "probePath": "MultiCue.DmxCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.DmxCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.DmxCueLimit at MultiCue.DmxCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.FlashCueLimit",
+      "probePath": "MultiCue.FlashCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.FlashCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.FlashCueLimit at MultiCue.FlashCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.HoldCueLimit",
+      "probePath": "MultiCue.HoldCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.HoldCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.HoldCueLimit at MultiCue.HoldCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.PerGridLimit",
+      "probePath": "MultiCue.PerGridLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 8,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.PerGridLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.PerGridLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.PerGridLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.PerGridLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.PerGridLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.PerGridLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.PerGridLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 8,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.PerGridLimit at MultiCue.PerGridLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.PerZoneLimit",
+      "probePath": "MultiCue.PerZoneLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.PerZoneLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.PerZoneLimit at MultiCue.PerZoneLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.ScriptCueLimit",
+      "probePath": "MultiCue.ScriptCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.ScriptCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.ScriptCueLimit at MultiCue.ScriptCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MultiCue.ShowCueLimit",
+      "probePath": "MultiCue.ShowCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MultiCue.ShowCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed MultiCue.ShowCueLimit at MultiCue.ShowCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.BeamCueLimit",
+      "probePath": "OneCue.BeamCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.BeamCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.BeamCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.BeamCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.BeamCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.BeamCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.BeamCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.BeamCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.BeamCueLimit at OneCue.BeamCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.DmxCueLimit",
+      "probePath": "OneCue.DmxCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.DmxCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.DmxCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.DmxCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.DmxCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.DmxCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.DmxCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.DmxCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.DmxCueLimit at OneCue.DmxCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.FlashCueLimit",
+      "probePath": "OneCue.FlashCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.FlashCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.FlashCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.FlashCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.FlashCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.FlashCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.FlashCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.FlashCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.FlashCueLimit at OneCue.FlashCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.HoldCueLimit",
+      "probePath": "OneCue.HoldCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.HoldCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.HoldCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.HoldCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.HoldCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.HoldCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.HoldCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.HoldCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.HoldCueLimit at OneCue.HoldCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.PerGridLimit",
+      "probePath": "OneCue.PerGridLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.PerGridLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.PerGridLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.PerGridLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.PerGridLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.PerGridLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.PerGridLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.PerGridLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 3,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.PerGridLimit at OneCue.PerGridLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.PerZoneLimit",
+      "probePath": "OneCue.PerZoneLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.PerZoneLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.PerZoneLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.PerZoneLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.PerZoneLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.PerZoneLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.PerZoneLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.PerZoneLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.PerZoneLimit at OneCue.PerZoneLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.ScriptCueLimit",
+      "probePath": "OneCue.ScriptCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.ScriptCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.ScriptCueLimit at OneCue.ScriptCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "OneCue.ShowCueLimit",
+      "probePath": "OneCue.ShowCueLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue limit count"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"OneCue.ShowCueLimit\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"OneCue.ShowCueLimit\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"OneCue.ShowCueLimit\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"OneCue.ShowCueLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"OneCue.ShowCueLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"OneCue.ShowCueLimit\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"OneCue.ShowCueLimit\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #367 confirmed OneCue.ShowCueLimit at OneCue.ShowCueLimit uses signed 32-bit wrap behavior with baseline restore.",
+      "locationAware": false
+    }
+  ]
+}

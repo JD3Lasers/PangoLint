@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 407,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "talkHost": "127.0.0.1",
+    "talkPort": 16062,
+    "oscListenHost": "0.0.0.0",
+    "oscListenPort": 7000,
+    "notes": "Readback-only probe through pangolint-mcp 0.3.1. No writes were sent."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.Count",
+      "probePath": "Zone.Count",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 3,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the current configured zone count.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Loaded show zone root",
+        "notes": "Zone.Count depends on the configured zones in the show."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Count",
+      "probePath": "Zone.0.Count",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the property reads from populated Zone.0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Zone.N.OutputPointCount",
+      "probePath": "Zone.0.OutputPointCount",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the output point count read from populated Zone.0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Count",
+      "probePath": "ZoneAlias.Count",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias path reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.OutputPointCount",
+      "probePath": "ZoneAlias.OutputPointCount",
+      "probeMode": "readback-only",
+      "valueType": "integer",
+      "baseline": {
+        "value": 324,
+        "typeTag": "i"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias output point count reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+// PangoLint expect: unsupported-deltavalue-assignment
+// PangoLint fail: spaced DeltaValue assignment outside MIDI slot context
+// Purpose: verify BEYOND rejects lowercase/spaced deltavalue syntax as a direct editor assignment.
+// BEYOND validation 2026-05-07: parser error on spaced DeltaValue assignment; no callbacks emitted.
+// BEYOND parser error: Operation expected: (.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 11, text `deltaValue = deltavalue (-1,1)`.
+
+var requestId
+var deltaValue
+
+requestId = "pangolint-candidate-deltavalue-editor-assignment-001"
+deltaValue = deltavalue (-1,1)
+
+OscOutTTS "/pangolint/candidate/deltavalue/editor-assignment", "sf", requestId, deltaValue
+exit

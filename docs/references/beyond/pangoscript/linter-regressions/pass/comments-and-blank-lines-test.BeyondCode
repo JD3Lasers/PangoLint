@@ -1,0 +1,22 @@
+// PangoLint candidate: comments and blank lines
+// Purpose: verify comments, blank lines, and inline comments do not change execution.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/comments/start (si) "pangolint-candidate-comments-001" 1
+// PangoLint expected callback: /pangolint/candidate/comments/done (si) "pangolint-candidate-comments-001" 2
+// PangoLint observed callback: /pangolint/candidate/comments/start (si) "pangolint-candidate-comments-001" 1
+// PangoLint observed callback: /pangolint/candidate/comments/done (si) "pangolint-candidate-comments-001" 2
+
+var requestId
+var sequence
+
+requestId = "pangolint-candidate-comments-001"
+sequence = 1
+
+// Full-line comments should be ignored by BEYOND.
+OscOutTTS "/pangolint/candidate/comments/start", "si", requestId, sequence  // inline comment
+
+sequence = sequence + 1
+
+// Another comment before the final callback.
+OscOutTTS "/pangolint/candidate/comments/done", "si", requestId, sequence
+exit

@@ -1,0 +1,19 @@
+// PangoLint candidate: ExtValue in direct MIDI-to-PangoScript slot
+// Purpose: verify ExtValue scaling when the script is bound directly to a MIDI control, not a DefineMidiTrigger handler.
+// Setup: bind loopMIDI CC 0 to this script in BEYOND MIDI-to-PangoScript settings, then send CC 0 values 0, 64, and 127.
+// BEYOND observation 2026-05-07: pasting/running this script in the editor emits direct-editor defaults immediately; that is not a slot-context validation.
+// PangoLint expected callback: /pangolint/candidate/extvalue/slot (sfff) "pangolint-candidate-extvalue-slot-001" 0.000000 0.000000 1.000000
+// PangoLint expected callback: /pangolint/candidate/extvalue/slot (sfff) "pangolint-candidate-extvalue-slot-001" <midNormalValue> <midFractionalValue> <midReversedValue>
+// PangoLint expected callback: /pangolint/candidate/extvalue/slot (sfff) "pangolint-candidate-extvalue-slot-001" 127.000000 8.999000 -1.000000
+
+var requestId
+var normalValue
+var fractionalValue
+var reversedValue
+
+requestId = "pangolint-candidate-extvalue-slot-001"
+normalValue = ExtValue(0, 127)
+fractionalValue = ExtValue(0, 8.999)
+reversedValue = ExtValue(1, -1)
+OscOutTTS "/pangolint/candidate/extvalue/slot", "sfff", requestId, normalValue, fractionalValue, reversedValue
+exit

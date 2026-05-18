@@ -1,0 +1,67 @@
+// PangoLint MCP/linter moderate smoke script
+// Purpose: exercise parsing, labels/goto, variables, single-zone property reads,
+// and OscOutTTS callbacks without intentionally changing BEYOND output state.
+// BEYOND validation 2026-05-07: no parse errors; observed values reflect current lab state.
+// PangoLint expected callback: /pangolint/smoke/start (ssff) "pangolint-mcp-smoke-001" "TEST ZONE" 100.000000 126.000000
+// PangoLint expected callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 1
+// PangoLint expected callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 2
+// PangoLint expected callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 3
+// PangoLint expected callback: /pangolint/smoke/zone (sfff) "pangolint-mcp-smoke-001" 100.000000 100.000000 255.000000
+// PangoLint expected callback: /pangolint/smoke/done (si) "pangolint-mcp-smoke-001" 2
+// PangoLint observed callback: /pangolint/smoke/start (ssff) "pangolint-mcp-smoke-001" "TEST ZONE" 100.000000 126.000000
+// PangoLint observed callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 1
+// PangoLint observed callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 2
+// PangoLint observed callback: /pangolint/smoke/step (si) "pangolint-mcp-smoke-001" 3
+// PangoLint observed callback: /pangolint/smoke/zone (sfff) "pangolint-mcp-smoke-001" 100.000000 100.000000 255.000000
+// PangoLint observed callback: /pangolint/smoke/done (si) "pangolint-mcp-smoke-001" 2
+
+var requestId
+var step
+var callbackIndex
+var brightnessSnapshot
+var bpmSnapshot
+var zoneName
+var zoneBrightness
+var zoneRed
+
+requestId = "pangolint-mcp-smoke-001"
+step = 0
+callbackIndex = 0
+brightnessSnapshot = Master.Brightness
+bpmSnapshot = Master.BPM
+zoneName = Zone.0.Name
+zoneBrightness = Zone.0.Brightness
+zoneRed = Zone.0.Red
+
+goto Init
+
+Init:
+ControlMaster
+OscOutTTS "/pangolint/smoke/start", "ssff", requestId, zoneName, brightnessSnapshot, bpmSnapshot
+step = 1
+goto StepCallbacks
+
+StepCallbacks:
+callbackIndex = 1
+OscOutTTS "/pangolint/smoke/step", "si", requestId, callbackIndex
+
+callbackIndex = 2
+OscOutTTS "/pangolint/smoke/step", "si", requestId, callbackIndex
+
+callbackIndex = 3
+OscOutTTS "/pangolint/smoke/step", "si", requestId, callbackIndex
+
+if (step = 1) goto ReadZone
+goto Done
+
+ReadZone:
+brightnessSnapshot = Master.Brightness
+zoneBrightness = Zone.0.Brightness
+zoneRed = Zone.0.Red
+OscOutTTS "/pangolint/smoke/zone", "sfff", requestId, brightnessSnapshot, zoneBrightness, zoneRed
+step = 2
+goto Done
+
+Done:
+OscOutTTS "/pangolint/smoke/done", "si", requestId, step
+exit

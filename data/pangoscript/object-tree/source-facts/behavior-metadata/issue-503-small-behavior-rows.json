@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Channels.N.PhActive",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-12 shows Channels.N.PhActive persists 0 and 1 as channel phase-active state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Channels.N.Reflection",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-12 shows Channels.N.Reflection persists normalized numeric state from 0 through 1 and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Channels.N.Value",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-12 shows Channels.N.Value persists normalized numeric channel state from 0 through 1 and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Config.CaptureAsLocal",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Config.CaptureAsLocal persists 0 and 1 as configuration state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Config.FocusMidiClicks",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Config.FocusMidiClicks persists 0 and 1 as configuration state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Config.HideOutputPreviewInMutedProjectionZones",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Config.HideOutputPreviewInMutedProjectionZones persists 0 and 1 as configuration state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Config.ShowAudioTab",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Config.ShowAudioTab persists 0 and 1 as configuration state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "CoreManager.OnlineMode",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #326 shows CoreManager.OnlineMode persists 0 and 1 as online mode state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB3-XXXXX.Connected",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "not-applicable",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed hardware-status readbacks from issue #298 show FB3-XXXXX.Connected reports disconnected or connected state. Writes do not apply to hardware connection status. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB3-XXXXX.InvertX",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB3-XXXXX.InvertX persists 0 and 1 as hardware invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB3-XXXXX.InvertY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB3-XXXXX.InvertY persists 0 and 1 as hardware invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB3-XXXXX.SwapXY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB3-XXXXX.SwapXY persists 0 and 1 as hardware axis swap state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB4-XXXXX.Connected",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "not-applicable",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed hardware-status readbacks from issue #298 show FB4-XXXXX.Connected reports disconnected or connected state. Writes do not apply to hardware connection status. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB4-XXXXX.InvertX",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB4-XXXXX.InvertX persists 0 and 1 as hardware invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB4-XXXXX.InvertY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB4-XXXXX.InvertY persists 0 and 1 as hardware invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "FB4-XXXXX.SwapXY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows FB4-XXXXX.SwapXY persists 0 and 1 as hardware axis swap state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Location.Count",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "not-applicable",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed readback evidence from issue #399 shows Location.Count reports the available location slot count. Writes do not apply to Object Tree count status. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Location.N.X",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Location.N.X persists normalized numeric location state from 0 through 1 and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Location.N.Y",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Location.N.Y persists normalized numeric location state from 0 through 1 and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Location.N.Z",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows Location.N.Z persists normalized numeric location state from 0 through 1 and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "MobSensor.ButtonA",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #299 shows MobSensor.ButtonA persists 0 and 1 as mobile sensor button state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "MobSensor.ButtonB",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #299 shows MobSensor.ButtonB persists 0 and 1 as mobile sensor button state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "MobSensor.ButtonC",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #299 shows MobSensor.ButtonC persists 0 and 1 as mobile sensor button state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "MobSensor.ButtonD",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #299 shows MobSensor.ButtonD persists 0 and 1 as mobile sensor button state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "PlayListState.Playing",
+      "accessMode": "read-mostly",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "command-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed command/readback evidence from 2026-05-13 shows PlayListState.Playing reports persistent playlist playback state after PlayListStop and PlayListPlay. Direct object writes are not reliable playback setters. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Projector.N.Connected",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "not-applicable",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed hardware-status readbacks from issue #298 show Projector.N.Connected reports disconnected or connected projector state. Writes do not apply to hardware connection status. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Projector.N.InvertX",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-12 shows Projector.N.InvertX persists 0 and 1 as projector invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Projector.N.InvertY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Projector.N.InvertY persists 0 and 1 as projector invert state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Projector.N.SwapXY",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed SetProp write/readback evidence from issue #298 shows Projector.N.SwapXY persists 0 and 1 as projector axis swap state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Status.LaserEnabled",
+      "accessMode": "read-mostly",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "command-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed command/readback evidence from issue #298 shows Status.LaserEnabled reports persistent laser output state after DisableLaserOutput and EnableLaserOutput. Direct object assignments were not tested because this is command-driven state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "Status.Locked",
+      "accessMode": "read-mostly",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "command-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed command/readback evidence from 2026-05-06 shows Status.Locked reports persistent UI lock state after LockScreen and UnLockScreen. Direct object assignments were not tested because this is command-driven state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "TouchPoints.Count",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "writeTestStatus": "not-applicable",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed readback evidence from issue #399 shows TouchPoints.Count reports the available touch point slot count. Writes do not apply to Object Tree count status. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "TouchPoints.N.Active",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows TouchPoints.N.Active persists 0 and 1 as touch point active state. Value domain evidence remains in value metadata."
+    },
+    {
+      "path": "VideoOutput1.Visible",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "writeTestStatus": "write-readback-tested",
+      "readbackStatus": "readback-tested",
+      "evidenceLevel": "observed",
+      "notes": "Observed direct object write/readback evidence from 2026-05-13 shows VideoOutput1.Visible persists 0 and 1 as video output visible state and clamps out-of-domain samples. Value domain evidence remains in value metadata."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+// PangoLint pass: variable goto target
+// Purpose: verify BEYOND accepts goto targets resolved from string variables.
+// BEYOND validation 2026-05-07: parser accepted the variable target and emitted the expected callback.
+// PangoLint expected callback: /pangolint/candidate/variable-goto/done (s) "pangolint-candidate-variable-goto-001"
+// PangoLint observed callback: /pangolint/candidate/variable-goto/done (s) "pangolint-candidate-variable-goto-001"
+
+var requestId
+var targetName
+
+requestId = "pangolint-candidate-variable-goto-001"
+targetName = "Start"
+
+goto targetName
+
+Start:
+OscOutTTS "/pangolint/candidate/variable-goto/done", "s", requestId
+exit

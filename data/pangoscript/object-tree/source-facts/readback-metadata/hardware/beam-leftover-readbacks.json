@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Beam.N.IsGroup",
+      "readable": true,
+      "valueType": "integer",
+      "probePath": "Beam.0.IsGroup",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Beam.N.IsGroup did not change the Beam.0 readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the Beam index. The probe used Beam.0.",
+        "notes": "Runtime evidence used Beam.0 and did not infer writable ranges from the no-op write attempts."
+      }
+    },
+    {
+      "path": "Beam.N.Name",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "Beam.0.Name",
+      "probeMode": "readback-only",
+      "observedValue": "Beam 1",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-16",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Beam.N.Name did not change the Beam.0 readback. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the Beam index. The probe used Beam.0.",
+        "notes": "Runtime evidence used Beam.0 and did not infer writable ranges from the no-op write attempts."
+      }
+    }
+  ]
+}

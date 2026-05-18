@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against Projector.0.Serial. The observed serial string is redacted in public evidence."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.N.Serial",
+      "probePath": "Projector.0.Serial",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "[redacted serial string]",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"Projector.0.Serial\", \"\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        },
+        {
+          "input": "PangoLintSerialProbe",
+          "command": "SetProp \"Projector.0.Serial\", \"PangoLintSerialProbe\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "[redacted serial string]",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback matched the redacted baseline."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Projector.0.Serial remained at the same redacted serial string.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Serial with observed serial string redacted",
+        "notes": "Projector.N uses the zero-based Object Tree projector index. The serial value is intentionally redacted from public metadata."
+      }
+    }
+  ]
+}

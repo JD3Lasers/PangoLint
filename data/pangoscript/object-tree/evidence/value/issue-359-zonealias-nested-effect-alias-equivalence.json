@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 359,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. Runtime readback confirmed the loaded show has a zone named ZoneAlias at Zone.2, so ZoneAlias denotes a user-configured zone-name alias for the same Object Tree zone model as Zone.N. The range evidence used the populated Zone.0.Effect.0 path from issue #340 and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "ZoneAlias.Effect.N.Enabled",
+      "probePath": "Zone.0.Effect.0.Enabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.Enabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.Enabled."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Issue #340 restored the observed Zone.0.Effect.0.Enabled baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.Enabled uses the Zone.N.Effect.N.Enabled 0..1 clamp domain through zone-name alias equivalence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0 with alias-name check ZoneAlias.Name = Zone.2.Name",
+        "notes": "ZoneAlias denotes a user-configured zone name, not a stable literal root. The loaded show mapped that name to Zone.2, while the range probe used the populated Zone.0.Effect.0 slot."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.RouterMode",
+      "probePath": "Zone.0.Effect.0.RouterMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "router mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 5",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 8,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 8",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 9,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 9",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 99",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Issue #340 restored the observed Zone.0.Effect.0.RouterMode baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.RouterMode uses the Zone.N.Effect.N.RouterMode 0..4 clamp range through zone-name alias equivalence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0 with alias-name check ZoneAlias.Name = Zone.2.Name",
+        "notes": "ZoneAlias denotes a user-configured zone name, not a stable literal root. The loaded show mapped that name to Zone.2, while the range probe used the populated Zone.0.Effect.0 slot."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.TimeActive",
+      "probePath": "Zone.0.Effect.0.TimeActive",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeActive."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Issue #340 restored the observed Zone.0.Effect.0.TimeActive baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeActive uses the Zone.N.Effect.N.TimeActive 0..1 clamp domain through zone-name alias equivalence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0 with alias-name check ZoneAlias.Name = Zone.2.Name",
+        "notes": "ZoneAlias denotes a user-configured zone name, not a stable literal root. The loaded show mapped that name to Zone.2, while the range probe used the populated Zone.0.Effect.0 slot."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.TimeDurationInBeat",
+      "probePath": "Zone.0.Effect.0.TimeDurationInBeat",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeDurationInBeat."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeDurationInBeat."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Issue #340 restored the observed Zone.0.Effect.0.TimeDurationInBeat baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeDurationInBeat uses the Zone.N.Effect.N.TimeDurationInBeat 0..1 clamp domain through zone-name alias equivalence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0 with alias-name check ZoneAlias.Name = Zone.2.Name",
+        "notes": "ZoneAlias denotes a user-configured zone name, not a stable literal root. The loaded show mapped that name to Zone.2, while the range probe used the populated Zone.0.Effect.0 slot."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Effect.N.TimeEnabled",
+      "probePath": "Zone.0.Effect.0.TimeEnabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Effect.N.TimeEnabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Effect.N.TimeEnabled."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Issue #340 restored the observed Zone.0.Effect.0.TimeEnabled baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #359 confirmed ZoneAlias.Effect.N.TimeEnabled uses the Zone.N.Effect.N.TimeEnabled 0..1 clamp domain through zone-name alias equivalence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0 with alias-name check ZoneAlias.Name = Zone.2.Name",
+        "notes": "ZoneAlias denotes a user-configured zone name, not a stable literal root. The loaded show mapped that name to Zone.2, while the range probe used the populated Zone.0.Effect.0 slot."
+      }
+    }
+  ]
+}

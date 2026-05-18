@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FB3-XXXXX.ColorShift",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.ColorShift confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color shift"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.ColorShift on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MaxBlue",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MaxBlue confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxBlue on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MaxGreen",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MaxGreen confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxGreen on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MaxRed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MaxRed confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MaxRed on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MinBlue",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MinBlue confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinBlue on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MinGreen",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MinGreen confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinGreen on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MinRed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MinRed confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinRed on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.MinimumPoints",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.MinimumPoints confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "points"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.MinimumPoints on connected FB3 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.IdleCenterOffsetX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.IdleCenterOffsetX confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.IdleCenterOffsetX on connected FB3 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.IdleCenterOffsetY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.IdleCenterOffsetY confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.IdleCenterOffsetY on connected FB3 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB3-XXXXX.InvertX",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.InvertX confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.InvertX on connected FB3 hardware accepts InvertX values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.InvertX to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.InvertX to ON."
+        }
+      ]
+    },
+    {
+      "path": "FB3-XXXXX.InvertY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.InvertY confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.InvertY on connected FB3 hardware accepts InvertY values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.InvertY to ON."
+        }
+      ]
+    },
+    {
+      "path": "FB3-XXXXX.SwapXY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB3-XXXXX.SwapXY confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.SwapXY on connected FB3 hardware accepts SwapXY values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB3-XXXXX.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB3-XXXXX.SwapXY to ON."
+        }
+      ]
+    },
+    {
+      "path": "FB4-XXXXX.ColorShift",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.ColorShift confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color shift"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.ColorShift on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MaxBlue",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MaxBlue confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxBlue on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MaxGreen",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MaxGreen confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxGreen on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MaxRed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MaxRed confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MaxRed on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MinBlue",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MinBlue confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinBlue on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MinGreen",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MinGreen confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinGreen on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MinRed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MinRed confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "hardware color channel limit"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinRed on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.MinimumPoints",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.MinimumPoints confirmed signed 16-bit wrap readbacks: -32769->32767, -32768->-32768, -1->-1, 0->0, 1->1, 32767->32767, 32768->-32768, 65535->-1.",
+        "unit": "points"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.MinimumPoints on connected FB4 hardware uses -32768..32767 with wrap behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.IdleCenterOffsetX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.IdleCenterOffsetX confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.IdleCenterOffsetX on connected FB4 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.IdleCenterOffsetY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.IdleCenterOffsetY confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.IdleCenterOffsetY on connected FB4 hardware uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      }
+    },
+    {
+      "path": "FB4-XXXXX.InvertX",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.InvertX confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.InvertX on connected FB4 hardware accepts InvertX values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.InvertX to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.InvertX to ON."
+        }
+      ]
+    },
+    {
+      "path": "FB4-XXXXX.InvertY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.InvertY confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.InvertY on connected FB4 hardware accepts InvertY values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.InvertY to ON."
+        }
+      ]
+    },
+    {
+      "path": "FB4-XXXXX.SwapXY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to FB4-XXXXX.SwapXY confirmed accepted values 0 and 1 with readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.SwapXY on connected FB4 hardware accepts SwapXY values 0 and 1 with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set FB4-XXXXX.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FB4-XXXXX.SwapXY to ON."
+        }
+      ]
+    }
+  ]
+}

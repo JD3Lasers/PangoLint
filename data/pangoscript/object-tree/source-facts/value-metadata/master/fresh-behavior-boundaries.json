@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Master.AudioVolumeMute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "mute state",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed 0 and negative numeric samples read back 0; positive numeric samples 1, 2, 3, and 100000 read back 1. Symbolic OFF, ON, and TOGGLE tokens are command-level behavior and are not used as Object Tree property range evidence."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Unmute master audio output."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Mute master audio output."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 replaced older command-derived token metadata for this property path."
+    },
+    {
+      "path": "Master.CueBeatShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "beats",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed -100000 and -101 read back -100, -100..100 read back directly, and 101, 100000, and 120000 read back 100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 supersedes older command-derived pass-through notes for this property path."
+    },
+    {
+      "path": "Master.CueClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "seconds",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed -100000 and -101 read back -100, -100..100 read back directly, and 101, 100000, and 120000 read back 100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 supersedes older command-derived pass-through notes for this property path."
+    },
+    {
+      "path": "Master.CueLcSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw cue live control speed",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, plus fractional 1.5,, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+    },
+    {
+      "path": "Master.CueSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw cue speed",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, plus fractional 1.5,, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+    },
+    {
+      "path": "Master.FXSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw FX speed",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+    },
+    {
+      "path": "Master.LCSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw live control speed",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+    },
+    {
+      "path": "Master.MasterEffectClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw master effect clock shift",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path."
+    },
+    {
+      "path": "Master.MasterEffectMetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw master effect metro shift",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path."
+    },
+    {
+      "path": "Master.ShowShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw show shift",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648. This direct property behavior does not apply the MasterShowShift command's millisecond input conversion."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command millisecond input scaling."
+    },
+    {
+      "path": "Master.ZoneFxSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "raw zone FX speed",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+    }
+  ]
+}

@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 299,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used Gamepad axis paths and tested SetProp write/readback with fractional, high-value, and signed 32-bit samples. Sampled writes did not change the readback, so these rows ship as readback-only metadata."
+  },
+  "entries": [
+    {
+      "objectPath": "Gamepad.AxisR",
+      "probePath": "Gamepad.AxisR",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisR\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisR\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisR\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisR\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisR\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisR\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisR\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisR\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisR\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisR\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisR\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisR\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisR\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisR\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisR\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisR\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisR did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisR",
+        "notes": "The probe used the concrete Gamepad.AxisR input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.AxisU",
+      "probePath": "Gamepad.AxisU",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisU\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisU\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisU\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisU\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisU\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisU\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisU\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisU\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisU\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisU\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisU\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisU\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisU\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisU\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisU\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisU\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisU did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisU",
+        "notes": "The probe used the concrete Gamepad.AxisU input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.AxisV",
+      "probePath": "Gamepad.AxisV",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisV\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisV\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisV\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisV\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisV\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisV\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisV\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisV\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisV\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisV\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisV\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisV\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisV\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisV\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisV\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisV\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisV did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisV",
+        "notes": "The probe used the concrete Gamepad.AxisV input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.AxisX",
+      "probePath": "Gamepad.AxisX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisX\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisX\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisX\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisX\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisX\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisX\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisX\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisX\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisX\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisX\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisX\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisX\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisX\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisX\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisX did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisX",
+        "notes": "The probe used the concrete Gamepad.AxisX input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.AxisY",
+      "probePath": "Gamepad.AxisY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisY\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisY\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisY\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisY\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisY\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisY\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisY\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisY\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisY\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisY\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisY\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisY\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisY\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisY\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisY did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisY",
+        "notes": "The probe used the concrete Gamepad.AxisY input-device path."
+      }
+    },
+    {
+      "objectPath": "Gamepad.AxisZ",
+      "probePath": "Gamepad.AxisZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Gamepad.AxisZ\", -2147483649",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Gamepad.AxisZ\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -10000000,
+          "command": "SetProp \"Gamepad.AxisZ\", -10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Gamepad.AxisZ\", -1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Gamepad.AxisZ\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Gamepad.AxisZ\", -1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Gamepad.AxisZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Gamepad.AxisZ\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Gamepad.AxisZ\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Gamepad.AxisZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Gamepad.AxisZ\", 1.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Gamepad.AxisZ\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Gamepad.AxisZ\", 1000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"Gamepad.AxisZ\", 10000000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Gamepad.AxisZ\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Gamepad.AxisZ\", 2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every sampled write and verified the final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #299 confirmed sampled writes to Gamepad.AxisZ did not change the Gamepad axis readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Gamepad.AxisZ",
+        "notes": "The probe used the concrete Gamepad.AxisZ input-device path."
+      }
+    }
+  ]
+}

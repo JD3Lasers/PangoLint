@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 455,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS Image.Effect rows. The bench had no lasers connected. Every sampled write read back the observed baseline, and every restore readback matched the baseline."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.Effect.ChaseTimeMode",
+      "probePath": "WS.0.6.Image.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.6.Image.Effect.ChaseTimeMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.6.Image.Effect.ChaseTimeMode to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #455 confirmed WS.N.N.Image.Effect.ChaseTimeMode at WS.0.6.Image.Effect.ChaseTimeMode stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.6 Parametric-Image cue, Image.Effect branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.Zone",
+      "probePath": "WS.1.0.Image.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.1.0.Image.Effect.Zone\", \"\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "Main",
+          "command": "SetProp \"WS.1.0.Image.Effect.Zone\", \"Main\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "Zone 1",
+          "command": "SetProp \"WS.1.0.Image.Effect.Zone\", \"Zone 1\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint",
+          "command": "SetProp \"WS.1.0.Image.Effect.Zone\", \"pangolint\"",
+          "readback": "",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "",
+        "notes": "The probe restored WS.1.0.Image.Effect.Zone to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #455 confirmed WS.N.N.Image.Effect.Zone at WS.1.0.Image.Effect.Zone stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: \"\", \"Main\", \"Zone 1\", \"pangolint\". This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.0 Parametric Image wave type, Image.Effect branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Effect.ZoneMode",
+      "probePath": "WS.1.0.Image.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.1.0.Image.Effect.ZoneMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.0.Image.Effect.ZoneMode to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #455 confirmed WS.N.N.Image.Effect.ZoneMode at WS.1.0.Image.Effect.ZoneMode stayed at its observed baseline for sampled writes.",
+      "deferReason": "Sampled writes behaved as no-op for representative values: -1, 0, 1, 2, 3, 4, 10. This row remains readback-only after write attempts.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.0 Parametric Image wave type, Image.Effect branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

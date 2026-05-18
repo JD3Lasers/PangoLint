@@ -1,0 +1,806 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 340,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used the loaded Zone.0.Effect.0 path and restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Effect.N.Enabled",
+      "probePath": "Zone.0.Effect.0.Enabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.Enabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.Enabled uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.Enabled.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.Enabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.Enabled."
+        }
+      ]
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.RouterInZone",
+      "probePath": "Zone.0.Effect.0.RouterInZone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", -2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"Zone.0.Effect.0.RouterInZone\", 999",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.RouterInZone at Zone.0.Effect.0.RouterInZone.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.RouterMode",
+      "probePath": "Zone.0.Effect.0.RouterMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "router mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 5",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 8,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 8",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 9,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 9",
+          "readback": 4,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99,
+          "command": "SetProp \"Zone.0.Effect.0.RouterMode\", 99",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.RouterMode uses 0..4 with clamp behavior and baseline restore from Zone.0.Effect.0.RouterMode.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.RouterOutZone",
+      "probePath": "Zone.0.Effect.0.RouterOutZone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", -2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 999,
+          "command": "SetProp \"Zone.0.Effect.0.RouterOutZone\", 999",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.RouterOutZone at Zone.0.Effect.0.RouterOutZone.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeActive",
+      "probePath": "Zone.0.Effect.0.TimeActive",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeActive\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeActive uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeActive.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeActive."
+        }
+      ]
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeClock",
+      "probePath": "Zone.0.Effect.0.TimeClock",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeClock\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.TimeClock at Zone.0.Effect.0.TimeClock.",
+      "deferReason": "Direct writes passed through the sampled values and did not prove a complete manual-ready max bound.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeDuration",
+      "probePath": "Zone.0.Effect.0.TimeDuration",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 0.01",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDuration\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.TimeDuration at Zone.0.Effect.0.TimeDuration.",
+      "deferReason": "Direct writes passed through the sampled values and did not prove a complete manual-ready max bound.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeDurationInBeat",
+      "probePath": "Zone.0.Effect.0.TimeDurationInBeat",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeDurationInBeat\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeDurationInBeat uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeDurationInBeat.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeDurationInBeat."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeDurationInBeat."
+        }
+      ]
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeEnabled",
+      "probePath": "Zone.0.Effect.0.TimeEnabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeEnabled\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeEnabled uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeEnabled.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeEnabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeEnabled."
+        }
+      ]
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeMetro",
+      "probePath": "Zone.0.Effect.0.TimeMetro",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.Effect.0.TimeMetro\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.TimeMetro at Zone.0.Effect.0.TimeMetro.",
+      "deferReason": "Direct writes passed through the sampled values and did not prove a complete manual-ready max bound.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Effect.N.TimeStateCanRestart",
+      "probePath": "Zone.0.Effect.0.TimeStateCanRestart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeStateCanRestart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Effect.0.TimeStateCanRestart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Effect.0.TimeStateCanRestart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Effect.0.TimeStateCanRestart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #340 deferred Zone.N.Effect.N.TimeStateCanRestart at Zone.0.Effect.0.TimeStateCanRestart.",
+      "deferReason": "Direct writes stayed at the observed baseline and did not prove a complete manual-ready range or accepted-value domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0.Effect.0",
+        "notes": "The runtime probe used the loaded Zone.0 effect slot 0."
+      }
+    }
+  ]
+}

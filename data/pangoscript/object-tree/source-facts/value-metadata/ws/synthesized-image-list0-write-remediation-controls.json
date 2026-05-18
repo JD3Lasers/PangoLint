@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.LIST.0.AngleX",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleX for Synthesized Image at WS.0.8.Image.LIST.0.AngleX is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.AngleY",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleY for Synthesized Image at WS.0.8.Image.LIST.0.AngleY is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.AngleZ",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleZ for Synthesized Image at WS.0.8.Image.LIST.0.AngleZ is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.AudioMode",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 10,
+        "unit": "audio mode",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed pass-through across sampled values from -1 through 10 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.AudioMode for Synthesized Image at WS.0.8.Image.LIST.0.Image.AudioMode is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.Color",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "RGB color integer",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed 0 through 16777215 as accepted color readbacks. The -1 sample read back 16777215, and samples above 16777215 read back 16777215."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color for Synthesized Image at WS.0.8.Image.LIST.0.Image.Color is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.Radius",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 6553400,
+        "unit": "radius readback",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed radius readbacks from 0 through 6553400. Positive inputs are scaled by BEYOND before readback, and high samples read back 6553400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Radius for Synthesized Image at WS.0.8.Image.LIST.0.Image.Radius is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.PositionX",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionX for Synthesized Image at WS.0.8.Image.LIST.0.PositionX is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.PositionY",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionY for Synthesized Image at WS.0.8.Image.LIST.0.PositionY is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.PositionZ",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionZ for Synthesized Image at WS.0.8.Image.LIST.0.PositionZ is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.SizeX",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeX for Synthesized Image at WS.0.8.Image.LIST.0.SizeX is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.SizeY",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeY for Synthesized Image at WS.0.8.Image.LIST.0.SizeY is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.SizeZ",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeZ for Synthesized Image at WS.0.8.Image.LIST.0.SizeZ is writable with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
+      }
+    }
+  ]
+}

@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 449,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.5 Classic LD2000 Abstract Image.0 controls. Every writable sampled write restored the observed baseline and verified final readback. WaveOSC rows behaved as no-op writes. No playback, output, projector, mute, zoning, or geometry commands were sent."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.0.SizeMOD1",
+      "probePath": "WS.0.5.Image.0.SizeMOD1",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 199,
+        "unit": "size modulation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -1000",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -201",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -199,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -199",
+          "readback": -198.99899291992188,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -101",
+          "readback": -101.0009994506836,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", -1",
+          "readback": -1.0010000467300415,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 1",
+          "readback": 1.0010000467300415,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 101",
+          "readback": 101.0009994506836,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 198,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 198",
+          "readback": 197.9980010986328,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 199",
+          "readback": 198.99899291992188,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 200",
+          "readback": -200,
+          "behavior": "wrap"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 201",
+          "readback": -200,
+          "behavior": "wrap"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 1000",
+          "readback": -200,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.Image.0.SizeMOD1 to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD1 at WS.0.5.Image.0.SizeMOD1 is writable in the Classic LD2000 Abstract context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.SizeMOD2",
+      "probePath": "WS.0.5.Image.0.SizeMOD2",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 199,
+        "unit": "size modulation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -1000",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -201",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -199,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -199",
+          "readback": -198.99899291992188,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -101",
+          "readback": -101.0009994506836,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", -1",
+          "readback": -1.0010000467300415,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 1",
+          "readback": 1.0010000467300415,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 101",
+          "readback": 101.0009994506836,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 198,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 198",
+          "readback": 197.9980010986328,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 199",
+          "readback": 198.99899291992188,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 200",
+          "readback": -200,
+          "behavior": "wrap"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 201",
+          "readback": -200,
+          "behavior": "wrap"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD2\", 1000",
+          "readback": -200,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.Image.0.SizeMOD2 to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD2 at WS.0.5.Image.0.SizeMOD2 is writable in the Classic LD2000 Abstract context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.WaveMOD1",
+      "probePath": "WS.0.5.Image.0.WaveMOD1",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "wave modulation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD1\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.Image.0.WaveMOD1 to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.WaveMOD1 at WS.0.5.Image.0.WaveMOD1 is writable in the Classic LD2000 Abstract context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.WaveMOD2",
+      "probePath": "WS.0.5.Image.0.WaveMOD2",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "wave modulation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveMOD2\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.Image.0.WaveMOD2 to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.WaveMOD2 at WS.0.5.Image.0.WaveMOD2 is writable in the Classic LD2000 Abstract context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.WaveOSC1",
+      "probePath": "WS.0.5.Image.0.WaveOSC1",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC1\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": 0,
+        "notes": "Sampled writes to WS.0.5.Image.0.WaveOSC1 did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed sampled writes to WS.N.N.Image.0.WaveOSC1 at WS.0.5.Image.0.WaveOSC1 read back as no-op in the Classic LD2000 Abstract context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline 0, so this row remains readback-only rather than shipping a writable value range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.WaveOSC2",
+      "probePath": "WS.0.5.Image.0.WaveOSC2",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC2\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": 0,
+        "notes": "Sampled writes to WS.0.5.Image.0.WaveOSC2 did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed sampled writes to WS.N.N.Image.0.WaveOSC2 at WS.0.5.Image.0.WaveOSC2 read back as no-op in the Classic LD2000 Abstract context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline 0, so this row remains readback-only rather than shipping a writable value range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.0.WaveOSC3",
+      "probePath": "WS.0.5.Image.0.WaveOSC3",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.5.Image.0.WaveOSC3\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": 0,
+        "notes": "Sampled writes to WS.0.5.Image.0.WaveOSC3 did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed sampled writes to WS.N.N.Image.0.WaveOSC3 at WS.0.5.Image.0.WaveOSC3 read back as no-op in the Classic LD2000 Abstract context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline 0, so this row remains readback-only rather than shipping a writable value range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

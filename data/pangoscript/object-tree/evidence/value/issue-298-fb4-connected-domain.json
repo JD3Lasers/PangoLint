@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used the same FB4 hardware root while disconnected and after operator-supervised reconnect. The serial-bearing concrete path name is redacted in this public evidence file."
+  },
+  "entries": [
+    {
+      "objectPath": "FB4-XXXXX.Connected",
+      "probePath": "FB4-XXXXX.Connected",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "DISCONNECTED",
+          "description": "FB4-XXXXX.Connected reads disconnected."
+        },
+        {
+          "value": 1,
+          "label": "CONNECTED",
+          "description": "FB4-XXXXX.Connected reads connected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": "disconnected-state readback",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "connected-state readback",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only hardware connection probe sent no writes. Operator reconnected FB4 before the connected-state readback."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB4-XXXXX.Connected as a 0/1 hardware connection domain. The disconnected state read 0, then the same FB4 hardware root read 1 after operator-supervised reconnect.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    }
+  ]
+}

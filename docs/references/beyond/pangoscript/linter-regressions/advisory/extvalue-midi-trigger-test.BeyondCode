@@ -1,0 +1,33 @@
+// PangoLint expect: extvalue-define-midi-trigger-default
+// PangoLint advisory: ExtValue in MIDI trigger label-handler context
+// Purpose: record that DefineMidiTrigger/InRangeTrigger dispatch fires, but ExtValue returns default editor-context values.
+// Requires MIDI CC 0 input after script registration; no output is expected immediately after paste/run unless a matching MIDI event is sent.
+// BEYOND observation 2026-05-07: a broad InRangeTrigger 0, 127 updated the trigger value display but emitted no OSC callback.
+// BEYOND validation 2026-05-07: after switching to exact ranges, sent CC 0 values 1, 0, 63, 64, 126, 127 via loopMIDI.
+// BEYOND emitted three callbacks, but all ExtValue calls returned direct-editor defaults instead of the current MIDI value.
+// PangoLint expected callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+// PangoLint expected callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+// PangoLint expected callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/trigger (sfff) "pangolint-candidate-extvalue-trigger-001" 0.000000 0.000000 1.000000
+
+var requestId
+var normalValue
+var fractionalValue
+var reversedValue
+
+requestId = "pangolint-candidate-extvalue-trigger-001"
+
+DefineMidiTrigger 0xB0, 0x00, "PangoLint ExtValue trigger"
+InRangeTrigger 0, 0, "ReadExtValue"
+InRangeTrigger 64, 64, "ReadExtValue"
+InRangeTrigger 127, 127, "ReadExtValue"
+exit
+
+ReadExtValue:
+normalValue = ExtValue(0, 127)
+fractionalValue = ExtValue(0, 8.999)
+reversedValue = ExtValue(1, -1)
+OscOutTTS "/pangolint/candidate/extvalue/trigger", "sfff", requestId, normalValue, fractionalValue, reversedValue
+exit

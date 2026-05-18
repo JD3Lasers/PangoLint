@@ -1,0 +1,14 @@
+{
+  "extends": "../../../../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": [],
+    "noEmit": true,
+    "rootDir": "../../../../.."
+  },
+  "include": ["./**/*.ts", "../objectsMessages.ts"],
+  "exclude": ["../../../../knowledge/**"]
+}

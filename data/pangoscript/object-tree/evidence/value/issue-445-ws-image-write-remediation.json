@@ -1,0 +1,2070 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 445,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.11 FIFO Image and WS.1.2 centered line Parametric-Image cue Image controls. Every sampled write restored the observed baseline and verified final readback. No playback, output, projector, mute, zoning, or geometry commands were sent."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.AngleX",
+      "probePath": "WS.0.11.Image.AngleX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -2881",
+          "readback": -2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -2880",
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 2880",
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 2881",
+          "readback": 2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.AngleX\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.AngleX to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleX at WS.0.11.Image.AngleX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AngleY",
+      "probePath": "WS.0.11.Image.AngleY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -2881",
+          "readback": -2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -2880",
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 2880",
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 2881",
+          "readback": 2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.AngleY\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.AngleY to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleY at WS.0.11.Image.AngleY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AngleZ",
+      "probePath": "WS.0.11.Image.AngleZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -2881",
+          "readback": -2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -2880",
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 2880",
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 2881",
+          "readback": 2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.AngleZ\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.AngleZ to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleZ at WS.0.11.Image.AngleZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CursorColor",
+      "probePath": "WS.0.11.Image.CursorColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 16777215,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 99999999,
+        "unit": "RGB color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 16777216",
+          "readback": 16777216,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 99999999,
+          "command": "SetProp \"WS.0.11.Image.CursorColor\", 99999999",
+          "readback": 99999999,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 16777215,
+        "notes": "The probe restored WS.0.11.Image.CursorColor to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.CursorColor at WS.0.11.Image.CursorColor accepts at least -1..99999999 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PosX",
+      "probePath": "WS.0.11.Image.PosX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.PosX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.PosX\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.PosX to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosX at WS.0.11.Image.PosX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PosY",
+      "probePath": "WS.0.11.Image.PosY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.PosY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.PosY\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.PosY to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosY at WS.0.11.Image.PosY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PosZ",
+      "probePath": "WS.0.11.Image.PosZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.PosZ\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.11.Image.PosZ to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosZ at WS.0.11.Image.PosZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.SizeX",
+      "probePath": "WS.0.11.Image.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -201",
+          "readback": -201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 201",
+          "readback": 201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.SizeX\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.11.Image.SizeX to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeX at WS.0.11.Image.SizeX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.SizeY",
+      "probePath": "WS.0.11.Image.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -201",
+          "readback": -201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 201",
+          "readback": 201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.SizeY\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.11.Image.SizeY to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeY at WS.0.11.Image.SizeY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.SizeZ",
+      "probePath": "WS.0.11.Image.SizeZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -201",
+          "readback": -201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 201",
+          "readback": 201,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.11.Image.SizeZ\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.11.Image.SizeZ to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeZ at WS.0.11.Image.SizeZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image cue, Image branch",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AnchBrigh",
+      "probePath": "WS.1.2.Image.AnchBrigh",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor brightness",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.AnchBrigh\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.1.2.Image.AnchBrigh to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchBrigh at WS.1.2.Image.AnchBrigh accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AnchHue",
+      "probePath": "WS.1.2.Image.AnchHue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor hue",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", -2",
+          "readback": -2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 359",
+          "readback": 359,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 721",
+          "readback": 721,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.AnchHue\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.2.Image.AnchHue to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchHue at WS.1.2.Image.AnchHue accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AnchSat",
+      "probePath": "WS.1.2.Image.AnchSat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor saturation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.AnchSat\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.2.Image.AnchSat to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchSat at WS.1.2.Image.AnchSat accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Angle",
+      "probePath": "WS.1.2.Image.Angle",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -2881",
+          "readback": -2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -2880",
+          "readback": -2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.Angle\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 2880",
+          "readback": 2880,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 2881",
+          "readback": 2881,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.Angle\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.2.Image.Angle to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.Angle at WS.1.2.Image.Angle accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.EndAnch",
+      "probePath": "WS.1.2.Image.EndAnch",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.EndAnch\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored WS.1.2.Image.EndAnch to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.EndAnch at WS.1.2.Image.EndAnch accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LineBright",
+      "probePath": "WS.1.2.Image.LineBright",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line brightness",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.LineBright\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.1.2.Image.LineBright to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineBright at WS.1.2.Image.LineBright accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LineHue",
+      "probePath": "WS.1.2.Image.LineHue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line hue",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", -2",
+          "readback": -2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 359",
+          "readback": 359,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 721",
+          "readback": 721,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.LineHue\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.2.Image.LineHue to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineHue at WS.1.2.Image.LineHue accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LineSat",
+      "probePath": "WS.1.2.Image.LineSat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line saturation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.LineSat\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.1.2.Image.LineSat to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineSat at WS.1.2.Image.LineSat accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Size",
+      "probePath": "WS.1.2.Image.Size",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.Size\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.Size\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.Size\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.Size\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.Size\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.Size\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.Size\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.Size\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored WS.1.2.Image.Size to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.Size at WS.1.2.Image.Size accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.StartAnch",
+      "probePath": "WS.1.2.Image.StartAnch",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.1.2.Image.StartAnch\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored WS.1.2.Image.StartAnch to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.StartAnch at WS.1.2.Image.StartAnch accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.1.2 centered line Parametric-Image cue, Image branch",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    }
+  ]
+}

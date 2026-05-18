@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.PointCount",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 1000,
+        "unit": "point count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.PointCount confirmed 1..1000 clamp readbacks: 0->1, 1->1, 2->2, 999->999, 1000->1000, 1001->1000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 point-count contexts confirmed WS.N.N.Image.PointCount for Shape at WS.0.3.Image.PointCount uses 1..1000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PointCount",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "point count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.PointCount confirmed 1..200 clamp readbacks: 0->1, 1->1, 2->2, 199->199, 200->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 point-count contexts confirmed WS.N.N.Image.PointCount for Particles at WS.0.10.Image.PointCount uses 1..200 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

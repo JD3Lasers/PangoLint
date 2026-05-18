@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used Beam.0 and restored observed baselines after sampled writes. Power accepted signed 32-bit integer storage values. RotoZ accepted fractional values through the shipped span. IsGroup and Name ignored sampled writes and ship as readback-only metadata."
+  },
+  "entries": [
+    {
+      "objectPath": "Beam.N.IsGroup",
+      "probePath": "Beam.0.IsGroup",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.IsGroup\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.IsGroup\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.IsGroup\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.IsGroup\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Beam.0.IsGroup\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Beam.0.IsGroup\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Beam.N.IsGroup did not change the Beam.0 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0",
+        "notes": "Concrete writes and readbacks used Beam.0 paths and normalized metadata keeps Beam.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Beam.N.Name",
+      "probePath": "Beam.0.Name",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "Beam 1",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Beam.0.Name\", \"string length 0\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"Beam.0.Name\", \"string length 1\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"Beam.0.Name\", \"string length 32\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"Beam.0.Name\", \"string length 254\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"Beam.0.Name\", \"string length 255\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 18",
+          "command": "SetProp \"Beam.0.Name\", \"string length 18\"",
+          "readback": "Beam 1",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "Beam 1",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"Beam 1\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Beam.N.Name did not change the Beam.0 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0",
+        "notes": "Concrete writes and readbacks used Beam.0 paths and normalized metadata keeps Beam.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Beam.N.Power",
+      "probePath": "Beam.0.Power",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Beam.0.Power\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Beam.0.Power\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Beam.0.Power\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Power\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Power\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.Power\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Beam.0.Power\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Beam.0.Power\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Beam.0.Power\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Beam.0.Power\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Beam.N.Power accepts signed 32-bit integer storage values on Beam.0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0",
+        "notes": "Concrete writes and readbacks used Beam.0 paths and normalized metadata keeps Beam.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Beam.N.RotoZ",
+      "probePath": "Beam.0.RotoZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Beam.0.RotoZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Beam.0.RotoZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Beam.0.RotoZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Beam.0.RotoZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"Beam.0.RotoZ\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Beam.0.RotoZ\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1.5,
+          "command": "SetProp \"Beam.0.RotoZ\", -1.5",
+          "readback": -1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.RotoZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.RotoZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.RotoZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Beam.0.RotoZ\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"Beam.0.RotoZ\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"Beam.0.RotoZ\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Beam.0.RotoZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Beam.0.RotoZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Beam.0.RotoZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Beam.0.RotoZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Beam.N.RotoZ accepts fractional values through -1000000..1000000 on Beam.0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0",
+        "notes": "Concrete writes and readbacks used Beam.0 paths and normalized metadata keeps Beam.N placeholders."
+      }
+    }
+  ]
+}

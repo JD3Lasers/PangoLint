@@ -1,0 +1,6173 @@
+[
+  {
+    "id": "osc.beyond-objectname-labelname.none",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/<labelName>",
+    "args": [],
+    "title": "Jump to script label",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/<labelName>",
+      "displayLabel": "Jump to script label",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-caption.s",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/caption",
+    "args": [
+      "s"
+    ],
+    "title": "Set caption",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/caption",
+      "displayLabel": "Set caption",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-maxvalue.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/maxvalue",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Set range maximum",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/maxvalue",
+      "displayLabel": "Set range maximum",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-minvalue.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/minvalue",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Set range minimum",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/minvalue",
+      "displayLabel": "Set range minimum",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-selected.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/selected",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Set selection state",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/selected",
+      "displayLabel": "Set selection state",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-start.none",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/start",
+    "args": [],
+    "title": "Start script execution",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/start",
+      "displayLabel": "Start script execution",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-stop.none",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/stop",
+    "args": [],
+    "title": "Stop script execution",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/stop",
+      "displayLabel": "Stop script execution",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-value.f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/value",
+    "args": [
+      "f"
+    ],
+    "title": "Set value float",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/value",
+      "displayLabel": "Set value float",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-value.i",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/value",
+    "args": [
+      "i"
+    ],
+    "title": "Set value integer",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/value",
+      "displayLabel": "Set value integer",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-value.i-i",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/value",
+    "args": [
+      "i",
+      "i"
+    ],
+    "title": "Set value with maximum",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/value",
+      "displayLabel": "Set value with maximum",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-visible.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/visible",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Show or hide object",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/visible",
+      "displayLabel": "Show or hide object",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-x.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/x",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Set XY pad X coordinate",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/x",
+      "displayLabel": "Set XY pad X coordinate",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-objectname-y.i-f",
+    "addressSpace": "/beyond",
+    "namespace": "universeWindow",
+    "pathPattern": "/beyond/<objectName>/y",
+    "args": [
+      "i",
+      "f"
+    ],
+    "title": "Set XY pad Y coordinate",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "objectName"
+      ],
+      "objectNameUserDefined": true
+    },
+    "lookup": {
+      "label": "/y",
+      "displayLabel": "Set XY pad Y coordinate",
+      "group": "Universe Window",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-beams.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/beams",
+    "args": [
+      "f[]"
+    ],
+    "title": "Beam brightness gateway",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "Beam brightness gateway",
+      "displayLabel": "Beam brightness gateway",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-channels.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/channels",
+    "args": [
+      "f[]"
+    ],
+    "title": "Channel gateway",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "Channel gateway",
+      "displayLabel": "Channel gateway",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "cue anglex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "cue anglex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/angley",
+    "args": [
+      "f"
+    ],
+    "title": "cue angley",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "cue angley",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "cue anglez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "cue anglez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "cue colorslider",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "cue colorslider",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "cue Set X, Y, and Z rotation angle",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "angle",
+      "displayLabel": "cue angle fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleX",
+      "WS.N.N.RotoAngleY",
+      "WS.N.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "cue anglex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "cue anglex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "title": "cue angley livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "cue angley livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "cue anglez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "cue anglez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-anispeed.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "title": "cue anispeed",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "anispeed",
+      "displayLabel": "cue anispeed",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.AnimationSpeed"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "cue colorslider livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "cue colorslider livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "cue Set four effect slots",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "fx",
+      "displayLabel": "cue fx ffff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.FX1",
+      "WS.N.N.FX2",
+      "WS.N.N.FX3",
+      "WS.N.N.FX4"
+    ],
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-pos.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "cue Set X and Y position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "cue pos ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.PositionX",
+      "WS.N.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "cue Set X, Y, and Z position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "cue pos fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.PositionX",
+      "WS.N.N.PositionY",
+      "WS.N.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-posx.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "title": "cue posx",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posx",
+      "displayLabel": "cue posx",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.PositionX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-posy.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "title": "cue posy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posy",
+      "displayLabel": "cue posy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-posz.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "title": "cue posz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posz",
+      "displayLabel": "cue posz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-rotox.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "title": "cue rotox",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotox",
+      "displayLabel": "cue rotox",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoSpeedX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-rotoy.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "title": "cue rotoy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoy",
+      "displayLabel": "cue rotoy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoSpeedY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-rotoz.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "title": "cue rotoz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoz",
+      "displayLabel": "cue rotoz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.RotoSpeedZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "cue scanrate livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "cue scanrate livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-size.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "cue Set X and Y scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "cue size ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeX",
+      "WS.N.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "cue Set X, Y, and Z scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "cue size fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeX",
+      "WS.N.N.SizeY",
+      "WS.N.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "cue sizex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizey livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "cue sizey livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-livecontrol-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "cue sizez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "cue scanrate",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "cue scanrate",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "cue sizex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizey",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "cue sizey",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-cue-page-cue-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "cue sizez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "page",
+        "cue"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "cue sizez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "WS.N.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-dmx.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/dmx",
+    "args": [
+      "f[]"
+    ],
+    "title": "DMX array write",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "DMX array write",
+      "displayLabel": "DMX array write",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "DmxOutput[N]"
+    ],
+    "valueTransform": {
+      "kind": "arrayOffset",
+      "offset": 1
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-fixture-name-function.f",
+    "addressSpace": "/beyond",
+    "namespace": "fixture",
+    "pathPattern": "/beyond/fixture/<name>/<function>",
+    "args": [
+      "f"
+    ],
+    "title": "fixture function",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "workspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "name",
+        "function"
+      ],
+      "argsDependOnFixtureDefinition": true
+    },
+    "lookup": {
+      "label": "fixture function",
+      "displayLabel": "fixture function",
+      "group": "Fixture",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-general-blackout.none",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/BlackOut",
+    "args": [],
+    "title": "Black out laser output",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Black out laser output",
+      "displayLabel": "Black out laser output",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": [
+      "Target property was not identified."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-cuedown.i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i"
+    ],
+    "title": "Navigate cue grid downward",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Navigate cue grid downward",
+      "displayLabel": "Navigate cue grid downward",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Grid.CellIndex"
+    ],
+    "safetyTier": "T1",
+    "notes": [
+      "Second argument sets Grid.CellIndex to value plus 1."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-cuedown.i-i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i",
+      "i"
+    ],
+    "title": "Navigate cue grid downward, three-argument form",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "partial",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Navigate cue grid downward, three-argument form",
+      "displayLabel": "Navigate cue grid downward, three-argument form",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Grid.CellIndex"
+    ],
+    "safetyTier": "T1",
+    "notes": [
+      "Third argument had no observable effect in probing."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-cueup.i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueUp",
+    "args": [
+      "i",
+      "i"
+    ],
+    "title": "Navigate cue grid upward",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observedNoOp",
+    "supportStatus": "notWorkingAsDocumented",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Navigate cue grid upward",
+      "displayLabel": "Navigate cue grid upward",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T1",
+    "notes": [
+      "Did not change Grid.CellIndex from tested baselines."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-cueup.i-i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueUp",
+    "args": [
+      "i",
+      "i",
+      "i"
+    ],
+    "title": "Navigate cue grid upward, three-argument form",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observedNoOp",
+    "supportStatus": "notWorkingAsDocumented",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Navigate cue grid upward, three-argument form",
+      "displayLabel": "Navigate cue grid upward, three-argument form",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T1",
+    "notes": [
+      "Did not change Grid.CellIndex from tested baselines."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-dmxout.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "Set one DMX channel, float form",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Set one DMX channel, float form",
+      "displayLabel": "Set one DMX channel, float form",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "DmxOutput[N]"
+    ],
+    "valueTransform": {
+      "kind": "directChannelIndex"
+    },
+    "safetyTier": "T1",
+    "notes": [
+      "Float overload accepted."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-dmxout.i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "i",
+      "i"
+    ],
+    "title": "Set one DMX channel",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Set one DMX channel",
+      "displayLabel": "Set one DMX channel",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "DmxOutput[N]"
+    ],
+    "valueTransform": {
+      "kind": "directChannelIndex"
+    },
+    "safetyTier": "T1",
+    "notes": [
+      "Uses channel index directly."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-loadworkspace.s",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/LoadWorkspace",
+    "args": [
+      "s"
+    ],
+    "title": "Load workspace by name",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedDestructive",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Load workspace by name",
+      "displayLabel": "Load workspace by name",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-general-oscout.s-i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/OscOut",
+    "args": [
+      "s",
+      "i",
+      "i"
+    ],
+    "title": "Route OSC message out",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Route OSC message out",
+      "displayLabel": "Route OSC message out",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "valueTransform": {
+      "kind": "typeConversion",
+      "from": "integer",
+      "to": "float"
+    },
+    "safetyTier": "T1",
+    "notes": [
+      "Integer args arrived as floats at downstream receiver."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-pausecue.i-i-i",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/PauseCue",
+    "args": [
+      "i",
+      "i",
+      "i"
+    ],
+    "title": "Pause cue",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Pause cue",
+      "displayLabel": "Pause cue",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T1",
+    "notes": [
+      "Playback state was not exposed through tested properties."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-selectcue.s",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/SelectCue",
+    "args": [
+      "s"
+    ],
+    "title": "Select cue by exact caption",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Select cue by exact caption",
+      "displayLabel": "Select cue by exact caption",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Grid.PageIndex",
+      "Grid.CellIndex"
+    ],
+    "safetyTier": "T1",
+    "notes": [
+      "Requires exact cue caption match."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-setbpm.f",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/SetBpm",
+    "args": [
+      "f"
+    ],
+    "title": "Set master tempo",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Set master tempo",
+      "displayLabel": "Set master tempo",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.BPM"
+    ],
+    "safetyTier": "T1",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-general-startcue.s",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/StartCue",
+    "args": [
+      "s"
+    ],
+    "title": "Start cue by caption",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Start cue by caption",
+      "displayLabel": "Start cue by caption",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T1",
+    "notes": [
+      "Playback state was not exposed through tested properties."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-stopallnow.none",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/StopAllNow",
+    "args": [],
+    "title": "Stop all output immediately",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscDispatcherCommand"
+    },
+    "lookup": {
+      "label": "Stop all output immediately",
+      "displayLabel": "Stop all output immediately",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": [
+      "Playback state was not exposed through tested properties."
+    ]
+  },
+  {
+    "id": "osc.beyond-general-stopcue.s",
+    "addressSpace": "/beyond",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/StopCue",
+    "args": [
+      "s"
+    ],
+    "title": "Stop cue by caption",
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscDispatcherCommand",
+      "indexBase": 0
+    },
+    "lookup": {
+      "label": "Stop cue by caption",
+      "displayLabel": "Stop cue by caption",
+      "group": "General",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T1",
+    "notes": [
+      "Playback state was not exposed through tested properties."
+    ]
+  },
+  {
+    "id": "osc.beyond-master-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "master anglex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "master anglex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/angley",
+    "args": [
+      "f"
+    ],
+    "title": "master angley",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "master angley",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "master anglez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "master anglez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "master colorslider",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "master colorslider",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.ColorSlider",
+      "MasterLC.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "master Set X, Y, and Z rotation angle",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "angle",
+      "displayLabel": "master angle fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleX",
+      "MasterLC.RotoAngleY",
+      "MasterLC.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "master anglex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "master anglex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "title": "master angley livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "master angley livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "master anglez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "master anglez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-anispeed.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "title": "master anispeed",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "anispeed",
+      "displayLabel": "master anispeed",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.AnimationSpeed",
+      "MasterLC.AnimationSpeed"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "master colorslider livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "master colorslider livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.ColorSlider",
+      "MasterLC.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "master Set four effect slots",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "fx",
+      "displayLabel": "master fx ffff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.FX1",
+      "MasterLC.FX2",
+      "MasterLC.FX3",
+      "MasterLC.FX4"
+    ],
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-pos.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "master Set X and Y position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "master pos ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.PositionX",
+      "MasterLC.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "master Set X, Y, and Z position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "master pos fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.PositionX",
+      "MasterLC.PositionY",
+      "MasterLC.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-posx.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "title": "master posx",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posx",
+      "displayLabel": "master posx",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.PositionX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-posy.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "title": "master posy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posy",
+      "displayLabel": "master posy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-posz.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "title": "master posz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posz",
+      "displayLabel": "master posz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-rotox.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "title": "master rotox",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotox",
+      "displayLabel": "master rotox",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoSpeedX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-rotoy.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "title": "master rotoy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoy",
+      "displayLabel": "master rotoy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoSpeedY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-rotoz.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "title": "master rotoz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoz",
+      "displayLabel": "master rotoz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.RotoSpeedZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "master scanrate livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "master scanrate livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-size.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "master Set X and Y scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "master size ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeX",
+      "MasterLC.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-size.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "master Set X, Y, and Z scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "master size fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeX",
+      "MasterLC.SizeY",
+      "MasterLC.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "master sizex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "master sizex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.SizeX",
+      "MasterLC.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "master sizey livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "master sizey livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-livecontrol-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "master sizez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "master sizez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "master scanrate",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "master scanrate",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "master sizex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "master sizex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Master.SizeX",
+      "MasterLC.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "master sizey",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "master sizey",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-master-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "master sizez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": null,
+      "requiredSegments": [],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "master sizez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "MasterLC.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-invx.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/invx",
+    "args": [
+      "f"
+    ],
+    "title": "projector Invert X axis",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "invx",
+      "displayLabel": "projector invx",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.InvX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-invy.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/invy",
+    "args": [
+      "f"
+    ],
+    "title": "projector Invert Y axis",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "invy",
+      "displayLabel": "projector invy",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.InvY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-posx.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/posx",
+    "args": [
+      "f"
+    ],
+    "title": "projector X position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "posx",
+      "displayLabel": "projector posx",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.PosX"
+    ],
+    "valueTransform": {
+      "kind": "multiply",
+      "factor": 327.67,
+      "clamp": [
+        -32767,
+        32767
+      ]
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-posy.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/posy",
+    "args": [
+      "f"
+    ],
+    "title": "projector Y position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "posy",
+      "displayLabel": "projector posy",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.PosY"
+    ],
+    "valueTransform": {
+      "kind": "multiply",
+      "factor": 327.67,
+      "clamp": [
+        -32767,
+        32767
+      ]
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "projector X scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "projector sizex",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "projector Y scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "projector sizey",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-projector-projector-swapxy.f",
+    "addressSpace": "/beyond",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/swapxy",
+    "args": [
+      "f"
+    ],
+    "title": "projector Swap X and Y axes",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "projector"
+      ],
+      "projectorLiveControlSubsetOnly": true
+    },
+    "lookup": {
+      "label": "swapxy",
+      "displayLabel": "projector swapxy",
+      "group": "Projector",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Projector.N.SwapXY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-codename.none",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/<codename>",
+    "args": [],
+    "title": "execute ProTrack daemon script",
+    "routeKind": "workspaceDependentCommand",
+    "evidenceLevel": "documented",
+    "supportStatus": "untestedWorkspaceDependent",
+    "binding": {
+      "kind": "workspaceNamedRoute",
+      "requiredSegments": [
+        "protrack",
+        "codename"
+      ]
+    },
+    "lookup": {
+      "label": "CODENAME",
+      "displayLabel": "execute ProTrack daemon script",
+      "group": "ProTrack",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "protrack anglex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "protrack anglex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/angley",
+    "args": [
+      "f"
+    ],
+    "title": "protrack angley",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "protrack angley",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "protrack anglez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "protrack anglez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "protrack colorslider",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "protrack colorslider",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "protrack Set X, Y, and Z rotation angle",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "angle",
+      "displayLabel": "protrack angle fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleX",
+      "ProTrack.N.RotoAngleY",
+      "ProTrack.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "protrack anglex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "protrack anglex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "title": "protrack angley livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "protrack angley livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "protrack anglez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "protrack anglez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-anispeed.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "title": "protrack anispeed",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "anispeed",
+      "displayLabel": "protrack anispeed",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.AnimationSpeed"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "protrack colorslider livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "protrack colorslider livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "protrack Set four effect slots",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "fx",
+      "displayLabel": "protrack fx ffff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.FX1",
+      "ProTrack.N.FX2",
+      "ProTrack.N.FX3",
+      "ProTrack.N.FX4"
+    ],
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-pos.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "protrack Set X and Y position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "protrack pos ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.PositionX",
+      "ProTrack.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "protrack Set X, Y, and Z position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "protrack pos fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.PositionX",
+      "ProTrack.N.PositionY",
+      "ProTrack.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-posx.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "title": "protrack posx",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posx",
+      "displayLabel": "protrack posx",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.PositionX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-posy.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "title": "protrack posy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posy",
+      "displayLabel": "protrack posy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-posz.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "title": "protrack posz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posz",
+      "displayLabel": "protrack posz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-rotox.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "title": "protrack rotox",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotox",
+      "displayLabel": "protrack rotox",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoSpeedX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-rotoy.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "title": "protrack rotoy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoy",
+      "displayLabel": "protrack rotoy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoSpeedY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-rotoz.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "title": "protrack rotoz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoz",
+      "displayLabel": "protrack rotoz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.RotoSpeedZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "protrack scanrate livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "protrack scanrate livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-size.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "protrack Set X and Y scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "protrack size ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeX",
+      "ProTrack.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "protrack Set X, Y, and Z scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "protrack size fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeX",
+      "ProTrack.N.SizeY",
+      "ProTrack.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "protrack sizex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizey livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "protrack sizey livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-livecontrol-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "protrack sizez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-mute.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/mute",
+    "args": [
+      "f"
+    ],
+    "title": "protrack mute",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "valueConvention": "0 off, 1 on, 2 toggle"
+    },
+    "lookup": {
+      "label": "mute",
+      "displayLabel": "protrack mute",
+      "group": "ProTrack",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.Mute"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "protrack scanrate",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "protrack scanrate",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-select.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/select",
+    "args": [
+      "f"
+    ],
+    "title": "protrack select",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "valueConvention": "0 off, 1 on, 2 toggle"
+    },
+    "lookup": {
+      "label": "select",
+      "displayLabel": "protrack select",
+      "group": "ProTrack",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.Selected"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "protrack sizex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizey",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "protrack sizey",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-protrack-protrack-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "protrack sizez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "protrack"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "protrack sizez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "ProTrack.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-touch-x.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/touch/x",
+    "args": [
+      "f"
+    ],
+    "title": "Touch X input",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "Touch X input",
+      "displayLabel": "Touch X input",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-touch-y.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/touch/y",
+    "args": [
+      "f"
+    ],
+    "title": "Touch Y input",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "Touch Y input",
+      "displayLabel": "Touch Y input",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-touch-z.f",
+    "addressSpace": "/beyond",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/touch/z",
+    "args": [
+      "f"
+    ],
+    "title": "Touch pressure input",
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "oscGatewayRoute"
+    },
+    "lookup": {
+      "label": "Touch pressure input",
+      "displayLabel": "Touch pressure input",
+      "group": "Gateway",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "zone anglex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "zone anglex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/angley",
+    "args": [
+      "f"
+    ],
+    "title": "zone angley",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "zone angley",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "zone anglez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "zone anglez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "zone colorslider",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "zone colorslider",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "zone Set X, Y, and Z rotation angle",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "angle",
+      "displayLabel": "zone angle fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleX",
+      "Zone.N.RotoAngleY",
+      "Zone.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-anglex.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "title": "zone anglex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglex",
+      "displayLabel": "zone anglex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-angley.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "title": "zone angley livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "angley",
+      "displayLabel": "zone angley livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-anglez.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "title": "zone anglez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "anglez",
+      "displayLabel": "zone anglez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoAngleZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-anispeed.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "title": "zone anispeed",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "anispeed",
+      "displayLabel": "zone anispeed",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.AnimationSpeed"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-colorslider.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "title": "zone colorslider livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "colorslider",
+      "displayLabel": "zone colorslider livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.ColorSlider"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "zone Set four effect slots",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "fx",
+      "displayLabel": "zone fx ffff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.FX1",
+      "Zone.N.FX2",
+      "Zone.N.FX3",
+      "Zone.N.FX4"
+    ],
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    },
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-pos.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "zone Set X and Y position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "zone pos ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.PositionX",
+      "Zone.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "zone Set X, Y, and Z position",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "pos",
+      "displayLabel": "zone pos fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.PositionX",
+      "Zone.N.PositionY",
+      "Zone.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-posx.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "title": "zone posx",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posx",
+      "displayLabel": "zone posx",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.PositionX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-posy.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "title": "zone posy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posy",
+      "displayLabel": "zone posy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.PositionY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-posz.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "title": "zone posz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "posz",
+      "displayLabel": "zone posz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.PositionZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-rotox.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "title": "zone rotox",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotox",
+      "displayLabel": "zone rotox",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoSpeedX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-rotoy.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "title": "zone rotoy",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoy",
+      "displayLabel": "zone rotoy",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoSpeedY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-rotoz.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "title": "zone rotoz",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolRequired",
+      "shortFormAccepted": false,
+      "livecontrolPrefixRequired": true
+    },
+    "lookup": {
+      "label": "rotoz",
+      "displayLabel": "zone rotoz",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.RotoSpeedZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "zone scanrate livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "zone scanrate livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-size.f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "title": "zone Set X and Y scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "zone size ff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeX",
+      "Zone.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "title": "zone Set X, Y, and Z scale",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolOnly",
+      "multiArgumentRoute": true
+    },
+    "lookup": {
+      "label": "size",
+      "displayLabel": "zone size fff",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeX",
+      "Zone.N.SizeY",
+      "Zone.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizex livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "zone sizex livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizey livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "zone sizey livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-livecontrol-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizez livecontrol alias",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "livecontrolAlias",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "zone sizez livecontrol alias",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-mute.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/mute",
+    "args": [
+      "f"
+    ],
+    "title": "zone mute",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "valueConvention": "0 off, 1 on, 2 toggle"
+    },
+    "lookup": {
+      "label": "mute",
+      "displayLabel": "zone mute",
+      "group": "Zone",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.Mute"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-scanrate.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/scanrate",
+    "args": [
+      "f"
+    ],
+    "title": "zone scanrate",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "scanrate",
+      "displayLabel": "zone scanrate",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.ScanRate"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-select.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/select",
+    "args": [
+      "f"
+    ],
+    "title": "zone select",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "valueConvention": "0 off, 1 on, 2 toggle"
+    },
+    "lookup": {
+      "label": "select",
+      "displayLabel": "zone select",
+      "group": "Zone",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.Selected"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-sizex.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizex",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizex",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizex",
+      "displayLabel": "zone sizex",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeX"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-sizey.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizey",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizey",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizey",
+      "displayLabel": "zone sizey",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeY"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zone-zone-sizez.f",
+    "addressSpace": "/beyond",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizez",
+    "args": [
+      "f"
+    ],
+    "title": "zone sizez",
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "binding": {
+      "kind": "oscCommandRoute",
+      "indexBase": 0,
+      "requiredSegments": [
+        "zone"
+      ],
+      "pathForm": "shortOrLivecontrol",
+      "shortFormAccepted": true,
+      "livecontrolPrefixRequired": false
+    },
+    "lookup": {
+      "label": "sizez",
+      "displayLabel": "zone sizez",
+      "group": "Live Control",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [
+      "Zone.N.SizeZ"
+    ],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ax.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ax",
+    "args": [
+      "f"
+    ],
+    "title": "Corner A X coordinate",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ax",
+      "displayLabel": "Corner A X coordinate",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ay.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ay",
+    "args": [
+      "f"
+    ],
+    "title": "Corner A Y coordinate",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ay",
+      "displayLabel": "Corner A Y coordinate",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-bx.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/bx",
+    "args": [
+      "f"
+    ],
+    "title": "Corner B X coordinate",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "bx",
+      "displayLabel": "Corner B X coordinate",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-by.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/by",
+    "args": [
+      "f"
+    ],
+    "title": "Corner B Y coordinate",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "by",
+      "displayLabel": "Corner B Y coordinate",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xbow.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xbow",
+    "args": [
+      "f"
+    ],
+    "title": "X bow calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xbow",
+      "displayLabel": "X bow calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xkeystone.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xkeystone",
+    "args": [
+      "f"
+    ],
+    "title": "X keystone calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xkeystone",
+      "displayLabel": "X keystone calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xlinearity.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xlinearity",
+    "args": [
+      "f"
+    ],
+    "title": "X linearity calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xlinearity",
+      "displayLabel": "X linearity calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xpincussion.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xpincussion",
+    "args": [
+      "f"
+    ],
+    "title": "X pincushion calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xpincussion",
+      "displayLabel": "X pincushion calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xposition.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xposition",
+    "args": [
+      "f"
+    ],
+    "title": "X position calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xposition",
+      "displayLabel": "X position calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xshear.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xshear",
+    "args": [
+      "f"
+    ],
+    "title": "X shear calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xshear",
+      "displayLabel": "X shear calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xsize.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xsize",
+    "args": [
+      "f"
+    ],
+    "title": "X size calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xsize",
+      "displayLabel": "X size calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xsymmetry.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xsymmetry",
+    "args": [
+      "f"
+    ],
+    "title": "X symmetry calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xsymmetry",
+      "displayLabel": "X symmetry calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-xsymmetryoffset.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/xsymmetryoffset",
+    "args": [
+      "f"
+    ],
+    "title": "X symmetry offset calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "xsymmetryoffset",
+      "displayLabel": "X symmetry offset calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ybow.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ybow",
+    "args": [
+      "f"
+    ],
+    "title": "Y bow calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ybow",
+      "displayLabel": "Y bow calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ykeystone.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ykeystone",
+    "args": [
+      "f"
+    ],
+    "title": "Y keystone calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ykeystone",
+      "displayLabel": "Y keystone calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ylinearity.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ylinearity",
+    "args": [
+      "f"
+    ],
+    "title": "Y linearity calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ylinearity",
+      "displayLabel": "Y linearity calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ypincussion.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ypincussion",
+    "args": [
+      "f"
+    ],
+    "title": "Y pincushion calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ypincussion",
+      "displayLabel": "Y pincushion calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-yposition.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/yposition",
+    "args": [
+      "f"
+    ],
+    "title": "Y position calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "yposition",
+      "displayLabel": "Y position calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-yshear.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/yshear",
+    "args": [
+      "f"
+    ],
+    "title": "Y shear calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "yshear",
+      "displayLabel": "Y shear calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-ysize.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/ysize",
+    "args": [
+      "f"
+    ],
+    "title": "Y size calibration",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "ysize",
+      "displayLabel": "Y size calibration",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.beyond-zonesetup-zone.f",
+    "addressSpace": "/beyond",
+    "namespace": "zonesetup",
+    "pathPattern": "/beyond/zonesetup/zone",
+    "args": [
+      "f"
+    ],
+    "title": "Set active zone index",
+    "routeKind": "writeOnlyCalibration",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "statefulCalibrationRoute",
+      "activeZoneSetBy": "/beyond/zonesetup/zone",
+      "readbackAvailable": false
+    },
+    "lookup": {
+      "label": "zone",
+      "displayLabel": "Set active zone index",
+      "group": "Zone Setup",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-codename.none",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/<codename>",
+    "args": [],
+    "title": "Execute MIDI daemon script",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedWorkspaceDependent",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": true
+    },
+    "lookup": {
+      "label": "Execute MIDI daemon script",
+      "displayLabel": "Execute MIDI daemon script",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-devicename-devicein.s",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/<deviceName>/devicein",
+    "args": [
+      "s"
+    ],
+    "title": "Configure MIDI input by device name",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedRequiresDevice",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Configure MIDI input by device name",
+      "displayLabel": "Configure MIDI input by device name",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-devicename-deviceout.s",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/<deviceName>/deviceout",
+    "args": [
+      "s"
+    ],
+    "title": "Configure MIDI output by device name",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedRequiresDevice",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Configure MIDI output by device name",
+      "displayLabel": "Configure MIDI output by device name",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-port.none",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/<port>/",
+    "args": [],
+    "title": "Port-specific MIDI route",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedRequiresDevice",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Port-specific MIDI route",
+      "displayLabel": "Port-specific MIDI route",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-close.none",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/close",
+    "args": [],
+    "title": "Deactivate MIDI port",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Deactivate MIDI port",
+      "displayLabel": "Deactivate MIDI port",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-index.f",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/index",
+    "args": [
+      "f"
+    ],
+    "title": "Select MIDI device index",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Select MIDI device index",
+      "displayLabel": "Select MIDI device index",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-open.none",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/open",
+    "args": [],
+    "title": "Activate MIDI port",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "wireAccepted",
+    "supportStatus": "acceptedNoReadback",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Activate MIDI port",
+      "displayLabel": "Activate MIDI port",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  },
+  {
+    "id": "osc.midi-sysex.f",
+    "addressSpace": "/midi",
+    "namespace": "midi",
+    "pathPattern": "/midi/sysex",
+    "args": [
+      "f[]"
+    ],
+    "title": "Send MIDI system exclusive data",
+    "routeKind": "midiGateway",
+    "evidenceLevel": "untested",
+    "supportStatus": "untestedRequiresDevice",
+    "binding": {
+      "kind": "midiRoute",
+      "workspaceDependent": false
+    },
+    "lookup": {
+      "label": "Send MIDI system exclusive data",
+      "displayLabel": "Send MIDI system exclusive data",
+      "group": "MIDI",
+      "showAddressPrefix": true
+    },
+    "targetPropertyPatterns": [],
+    "safetyTier": "T2",
+    "notes": []
+  }
+]

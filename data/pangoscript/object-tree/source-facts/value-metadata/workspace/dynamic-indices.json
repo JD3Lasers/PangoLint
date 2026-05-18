@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Grid.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "loaded workspace page count",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetGrid1Page -1 and 0 read back 1, 1 and 2 pass through, and 3 and 999 read back 2 in the loaded two-page workspace."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command write/readback on 2026-05-13 used SetGrid1Page against Grid.PageIndex and restored the observed baseline page 1.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "1-based visible Grid1 page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "Grid2.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "loaded workspace page count",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetGrid2Page -1 and 0 read back 1, 1 and 2 pass through, and 3 and 999 read back 2 in the loaded two-page workspace."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command write/readback on 2026-05-13 used SetGrid2Page against Grid2.PageIndex and restored the observed baseline page 1.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "1-based visible Grid2 page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "Grid.CellIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid.Count",
+          "sourcePaths": ["Grid.Count"],
+          "notes": "Grid.Count read back 60 in the loaded 10 by 6 workspace grid."
+        },
+        "unit": "cell index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -1 and 0 read back 1, 1, 59, and 60 pass through, and 61 read back 60 with Grid.Count 60."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored Grid.CellIndex to baseline 1 after each bounded probe.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "1-based visible Grid1 cell index in the loaded workspace grid."
+      }
+    },
+    {
+      "path": "Grid2.CellIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid2.GetColCount * Grid2.GetRowCount",
+          "sourcePaths": ["Grid2.GetColCount", "Grid2.GetRowCount"],
+          "notes": "Grid2.GetColCount read back 10 and Grid2.GetRowCount read back 6 in the loaded workspace grid."
+        },
+        "unit": "cell index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -1 and 0 read back 1, 1, 59, and 60 pass through, and 61 read back 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored Grid2.CellIndex to baseline 12 after each bounded probe.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "1-based visible Grid2 cell index in the loaded workspace grid."
+      }
+    },
+    {
+      "path": "ProTrack.N.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes on ProTrack.0.PageIndex showed -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 used concrete path ProTrack.0.PageIndex and restored the observed baseline -1.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "ProTrack.N uses the zero-based Object Tree track index."
+      }
+    },
+    {
+      "path": "ProTrack1.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack1.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack2.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack2.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack3.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack3.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack4.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack4.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack5.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack5.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack6.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack6.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack7.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack7.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    },
+    {
+      "path": "ProTrack8.PageIndex",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct writes -2 and -1 read back -1, 0 and 1 pass through, and 2 and 100 read back 1 in the loaded two-page workspace."
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 restored ProTrack8.PageIndex to baseline -1 after each bounded probe.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Zero-based ProTrack page index in the loaded workspace."
+      }
+    }
+  ]
+}

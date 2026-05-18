@@ -1,0 +1,2508 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 457,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.10 Particles Image rows. The bench had no lasers connected. Sampled writes were writable, but they did not prove useful manual-ready min/max bounds. Every restore readback matched the observed baseline."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.Brightness",
+      "probePath": "WS.0.10.Image.Brightness",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.Brightness\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.10.Image.Brightness to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Brightness at WS.0.10.Image.Brightness is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterX",
+      "probePath": "WS.0.10.Image.CenterX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterX\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterX at WS.0.10.Image.CenterX is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterXSpread",
+      "probePath": "WS.0.10.Image.CenterXSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterXSpread\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterXSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterXSpread at WS.0.10.Image.CenterXSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterY",
+      "probePath": "WS.0.10.Image.CenterY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterY\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterY at WS.0.10.Image.CenterY is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterYSpread",
+      "probePath": "WS.0.10.Image.CenterYSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterYSpread\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterYSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterYSpread at WS.0.10.Image.CenterYSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterZ",
+      "probePath": "WS.0.10.Image.CenterZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterZ\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterZ at WS.0.10.Image.CenterZ is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.CenterZSpread",
+      "probePath": "WS.0.10.Image.CenterZSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.CenterZSpread\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.CenterZSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.CenterZSpread at WS.0.10.Image.CenterZSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Deceleration",
+      "probePath": "WS.0.10.Image.Deceleration",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0.019999999552965164,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 0.01",
+          "readback": 0.009999999776482582,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.Deceleration\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0.019999999552965164,
+        "notes": "The probe restored WS.0.10.Image.Deceleration to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Deceleration at WS.0.10.Image.Deceleration is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -100 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.DirectionSpread",
+      "probePath": "WS.0.10.Image.DirectionSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 45,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 45,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 45",
+          "readback": 45,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 90,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 90",
+          "readback": 90,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 180,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 180",
+          "readback": 180,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.10.Image.DirectionSpread\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 45,
+        "notes": "The probe restored WS.0.10.Image.DirectionSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.DirectionSpread at WS.0.10.Image.DirectionSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 361 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.DirectionXY",
+      "probePath": "WS.0.10.Image.DirectionXY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 90,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 45,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 45",
+          "readback": 45,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 90,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 90",
+          "readback": 90,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 180,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 180",
+          "readback": 180,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.10.Image.DirectionXY\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 90,
+        "notes": "The probe restored WS.0.10.Image.DirectionXY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.DirectionXY at WS.0.10.Image.DirectionXY is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 361 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.DirectionZ",
+      "probePath": "WS.0.10.Image.DirectionZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 45,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 45",
+          "readback": 45,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 90,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 90",
+          "readback": 90,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 180,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 180",
+          "readback": 180,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.10.Image.DirectionZ\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.DirectionZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.DirectionZ at WS.0.10.Image.DirectionZ is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 361 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Duration",
+      "probePath": "WS.0.10.Image.Duration",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Duration\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.Duration\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.10.Image.Duration to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Duration at WS.0.10.Image.Duration is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 1000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.DurationSpread",
+      "probePath": "WS.0.10.Image.DurationSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.DurationSpread\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.DurationSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.DurationSpread at WS.0.10.Image.DurationSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 1000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Gravity",
+      "probePath": "WS.0.10.Image.Gravity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 18.310546875,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.Gravity\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 18.310546875,
+        "notes": "The probe restored WS.0.10.Image.Gravity to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Gravity at WS.0.10.Image.Gravity is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Hue",
+      "probePath": "WS.0.10.Image.Hue",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.Hue\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.Hue to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Hue at WS.0.10.Image.Hue is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.HueSpread",
+      "probePath": "WS.0.10.Image.HueSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.HueSpread\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.HueSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.HueSpread at WS.0.10.Image.HueSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MaxX",
+      "probePath": "WS.0.10.Image.MaxX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MaxX\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.10.Image.MaxX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MaxX at WS.0.10.Image.MaxX is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MaxY",
+      "probePath": "WS.0.10.Image.MaxY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MaxY\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.10.Image.MaxY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MaxY at WS.0.10.Image.MaxY is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MaxZ",
+      "probePath": "WS.0.10.Image.MaxZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MaxZ\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.10.Image.MaxZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MaxZ at WS.0.10.Image.MaxZ is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MinX",
+      "probePath": "WS.0.10.Image.MinX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MinX\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MinX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MinX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MinX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MinX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MinX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MinX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MinX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MinX\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe restored WS.0.10.Image.MinX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MinX at WS.0.10.Image.MinX is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MinY",
+      "probePath": "WS.0.10.Image.MinY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MinY\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MinY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MinY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MinY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MinY\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe restored WS.0.10.Image.MinY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MinY at WS.0.10.Image.MinY is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MinZ",
+      "probePath": "WS.0.10.Image.MinZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.MinZ\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe restored WS.0.10.Image.MinZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MinZ at WS.0.10.Image.MinZ is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -200 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MotionDeceleration",
+      "probePath": "WS.0.10.Image.MotionDeceleration",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 0.01",
+          "readback": 0.009999999776482582,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.MotionDeceleration\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.MotionDeceleration to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MotionDeceleration at WS.0.10.Image.MotionDeceleration is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -100 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MotionSpeed",
+      "probePath": "WS.0.10.Image.MotionSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeed\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.MotionSpeed to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MotionSpeed at WS.0.10.Image.MotionSpeed is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MotionSpeedSpread",
+      "probePath": "WS.0.10.Image.MotionSpeedSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.MotionSpeedSpread\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.MotionSpeedSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.MotionSpeedSpread at WS.0.10.Image.MotionSpeedSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.RotoDeceleration",
+      "probePath": "WS.0.10.Image.RotoDeceleration",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", -100",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", -1",
+          "readback": -0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.01,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 0.01",
+          "readback": 9.999999974752427e-7,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 1",
+          "readback": 0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 10",
+          "readback": 0.0010000000474974513,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 100",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 10000",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.RotoDeceleration to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.RotoDeceleration at WS.0.10.Image.RotoDeceleration is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes used scaled or otherwise transformed storage from -100 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.RotoSpeed",
+      "probePath": "WS.0.10.Image.RotoSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeed\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.RotoSpeed to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.RotoSpeed at WS.0.10.Image.RotoSpeed is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.RotoSpeedSpread",
+      "probePath": "WS.0.10.Image.RotoSpeedSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.RotoSpeedSpread\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.RotoSpeedSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.RotoSpeedSpread at WS.0.10.Image.RotoSpeedSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Saturation",
+      "probePath": "WS.0.10.Image.Saturation",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 50",
+          "readback": 50,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.10.Image.Saturation\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.Saturation to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Saturation at WS.0.10.Image.Saturation is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 200 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Speed",
+      "probePath": "WS.0.10.Image.Speed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 915.52734375,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.Speed\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.Speed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.Speed\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 915.52734375,
+        "notes": "The probe restored WS.0.10.Image.Speed to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.Speed at WS.0.10.Image.Speed is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.SpeedSpread",
+      "probePath": "WS.0.10.Image.SpeedSpread",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 30.517578125,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 30",
+          "readback": 30,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.10.Image.SpeedSpread\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 30.517578125,
+        "notes": "The probe restored WS.0.10.Image.SpeedSpread to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.SpeedSpread at WS.0.10.Image.SpeedSpread is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1000 through 10000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.StartLag",
+      "probePath": "WS.0.10.Image.StartLag",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.10.Image.StartLag\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.StartLag to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #457 confirmed WS.N.N.Image.StartLag at WS.0.10.Image.StartLag is writable, but sampled writes did not prove a useful min/max range.",
+      "deferReason": "Sampled writes passed through representative values from -1 through 1000 without proving a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue, Image branch",
+        "notes": "The runtime probe used this populated Particles cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

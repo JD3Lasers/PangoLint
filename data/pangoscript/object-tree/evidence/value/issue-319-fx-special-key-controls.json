@@ -1,0 +1,4756 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 319,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe covered the remaining FX.N.N.N.Keys.* special-character gaps from issue #319. Special-character paths used unique RegisterOscFeedback addresses because direct expression readback cannot parse those property names. Paths with emitted baselines restored and verified the observed baseline after every write. Paths with zero-state feedback suppression accepted non-zero writes, then received final SetProp restore to 0."
+  },
+  "entries": [
+    {
+      "objectPath": "FX.N.N.N.Keys.-Z",
+      "probePath": "FX.1.0.12.Keys.-Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "perspective coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.0.12.Keys.-Z\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.-Z for Key effect ZZ Perspective at FX.1.0.12.Keys.-Z accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.12.Keys.-Z Key effect ZZ Perspective",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.+Z",
+      "probePath": "FX.1.0.12.Keys.+Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "perspective coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.0.12.Keys.+Z\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.+Z for Key effect ZZ Perspective at FX.1.0.12.Keys.+Z accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.12.Keys.+Z Key effect ZZ Perspective",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.AddAnchorEvery#Points",
+      "probePath": "FX.1.6.1.Keys.AddAnchorEvery#Points",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 20,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "point control",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.6.1.Keys.AddAnchorEvery#Points\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 20,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.AddAnchorEvery#Points for Key effect LivePRO - Anchors at FX.1.6.1.Keys.AddAnchorEvery#Points accepts at least -1000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.6.1.Keys.AddAnchorEvery#Points Key effect LivePRO - Anchors",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.B<-B*",
+      "probePath": "FX.1.2.1.Keys.B<-B*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-B*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.B<-B* for Key effect RGB Matrix at FX.1.2.1.Keys.B<-B* accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.B<-B* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.B<-G*",
+      "probePath": "FX.1.2.1.Keys.B<-G*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-G*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-G*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-G*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-G*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.B<-G* for Key effect RGB Matrix at FX.1.2.1.Keys.B<-G* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.B<-G* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.B<-R*",
+      "probePath": "FX.1.2.1.Keys.B<-R*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-R*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-R*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-R*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.B<-R*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.B<-R* for Key effect RGB Matrix at FX.1.2.1.Keys.B<-R* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.B<-R* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.CenterX(%)",
+      "probePath": "FX.1.0.14.Keys.CenterX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.CenterX(%) for Key effect Variable Size at FX.1.0.14.Keys.CenterX(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.CenterX(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.CenterY(%)",
+      "probePath": "FX.1.0.14.Keys.CenterY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.CenterY(%) for Key effect Variable Size at FX.1.0.14.Keys.CenterY(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.CenterY(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.CenterZ(%)",
+      "probePath": "FX.1.0.14.Keys.CenterZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.CenterZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.CenterZ(%) for Key effect Variable Size at FX.1.0.14.Keys.CenterZ(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.CenterZ(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.ColorCenter(%)",
+      "probePath": "FX.1.1.16.Keys.ColorCenter(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.1.16.Keys.ColorCenter(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.ColorCenter(%) for Key effect Rectangular blend at FX.1.1.16.Keys.ColorCenter(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.1.16.Keys.ColorCenter(%) Key effect Rectangular blend",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Depth(%)",
+      "probePath": "FX.1.9.1.Keys.Depth(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.9.1.Keys.Depth(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Depth(%) for Key effect Soft line endings at FX.1.9.1.Keys.Depth(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.9.1.Keys.Depth(%) Key effect Soft line endings",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndAngleX(%)",
+      "probePath": "FX.1.0.16.Keys.EndAngleX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndAngleX(%) for Key effect Variable Turn at FX.1.0.16.Keys.EndAngleX(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.EndAngleX(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndAngleY(%)",
+      "probePath": "FX.1.0.16.Keys.EndAngleY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndAngleY(%) for Key effect Variable Turn at FX.1.0.16.Keys.EndAngleY(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.EndAngleY(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndAngleZ(%)",
+      "probePath": "FX.1.0.16.Keys.EndAngleZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.EndAngleZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndAngleZ(%) for Key effect Variable Turn at FX.1.0.16.Keys.EndAngleZ(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.EndAngleZ(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndPoint(%)",
+      "probePath": "FX.1.6.3.Keys.EndPoint(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.6.3.Keys.EndPoint(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndPoint(%) for Key effect Beam maker at FX.1.6.3.Keys.EndPoint(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.6.3.Keys.EndPoint(%) Key effect Beam maker",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndPosX(%)",
+      "probePath": "FX.1.0.15.Keys.EndPosX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndPosX(%) for Key effect Variable Position at FX.1.0.15.Keys.EndPosX(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.EndPosX(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndPosY(%)",
+      "probePath": "FX.1.0.15.Keys.EndPosY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndPosY(%) for Key effect Variable Position at FX.1.0.15.Keys.EndPosY(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.EndPosY(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndPosZ(%)",
+      "probePath": "FX.1.0.15.Keys.EndPosZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.EndPosZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndPosZ(%) for Key effect Variable Position at FX.1.0.15.Keys.EndPosZ(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.EndPosZ(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndSizeX(%)",
+      "probePath": "FX.1.0.14.Keys.EndSizeX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndSizeX(%) for Key effect Variable Size at FX.1.0.14.Keys.EndSizeX(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.EndSizeX(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndSizeY(%)",
+      "probePath": "FX.1.0.14.Keys.EndSizeY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndSizeY(%) for Key effect Variable Size at FX.1.0.14.Keys.EndSizeY(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.EndSizeY(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.EndSizeZ(%)",
+      "probePath": "FX.1.0.14.Keys.EndSizeZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.EndSizeZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.EndSizeZ(%) for Key effect Variable Size at FX.1.0.14.Keys.EndSizeZ(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.EndSizeZ(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.G<-B*",
+      "probePath": "FX.1.2.1.Keys.G<-B*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-B*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-B*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-B*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-B*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.G<-B* for Key effect RGB Matrix at FX.1.2.1.Keys.G<-B* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.G<-B* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.G<-G*",
+      "probePath": "FX.1.2.1.Keys.G<-G*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-G*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.G<-G* for Key effect RGB Matrix at FX.1.2.1.Keys.G<-G* accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.G<-G* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.G<-R*",
+      "probePath": "FX.1.2.1.Keys.G<-R*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-R*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-R*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-R*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.G<-R*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.G<-R* for Key effect RGB Matrix at FX.1.2.1.Keys.G<-R* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.G<-R* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.MaxX(%)",
+      "probePath": "FX.1.8.0.Keys.MaxX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.MaxX(%) for Key effect Recolor by video at FX.1.8.0.Keys.MaxX(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.MaxX(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.MaxY(%)",
+      "probePath": "FX.1.8.0.Keys.MaxY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MaxY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.MaxY(%) for Key effect Recolor by video at FX.1.8.0.Keys.MaxY(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.MaxY(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.MinX(%)",
+      "probePath": "FX.1.8.0.Keys.MinX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.MinX(%) for Key effect Recolor by video at FX.1.8.0.Keys.MinX(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.MinX(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.MinY(%)",
+      "probePath": "FX.1.8.0.Keys.MinY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.MinY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.MinY(%) for Key effect Recolor by video at FX.1.8.0.Keys.MinY(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.MinY(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.MuteOff-MuteOn",
+      "probePath": "FX.1.7.3.Keys.MuteOff-MuteOn",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "mute blend",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.7.3.Keys.MuteOff-MuteOn\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.7.3.Keys.MuteOff-MuteOn\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.7.3.Keys.MuteOff-MuteOn\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.7.3.Keys.MuteOff-MuteOn\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.MuteOff-MuteOn for Key effect Mute at FX.1.7.3.Keys.MuteOff-MuteOn accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.7.3.Keys.MuteOff-MuteOn Key effect Mute",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.PointsRatio(%)",
+      "probePath": "FX.1.2.12.Keys.PointsRatio(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.12.Keys.PointsRatio(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.PointsRatio(%) for Key effect Plain resampler (%) at FX.1.2.12.Keys.PointsRatio(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.12.Keys.PointsRatio(%) Key effect Plain resampler (%)",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Pre-Angle",
+      "probePath": "FX.1.4.10.Keys.Pre-Angle",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Angle\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Angle\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Angle\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Angle\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Pre-Angle for Key effect Clone 2D at FX.1.4.10.Keys.Pre-Angle accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.4.10.Keys.Pre-Angle Key effect Clone 2D",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Pre-Size",
+      "probePath": "FX.1.4.10.Keys.Pre-Size",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.4.10.Keys.Pre-Size\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Pre-Size for Key effect Clone 2D at FX.1.4.10.Keys.Pre-Size accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.4.10.Keys.Pre-Size Key effect Clone 2D",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.R<-B*",
+      "probePath": "FX.1.2.1.Keys.R<-B*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-B*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-B*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-B*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-B*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.R<-B* for Key effect RGB Matrix at FX.1.2.1.Keys.R<-B* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.R<-B* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.R<-G*",
+      "probePath": "FX.1.2.1.Keys.R<-G*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-G*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-G*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-G*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-G*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.R<-G* for Key effect RGB Matrix at FX.1.2.1.Keys.R<-G* accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.R<-G* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.R<-R*",
+      "probePath": "FX.1.2.1.Keys.R<-R*",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.1.Keys.R<-R*\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.R<-R* for Key effect RGB Matrix at FX.1.2.1.Keys.R<-R* accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.1.Keys.R<-R* Key effect RGB Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartAngleX(%)",
+      "probePath": "FX.1.0.16.Keys.StartAngleX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartAngleX(%) for Key effect Variable Turn at FX.1.0.16.Keys.StartAngleX(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.StartAngleX(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartAngleY(%)",
+      "probePath": "FX.1.0.16.Keys.StartAngleY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartAngleY(%) for Key effect Variable Turn at FX.1.0.16.Keys.StartAngleY(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.StartAngleY(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartAngleZ(%)",
+      "probePath": "FX.1.0.16.Keys.StartAngleZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.16.Keys.StartAngleZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartAngleZ(%) for Key effect Variable Turn at FX.1.0.16.Keys.StartAngleZ(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.16.Keys.StartAngleZ(%) Key effect Variable Turn",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartPoint(%)",
+      "probePath": "FX.1.6.3.Keys.StartPoint(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.6.3.Keys.StartPoint(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.6.3.Keys.StartPoint(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.6.3.Keys.StartPoint(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.6.3.Keys.StartPoint(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartPoint(%) for Key effect Beam maker at FX.1.6.3.Keys.StartPoint(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.6.3.Keys.StartPoint(%) Key effect Beam maker",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartPosX(%)",
+      "probePath": "FX.1.0.15.Keys.StartPosX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartPosX(%) for Key effect Variable Position at FX.1.0.15.Keys.StartPosX(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.StartPosX(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartPosY(%)",
+      "probePath": "FX.1.0.15.Keys.StartPosY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartPosY(%) for Key effect Variable Position at FX.1.0.15.Keys.StartPosY(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.StartPosY(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartPosZ(%)",
+      "probePath": "FX.1.0.15.Keys.StartPosZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.15.Keys.StartPosZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartPosZ(%) for Key effect Variable Position at FX.1.0.15.Keys.StartPosZ(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.15.Keys.StartPosZ(%) Key effect Variable Position",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartSizeX(%)",
+      "probePath": "FX.1.0.14.Keys.StartSizeX(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeX(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartSizeX(%) for Key effect Variable Size at FX.1.0.14.Keys.StartSizeX(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.StartSizeX(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartSizeY(%)",
+      "probePath": "FX.1.0.14.Keys.StartSizeY(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeY(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartSizeY(%) for Key effect Variable Size at FX.1.0.14.Keys.StartSizeY(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.StartSizeY(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.StartSizeZ(%)",
+      "probePath": "FX.1.0.14.Keys.StartSizeZ(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.0.14.Keys.StartSizeZ(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.StartSizeZ(%) for Key effect Variable Size at FX.1.0.14.Keys.StartSizeZ(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.0.14.Keys.StartSizeZ(%) Key effect Variable Size",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Step(points)",
+      "probePath": "FX.1.1.15.Keys.Step(points)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000,
+        "max": 10000,
+        "unit": "point control",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.1.15.Keys.Step(points)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Step(points) for Key effect Rainbow at FX.1.1.15.Keys.Step(points) accepts at least -1000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.1.15.Keys.Step(points) Key effect Rainbow",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.VBottom(%)",
+      "probePath": "FX.1.8.0.Keys.VBottom(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VBottom(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.VBottom(%) for Key effect Recolor by video at FX.1.8.0.Keys.VBottom(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.VBottom(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.VLeft(%)",
+      "probePath": "FX.1.8.0.Keys.VLeft(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VLeft(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.VLeft(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.VLeft(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VLeft(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.VLeft(%) for Key effect Recolor by video at FX.1.8.0.Keys.VLeft(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.VLeft(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.VRight(%)",
+      "probePath": "FX.1.8.0.Keys.VRight(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VRight(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.VRight(%) for Key effect Recolor by video at FX.1.8.0.Keys.VRight(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.VRight(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.VTop(%)",
+      "probePath": "FX.1.8.0.Keys.VTop(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VTop(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.0.Keys.VTop(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.0.Keys.VTop(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.0.Keys.VTop(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.VTop(%) for Key effect Recolor by video at FX.1.8.0.Keys.VTop(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.0.Keys.VTop(%) Key effect Recolor by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.X<-Ofs",
+      "probePath": "FX.1.2.0.Keys.X<-Ofs",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Ofs\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Ofs\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Ofs\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Ofs\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.X<-Ofs for Key effect XYZ Matrix at FX.1.2.0.Keys.X<-Ofs accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.X<-Ofs Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.X<-X",
+      "probePath": "FX.1.2.0.Keys.X<-X",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-X\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.X<-X for Key effect XYZ Matrix at FX.1.2.0.Keys.X<-X accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.X<-X Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.X<-Y",
+      "probePath": "FX.1.2.0.Keys.X<-Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Y\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Y\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Y\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.X<-Y for Key effect XYZ Matrix at FX.1.2.0.Keys.X<-Y accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.X<-Y Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.X<-Z",
+      "probePath": "FX.1.2.0.Keys.X<-Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Z\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.X<-Z\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.X<-Z for Key effect XYZ Matrix at FX.1.2.0.Keys.X<-Z accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.X<-Z Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Y<-Ofs",
+      "probePath": "FX.1.2.0.Keys.Y<-Ofs",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Ofs\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Ofs\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Ofs\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Ofs\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Y<-Ofs for Key effect XYZ Matrix at FX.1.2.0.Keys.Y<-Ofs accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Y<-Ofs Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Y<-X",
+      "probePath": "FX.1.2.0.Keys.Y<-X",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-X\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-X\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-X\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Y<-X for Key effect XYZ Matrix at FX.1.2.0.Keys.Y<-X accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Y<-X Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Y<-Y",
+      "probePath": "FX.1.2.0.Keys.Y<-Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Y\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Y<-Y for Key effect XYZ Matrix at FX.1.2.0.Keys.Y<-Y accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Y<-Y Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Y<-Z",
+      "probePath": "FX.1.2.0.Keys.Y<-Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Z\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Y<-Z\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Y<-Z for Key effect XYZ Matrix at FX.1.2.0.Keys.Y<-Z accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Y<-Z Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Z<-Ofs",
+      "probePath": "FX.1.2.0.Keys.Z<-Ofs",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Ofs\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Ofs\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Ofs\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Ofs\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Z<-Ofs for Key effect XYZ Matrix at FX.1.2.0.Keys.Z<-Ofs accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Z<-Ofs Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Z<-X",
+      "probePath": "FX.1.2.0.Keys.Z<-X",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-X\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-X\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-X\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Z<-X for Key effect XYZ Matrix at FX.1.2.0.Keys.Z<-X accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Z<-X Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Z<-Y",
+      "probePath": "FX.1.2.0.Keys.Z<-Y",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Y\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Y\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Y\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Z<-Y for Key effect XYZ Matrix at FX.1.2.0.Keys.Z<-Y accepts at least -100000..100000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Z<-Y Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.Z<-Z",
+      "probePath": "FX.1.2.0.Keys.Z<-Z",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100000,
+        "max": 100000,
+        "unit": "matrix coefficient",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", -255",
+          "readback": -255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FX.1.2.0.Keys.Z<-Z\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.Z<-Z for Key effect XYZ Matrix at FX.1.2.0.Keys.Z<-Z accepts at least -100000..100000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.2.0.Keys.Z<-Z Key effect XYZ Matrix",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.ZMax(%)",
+      "probePath": "FX.1.8.1.Keys.ZMax(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMax(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.ZMax(%) for Key effect Bump mapping by video at FX.1.8.1.Keys.ZMax(%) accepts at least -10000..10000 with pass-through behavior. The probe restored the observed baseline after every SetProp write and verified the final readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.1.Keys.ZMax(%) Key effect Bump mapping by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FX.N.N.N.Keys.ZMin(%)",
+      "probePath": "FX.1.8.1.Keys.ZMin(%)",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMin(%)\", -10000",
+          "readback": -10000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMin(%)\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMin(%)\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"FX.1.8.1.Keys.ZMin(%)\", 10000",
+          "readback": 10000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent SetProp restore to 0 after the selector probe and after the sampled writes. Zero callbacks timed out through RegisterOscFeedback, so the final zero restore was command-sent but not callback-confirmed."
+      },
+      "evidenceNote": "Runtime RegisterOscFeedback SetProp write/readback on 2026-05-16 issue #319 confirmed FX.N.N.N.Keys.ZMin(%) for Key effect Bump mapping by video at FX.1.8.1.Keys.ZMin(%) accepts at least -10000..10000 with pass-through behavior. Baseline and final zero restore callbacks timed out, matching zero-state feedback suppression; the probe sent a final SetProp restore to 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "concreteContext": "FX.1.8.1.Keys.ZMin(%) Key effect Bump mapping by video",
+        "notes": "The runtime probe used this populated QuickFX effect slot from the loaded show. Normalized metadata keeps FX.N.N.N placeholders."
+      }
+    }
+  ]
+}

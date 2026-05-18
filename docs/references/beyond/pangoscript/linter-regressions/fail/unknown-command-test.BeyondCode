@@ -1,0 +1,13 @@
+// PangoLint expect: unknown-command
+// PangoLint candidate: unknown command
+// Purpose: verify PangoLint warning behavior and BEYOND editor rejection text.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Unknown command: definitelynotapangocommand.
+// BEYOND parser location: line 8, text `DefinitelyNotAPangoCommand 1`
+
+var requestId
+
+requestId = "pangolint-candidate-unknown-command-001"
+DefinitelyNotAPangoCommand 1
+OscOutTTS "/pangolint/candidate/unknown/done", "s", requestId
+exit

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Projector.N.Connected",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Readbacks confirmed Projector.N.Connected returns 0 or 1 across populated and unpopulated projector slots. Out-of-domain writes were not tested because this is hardware connection state."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "DISCONNECTED",
+          "description": "Projector.N.Connected reads disconnected."
+        },
+        {
+          "value": 1,
+          "label": "CONNECTED",
+          "description": "Projector.N.Connected reads connected."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed Projector.N.Connected as a 0/1 hardware connection domain. Concrete paths Projector.0.Connected and Projector.1.Connected read 1, while Projector.2.Connected read 0.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+        "notes": "The runtime probe used populated Projector.0 and Projector.1 slots plus unpopulated Projector.2 in the loaded hardware setup."
+      }
+    }
+  ]
+}

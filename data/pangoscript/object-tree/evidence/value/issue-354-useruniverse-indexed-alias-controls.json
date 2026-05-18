@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 354,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC readbacks on 0.0.0.0:7000. The loaded show had Universe page index 1 named UserUniverse with one Button1 control. Writes used the UserUniverse.0 alias path and read back both the alias path and the equivalent Universe.1.0 indexed path before restoring the baseline."
+  },
+  "entries": [
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Caption",
+      "probePath": "UserUniverse.0.Caption",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "User_Test_Button",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"UserUniverse.0.Caption\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"UserUniverse.0.Caption\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"UserUniverse.0.Caption\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"UserUniverse.0.Caption\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+          "command": "SetProp \"UserUniverse.0.Caption\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": "AliasSeed",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "User_Test_Button",
+        "notes": "Restored UserUniverse.0.Caption to the observed baseline and verified UserUniverse.0.Caption and Universe.1.0.Caption both read User_Test_Button."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Caption accepted lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged. Universe.1.0.Caption matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Caption with equivalent Universe.1.0.Caption",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.ChasePeriod",
+      "probePath": "UserUniverse.0.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.ChasePeriod\", 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"UserUniverse.0.Effect.ChasePeriod\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "SetProp \"UserUniverse.0.Effect.ChasePeriod\", 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"UserUniverse.0.Effect.ChasePeriod\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"UserUniverse.0.Effect.ChasePeriod\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Restored UserUniverse.0.Effect.ChasePeriod to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.ChasePeriod uses 1..10 clamp behavior. Universe.1.0.Effect.ChasePeriod matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.ChasePeriod with equivalent Universe.1.0.Effect.ChasePeriod",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.ClockLimit",
+      "probePath": "UserUniverse.0.Effect.ClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockLimit\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockLimit\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockLimit\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockLimit\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "Restored UserUniverse.0.Effect.ClockLimit to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.ClockLimit uses -10..10 clamp behavior. Universe.1.0.Effect.ClockLimit matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.ClockLimit with equivalent Universe.1.0.Effect.ClockLimit",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.ClockShift",
+      "probePath": "UserUniverse.0.Effect.ClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockShift\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockShift\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockShift\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"UserUniverse.0.Effect.ClockShift\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Restored UserUniverse.0.Effect.ClockShift to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.ClockShift uses -10..10 clamp behavior. Universe.1.0.Effect.ClockShift matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.ClockShift with equivalent Universe.1.0.Effect.ClockShift",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.EnableClockLimit",
+      "probePath": "UserUniverse.0.Effect.EnableClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableClockLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableClockLimit to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableClockLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableClockLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableClockLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableClockLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Restored UserUniverse.0.Effect.EnableClockLimit to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.EnableClockLimit uses 0..1 clamp behavior. Universe.1.0.Effect.EnableClockLimit matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.EnableClockLimit with equivalent Universe.1.0.Effect.EnableClockLimit",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.EnableMetroLimit",
+      "probePath": "UserUniverse.0.Effect.EnableMetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableMetroLimit to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.N.Effect.EnableMetroLimit to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableMetroLimit\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableMetroLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableMetroLimit\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"UserUniverse.0.Effect.EnableMetroLimit\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Restored UserUniverse.0.Effect.EnableMetroLimit to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.EnableMetroLimit uses 0..1 clamp behavior. Universe.1.0.Effect.EnableMetroLimit matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.EnableMetroLimit with equivalent Universe.1.0.Effect.EnableMetroLimit",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.MetroLimit",
+      "probePath": "UserUniverse.0.Effect.MetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroLimit\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroLimit\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroLimit\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroLimit\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroLimit\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "Restored UserUniverse.0.Effect.MetroLimit to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.MetroLimit uses -10..10 clamp behavior. Universe.1.0.Effect.MetroLimit matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.MetroLimit with equivalent Universe.1.0.Effect.MetroLimit",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.MetroShift",
+      "probePath": "UserUniverse.0.Effect.MetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroShift\", -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroShift\", -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroShift\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "SetProp \"UserUniverse.0.Effect.MetroShift\", 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "Restored UserUniverse.0.Effect.MetroShift to the observed baseline and verified the alias and Universe.1.0 indexed readbacks matched."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.MetroShift uses -10..10 clamp behavior. Universe.1.0.Effect.MetroShift matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.MetroShift with equivalent Universe.1.0.Effect.MetroShift",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.N.Effect.Name",
+      "probePath": "UserUniverse.0.Effect.Name",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"UserUniverse.0.Effect.Name\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "A",
+          "command": "SetProp \"UserUniverse.0.Effect.Name\", \"A\"",
+          "readback": "A",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"UserUniverse.0.Effect.Name\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "command": "SetProp \"UserUniverse.0.Effect.Name\", \"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\"",
+          "readback": "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+          "command": "SetProp \"UserUniverse.0.Effect.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "readback": "AliasSeed",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "",
+        "notes": "Restored UserUniverse.0.Effect.Name to the observed baseline and verified UserUniverse.0.Effect.Name and Universe.1.0.Effect.Name both read an empty string."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #354 confirmed UserUniverse.0.Effect.Name accepted lengths 0, 1, 32, and 254. A 255-character write left the seed value unchanged. Universe.1.0.Effect.Name matched each alias-path readback.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UserUniverse.0.Effect.Name with equivalent Universe.1.0.Effect.Name",
+        "notes": "UserUniverse is the loaded show-defined Universe page alias for Universe page index 1."
+      }
+    }
+  ]
+}

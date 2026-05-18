@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. The batch used populated WS.0.3 Shape and WS.0.8 Synthesized Image paths with write/readback and baseline restore after every tested object assignment."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.BeamRepeat",
+      "probePath": "WS.0.3.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam repeat count"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.BeamRepeat = -1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.BeamRepeat = 0",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.BeamRepeat = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.BeamRepeat = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "WS.0.3.Image.BeamRepeat = 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 254,
+          "command": "WS.0.3.Image.BeamRepeat = 254",
+          "readback": 200,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "WS.0.3.Image.BeamRepeat = 1000",
+          "readback": 200,
+          "behavior": "unknown"
+        },
+        {
+          "input": 65535,
+          "command": "WS.0.3.Image.BeamRepeat = 65535",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100000,
+          "command": "WS.0.3.Image.BeamRepeat = 100000",
+          "readback": 2,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The probe used the populated Shape cue at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+      "probePath": "WS.0.8.Image.LIST.0.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam repeat count"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = -1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 0",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 254,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 254",
+          "readback": 200,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 1000",
+          "readback": 200,
+          "behavior": "unknown"
+        },
+        {
+          "input": 65535,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 65535",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100000,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 100000",
+          "readback": 2,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The probe used the populated Synthesized Image cue at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.PointCount",
+      "probePath": "WS.0.8.Image.LIST.0.Image.PointCount",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 1000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "point count"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000.5,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1000.5",
+          "readback": 1000,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1001,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1001",
+          "readback": 1000,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100000,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 100000",
+          "readback": 1000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.PointCount for Synthesized Image at WS.0.8.Image.LIST.0.Image.PointCount uses 1..1000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The probe used the populated Synthesized Image cue at WS.0.8."
+      }
+    }
+  ]
+}

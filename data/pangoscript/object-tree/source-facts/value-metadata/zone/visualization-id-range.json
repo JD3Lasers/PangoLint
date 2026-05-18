@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.VisualizationId",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 255,
+        "unit": "visualization id",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.VisualizationId confirmed -1..255 clamp readbacks: -2->-1, -1->-1, 255->255, 256->255, 999->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #366 confirmed Zone.N.VisualizationId at Zone.0.VisualizationId uses -1..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.0.VisualizationId in the loaded show."
+      }
+    }
+  ]
+}

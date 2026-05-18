@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "TouchPoints.ActiveCount",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "active touch point count",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..2147483647 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.ActiveCount uses tested -2147483648..2147483647 pass-through readbacks with baseline restore."
+    },
+    {
+      "path": "TouchPoints.N.WindowX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window coordinate",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.WindowX uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "TouchPoints.N uses the zero-based Object Tree touch point index.",
+        "notes": "Runtime evidence used concrete TouchPoints.0 in the loaded show."
+      }
+    },
+    {
+      "path": "TouchPoints.N.WindowY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window coordinate",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.WindowY uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "TouchPoints.N uses the zero-based Object Tree touch point index.",
+        "notes": "Runtime evidence used concrete TouchPoints.0 in the loaded show."
+      }
+    },
+    {
+      "path": "TouchPoints.N.X",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point coordinate",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.X uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "TouchPoints.N uses the zero-based Object Tree touch point index.",
+        "notes": "Runtime evidence used concrete TouchPoints.0 in the loaded show."
+      }
+    },
+    {
+      "path": "TouchPoints.N.Y",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point coordinate",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.N.Y uses tested -2147483648..1000000 pass-through readbacks with baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "TouchPoints.N uses the zero-based Object Tree touch point index.",
+        "notes": "Runtime evidence used concrete TouchPoints.0 in the loaded show."
+      }
+    },
+    {
+      "path": "TouchPoints.WindowHeight",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window size",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.WindowHeight uses tested -2147483648..1000000 pass-through readbacks with baseline restore."
+    },
+    {
+      "path": "TouchPoints.WindowWidth",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "touch point window size",
+        "minInclusive": true,
+        "maxInclusive": true,
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted sampled values -2147483648..1000000 with pass-through readbacks, including values above 100000 and signed 32-bit edge samples when accepted."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed TouchPoints.WindowWidth uses tested -2147483648..1000000 pass-through readbacks with baseline restore."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+// PangoLint expect: unclosed-string
+// PangoLint candidate: unclosed string
+// Purpose: verify syntax diagnostics and BEYOND editor error text.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: NOT_TERMINATED_STRING.
+// BEYOND parser location: line 7, text at error position `"pangolint-candidate-unclosed-string-001`
+
+var requestId
+
+requestId = "pangolint-candidate-unclosed-string-001
+OscOutTTS "/pangolint/candidate/unclosed/done", "s", requestId
+exit

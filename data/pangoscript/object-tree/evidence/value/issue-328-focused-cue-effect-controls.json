@@ -1,0 +1,2569 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 328,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. Each shipped row used direct focused-cue alias object assignment and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "ActGridFocusedCue.CaptionColor",
+      "probePath": "ActGridFocusedCue.CaptionColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16743699,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.CaptionColor = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.CaptionColor = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.CaptionColor = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "ActGridFocusedCue.CaptionColor = 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "ActGridFocusedCue.CaptionColor = 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 16743699,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.ClickMode",
+      "probePath": "ActGridFocusedCue.ClickMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.ClickMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.ClickMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.ClickMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ActGridFocusedCue.ClickMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "ActGridFocusedCue.ClickMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "ActGridFocusedCue.ClickMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "ActGridFocusedCue.ClickMode = 5",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ChasePeriod",
+      "probePath": "ActGridFocusedCue.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.ChasePeriod = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.ChasePeriod = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.ChasePeriod = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "ActGridFocusedCue.Effect.ChasePeriod = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "ActGridFocusedCue.Effect.ChasePeriod = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ClockLimit",
+      "probePath": "ActGridFocusedCue.Effect.ClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "ActGridFocusedCue.Effect.ClockLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ClockShift",
+      "probePath": "ActGridFocusedCue.Effect.ClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "ActGridFocusedCue.Effect.ClockShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "ActGridFocusedCue.Effect.ClockShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.ClockShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.ClockShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.ClockShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "ActGridFocusedCue.Effect.ClockShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "ActGridFocusedCue.Effect.ClockShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.EnableClockLimit",
+      "probePath": "ActGridFocusedCue.Effect.EnableClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.EnableClockLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.EnableClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.EnableClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ActGridFocusedCue.Effect.EnableClockLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. ActGridFocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. ActGridFocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.EnableMetroLimit",
+      "probePath": "ActGridFocusedCue.Effect.EnableMetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.EnableMetroLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.EnableMetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.EnableMetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ActGridFocusedCue.Effect.EnableMetroLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. ActGridFocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. ActGridFocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.MetroLimit",
+      "probePath": "ActGridFocusedCue.Effect.MetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "ActGridFocusedCue.Effect.MetroLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.MetroShift",
+      "probePath": "ActGridFocusedCue.Effect.MetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "ActGridFocusedCue.Effect.MetroShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "ActGridFocusedCue.Effect.MetroShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.MetroShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.MetroShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.MetroShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "ActGridFocusedCue.Effect.MetroShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "ActGridFocusedCue.Effect.MetroShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probePath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "ActGridFocusedCue.Effect.ChaseTimeMode = 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred ActGridFocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.Zone",
+      "probePath": "ActGridFocusedCue.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.Zone = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.Zone = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.Zone = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "ActGridFocusedCue.Effect.Zone = 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "ActGridFocusedCue.Effect.Zone = 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "ActGridFocusedCue.Effect.Zone = 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred ActGridFocusedCue.Effect.Zone.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probePath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "ActGridFocusedCue.Effect.ZoneMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "ActGridFocusedCue.Effect.ZoneMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "ActGridFocusedCue.Effect.ZoneMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "ActGridFocusedCue.Effect.ZoneMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "ActGridFocusedCue.Effect.ZoneMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred ActGridFocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.CaptionColor",
+      "probePath": "Grid1FocusedCue.CaptionColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16743699,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.CaptionColor = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.CaptionColor = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.CaptionColor = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "Grid1FocusedCue.CaptionColor = 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "Grid1FocusedCue.CaptionColor = 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 16743699,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.ClickMode",
+      "probePath": "Grid1FocusedCue.ClickMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.ClickMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.ClickMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.ClickMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid1FocusedCue.ClickMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "Grid1FocusedCue.ClickMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "Grid1FocusedCue.ClickMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "Grid1FocusedCue.ClickMode = 5",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ChasePeriod",
+      "probePath": "Grid1FocusedCue.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.ChasePeriod = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.ChasePeriod = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.ChasePeriod = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid1FocusedCue.Effect.ChasePeriod = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid1FocusedCue.Effect.ChasePeriod = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ClockLimit",
+      "probePath": "Grid1FocusedCue.Effect.ClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid1FocusedCue.Effect.ClockLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ClockShift",
+      "probePath": "Grid1FocusedCue.Effect.ClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid1FocusedCue.Effect.ClockShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid1FocusedCue.Effect.ClockShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.ClockShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.ClockShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.ClockShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid1FocusedCue.Effect.ClockShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid1FocusedCue.Effect.ClockShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.EnableClockLimit",
+      "probePath": "Grid1FocusedCue.Effect.EnableClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.EnableClockLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.EnableClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.EnableClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid1FocusedCue.Effect.EnableClockLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. Grid1FocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. Grid1FocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.EnableMetroLimit",
+      "probePath": "Grid1FocusedCue.Effect.EnableMetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.EnableMetroLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.EnableMetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.EnableMetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid1FocusedCue.Effect.EnableMetroLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. Grid1FocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. Grid1FocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.MetroLimit",
+      "probePath": "Grid1FocusedCue.Effect.MetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid1FocusedCue.Effect.MetroLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.MetroShift",
+      "probePath": "Grid1FocusedCue.Effect.MetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid1FocusedCue.Effect.MetroShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid1FocusedCue.Effect.MetroShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.MetroShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.MetroShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.MetroShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid1FocusedCue.Effect.MetroShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid1FocusedCue.Effect.MetroShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ChaseTimeMode",
+      "probePath": "Grid1FocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "Grid1FocusedCue.Effect.ChaseTimeMode = 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid1FocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.Zone",
+      "probePath": "Grid1FocusedCue.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.Zone = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.Zone = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.Zone = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "Grid1FocusedCue.Effect.Zone = 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "Grid1FocusedCue.Effect.Zone = 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "Grid1FocusedCue.Effect.Zone = 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid1FocusedCue.Effect.Zone.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid1FocusedCue.Effect.ZoneMode",
+      "probePath": "Grid1FocusedCue.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid1FocusedCue.Effect.ZoneMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid1FocusedCue.Effect.ZoneMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid1FocusedCue.Effect.ZoneMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "Grid1FocusedCue.Effect.ZoneMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "Grid1FocusedCue.Effect.ZoneMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid1FocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid1FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.CaptionColor",
+      "probePath": "Grid2FocusedCue.CaptionColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16743699,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.CaptionColor = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.CaptionColor = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.CaptionColor = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "Grid2FocusedCue.CaptionColor = 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "Grid2FocusedCue.CaptionColor = 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 16743699,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.ClickMode",
+      "probePath": "Grid2FocusedCue.ClickMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.ClickMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.ClickMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.ClickMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid2FocusedCue.ClickMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "Grid2FocusedCue.ClickMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "Grid2FocusedCue.ClickMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "Grid2FocusedCue.ClickMode = 5",
+          "readback": 4,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ChasePeriod",
+      "probePath": "Grid2FocusedCue.Effect.ChasePeriod",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.ChasePeriod = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.ChasePeriod = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.ChasePeriod = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid2FocusedCue.Effect.ChasePeriod = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid2FocusedCue.Effect.ChasePeriod = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ClockLimit",
+      "probePath": "Grid2FocusedCue.Effect.ClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid2FocusedCue.Effect.ClockLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ClockShift",
+      "probePath": "Grid2FocusedCue.Effect.ClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid2FocusedCue.Effect.ClockShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid2FocusedCue.Effect.ClockShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.ClockShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.ClockShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.ClockShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid2FocusedCue.Effect.ClockShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid2FocusedCue.Effect.ClockShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.EnableClockLimit",
+      "probePath": "Grid2FocusedCue.Effect.EnableClockLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.EnableClockLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.EnableClockLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.EnableClockLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid2FocusedCue.Effect.EnableClockLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. Grid2FocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. Grid2FocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.EnableMetroLimit",
+      "probePath": "Grid2FocusedCue.Effect.EnableMetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.EnableMetroLimit = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.EnableMetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.EnableMetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Grid2FocusedCue.Effect.EnableMetroLimit = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. Grid2FocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. Grid2FocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.MetroLimit",
+      "probePath": "Grid2FocusedCue.Effect.MetroLimit",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 4,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid2FocusedCue.Effect.MetroLimit = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 4,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.MetroShift",
+      "probePath": "Grid2FocusedCue.Effect.MetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -11,
+          "command": "Grid2FocusedCue.Effect.MetroShift = -11",
+          "readback": -10,
+          "behavior": "clamp"
+        },
+        {
+          "input": -10,
+          "command": "Grid2FocusedCue.Effect.MetroShift = -10",
+          "readback": -10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.MetroShift = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.MetroShift = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.MetroShift = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "Grid2FocusedCue.Effect.MetroShift = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 11,
+          "command": "Grid2FocusedCue.Effect.MetroShift = 11",
+          "readback": 10,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probePath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 5,
+          "command": "Grid2FocusedCue.Effect.ChaseTimeMode = 5",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid2FocusedCue.Effect.ChaseTimeMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.Zone",
+      "probePath": "Grid2FocusedCue.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.Zone = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.Zone = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.Zone = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 99,
+          "command": "Grid2FocusedCue.Effect.Zone = 99",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "Grid2FocusedCue.Effect.Zone = 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "Grid2FocusedCue.Effect.Zone = 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid2FocusedCue.Effect.Zone.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probePath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2FocusedCue.Effect.ZoneMode = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "Grid2FocusedCue.Effect.ZoneMode = 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "Grid2FocusedCue.Effect.ZoneMode = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "Grid2FocusedCue.Effect.ZoneMode = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "Grid2FocusedCue.Effect.ZoneMode = 3",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #328 deferred Grid2FocusedCue.Effect.ZoneMode.",
+      "deferReason": "Direct focused-cue alias writes stayed at the observed baseline and did not prove a complete range or domain.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    }
+  ]
+}

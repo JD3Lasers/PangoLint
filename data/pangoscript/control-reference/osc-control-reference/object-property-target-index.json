@@ -1,0 +1,2457 @@
+[
+  {
+    "propertyPattern": "DmxOutput[N]",
+    "routeId": "osc.beyond-dmx.f",
+    "namespace": "gateway",
+    "pathPattern": "/beyond/dmx",
+    "args": [
+      "f[]"
+    ],
+    "routeKind": "gatewayBus",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "arrayOffset",
+      "offset": 1
+    }
+  },
+  {
+    "propertyPattern": "DmxOutput[N]",
+    "routeId": "osc.beyond-general-dmxout.f-f",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "directChannelIndex"
+    }
+  },
+  {
+    "propertyPattern": "DmxOutput[N]",
+    "routeId": "osc.beyond-general-dmxout.i-i",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/DmxOut",
+    "args": [
+      "i",
+      "i"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "directChannelIndex"
+    }
+  },
+  {
+    "propertyPattern": "Grid.CellIndex",
+    "routeId": "osc.beyond-general-cuedown.i-i",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Grid.CellIndex",
+    "routeId": "osc.beyond-general-cuedown.i-i-i",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/CueDown",
+    "args": [
+      "i",
+      "i",
+      "i"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "partial"
+  },
+  {
+    "propertyPattern": "Grid.CellIndex",
+    "routeId": "osc.beyond-general-selectcue.s",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/SelectCue",
+    "args": [
+      "s"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Grid.PageIndex",
+    "routeId": "osc.beyond-general-selectcue.s",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/SelectCue",
+    "args": [
+      "s"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.AnimationSpeed",
+    "routeId": "osc.beyond-master-livecontrol-anispeed.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.BPM",
+    "routeId": "osc.beyond-general-setbpm.f",
+    "namespace": "general",
+    "pathPattern": "/beyond/general/SetBpm",
+    "args": [
+      "f"
+    ],
+    "routeKind": "dispatcherCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.ColorSlider",
+    "routeId": "osc.beyond-master-colorslider.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.ColorSlider",
+    "routeId": "osc.beyond-master-livecontrol-colorslider.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.ScanRate",
+    "routeId": "osc.beyond-master-livecontrol-scanrate.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.ScanRate",
+    "routeId": "osc.beyond-master-scanrate.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.SizeX",
+    "routeId": "osc.beyond-master-livecontrol-sizex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Master.SizeX",
+    "routeId": "osc.beyond-master-sizex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.AnimationSpeed",
+    "routeId": "osc.beyond-master-livecontrol-anispeed.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.ColorSlider",
+    "routeId": "osc.beyond-master-colorslider.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.ColorSlider",
+    "routeId": "osc.beyond-master-livecontrol-colorslider.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.FX1",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "MasterLC.FX2",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "MasterLC.FX3",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "MasterLC.FX4",
+    "routeId": "osc.beyond-master-livecontrol-fx.f-f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "MasterLC.PositionX",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionX",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionX",
+    "routeId": "osc.beyond-master-livecontrol-posx.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionY",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionY",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionY",
+    "routeId": "osc.beyond-master-livecontrol-posy.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionZ",
+    "routeId": "osc.beyond-master-livecontrol-pos.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.PositionZ",
+    "routeId": "osc.beyond-master-livecontrol-posz.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeId": "osc.beyond-master-anglex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleX",
+    "routeId": "osc.beyond-master-livecontrol-anglex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeId": "osc.beyond-master-angley.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleY",
+    "routeId": "osc.beyond-master-livecontrol-angley.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeId": "osc.beyond-master-anglez.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeId": "osc.beyond-master-livecontrol-angle.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoAngleZ",
+    "routeId": "osc.beyond-master-livecontrol-anglez.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoSpeedX",
+    "routeId": "osc.beyond-master-livecontrol-rotox.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoSpeedY",
+    "routeId": "osc.beyond-master-livecontrol-rotoy.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.RotoSpeedZ",
+    "routeId": "osc.beyond-master-livecontrol-rotoz.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeX",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeX",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeX",
+    "routeId": "osc.beyond-master-livecontrol-sizex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeX",
+    "routeId": "osc.beyond-master-sizex.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeY",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeY",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeY",
+    "routeId": "osc.beyond-master-livecontrol-sizey.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeY",
+    "routeId": "osc.beyond-master-sizey.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeId": "osc.beyond-master-livecontrol-size.f-f-f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeId": "osc.beyond-master-livecontrol-sizez.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "MasterLC.SizeZ",
+    "routeId": "osc.beyond-master-sizez.f",
+    "namespace": "master",
+    "pathPattern": "/beyond/master/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Projector.N.InvX",
+    "routeId": "osc.beyond-projector-projector-invx.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/invx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Projector.N.InvY",
+    "routeId": "osc.beyond-projector-projector-invy.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/invy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Projector.N.PosX",
+    "routeId": "osc.beyond-projector-projector-posx.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/posx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "multiply",
+      "factor": 327.67,
+      "clamp": [
+        -32767,
+        32767
+      ]
+    }
+  },
+  {
+    "propertyPattern": "Projector.N.PosY",
+    "routeId": "osc.beyond-projector-projector-posy.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/posy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "multiply",
+      "factor": 327.67,
+      "clamp": [
+        -32767,
+        32767
+      ]
+    }
+  },
+  {
+    "propertyPattern": "Projector.N.SizeX",
+    "routeId": "osc.beyond-projector-projector-sizex.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Projector.N.SizeY",
+    "routeId": "osc.beyond-projector-projector-sizey.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Projector.N.SwapXY",
+    "routeId": "osc.beyond-projector-projector-swapxy.f",
+    "namespace": "projector",
+    "pathPattern": "/beyond/projector/<projector>/swapxy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.AnimationSpeed",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anispeed.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.ColorSlider",
+    "routeId": "osc.beyond-protrack-protrack-colorslider.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.ColorSlider",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-colorslider.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.FX1",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "ProTrack.N.FX2",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "ProTrack.N.FX3",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "ProTrack.N.FX4",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-fx.f-f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "ProTrack.N.Mute",
+    "routeId": "osc.beyond-protrack-protrack-mute.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/mute",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posx.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posy.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-pos.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.PositionZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-posz.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeId": "osc.beyond-protrack-protrack-anglex.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anglex.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeId": "osc.beyond-protrack-protrack-angley.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angley.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeId": "osc.beyond-protrack-protrack-anglez.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-angle.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoAngleZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-anglez.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoSpeedX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotox.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoSpeedY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotoy.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.RotoSpeedZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-rotoz.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.ScanRate",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-scanrate.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.ScanRate",
+    "routeId": "osc.beyond-protrack-protrack-scanrate.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.Selected",
+    "routeId": "osc.beyond-protrack-protrack-select.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/select",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizex.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeX",
+    "routeId": "osc.beyond-protrack-protrack-sizex.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizey.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeY",
+    "routeId": "osc.beyond-protrack-protrack-sizey.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-size.f-f-f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeId": "osc.beyond-protrack-protrack-livecontrol-sizez.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "ProTrack.N.SizeZ",
+    "routeId": "osc.beyond-protrack-protrack-sizez.f",
+    "namespace": "protrack",
+    "pathPattern": "/beyond/protrack/<protrack>/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.AnimationSpeed",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anispeed.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.ColorSlider",
+    "routeId": "osc.beyond-cue-page-cue-colorslider.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.ColorSlider",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-colorslider.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.FX1",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "WS.N.N.FX2",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "WS.N.N.FX3",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "WS.N.N.FX4",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-fx.f-f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posx.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posy.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-pos.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.PositionZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-posz.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeId": "osc.beyond-cue-page-cue-anglex.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anglex.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeId": "osc.beyond-cue-page-cue-angley.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angley.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeId": "osc.beyond-cue-page-cue-anglez.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-angle.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoAngleZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-anglez.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoSpeedX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotox.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoSpeedY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotoy.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.RotoSpeedZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-rotoz.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.ScanRate",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-scanrate.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.ScanRate",
+    "routeId": "osc.beyond-cue-page-cue-scanrate.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizex.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeX",
+    "routeId": "osc.beyond-cue-page-cue-sizex.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizey.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeY",
+    "routeId": "osc.beyond-cue-page-cue-sizey.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-size.f-f-f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "inferredFromMatchedScope",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeId": "osc.beyond-cue-page-cue-livecontrol-sizez.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "WS.N.N.SizeZ",
+    "routeId": "osc.beyond-cue-page-cue-sizez.f",
+    "namespace": "cue",
+    "pathPattern": "/beyond/cue/<page>/<cue>/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.AnimationSpeed",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anispeed.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anispeed",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.ColorSlider",
+    "routeId": "osc.beyond-zone-zone-colorslider.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.ColorSlider",
+    "routeId": "osc.beyond-zone-zone-livecontrol-colorslider.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/colorslider",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.FX1",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "Zone.N.FX2",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "Zone.N.FX3",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "Zone.N.FX4",
+    "routeId": "osc.beyond-zone-zone-livecontrol-fx.f-f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/fx",
+    "args": [
+      "f",
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed",
+    "valueTransform": {
+      "kind": "subtract",
+      "amount": 1,
+      "description": "OSC effect values are 1-based. Stored property values are 0-based."
+    }
+  },
+  {
+    "propertyPattern": "Zone.N.Mute",
+    "routeId": "osc.beyond-zone-zone-mute.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/mute",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posx.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posx",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posy.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-pos.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/pos",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.PositionZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-posz.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/posz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeId": "osc.beyond-zone-zone-anglex.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anglex.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeId": "osc.beyond-zone-zone-angley.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angley.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angley",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeId": "osc.beyond-zone-zone-anglez.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-angle.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/angle",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoAngleZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-anglez.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/anglez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoSpeedX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotox.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotox",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoSpeedY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotoy.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoy",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.RotoSpeedZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-rotoz.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/rotoz",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.ScanRate",
+    "routeId": "osc.beyond-zone-zone-livecontrol-scanrate.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.ScanRate",
+    "routeId": "osc.beyond-zone-zone-scanrate.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/scanrate",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.Selected",
+    "routeId": "osc.beyond-zone-zone-select.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/select",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeX",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizex.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeX",
+    "routeId": "osc.beyond-zone-zone-sizex.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizex",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeY",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizey.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeY",
+    "routeId": "osc.beyond-zone-zone-sizey.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizey",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-size.f-f-f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/size",
+    "args": [
+      "f",
+      "f",
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeId": "osc.beyond-zone-zone-livecontrol-sizez.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/livecontrol/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  },
+  {
+    "propertyPattern": "Zone.N.SizeZ",
+    "routeId": "osc.beyond-zone-zone-sizez.f",
+    "namespace": "zone",
+    "pathPattern": "/beyond/zone/<zone>/sizez",
+    "args": [
+      "f"
+    ],
+    "routeKind": "propertyMappedCommand",
+    "evidenceLevel": "observed",
+    "supportStatus": "confirmed"
+  }
+]

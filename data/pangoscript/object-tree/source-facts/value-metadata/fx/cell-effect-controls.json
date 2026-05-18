@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FX.N.N.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.ChasePeriod concrete cells confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.ChasePeriod across all 60 generated FX cell paths uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      }
+    },
+    {
+      "path": "FX.N.N.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.ClockLimit concrete cells confirmed -10..10 clamp readbacks: -11->-10, -10->-10, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.ClockLimit across all 60 generated FX cell paths uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      }
+    },
+    {
+      "path": "FX.N.N.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.ClockShift concrete cells confirmed -10..10 clamp readbacks: -11->-10, -10->-10, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.ClockShift across all 60 generated FX cell paths uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      }
+    },
+    {
+      "path": "FX.N.N.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.EnableClockLimit concrete cells confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.EnableClockLimit across all 60 generated FX cell paths uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear FX.N.N.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FX.N.N.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "FX.N.N.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.EnableMetroLimit concrete cells confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.EnableMetroLimit across all 60 generated FX cell paths uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear FX.N.N.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set FX.N.N.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "FX.N.N.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.MetroLimit concrete cells confirmed -10..10 clamp readbacks: -11->-10, -10->-10, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.MetroLimit across all 60 generated FX cell paths uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      }
+    },
+    {
+      "path": "FX.N.N.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to all 60 generated FX.N.N.MetroShift concrete cells confirmed -10..10 clamp readbacks: -11->-10, -10->-10, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #338 confirmed FX.N.N.MetroShift across all 60 generated FX cell paths uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N uses QuickFX panel index then cell index.",
+        "notes": "The runtime probe covered all 60 generated concrete FX cell paths in the loaded show."
+      }
+    }
+  ]
+}

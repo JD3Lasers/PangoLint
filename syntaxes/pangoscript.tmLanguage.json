@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "PangoScript",
+  "scopeName": "source.pangoscript",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#inline-label" },
+    { "include": "#osc-address" },
+    { "include": "#keywords" },
+    { "include": "#constants" },
+    { "include": "#object-path" },
+    { "include": "#commands" },
+    { "include": "#operators" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.pangoscript",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.pangoscript",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.pangoscript",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "inline-label": {
+      "patterns": [
+        {
+          "match": "^(\\s*)([A-Za-z_][A-Za-z0-9_]*)(\\s*)(:)(?=[^/]|$)",
+          "captures": {
+            "2": { "name": "entity.name.label.pangoscript" },
+            "4": { "name": "punctuation.separator.label.pangoscript" }
+          }
+        }
+      ]
+    },
+    "osc-address": {
+      "patterns": [
+        {
+          "name": "string.other.osc-address.pangoscript",
+          "match": "^\\s*/[^\\s]*"
+        }
+      ]
+    },
+    "object-path": {
+      "patterns": [
+        {
+          "name": "variable.other.member.pangoscript",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z0-9_]+|\\[\\d+\\])+"
+        }
+      ]
+    },
+    "commands": {
+      "patterns": [
+        {
+          "name": "entity.name.function.pangoscript",
+          "match": "\\b[A-Z][A-Za-z][A-Za-z0-9]*\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.pangoscript",
+          "match": "\\b(?i:if|goto|exit|restart|var|globalvar)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.word.pangoscript",
+          "match": "\\b(?i:and|or|not|mod|div)\\b"
+        },
+        {
+          "name": "keyword.operator.pangoscript",
+          "match": "<>|>=|<=|[=+\\-*/<>;]"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.pangoscript",
+          "match": "\\b(?i:true|false|any|off|on|toggle|asis)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.pangoscript",
+          "match": "\\b(?:0x[0-9A-Fa-f]+|\\d+(?:\\.\\d+)?)\\b"
+        }
+      ]
+    }
+  }
+}

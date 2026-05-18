@@ -1,0 +1,16 @@
+// PangoLint expect: unsupported-deltavalue-command-argument
+// PangoLint fail: no-space DeltaValue property/control argument in direct editor context
+// Purpose: verify BEYOND rejects the no-space property argument shape when pasted/run in the editor.
+// BEYOND validation 2026-05-07: parser error on no-space DeltaValue property argument; no callbacks emitted.
+// BEYOND parser error: Unknown function, undeclared or not initialized variable: deltavalue.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 11, text `Master.PhFriction DeltaValue(-1, 1)`.
+// Operator note: spaced `Master.PhFriction deltavalue (-1,1)` is reported working in APC40 MIDI-to-PangoScript slot context.
+// Object tree note: Master.PhFriction exists in the BEYOND object tree as /b/Master/PhFriction.
+
+var requestId
+
+requestId = "pangolint-candidate-deltavalue-property-argument-001"
+Master.PhFriction DeltaValue(-1, 1)
+OscOutTTS "/pangolint/candidate/deltavalue-property-argument/done", "s", requestId
+exit

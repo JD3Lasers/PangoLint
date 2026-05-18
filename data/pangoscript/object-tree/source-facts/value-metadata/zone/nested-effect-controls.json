@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.Effect.N.Enabled",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.Enabled confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.Enabled uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.Enabled.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.Enabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.Enabled."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.N.RouterMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "router mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.RouterMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 4->4, 5->4, 8->4, 9->4, 99->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.RouterMode uses 0..4 with clamp behavior and baseline restore from Zone.0.Effect.0.RouterMode.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeActive",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeActive confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeActive uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeActive.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeActive."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeDurationInBeat",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeDurationInBeat confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeDurationInBeat uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeDurationInBeat.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeDurationInBeat."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeDurationInBeat."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeEnabled",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeEnabled confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #340 confirmed Zone.N.Effect.N.TimeEnabled uses 0..1 with clamp behavior and baseline restore from Zone.0.Effect.0.TimeEnabled.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear Zone.N.Effect.N.TimeEnabled."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Zone.N.Effect.N.TimeEnabled."
+        }
+      ]
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "clock value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeClock confirmed 0..1000000 clamp readbacks: -1->0, 0->0, 1->1, 999999->999999, 1000000->1000000, 1000001->1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeClock at Zone.0.Effect.0.TimeClock uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "metro value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeMetro confirmed 0..1000000 clamp readbacks: -1->0, 0->0, 1->1, 999999->999999, 1000000->1000000, 1000001->1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeMetro at Zone.0.Effect.0.TimeMetro uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.TimeDuration",
+      "valueType": "float",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "time duration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.Effect.0.TimeDuration confirmed 0..1000000 clamp readbacks: -1->0, 0->0, 1->1, 999999->999999, 1000000->1000000, 1000001->1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-15 issue #340 confirmed Zone.N.Effect.N.TimeDuration at Zone.0.Effect.0.TimeDuration uses 0..1000000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index, and Effect.N uses the zone effect slot index.",
+        "notes": "Runtime evidence used concrete Zone.0.Effect.0 in the loaded show."
+      }
+    }
+  ]
+}

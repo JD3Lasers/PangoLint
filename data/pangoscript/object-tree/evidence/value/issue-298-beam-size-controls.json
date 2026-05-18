@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. The batch used Beam.0 paths with write/readback and baseline restore after every tested SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "Beam.N.IsGroup",
+      "probePath": "Beam.0.IsGroup",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.IsGroup\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.IsGroup\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Beam.0.IsGroup\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Beam.0.IsGroup\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #298 deferred Beam.N.IsGroup at Beam.0.IsGroup because sampled writes stayed at baseline 0.",
+      "deferReason": "Writes did not prove an accepted value domain or boundary.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.IsGroup",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.Power",
+      "probePath": "Beam.0.Power",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Beam.0.Power\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Beam.0.Power\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.Power\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Beam.0.Power\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Beam.0.Power\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #298 deferred Beam.N.Power at Beam.0.Power because sampled writes passed through to 100000 without a verified bound.",
+      "deferReason": "Pass-through evidence did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.Power",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.RotoZ",
+      "probePath": "Beam.0.RotoZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Beam.0.RotoZ\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Beam.0.RotoZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Beam.0.RotoZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Beam.0.RotoZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Beam.0.RotoZ\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #298 deferred Beam.N.RotoZ at Beam.0.RotoZ because sampled writes passed through to 100000 without a verified bound.",
+      "deferReason": "Pass-through evidence did not prove a complete manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.RotoZ",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.SizeX",
+      "probePath": "Beam.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 25,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -201,
+          "command": "SetProp \"Beam.0.SizeX\", -201",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200.5,
+          "command": "SetProp \"Beam.0.SizeX\", -200.5",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"Beam.0.SizeX\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -199.5,
+          "command": "SetProp \"Beam.0.SizeX\", -199.5",
+          "readback": -199.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Beam.0.SizeX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199.5,
+          "command": "SetProp \"Beam.0.SizeX\", 199.5",
+          "readback": 199.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"Beam.0.SizeX\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200.5,
+          "command": "SetProp \"Beam.0.SizeX\", 200.5",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"Beam.0.SizeX\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 25,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #298 confirmed Beam.N.SizeX at Beam.0.SizeX uses -200..200 with clamp boundary behavior, fractional readbacks inside the range, and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.SizeX",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    },
+    {
+      "objectPath": "Beam.N.SizeY",
+      "probePath": "Beam.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 25,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -201,
+          "command": "SetProp \"Beam.0.SizeY\", -201",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200.5,
+          "command": "SetProp \"Beam.0.SizeY\", -200.5",
+          "readback": -200,
+          "behavior": "clamp"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"Beam.0.SizeY\", -200",
+          "readback": -200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -199.5,
+          "command": "SetProp \"Beam.0.SizeY\", -199.5",
+          "readback": -199.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Beam.0.SizeY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199.5,
+          "command": "SetProp \"Beam.0.SizeY\", 199.5",
+          "readback": 199.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"Beam.0.SizeY\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200.5,
+          "command": "SetProp \"Beam.0.SizeY\", 200.5",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"Beam.0.SizeY\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 25,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #298 confirmed Beam.N.SizeY at Beam.0.SizeY uses -200..200 with clamp boundary behavior, fractional readbacks inside the range, and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0.SizeY",
+        "notes": "The probe used the concrete Beam.0 show-object path."
+      }
+    }
+  ]
+}

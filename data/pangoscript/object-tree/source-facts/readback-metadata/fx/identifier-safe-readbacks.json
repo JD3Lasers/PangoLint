@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "FX.CAPTION",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "FX.CAPTION",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.CAPTION behaved as no-op and read back baseline \"0\". This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.ChaseTimeMode",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "FX.0.0.ChaseTimeMode",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.ChaseTimeMode behaved as no-op and read back baseline 0. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.Chase.Manual",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "FX.3.0.0.Chase.Manual",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-15",
+      "notes": "Fresh BEYOND issue #513 write/readback retest showed SetProp writes to FX.3.0.0.Chase.Manual change readback but transform at least one non-baseline sample. This row remains readback-backed until a useful accepted domain is proven.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.Oscillator.CENTERX",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "FX.0.0.0.Oscillator.CENTERX",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-15",
+      "notes": "Fresh BEYOND issue #513 SetProp and direct-assignment write/readback retest sent integer, float, high numeric, and signed 32-bit samples to FX.0.0.0.Oscillator.CENTERX. Every successful non-baseline sample read back the observed baseline 0. This row remains readback-only computed-status metadata and does not prove a writable range.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.Oscillator.Channel",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "FX.0.0.0.Oscillator.Channel",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-15",
+      "notes": "Fresh BEYOND issue #513 write/readback retest showed SetProp writes to FX.0.0.0.Oscillator.Channel change readback but transform at least one non-baseline sample. This row remains readback-backed until a useful accepted domain is proven.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.RouterInZone",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "FX.0.0.0.RouterInZone",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.0.RouterInZone behaved as no-op and read back baseline \"0\". This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.RouterOutZone",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "FX.0.0.0.RouterOutZone",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.0.RouterOutZone behaved as no-op and read back baseline \"0\". This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.TimeName",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "FX.0.0.0.TimeName",
+      "probeMode": "readback-only",
+      "observedValue": "0",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.0.TimeName behaved as no-op and read back baseline \"0\". This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.N.TimeStateCanRestart",
+      "readable": true,
+      "valueType": "boolean",
+      "probePath": "FX.0.0.0.TimeStateCanRestart",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.0.TimeStateCanRestart behaved as no-op and read back baseline 0. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.Zone",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "FX.0.0.Zone",
+      "probeMode": "readback-only",
+      "observedValue": "",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.Zone behaved as no-op and read back baseline \"\". This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    },
+    {
+      "path": "FX.N.N.ZoneMode",
+      "readable": true,
+      "valueType": "number",
+      "probePath": "FX.0.0.ZoneMode",
+      "probeMode": "readback-only",
+      "observedValue": 0,
+      "typeTag": "f",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp write/readback evidence on 2026-05-17 issue #216 confirmed sampled writes to FX.0.0.ZoneMode behaved as no-op and read back baseline 0. This row remains readback-only after write attempts.",
+      "locationContext": {
+        "kind": "quickfx-slot",
+        "populationDependent": true,
+        "indexBasis": "FX.N.N and FX.N.N.N use concrete QuickFX layer, cell, and effect indices from the loaded QuickFX fixture.",
+        "notes": "The probe used concrete populated FX paths from the generated QuickFX object tree. Special-character key paths were intentionally excluded from this identifier-safe readback slice."
+      }
+    }
+  ]
+}

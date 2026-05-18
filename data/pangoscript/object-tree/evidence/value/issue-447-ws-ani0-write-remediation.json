@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 447,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.13 Object Animator cue Ani.0 controls. Every sampled write restored the observed baseline and verified final readback. No playback, output, projector, mute, zoning, or geometry commands were sent."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Ani.0.MaxValue",
+      "probePath": "WS.0.13.Ani.0.MaxValue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -101,
+        "max": 101,
+        "unit": "animator value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.13.Ani.0.MaxValue\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.13.Ani.0.MaxValue\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.MaxValue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.MaxValue\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.13.Ani.0.MaxValue\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe restored WS.0.13.Ani.0.MaxValue to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.MaxValue at WS.0.13.Ani.0.MaxValue accepts at least -101..101 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.MinValue",
+      "probePath": "WS.0.13.Ani.0.MinValue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -101,
+        "max": 101,
+        "unit": "animator value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.13.Ani.0.MinValue\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.13.Ani.0.MinValue\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.MinValue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.MinValue\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.13.Ani.0.MinValue\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.Ani.0.MinValue to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.MinValue at WS.0.13.Ani.0.MinValue accepts at least -101..101 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.Period",
+      "probePath": "WS.0.13.Ani.0.Period",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1000,
+        "unit": "period",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.0.13.Ani.0.Period\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.13.Ani.0.Period to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.Period at WS.0.13.Ani.0.Period accepts at least -1..1000 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsBuddy",
+      "probePath": "WS.0.13.Ani.0.tsBuddy",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 2,
+        "unit": "time shift state",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsBuddy\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsBuddy\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsBuddy\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.tsBuddy\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.13.Ani.0.tsBuddy to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.tsBuddy at WS.0.13.Ani.0.tsBuddy accepts at least -1..2 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsGrouping",
+      "probePath": "WS.0.13.Ani.0.tsGrouping",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 2,
+        "unit": "time shift state",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsGrouping\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsGrouping\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsGrouping\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.tsGrouping\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.13.Ani.0.tsGrouping to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.tsGrouping at WS.0.13.Ani.0.tsGrouping accepts at least -1..2 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsPhase",
+      "probePath": "WS.0.13.Ani.0.tsPhase",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -101,
+        "max": 101,
+        "unit": "phase",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.13.Ani.0.tsPhase\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.13.Ani.0.tsPhase\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsPhase\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.tsPhase\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.13.Ani.0.tsPhase\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.Ani.0.tsPhase to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.tsPhase at WS.0.13.Ani.0.tsPhase accepts at least -101..101 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsShiftBetweenItems",
+      "probePath": "WS.0.13.Ani.0.tsShiftBetweenItems",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -101,
+        "max": 101,
+        "unit": "shift",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.13.Ani.0.tsShiftBetweenItems\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.13.Ani.0.tsShiftBetweenItems\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsShiftBetweenItems\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.tsShiftBetweenItems\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.13.Ani.0.tsShiftBetweenItems\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.Ani.0.tsShiftBetweenItems to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.tsShiftBetweenItems at WS.0.13.Ani.0.tsShiftBetweenItems accepts at least -101..101 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsWindowTime",
+      "probePath": "WS.0.13.Ani.0.tsWindowTime",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 101,
+        "unit": "time",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsWindowTime\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsWindowTime\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsWindowTime\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.13.Ani.0.tsWindowTime\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.13.Ani.0.tsWindowTime\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.Ani.0.tsWindowTime to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.tsWindowTime at WS.0.13.Ani.0.tsWindowTime accepts at least -1..101 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.WavePhase",
+      "probePath": "WS.0.13.Ani.0.WavePhase",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -361,
+        "max": 361,
+        "unit": "phase",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.13.Ani.0.WavePhase\", -361",
+          "readback": -361,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.13.Ani.0.WavePhase\", -360",
+          "readback": -360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.WavePhase\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.13.Ani.0.WavePhase\", 360",
+          "readback": 360,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.13.Ani.0.WavePhase\", 361",
+          "readback": 361,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.13.Ani.0.WavePhase to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.WavePhase at WS.0.13.Ani.0.WavePhase accepts at least -361..361 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.WaveStillState",
+      "probePath": "WS.0.13.Ani.0.WaveStillState",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 2,
+        "unit": "wave state",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.WaveStillState\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored WS.0.13.Ani.0.WaveStillState to its observed baseline after each write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-15 issue #447 confirmed WS.N.N.Ani.0.WaveStillState at WS.0.13.Ani.0.WaveStillState accepts at least -1..2 with pass-through behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator cue, Ani.0 branch",
+        "notes": "The runtime probe used WS.0.13, the loaded Object Animator cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

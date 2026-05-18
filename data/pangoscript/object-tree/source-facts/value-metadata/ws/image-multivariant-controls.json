@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.Count",
+      "contextId": "cue-type:particles",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "image count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.10.Image.Count confirmed 1..200 clamp readbacks: 0->1, 1->1, 2->2, 199->199, 200->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.Count for Particles at WS.0.10.Image.Count uses 1..200 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.10, the loaded Particles cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CursorX",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.CursorX confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorX for Shape at WS.0.3.Image.CursorX uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CursorY",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.CursorY confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorY for Shape at WS.0.3.Image.CursorY uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CursorZ",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.CursorZ confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.CursorZ for Shape at WS.0.3.Image.CursorZ uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Loops",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "loop count",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.Loops confirmed 1..16 clamp readbacks: 0->1, 1->1, 2->2, 16->16, 17->16."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.Loops for Shape at WS.0.3.Image.Loops uses 1..16 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RecordInterval",
+      "contextId": "cue-type:shape",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 5,
+        "max": 500,
+        "unit": "record interval",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.RecordInterval confirmed 5..500 clamp readbacks: 4->5, 5->5, 6->6, 499->499, 500->500, 501->500."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 multivariant confirmed WS.N.N.Image.RecordInterval for Shape at WS.0.3.Image.RecordInterval uses 5..500 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+# Extension source is bundled into dist/extension.js.
+src/**
+tests/**
+scripts/**
+dist/**
+dist/test/**
+!dist/extension.js
+!dist/sidebar-commands-webview.js
+!dist/sidebar-objects-webview.js
+
+# The MCP server ships as the separate pangolint-mcp npm package.
+mcp/**
+
+# Repository docs are not VSIX runtime files except the diagnostics reference.
+docs/**
+!docs/references/diagnostics/README.md
+
+# Data defaults to excluded. Only approved VSIX runtime indexes are included.
+# VSCE expands negated directory patterns into recursive allows, so keep allows
+# to exact files or final package globs.
+data/**
+!data/pangoscript/beyond-category-tree.json
+!data/pangoscript/commands.merged.json
+!data/pangoscript/command-property-coverage.json
+!data/pangoscript/object-tree/runtime-indexes/**
+data/pangoscript/object-tree/*.json
+data/pangoscript/object-tree/*.md
+data/pangoscript/object-tree/source-facts/**
+data/pangoscript/object-tree/evidence/**
+data/pangoscript/object-tree/audits/**
+data/pangoscript/object-tree/package-projections/**
+
+# Media defaults to excluded. Only built icons, sidebars, and reference output ship.
+media/**
+!media/icon.png
+!media/icon-activity-bar.svg
+!media/sidebar/**
+!media/reference/**
+
+# Local-only files must never ship.
+.local-scripts/**
+.trash/**
+
+# Development, CI, test, and package artifacts.
+.github/**
+.vscode/**
+.vscode-test/**
+.vscode-test.mjs
+.pangolint/**
+artifacts/**
+coverage/**
+node_modules/**
+_site/**
+*.vsix
+*.vsix.sha256
+*.tgz
+*.log
+.DS_Store
+
+# Development configuration that is not needed at extension runtime.
+.gitignore
+.markdownlint.json
+.markdownlint-cli2.jsonc
+biome.json
+tsconfig.json
+tsconfig.test.json
+vitest.config.ts
+package-lock.json
+
+# Local agent files.
+AGENTS.md
+CLAUDE.md
+.claude/**

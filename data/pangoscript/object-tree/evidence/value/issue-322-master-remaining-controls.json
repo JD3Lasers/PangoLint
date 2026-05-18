@@ -1,0 +1,2437 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 322,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. Each shipped row used direct object assignment and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "Master.CueFinishTime",
+      "probePath": "Master.CueFinishTime",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0.4000000059604645,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.CueFinishTime = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Master.CueFinishTime = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "Master.CueFinishTime = 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.CueFinishTime = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "Master.CueFinishTime = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5.1,
+          "command": "Master.CueFinishTime = 5.1",
+          "readback": 5,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "Master.CueFinishTime = 10",
+          "readback": 5,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.4000000059604645,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueFinishTime uses 0..5 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.CuePauseTime",
+      "probePath": "Master.CuePauseTime",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.CuePauseTime = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Master.CuePauseTime = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "Master.CuePauseTime = 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.CuePauseTime = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "Master.CuePauseTime = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5.1,
+          "command": "Master.CuePauseTime = 5.1",
+          "readback": 5,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "Master.CuePauseTime = 10",
+          "readback": 5,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CuePauseTime uses 0..5 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.CueRule",
+      "probePath": "Master.CueRule",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "enum",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "cue rule",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "RULE_0",
+          "description": "Set Master.CueRule to rule 0."
+        },
+        {
+          "value": 1,
+          "label": "RULE_1",
+          "description": "Set Master.CueRule to rule 1."
+        },
+        {
+          "value": 2,
+          "label": "RULE_2",
+          "description": "Set Master.CueRule to rule 2."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.CueRule = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Master.CueRule = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.CueRule = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "Master.CueRule = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "Master.CueRule = 3",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueRule uses 0..2 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.CueStartTime",
+      "probePath": "Master.CueStartTime",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0.20000000298023224,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.CueStartTime = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Master.CueStartTime = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.1,
+          "command": "Master.CueStartTime = 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.CueStartTime = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "Master.CueStartTime = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5.1,
+          "command": "Master.CueStartTime = 5.1",
+          "readback": 5,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "Master.CueStartTime = 10",
+          "readback": 5,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0.20000000298023224,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueStartTime uses 0..5 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.CueUnPauseTime",
+      "probePath": "Master.CueUnPauseTime",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.CueUnPauseTime = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.CueUnPauseTime = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0.1,
+          "command": "Master.CueUnPauseTime = 0.1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.CueUnPauseTime = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10,
+          "command": "Master.CueUnPauseTime = 10",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.CueUnPauseTime = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.CueUnPauseTime = 1000",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "Master.CueUnPauseTime = 10000",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.CueUnPauseTime.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.DisplayPopupTimeout",
+      "probePath": "Master.DisplayPopupTimeout",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "float",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 5,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0.1,
+        "max": 60,
+        "unit": "seconds",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Master.DisplayPopupTimeout = -1",
+          "readback": 0.10000000149011612,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Master.DisplayPopupTimeout = 0",
+          "readback": 0.10000000149011612,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0.1,
+          "command": "Master.DisplayPopupTimeout = 0.1",
+          "readback": 0.10000000149011612,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.DisplayPopupTimeout = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "Master.DisplayPopupTimeout = 60",
+          "readback": 60,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60.1,
+          "command": "Master.DisplayPopupTimeout = 60.1",
+          "readback": 60,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "Master.DisplayPopupTimeout = 100",
+          "readback": 60,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 5,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.DisplayPopupTimeout uses 0.1..60 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.FX7",
+      "probePath": "Master.FX7",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.FX7 = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.FX7 = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.FX7 = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.FX7 = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "Master.FX7 = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 99,
+          "command": "Master.FX7 = 99",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.FX7 = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.FX7 = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.FX7.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.FX8",
+      "probePath": "Master.FX8",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.FX8 = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.FX8 = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.FX8 = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.FX8 = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "Master.FX8 = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 99,
+          "command": "Master.FX8 = 99",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.FX8 = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.FX8 = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.FX8.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.LCScrollSpeed",
+      "probePath": "Master.LCScrollSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 11,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "Master.LCScrollSpeed = -100000",
+          "readback": -100000,
+          "behavior": "unknown"
+        },
+        {
+          "input": -10000,
+          "command": "Master.LCScrollSpeed = -10000",
+          "readback": -10000,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1000,
+          "command": "Master.LCScrollSpeed = -1000",
+          "readback": -1000,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.LCScrollSpeed = -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.LCScrollSpeed = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.LCScrollSpeed = 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.LCScrollSpeed = 1000",
+          "readback": 1000,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "Master.LCScrollSpeed = 10000",
+          "readback": 10000,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100000,
+          "command": "Master.LCScrollSpeed = 100000",
+          "readback": 100000,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 11,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.LCScrollSpeed.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.MasterBrightness",
+      "probePath": "Master.MasterBrightness",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.MasterBrightness = -2",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.MasterBrightness = -1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.MasterBrightness = 0",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.MasterBrightness = 1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "Master.MasterBrightness = 50",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.MasterBrightness = 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.MasterBrightness = 101",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.MasterBrightness = 1000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.MasterBrightness.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.PosX",
+      "probePath": "Master.PosX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "Master.PosX = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "Master.PosX = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.PosX = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.PosX = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.PosX = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "Master.PosX = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "Master.PosX = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.PosX.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.PosY",
+      "probePath": "Master.PosY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "Master.PosY = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "Master.PosY = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.PosY = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.PosY = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.PosY = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "Master.PosY = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "Master.PosY = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.PosY.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.PosZ",
+      "probePath": "Master.PosZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "Master.PosZ = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "Master.PosZ = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.PosZ = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.PosZ = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.PosZ = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "Master.PosZ = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "Master.PosZ = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.PosZ.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.RotoAccX",
+      "probePath": "Master.RotoAccX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "Master.RotoAccX = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "Master.RotoAccX = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Master.RotoAccX = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Master.RotoAccX = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.RotoAccX = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "Master.RotoAccX = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "Master.RotoAccX = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.RotoAccY",
+      "probePath": "Master.RotoAccY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "Master.RotoAccY = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "Master.RotoAccY = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Master.RotoAccY = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Master.RotoAccY = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.RotoAccY = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "Master.RotoAccY = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "Master.RotoAccY = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.RotoAccZ",
+      "probePath": "Master.RotoAccZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "Master.RotoAccZ = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "Master.RotoAccZ = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "Master.RotoAccZ = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "Master.RotoAccZ = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "Master.RotoAccZ = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "Master.RotoAccZ = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "Master.RotoAccZ = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.SatShift",
+      "probePath": "Master.SatShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "Master.SatShift = -101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "Master.SatShift = -100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.SatShift = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.SatShift = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.SatShift = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.SatShift = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.SatShift = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.SatShift.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.ShowSpeed",
+      "probePath": "Master.ShowSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.ShowSpeed = -2",
+          "readback": -2,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.ShowSpeed = -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.ShowSpeed = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.ShowSpeed = 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.ShowSpeed = 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.ShowSpeed = 101",
+          "readback": 101,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.ShowSpeed = 1000",
+          "readback": 1000,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.ShowSpeed.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.TimecodeShift",
+      "probePath": "Master.TimecodeShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "Master.TimecodeShift = -100000",
+          "readback": -100000,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1000,
+          "command": "Master.TimecodeShift = -1000",
+          "readback": -1000,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.TimecodeShift = -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.TimecodeShift = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.TimecodeShift = 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.TimecodeShift = 1000",
+          "readback": 1000,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100000,
+          "command": "Master.TimecodeShift = 100000",
+          "readback": 100000,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.TimecodeShift.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.VisiblePointsEnd",
+      "probePath": "Master.VisiblePointsEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.VisiblePointsEnd = -2",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.VisiblePointsEnd = -1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.VisiblePointsEnd = 0",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.VisiblePointsEnd = 1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "Master.VisiblePointsEnd = 50",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.VisiblePointsEnd = 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.VisiblePointsEnd = 101",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.VisiblePointsEnd = 1000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.VisiblePointsEnd.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.VisiblePointsStart",
+      "probePath": "Master.VisiblePointsStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "Master.VisiblePointsStart = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "Master.VisiblePointsStart = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "Master.VisiblePointsStart = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "Master.VisiblePointsStart = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "Master.VisiblePointsStart = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "Master.VisiblePointsStart = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "Master.VisiblePointsStart = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "Master.VisiblePointsStart = 1000",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred Master.VisiblePointsStart.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.ColorSlider",
+      "probePath": "MasterLC.ColorSlider",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "MasterLC.ColorSlider = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.ColorSlider = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.ColorSlider = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 254,
+          "command": "MasterLC.ColorSlider = 254",
+          "readback": 254,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "MasterLC.ColorSlider = 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "MasterLC.ColorSlider = 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.FX7",
+      "probePath": "MasterLC.FX7",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.FX7 = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.FX7 = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.FX7 = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.FX7 = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.FX7 = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 99,
+          "command": "MasterLC.FX7 = 99",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.FX7 = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.FX7 = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.FX7.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.FX8",
+      "probePath": "MasterLC.FX8",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.FX8 = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.FX8 = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.FX8 = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.FX8 = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.FX8 = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 99,
+          "command": "MasterLC.FX8 = 99",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.FX8 = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.FX8 = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.FX8.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.Hue",
+      "probePath": "MasterLC.Hue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.Hue = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.Hue = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.Hue = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.Hue = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "MasterLC.Hue = 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "MasterLC.Hue = 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosX",
+      "probePath": "MasterLC.PosX",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "MasterLC.PosX = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "MasterLC.PosX = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.PosX = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.PosX = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.PosX = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "MasterLC.PosX = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "MasterLC.PosX = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.PosX.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosY",
+      "probePath": "MasterLC.PosY",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "MasterLC.PosY = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "MasterLC.PosY = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.PosY = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.PosY = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.PosY = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "MasterLC.PosY = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "MasterLC.PosY = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.PosY.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.PosZ",
+      "probePath": "MasterLC.PosZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "MasterLC.PosZ = -401",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "MasterLC.PosZ = -400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.PosZ = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.PosZ = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.PosZ = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "MasterLC.PosZ = 400",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "MasterLC.PosZ = 401",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.PosZ.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.RotoAccX",
+      "probePath": "MasterLC.RotoAccX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "MasterLC.RotoAccX = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "MasterLC.RotoAccX = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.RotoAccX = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.RotoAccX = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.RotoAccX = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "MasterLC.RotoAccX = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "MasterLC.RotoAccX = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.RotoAccY",
+      "probePath": "MasterLC.RotoAccY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "MasterLC.RotoAccY = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "MasterLC.RotoAccY = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.RotoAccY = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.RotoAccY = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.RotoAccY = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "MasterLC.RotoAccY = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "MasterLC.RotoAccY = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.RotoAccZ",
+      "probePath": "MasterLC.RotoAccZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "MasterLC.RotoAccZ = -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "MasterLC.RotoAccZ = -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.RotoAccZ = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.RotoAccZ = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.RotoAccZ = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "MasterLC.RotoAccZ = 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "MasterLC.RotoAccZ = 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.SatShift",
+      "probePath": "MasterLC.SatShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "MasterLC.SatShift = -101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "MasterLC.SatShift = -100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.SatShift = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.SatShift = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.SatShift = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.SatShift = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.SatShift = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.SatShift.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.Saturation",
+      "probePath": "MasterLC.Saturation",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.Saturation = -2",
+          "readback": -2,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.Saturation = -1",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.Saturation = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.Saturation = 1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.Saturation = 50",
+          "readback": 50,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.Saturation = 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.Saturation = 101",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "MasterLC.Saturation = 1000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.Saturation.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.VisiblePointsEnd",
+      "probePath": "MasterLC.VisiblePointsEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.VisiblePointsEnd = -2",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.VisiblePointsEnd = -1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.VisiblePointsEnd = 0",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.VisiblePointsEnd = 1",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.VisiblePointsEnd = 50",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.VisiblePointsEnd = 100",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.VisiblePointsEnd = 101",
+          "readback": 100,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "MasterLC.VisiblePointsEnd = 1000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.VisiblePointsEnd.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    },
+    {
+      "objectPath": "MasterLC.VisiblePointsStart",
+      "probePath": "MasterLC.VisiblePointsStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "MasterLC.VisiblePointsStart = -2",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "MasterLC.VisiblePointsStart = -1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "MasterLC.VisiblePointsStart = 0",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "MasterLC.VisiblePointsStart = 1",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 50,
+          "command": "MasterLC.VisiblePointsStart = 50",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "MasterLC.VisiblePointsStart = 100",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "MasterLC.VisiblePointsStart = 101",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1000,
+          "command": "MasterLC.VisiblePointsStart = 1000",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline when the property accepted writes. Deferred rows did not prove complete manual-ready metadata."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #322 deferred MasterLC.VisiblePointsStart.",
+      "deferReason": "probe result did not confirm a complete range or domain",
+      "locationAware": false
+    }
+  ]
+}

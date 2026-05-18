@@ -1,0 +1,21 @@
+// PangoLint expect: deltavalue-midi-slot-context
+// PangoLint fail: DefineMidiTrigger handler with spaced DeltaValue property command
+// Purpose: verify DefineMidiTrigger/InRangeTrigger label handlers do not provide a DeltaValue context.
+// BEYOND validation 2026-05-07: parser error on the handler body before any MIDI trigger can emit OSC output.
+// BEYOND parser error: Unknown function, undeclared or not initialized variable: deltavalue.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 16, text `Master.PhFriction deltavalue (-1,1)`.
+// Object tree note: Master.PhFriction exists in the BEYOND object tree as /b/Master/PhFriction.
+
+var requestId
+
+requestId = "pangolint-candidate-deltavalue-trigger-property-001"
+
+DefineMidiTrigger 0xB0, 0x00, "PangoLint DeltaValue trigger"
+InRangeTrigger 64, 64, "ApplyDeltaValue"
+exit
+
+ApplyDeltaValue:
+Master.PhFriction deltavalue (-1,1)
+OscOutTTS "/pangolint/candidate/deltavalue/trigger-property", "s", requestId
+exit

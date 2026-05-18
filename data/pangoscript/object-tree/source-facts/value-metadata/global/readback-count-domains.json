@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Grid2.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid2.GetColCount * Grid2.GetRowCount",
+          "sourcePaths": ["Grid2.GetColCount", "Grid2.GetRowCount"],
+          "notes": "Runtime readback confirmed Grid2.Count 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6 in the loaded workspace grid."
+        },
+        "unit": "cue slots",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Grid2.Count read back 60 in the loaded 10 by 6 workspace grid. The dynamic upper bound uses the existing observed Grid2.GetColCount and Grid2.GetRowCount metadata."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Grid2.Count at Grid2.Count with current grid geometry readback.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "Grid2.Count reflects the loaded workspace grid layout."
+      }
+    },
+    {
+      "path": "ColorChannel.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 256,
+        "max": 256,
+        "unit": "color channels",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 256,
+          "label": "COUNT",
+          "description": "ColorChannel.Count reads the number of available color channels."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed ColorChannel.Count reads 256 with the last zero-based color channel index present.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "indexBasis": "ColorChannel.N uses zero-based color channel indices 0..255."
+      }
+    },
+    {
+      "path": "Location.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1024,
+        "max": 1024,
+        "unit": "locations",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0."
+      },
+      "acceptedValues": [
+        {
+          "value": 1024,
+          "label": "COUNT",
+          "description": "Location.Count reads the number of available location slots."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Location.Count reads 1024 with the last zero-based location index present.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "indexBasis": "Location.N uses zero-based location indices 0..1023."
+      }
+    },
+    {
+      "path": "TouchPoints.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 10,
+        "max": 10,
+        "unit": "touch points",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass."
+      },
+      "acceptedValues": [
+        {
+          "value": 10,
+          "label": "COUNT",
+          "description": "TouchPoints.Count reads the number of touch point slots."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed TouchPoints.Count reads 10.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "indexBasis": "TouchPoints.N uses zero-based touch point indices 0..9."
+      }
+    }
+  ]
+}

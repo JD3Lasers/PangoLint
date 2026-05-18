@@ -1,0 +1,18 @@
+// PangoLint candidate: straight-line OSC callback runtime test
+// Purpose: verify a minimal readback-oriented command batch in the BEYOND editor.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/straight/start (si) "pangolint-candidate-straight-line-001" 1
+// PangoLint expected callback: /pangolint/candidate/straight/done (si) "pangolint-candidate-straight-line-001" 2
+// PangoLint observed callback: /pangolint/candidate/straight/start (si) "pangolint-candidate-straight-line-001" 1
+// PangoLint observed callback: /pangolint/candidate/straight/done (si) "pangolint-candidate-straight-line-001" 2
+
+var requestId
+var sequence
+
+requestId = "pangolint-candidate-straight-line-001"
+sequence = 1
+
+OscOutTTS "/pangolint/candidate/straight/start", "si", requestId, sequence
+sequence = sequence + 1
+OscOutTTS "/pangolint/candidate/straight/done", "si", requestId, sequence
+exit

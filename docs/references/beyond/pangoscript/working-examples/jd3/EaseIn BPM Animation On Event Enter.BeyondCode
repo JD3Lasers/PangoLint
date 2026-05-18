@@ -1,0 +1,41 @@
+//On Event Enter//
+
+CodeName "EaseIn BPM Animation"
+AutoStart
+
+// Define a global variable to control the animation
+GLOBALVAR animationRunning; animationRunning = TRUE
+
+var startTime; startTime = tickcount
+var duration; duration = 10000 // Duration in milliseconds
+var startValue; startValue = 128
+var endValue; endValue = 350
+
+LoopStart:
+    // Check if the animation is still running
+    if (animationRunning = FALSE) goto EndAnimation
+
+    var currentTime; currentTime = tickcount - startTime
+    if (currentTime > duration) goto EndAnimation
+
+    // Calculate the progress (between 0 and 1)
+    var t; t = currentTime / duration
+
+    // Apply a quadratic ease-in function
+    var easedT; easedT = t * t
+
+    // Calculate the current value
+    var currentValue; currentValue = startValue + easedT * (endValue - startValue)
+    
+    // Update the property
+    Master.BPM = currentValue
+
+    Sleep 10 // Reduce the delay for smoother updates
+    goto LoopStart
+
+EndAnimation:
+    // Ensure the final value is set if the animation completed
+    if (currentTime >= duration) {
+        Master.BPM = endValue
+    }
+    Exit

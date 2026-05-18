@@ -1,0 +1,22 @@
+// COLORPICKER.SWAPMODE_OnClick
+// Toggles between SNAP and FADE modes
+OnClick:
+if (value > 0.5) goto FadeMode
+goto SnapMode
+
+FadeMode:
+    COLORPICKER.SWAPMODE.Caption = "FADE"
+    COLORPICKER.SWAPMODE.Tag = 1     // 1 = fade
+    exit
+
+SnapMode:
+    COLORPICKER.SWAPMODE.Caption = "SNAP"
+    COLORPICKER.SWAPMODE.Tag = 0     // 0 = snap
+    exit
+	
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

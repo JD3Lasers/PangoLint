@@ -1,0 +1,187 @@
+name: Release Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to package, e.g. v0.1.0"
+        required: true
+        type: string
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-release-artifacts:
+    name: Build GitHub Release artifacts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - name: Resolve release tag
+        id: release
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          tag="$RELEASE_TAG"
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z][0-9A-Za-z.-]*)?(\+[0-9A-Za-z][0-9A-Za-z.-]*)?$ ]]; then
+            echo "Release tag must match vMAJOR.MINOR.PATCH with optional semver suffix: $tag" >&2
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout release tag
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ steps.release.outputs.tag }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify release tag matches package version
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          mcp_version="$(node -p "require('./mcp/package.json').version")"
+          if [ "$mcp_version" != "$version" ]; then
+            echo "mcp/package.json version $mcp_version does not match package.json version $version" >&2
+            exit 1
+          fi
+          if [ "v$version" != "$RELEASE_TAG" ]; then
+            echo "Tag $RELEASE_TAG does not match package.json version $version" >&2
+            exit 1
+          fi
+
+      - name: Run release version preflight
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run release:preflight -- ${{ steps.release.outputs.version }}
+
+      - name: Run clean-runner release gate
+        run: npm run check:public && npm run check:mcp
+
+      - name: Build VSIX artifact
+        run: npm run package:vsix
+
+      - name: Build MCP tarball artifact
+        run: npm run package:mcp
+
+      - name: Inspect VSIX contents
+        run: npx vsce ls --no-dependencies > release-vsix-contents.txt
+
+      - name: Verify MCP tarball contents
+        run: npm --workspace mcp run verify:tarball
+
+      - name: Capture MCP tarball manifest
+        run: npm pack --workspace mcp --dry-run --json > release-mcp-tarball.json
+
+      - name: Stage release assets
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          version="$RELEASE_VERSION"
+          mkdir -p release-artifacts
+          cp "pangolint-$version.vsix" release-artifacts/
+          cp pangolint.vsix.sha256 "release-artifacts/pangolint-$version.vsix.sha256"
+          cp mcp/pangolint-mcp-*.tgz release-artifacts/
+          cp release-vsix-contents.txt release-artifacts/
+          cp release-mcp-tarball.json release-artifacts/
+          (cd release-artifacts && shasum -a 256 * > SHA256SUMS)
+
+      - name: Upload release artifact bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: release-artifacts/*
+          if-no-files-found: error
+          retention-days: 7
+
+  github-release:
+    name: Publish GitHub Release artifacts
+    runs-on: ubuntu-latest
+    needs: build-release-artifacts
+    permissions:
+      contents: write
+    steps:
+      - name: Download release artifact bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release-artifacts
+
+      - name: Write release notes
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ needs.build-release-artifacts.outputs.version }}
+        run: |
+          version="$RELEASE_VERSION"
+          cat > release-notes.md <<NOTES
+          ## PangoLint $version
+
+          Release artifact bundle for GitHub Releases.
+
+          ### Install VS Code extension
+
+          \`\`\`bash
+          code --install-extension pangolint-$version.vsix --force
+          \`\`\`
+
+          ### Install MCP server from tarball
+
+          \`\`\`bash
+          npm install -g ./pangolint-mcp-$version.tgz
+          \`\`\`
+
+          ### Integrity
+
+          Verify downloaded files against \`SHA256SUMS\`.
+
+          This GitHub Release is a manual installation channel. It does not provide npm or VS Code Marketplace auto-updates.
+          NOTES
+
+      - name: Create or update draft GitHub Release
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ needs.build-release-artifacts.outputs.tag }}
+          RELEASE_VERSION: ${{ needs.build-release-artifacts.outputs.version }}
+        shell: bash
+        run: |
+          title="PangoLint $RELEASE_VERSION"
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            is_draft="$(gh release view "$RELEASE_TAG" --json isDraft --jq '.isDraft')"
+            if [ "$is_draft" != "true" ]; then
+              echo "Refusing to clobber published release $RELEASE_TAG. Bump the version instead." >&2
+              exit 1
+            fi
+            gh release upload "$RELEASE_TAG" release-artifacts/* --clobber
+            gh release edit "$RELEASE_TAG" --draft --title "$title" --notes-file release-notes.md
+          else
+            gh release create "$RELEASE_TAG" release-artifacts/* \
+              --draft \
+              --title "$title" \
+              --notes-file release-notes.md
+          fi

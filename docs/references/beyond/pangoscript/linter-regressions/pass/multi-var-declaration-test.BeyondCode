@@ -1,0 +1,16 @@
+// PangoLint candidate: multiple variables in one declaration
+// Purpose: discover whether BEYOND accepts comma-separated var declarations.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/multi-var/result (sii) "pangolint-candidate-multi-var-001" 1 6
+// PangoLint observed callback: /pangolint/candidate/multi-var/result (sii) "pangolint-candidate-multi-var-001" 1 6
+
+var requestId, sequence, leftValue, rightValue, resultValue
+
+requestId = "pangolint-candidate-multi-var-001"
+sequence = 1
+leftValue = 4
+rightValue = 2
+resultValue = leftValue + rightValue
+
+OscOutTTS "/pangolint/candidate/multi-var/result", "sii", requestId, sequence, resultValue
+exit

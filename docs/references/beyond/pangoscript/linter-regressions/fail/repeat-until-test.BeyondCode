@@ -1,0 +1,18 @@
+// PangoLint expect: unsupported-loop
+// PangoLint candidate: Repeat/Until syntax
+// Purpose: verify BEYOND rejects Repeat/Until-style loops.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Unknown command: repeat.
+// BEYOND parser location: line 11, text `Repeat`
+
+var requestId
+var index
+
+requestId = "pangolint-candidate-repeat-until-001"
+index = 0
+
+Repeat
+  OscOutTTS "/pangolint/candidate/repeat/iteration", "si", requestId, index
+  index = index + 1
+Until index = 2
+exit

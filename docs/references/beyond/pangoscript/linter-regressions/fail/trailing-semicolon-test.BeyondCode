@@ -1,0 +1,21 @@
+// PangoLint expect: unsupported-exit-semicolon
+// PangoLint candidate: trailing semicolons
+// Purpose: verify whether BEYOND accepts semicolon-terminated statements.
+// BEYOND validation 2026-05-07: parser errors were reported on `exit;`, but earlier callbacks still emitted.
+// BEYOND parser error: Invalid expression.
+// BEYOND parser error: Error in command.
+// BEYOND parser location: line 15, text `exit;`
+// BEYOND fix check: removing the semicolon from `exit` clears the parser errors.
+// PangoLint observed callback: /pangolint/candidate/semicolon/start (si) "pangolint-candidate-semicolon-001" 1
+// PangoLint observed callback: /pangolint/candidate/semicolon/done (si) "pangolint-candidate-semicolon-001" 2
+
+var requestId;
+var sequence;
+
+requestId = "pangolint-candidate-semicolon-001";
+sequence = 1;
+
+OscOutTTS "/pangolint/candidate/semicolon/start", "si", requestId, sequence;
+sequence = sequence + 1;
+OscOutTTS "/pangolint/candidate/semicolon/done", "si", requestId, sequence;
+exit;

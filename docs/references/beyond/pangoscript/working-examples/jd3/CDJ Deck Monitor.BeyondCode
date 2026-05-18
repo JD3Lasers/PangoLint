@@ -1,0 +1,48 @@
+CodeName "CDJ Deck Monitor"
+Autostart
+
+LoopStart:
+// Trigger Popup for Deck Played
+if (Channels.101.Value > 0) goto DECK1
+if (Channels.102.Value > 0) goto DECK2
+if (Channels.103.Value > 0) goto DECK3
+if (Channels.104.Value > 0) goto DECK4
+
+// Introduce a short delay to avoid overloading the system
+Sleep 2000
+
+// Continue monitoring
+goto LoopStart
+
+// Trigger Beyond Popup if a track is played on Deck 1
+DECK1:
+Master.DISPLAYPOPUPTIMEOUT=5
+DisplayPopup "Backup Deck 1 Used!!"
+Master.DISPLAYPOPUPTIMEOUT=0.5
+ChannelOut 101, 0
+Restart
+
+// Trigger Beyond Popup if a track is played on Deck 2
+DECK2:
+Master.DISPLAYPOPUPTIMEOUT=2
+DisplayPopup "Deck 2 Played"
+Master.DISPLAYPOPUPTIMEOUT=0.5
+ChannelOut 102, 0
+Restart
+
+// Trigger Beyond Popup if a track is played on Deck 3
+DECK3:
+Master.DISPLAYPOPUPTIMEOUT=2
+DisplayPopup "Deck 3 Played"
+Master.DISPLAYPOPUPTIMEOUT=0.5
+ChannelOut 103, 0
+Restart
+
+// Trigger Beyond Popup if a track is played on Deck 4
+DECK4:
+Master.DISPLAYPOPUPTIMEOUT=5
+DisplayPopup "Backup Deck 4 Used!!"
+Master.DISPLAYPOPUPTIMEOUT=0.5
+ChannelOut 104, 0
+Restart
+exit

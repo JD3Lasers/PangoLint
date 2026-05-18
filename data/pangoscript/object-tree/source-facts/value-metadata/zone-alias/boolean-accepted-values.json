@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.Active",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Active accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Active."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Active."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Active accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.Active."
+      }
+    },
+    {
+      "path": "ZoneAlias.BlockZone",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.BlockZone accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.BlockZone."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.BlockZone."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.BlockZone accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.BlockZone."
+      }
+    },
+    {
+      "path": "ZoneAlias.Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Mute accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Mute."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Mute accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.Mute."
+      }
+    },
+    {
+      "path": "ZoneAlias.Visible",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Visible accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Visible."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Visible."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Visible accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.Visible."
+      }
+    }
+  ]
+}

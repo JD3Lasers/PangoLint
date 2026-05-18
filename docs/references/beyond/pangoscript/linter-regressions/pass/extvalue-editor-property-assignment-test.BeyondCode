@@ -1,0 +1,20 @@
+// PangoLint pass: ExtValue property assignment outside trigger context
+// Purpose: verify BEYOND parses and executes property assignment with ExtValue in direct editor context.
+// Setup: paste/run in BEYOND's PangoScript editor.
+// BEYOND validation 2026-05-07: parser accepted the property assignment and emitted the observed callback.
+// Object tree note: Master.PhFriction exists in the BEYOND object tree as /b/Master/PhFriction.
+// Safety: T2 operator-supervised. This writes Master.PhFriction; observed run changed it from 10.000000 to 1.000000. Restore manually if needed.
+// PangoLint expected callback: /pangolint/candidate/extvalue/editor-property (sff) "pangolint-candidate-extvalue-editor-property-001" 10.000000 1.000000
+// PangoLint observed callback: /pangolint/candidate/extvalue/editor-property (sff) "pangolint-candidate-extvalue-editor-property-001" 10.000000 1.000000
+
+var requestId
+var beforeValue
+var afterValue
+
+requestId = "pangolint-candidate-extvalue-editor-property-001"
+beforeValue = Master.PhFriction
+Master.PhFriction = ExtValue (1,2)
+afterValue = Master.PhFriction
+
+OscOutTTS "/pangolint/candidate/extvalue/editor-property", "sff", requestId, beforeValue, afterValue
+exit

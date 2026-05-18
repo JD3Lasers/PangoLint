@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.AngleX",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.AngleX confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleX for FIFO Image at WS.0.11.Image.AngleX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AngleY",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.AngleY confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleY for FIFO Image at WS.0.11.Image.AngleY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AngleZ",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.AngleZ confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AngleZ for FIFO Image at WS.0.11.Image.AngleZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CursorColor",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99999999,
+        "unit": "RGB color integer",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.CursorColor confirmed pass-through across tested values: -1->-1, 0->0, 1->1, 255->255, 256->256, 16777215->16777215, 16777216->16777216, 99999999->99999999. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.CursorColor for FIFO Image at WS.0.11.Image.CursorColor accepts at least -1..99999999 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PosX",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.PosX confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosX for FIFO Image at WS.0.11.Image.PosX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PosY",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.PosY confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosY for FIFO Image at WS.0.11.Image.PosY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.PosZ",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "position",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.PosZ confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.PosZ for FIFO Image at WS.0.11.Image.PosZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.SizeX",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.SizeX confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -201->-201, -200->-200, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 200->200, 201->201, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeX for FIFO Image at WS.0.11.Image.SizeX accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.SizeY",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.SizeY confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -201->-201, -200->-200, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 200->200, 201->201, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeY for FIFO Image at WS.0.11.Image.SizeY accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.SizeZ",
+      "contextId": "cue-type:fifo-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.11.Image.SizeZ confirmed pass-through across tested values: -10000->-10000, -401->-401, -400->-400, -201->-201, -200->-200, -101->-101, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->101, 200->200, 201->201, 400->400, 401->401, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.SizeZ for FIFO Image at WS.0.11.Image.SizeZ accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.11, the loaded FIFO Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AnchBrigh",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor brightness",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.AnchBrigh confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchBrigh for centered line Parametric-Image at WS.1.2.Image.AnchBrigh accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AnchHue",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor hue",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.AnchHue confirmed pass-through across tested values: -10000->-10000, -2->-2, -1->-1, 0->0, 1->1, 359->359, 360->360, 720->720, 721->721, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchHue for centered line Parametric-Image at WS.1.2.Image.AnchHue accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.AnchSat",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor saturation",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.AnchSat confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.AnchSat for centered line Parametric-Image at WS.1.2.Image.AnchSat accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Angle",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "angle",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.Angle confirmed pass-through across tested values: -10000->-10000, -2881->-2881, -2880->-2880, -361->-361, -360->-360, -1->-1, 0->0, 1->1, 360->360, 361->361, 2880->2880, 2881->2881, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.Angle for centered line Parametric-Image at WS.1.2.Image.Angle accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.EndAnch",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor position",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.EndAnch confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.EndAnch for centered line Parametric-Image at WS.1.2.Image.EndAnch accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LineBright",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line brightness",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.LineBright confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineBright for centered line Parametric-Image at WS.1.2.Image.LineBright accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LineHue",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line hue",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.LineHue confirmed pass-through across tested values: -10000->-10000, -2->-2, -1->-1, 0->0, 1->1, 359->359, 360->360, 720->720, 721->721, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineHue for centered line Parametric-Image at WS.1.2.Image.LineHue accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LineSat",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "line saturation",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.LineSat confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.LineSat for centered line Parametric-Image at WS.1.2.Image.LineSat accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.Size",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "size",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.Size confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.Size for centered line Parametric-Image at WS.1.2.Image.Size accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.StartAnch",
+      "contextId": "cue-shape:parametric-image:centered-line",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10000,
+        "max": 10000,
+        "unit": "anchor position",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.1.2.Image.StartAnch confirmed pass-through across tested values: -10000->-10000, -1->-1, 0->0, 1->1, 50->50, 100->100, 101->101, 10000->10000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-15 issue #445 confirmed WS.N.N.Image.StartAnch for centered line Parametric-Image at WS.1.2.Image.StartAnch accepts at least -10000..10000 with pass-through behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.1.2, the loaded centered line Parametric-Image cue sample. This row applies only to that cue-shape context."
+      }
+    }
+  ]
+}

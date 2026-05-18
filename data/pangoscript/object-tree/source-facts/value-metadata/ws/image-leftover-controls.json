@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.BeamSpeed",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -360,
+        "max": 360,
+        "unit": "beam speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.BeamSpeed confirmed -360..360 clamp readbacks: -361->-360, -360->-360, -359->-359, 0->0, 359->359, 360->360, 361->360."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamSpeed for Shape at WS.0.3.Image.BeamSpeed uses -360..360 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CharAlignX",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "character alignment",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.CharAlignX confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 4->4, 5->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.CharAlignX for Text at WS.0.2.Image.CharAlignX uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CharAlignY",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "character alignment",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.CharAlignY confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 4->4, 5->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.CharAlignY for Text at WS.0.2.Image.CharAlignY uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.CharEffDelay",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "character effect delay",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.CharEffDelay confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.CharEffDelay for Text at WS.0.2.Image.CharEffDelay uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.GlobalCharTime",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "character timing mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.GlobalCharTime confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.GlobalCharTime for Text at WS.0.2.Image.GlobalCharTime uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.BeamSpeed",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -360,
+        "max": 360,
+        "unit": "beam speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.BeamSpeed confirmed -360..360 clamp readbacks: -361->-360, -360->-360, -359->-359, 0->0, 359->359, 360->360, 361->360."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamSpeed for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamSpeed uses -360..360 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.CursorX",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.CursorX confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.CursorX for Synthesized Image at WS.0.8.Image.LIST.0.Image.CursorX uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.CursorY",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.CursorY confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.CursorY for Synthesized Image at WS.0.8.Image.LIST.0.Image.CursorY uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.CursorZ",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "cursor coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.CursorZ confirmed -100..100 clamp readbacks: -101->-100, -100->-100, -1->-1, 0->0, 1->1, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.CursorZ for Synthesized Image at WS.0.8.Image.LIST.0.Image.CursorZ uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.RecordInterval",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 5,
+        "max": 500,
+        "unit": "record interval",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.RecordInterval confirmed 5..500 clamp readbacks: 4->5, 5->5, 6->6, 499->499, 500->500, 501->500."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.RecordInterval for Synthesized Image at WS.0.8.Image.LIST.0.Image.RecordInterval uses 5..500 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.ScrollSpeedX",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.ScrollSpeedX confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.ScrollSpeedX for Synthesized Image at WS.0.8.Image.LIST.0.Image.ScrollSpeedX uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.ScrollSpeedY",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.ScrollSpeedY confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.ScrollSpeedY for Synthesized Image at WS.0.8.Image.LIST.0.Image.ScrollSpeedY uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Image.ScrollSpeedZ",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.8.Image.LIST.0.Image.ScrollSpeedZ confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.ScrollSpeedZ for Synthesized Image at WS.0.8.Image.LIST.0.Image.ScrollSpeedZ uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.RangeScale",
+      "contextId": "cue-type:text",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 2,
+        "unit": "range scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.RangeScale confirmed 1..2 clamp readbacks: 0->1, 1->1, 2->2, 3->2."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.RangeScale for Text at WS.0.2.Image.RangeScale uses 1..2 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScaleX",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "scale percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.ScaleX confirmed 1..200 clamp readbacks: 0->1, 1->1, 2->2, 199->199, 200->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ScaleX for Text at WS.0.2.Image.ScaleX uses 1..200 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScaleY",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": 1,
+        "max": 200,
+        "unit": "scale percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.ScaleY confirmed 1..200 clamp readbacks: 0->1, 1->1, 2->2, 199->199, 200->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ScaleY for Text at WS.0.2.Image.ScaleY uses 1..200 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScrollSpeedX",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.ScrollSpeedX confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ScrollSpeedX for Shape at WS.0.3.Image.ScrollSpeedX uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScrollSpeedY",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.ScrollSpeedY confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ScrollSpeedY for Shape at WS.0.3.Image.ScrollSpeedY uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.ScrollSpeedZ",
+      "contextId": "cue-type:shape",
+      "valueType": "number",
+      "valueRange": {
+        "min": -20,
+        "max": 20,
+        "unit": "scroll speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.3.Image.ScrollSpeedZ confirmed -20..20 clamp readbacks: -21->-20, -20->-20, -19->-19, 0->0, 19->19, 20->20, 21->20."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ScrollSpeedZ for Shape at WS.0.3.Image.ScrollSpeedZ uses -20..20 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.3, the loaded Shape cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.VertOffset",
+      "contextId": "cue-type:text",
+      "valueType": "number",
+      "valueRange": {
+        "min": -50,
+        "max": 50,
+        "unit": "vertical offset",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback to WS.0.2.Image.VertOffset confirmed -50..50 clamp readbacks: -51->-50, -50->-50, -49->-49, 0->0, 49->49, 50->50, 51->50."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.VertOffset for Text at WS.0.2.Image.VertOffset uses -50..50 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.2, the loaded Text cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

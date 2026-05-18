@@ -1,0 +1,885 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled integer",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Count accepted sampled integer writes from 0 through 1000000. Negative, fractional, string, and 2147483647 samples read back the baseline value."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Count at ZoneAlias.Count accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Count in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value1",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.N.Value1 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value1 at ZoneAlias.Effect.0.Keys.0.Value1 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.0.Value1 in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value2",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.N.Value2 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value2 at ZoneAlias.Effect.0.Keys.0.Value2 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.0.Value2 in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.N.Value3",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.N.Value3 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.N.Value3 at ZoneAlias.Effect.0.Keys.0.Value3 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.0.Value3 in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.X",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.X accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.X at ZoneAlias.Effect.0.Keys.X accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.X in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.Y",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.Y accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.Y at ZoneAlias.Effect.0.Keys.Y accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.Y in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.Keys.Z",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.Keys.Z accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.Keys.Z at ZoneAlias.Effect.0.Keys.Z accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.Keys.Z in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.TimeClock accepted sampled integer writes from 0 through 1000000. Negative and fractional samples read back 0, and 2147483647 read back 1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeClock at ZoneAlias.Effect.0.TimeClock accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.TimeClock in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeDuration",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.TimeDuration accepted sampled numeric writes from 0 through 1000000, including fractional values. Negative samples read back 0, and 2147483647 read back 1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeDuration at ZoneAlias.Effect.0.TimeDuration accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.TimeDuration in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Effect.N.TimeMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Effect.N.TimeMetro accepted sampled integer writes from 0 through 1000000. Negative and fractional samples read back 0, and 2147483647 read back 1000000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Effect.N.TimeMetro at ZoneAlias.Effect.0.TimeMetro accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Effect.0.TimeMetro in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.PositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.PositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.PositionX at ZoneAlias.Preview.PositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.PositionX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.PositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.PositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.PositionY at ZoneAlias.Preview.PositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.PositionY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.ProjPositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.ProjPositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.ProjPositionX at ZoneAlias.Preview.ProjPositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.ProjPositionX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.ProjPositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.ProjPositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.ProjPositionY at ZoneAlias.Preview.ProjPositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.ProjPositionY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.SizeX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.SizeX at ZoneAlias.Preview.SizeX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.SizeX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.SizeY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.SizeY at ZoneAlias.Preview.SizeY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.SizeY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Preview.WindowRotation",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.Preview.WindowRotation accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.Preview.WindowRotation at ZoneAlias.Preview.WindowRotation accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.Preview.WindowRotation in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.BowOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.BowOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowOffsetX at ZoneAlias.UGC.BowOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.BowOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.BowOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.BowOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowOffsetY at ZoneAlias.UGC.BowOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.BowOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.BowX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.BowX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowX at ZoneAlias.UGC.BowX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.BowX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.BowY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.BowY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.BowY at ZoneAlias.UGC.BowY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.BowY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.KeystoneX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.KeystoneX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.KeystoneX at ZoneAlias.UGC.KeystoneX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.KeystoneX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.KeystoneY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.KeystoneY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.KeystoneY at ZoneAlias.UGC.KeystoneY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.KeystoneY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.LinearityX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.LinearityX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.LinearityX at ZoneAlias.UGC.LinearityX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.LinearityX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.LinearityY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.LinearityY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.LinearityY at ZoneAlias.UGC.LinearityY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.LinearityY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PincussionOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionOffsetX at ZoneAlias.UGC.PincussionOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PincussionOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PincussionOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionOffsetY at ZoneAlias.UGC.PincussionOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PincussionOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PincussionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionX at ZoneAlias.UGC.PincussionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PincussionX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PincussionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PincussionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PincussionY at ZoneAlias.UGC.PincussionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PincussionY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PositionX at ZoneAlias.UGC.PositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PositionX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.PositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.PositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.PositionY at ZoneAlias.UGC.PositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.PositionY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.RotationZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.RotationZ accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.RotationZ at ZoneAlias.UGC.RotationZ accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.RotationZ in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.ShearX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.ShearX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.ShearX at ZoneAlias.UGC.ShearX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.ShearX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.ShearY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.ShearY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.ShearY at ZoneAlias.UGC.ShearY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.ShearY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SizeX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SizeX at ZoneAlias.UGC.SizeX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SizeX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SizeY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SizeY at ZoneAlias.UGC.SizeY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SizeY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SymmetryOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryOffsetX at ZoneAlias.UGC.SymmetryOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SymmetryOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SymmetryOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryOffsetY at ZoneAlias.UGC.SymmetryOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SymmetryOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SymmetryX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryX at ZoneAlias.UGC.SymmetryX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SymmetryX in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.UGC.SymmetryY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "ZoneAlias.UGC.SymmetryY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ZoneAlias.UGC.SymmetryY at ZoneAlias.UGC.SymmetryY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used ZoneAlias.UGC.SymmetryY in the loaded show."
+      }
+    }
+  ]
+}

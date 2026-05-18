@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.UGC.IndexX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.UGC.IndexX confirmed -1..0 clamp readbacks: -1000->-1, -1->-1, 0->0, 1->0, 1000->0."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed Zone.N.UGC.IndexX at Zone.0.UGC.IndexX uses -1..0 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.UGC.IndexX."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.IndexY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Zone.0.UGC.IndexY confirmed -1..0 clamp readbacks: -1000->-1, -1->-1, 0->0, 1->0, 1000->0."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed Zone.N.UGC.IndexY at Zone.0.UGC.IndexY uses -1..0 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used concrete Zone.0.UGC.IndexY."
+      }
+    }
+  ]
+}

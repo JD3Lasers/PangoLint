@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Beam.N.Active",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.Active confirmed 0..1 readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Active at Beam.0.Active uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.Active, the populated Beam.N instance available in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.Active to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.Active to ON."
+        }
+      ]
+    },
+    {
+      "path": "Beam.N.AllowRecolor",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.AllowRecolor confirmed 0..1 readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.AllowRecolor at Beam.0.AllowRecolor uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.AllowRecolor, the populated Beam.N instance available in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.AllowRecolor to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.AllowRecolor to ON."
+        }
+      ]
+    },
+    {
+      "path": "Beam.N.BlankEnd",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 20,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.BlankEnd confirmed 0..20 readbacks: -1->0, 0->0, 1->1, 19->19, 20->20, 21->20, 100->20, 101->20.",
+        "unit": "beam blank endpoint"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.BlankEnd at Beam.0.BlankEnd uses 0..20 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.BlankEnd, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.BlankStart",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 20,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.BlankStart confirmed 0..20 readbacks: -1->0, 0->0, 1->1, 19->19, 20->20, 21->20, 100->20, 101->20.",
+        "unit": "beam blank endpoint"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.BlankStart at Beam.0.BlankStart uses 0..20 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.BlankStart, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.Color",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.Color confirmed 0..16777215 readbacks: -1->0, 0->0, 1->1, 16777215->16777215, 16777216->16777215.",
+        "unit": "BGR packed color"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Color at Beam.0.Color uses 0..16777215 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.Color, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.ColorPalette",
+      "valueType": "enum",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.ColorPalette confirmed 0..4 readbacks: -1->4, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 255->4, 256->4.",
+        "unit": "beam color palette"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with unknown boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.ColorPalette, the populated Beam.N instance available in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "PALETTE_0",
+          "description": "Set Beam.N.ColorPalette to palette 0."
+        },
+        {
+          "value": 1,
+          "label": "PALETTE_1",
+          "description": "Set Beam.N.ColorPalette to palette 1."
+        },
+        {
+          "value": 2,
+          "label": "PALETTE_2",
+          "description": "Set Beam.N.ColorPalette to palette 2."
+        },
+        {
+          "value": 3,
+          "label": "PALETTE_3",
+          "description": "Set Beam.N.ColorPalette to palette 3."
+        },
+        {
+          "value": 4,
+          "label": "PALETTE_4",
+          "description": "Set Beam.N.ColorPalette to palette 4."
+        }
+      ]
+    },
+    {
+      "path": "Beam.N.LockPos",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.LockPos confirmed 0..1 readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.LockPos at Beam.0.LockPos uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.LockPos, the populated Beam.N instance available in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.LockPos to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.LockPos to ON."
+        }
+      ]
+    },
+    {
+      "path": "Beam.N.Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.Mute confirmed 0..1 readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.Mute at Beam.0.Mute uses 0..1 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.Mute, the populated Beam.N instance available in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Beam.N.Mute to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Beam.N.Mute to ON."
+        }
+      ]
+    },
+    {
+      "path": "Beam.N.PosX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32767,
+        "max": 32767,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.PosX confirmed -32767..32767 readbacks: -32769->-32767, -32768->-32767, -32767->-32767, -1->-1, 0->0, 32767->32767, 32768->32767.",
+        "unit": "beam coordinate"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.PosX at Beam.0.PosX uses -32767..32767 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.PosX, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.PosY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32767,
+        "max": 32767,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.PosY confirmed -32767..32767 readbacks: -32769->-32767, -32768->-32767, -32767->-32767, -1->-1, 0->0, 32767->32767, 32768->32767.",
+        "unit": "beam coordinate"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.PosY at Beam.0.PosY uses -32767..32767 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.PosY, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -200,
+        "max": 200,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.SizeX confirmed -200..200 readbacks with fractional values inside the range: -201->-200, -200.5->-200, -200->-200, -199.5->-199.5, 0.5->0.5, 199.5->199.5, 200->200, 200.5->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #298 confirmed Beam.N.SizeX at Beam.0.SizeX uses -200..200 with clamp boundary behavior, fractional readbacks inside the range, and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.SizeX, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Beam.N.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -200,
+        "max": 200,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Beam.0.SizeY confirmed -200..200 readbacks with fractional values inside the range: -201->-200, -200.5->-200, -200->-200, -199.5->-199.5, 0.5->0.5, 199.5->199.5, 200->200, 200.5->200, 201->200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #298 confirmed Beam.N.SizeY at Beam.0.SizeY uses -200..200 with clamp boundary behavior, fractional readbacks inside the range, and baseline restore.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the zero-based Object Tree beam index.",
+        "notes": "The runtime probe used Beam.0.SizeY, the populated Beam.N instance available in the loaded show."
+      }
+    },
+    {
+      "path": "Projector.N.IdleCenterOffsetX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Projector.0.IdleCenterOffsetX confirmed -100..100 readbacks: -101->-100, -100->-100, -1->-1, 0->0, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.IdleCenterOffsetX at Projector.0.IdleCenterOffsetX uses -100..100 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+        "notes": "The runtime probe used Projector.0.IdleCenterOffsetX in a no-output setup with no laser connected."
+      }
+    },
+    {
+      "path": "Projector.N.IdleCenterOffsetY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Projector.0.IdleCenterOffsetY confirmed -100..100 readbacks: -101->-100, -100->-100, -1->-1, 0->0, 100->100, 101->100.",
+        "unit": "percent"
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.IdleCenterOffsetY at Projector.0.IdleCenterOffsetY uses -100..100 with clamp boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+        "notes": "The runtime probe used Projector.0.IdleCenterOffsetY in a no-output setup with no laser connected."
+      }
+    },
+    {
+      "path": "Projector.N.InvertY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+        "notes": "The runtime probe used Projector.0.InvertY in a no-output setup with no laser connected."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Projector.N.InvertY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Projector.N.InvertY to ON."
+        }
+      ]
+    },
+    {
+      "path": "Projector.N.SwapXY",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+        "notes": "The runtime probe used Projector.0.SwapXY in a no-output setup with no laser connected."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Projector.N.SwapXY to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Projector.N.SwapXY to ON."
+        }
+      ]
+    }
+  ]
+}

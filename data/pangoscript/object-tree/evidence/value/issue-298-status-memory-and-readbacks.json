@@ -1,0 +1,1208 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp followed by immediate Object Tree readback before classifying Status rows. Memory status rows accepted writes. CPU and projector status rows ignored sampled writes and ship as readback-only metadata."
+  },
+  "entries": [
+    {
+      "objectPath": "Status.CpuUseLong",
+      "probePath": "Status.CpuUseLong",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.CpuUseLong\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.CpuUseLong\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.CpuUseLong\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.CpuUseLong\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.CpuUseLong did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.CpuUseShort",
+      "probePath": "Status.CpuUseShort",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.CpuUseShort\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.CpuUseShort\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.CpuUseShort\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.CpuUseShort\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.CpuUseShort did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemAvailExtendedVirtual",
+      "probePath": "Status.MemAvailExtendedVirtual",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemAvailExtendedVirtual\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailExtendedVirtual accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemAvailPageFile",
+      "probePath": "Status.MemAvailPageFile",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 104238,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemAvailPageFile\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemAvailPageFile\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemAvailPageFile\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemAvailPageFile\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemAvailPageFile\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemAvailPageFile\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemAvailPageFile\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemAvailPageFile\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemAvailPageFile\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 104238,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 104238."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailPageFile accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemAvailPhys",
+      "probePath": "Status.MemAvailPhys",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 41957,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemAvailPhys\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemAvailPhys\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemAvailPhys\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemAvailPhys\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemAvailPhys\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemAvailPhys\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemAvailPhys\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemAvailPhys\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemAvailPhys\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 41957,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 41957."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailPhys accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemAvailVirtual",
+      "probePath": "Status.MemAvailVirtual",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 134212451,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemAvailVirtual\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemAvailVirtual\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemAvailVirtual\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemAvailVirtual\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemAvailVirtual\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemAvailVirtual\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemAvailVirtual\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemAvailVirtual\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemAvailVirtual\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 134212451,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 134212451."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemAvailVirtual accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemoryInfo",
+      "probePath": "Status.MemoryInfo",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": "[memory info status string length 255]",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 0\"",
+          "readback": "string length 0",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 1\"",
+          "readback": "string length 1",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 32\"",
+          "readback": "string length 32",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 254\"",
+          "readback": "string length 254",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 255\"",
+          "readback": "string length 254",
+          "behavior": "clamp"
+        },
+        {
+          "input": "string length 512",
+          "command": "SetProp \"Status.MemoryInfo\", \"string length 512\"",
+          "readback": "string length 254",
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "[memory info status string length 255]",
+        "notes": "The probe sent the observed baseline after each sampled write, then waited for BEYOND to refresh the live memory status text and verified a memory info status string."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemoryInfo accepts string writes up to 254 characters and truncates longer writes.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemoryLoad",
+      "probePath": "Status.MemoryLoad",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemoryLoad\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemoryLoad\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemoryLoad\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemoryLoad\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemoryLoad\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemoryLoad\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemoryLoad\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemoryLoad\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemoryLoad\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemoryLoad accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemTotalPageFile",
+      "probePath": "Status.MemTotalPageFile",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 128661,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemTotalPageFile\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemTotalPageFile\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemTotalPageFile\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemTotalPageFile\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemTotalPageFile\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemTotalPageFile\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemTotalPageFile\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemTotalPageFile\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemTotalPageFile\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 128661,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 128661."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalPageFile accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemTotalPhys",
+      "probePath": "Status.MemTotalPhys",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 63125,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemTotalPhys\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemTotalPhys\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemTotalPhys\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemTotalPhys\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemTotalPhys\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemTotalPhys\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemTotalPhys\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemTotalPhys\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemTotalPhys\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 63125,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 63125."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalPhys accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemTotalVirtual",
+      "probePath": "Status.MemTotalVirtual",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 134217727,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemTotalVirtual\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemTotalVirtual\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemTotalVirtual\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemTotalVirtual\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemTotalVirtual\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemTotalVirtual\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemTotalVirtual\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemTotalVirtual\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemTotalVirtual\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 134217727,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 134217727."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemTotalVirtual accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.MemVirtualUsed",
+      "probePath": "Status.MemVirtualUsed",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 629,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "megabytes"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Status.MemVirtualUsed\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Status.MemVirtualUsed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Status.MemVirtualUsed\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.MemVirtualUsed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Status.MemVirtualUsed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Status.MemVirtualUsed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.MemVirtualUsed\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.MemVirtualUsed\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Status.MemVirtualUsed\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 629,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 629."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Status.MemVirtualUsed accepts signed 32-bit storage values.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.Projector.Count",
+      "probePath": "Status.Projector.Count",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.Projector.Count\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.Projector.Count\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.Projector.Count\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.Projector.Count\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.Count did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.Projector.N.Connected",
+      "probePath": "Status.Projector.0.Connected",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.Projector.0.Connected\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.Projector.0.Connected\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.Projector.0.Connected\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.Projector.0.Connected\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Connected did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.N.FPS",
+      "probePath": "Status.Projector.0.FPS",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.Projector.0.FPS\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.Projector.0.FPS\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.Projector.0.FPS\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.Projector.0.FPS\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.FPS did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.N.Model",
+      "probePath": "Status.Projector.0.Model",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Status.Projector.0.Model\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 20",
+          "command": "SetProp \"Status.Projector.0.Model\", \"string length 20\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Model did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.N.Points",
+      "probePath": "Status.Projector.0.Points",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "SetProp \"Status.Projector.0.Points\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Status.Projector.0.Points\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Status.Projector.0.Points\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Status.Projector.0.Points\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Points did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.N.Serial",
+      "probePath": "Status.Projector.0.Serial",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Status.Projector.0.Serial\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 20",
+          "command": "SetProp \"Status.Projector.0.Serial\", \"string length 20\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.N.Serial did not change the status readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Status.Projector.0 status row",
+        "notes": "Concrete reads used Status.Projector.0 paths and normalized metadata keeps Status.Projector.N placeholders."
+      }
+    }
+  ]
+}

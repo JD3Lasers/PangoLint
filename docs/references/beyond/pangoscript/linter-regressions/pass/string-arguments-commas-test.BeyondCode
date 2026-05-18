@@ -1,0 +1,14 @@
+// PangoLint candidate: strings containing commas and slashes
+// Purpose: verify string parsing around commas, slashes, and OSC argument counting.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/strings/value (ss) "pangolint-candidate-strings-001" "alpha,beta/gamma"
+// PangoLint observed callback: /pangolint/candidate/strings/value (ss) "pangolint-candidate-strings-001" "alpha,beta/gamma"
+
+var requestId
+var messageText
+
+requestId = "pangolint-candidate-strings-001"
+messageText = "alpha,beta/gamma"
+
+OscOutTTS "/pangolint/candidate/strings/value", "ss", requestId, messageText
+exit

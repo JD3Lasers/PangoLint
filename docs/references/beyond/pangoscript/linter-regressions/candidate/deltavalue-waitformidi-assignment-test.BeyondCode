@@ -1,0 +1,16 @@
+// PangoLint candidate: WaitForMidi followed by DeltaValue assignment
+// Purpose: discover whether WaitForMidi provides a delta context for DeltaValue outside a direct MIDI-to-PangoScript slot.
+// Setup: paste/run in BEYOND's PangoScript editor, then send one loopMIDI CC 0 value.
+// Expected if WaitForMidi does not enable DeltaValue: parser error before waiting and no OSC output.
+// PangoLint expected callback: /pangolint/candidate/deltavalue/waitformidi-assignment (sf) "pangolint-candidate-deltavalue-waitformidi-assignment-001" <deltaValue>
+
+var requestId
+var deltaValue
+
+requestId = "pangolint-candidate-deltavalue-waitformidi-assignment-001"
+
+WaitForMidi 0xB0, 0x00, -1
+deltaValue = DeltaValue(-1, 1)
+
+OscOutTTS "/pangolint/candidate/deltavalue/waitformidi-assignment", "sf", requestId, deltaValue
+exit

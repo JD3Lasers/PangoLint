@@ -1,0 +1,819 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1000000,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled integer",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Count accepted sampled integer writes from 0 through 1000000. Negative, fractional, string, and 2147483647 samples read back the baseline value."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Count at Zone.0.Count accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.0.Count in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value1",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.N.Value1 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value1 at Zone.2.Effect.0.Keys.0.Value1 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.0.Value1 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value2",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.N.Value2 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value2 at Zone.2.Effect.0.Keys.0.Value2 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.0.Value2 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.N.Value3",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.N.Value3 accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.N.Value3 at Zone.2.Effect.0.Keys.0.Value3 accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.0.Value3 in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.X",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.X accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.X at Zone.2.Effect.0.Keys.X accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.X in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.Y",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.Y accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.Y at Zone.2.Effect.0.Keys.Y accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.Y in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Effect.N.Keys.Z",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Effect.N.Keys.Z accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Effect.N.Keys.Z at Zone.2.Effect.0.Keys.Z accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Effect.0.Keys.Z in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.PositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.PositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.PositionX at Zone.2.Preview.PositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.PositionX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.PositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.PositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.PositionY at Zone.2.Preview.PositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.PositionY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.ProjPositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.ProjPositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.ProjPositionX at Zone.2.Preview.ProjPositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.ProjPositionX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.ProjPositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.ProjPositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.ProjPositionY at Zone.2.Preview.ProjPositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.ProjPositionY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.SizeX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.SizeX at Zone.2.Preview.SizeX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.SizeX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.SizeY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.SizeY at Zone.2.Preview.SizeY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.SizeY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.Preview.WindowRotation",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.Preview.WindowRotation accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.Preview.WindowRotation at Zone.2.Preview.WindowRotation accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.Preview.WindowRotation in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.BowOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.BowOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowOffsetX at Zone.2.UGC.BowOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.BowOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.BowOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.BowOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowOffsetY at Zone.2.UGC.BowOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.BowOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.BowX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.BowX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowX at Zone.2.UGC.BowX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.BowX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.BowY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.BowY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.BowY at Zone.2.UGC.BowY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.BowY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.KeystoneX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.KeystoneX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.KeystoneX at Zone.2.UGC.KeystoneX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.KeystoneX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.KeystoneY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.KeystoneY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.KeystoneY at Zone.2.UGC.KeystoneY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.KeystoneY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.LinearityX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.LinearityX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.LinearityX at Zone.2.UGC.LinearityX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.LinearityX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.LinearityY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.LinearityY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.LinearityY at Zone.2.UGC.LinearityY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.LinearityY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PincussionOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PincussionOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionOffsetX at Zone.2.UGC.PincussionOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PincussionOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PincussionOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PincussionOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionOffsetY at Zone.2.UGC.PincussionOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PincussionOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PincussionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PincussionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionX at Zone.2.UGC.PincussionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PincussionX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PincussionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PincussionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PincussionY at Zone.2.UGC.PincussionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PincussionY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PositionX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PositionX at Zone.2.UGC.PositionX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PositionX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.PositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.PositionY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.PositionY at Zone.2.UGC.PositionY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.PositionY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.RotationZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.RotationZ accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.RotationZ at Zone.2.UGC.RotationZ accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.RotationZ in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.ShearX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.ShearX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.ShearX at Zone.2.UGC.ShearX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.ShearX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.ShearY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.ShearY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.ShearY at Zone.2.UGC.ShearY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.ShearY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SizeX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SizeX at Zone.2.UGC.SizeX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SizeX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SizeY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SizeY at Zone.2.UGC.SizeY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SizeY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryOffsetX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SymmetryOffsetX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryOffsetX at Zone.2.UGC.SymmetryOffsetX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SymmetryOffsetX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryOffsetY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SymmetryOffsetY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryOffsetY at Zone.2.UGC.SymmetryOffsetY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SymmetryOffsetY in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SymmetryX accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryX at Zone.2.UGC.SymmetryX accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SymmetryX in the loaded show."
+      }
+    },
+    {
+      "path": "Zone.N.UGC.SymmetryY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "sampled numeric value",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "Zone.N.UGC.SymmetryY accepted sampled numeric writes from -2147483648 through 2147483647, including 0.5, 1.25, 100000, 120000, and 1000000. String samples are not part of this numeric domain."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed Zone.N.UGC.SymmetryY at Zone.2.UGC.SymmetryY accepts the sampled domain and restores to baseline. Direct assignment was tested as a representative command form; SetProp supplied the range proof where direct assignment did not produce a useful readback.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
+        "notes": "Runtime evidence used Zone.2.UGC.SymmetryY in the loaded show."
+      }
+    }
+  ]
+}

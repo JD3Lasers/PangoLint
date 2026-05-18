@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.Effect.ChasePeriod",
+      "contextId": "cue-type:parametric-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.6.Image.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.Effect.ChasePeriod for Parametric-Image at WS.0.6.Image.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.6, the loaded Parametric-Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.ChasePeriod",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ChasePeriod for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.ClockLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.ClockLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ClockLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.ClockShift",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.ClockShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.ClockShift for Synthesized Image at WS.0.8.Image.LIST.0.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.EnableClockLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.EnableClockLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.EnableMetroLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.EnableMetroLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.MetroLimit",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.MetroLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.MetroLimit for Synthesized Image at WS.0.8.Image.LIST.0.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.LIST.0.Effect.MetroShift",
+      "contextId": "cue-type:synthesized-image",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Effect.MetroShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Effect.MetroShift for Synthesized Image at WS.0.8.Image.LIST.0.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image sample. This row applies only to that context."
+      }
+    }
+  ]
+}

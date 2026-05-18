@@ -1,0 +1,15 @@
+// PangoLint expect: uninitialized-variable
+// PangoLint advisory: uninitialized variable read
+// Purpose: verify BEYOND tolerates reading an unset local variable,
+// while PangoLint keeps a warning for scripts that depend on default values.
+// BEYOND validation 2026-05-07: no parse errors; unset numeric value emitted as 0.000000.
+// PangoLint expected callback: /pangolint/candidate/uninitialized/value (sf) "pangolint-candidate-uninitialized-001" 0.000000
+// PangoLint observed callback: /pangolint/candidate/uninitialized/value (sf) "pangolint-candidate-uninitialized-001" 0.000000
+
+var requestId
+var unsetValue
+
+requestId = "pangolint-candidate-uninitialized-001"
+
+OscOutTTS "/pangolint/candidate/uninitialized/value", "sf", requestId, unsetValue
+exit

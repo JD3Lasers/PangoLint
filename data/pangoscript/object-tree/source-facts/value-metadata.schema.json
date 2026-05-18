@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.jd3/pangolint/object-tree/source-facts/value-metadata.schema.json",
+  "title": "PangoScript Object Tree Value Metadata",
+  "type": "object",
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/objectPropertyRangeEntry"
+      }
+    }
+  },
+  "$defs": {
+    "objectPropertyRangeEntry": {
+      "type": "object",
+      "required": ["path", "evidenceLevel"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Object Tree path or normalized path from the Object Tree runtime index."
+        },
+        "contextId": {
+          "type": "string",
+          "description": "Optional probe context id when this value metadata applies only to one cue type, cue shape, or QuickFX effect placement."
+        },
+        "valueType": {
+          "enum": ["number", "integer", "float", "string", "boolean", "enum", "unknown"]
+        },
+        "valueRange": {
+          "$ref": "#/$defs/valueRange"
+        },
+        "acceptedValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/acceptedValue"
+          }
+        },
+        "unit": {
+          "type": "string"
+        },
+        "defaultValue": {
+          "type": ["string", "number", "boolean"]
+        },
+        "evidenceLevel": {
+          "enum": ["documented", "observed", "inferred", "unverified"]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "locationContext": {
+          "$ref": "#/$defs/locationContext"
+        }
+      }
+    },
+    "valueRange": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "dynamicMax": {
+          "$ref": "#/$defs/dynamicBound"
+        },
+        "minInclusive": {
+          "type": "boolean"
+        },
+        "maxInclusive": {
+          "type": "boolean"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "boundaryBehavior": {
+          "enum": ["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"]
+        },
+        "evidenceLevel": {
+          "enum": ["documented", "observed", "inferred", "unverified"]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "dynamicBound": {
+      "type": "object",
+      "required": ["expression"],
+      "properties": {
+        "expression": {
+          "type": "string"
+        },
+        "sourcePaths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "acceptedValue": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": ["string", "number", "boolean"]
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "locationContext": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "enum": ["indexed-root", "workspace-slot", "quickfx-slot", "showfile-alias", "hardware-instance"]
+        },
+        "populationDependent": {
+          "type": "boolean"
+        },
+        "indexBasis": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

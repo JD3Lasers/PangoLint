@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "CoreManager.OnlineMode",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to CoreManager.OnlineMode confirmed 0 and 1 pass through, negative values read back 0, and values above 1 read back 1."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF"
+        },
+        {
+          "value": 1,
+          "label": "ON"
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #326 confirmed CoreManager.OnlineMode at CoreManager.OnlineMode uses boolean 0..1 clamp behavior and baseline restore."
+    },
+    {
+      "path": "VideoOutput1.Left",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "screen coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to VideoOutput1.Left confirmed -32768 through 32767 pass through, -32769 reads back -32768, and 32768 reads back 32767."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #326 confirmed VideoOutput1.Left at VideoOutput1.Left uses signed 16-bit clamp behavior and baseline restore."
+    },
+    {
+      "path": "VideoOutput1.Top",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "screen coordinate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to VideoOutput1.Top confirmed -32768 through 32767 pass through, -32769 reads back -32768, and 32768 reads back 32767."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #326 confirmed VideoOutput1.Top at VideoOutput1.Top uses signed 16-bit clamp behavior and baseline restore."
+    },
+    {
+      "path": "VideoOutput1.Width",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 48,
+        "max": 65535,
+        "unit": "pixels",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to VideoOutput1.Width confirmed 48 through 65535 pass through, values below 48 read back 48, and values above 65535 read back 65535."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #326 confirmed VideoOutput1.Width at VideoOutput1.Width uses 48..65535 clamp behavior and baseline restore."
+    },
+    {
+      "path": "VideoOutput1.Height",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 48,
+        "max": 65535,
+        "unit": "pixels",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to VideoOutput1.Height confirmed 48 through 65535 pass through, values below 48 read back 48, and values above 65535 read back 65535."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #326 confirmed VideoOutput1.Height at VideoOutput1.Height uses 48..65535 clamp behavior and baseline restore."
+    }
+  ]
+}

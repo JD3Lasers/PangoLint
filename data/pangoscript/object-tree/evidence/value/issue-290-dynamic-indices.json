@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 290,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The loaded workspace had two workspace pages and 10 by 6 visible grids during this probe."
+  },
+  "entries": [
+    {
+      "objectPath": "Grid.PageIndex",
+      "probePath": "Grid.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "loaded workspace page count",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGrid1Page -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGrid1Page 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGrid1Page 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetGrid1Page 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetGrid1Page 3",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 999,
+          "command": "SetGrid1Page 999",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "SetGrid1Page 1 restored the observed baseline."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Grid.PageIndex is written through SetGrid1Page. In the loaded two-page workspace, -1 and 0 clamped to 1, 1 and 2 passed through, and 3 and 999 clamped to 2.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "Grid2.PageIndex",
+      "probePath": "Grid2.PageIndex",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "loaded workspace page count",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGrid2Page -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGrid2Page 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGrid2Page 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetGrid2Page 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetGrid2Page 3",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 999,
+          "command": "SetGrid2Page 999",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "SetGrid2Page 1 restored the observed baseline."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Grid2.PageIndex is written through SetGrid2Page. In the loaded two-page workspace, -1 and 0 clamped to 1, 1 and 2 passed through, and 3 and 999 clamped to 2.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "Grid.CellIndex",
+      "probePath": "Grid.CellIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid.Count",
+          "sourcePaths": [
+            "Grid.Count"
+          ],
+          "notes": "Grid.Count read back 60 in the loaded 10 by 6 workspace grid."
+        },
+        "unit": "cell index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid.CellIndex = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid.CellIndex = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "Grid.CellIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "Grid.CellIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "Grid.CellIndex = 60",
+          "readback": 60,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 61,
+          "command": "Grid.CellIndex = 61",
+          "readback": 60,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Grid.CellIndex was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Grid.CellIndex clamps below 1 and above the current dynamic cell count. Grid.Count read back 60 in the loaded 10 by 6 workspace grid.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "Loaded 10 by 6 workspace grid",
+        "notes": "The upper bound follows the loaded workspace grid size."
+      }
+    },
+    {
+      "objectPath": "Grid2.CellIndex",
+      "probePath": "Grid2.CellIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 12,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "dynamicMax": {
+          "expression": "Grid2.GetColCount * Grid2.GetRowCount",
+          "sourcePaths": [
+            "Grid2.GetColCount",
+            "Grid2.GetRowCount"
+          ],
+          "notes": "Grid2.GetColCount read back 10 and Grid2.GetRowCount read back 6 in the loaded workspace grid."
+        },
+        "unit": "cell index"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "Grid2.CellIndex = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "Grid2.CellIndex = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "Grid2.CellIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "Grid2.CellIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "Grid2.CellIndex = 60",
+          "readback": 60,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 61,
+          "command": "Grid2.CellIndex = 61",
+          "readback": 60,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 12,
+        "notes": "Grid2.CellIndex was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Grid2.CellIndex clamps below 1 and above the current dynamic cell count. Grid2.GetColCount read back 10 and Grid2.GetRowCount read back 6 in the loaded workspace grid.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "Loaded 10 by 6 workspace grid",
+        "notes": "The upper bound follows the loaded workspace grid size."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.PageIndex",
+      "probePath": "ProTrack.0.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack.0.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack.0.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack.0.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack.0.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack.0.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack.0.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack.0.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack.0.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0 in loaded two-page workspace",
+        "notes": "The generic path uses the zero-based Object Tree track index and the upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.PageIndex",
+      "probePath": "ProTrack1.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack1.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack1.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack1.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack1.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack1.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack1.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack1.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack1.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.PageIndex",
+      "probePath": "ProTrack2.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack2.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack2.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack2.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack2.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack2.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack2.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack2.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack2.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.PageIndex",
+      "probePath": "ProTrack3.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack3.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack3.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack3.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack3.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack3.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack3.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack3.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack3.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PageIndex",
+      "probePath": "ProTrack4.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack4.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack4.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack4.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack4.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack4.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack4.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack4.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack4.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.PageIndex",
+      "probePath": "ProTrack5.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack5.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack5.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack5.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack5.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack5.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack5.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack5.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack5.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.PageIndex",
+      "probePath": "ProTrack6.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack6.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack6.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack6.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack6.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack6.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack6.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack6.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack6.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.PageIndex",
+      "probePath": "ProTrack7.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack7.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack7.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack7.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack7.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack7.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack7.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack7.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack7.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PageIndex",
+      "probePath": "ProTrack8.PageIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "loaded workspace page count - 1",
+          "notes": "No Object Tree count path for workspace pages was observed in the current Object Tree source data."
+        },
+        "unit": "page index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No ProTrack page selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack8.PageIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack8.PageIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack8.PageIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack8.PageIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack8.PageIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack8.PageIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "ProTrack8.PageIndex was restored to the observed baseline -1 after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed ProTrack8.PageIndex accepts -1 as the disabled value, clamps -2 to -1, passes 0 and 1 in the loaded two-page workspace, and clamps 2 and 100 to 1.",
+      "locationAware": false,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded two-page workspace",
+        "notes": "The upper bound follows the loaded workspace page count."
+      }
+    }
+  ]
+}

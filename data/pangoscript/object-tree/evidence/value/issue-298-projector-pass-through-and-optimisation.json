@@ -1,0 +1,4460 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against Projector.0. Sample-rate rows accepted signed 32-bit endpoints with wrap outside the signed 32-bit range. Geometry and size rows accepted 120000 and 1000000, but the positive signed 32-bit boundary did not verify. Optimisation rows stayed at baseline after sampled writes."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.N.DefaultSampleRate",
+      "probePath": "Projector.0.DefaultSampleRate",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 80000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.DefaultSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 80000,
+        "notes": "The probe restored Projector.0.DefaultSampleRate to its observed baseline after each write and verified final readback 80000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.DefaultSampleRate at Projector.0.DefaultSampleRate accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.DefaultSampleRate",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxSampleRate",
+      "probePath": "Projector.0.MaxSampleRate",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 80000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.MaxSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 80000,
+        "notes": "The probe restored Projector.0.MaxSampleRate to its observed baseline after each write and verified final readback 80000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.MaxSampleRate at Projector.0.MaxSampleRate accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.MaxSampleRate",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PositionX",
+      "probePath": "Projector.0.PositionX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.PositionX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.PositionX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.PositionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.PositionX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.PositionX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.PositionX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.PositionX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PositionX to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PositionX at Projector.0.PositionX accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionX",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PositionY",
+      "probePath": "Projector.0.PositionY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.PositionY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.PositionY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.PositionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.PositionY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.PositionY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.PositionY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.PositionY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PositionY to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PositionY at Projector.0.PositionY accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionY",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PostRotation",
+      "probePath": "Projector.0.PostRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.PostRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.PostRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PostRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PostRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.PostRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.PostRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.PostRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.PostRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.PostRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored Projector.0.PostRotation to its observed baseline after each write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PostRotation at Projector.0.PostRotation accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PostRotation",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PreRotation",
+      "probePath": "Projector.0.PreRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.PreRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.PreRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.PreRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.PreRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.PreRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.PreRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.PreRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.PreRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.PreRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored Projector.0.PreRotation to its observed baseline after each write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PreRotation at Projector.0.PreRotation accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PreRotation",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeX",
+      "probePath": "Projector.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 75,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.SizeX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.SizeX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.SizeX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.SizeX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.SizeX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.SizeX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 75,
+        "notes": "The probe restored Projector.0.SizeX to its observed baseline after each write and verified final readback 75."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.SizeX at Projector.0.SizeX accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeX",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeY",
+      "probePath": "Projector.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 78,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.0.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.0.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.0.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Projector.0.SizeY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.SizeY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.SizeY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Projector.0.SizeY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.0.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.0.SizeY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.0.SizeY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 78,
+        "notes": "The probe restored Projector.0.SizeY to its observed baseline after each write and verified final readback 78."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.SizeY at Projector.0.SizeY accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeY",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.AngleRepeats",
+      "probePath": "Projector.0.Optimisation.AngleRepeats",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleRepeats\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.AngleRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.AngleRepeats",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.AngleTable",
+      "probePath": "Projector.0.Optimisation.AngleTable",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.AngleTable\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.AngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.AngleTable",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankDensity",
+      "probePath": "Projector.0.Optimisation.BlankDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankDensity\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.BlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankDensity",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankEnd",
+      "probePath": "Projector.0.Optimisation.BlankEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankEnd\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.BlankEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankEnd",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankOverlap",
+      "probePath": "Projector.0.Optimisation.BlankOverlap",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankOverlap\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.BlankOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankOverlap",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.BlankStart",
+      "probePath": "Projector.0.Optimisation.BlankStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.BlankStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.BlankStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.BlankStart",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.CornerRepeats",
+      "probePath": "Projector.0.Optimisation.CornerRepeats",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.CornerRepeats\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.CornerRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.CornerRepeats",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.DisableCornerFlag",
+      "probePath": "Projector.0.Optimisation.DisableCornerFlag",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.DisableCornerFlag\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.DisableCornerFlag remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.DisableCornerFlag",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.Enable3dDensity",
+      "probePath": "Projector.0.Optimisation.Enable3dDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.Enable3dDensity\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.Enable3dDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.Enable3dDensity",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableAngleTable",
+      "probePath": "Projector.0.Optimisation.EnableAngleTable",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableAngleTable\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.EnableAngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableAngleTable",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableBlankDensity",
+      "probePath": "Projector.0.Optimisation.EnableBlankDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableBlankDensity\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.EnableBlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableBlankDensity",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableSinBlank",
+      "probePath": "Projector.0.Optimisation.EnableSinBlank",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinBlank\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.EnableSinBlank remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableSinBlank",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableSinVisible",
+      "probePath": "Projector.0.Optimisation.EnableSinVisible",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableSinVisible\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.EnableSinVisible remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableSinVisible",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.EnableVisibleDensity",
+      "probePath": "Projector.0.Optimisation.EnableVisibleDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.EnableVisibleDensity\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.EnableVisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.EnableVisibleDensity",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.ForceVectorMode",
+      "probePath": "Projector.0.Optimisation.ForceVectorMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.ForceVectorMode\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.ForceVectorMode remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.ForceVectorMode",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.IgnoreOriginal",
+      "probePath": "Projector.0.Optimisation.IgnoreOriginal",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.IgnoreOriginal\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.IgnoreOriginal remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.IgnoreOriginal",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.MinimumPoints",
+      "probePath": "Projector.0.Optimisation.MinimumPoints",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.MinimumPoints\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.MinimumPoints remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.MinimumPoints",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.NoDot",
+      "probePath": "Projector.0.Optimisation.NoDot",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.NoDot\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.NoDot remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.NoDot",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleDensity",
+      "probePath": "Projector.0.Optimisation.VisibleDensity",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleDensity\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.VisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleDensity",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleEnd",
+      "probePath": "Projector.0.Optimisation.VisibleEnd",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleEnd\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.VisibleEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleEnd",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleOverlap",
+      "probePath": "Projector.0.Optimisation.VisibleOverlap",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleOverlap\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.VisibleOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleOverlap",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.Optimisation.VisibleStart",
+      "probePath": "Projector.0.Optimisation.VisibleStart",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -36000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -360",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 20,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 20",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 30,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 30",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 255",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 256",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4095,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 4095",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 65535",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Projector.0.Optimisation.VisibleStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-13 issue #298 confirmed sampled writes to Projector.0.Optimisation.VisibleStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.Optimisation.VisibleStart",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    }
+  ]
+}

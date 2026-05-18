@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.jd3/pangolint/object-tree/source-facts/behavior-metadata.schema.json",
+  "title": "PangoScript Object Tree Behavior Metadata",
+  "type": "object",
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/objectPropertyBehaviorClassificationEntry"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectPropertyBehaviorClassificationEntry": {
+      "type": "object",
+      "required": [
+        "path",
+        "accessMode",
+        "behaviorKind",
+        "writeTestStatus",
+        "readbackStatus",
+        "evidenceLevel",
+        "notes"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Object Tree path or normalized path from the Object Tree runtime index."
+        },
+        "accessMode": {
+          "enum": ["read-write", "read-only", "write-only", "read-mostly", "unknown"]
+        },
+        "behaviorKind": {
+          "enum": [
+            "state-value",
+            "flag-state",
+            "momentary-action",
+            "enum-state",
+            "string-state",
+            "computed-status",
+            "alias-status",
+            "fixture-dependent",
+            "unknown"
+          ]
+        },
+        "writeTestStatus": {
+          "enum": [
+            "not-tested",
+            "write-readback-tested",
+            "command-readback-tested",
+            "write-no-op-tested",
+            "write-rejected-tested",
+            "documented-writable",
+            "documented-read-only",
+            "not-applicable"
+          ]
+        },
+        "readbackStatus": {
+          "enum": [
+            "not-tested",
+            "readback-tested",
+            "readback-not-available",
+            "documented-readable",
+            "not-applicable"
+          ]
+        },
+        "evidenceLevel": {
+          "enum": ["documented", "observed", "inferred", "unverified"]
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.ColorSlider confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.ColorSlider at ZoneAlias.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.ColorSlider."
+      }
+    },
+    {
+      "path": "ZoneAlias.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Hue confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.Hue at ZoneAlias.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.Hue."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAccX confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccX at ZoneAlias.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.RotoAccX."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAccY confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccY at ZoneAlias.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.RotoAccY."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAccZ confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccZ at ZoneAlias.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through the loaded show alias target.",
+        "notes": "Runtime evidence used literal ZoneAlias.RotoAccZ."
+      }
+    }
+  ]
+}

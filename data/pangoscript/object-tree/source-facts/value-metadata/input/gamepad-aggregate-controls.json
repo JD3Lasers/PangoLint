@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Gamepad.Buttons",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "signed button bitmask",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Gamepad.Buttons confirmed signed 32-bit accepted readbacks. Out-of-range samples below -2147483648 and above 2147483647 read back 0, so the reset behavior is recorded as unknown rather than clamp, reject, wrap, or no-op."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.Buttons at Gamepad.Buttons uses a signed 32-bit button bitmask range with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Gamepad is a BEYOND input-device object root.",
+        "notes": "The runtime probe used Gamepad.Buttons in a local BEYOND setup with no laser connected."
+      }
+    },
+    {
+      "path": "Gamepad.POV",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "signed POV value",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to Gamepad.POV confirmed signed 32-bit accepted readbacks. Out-of-range samples below -2147483648 and above 2147483647 read back 0, so the reset behavior is recorded as unknown rather than clamp, reject, wrap, or no-op."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.POV at Gamepad.POV uses a signed 32-bit POV range with baseline restore.",
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "indexBasis": "Gamepad is a BEYOND input-device object root.",
+        "notes": "The runtime probe used Gamepad.POV in a local BEYOND setup with no laser connected."
+      }
+    }
+  ]
+}

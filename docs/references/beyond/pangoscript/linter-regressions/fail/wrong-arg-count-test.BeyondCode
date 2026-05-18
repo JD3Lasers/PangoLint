@@ -1,0 +1,9 @@
+// PangoLint expect: wrong-arg-count
+// PangoLint candidate: wrong argument count
+// Purpose: verify command arity diagnostics against BEYOND editor behavior.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: INCORRECT_PARAM_COUNT.
+// BEYOND parser location: line 5, text `Brightness 50, 100`
+
+Brightness 50, 100
+exit

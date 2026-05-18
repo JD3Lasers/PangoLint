@@ -1,0 +1,42 @@
+// PangoLint label/goto loop runtime test
+// Purpose: verify BEYOND's documented conditional-loop pattern:
+// label, arithmetic assignment, Sleep, and If <condition> Goto <label>.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/test/loop/start (si) "pangolint-loop-test-001" 1
+// PangoLint expected callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 2 0
+// PangoLint expected callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 3 1
+// PangoLint expected callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 4 2
+// PangoLint expected callback: /pangolint/test/loop/done (sii) "pangolint-loop-test-001" 5 3
+// PangoLint observed callback: /pangolint/test/loop/start (si) "pangolint-loop-test-001" 1
+// PangoLint observed callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 2 0
+// PangoLint observed callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 3 1
+// PangoLint observed callback: /pangolint/test/loop/iteration (sii) "pangolint-loop-test-001" 4 2
+// PangoLint observed callback: /pangolint/test/loop/done (sii) "pangolint-loop-test-001" 5 3
+// Readback-only: emits OscOutTTS callbacks and ends with explicit exit.
+
+var requestId
+var sequence
+var loopValue
+
+requestId = "pangolint-loop-test-001"
+sequence = 1
+loopValue = 0
+
+goto Start
+
+Start:
+OscOutTTS "/pangolint/test/loop/start", "si", requestId, sequence
+sequence = sequence + 1
+goto BeginLoop
+
+BeginLoop:
+OscOutTTS "/pangolint/test/loop/iteration", "sii", requestId, sequence, loopValue
+loopValue = loopValue + 1
+sequence = sequence + 1
+Sleep 10
+if (loopValue < 3) goto BeginLoop
+goto Done
+
+Done:
+OscOutTTS "/pangolint/test/loop/done", "sii", requestId, sequence, loopValue
+exit

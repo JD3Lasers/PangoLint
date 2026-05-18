@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Status.LaserEnabled was live-probed with command/readback and restored with DisableLaserOutput. Status.Locked uses existing command-runtime evidence and was not re-run to avoid disrupting the BEYOND UI."
+  },
+  "entries": [
+    {
+      "objectPath": "Status.LaserEnabled",
+      "probePath": "Status.LaserEnabled",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Status.LaserEnabled reads OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Status.LaserEnabled reads ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": 0,
+          "command": "DisableLaserOutput",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "EnableLaserOutput",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent DisableLaserOutput after proving the enabled state and verified Status.LaserEnabled returned to 0."
+      },
+      "evidenceNote": "Runtime command/readback on 2026-05-13 issue #298 confirmed Status.LaserEnabled reads 0 after DisableLaserOutput and 1 after EnableLaserOutput with no laser connected.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Status.Locked",
+      "probePath": "Status.Locked",
+      "probeMode": "command-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Status.Locked reads OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Status.Locked reads ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": 1,
+          "command": "LockScreen",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "UnLockScreen",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The source command-runtime evidence restored Status.Locked with UnLockScreen. This pass read the current baseline but did not re-run LockScreen."
+      },
+      "evidenceNote": "Command-runtime evidence from 2026-05-06 confirmed Status.Locked reads 1 after LockScreen when the UI lock password is configured and 0 after UnLockScreen; 2026-05-13 readback confirmed current baseline 0.",
+      "locationAware": false
+    }
+  ]
+}

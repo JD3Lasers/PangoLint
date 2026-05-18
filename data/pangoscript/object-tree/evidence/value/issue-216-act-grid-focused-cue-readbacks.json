@@ -1,0 +1,1055 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used literal ActGridFocusedCue paths, tried sampled SetProp writes including values above 100000 and signed 32-bit edges, restored observed baselines, and classified unchanged rows as readback-only."
+  },
+  "entries": [
+    {
+      "objectPath": "ActGridFocusedCue.ContainEndScript",
+      "probePath": "ActGridFocusedCue.ContainEndScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"string length 1\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"string length 32\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"string length 254\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"ActGridFocusedCue.ContainEndScript\", \"string length 255\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.ContainEndScript did not change the ActGridFocusedCue.ContainEndScript readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.ContainStartScript",
+      "probePath": "ActGridFocusedCue.ContainStartScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"string length 1\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"string length 32\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"string length 254\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"ActGridFocusedCue.ContainStartScript\", \"string length 255\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.ContainStartScript did not change the ActGridFocusedCue.ContainStartScript readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.CueType",
+      "probePath": "ActGridFocusedCue.CueType",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", -2147483648",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", -100000",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 100",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 100000",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.CueType\", 2147483647",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.CueType did not change the ActGridFocusedCue.CueType readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probePath": "ActGridFocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ChaseTimeMode\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.Effect.ChaseTimeMode did not change the ActGridFocusedCue.Effect.ChaseTimeMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.Zone",
+      "probePath": "ActGridFocusedCue.Effect.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.Effect.Zone\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.Effect.Zone did not change the ActGridFocusedCue.Effect.Zone readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probePath": "ActGridFocusedCue.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.Effect.ZoneMode\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.Effect.ZoneMode did not change the ActGridFocusedCue.Effect.ZoneMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.FX7",
+      "probePath": "ActGridFocusedCue.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.FX7\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.FX7 did not change the ActGridFocusedCue.FX7 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.FX8",
+      "probePath": "ActGridFocusedCue.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.FX8\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.FX8 did not change the ActGridFocusedCue.FX8 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosX",
+      "probePath": "ActGridFocusedCue.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.PosX\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.PosX did not change the ActGridFocusedCue.PosX readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosY",
+      "probePath": "ActGridFocusedCue.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.PosY\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.PosY did not change the ActGridFocusedCue.PosY readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.PosZ",
+      "probePath": "ActGridFocusedCue.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.PosZ\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.PosZ did not change the ActGridFocusedCue.PosZ readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.SatShift",
+      "probePath": "ActGridFocusedCue.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.SatShift\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.SatShift did not change the ActGridFocusedCue.SatShift readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.VisiblePointsEnd",
+      "probePath": "ActGridFocusedCue.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", -2147483648",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", -100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsEnd\", 2147483647",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.VisiblePointsEnd did not change the ActGridFocusedCue.VisiblePointsEnd readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "ActGridFocusedCue.VisiblePointsStart",
+      "probePath": "ActGridFocusedCue.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"ActGridFocusedCue.VisiblePointsStart\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to ActGridFocusedCue.VisiblePointsStart did not change the ActGridFocusedCue.VisiblePointsStart readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ActGridFocusedCue",
+        "notes": "Concrete writes and readbacks used literal ActGridFocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    }
+  ]
+}

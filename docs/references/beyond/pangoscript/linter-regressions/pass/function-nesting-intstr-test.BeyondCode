@@ -1,0 +1,23 @@
+// PangoLint pass: expression functions and nested operations
+// Purpose: verify int, intstr, max, bit shift, and string concatenation inside assignments.
+// BEYOND validation 2026-05-07: parser accepted the nested expression functions and emitted the expected callbacks.
+// PangoLint expected callback: /pangolint/candidate/functions/text (ss) "pangolint-candidate-functions-001" "int=3"
+// PangoLint expected callback: /pangolint/candidate/functions/numbers (sii) "pangolint-candidate-functions-001" 3 8
+// PangoLint observed callback: /pangolint/candidate/functions/text (ss) "pangolint-candidate-functions-001" "int=3"
+// PangoLint observed callback: /pangolint/candidate/functions/numbers (sii) "pangolint-candidate-functions-001" 3 8
+
+var requestId
+var sourceValue
+var intValue
+var maxValue
+var messageText
+
+requestId = "pangolint-candidate-functions-001"
+sourceValue = 3.75
+intValue = int(sourceValue)
+maxValue = max(1 << intValue, 1)
+messageText = "int=" + intstr(intValue)
+
+OscOutTTS "/pangolint/candidate/functions/text", "ss", requestId, messageText
+OscOutTTS "/pangolint/candidate/functions/numbers", "sii", requestId, intValue, maxValue
+exit

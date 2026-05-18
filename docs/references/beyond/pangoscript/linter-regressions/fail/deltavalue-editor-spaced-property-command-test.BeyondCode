@@ -1,0 +1,17 @@
+// PangoLint expect: deltavalue-midi-slot-context
+// PangoLint fail: spaced DeltaValue property command outside MIDI slot context
+// Purpose: verify the APC40 MIDI-slot property/control syntax is rejected when pasted directly into BEYOND's PangoScript editor.
+// Setup: paste/run in BEYOND's PangoScript editor.
+// BEYOND validation 2026-05-07: direct editor paste/run reports unknown function for `Master.PhFriction deltavalue (-1,1)`.
+// BEYOND error: Unknown function, undeclared or not initialized variable: deltavalue
+// BEYOND error: Error in command.
+// Object tree note: Master.PhFriction exists in the BEYOND object tree as /b/Master/PhFriction.
+// Safety: T2 operator-supervised. This writes Master.PhFriction if BEYOND unexpectedly accepts the line.
+
+var requestId
+
+requestId = "pangolint-fail-deltavalue-editor-property-001"
+Master.PhFriction deltavalue (-1,1)
+
+OscOutTTS "/pangolint/fail/deltavalue/editor-property", "s", requestId
+exit

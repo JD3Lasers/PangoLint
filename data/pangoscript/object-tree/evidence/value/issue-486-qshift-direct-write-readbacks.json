@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 486,
+  "runtime": {
+    "observedAt": "2026-05-17",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used QShift.0 direct controls, sent SetProp write/readback batches with integer, float, high numeric, signed 32-bit edge, and string samples, and restored observed baselines after each sample."
+  },
+  "entries": [
+    {
+      "objectPath": "QShift.N.Action",
+      "probePath": "QShift.0.Action",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift action value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.Action\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.Action\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.Action\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.Action\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.Action\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.Action\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.Action\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.Action\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.Action\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.Action\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.Action\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.Action\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.Action accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    },
+    {
+      "objectPath": "QShift.N.Color",
+      "probePath": "QShift.0.Color",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 6053017,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.Color\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.Color\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.Color\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.Color\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.Color\", 1.25",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.Color\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.Color\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.Color\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.Color\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.Color\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.Color\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 6053017,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 6053017."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.Color accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    },
+    {
+      "objectPath": "QShift.N.DivValue",
+      "probePath": "QShift.0.DivValue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift divide value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.DivValue\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.DivValue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.DivValue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.DivValue\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.DivValue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.DivValue\", 1.25",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.DivValue\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.DivValue\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.DivValue\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.DivValue\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.DivValue\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.DivValue\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.DivValue accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    },
+    {
+      "objectPath": "QShift.N.ModValue",
+      "probePath": "QShift.0.ModValue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift modulation value",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.ModValue\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.ModValue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.ModValue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.ModValue\", 0.5",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.ModValue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.ModValue\", 1.25",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.ModValue\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.ModValue\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.ModValue\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.ModValue\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.ModValue\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.ModValue\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.ModValue accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    },
+    {
+      "objectPath": "QShift.N.PhaseDir",
+      "probePath": "QShift.0.PhaseDir",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": -100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift phase direction",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.PhaseDir\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.PhaseDir\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.PhaseDir\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.PhaseDir\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.PhaseDir\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.PhaseDir\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.PhaseDir\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.PhaseDir\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.PhaseDir\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.PhaseDir\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.PhaseDir\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.PhaseDir\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": -100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback -100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.PhaseDir accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    },
+    {
+      "objectPath": "QShift.N.Width",
+      "probePath": "QShift.0.Width",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 1000000,
+        "unit": "QuickShift width",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"QShift.0.Width\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"QShift.0.Width\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"QShift.0.Width\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"QShift.0.Width\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"QShift.0.Width\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"QShift.0.Width\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"QShift.0.Width\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"QShift.0.Width\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"QShift.0.Width\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"QShift.0.Width\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"QShift.0.Width\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": "PangoLintTest",
+          "command": "SetProp \"QShift.0.Width\", \"PangoLintTest\"",
+          "readback": 0,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-17 issue #486 confirmed QShift.0.Width accepted sampled numeric values -2147483648..1000000 with baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": false,
+        "concreteContext": "QShift.0",
+        "notes": "The runtime probe used concrete direct QShift slot 0 paths."
+      }
+    }
+  ]
+}

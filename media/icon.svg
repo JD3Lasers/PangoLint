@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2438"/>
+      <stop offset="1" stop-color="#0d1320"/>
+    </linearGradient>
+    <linearGradient id="triangle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark rounded background -->
+  <rect x="0" y="0" width="128" height="128" rx="22" fill="url(#bg)"/>
+
+  <!-- Laser warning triangle: equilateral, rounded corners. Apex up. -->
+  <!-- Outer stroke = gradient (laser-show feel); inside is hollow over bg. -->
+  <path
+    d="M 64 22
+       L 110 102
+       Q 113 108 106 108
+       L 22 108
+       Q 15 108 18 102
+       Z"
+    fill="none"
+    stroke="url(#triangle)"
+    stroke-width="6"
+    stroke-linejoin="round"/>
+
+  <!-- Centered checkmark inside the triangle. Positioned around the
+       triangle's optical centroid (≈y=79) and kept clear of the right
+       edge so it doesn't crowd the silhouette at thumbnail sizes. -->
+  <polyline
+    points="52,78 61,87 77,70"
+    fill="none"
+    stroke="#4ade80"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+</svg>

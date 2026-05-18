@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint MCP readback. The shipped row uses hardware connection readback only. Sample-rate and serial fields remain unshipped because they are loaded-hardware values, not complete ranges or domains."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.N.Connected",
+      "probePath": "Projector.0.Connected",
+      "probeMode": "readback-only",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "DISCONNECTED",
+          "description": "Projector.N.Connected reads disconnected."
+        },
+        {
+          "value": 1,
+          "label": "CONNECTED",
+          "description": "Projector.N.Connected reads connected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": "Projector.0.Connected",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "Projector.1.Connected",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "Projector.2.Connected",
+          "readback": 0,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only hardware connection probe sent no writes."
+      },
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed Projector.N.Connected as a 0/1 hardware connection domain. Projector.0.Connected and Projector.1.Connected read 1. Projector.2.Connected read 0.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0, Projector.1, Projector.2",
+        "notes": "The probe used populated Projector.0 and Projector.1 slots plus unpopulated Projector.2 in the loaded hardware setup."
+      }
+    }
+  ]
+}

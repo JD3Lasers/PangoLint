@@ -1,0 +1,1541 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 451,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used SetProp write/readback against loaded WS.0.8 Synthesized Image LIST.0 controls. The bench had no lasers connected. Every writable sampled write restored the observed baseline and verified final readback. No-op Effect rows stayed at baseline after sampled writes."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleX",
+      "probePath": "WS.0.8.Image.LIST.0.AngleX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -10000",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -2881",
+          "readback": -28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -2880",
+          "readback": -28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -361",
+          "readback": -3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -360",
+          "readback": -3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -1",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 1",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 360",
+          "readback": 3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 361",
+          "readback": 3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 2880",
+          "readback": 28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 2881",
+          "readback": 28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 10000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleX at WS.0.8.Image.LIST.0.AngleX is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleY",
+      "probePath": "WS.0.8.Image.LIST.0.AngleY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -10000",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -2881",
+          "readback": -28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -2880",
+          "readback": -28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -361",
+          "readback": -3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -360",
+          "readback": -3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -1",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 1",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 360",
+          "readback": 3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 361",
+          "readback": 3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 2880",
+          "readback": 28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 2881",
+          "readback": 28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 10000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleY at WS.0.8.Image.LIST.0.AngleY is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleZ",
+      "probePath": "WS.0.8.Image.LIST.0.AngleZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -10000",
+          "readback": -100,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -2881",
+          "readback": -28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -2880",
+          "readback": -28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": -361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -361",
+          "readback": -3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": -360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -360",
+          "readback": -3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -1",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 1",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 360,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 360",
+          "readback": 3.5999999046325684,
+          "behavior": "unknown"
+        },
+        {
+          "input": 361,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 361",
+          "readback": 3.609999895095825,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2880,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 2880",
+          "readback": 28.799999237060547,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2881,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 2881",
+          "readback": 28.809999465942383,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 10000",
+          "readback": 100,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleZ at WS.0.8.Image.LIST.0.AngleZ is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ChaseTimeMode",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ChaseTimeMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ChaseTimeMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": 0,
+        "notes": "Sampled writes to WS.0.8.Image.LIST.0.Effect.ChaseTimeMode did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed sampled writes to WS.N.N.Image.LIST.0.Effect.ChaseTimeMode at WS.0.8.Image.LIST.0.Effect.ChaseTimeMode read back as no-op in the Synthesized Image LIST.0 context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline 0, so this row remains readback-only rather than shipping writable value metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.Zone",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.Zone",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.Zone\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "Main",
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.Zone\", \"Main\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "Zone 1",
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.Zone\", \"Zone 1\"",
+          "readback": "",
+          "behavior": "no-op"
+        },
+        {
+          "input": "pangolint",
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.Zone\", \"pangolint\"",
+          "readback": "",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": "",
+        "notes": "Sampled writes to WS.0.8.Image.LIST.0.Effect.Zone did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed sampled writes to WS.N.N.Image.LIST.0.Effect.Zone at WS.0.8.Image.LIST.0.Effect.Zone read back as no-op in the Synthesized Image LIST.0 context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline \"\", so this row remains readback-only rather than shipping writable value metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Effect.ZoneMode",
+      "probePath": "WS.0.8.Image.LIST.0.Effect.ZoneMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 3",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 4",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Effect.ZoneMode\", 10",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "restoredValue": 0,
+        "notes": "Sampled writes to WS.0.8.Image.LIST.0.Effect.ZoneMode did not change the baseline readback value."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed sampled writes to WS.N.N.Image.LIST.0.Effect.ZoneMode at WS.0.8.Image.LIST.0.Effect.ZoneMode read back as no-op in the Synthesized Image LIST.0 context.",
+      "deferReason": "Sampled SetProp writes did not change readback from baseline 0, so this row remains readback-only rather than shipping writable value metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.AudioMode",
+      "probePath": "WS.0.8.Image.LIST.0.Image.AudioMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 10,
+        "unit": "audio mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.AudioMode\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.Image.AudioMode to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.AudioMode at WS.0.8.Image.LIST.0.Image.AudioMode is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.Color",
+      "probePath": "WS.0.8.Image.LIST.0.Image.Color",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 16777215,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "RGB color integer",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", -1",
+          "readback": 16777215,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 256",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99999999,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Color\", 99999999",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 16777215,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.Image.Color to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color at WS.0.8.Image.LIST.0.Image.Color is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.Radius",
+      "probePath": "WS.0.8.Image.LIST.0.Image.Radius",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 6553400,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 6553400,
+        "unit": "radius readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 1",
+          "readback": 32767.001953125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 100",
+          "readback": 3276700,
+          "behavior": "unknown"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 65535",
+          "readback": 6553400,
+          "behavior": "clamp"
+        },
+        {
+          "input": 6553400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 6553400",
+          "readback": 6553400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10000000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 10000000",
+          "readback": 6553400,
+          "behavior": "clamp"
+        },
+        {
+          "input": 99999999,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.Image.Radius\", 99999999",
+          "readback": 6553400,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 6553400,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.Image.Radius to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Radius at WS.0.8.Image.LIST.0.Image.Radius is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionX",
+      "probePath": "WS.0.8.Image.LIST.0.PositionX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -10000",
+          "readback": -1073676288,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -401",
+          "readback": -43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -400",
+          "readback": -42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -101",
+          "readback": -10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -100",
+          "readback": -10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -1",
+          "readback": -107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 1",
+          "readback": 107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 100",
+          "readback": 10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 101",
+          "readback": 10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 400",
+          "readback": 42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 401",
+          "readback": 43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 10000",
+          "readback": 1073676288,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionX at WS.0.8.Image.LIST.0.PositionX is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionY",
+      "probePath": "WS.0.8.Image.LIST.0.PositionY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -10000",
+          "readback": -1073676288,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -401",
+          "readback": -43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -400",
+          "readback": -42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -101",
+          "readback": -10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -100",
+          "readback": -10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -1",
+          "readback": -107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 1",
+          "readback": 107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 100",
+          "readback": 10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 101",
+          "readback": 10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 400",
+          "readback": 42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 401",
+          "readback": 43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 10000",
+          "readback": 1073676288,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionY at WS.0.8.Image.LIST.0.PositionY is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionZ",
+      "probePath": "WS.0.8.Image.LIST.0.PositionZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -10000",
+          "readback": -1073676288,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -401",
+          "readback": -43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -400",
+          "readback": -42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -101",
+          "readback": -10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -100",
+          "readback": -10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -1",
+          "readback": -107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 1",
+          "readback": 107367.6328125,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 100",
+          "readback": 10736763,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 101",
+          "readback": 10844131,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 400",
+          "readback": 42947052,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 401",
+          "readback": 43054420,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 10000",
+          "readback": 1073676288,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionZ at WS.0.8.Image.LIST.0.PositionZ is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeX",
+      "probePath": "WS.0.8.Image.LIST.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 9.999999974752427e-7,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -10000",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -401",
+          "readback": -0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -400",
+          "readback": -0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -201",
+          "readback": -0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -200",
+          "readback": -0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -101",
+          "readback": -0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -100",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -1",
+          "readback": -0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 1",
+          "readback": 0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 100",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 101",
+          "readback": 0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 200",
+          "readback": 0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 201",
+          "readback": 0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 400",
+          "readback": 0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 401",
+          "readback": 0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 10000",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 9.999999974752427e-7,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeX to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeX at WS.0.8.Image.LIST.0.SizeX is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeY",
+      "probePath": "WS.0.8.Image.LIST.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 9.999999974752427e-7,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -10000",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -401",
+          "readback": -0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -400",
+          "readback": -0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -201",
+          "readback": -0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -200",
+          "readback": -0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -101",
+          "readback": -0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -100",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -1",
+          "readback": -0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 1",
+          "readback": 0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 100",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 101",
+          "readback": 0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 200",
+          "readback": 0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 201",
+          "readback": 0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 400",
+          "readback": 0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 401",
+          "readback": 0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 10000",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 9.999999974752427e-7,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeY to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeY at WS.0.8.Image.LIST.0.SizeY is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeZ",
+      "probePath": "WS.0.8.Image.LIST.0.SizeZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 9.999999974752427e-7,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -10000",
+          "readback": -1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -401",
+          "readback": -0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -400",
+          "readback": -0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": -201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -201",
+          "readback": -0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": -200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -200",
+          "readback": -0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -101",
+          "readback": -0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -100",
+          "readback": -0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -1",
+          "readback": -0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 1",
+          "readback": 0.00009999999747378752,
+          "behavior": "unknown"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 100",
+          "readback": 0.009999999776482582,
+          "behavior": "unknown"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 101",
+          "readback": 0.010099999606609344,
+          "behavior": "unknown"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 200",
+          "readback": 0.019999999552965164,
+          "behavior": "unknown"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 201",
+          "readback": 0.020099999383091927,
+          "behavior": "unknown"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 400",
+          "readback": 0.03999999910593033,
+          "behavior": "unknown"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 401",
+          "readback": 0.04010000079870224,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10000,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 10000",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 9.999999974752427e-7,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeZ to its observed baseline after every write and verified final readback."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeZ at WS.0.8.Image.LIST.0.SizeZ is writable in the Synthesized Image LIST.0 context.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

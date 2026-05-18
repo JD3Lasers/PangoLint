@@ -1,0 +1,19 @@
+// PangoLint candidate: conditional exit
+// Purpose: verify whether If <condition> Exit terminates the script without goto.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/conditional-exit/start (si) "pangolint-candidate-conditional-exit-001" 1
+// PangoLint observed callback: /pangolint/candidate/conditional-exit/start (si) "pangolint-candidate-conditional-exit-001" 1
+
+var requestId
+var sequence
+var shouldExit
+
+requestId = "pangolint-candidate-conditional-exit-001"
+sequence = 1
+shouldExit = 1
+
+OscOutTTS "/pangolint/candidate/conditional-exit/start", "si", requestId, sequence
+sequence = sequence + 1
+if (shouldExit = 1) Exit
+OscOutTTS "/pangolint/candidate/conditional-exit/unexpected", "si", requestId, sequence
+exit

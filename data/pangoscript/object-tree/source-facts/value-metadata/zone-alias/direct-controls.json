@@ -1,0 +1,2256 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ZoneAlias.Alpha",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Alpha confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Alpha uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.AnimationSpeed",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 400,
+        "unit": "animation speed percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.AnimationSpeed confirmed 0..400 clamp readbacks: -1->0, 0->0, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.AnimationSpeed uses 0..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.BeamBrush",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.BeamBrush confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.BeamBrush uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Blue",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Blue confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Blue uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Brightness",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Brightness confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Brightness uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX1Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX1Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX1TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX1TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX1TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX1TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX2Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX2Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX2TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX2TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX2TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX2TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX3Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX3Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX3TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX3TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX3TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX3TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX4Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX4Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX4TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX4TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX4TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX4TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX5Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX5Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX5TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX5TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX5TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX5TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -1,
+        "max": 99,
+        "unit": "effect slot",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6 confirmed -1..99 clamp readbacks: -2->-1, -1->-1, 99->99, 100->99."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6 uses -1..99 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX6Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX6Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX6TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX6TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX6TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX6TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX7Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX7Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX7TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX7TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX7TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX7TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8Action",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "action value",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8Action confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8Action uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8Mute",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8Mute confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8Mute uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.FX8Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.FX8Mute."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.FX8TimeMulClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeMulClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeMulClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8TimeMulMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time multiplier",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeMulMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeMulMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8TimeScaleClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeScaleClock confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeScaleClock uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8TimeScaleMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "time scale",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeScaleMetro confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeScaleMetro uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8TimeShiftClock",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeShiftClock confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeShiftClock uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.FX8TimeShiftMetro",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "time shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.FX8TimeShiftMetro confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.FX8TimeShiftMetro uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Green",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Green confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Green uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.HueShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.HueShift confirmed 0..720 clamp readbacks: -1->0, 0->0, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.HueShift uses 0..720 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Mesh.IndexX",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "mesh index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Mesh.IndexX confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Mesh.IndexX uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Mesh.IndexY",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "mesh index",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Mesh.IndexY confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Mesh.IndexY uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Muted",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Muted confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Muted uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Muted."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Muted."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.Pan",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Pan confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Pan uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.PositionX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.PositionX confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.PositionX uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.PositionY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.PositionY confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.PositionY uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.PositionZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.PositionZ confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.PositionZ uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.PreviewAsBeams",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.PreviewAsBeams confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.PreviewAsBeams uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.PreviewAsBeams."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.PreviewAsBeams."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.Red",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Red confirmed 0..255 clamp readbacks: -1->0, 0->0, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Red uses 0..255 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RGBColor",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "RGB color integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RGBColor confirmed 0..16777215 clamp readbacks: -1->0, 0->0, 16777215->16777215, 16777216->16777215."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RGBColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAngleX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2880,
+        "max": 2880,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAngleX confirmed -2880..2880 clamp readbacks: -2881->-2880, -2880->-2880, 2880->2880, 2881->2880."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoAngleX uses -2880..2880 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAngleY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2880,
+        "max": 2880,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAngleY confirmed -2880..2880 clamp readbacks: -2881->-2880, -2880->-2880, 2880->2880, 2881->2880."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoAngleY uses -2880..2880 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoAngleZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -2880,
+        "max": 2880,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoAngleZ confirmed -2880..2880 clamp readbacks: -2881->-2880, -2880->-2880, 2880->2880, 2881->2880."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoAngleZ uses -2880..2880 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoSpeedX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1440,
+        "max": 1440,
+        "unit": "rotation speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoSpeedX confirmed -1440..1440 clamp readbacks: -1441->-1440, -1440->-1440, 1440->1440, 1441->1440."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoSpeedX uses -1440..1440 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoSpeedY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1440,
+        "max": 1440,
+        "unit": "rotation speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoSpeedY confirmed -1440..1440 clamp readbacks: -1441->-1440, -1440->-1440, 1440->1440, 1441->1440."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoSpeedY uses -1440..1440 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.RotoSpeedZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1440,
+        "max": 1440,
+        "unit": "rotation speed",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.RotoSpeedZ confirmed -1440..1440 clamp readbacks: -1441->-1440, -1440->-1440, 1440->1440, 1441->1440."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.RotoSpeedZ uses -1440..1440 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Saturation",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Saturation confirmed -100..100 clamp readbacks: -101->-100, -100->-100, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Saturation uses -100..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.ScanRate",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 400,
+        "unit": "scan rate",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.ScanRate confirmed 1..400 clamp readbacks: 0->1, 1->1, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.ScanRate uses 1..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Selected",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Selected confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Selected uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Selected."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Selected."
+        }
+      ]
+    },
+    {
+      "path": "ZoneAlias.SizeX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.SizeX confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.SizeX uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.SizeY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.SizeY confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.SizeY uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.SizeZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.SizeZ confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.SizeZ uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.StrobeAcc",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.StrobeAcc confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.StrobeAcc uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.StrobeSpeed",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "flickers per second",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.StrobeSpeed confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.StrobeSpeed uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.TestFrame",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "test frame",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.TestFrame confirmed 0..2 clamp readbacks: -1->0, 0->0, 2->2, 3->2."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.TestFrame uses 0..2 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Tilt",
+      "valueType": "number",
+      "valueRange": {
+        "min": -400,
+        "max": 400,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Tilt confirmed -400..400 clamp readbacks: -401->-400, -400->-400, 400->400, 401->400."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Tilt uses -400..400 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.VisiblePoints",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "visible points percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.VisiblePoints confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.VisiblePoints uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.VisiblePointStart",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.VisiblePointStart confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.VisiblePointStart uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Zoom",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "max": 100,
+        "unit": "percent",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "SetProp writes to ZoneAlias.Zoom confirmed 0..100 clamp readbacks: -1->0, 0->0, 100->100, 101->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #346 confirmed ZoneAlias.Zoom uses 0..100 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ZoneAlias resolves through BEYOND's current zone alias state for the loaded show.",
+        "notes": "Runtime evidence used literal ZoneAlias direct-control paths in the loaded show."
+      }
+    }
+  ]
+}

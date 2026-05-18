@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Master.CueFinishTime",
+      "valueType": "float",
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0..5 clamp readbacks: -1->0, 0->0, 0.1->0.1, 1->1, 5->5, 5.1->5, 10->5."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueFinishTime uses 0..5 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.CuePauseTime",
+      "valueType": "float",
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0..5 clamp readbacks: -1->0, 0->0, 0.1->0.1, 1->1, 5->5, 5.1->5, 10->5."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CuePauseTime uses 0..5 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.CueRule",
+      "valueType": "enum",
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "cue rule",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0..2 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->2."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "RULE_0",
+          "description": "Set Master.CueRule to rule 0."
+        },
+        {
+          "value": 1,
+          "label": "RULE_1",
+          "description": "Set Master.CueRule to rule 1."
+        },
+        {
+          "value": 2,
+          "label": "RULE_2",
+          "description": "Set Master.CueRule to rule 2."
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueRule uses 0..2 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.CueStartTime",
+      "valueType": "float",
+      "valueRange": {
+        "min": 0,
+        "max": 5,
+        "unit": "seconds",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0..5 clamp readbacks: -1->0, 0->0, 0.1->0.1, 1->1, 5->5, 5.1->5, 10->5."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.CueStartTime uses 0..5 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.DisplayPopupTimeout",
+      "valueType": "float",
+      "valueRange": {
+        "min": 0.1,
+        "max": 60,
+        "unit": "seconds",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0.1..60 clamp readbacks: -1->0.1, 0->0.1, 0.1->0.1, 1->1, 60->60, 60.1->60, 100->60."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.DisplayPopupTimeout uses 0.1..60 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccX uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccY uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "Master.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed Master.RotoAccZ uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.ColorSlider",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed 0..255 clamp readbacks: -1->0, 0->0, 1->1, 254->254, 255->255, 256->255."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.ColorSlider uses 0..255 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.Hue",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -1..720 clamp readbacks: -2->-1, -1->-1, 0->0, 1->1, 720->720, 721->720."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.Hue uses -1..720 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.RotoAccX",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccX uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.RotoAccY",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccY uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.RotoAccZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -36000..36000 clamp readbacks: -36001->-36000, -36000->-36000, -1->-1, 0->0, 1->1, 36000->36000, 36001->36000."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #322 confirmed MasterLC.RotoAccZ uses -36000..36000 with clamp boundary behavior and baseline restore."
+    },
+    {
+      "path": "MasterLC.Saturation",
+      "valueType": "number",
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "saturation",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct assignment write/readback confirmed -100..100 clamp readbacks: -100000->-100, -1001->-100, -101->-100, -100->-100, -99->-99, 0->0, 100->100, 101->100, 1000->100."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #368 confirmed MasterLC.Saturation uses -100..100 with clamp boundary behavior and baseline restore."
+    }
+  ]
+}

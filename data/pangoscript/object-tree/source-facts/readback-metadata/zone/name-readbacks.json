@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Zone.N.Name",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "Zone.2.Name",
+      "probeMode": "readback-only",
+      "observedValue": "ZoneAlias",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-15",
+      "notes": "Runtime readback-only evidence on 2026-05-15 issue #412 confirmed Zone.2.Name read \"ZoneAlias\" with OSC type tag s. A separate write probe showed SetProp writes of length 0, 1, 29, 254, and 255 stayed at baseline, so this is lookup-only metadata and does not verify a writable string length range.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "zero-based zone index",
+        "notes": "The probe used populated Zone.2 from the loaded show."
+      }
+    },
+    {
+      "path": "ZoneAlias.Name",
+      "readable": true,
+      "valueType": "string",
+      "probePath": "ZoneAlias.Name",
+      "probeMode": "readback-only",
+      "observedValue": "ZoneAlias",
+      "typeTag": "s",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-05-17",
+      "notes": "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed non-baseline sampled writes to ZoneAlias.Name did not change the concrete ZoneAlias.Name readback. This remains lookup metadata and does not ship writable value metadata.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "user-configured zone name",
+        "notes": "The loaded show supplied the concrete alias used in the probe path. User zone names vary."
+      }
+    }
+  ]
+}

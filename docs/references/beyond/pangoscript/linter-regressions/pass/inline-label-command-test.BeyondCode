@@ -1,0 +1,20 @@
+// PangoLint candidate: inline label with command
+// Purpose: verify whether BEYOND accepts a label and statement on the same line.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/inline-label/start (si) "pangolint-candidate-inline-label-001" 1
+// PangoLint expected callback: /pangolint/candidate/inline-label/done (si) "pangolint-candidate-inline-label-001" 2
+// PangoLint observed callback: /pangolint/candidate/inline-label/start (si) "pangolint-candidate-inline-label-001" 1
+// PangoLint observed callback: /pangolint/candidate/inline-label/done (si) "pangolint-candidate-inline-label-001" 2
+
+var requestId
+var sequence
+
+requestId = "pangolint-candidate-inline-label-001"
+sequence = 1
+
+goto Start
+
+Start: OscOutTTS "/pangolint/candidate/inline-label/start", "si", requestId, sequence
+sequence = sequence + 1
+OscOutTTS "/pangolint/candidate/inline-label/done", "si", requestId, sequence
+exit

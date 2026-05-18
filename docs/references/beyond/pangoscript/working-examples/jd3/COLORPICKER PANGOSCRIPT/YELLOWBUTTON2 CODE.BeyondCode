@@ -1,0 +1,48 @@
+// YELLOW BUTTON 2
+OnClick:
+    // --- Hold/swap session integration ---
+    // Mark that a manual pick occurred so the next Swap starts a fresh session
+    COLORPICKER.SWAP_RESETSESSION.Tag = 1
+    // If a swap fade is running, hold SECONDARY (channel 1) so the fade won't overwrite this snap
+    if (COLORPICKER.SWAP_FADEACTIVE.Tag > 0.5) COLORPICKER.SWAP_HOLD1.Tag = 1
+
+    if (value <= 0.5) goto Yellow2Off
+    var pastel; pastel = COLORPICKER.PASTELMODESECONDARY.value
+    if (pastel > 0.5) goto SendYellow2Pastel
+    ColorChannel.1.Color = 65535        // normal yellow
+    goto AfterYellow2
+SendYellow2Pastel:
+    ColorChannel.1.Color = 8454143       // pastel yellow
+AfterYellow2:
+    var base; base = ColorChannel.1.Color
+    var sat; sat = COLORPICKER.SATSLIDER.Value
+    var satPct; satPct = sat + 100
+    var b; b = base & 255
+    var g; g = (base >> 8) & 255
+    var r; r = (base >> 16) & 255
+    var bright; bright = r
+    if (g > bright) bright = g
+    if (b > bright) bright = b
+    var nr; nr = (r * satPct + bright * (100 - satPct)) / 100
+    var ng; ng = (g * satPct + bright * (100 - satPct)) / 100
+    var nb; nb = (b * satPct + bright * (100 - satPct)) / 100
+    var colourSat; colourSat = nb | (ng << 8) | (nr << 16)
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = colourSat
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = colourSat
+    COLORPICKER.SECONDARYCOLOR.ColorActive = colourSat
+    COLORPICKER.SECONDARYSELECTED.Tag      = 3
+    exit
+Yellow2Off:
+    ColorChannel.1.Color = 0
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = 0
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = 0
+    COLORPICKER.SECONDARYCOLOR.ColorActive = 0
+    COLORPICKER.SECONDARYSELECTED.Tag      = 0
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

@@ -1,0 +1,13 @@
+// PangoLint expect: missing-label
+// Purpose: fixture for conditional goto targets without matching labels.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Label not found: missingconditionallabel.
+// BEYOND parser location: line 9, text `if (1 = 1) goto MissingConditionalLabel`
+// PangoLint should catch the missing target before operators rely on the jump.
+
+var requestId
+
+requestId = "pangolint-fail-missing-conditional-label-001"
+if (1 = 1) goto MissingConditionalLabel
+OscOutTTS "/pangolint/fail/missing-conditional-label", "s", requestId
+exit

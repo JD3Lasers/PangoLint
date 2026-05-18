@@ -1,0 +1,758 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-13",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. No laser was connected. Probes used Projector.0 concrete paths from the loaded show."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.N.ColorShift",
+      "probePath": "Projector.0.ColorShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color shift"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.ColorShift\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.ColorShift\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.ColorShift\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.ColorShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.ColorShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.ColorShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.ColorShift\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.ColorShift\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.ColorShift\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.ColorShift\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Projector.0.ColorShift was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.ColorShift uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxBlue",
+      "probePath": "Projector.0.MaxBlue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MaxBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MaxBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MaxBlue\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MaxBlue\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MaxBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MaxBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MaxBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "Projector.0.MaxBlue was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MaxBlue uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxGreen",
+      "probePath": "Projector.0.MaxGreen",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 75,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MaxGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MaxGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MaxGreen\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MaxGreen\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MaxGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MaxGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MaxGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 75,
+        "notes": "Projector.0.MaxGreen was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MaxGreen uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MaxRed",
+      "probePath": "Projector.0.MaxRed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MaxRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MaxRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MaxRed\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MaxRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MaxRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MaxRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MaxRed\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MaxRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MaxRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MaxRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "Projector.0.MaxRed was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MaxRed uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinBlue",
+      "probePath": "Projector.0.MinBlue",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MinBlue\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MinBlue\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MinBlue\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinBlue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinBlue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinBlue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MinBlue\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MinBlue\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MinBlue\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MinBlue\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Projector.0.MinBlue was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MinBlue uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinGreen",
+      "probePath": "Projector.0.MinGreen",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MinGreen\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MinGreen\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MinGreen\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinGreen\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinGreen\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinGreen\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MinGreen\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MinGreen\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MinGreen\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MinGreen\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Projector.0.MinGreen was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MinGreen uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinRed",
+      "probePath": "Projector.0.MinRed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "projector color channel limit"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MinRed\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MinRed\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MinRed\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinRed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinRed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinRed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MinRed\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MinRed\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MinRed\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MinRed\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "Projector.0.MinRed was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MinRed uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    },
+    {
+      "objectPath": "Projector.N.MinimumPoints",
+      "probePath": "Projector.0.MinimumPoints",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -32768,
+        "max": 32767,
+        "unit": "points"
+      },
+      "testedValues": [
+        {
+          "input": -32769,
+          "command": "SetProp \"Projector.0.MinimumPoints\", -32769",
+          "readback": 32767,
+          "behavior": "wrap"
+        },
+        {
+          "input": -32768,
+          "command": "SetProp \"Projector.0.MinimumPoints\", -32768",
+          "readback": -32768,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -32767,
+          "command": "SetProp \"Projector.0.MinimumPoints\", -32767",
+          "readback": -32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.0.MinimumPoints\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32766,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 32766",
+          "readback": 32766,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32767,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 32767",
+          "readback": 32767,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 32768,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 32768",
+          "readback": -32768,
+          "behavior": "wrap"
+        },
+        {
+          "input": 65535,
+          "command": "SetProp \"Projector.0.MinimumPoints\", 65535",
+          "readback": -1,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "Projector.0.MinimumPoints was restored to the observed baseline after each bounded write."
+      },
+      "evidenceNote": "BEYOND 2030 runtime probe on 2026-05-13 confirmed Projector.0.MinimumPoints uses signed 16-bit wrap behavior. -32768 through 32767 passed through, -32769 wrapped to 32767, 32768 wrapped to -32768, and 65535 wrapped to -1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0 in loaded show",
+        "notes": "Projector.N uses the zero-based Object Tree projector index."
+      }
+    }
+  ]
+}

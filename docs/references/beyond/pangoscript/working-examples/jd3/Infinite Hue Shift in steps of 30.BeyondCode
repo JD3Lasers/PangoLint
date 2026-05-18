@@ -1,0 +1,8 @@
+//Infinite Hue Shift in steps of 30
+var shift
+//shift = round(extvalue(0,360)*10.58)
+shift = extvalue(0,360)
+//if(shift <= 0) MidiOut 0xB0, 0x17, 0x7F // enable to loop the other way. buggy
+if(shift >= 360) MidiOut 0xB0, 0x17, 0x00 // loop back to 0
+HueShift shift
+exit

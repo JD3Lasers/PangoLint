@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 412,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "talkHost": "127.0.0.1",
+    "talkPort": 16062,
+    "oscListenHost": "0.0.0.0",
+    "oscListenPort": 7000,
+    "notes": "Readback-only probes through pangolint-mcp 0.3.1. A separate scratch write probe for issue #412 showed Zone.2.Name stayed at baseline for tested string writes, so no value range metadata shipped."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Name",
+      "probePath": "Zone.2.Name",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "ZoneAlias",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the populated Zone.2 name reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.2 from the loaded show",
+        "notes": "Zone.N uses zero-based zone indices."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Name",
+      "probePath": "ZoneAlias.Name",
+      "probeMode": "readback-only",
+      "valueType": "string",
+      "baseline": {
+        "value": "ZoneAlias",
+        "typeTag": "s"
+      },
+      "evidenceNote": "Runtime readback-only evidence confirmed the loaded user-configured zone alias name reads.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Loaded show alias path ZoneAlias",
+        "notes": "ZoneAlias is a placeholder for user-configured zone names. User zone names vary."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    }
+  ]
+}

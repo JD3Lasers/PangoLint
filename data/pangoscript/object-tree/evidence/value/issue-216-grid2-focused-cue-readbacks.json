@@ -1,0 +1,1055 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used literal Grid2FocusedCue paths, tried sampled SetProp writes including values above 100000 and signed 32-bit edges, restored observed baselines, and classified unchanged rows as readback-only."
+  },
+  "entries": [
+    {
+      "objectPath": "Grid2FocusedCue.ContainEndScript",
+      "probePath": "Grid2FocusedCue.ContainEndScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"string length 1\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"string length 32\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"string length 254\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"Grid2FocusedCue.ContainEndScript\", \"string length 255\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.ContainEndScript did not change the Grid2FocusedCue.ContainEndScript readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.ContainStartScript",
+      "probePath": "Grid2FocusedCue.ContainStartScript",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "0",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "string length 0",
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"string length 0\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 1",
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"string length 1\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 32",
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"string length 32\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 254",
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"string length 254\"",
+          "readback": "0",
+          "behavior": "no-op"
+        },
+        {
+          "input": "string length 255",
+          "command": "SetProp \"Grid2FocusedCue.ContainStartScript\", \"string length 255\"",
+          "readback": "0",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "0",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback \"0\"."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.ContainStartScript did not change the Grid2FocusedCue.ContainStartScript readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.CueType",
+      "probePath": "Grid2FocusedCue.CueType",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", -2147483648",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", -100000",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 0",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 100",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 100000",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.CueType\", 2147483647",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.CueType did not change the Grid2FocusedCue.CueType readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probePath": "Grid2FocusedCue.Effect.ChaseTimeMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ChaseTimeMode\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.Effect.ChaseTimeMode did not change the Grid2FocusedCue.Effect.ChaseTimeMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.Zone",
+      "probePath": "Grid2FocusedCue.Effect.Zone",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.Effect.Zone\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.Effect.Zone did not change the Grid2FocusedCue.Effect.Zone readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probePath": "Grid2FocusedCue.Effect.ZoneMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.Effect.ZoneMode\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.Effect.ZoneMode did not change the Grid2FocusedCue.Effect.ZoneMode readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.FX7",
+      "probePath": "Grid2FocusedCue.FX7",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.FX7\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.FX7 did not change the Grid2FocusedCue.FX7 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.FX8",
+      "probePath": "Grid2FocusedCue.FX8",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.FX8\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.FX8 did not change the Grid2FocusedCue.FX8 readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosX",
+      "probePath": "Grid2FocusedCue.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.PosX\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.PosX did not change the Grid2FocusedCue.PosX readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosY",
+      "probePath": "Grid2FocusedCue.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.PosY\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.PosY did not change the Grid2FocusedCue.PosY readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.PosZ",
+      "probePath": "Grid2FocusedCue.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.PosZ\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.PosZ did not change the Grid2FocusedCue.PosZ readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.SatShift",
+      "probePath": "Grid2FocusedCue.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.SatShift\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.SatShift did not change the Grid2FocusedCue.SatShift readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.VisiblePointsEnd",
+      "probePath": "Grid2FocusedCue.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", -2147483648",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", -100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 100000",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsEnd\", 2147483647",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 100,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 100."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.VisiblePointsEnd did not change the Grid2FocusedCue.VisiblePointsEnd readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    },
+    {
+      "objectPath": "Grid2FocusedCue.VisiblePointsStart",
+      "probePath": "Grid2FocusedCue.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", -2147483648",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", -100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 100000",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Grid2FocusedCue.VisiblePointsStart\", 2147483647",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #216 confirmed sampled writes to Grid2FocusedCue.VisiblePointsStart did not change the Grid2FocusedCue.VisiblePointsStart readback.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Grid2FocusedCue",
+        "notes": "Concrete writes and readbacks used literal Grid2FocusedCue paths and did not infer writable ranges from no-op write attempts."
+      }
+    }
+  ]
+}

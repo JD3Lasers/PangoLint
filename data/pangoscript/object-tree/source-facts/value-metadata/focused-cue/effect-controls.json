@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "ActGridFocusedCue.CaptionColor",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.CaptionColor confirmed 0..16777215 clamp readbacks: -1->0, 0->0, 1->1, 16777215->16777215, 16777216->16777215."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.ClickMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.ClockLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.ClockShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. ActGridFocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. ActGridFocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. ActGridFocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. ActGridFocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.MetroLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "ActGridFocusedCue.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to ActGridFocusedCue.Effect.MetroShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed ActGridFocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "ActGridFocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.CaptionColor",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.CaptionColor confirmed 0..16777215 clamp readbacks: -1->0, 0->0, 1->1, 16777215->16777215, 16777216->16777215."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.ClickMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.ClockLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.ClockShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. Grid1FocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. Grid1FocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. Grid1FocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. Grid1FocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.MetroLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid1FocusedCue.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid1FocusedCue.Effect.MetroShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid1FocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid1FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.CaptionColor",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "caption color integer",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.CaptionColor confirmed 0..16777215 clamp readbacks: -1->0, 0->0, 1->1, 16777215->16777215, 16777216->16777215."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.CaptionColor uses 0..16777215 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.ClickMode",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 4,
+        "unit": "click mode",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.ClickMode confirmed 0..4 clamp readbacks: -1->0, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.ClickMode uses 0..4 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.ChasePeriod",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 10,
+        "unit": "chase period",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.ChasePeriod confirmed 1..10 clamp readbacks: -1->1, 0->1, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ChasePeriod uses 1..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.ClockLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.ClockLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ClockLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.ClockShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.ClockShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.ClockShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.EnableClockLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.EnableClockLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.EnableClockLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear clock limit. Grid2FocusedCue.Effect.EnableClockLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set clock limit. Grid2FocusedCue.Effect.EnableClockLimit."
+        }
+      ]
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.EnableMetroLimit",
+      "valueType": "boolean",
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.EnableMetroLimit confirmed 0..1 clamp readbacks: -1->0, 0->0, 1->1, 2->1."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.EnableMetroLimit uses 0..1 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear metro limit. Grid2FocusedCue.Effect.EnableMetroLimit."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set metro limit. Grid2FocusedCue.Effect.EnableMetroLimit."
+        }
+      ]
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.MetroLimit",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect limit",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.MetroLimit confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.MetroLimit uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    },
+    {
+      "path": "Grid2FocusedCue.Effect.MetroShift",
+      "valueType": "number",
+      "valueRange": {
+        "min": -10,
+        "max": 10,
+        "unit": "effect shift",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Direct focused-cue alias writes to Grid2FocusedCue.Effect.MetroShift confirmed -10..10 clamp readbacks: -11->-10, -10->-10, -1->-1, 0->0, 1->1, 10->10, 11->10."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #328 confirmed Grid2FocusedCue.Effect.MetroShift uses -10..10 with clamp behavior and baseline restore.",
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "indexBasis": "Grid2FocusedCue resolves through BEYOND focused-cue state for the loaded show.",
+        "notes": "Focused-cue aliases are state-dependent. The runtime probe used the focused-cue state active during the observed session."
+      }
+    }
+  ]
+}

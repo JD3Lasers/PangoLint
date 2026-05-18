@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 296,
+  "runtime": {
+    "observedAt": "2026-05-15",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used the loaded test_universe alias and ZonePad2 default component name, which targets a projection zone by name. Every sampled write restored the observed baseline and verified final readback."
+  },
+  "entries": [
+    {
+      "objectPath": "Universe.N.ZonePad2.Caption",
+      "probePath": "test_universe.ZonePad2.Caption",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "",
+        "typeTag": "s"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 254,
+        "unit": "characters",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"test_universe.ZonePad2.Caption\", \"\"",
+          "readback": "",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "x",
+          "command": "SetProp \"test_universe.ZonePad2.Caption\", \"x\"",
+          "readback": "x",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"test_universe.ZonePad2.Caption\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"test_universe.ZonePad2.Caption\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "behavior": "pass-through"
+        },
+        {
+          "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "command": "SetProp \"test_universe.ZonePad2.Caption\", \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"",
+          "readback": "",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": "",
+        "notes": "The probe restored test_universe.ZonePad2.Caption to the observed baseline after every tested write and verified final readback \"\"."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.Caption at test_universe.ZonePad2.Caption. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.Caption in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Selected",
+      "probePath": "test_universe.ZonePad2.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad2.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad2.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"test_universe.ZonePad2.Selected\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"test_universe.ZonePad2.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"test_universe.ZonePad2.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"test_universe.ZonePad2.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored test_universe.ZonePad2.Selected to the observed baseline after every tested write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.Selected at test_universe.ZonePad2.Selected. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.Selected in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Visible",
+      "probePath": "test_universe.ZonePad2.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad2.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad2.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"test_universe.ZonePad2.Visible\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"test_universe.ZonePad2.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"test_universe.ZonePad2.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"test_universe.ZonePad2.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored test_universe.ZonePad2.Visible to the observed baseline after every tested write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.Visible at test_universe.ZonePad2.Visible. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.Visible in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Value",
+      "probePath": "test_universe.ZonePad2.Value",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"test_universe.ZonePad2.Value\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"test_universe.ZonePad2.Value\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"test_universe.ZonePad2.Value\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"test_universe.ZonePad2.Value\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"test_universe.ZonePad2.Value\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored test_universe.ZonePad2.Value to the observed baseline after every tested write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.Value at test_universe.ZonePad2.Value. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.Value in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.X",
+      "probePath": "test_universe.ZonePad2.X",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"test_universe.ZonePad2.X\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"test_universe.ZonePad2.X\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"test_universe.ZonePad2.X\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"test_universe.ZonePad2.X\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"test_universe.ZonePad2.X\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored test_universe.ZonePad2.X to the observed baseline after every tested write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.X at test_universe.ZonePad2.X. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.X in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Y",
+      "probePath": "test_universe.ZonePad2.Y",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "normalized position",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"test_universe.ZonePad2.Y\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"test_universe.ZonePad2.Y\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"test_universe.ZonePad2.Y\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"test_universe.ZonePad2.Y\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"test_universe.ZonePad2.Y\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored test_universe.ZonePad2.Y to the observed baseline after every tested write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime write/readback on 2026-05-15 issue #296 confirmed Universe.N.ZonePad2.Y at test_universe.ZonePad2.Y. ZonePad2 is the projection zone by name component and is location-aware because the concrete default name depends on the loaded show.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "test_universe.ZonePad2.Y in the loaded test universe alias",
+        "notes": "The concrete probe used the user-configurable test_universe root and default ZonePad2 component name from the loaded show."
+      }
+    }
+  ]
+}

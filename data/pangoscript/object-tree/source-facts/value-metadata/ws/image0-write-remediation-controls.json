@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.Image.0.SizeMOD1",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -200,
+        "max": 199,
+        "unit": "size modulation",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples read back -200, and upper samples starting at 200 read back -200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD1 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD1 accepts writable values with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.0.SizeMOD2",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -200,
+        "max": 199,
+        "unit": "size modulation",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples read back -200, and upper samples starting at 200 read back -200."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD2 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD2 accepts writable values with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.0.WaveMOD1",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "wave modulation",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed pass-through across tested values from -1000 through 1000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.WaveMOD1 for Classic LD2000 Abstract at WS.0.5.Image.0.WaveMOD1 accepts writable values with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    },
+    {
+      "path": "WS.N.N.Image.0.WaveMOD2",
+      "contextId": "cue-type:classic-ld2000-abstract",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1000,
+        "max": 1000,
+        "unit": "wave modulation",
+        "boundaryBehavior": "pass-through",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback confirmed pass-through across tested values from -1000 through 1000. No clamp was observed inside the tested span."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.WaveMOD2 for Classic LD2000 Abstract at WS.0.5.Image.0.WaveMOD2 accepts writable values with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
+      }
+    }
+  ]
+}

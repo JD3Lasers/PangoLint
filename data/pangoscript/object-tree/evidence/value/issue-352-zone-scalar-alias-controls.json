@@ -1,0 +1,1515 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 352,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0. The probe used concrete Zone.0 paths and literal ZoneAlias paths, then restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.ColorSlider",
+      "probePath": "Zone.0.ColorSlider",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.ColorSlider\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.ColorSlider\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.ColorSlider\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 128,
+          "command": "SetProp \"Zone.0.ColorSlider\", 128",
+          "readback": 128,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"Zone.0.ColorSlider\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"Zone.0.ColorSlider\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.ColorSlider at Zone.0.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.ColorSlider."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Hue",
+      "probePath": "Zone.0.Hue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"Zone.0.Hue\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359.5,
+          "command": "SetProp \"Zone.0.Hue\", 359.5",
+          "readback": 359.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"Zone.0.Hue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"Zone.0.Hue\", 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.Hue at Zone.0.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.Hue."
+      }
+    },
+    {
+      "objectPath": "Zone.N.PosX",
+      "probePath": "Zone.0.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.PosX\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.PosX\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.PosX\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.PosX\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.PosX at Zone.0.PosX.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.PosX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.PosY",
+      "probePath": "Zone.0.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.PosY\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.PosY\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.PosY\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.PosY\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.PosY at Zone.0.PosY.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.PosY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.PosZ",
+      "probePath": "Zone.0.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.PosZ\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.PosZ\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.PosZ\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.PosZ\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.PosZ at Zone.0.PosZ.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.PosZ."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoAccX",
+      "probePath": "Zone.0.RotoAccX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Zone.0.RotoAccX\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Zone.0.RotoAccX\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.RotoAccX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.RotoAccX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Zone.0.RotoAccX\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Zone.0.RotoAccX\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccX at Zone.0.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.RotoAccX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoAccY",
+      "probePath": "Zone.0.RotoAccY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1.3990000486373901,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Zone.0.RotoAccY\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Zone.0.RotoAccY\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.RotoAccY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.RotoAccY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Zone.0.RotoAccY\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Zone.0.RotoAccY\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1.3990000486373901,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccY at Zone.0.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.RotoAccY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.RotoAccZ",
+      "probePath": "Zone.0.RotoAccZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -0.039000000804662704,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"Zone.0.RotoAccZ\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"Zone.0.RotoAccZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.RotoAccZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.RotoAccZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"Zone.0.RotoAccZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"Zone.0.RotoAccZ\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -0.039000000804662704,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed Zone.N.RotoAccZ at Zone.0.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.RotoAccZ."
+      }
+    },
+    {
+      "objectPath": "Zone.N.SatShift",
+      "probePath": "Zone.0.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.SatShift\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.SatShift\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.SatShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.SatShift\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.SatShift at Zone.0.SatShift.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.SatShift."
+      }
+    },
+    {
+      "objectPath": "Zone.N.VisiblePointsEnd",
+      "probePath": "Zone.0.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", 50",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.VisiblePointsEnd\", 101",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.VisiblePointsEnd at Zone.0.VisiblePointsEnd.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.VisiblePointsEnd."
+      }
+    },
+    {
+      "objectPath": "Zone.N.VisiblePointsStart",
+      "probePath": "Zone.0.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", 50",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.VisiblePointsStart\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred Zone.N.VisiblePointsStart at Zone.0.VisiblePointsStart.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.VisiblePointsStart."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.ColorSlider",
+      "probePath": "ZoneAlias.ColorSlider",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 255,
+        "unit": "8-bit channel",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 128,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", 128",
+          "readback": 128,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 256,
+          "command": "SetProp \"ZoneAlias.ColorSlider\", 256",
+          "readback": 255,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.ColorSlider at ZoneAlias.ColorSlider uses 0..255 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.ColorSlider."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Hue",
+      "probePath": "ZoneAlias.Hue",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 720,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"ZoneAlias.Hue\", -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Hue\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Hue\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Hue\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 359.5,
+          "command": "SetProp \"ZoneAlias.Hue\", 359.5",
+          "readback": 359.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 720,
+          "command": "SetProp \"ZoneAlias.Hue\", 720",
+          "readback": 720,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 721,
+          "command": "SetProp \"ZoneAlias.Hue\", 721",
+          "readback": 720,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.Hue at ZoneAlias.Hue uses -1..720 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Hue."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.PosX",
+      "probePath": "ZoneAlias.PosX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.PosX\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.PosX\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.PosX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.PosX\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.PosX\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.PosX\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.PosX at ZoneAlias.PosX.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.PosX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.PosY",
+      "probePath": "ZoneAlias.PosY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.PosY\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.PosY\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.PosY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.PosY\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.PosY\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.PosY\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.PosY at ZoneAlias.PosY.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.PosY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.PosZ",
+      "probePath": "ZoneAlias.PosZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.PosZ\", -401",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.PosZ\", -400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.PosZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.PosZ\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.PosZ\", 400",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.PosZ\", 401",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.PosZ at ZoneAlias.PosZ.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.PosZ."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.RotoAccX",
+      "probePath": "ZoneAlias.RotoAccX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 57.638999938964844,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ZoneAlias.RotoAccX\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 57.638999938964844,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccX at ZoneAlias.RotoAccX uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.RotoAccX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.RotoAccY",
+      "probePath": "ZoneAlias.RotoAccY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -56.119998931884766,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ZoneAlias.RotoAccY\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -56.119998931884766,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccY at ZoneAlias.RotoAccY uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.RotoAccY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.RotoAccZ",
+      "probePath": "ZoneAlias.RotoAccZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 56.20000076293945,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -36000,
+        "max": 36000,
+        "unit": "rotation acceleration",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -36001,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", -36001",
+          "readback": -36000,
+          "behavior": "clamp"
+        },
+        {
+          "input": -36000,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", -36000",
+          "readback": -36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36000,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", 36000",
+          "readback": 36000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 36001,
+          "command": "SetProp \"ZoneAlias.RotoAccZ\", 36001",
+          "readback": 36000,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 56.20000076293945,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 confirmed ZoneAlias.RotoAccZ at ZoneAlias.RotoAccZ uses -36000..36000 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.RotoAccZ."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.SatShift",
+      "probePath": "ZoneAlias.SatShift",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.SatShift\", -101",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.SatShift\", -100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.SatShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.SatShift\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.SatShift\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.SatShift\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.SatShift at ZoneAlias.SatShift.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.SatShift."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.VisiblePointsEnd",
+      "probePath": "ZoneAlias.VisiblePointsEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", -1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", 0",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", 1",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", 50",
+          "readback": 100,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.VisiblePointsEnd\", 101",
+          "readback": 100,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.VisiblePointsEnd at ZoneAlias.VisiblePointsEnd.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.VisiblePointsEnd."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.VisiblePointsStart",
+      "probePath": "ZoneAlias.VisiblePointsStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 50,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", 50",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", 100",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.VisiblePointsStart\", 101",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #352 deferred ZoneAlias.VisiblePointsStart at ZoneAlias.VisiblePointsStart.",
+      "deferReason": "Direct SetProp writes stayed at the observed baseline and did not prove a manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.VisiblePointsStart."
+      }
+    }
+  ]
+}

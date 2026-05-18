@@ -1,0 +1,23 @@
+// PangoLint candidate: Master and Zone property reads
+// Purpose: verify common property reads used by readback scripts.
+// BEYOND validation 2026-05-07: no parse errors; observed values reflect current lab state.
+// PangoLint expected callback: /pangolint/candidate/property/read (ssff) "pangolint-candidate-property-read-001" "TEST ZONE" 100.000000 100.000000
+// PangoLint expected callback: /pangolint/candidate/property/bpm (sf) "pangolint-candidate-property-read-001" 126.000000
+// PangoLint observed callback: /pangolint/candidate/property/read (ssff) "pangolint-candidate-property-read-001" "TEST ZONE" 100.000000 100.000000
+// PangoLint observed callback: /pangolint/candidate/property/bpm (sf) "pangolint-candidate-property-read-001" 126.000000
+
+var requestId
+var brightnessSnapshot
+var bpmSnapshot
+var zoneName
+var zoneBrightness
+
+requestId = "pangolint-candidate-property-read-001"
+brightnessSnapshot = Master.Brightness
+bpmSnapshot = Master.BPM
+zoneName = Zone.0.Name
+zoneBrightness = Zone.0.Brightness
+
+OscOutTTS "/pangolint/candidate/property/read", "ssff", requestId, zoneName, brightnessSnapshot, zoneBrightness
+OscOutTTS "/pangolint/candidate/property/bpm", "sf", requestId, bpmSnapshot
+exit

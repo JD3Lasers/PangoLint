@@ -1,0 +1,25 @@
+// PangoLint candidate: mixed-case keywords
+// Purpose: verify BEYOND accepts mixed-case Var, GoTo, If, and Exit.
+// BEYOND validation 2026-05-07: no parse errors.
+// PangoLint expected callback: /pangolint/candidate/case/start (si) "pangolint-candidate-case-001" 1
+// PangoLint expected callback: /pangolint/candidate/case/done (si) "pangolint-candidate-case-001" 2
+// PangoLint observed callback: /pangolint/candidate/case/start (si) "pangolint-candidate-case-001" 1
+// PangoLint observed callback: /pangolint/candidate/case/done (si) "pangolint-candidate-case-001" 2
+
+Var requestId
+Var sequence
+
+requestId = "pangolint-candidate-case-001"
+sequence = 1
+
+GoTo Start
+
+Start:
+OscOutTTS "/pangolint/candidate/case/start", "si", requestId, sequence
+sequence = sequence + 1
+If (sequence = 2) GoTo Done
+OscOutTTS "/pangolint/candidate/case/unexpected", "si", requestId, sequence
+
+Done:
+OscOutTTS "/pangolint/candidate/case/done", "si", requestId, sequence
+Exit

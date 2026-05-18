@@ -1,0 +1,18 @@
+// PangoLint expect: unsupported-loop
+// PangoLint candidate: While/Loop syntax
+// Purpose: verify whether BEYOND rejects or accepts While/Loop.
+// BEYOND validation 2026-05-07: rejected before runtime; no callbacks emitted.
+// BEYOND parser error: Unknown command: while.
+// BEYOND parser location: line 11, text `While index < 2`
+
+var requestId
+var index
+
+requestId = "pangolint-candidate-while-loop-001"
+index = 0
+
+While index < 2
+  OscOutTTS "/pangolint/candidate/while/iteration", "si", requestId, index
+  index = index + 1
+Loop
+exit

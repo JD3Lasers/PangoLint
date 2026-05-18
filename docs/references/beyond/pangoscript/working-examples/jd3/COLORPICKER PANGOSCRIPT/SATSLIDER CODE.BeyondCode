@@ -1,0 +1,84 @@
+// SAT SLIDER: OnChange event
+OnChange:
+    // 1) Read slider value (range –100..0)
+    var sat
+    sat = COLORPICKER.SATSLIDER.Value  // e.g. –80, –60, etc.
+
+    // 2) Convert to 0..100 percentage
+    //    (0 = fully desaturated, 100 = fully saturated)
+    var satPct
+    satPct = sat + 100  // e.g. 20, 40, … 100
+
+    // 3) Desaturate primary channel (ColourChannel.0) using “preserve brightness”
+    var base, r, g, b, bright, nr, ng, nb, colour
+    base = ColorChannel.0.Color
+    b    = base & 255
+    g    = (base >> 8) & 255
+    r    = (base >> 16) & 255
+
+    // find the brightest component to preserve overall brightness
+    bright = r
+    if (g > bright) bright = g
+    if (b > bright) bright = b
+
+    // interpolate: newComponent = (old * satPct + bright * (100 – satPct)) / 100
+    nr = (r * satPct + bright * (100 - satPct)) / 100
+    ng = (g * satPct + bright * (100 - satPct)) / 100
+    nb = (b * satPct + bright * (100 - satPct)) / 100
+
+    // recombine into a single colour value
+    colour = nb | (ng << 8) | (nr << 16)
+
+    // assign the new colour to the primary swatch
+    COLORPICKER.PRIMARYCOLOR.ColorOff    = colour
+    COLORPICKER.PRIMARYCOLOR.ColorOn     = colour
+    COLORPICKER.PRIMARYCOLOR.ColorActive = colour
+
+    // 4) Desaturate secondary channel (ColourChannel.1) in exactly the same way
+    base   = ColorChannel.1.Color
+    b      = base & 255
+    g      = (base >> 8) & 255
+    r      = (base >> 16) & 255
+    bright = r
+    if (g > bright) bright = g
+    if (b > bright) bright = b
+    nr     = (r * satPct + bright * (100 - satPct)) / 100
+    ng     = (g * satPct + bright * (100 - satPct)) / 100
+    nb     = (b * satPct + bright * (100 - satPct)) / 100
+    colour = nb | (ng << 8) | (nr << 16)
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = colour
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = colour
+    COLORPICKER.SECONDARYCOLOR.ColorActive = colour
+
+    // 5) Update the slider’s own colour (white at –100, black at 0)
+    var slideBrightness
+    slideBrightness = (-sat) * 255 / 100  // invert and scale
+    if (slideBrightness < 0) slideBrightness = 0
+    if (slideBrightness > 255) slideBrightness = 255
+    var slideColour
+    slideColour = slideBrightness | (slideBrightness << 8) | (slideBrightness << 16)
+    COLORPICKER.SATSLIDER.ColorOff    = slideColour
+    COLORPICKER.SATSLIDER.ColorOn     = slideColour
+    COLORPICKER.SATSLIDER.ColorActive = slideColour
+
+    // 6) Deselect the saturation increment buttons only if the change was NOT from a button
+    if (COLORPICKER.SATSLIDER.Tag > 0.5) goto SkipDeselect
+
+    // Change came from moving the slider directly; clear all step buttons
+    COLORPICKER.SAT20.Value  = 0
+    COLORPICKER.SAT40.Value  = 0
+    COLORPICKER.SAT60.Value  = 0
+    COLORPICKER.SAT80.Value  = 0
+    COLORPICKER.SAT100.Value = 0
+
+SkipDeselect:
+    // Always reset the flag so the next slider move knows its origin
+    COLORPICKER.SATSLIDER.Tag = 0
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

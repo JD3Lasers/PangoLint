@@ -1,0 +1,30 @@
+// SAT40 button — “SAT -40 %” (40 % desaturation)
+OnClick:
+    if (value > 0.5) goto Sat40On
+
+    // Turning OFF: reset to 0 and clear all buttons
+    COLORPICKER.SATSLIDER.Tag = 1
+    COLORPICKER.SAT20.value   = 0
+    COLORPICKER.SAT60.value   = 0
+    COLORPICKER.SAT80.value   = 0
+    COLORPICKER.SAT100.value  = 0
+    COLORPICKER.SATSLIDER.value = 0
+    exit
+
+Sat40On:
+    COLORPICKER.SATSLIDER.Tag = 1
+    // Clear all other increment buttons
+    COLORPICKER.SAT20.value   = 0
+    COLORPICKER.SAT60.value   = 0
+    COLORPICKER.SAT80.value   = 0
+    COLORPICKER.SAT100.value  = 0
+    // Set slider to –40
+    COLORPICKER.SATSLIDER.value = -40
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____/

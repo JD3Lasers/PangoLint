@@ -1,0 +1,75 @@
+// RED BUTTON 2
+OnClick:
+    // --- Hold/swap session integration ---
+    // Mark that a manual pick occurred so the next Swap starts a fresh session
+    COLORPICKER.SWAP_RESETSESSION.Tag = 1
+    // If a swap fade is running, hold SECONDARY (channel 1) so the fade won't overwrite this snap
+    if (COLORPICKER.SWAP_FADEACTIVE.Tag > 0.5) COLORPICKER.SWAP_HOLD1.Tag = 1
+
+    // If button is off, clear the secondary channel
+    if (value <= 0.5) goto Red2Off
+
+    // Check pastel mode
+    var pastel
+    pastel = COLORPICKER.PASTELMODESECONDARY.value
+
+    // Assign base colour (normal or pastel)
+    if (pastel > 0.5) goto SendRed2Pastel
+    ColorChannel.1.Color = 255        // normal red
+    goto AfterRed2
+SendRed2Pastel:
+    ColorChannel.1.Color = 8421631    // pastel red
+
+AfterRed2:
+    // Get base colour
+    var base
+    base = ColorChannel.1.Color
+
+    // Apply current saturation from SATSLIDER (-100..0)
+    var sat
+    sat = COLORPICKER.SATSLIDER.Value
+    var satPct
+    satPct = sat + 100      // 0..100
+
+    var b; b = base & 255
+    var g; g = (base >> 8) & 255
+    var r; r = (base >> 16) & 255
+
+    // Determine brightest component
+    var bright; bright = r
+    if (g > bright) bright = g
+    if (b > bright) bright = b
+
+    // Desaturate using integer math
+    var nr; nr = (r * satPct + bright * (100 - satPct)) / 100
+    var ng; ng = (g * satPct + bright * (100 - satPct)) / 100
+    var nb; nb = (b * satPct + bright * (100 - satPct)) / 100
+
+    var colourSat; colourSat = nb | (ng << 8) | (nr << 16)
+
+    // Update secondary swatch to desaturated colour
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = colourSat
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = colourSat
+    COLORPICKER.SECONDARYCOLOR.ColorActive = colourSat
+
+    // Update selection tag
+    COLORPICKER.SECONDARYSELECTED.Tag = 1
+
+    exit
+
+Red2Off:
+    // Turn off the secondary channel
+    ColorChannel.1.Color = 0
+    COLORPICKER.SECONDARYCOLOR.ColorOff    = 0
+    COLORPICKER.SECONDARYCOLOR.ColorOn     = 0
+    COLORPICKER.SECONDARYCOLOR.ColorActive = 0
+    COLORPICKER.SECONDARYSELECTED.Tag      = 0
+
+    exit
+
+// Author: John Dickson
+//         ______ _____
+//        / / __ \__  /
+//   __  / / / / //_ < 
+//  / /_/ / /_/ /__/ / 
+//  \____/_____/____//

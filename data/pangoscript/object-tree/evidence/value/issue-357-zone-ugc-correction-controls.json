@@ -1,0 +1,5387 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 357,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0. The probe used concrete Zone.0.UGC paths and literal ZoneAlias.UGC paths, then restored the observed baseline after every SetProp write."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.UGC.BowOffsetX",
+      "probePath": "Zone.0.UGC.BowOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.BowOffsetX at Zone.0.UGC.BowOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.BowOffsetX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.BowOffsetY",
+      "probePath": "Zone.0.UGC.BowOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.BowOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.BowOffsetY at Zone.0.UGC.BowOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.BowOffsetY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.BowX",
+      "probePath": "Zone.0.UGC.BowX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.BowX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.BowX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.BowX at Zone.0.UGC.BowX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.BowX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.BowY",
+      "probePath": "Zone.0.UGC.BowY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.BowY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.BowY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.BowY at Zone.0.UGC.BowY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.BowY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.IndexX",
+      "probePath": "Zone.0.UGC.IndexX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -1000",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -401",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -400",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -101",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -100",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 100",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 101",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 400",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 401",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.IndexX\", 1000",
+          "readback": 0,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed Zone.N.UGC.IndexX at Zone.0.UGC.IndexX uses -1..0 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.IndexX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.IndexY",
+      "probePath": "Zone.0.UGC.IndexY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -1000",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -401",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -400",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -101",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -100",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 100",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 101",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 400",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 401",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.IndexY\", 1000",
+          "readback": 0,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed Zone.N.UGC.IndexY at Zone.0.UGC.IndexY uses -1..0 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.IndexY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.KeystoneX",
+      "probePath": "Zone.0.UGC.KeystoneX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.KeystoneX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.KeystoneX at Zone.0.UGC.KeystoneX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.KeystoneX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.KeystoneY",
+      "probePath": "Zone.0.UGC.KeystoneY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.KeystoneY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.KeystoneY at Zone.0.UGC.KeystoneY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.KeystoneY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.LinearityX",
+      "probePath": "Zone.0.UGC.LinearityX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.LinearityX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.LinearityX at Zone.0.UGC.LinearityX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.LinearityX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.LinearityY",
+      "probePath": "Zone.0.UGC.LinearityY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.LinearityY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.LinearityY at Zone.0.UGC.LinearityY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.LinearityY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PincussionOffsetX",
+      "probePath": "Zone.0.UGC.PincussionOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PincussionOffsetX at Zone.0.UGC.PincussionOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PincussionOffsetX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PincussionOffsetY",
+      "probePath": "Zone.0.UGC.PincussionOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PincussionOffsetY at Zone.0.UGC.PincussionOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PincussionOffsetY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PincussionX",
+      "probePath": "Zone.0.UGC.PincussionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PincussionX at Zone.0.UGC.PincussionX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PincussionX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PincussionY",
+      "probePath": "Zone.0.UGC.PincussionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PincussionY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PincussionY at Zone.0.UGC.PincussionY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PincussionY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PositionX",
+      "probePath": "Zone.0.UGC.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PositionX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PositionX at Zone.0.UGC.PositionX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PositionX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.PositionY",
+      "probePath": "Zone.0.UGC.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.PositionY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.PositionY at Zone.0.UGC.PositionY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.PositionY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.RotationZ",
+      "probePath": "Zone.0.UGC.RotationZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.RotationZ\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.RotationZ at Zone.0.UGC.RotationZ.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.RotationZ."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.ShearX",
+      "probePath": "Zone.0.UGC.ShearX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.ShearX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.ShearX at Zone.0.UGC.ShearX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.ShearX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.ShearY",
+      "probePath": "Zone.0.UGC.ShearY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.ShearY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.ShearY at Zone.0.UGC.ShearY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.ShearY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SizeX",
+      "probePath": "Zone.0.UGC.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SizeX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SizeX at Zone.0.UGC.SizeX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SizeX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SizeY",
+      "probePath": "Zone.0.UGC.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SizeY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SizeY at Zone.0.UGC.SizeY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SizeY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SymmetryOffsetX",
+      "probePath": "Zone.0.UGC.SymmetryOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SymmetryOffsetX at Zone.0.UGC.SymmetryOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SymmetryOffsetX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SymmetryOffsetY",
+      "probePath": "Zone.0.UGC.SymmetryOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SymmetryOffsetY at Zone.0.UGC.SymmetryOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SymmetryOffsetY."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SymmetryX",
+      "probePath": "Zone.0.UGC.SymmetryX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SymmetryX at Zone.0.UGC.SymmetryX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SymmetryX."
+      }
+    },
+    {
+      "objectPath": "Zone.N.UGC.SymmetryY",
+      "probePath": "Zone.0.UGC.SymmetryY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"Zone.0.UGC.SymmetryY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred Zone.N.UGC.SymmetryY at Zone.0.UGC.SymmetryY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used concrete Zone.0.UGC.SymmetryY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.BowOffsetX",
+      "probePath": "ZoneAlias.UGC.BowOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.BowOffsetX at ZoneAlias.UGC.BowOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.BowOffsetX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.BowOffsetY",
+      "probePath": "ZoneAlias.UGC.BowOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.BowOffsetY at ZoneAlias.UGC.BowOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.BowOffsetY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.BowX",
+      "probePath": "ZoneAlias.UGC.BowX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.BowX at ZoneAlias.UGC.BowX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.BowX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.BowY",
+      "probePath": "ZoneAlias.UGC.BowY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.BowY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.BowY at ZoneAlias.UGC.BowY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.BowY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.IndexX",
+      "probePath": "ZoneAlias.UGC.IndexX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -1000",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -401",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -400",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -101",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -100",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 100",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 101",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 400",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 401",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.IndexX\", 1000",
+          "readback": 0,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed ZoneAlias.UGC.IndexX at ZoneAlias.UGC.IndexX uses -1..0 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.IndexX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.IndexY",
+      "probePath": "ZoneAlias.UGC.IndexY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 0,
+        "unit": "UGC index",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -1000",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -401",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -400",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -101",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -100",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 100",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 101",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 400",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 401",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.IndexY\", 1000",
+          "readback": 0,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 confirmed ZoneAlias.UGC.IndexY at ZoneAlias.UGC.IndexY uses -1..0 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.IndexY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.KeystoneX",
+      "probePath": "ZoneAlias.UGC.KeystoneX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.KeystoneX at ZoneAlias.UGC.KeystoneX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.KeystoneX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.KeystoneY",
+      "probePath": "ZoneAlias.UGC.KeystoneY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.KeystoneY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.KeystoneY at ZoneAlias.UGC.KeystoneY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.KeystoneY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.LinearityX",
+      "probePath": "ZoneAlias.UGC.LinearityX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.LinearityX at ZoneAlias.UGC.LinearityX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.LinearityX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.LinearityY",
+      "probePath": "ZoneAlias.UGC.LinearityY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.LinearityY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.LinearityY at ZoneAlias.UGC.LinearityY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.LinearityY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PincussionOffsetX",
+      "probePath": "ZoneAlias.UGC.PincussionOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PincussionOffsetX at ZoneAlias.UGC.PincussionOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PincussionOffsetX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PincussionOffsetY",
+      "probePath": "ZoneAlias.UGC.PincussionOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PincussionOffsetY at ZoneAlias.UGC.PincussionOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PincussionOffsetY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PincussionX",
+      "probePath": "ZoneAlias.UGC.PincussionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PincussionX at ZoneAlias.UGC.PincussionX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PincussionX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PincussionY",
+      "probePath": "ZoneAlias.UGC.PincussionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PincussionY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PincussionY at ZoneAlias.UGC.PincussionY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PincussionY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PositionX",
+      "probePath": "ZoneAlias.UGC.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PositionX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PositionX at ZoneAlias.UGC.PositionX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PositionX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.PositionY",
+      "probePath": "ZoneAlias.UGC.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.PositionY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.PositionY at ZoneAlias.UGC.PositionY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.PositionY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.RotationZ",
+      "probePath": "ZoneAlias.UGC.RotationZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -401",
+          "readback": -401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 401",
+          "readback": 401,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.RotationZ\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.RotationZ at ZoneAlias.UGC.RotationZ.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.RotationZ."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.ShearX",
+      "probePath": "ZoneAlias.UGC.ShearX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.ShearX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.ShearX at ZoneAlias.UGC.ShearX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.ShearX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.ShearY",
+      "probePath": "ZoneAlias.UGC.ShearY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.ShearY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.ShearY at ZoneAlias.UGC.ShearY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.ShearY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SizeX",
+      "probePath": "ZoneAlias.UGC.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SizeX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SizeX at ZoneAlias.UGC.SizeX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SizeX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SizeY",
+      "probePath": "ZoneAlias.UGC.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 100,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SizeY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 100,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SizeY at ZoneAlias.UGC.SizeY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SizeY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SymmetryOffsetX",
+      "probePath": "ZoneAlias.UGC.SymmetryOffsetX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SymmetryOffsetX at ZoneAlias.UGC.SymmetryOffsetX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SymmetryOffsetX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SymmetryOffsetY",
+      "probePath": "ZoneAlias.UGC.SymmetryOffsetY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryOffsetY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SymmetryOffsetY at ZoneAlias.UGC.SymmetryOffsetY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SymmetryOffsetY."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SymmetryX",
+      "probePath": "ZoneAlias.UGC.SymmetryX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryX\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SymmetryX at ZoneAlias.UGC.SymmetryX.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SymmetryX."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.UGC.SymmetryY",
+      "probePath": "ZoneAlias.UGC.SymmetryY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -1000",
+          "readback": -1000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -401",
+          "readback": -401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -400",
+          "readback": -400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -101",
+          "readback": -101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -100",
+          "readback": -100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 400,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 400",
+          "readback": 400,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 401,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 401",
+          "readback": 401.0000305175781,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"ZoneAlias.UGC.SymmetryY\", 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every SetProp write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #357 deferred ZoneAlias.UGC.SymmetryY at ZoneAlias.UGC.SymmetryY.",
+      "deferReason": "Direct SetProp writes passed through the sampled values and did not prove a finite manual-ready range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.UGC.SymmetryY."
+      }
+    }
+  ]
+}

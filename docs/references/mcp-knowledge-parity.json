@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "description": "Parity manifest for knowledge artifacts visible to the VS Code extension and their MCP exposure decision. Keep this file updated when adding or removing command, object, diagnostic, syntax, snippet, or reference knowledge.",
+  "sources": [
+    {
+      "id": "command-catalog",
+      "path": "data/pangoscript/commands.merged.json",
+      "extensionSurface": ["completion", "hover", "signature-help", "commands-sidebar", "diagnostics", "quick-fix"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://catalog/commands",
+        "tools": ["lookupCommand", "searchCommands", "lintScript", "runScript"],
+        "packagePath": "data/pangoscript/commands.merged.json",
+        "rationale": "Agents need the canonical command catalog, forms, parameters, notes, categories, and safety tiers to generate scripts."
+      }
+    },
+    {
+      "id": "command-property-coverage",
+      "path": "data/pangoscript/command-property-coverage.json",
+      "extensionSurface": ["release-validation", "command-property-mapping-audit"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://catalog/property-coverage",
+        "packagePath": "data/pangoscript/command-property-coverage.json",
+        "rationale": "Agents and maintainers need an explicit ledger showing whether each command has a confirmed setsProperty mapping, no direct property mapping, deferred probe, or unknown coverage."
+      }
+    },
+    {
+      "id": "command-category-tree",
+      "path": "data/pangoscript/beyond-category-tree.json",
+      "extensionSurface": ["commands-sidebar", "command-reference-navigation"],
+      "mcpExposure": {
+        "status": "vs-code-only",
+        "rationale": "The MCP command catalog exposes each command's resolved category; the tree file itself currently drives VS Code sidebar ordering and grouping."
+      }
+    },
+    {
+      "id": "canonical-object-schemas",
+      "path": "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
+      "extensionSurface": ["completion", "hover", "diagnostics", "objects-sidebar", "runtime-object-validation"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://schemas/objects",
+        "tools": ["lookupObject", "listObjects", "lintScript", "runScript"],
+        "packagePath": "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
+        "rationale": "Agents need canonical BEYOND object schemas for property-path lookup and diagnostics."
+      }
+    },
+    {
+      "id": "object-tree-property-index",
+      "path": "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
+      "extensionSurface": ["objects-sidebar", "property-search", "runtime-readback", "runtime-object-validation"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "tools": ["listObjects", "lookupObject", "searchObjectProperties", "lookupObjectProperty"],
+        "packagePath": "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
+        "rationale": "Agents need exact Object Tree paths such as WS.N.N.Caption and FX.N.N.N.Oscillator.Period."
+      }
+    },
+    {
+      "id": "diagnostics-reference",
+      "path": "docs/references/diagnostics/README.md",
+      "extensionSurface": ["diagnostics-sidebar", "diagnostic-why-action"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://diagnostics/codes",
+        "tools": ["explainDiagnostic"],
+        "packagePath": "docs/references/diagnostics/README.md",
+        "rationale": "Agents need diagnostic explanations when lintScript or runScript returns findings."
+      }
+    },
+    {
+      "id": "operators-reference",
+      "path": "docs/references/operators.md",
+      "extensionSurface": ["manual", "diagnostics", "formatter-context"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://reference/operators",
+        "packagePath": "docs/references/operators.md",
+        "rationale": "Agents need operator syntax when writing conditionals, assignments, and arithmetic."
+      }
+    },
+    {
+      "id": "syntax-reference",
+      "path": "docs/references/syntax.md",
+      "extensionSurface": ["manual", "diagnostics", "formatter-context"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://reference/syntax",
+        "packagePath": "docs/references/syntax.md",
+        "rationale": "Agents need parser-shape guidance for labels, goto, comments, variables, and conservative syntax handling."
+      }
+    },
+    {
+      "id": "command-reference-docs",
+      "path": "docs/references/beyond/pangoscript/command-reference",
+      "extensionSurface": ["commands-sidebar", "open-reference-action", "manual"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://reference/command-reference",
+        "packagePath": "docs/references/beyond/pangoscript/command-reference",
+        "rationale": "Agents need command-reference prose when the compact catalog does not provide enough usage context."
+      }
+    },
+    {
+      "id": "master-object-tree-reference",
+      "path": "docs/references/beyond/pangoscript/master-object-tree.md",
+      "extensionSurface": ["objects-sidebar", "manual"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://reference/master-object-tree",
+        "packagePath": "docs/references/beyond/pangoscript/master-object-tree.md",
+        "rationale": "Agents need Object Tree root and indexed path conventions for script generation."
+      }
+    },
+    {
+      "id": "object-model-reference",
+      "path": "docs/references/beyond/pangoscript/object-model.md",
+      "extensionSurface": ["objects-sidebar", "manual"],
+      "mcpExposure": {
+        "status": "mcp-exposed",
+        "resourceUri": "pangoscript://reference/object-model",
+        "packagePath": "docs/references/beyond/pangoscript/object-model.md",
+        "rationale": "Agents need object-model semantics for readback paths and property write scripts."
+      }
+    },
+    {
+      "id": "language-configuration",
+      "path": "language-configuration.json",
+      "extensionSurface": ["editor-comments", "brackets", "auto-closing-pairs"],
+      "mcpExposure": {
+        "status": "vs-code-only",
+        "rationale": "This is VS Code editor behavior, not PangoScript semantic knowledge for agents."
+      }
+    },
+    {
+      "id": "textmate-grammar",
+      "path": "syntaxes/pangoscript.tmLanguage.json",
+      "extensionSurface": ["syntax-highlighting"],
+      "mcpExposure": {
+        "status": "vs-code-only",
+        "rationale": "This is token-coloring configuration for VS Code; agents should use lintScript and reference resources instead."
+      }
+    },
+    {
+      "id": "pangoscript-snippets",
+      "path": "snippets/pangoscript.json",
+      "extensionSurface": ["editor-snippets"],
+      "mcpExposure": {
+        "status": "vs-code-only",
+        "rationale": "Snippets are editor insertion conveniences. The MCP command catalog and reference resources are the agent-facing generation surface."
+      }
+    },
+    {
+      "id": "working-examples-corpus",
+      "path": "docs/references/beyond/pangoscript/working-examples",
+      "extensionSurface": ["lint-corpus", "release-validation"],
+      "mcpExposure": {
+        "status": "private",
+        "rationale": "Working examples are regression and validation material, not a curated agent-facing API. Promote examples deliberately before exposing them through MCP."
+      }
+    },
+    {
+      "id": "linter-regression-corpus",
+      "path": "docs/references/beyond/pangoscript/linter-regressions",
+      "extensionSurface": ["lint-corpus", "release-validation"],
+      "mcpExposure": {
+        "status": "private",
+        "rationale": "Regression fixtures include deliberate failures and advisory cases. Agents should consume diagnostics/reference docs rather than copy these scripts."
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+name: Bug Report
+description: Report a reproducible PangoLint problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a PangoLint bug. Please include enough detail for someone without your workspace to reproduce the problem.
+  - type: input
+    id: version
+    attributes:
+      label: PangoLint version
+      description: Use the VS Code Extensions view, the GitHub Release name, or `pangolint-mcp --version`.
+      placeholder: "0.4.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: install_source
+    attributes:
+      label: Install source
+      options:
+        - GitHub Release VSIX
+        - Local VSIX build
+        - MCP tarball from GitHub Release
+        - Local MCP build
+        - Source checkout
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - VS Code diagnostics
+        - VS Code formatter
+        - VS Code completions or hover
+        - VS Code sidebar
+        - PangoScript reference browser
+        - BEYOND runtime readback or Talk UDP send
+        - MCP server
+        - Packaging or installation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include a minimal script or workspace setup when possible.
+      placeholder: |
+        1. Open this `.BeyondCode` file:
+        2. Run this PangoLint command:
+        3. Observe:
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: "What should PangoLint do?"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: "What happened instead?"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste relevant output from the Problems panel, Output panel, MCP client log, or a screenshot.
+      render: text
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include what matters for this bug.
+      value: |
+        - OS:
+        - VS Code version:
+        - Node.js version, for MCP/source builds:
+        - BEYOND version, for runtime/readback reports:

@@ -1,0 +1,2382 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 294,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. Each shipped row used a populated single-variant WS cue path and restored the observed baseline after every tested write."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Ani.0.Muted",
+      "probePath": "WS.0.13.Ani.0.Muted",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.Muted = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.Muted = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.Muted = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.Muted = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Ani.0.Muted at WS.0.13.Ani.0.Muted.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.PreventReroute",
+      "probePath": "WS.0.13.Ani.0.PreventReroute",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.PreventReroute = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.PreventReroute = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.PreventReroute = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.PreventReroute = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Ani.0.PreventReroute at WS.0.13.Ani.0.PreventReroute.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.Solo",
+      "probePath": "WS.0.13.Ani.0.Solo",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.13.Ani.0.Solo = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.13.Ani.0.Solo = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.13.Ani.0.Solo = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.13.Ani.0.Solo = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Ani.0.Solo at WS.0.13.Ani.0.Solo.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13 Object Animator",
+        "notes": "The runtime probe used the populated Object Animator cell at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AudioMode",
+      "probePath": "WS.0.3.Image.AudioMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.AudioMode = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.AudioMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.AudioMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.AudioMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.AudioMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.AudioMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.AudioMode = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.AudioMode = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.AudioMode at WS.0.3.Image.AudioMode.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AutoRecord",
+      "probePath": "WS.0.11.Image.AutoRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.11.Image.AutoRecord = -1",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.11.Image.AutoRecord = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.11.Image.AutoRecord = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.11.Image.AutoRecord = 2",
+          "readback": 1,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.AutoRecord at WS.0.11.Image.AutoRecord.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used the populated FIFO Image cell at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BeamConnect",
+      "probePath": "WS.0.3.Image.BeamConnect",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.BeamConnect = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.BeamConnect = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.BeamConnect = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.BeamConnect = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamConnect for Shape at WS.0.3.Image.BeamConnect uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BeamConnect."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BeamConnect."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.BeamRepeat",
+      "probePath": "WS.0.3.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.BeamRepeat = -1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.BeamRepeat = 0",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.BeamRepeat = 1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.BeamRepeat = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.BeamRepeat = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.BeamRepeat = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.BeamRepeat = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.BeamRepeat = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "WS.0.3.Image.BeamRepeat = 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "WS.0.3.Image.BeamRepeat = 17",
+          "readback": 17,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.3.Image.BeamRepeat = 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.BeamRepeat at WS.0.3.Image.BeamRepeat.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.EnableRecord",
+      "probePath": "WS.0.11.Image.EnableRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.11.Image.EnableRecord = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.11.Image.EnableRecord = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.11.Image.EnableRecord = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.11.Image.EnableRecord = 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.EnableRecord at WS.0.11.Image.EnableRecord.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11 FIFO Image",
+        "notes": "The runtime probe used the populated FIFO Image cell at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.EnableRecording",
+      "probePath": "WS.0.3.Image.EnableRecording",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.EnableRecording = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.EnableRecording = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.EnableRecording = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.EnableRecording = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.EnableRecording for Shape at WS.0.3.Image.EnableRecording uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableRecording."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableRecording."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.EnableStaticMode",
+      "probePath": "WS.0.2.Image.EnableStaticMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.2.Image.EnableStaticMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.2.Image.EnableStaticMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.2.Image.EnableStaticMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.2.Image.EnableStaticMode = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.EnableStaticMode for Text at WS.0.2.Image.EnableStaticMode uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used the populated Text cell at WS.0.2."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableStaticMode."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableStaticMode."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.FftMode",
+      "probePath": "WS.0.3.Image.FftMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "FFT mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.FftMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.FftMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.FftMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.FftMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.FftMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.FftMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.FftMode = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.3.Image.FftMode = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.3.Image.FftMode = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.FftMode = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.FftMode for Shape at WS.0.3.Image.FftMode uses 0..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.Mode",
+      "probePath": "WS.0.3.Image.Mode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "image mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.Mode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.Mode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.Mode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.Mode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.Mode = 3",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.Mode = 4",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.Mode = 5",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.Mode = 10",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.Mode for Shape at WS.0.3.Image.Mode uses 0..2 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.MonoSpaced",
+      "probePath": "WS.0.2.Image.MonoSpaced",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.2.Image.MonoSpaced = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.2.Image.MonoSpaced = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.2.Image.MonoSpaced = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.2.Image.MonoSpaced = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.MonoSpaced for Text at WS.0.2.Image.MonoSpaced uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used the populated Text cell at WS.0.2."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.MonoSpaced."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.MonoSpaced."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.MultiLaser",
+      "probePath": "WS.0.2.Image.MultiLaser",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.2.Image.MultiLaser = -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.2.Image.MultiLaser = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.2.Image.MultiLaser = 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.2.Image.MultiLaser = 2",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.MultiLaser at WS.0.2.Image.MultiLaser.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.2 Text",
+        "notes": "The runtime probe used the populated Text cell at WS.0.2."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.NGonCount",
+      "probePath": "WS.0.3.Image.NGonCount",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 2,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 6,
+        "unit": "N-gon count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.NGonCount = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.NGonCount = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.NGonCount = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.NGonCount = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.NGonCount = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.NGonCount = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.NGonCount = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.3.Image.NGonCount = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.3.Image.NGonCount = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.NGonCount = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.3.Image.NGonCount = 100",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 2,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.NGonCount for Shape at WS.0.3.Image.NGonCount uses 1..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.PhysicsActive",
+      "probePath": "WS.0.3.Image.PhysicsActive",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.PhysicsActive = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.PhysicsActive = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.PhysicsActive = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.PhysicsActive = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.PhysicsActive for Shape at WS.0.3.Image.PhysicsActive uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.PhysicsActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.PhysicsActive."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.ShowCorners",
+      "probePath": "WS.0.3.Image.ShowCorners",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.ShowCorners = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.ShowCorners = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.ShowCorners = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.ShowCorners = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.ShowCorners for Shape at WS.0.3.Image.ShowCorners uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.ShowCorners."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.ShowCorners."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.StartShape",
+      "probePath": "WS.0.3.Image.StartShape",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "shape selector",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.3.Image.StartShape = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.3.Image.StartShape = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.3.Image.StartShape = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.3.Image.StartShape = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.3.Image.StartShape = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.3.Image.StartShape = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.3.Image.StartShape = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.3.Image.StartShape = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.3.Image.StartShape = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.3.Image.StartShape = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.StartShape for Shape at WS.0.3.Image.StartShape uses 0..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape",
+        "notes": "The runtime probe used the populated Shape cell at WS.0.3."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.AudioMode",
+      "probePath": "WS.0.8.Image.LIST.0.Image.AudioMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.AudioMode = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Image.AudioMode at WS.0.8.Image.LIST.0.Image.AudioMode.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.BeamConnect",
+      "probePath": "WS.0.8.Image.LIST.0.Image.BeamConnect",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamConnect = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamConnect = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamConnect = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamConnect = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamConnect for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamConnect uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.BeamConnect."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.BeamConnect."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+      "probePath": "WS.0.8.Image.LIST.0.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 10,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = -1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 0",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 1",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 17",
+          "readback": 17,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.8.Image.LIST.0.Image.BeamRepeat = 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 10,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Image.BeamRepeat at WS.0.8.Image.LIST.0.Image.BeamRepeat.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.EnableRecording",
+      "probePath": "WS.0.8.Image.LIST.0.Image.EnableRecording",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.EnableRecording = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.EnableRecording = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.EnableRecording = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.EnableRecording = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.EnableRecording for Synthesized Image at WS.0.8.Image.LIST.0.Image.EnableRecording uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.EnableRecording."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.EnableRecording."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.FftMode",
+      "probePath": "WS.0.8.Image.LIST.0.Image.FftMode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "FFT mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.FftMode = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.FftMode for Synthesized Image at WS.0.8.Image.LIST.0.Image.FftMode uses 0..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.Loops",
+      "probePath": "WS.0.8.Image.LIST.0.Image.Loops",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 8,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "loop count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 17",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.8.Image.LIST.0.Image.Loops = 100",
+          "readback": 16,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 8,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.Loops for Synthesized Image at WS.0.8.Image.LIST.0.Image.Loops uses 1..16 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.Mode",
+      "probePath": "WS.0.8.Image.LIST.0.Image.Mode",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 2,
+        "unit": "image mode",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 3",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 4",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 5",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.Mode = 10",
+          "readback": 2,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.Mode for Synthesized Image at WS.0.8.Image.LIST.0.Image.Mode uses 0..2 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.NGonCount",
+      "probePath": "WS.0.8.Image.LIST.0.Image.NGonCount",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 2,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 6,
+        "unit": "N-gon count",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.8.Image.LIST.0.Image.NGonCount = 100",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 2,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.NGonCount for Synthesized Image at WS.0.8.Image.LIST.0.Image.NGonCount uses 1..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.PhysicsActive",
+      "probePath": "WS.0.8.Image.LIST.0.Image.PhysicsActive",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.PhysicsActive = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.PhysicsActive = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.PhysicsActive = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.PhysicsActive = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.PhysicsActive for Synthesized Image at WS.0.8.Image.LIST.0.Image.PhysicsActive uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.PhysicsActive."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.PhysicsActive."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.PointCount",
+      "probePath": "WS.0.8.Image.LIST.0.Image.PointCount",
+      "probeMode": "write-readback",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 200,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 0",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 100",
+          "readback": 100,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 101,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 101",
+          "readback": 101,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000,
+          "command": "WS.0.8.Image.LIST.0.Image.PointCount = 1000",
+          "readback": 1000,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 200,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 deferred WS.N.N.Image.LIST.0.Image.PointCount at WS.0.8.Image.LIST.0.Image.PointCount.",
+      "deferReason": "The probe did not prove a complete manual-ready range or accepted-value domain with a supported boundary behavior.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.ShowCorners",
+      "probePath": "WS.0.8.Image.LIST.0.Image.ShowCorners",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.ShowCorners = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.ShowCorners = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.ShowCorners = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.ShowCorners = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.ShowCorners for Synthesized Image at WS.0.8.Image.LIST.0.Image.ShowCorners uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Image.ShowCorners."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Image.ShowCorners."
+        }
+      ]
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.StartShape",
+      "probePath": "WS.0.8.Image.LIST.0.Image.StartShape",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 6,
+        "unit": "shape selector",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 3,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 3",
+          "readback": 3,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 4",
+          "readback": 4,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 5,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 5",
+          "readback": 5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 7,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 7",
+          "readback": 6,
+          "behavior": "clamp"
+        },
+        {
+          "input": 10,
+          "command": "WS.0.8.Image.LIST.0.Image.StartShape = 10",
+          "readback": 6,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.StartShape for Synthesized Image at WS.0.8.Image.LIST.0.Image.StartShape uses 0..6 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Muted",
+      "probePath": "WS.0.8.Image.LIST.0.Muted",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "WS.0.8.Image.LIST.0.Muted = -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "WS.0.8.Image.LIST.0.Muted = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "WS.0.8.Image.LIST.0.Muted = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "WS.0.8.Image.LIST.0.Muted = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after every tested write and verified final readback before moving to the next path."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Muted for Synthesized Image at WS.0.8.Image.LIST.0.Muted uses 0..1 with clamp behavior and baseline restore.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image",
+        "notes": "The runtime probe used the populated Synthesized Image cell at WS.0.8."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.LIST.0.Muted."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.LIST.0.Muted."
+        }
+      ]
+    }
+  ]
+}

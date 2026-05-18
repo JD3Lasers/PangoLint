@@ -1,0 +1,10 @@
+CodeName "System BPM Clock" // Universe BPM Clock 
+AutoStart
+
+LoopStart:
+    var BPM; BPM = Master.BPM
+    SHOWKONTROL.PangoBlock.Caption = BPM
+    WaitForTimerBeat 1   
+    Sleep 50 // Add a small delay to avoid excessive resource consumption
+    goto LoopStart
+exit

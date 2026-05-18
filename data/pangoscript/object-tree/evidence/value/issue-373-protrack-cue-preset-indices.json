@@ -1,0 +1,1633 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 373,
+  "runtime": {
+    "observedAt": "2026-05-14",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime was probed through PangoLint runtime readback. Grid.Count read back 60, and ProTrack cue/preset index paths were probed with baseline restore after every assignment."
+  },
+  "entries": [
+    {
+      "objectPath": "ProTrack.N.CueIndex",
+      "probePath": "ProTrack.0.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack.0.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack.0.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack.0.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack.0.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack.0.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack.0.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack.0.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack.0.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack.0.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack.N.CueIndex at ProTrack.0.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "Runtime evidence used ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack.N.PresetIndex",
+      "probePath": "ProTrack.0.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack.0.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack.0.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack.0.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack.0.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack.0.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack.0.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack.0.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack.N.PresetIndex at ProTrack.0.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "ProTrack.0",
+        "notes": "Runtime evidence used ProTrack.0 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.CueIndex",
+      "probePath": "ProTrack1.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack1.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack1.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack1.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack1.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack1.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack1.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack1.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack1.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack1.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack1.CueIndex at ProTrack1.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack1",
+        "notes": "Runtime evidence used ProTrack1 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack1.PresetIndex",
+      "probePath": "ProTrack1.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack1.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack1.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack1.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack1.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack1.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack1.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack1.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack1.PresetIndex at ProTrack1.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack1",
+        "notes": "Runtime evidence used ProTrack1 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.CueIndex",
+      "probePath": "ProTrack2.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack2.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack2.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack2.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack2.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack2.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack2.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack2.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack2.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack2.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack2.CueIndex at ProTrack2.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack2",
+        "notes": "Runtime evidence used ProTrack2 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack2.PresetIndex",
+      "probePath": "ProTrack2.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack2.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack2.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack2.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack2.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack2.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack2.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack2.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack2.PresetIndex at ProTrack2.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack2",
+        "notes": "Runtime evidence used ProTrack2 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.CueIndex",
+      "probePath": "ProTrack3.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack3.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack3.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack3.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack3.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack3.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack3.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack3.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack3.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack3.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack3.CueIndex at ProTrack3.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack3",
+        "notes": "Runtime evidence used ProTrack3 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack3.PresetIndex",
+      "probePath": "ProTrack3.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack3.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack3.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack3.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack3.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack3.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack3.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack3.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack3.PresetIndex at ProTrack3.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack3",
+        "notes": "Runtime evidence used ProTrack3 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.CueIndex",
+      "probePath": "ProTrack4.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack4.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack4.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack4.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack4.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack4.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack4.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack4.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack4.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack4.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack4.CueIndex at ProTrack4.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack4",
+        "notes": "Runtime evidence used ProTrack4 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack4.PresetIndex",
+      "probePath": "ProTrack4.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack4.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack4.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack4.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack4.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack4.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack4.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack4.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack4.PresetIndex at ProTrack4.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack4",
+        "notes": "Runtime evidence used ProTrack4 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.CueIndex",
+      "probePath": "ProTrack5.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack5.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack5.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack5.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack5.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack5.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack5.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack5.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack5.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack5.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack5.CueIndex at ProTrack5.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack5",
+        "notes": "Runtime evidence used ProTrack5 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack5.PresetIndex",
+      "probePath": "ProTrack5.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack5.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack5.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack5.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack5.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack5.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack5.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack5.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack5.PresetIndex at ProTrack5.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack5",
+        "notes": "Runtime evidence used ProTrack5 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.CueIndex",
+      "probePath": "ProTrack6.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack6.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack6.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack6.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack6.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack6.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack6.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack6.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack6.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack6.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack6.CueIndex at ProTrack6.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack6",
+        "notes": "Runtime evidence used ProTrack6 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack6.PresetIndex",
+      "probePath": "ProTrack6.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack6.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack6.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack6.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack6.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack6.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack6.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack6.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack6.PresetIndex at ProTrack6.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack6",
+        "notes": "Runtime evidence used ProTrack6 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.CueIndex",
+      "probePath": "ProTrack7.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack7.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack7.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack7.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack7.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack7.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack7.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack7.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack7.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack7.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack7.CueIndex at ProTrack7.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack7",
+        "notes": "Runtime evidence used ProTrack7 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack7.PresetIndex",
+      "probePath": "ProTrack7.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack7.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack7.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack7.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack7.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack7.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack7.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack7.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack7.PresetIndex at ProTrack7.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack7",
+        "notes": "Runtime evidence used ProTrack7 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.CueIndex",
+      "probePath": "ProTrack8.CueIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 59,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue index in loaded 60-cell grid"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No cue selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack8.CueIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack8.CueIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack8.CueIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack8.CueIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 58,
+          "command": "ProTrack8.CueIndex = 58",
+          "readback": 58,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 59,
+          "command": "ProTrack8.CueIndex = 59",
+          "readback": 59,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60,
+          "command": "ProTrack8.CueIndex = 60",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack8.CueIndex = 100",
+          "readback": 59,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack8.CueIndex = 1000",
+          "readback": 59,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack8.CueIndex at ProTrack8.CueIndex with Grid.Count 60 and accepted cue indices -1 plus 0..59.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack8",
+        "notes": "Runtime evidence used ProTrack8 in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ProTrack8.PresetIndex",
+      "probePath": "ProTrack8.PresetIndex",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": -1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "preset index"
+      },
+      "acceptedValues": [
+        {
+          "value": -1,
+          "label": "DISABLED",
+          "description": "No preset selected."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "ProTrack8.PresetIndex = -2",
+          "readback": -1,
+          "behavior": "clamp"
+        },
+        {
+          "input": -1,
+          "command": "ProTrack8.PresetIndex = -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "ProTrack8.PresetIndex = 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "ProTrack8.PresetIndex = 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "ProTrack8.PresetIndex = 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 100,
+          "command": "ProTrack8.PresetIndex = 100",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "ProTrack8.PresetIndex = 1000",
+          "readback": 1,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": -1,
+        "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
+      },
+      "evidenceNote": "Runtime object write/readback on 2026-05-14 issue #373 confirmed ProTrack8.PresetIndex at ProTrack8.PresetIndex with accepted preset indices -1 plus 0..1.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ProTrack8",
+        "notes": "Runtime evidence used ProTrack8 in the loaded show."
+      }
+    }
+  ]
+}

@@ -1,0 +1,4548 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 298,
+  "runtime": {
+    "observedAt": "2026-05-16",
+    "beyondVersion": "BEYOND 2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Local BEYOND runtime on 127.0.0.1:16062 with OSC callbacks on 0.0.0.0:7000. The probe used connected FB3 and FB4 hardware roots. Serial-bearing concrete path names and serial readback values are redacted in this public evidence file. The FB3-XXXXX and FB4-XXXXX Object Tree surfaces match Projector.N property-for-property."
+  },
+  "entries": [
+    {
+      "objectPath": "FB3-XXXXX.DefaultSampleRate",
+      "probePath": "FB3-XXXXX.DefaultSampleRate",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 120000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -60000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -60000",
+          "readback": -60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 60000",
+          "readback": 60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.DefaultSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 120000,
+        "notes": "The probe restored FB3-XXXXX.DefaultSampleRate to its observed baseline after each write and verified final readback 120000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.DefaultSampleRate on connected FB3 hardware accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.MaxSampleRate",
+      "probePath": "FB3-XXXXX.MaxSampleRate",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 120000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -60000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -60000",
+          "readback": -60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 60000",
+          "readback": 60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.MaxSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 120000,
+        "notes": "The probe restored FB3-XXXXX.MaxSampleRate to its observed baseline after each write and verified final readback 120000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.MaxSampleRate on connected FB3 hardware accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.PositionX",
+      "probePath": "FB3-XXXXX.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.PositionX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB3-XXXXX.PositionX to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PositionX on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.PositionY",
+      "probePath": "FB3-XXXXX.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.PositionY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB3-XXXXX.PositionY to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PositionY on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.PostRotation",
+      "probePath": "FB3-XXXXX.PostRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.PostRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB3-XXXXX.PostRotation to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PostRotation on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.PreRotation",
+      "probePath": "FB3-XXXXX.PreRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.PreRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB3-XXXXX.PreRotation to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PreRotation on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.SizeX",
+      "probePath": "FB3-XXXXX.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 50,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.SizeX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored FB3-XXXXX.SizeX to its observed baseline after each write and verified final readback 50."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.SizeX on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.SizeY",
+      "probePath": "FB3-XXXXX.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 50,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3-XXXXX.SizeY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored FB3-XXXXX.SizeY to its observed baseline after each write and verified final readback 50."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.SizeY on connected FB3 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.AngleRepeats",
+      "probePath": "FB3-XXXXX.Optimisation.AngleRepeats",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.AngleRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.AngleTable",
+      "probePath": "FB3-XXXXX.Optimisation.AngleTable",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.AngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.AngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.BlankDensity",
+      "probePath": "FB3-XXXXX.Optimisation.BlankDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.BlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.BlankEnd",
+      "probePath": "FB3-XXXXX.Optimisation.BlankEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.BlankEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.BlankOverlap",
+      "probePath": "FB3-XXXXX.Optimisation.BlankOverlap",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.BlankOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.BlankStart",
+      "probePath": "FB3-XXXXX.Optimisation.BlankStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.BlankStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.BlankStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.CornerRepeats",
+      "probePath": "FB3-XXXXX.Optimisation.CornerRepeats",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.CornerRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.CornerRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.CornerRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.CornerRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.CornerRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.CornerRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.DisableCornerFlag",
+      "probePath": "FB3-XXXXX.Optimisation.DisableCornerFlag",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.DisableCornerFlag\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.DisableCornerFlag\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.DisableCornerFlag\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.DisableCornerFlag\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.DisableCornerFlag\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.DisableCornerFlag remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.Enable3dDensity",
+      "probePath": "FB3-XXXXX.Optimisation.Enable3dDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.Enable3dDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.Enable3dDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.Enable3dDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.Enable3dDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.Enable3dDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.Enable3dDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.EnableAngleTable",
+      "probePath": "FB3-XXXXX.Optimisation.EnableAngleTable",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableAngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableAngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableAngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableAngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableAngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.EnableAngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.EnableBlankDensity",
+      "probePath": "FB3-XXXXX.Optimisation.EnableBlankDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableBlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableBlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableBlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableBlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableBlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.EnableBlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.EnableSinBlank",
+      "probePath": "FB3-XXXXX.Optimisation.EnableSinBlank",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinBlank\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinBlank\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinBlank\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinBlank\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinBlank\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.EnableSinBlank remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.EnableSinVisible",
+      "probePath": "FB3-XXXXX.Optimisation.EnableSinVisible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinVisible\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinVisible\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinVisible\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinVisible\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableSinVisible\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.EnableSinVisible remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.EnableVisibleDensity",
+      "probePath": "FB3-XXXXX.Optimisation.EnableVisibleDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableVisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableVisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableVisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableVisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.EnableVisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.EnableVisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.ForceVectorMode",
+      "probePath": "FB3-XXXXX.Optimisation.ForceVectorMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.ForceVectorMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.ForceVectorMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.ForceVectorMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.ForceVectorMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.ForceVectorMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.ForceVectorMode remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.IgnoreOriginal",
+      "probePath": "FB3-XXXXX.Optimisation.IgnoreOriginal",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.IgnoreOriginal\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.IgnoreOriginal\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.IgnoreOriginal\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.IgnoreOriginal\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.IgnoreOriginal\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.IgnoreOriginal remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.MinimumPoints",
+      "probePath": "FB3-XXXXX.Optimisation.MinimumPoints",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.MinimumPoints\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.MinimumPoints\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.MinimumPoints\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.MinimumPoints\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.MinimumPoints remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.NoDot",
+      "probePath": "FB3-XXXXX.Optimisation.NoDot",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.NoDot\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.NoDot\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.NoDot\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.NoDot\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.NoDot\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.NoDot remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.VisibleDensity",
+      "probePath": "FB3-XXXXX.Optimisation.VisibleDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.VisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.VisibleEnd",
+      "probePath": "FB3-XXXXX.Optimisation.VisibleEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.VisibleEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.VisibleOverlap",
+      "probePath": "FB3-XXXXX.Optimisation.VisibleOverlap",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.VisibleOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Optimisation.VisibleStart",
+      "probePath": "FB3-XXXXX.Optimisation.VisibleStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB3-XXXXX.Optimisation.VisibleStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Optimisation.VisibleStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB3-XXXXX.Serial",
+      "probePath": "FB3-XXXXX.Serial",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "[redacted serial string]",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FB3-XXXXX.Serial\", \"\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        },
+        {
+          "input": "PangoLintSerialProbe",
+          "command": "SetProp \"FB3-XXXXX.Serial\", \"PangoLintSerialProbe\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "[redacted serial string]",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback matched the redacted baseline."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB3-XXXXX.Serial remained at the same redacted serial string.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
+        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name. The serial value is intentionally redacted from public metadata."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.DefaultSampleRate",
+      "probePath": "FB4-XXXXX.DefaultSampleRate",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 60000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -60000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -60000",
+          "readback": -60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 60000",
+          "readback": 60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.DefaultSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 60000,
+        "notes": "The probe restored FB4-XXXXX.DefaultSampleRate to its observed baseline after each write and verified final readback 60000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.DefaultSampleRate on connected FB4 hardware accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.MaxSampleRate",
+      "probePath": "FB4-XXXXX.MaxSampleRate",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "wrap",
+      "baseline": {
+        "value": 60000,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "samples per second",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -2147483649",
+          "readback": 2147483647,
+          "behavior": "wrap"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -60000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -60000",
+          "readback": -60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 60000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 60000",
+          "readback": 60000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.MaxSampleRate\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 60000,
+        "notes": "The probe restored FB4-XXXXX.MaxSampleRate to its observed baseline after each write and verified final readback 60000."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.MaxSampleRate on connected FB4 hardware accepts the shipped -2147483648..2147483647 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.PositionX",
+      "probePath": "FB4-XXXXX.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.PositionX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4-XXXXX.PositionX to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PositionX on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.PositionY",
+      "probePath": "FB4-XXXXX.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.PositionY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4-XXXXX.PositionY to its observed baseline after each write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PositionY on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.PostRotation",
+      "probePath": "FB4-XXXXX.PostRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.PostRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored FB4-XXXXX.PostRotation to its observed baseline after each write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PostRotation on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.PreRotation",
+      "probePath": "FB4-XXXXX.PreRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.PreRotation\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 1,
+        "notes": "The probe restored FB4-XXXXX.PreRotation to its observed baseline after each write and verified final readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PreRotation on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.SizeX",
+      "probePath": "FB4-XXXXX.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 75,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.SizeX\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 75,
+        "notes": "The probe restored FB4-XXXXX.SizeX to its observed baseline after each write and verified final readback 75."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.SizeX on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.SizeY",
+      "probePath": "FB4-XXXXX.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 78,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -100000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -100000",
+          "readback": -100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 100000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 100000",
+          "readback": 100000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4-XXXXX.SizeY\", 2147483648",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 78,
+        "notes": "The probe restored FB4-XXXXX.SizeY to its observed baseline after each write and verified final readback 78."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.SizeY on connected FB4 hardware accepts the shipped -1000000..1000000 range.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.AngleRepeats",
+      "probePath": "FB4-XXXXX.Optimisation.AngleRepeats",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.AngleRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.AngleTable",
+      "probePath": "FB4-XXXXX.Optimisation.AngleTable",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.AngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.AngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.BlankDensity",
+      "probePath": "FB4-XXXXX.Optimisation.BlankDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.BlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.BlankEnd",
+      "probePath": "FB4-XXXXX.Optimisation.BlankEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.BlankEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.BlankOverlap",
+      "probePath": "FB4-XXXXX.Optimisation.BlankOverlap",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.BlankOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.BlankStart",
+      "probePath": "FB4-XXXXX.Optimisation.BlankStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.BlankStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.BlankStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.CornerRepeats",
+      "probePath": "FB4-XXXXX.Optimisation.CornerRepeats",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.CornerRepeats\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.CornerRepeats\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.CornerRepeats\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.CornerRepeats\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.CornerRepeats\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.CornerRepeats remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.DisableCornerFlag",
+      "probePath": "FB4-XXXXX.Optimisation.DisableCornerFlag",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.DisableCornerFlag\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.DisableCornerFlag\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.DisableCornerFlag\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.DisableCornerFlag\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.DisableCornerFlag\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.DisableCornerFlag remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.Enable3dDensity",
+      "probePath": "FB4-XXXXX.Optimisation.Enable3dDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.Enable3dDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.Enable3dDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.Enable3dDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.Enable3dDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.Enable3dDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.Enable3dDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.EnableAngleTable",
+      "probePath": "FB4-XXXXX.Optimisation.EnableAngleTable",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableAngleTable\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableAngleTable\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableAngleTable\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableAngleTable\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableAngleTable\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.EnableAngleTable remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.EnableBlankDensity",
+      "probePath": "FB4-XXXXX.Optimisation.EnableBlankDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableBlankDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableBlankDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableBlankDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableBlankDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableBlankDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.EnableBlankDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.EnableSinBlank",
+      "probePath": "FB4-XXXXX.Optimisation.EnableSinBlank",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinBlank\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinBlank\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinBlank\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinBlank\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinBlank\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.EnableSinBlank remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.EnableSinVisible",
+      "probePath": "FB4-XXXXX.Optimisation.EnableSinVisible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinVisible\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinVisible\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinVisible\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinVisible\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableSinVisible\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.EnableSinVisible remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.EnableVisibleDensity",
+      "probePath": "FB4-XXXXX.Optimisation.EnableVisibleDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableVisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableVisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableVisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableVisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.EnableVisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.EnableVisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.ForceVectorMode",
+      "probePath": "FB4-XXXXX.Optimisation.ForceVectorMode",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.ForceVectorMode\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.ForceVectorMode\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.ForceVectorMode\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.ForceVectorMode\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.ForceVectorMode\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.ForceVectorMode remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.IgnoreOriginal",
+      "probePath": "FB4-XXXXX.Optimisation.IgnoreOriginal",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.IgnoreOriginal\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.IgnoreOriginal\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.IgnoreOriginal\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.IgnoreOriginal\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.IgnoreOriginal\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.IgnoreOriginal remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.MinimumPoints",
+      "probePath": "FB4-XXXXX.Optimisation.MinimumPoints",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.MinimumPoints\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.MinimumPoints\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.MinimumPoints\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.MinimumPoints\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.MinimumPoints\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.MinimumPoints remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.NoDot",
+      "probePath": "FB4-XXXXX.Optimisation.NoDot",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.NoDot\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.NoDot\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.NoDot\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.NoDot\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.NoDot\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.NoDot remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.VisibleDensity",
+      "probePath": "FB4-XXXXX.Optimisation.VisibleDensity",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleDensity\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleDensity\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleDensity\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleDensity\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleDensity\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.VisibleDensity remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.VisibleEnd",
+      "probePath": "FB4-XXXXX.Optimisation.VisibleEnd",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleEnd\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleEnd\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleEnd\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleEnd\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleEnd\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.VisibleEnd remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.VisibleOverlap",
+      "probePath": "FB4-XXXXX.Optimisation.VisibleOverlap",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleOverlap\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleOverlap\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleOverlap\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleOverlap\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleOverlap\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.VisibleOverlap remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Optimisation.VisibleStart",
+      "probePath": "FB4-XXXXX.Optimisation.VisibleStart",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleStart\", -1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleStart\", 0",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleStart\", 1",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleStart\", 2",
+          "readback": 0,
+          "behavior": "no-op"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"FB4-XXXXX.Optimisation.VisibleStart\", 1000",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Optimisation.VisibleStart remained at baseline 0.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+      }
+    },
+    {
+      "objectPath": "FB4-XXXXX.Serial",
+      "probePath": "FB4-XXXXX.Serial",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "string",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "no-op",
+      "baseline": {
+        "value": "[redacted serial string]",
+        "typeTag": "s"
+      },
+      "testedValues": [
+        {
+          "input": "",
+          "command": "SetProp \"FB4-XXXXX.Serial\", \"\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        },
+        {
+          "input": "PangoLintSerialProbe",
+          "command": "SetProp \"FB4-XXXXX.Serial\", \"PangoLintSerialProbe\"",
+          "readback": "[redacted serial string]",
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": "[redacted serial string]",
+        "notes": "The probe sent a baseline restore after each sampled write and verified final readback matched the redacted baseline."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed sampled writes to FB4-XXXXX.Serial remained at the same redacted serial string.",
+      "deferReason": "Sampled writes behaved as no-op, so this Object Tree row ships as readback-only metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
+        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name. The serial value is intentionally redacted from public metadata."
+      }
+    }
+  ]
+}

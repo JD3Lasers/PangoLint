@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Beam.N.Power",
+      "valueType": "integer",
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483647,
+        "unit": "percent",
+        "boundaryBehavior": "wrap",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted signed 32-bit integer storage values, including values above 100000. Fractional writes rounded to integer readbacks."
+      },
+      "evidenceLevel": "observed",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the Beam index. The probe used Beam.0.",
+        "notes": "Runtime evidence used Beam.0 and restored the observed baseline after each sampled write."
+      },
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Beam.N.Power accepts signed 32-bit integer storage values on Beam.0."
+    },
+    {
+      "path": "Beam.N.RotoZ",
+      "valueType": "number",
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "boundaryBehavior": "unknown",
+        "evidenceLevel": "observed",
+        "notes": "SetProp write/readback accepted fractional values from -1000000 through 1000000, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+      },
+      "evidenceLevel": "observed",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "Beam.N uses the Beam index. The probe used Beam.0.",
+        "notes": "Runtime evidence used Beam.0 and restored the observed baseline after each sampled write."
+      },
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Beam.N.RotoZ accepts the shipped fractional span on Beam.0."
+    }
+  ]
+}
