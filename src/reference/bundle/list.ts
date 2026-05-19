@@ -1,6 +1,7 @@
 // Middle column: filter toolbar + scrollable list. Renders either
 // commands or object schemas depending on state.viewMode.
 
+import { formatSafetyTextForReference, formatSafetyTierLabel } from "./detail/safetyTierDisplay";
 import { clear, debounce, el, highlight } from "./dom";
 import {
   buildCueTypeReference,
@@ -293,14 +294,15 @@ function renderCommandRow(cmd: ReferenceCommand, state: ReferenceState, query: s
 
   if (cmd.description) {
     const desc = el("div", { className: "list__desc" });
-    desc.append(highlight(truncate(cmd.description, 140), query));
+    desc.append(highlight(truncate(formatSafetyTextForReference(cmd.description), 140), query));
     li.append(desc);
   }
 
   const meta = el("div", { className: "list__meta" });
-  if (cmd.safetyTier && cmd.safetyTier !== "unknown") {
+  const safetyLabel = formatSafetyTierLabel(cmd.safetyTier);
+  if (safetyLabel) {
     meta.append(
-      el("span", { className: `badge badge--tier badge--tier-${cmd.safetyTier.toLowerCase()}` }, cmd.safetyTier),
+      el("span", { className: `badge badge--tier badge--tier-${cmd.safetyTier.toLowerCase()}` }, safetyLabel),
     );
   }
   li.append(meta);

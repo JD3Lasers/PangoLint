@@ -162,17 +162,19 @@ function metadataSummary(summary: ValueSummary | undefined): string | undefined 
   } else if (summary.unit) {
     parts.push(summary.unit);
   }
-  if (summary.locationKind) parts.push(behaviorLabel(summary.locationKind) ?? summary.locationKind);
+  const locationLabel = visibleLocationKind(summary.locationKind);
+  if (locationLabel) parts.push(locationLabel);
   return parts.filter(Boolean).join("; ");
 }
 
 function readbackSummary(summary: ReadbackSummary | undefined): string | undefined {
   if (!summary) return undefined;
-  if (!summary.valueType && summary.observedValue === undefined && !summary.locationKind) return undefined;
+  const locationLabel = visibleLocationKind(summary.locationKind);
+  if (!summary.valueType && summary.observedValue === undefined && !locationLabel) return undefined;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (summary.valueType) parts.push(summary.valueType);
   if (summary.observedValue !== undefined) parts.push(`observed ${String(summary.observedValue)}`);
-  if (summary.locationKind) parts.push(behaviorLabel(summary.locationKind) ?? summary.locationKind);
+  if (locationLabel) parts.push(locationLabel);
   return parts.filter(Boolean).join("; ");
 }
 
@@ -184,6 +186,11 @@ function behaviorSummary(classification: BehaviorClassification | undefined): st
 
 function behaviorLabel(value: string | undefined): string | undefined {
   return value?.replaceAll("-", " ");
+}
+
+function visibleLocationKind(locationKind: string | undefined): string | undefined {
+  if (!locationKind || locationKind === "indexed-root") return undefined;
+  return behaviorLabel(locationKind) ?? locationKind;
 }
 
 function formatValueRangeBounds(range: ValueRangeSummary): string | undefined {

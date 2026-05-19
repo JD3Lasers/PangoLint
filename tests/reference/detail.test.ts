@@ -2,11 +2,18 @@ import { describe, expect, it } from "vitest";
 import { hasAnyMeaningfulParam } from "../../src/reference/bundle/detail/commandDetail";
 import { objectPropertyPathDisplay } from "../../src/reference/bundle/detail/objectDetail";
 import {
+  buildObjectValueCardSummaryParts,
   buildObjectValueCardSummaryText,
+  buildObjectValueSummaryParts,
   buildObjectValueSummaryText,
   objectBehaviorSummary,
+  objectBehaviorSummaryParts,
   objectReadbackCardSummary,
 } from "../../src/reference/bundle/detail/objectPropertySummary";
+import {
+  formatSafetyTextForReference,
+  formatSafetyTierLabel,
+} from "../../src/reference/bundle/detail/safetyTierDisplay";
 import type { ReferenceParameter } from "../../src/reference/bundle/types";
 
 function param(overrides: Partial<ReferenceParameter> = {}): ReferenceParameter {
@@ -60,7 +67,7 @@ describe("object value summary text", () => {
         },
         acceptedValueCount: 2,
       }),
-    ).toBe("boolean; 0..1; clamps outside range; 2 accepted values");
+    ).toBe("boolean; 0..1; clamps outside range");
   });
 
   it("does not repeat a boolean metadata value type as the range unit", () => {
@@ -80,6 +87,45 @@ describe("object value summary text", () => {
       }),
     ).toBe("boolean; 0..1; clamps outside range; 0=OFF, 1=ON");
   });
+
+  it("splits value range facts from value format labels", () => {
+    expect(
+      buildObjectValueCardSummaryParts({
+        valueType: "integer",
+        range: {
+          min: -2147483648,
+          max: 2147483647,
+          unit: "signed color integer",
+          boundaryBehavior: "wrap",
+        },
+        locationKind: "indexed-root",
+      }),
+    ).toEqual({
+      valueParts: ["integer", "-2147483648..2147483647", "wraps outside range"],
+      formatParts: ["signed color integer"],
+    });
+  });
+
+  it("keeps indexed root context out of public value summaries", () => {
+    expect(
+      buildObjectValueSummaryParts({
+        valueType: "number",
+        valueRange: {
+          min: 1,
+          max: 50,
+          unit: "physics scalar",
+          boundaryBehavior: "clamp",
+        },
+        locationContext: {
+          kind: "indexed-root",
+          populationDependent: true,
+        },
+      }),
+    ).toEqual({
+      valueParts: ["number", "1..50", "clamps outside range"],
+      formatParts: ["physics scalar"],
+    });
+  });
 });
 
 describe("object behavior summary text", () => {
@@ -93,6 +139,17 @@ describe("object behavior summary text", () => {
       }),
     ).toBe("read write; state value");
   });
+
+  it("returns behavior parts for stacked table display", () => {
+    expect(
+      objectBehaviorSummaryParts({
+        accessMode: "read-write",
+        behaviorKind: "flag-state",
+        writeTestStatus: "write-readback-tested",
+        readbackStatus: "readback-tested",
+      }),
+    ).toEqual(["read write", "flag state"]);
+  });
 });
 
 describe("object readback card summary text", () => {
@@ -103,6 +160,23 @@ describe("object readback card summary text", () => {
   it("summarizes readback data when a readable value shape is present", () => {
     expect(objectReadbackCardSummary({ status: "readable", valueType: "float", observedValue: 1.5 })).toBe(
       "readback; float; observed 1.5",
+    );
+  });
+});
+
+describe("safety tier display labels", () => {
+  it("maps internal safety tiers to user-facing severity order", () => {
+    expect(formatSafetyTierLabel("T4")).toBe("Safety 1");
+    expect(formatSafetyTierLabel("T3")).toBe("Safety 2");
+    expect(formatSafetyTierLabel("T2")).toBe("Safety 3");
+    expect(formatSafetyTierLabel("T1")).toBe("Safety 4");
+    expect(formatSafetyTierLabel("T0")).toBe("Offline");
+    expect(formatSafetyTierLabel("unknown")).toBeNull();
+  });
+
+  it("maps internal tier tokens inside reference text", () => {
+    expect(formatSafetyTextForReference("ExecCmd is T4. T1 readback remains lower risk than T3 output.")).toBe(
+      "ExecCmd is Safety 1. Safety 4 readback remains lower risk than Safety 2 output.",
     );
   });
 });

@@ -130,6 +130,7 @@ const expectedReferenceSubfolders: Record<string, string[]> = {
     "objectPropertyFocus.ts",
     "objectPropertySummary.ts",
     "oscRouteDetail.ts",
+    "safetyTierDisplay.ts",
   ],
 };
 
