@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import type { CommandCatalog } from "../knowledge/catalog";
 import { type KnownObjectSchema, type PropertyIndex, perIndexSchemaName } from "../knowledge/propertyIndex";
 import { lineAnalysisLimitReason, PANGO_ANALYSIS_LIMITS } from "./analysisLimits";
-import { levenshteinDistance } from "./diagnostics";
+import { levenshteinDistance } from "./diagnostics/stringDistance";
 
 const PROPERTY_ROOT = "(?:[A-Za-z_][A-Za-z0-9_]*|#[0-9]+)";
 const PROPERTY_PATH_PREFIX_RE = new RegExp(`(${PROPERTY_ROOT})((?:\\.(?:[A-Za-z0-9_]+|\\d+))*)\\.$`);

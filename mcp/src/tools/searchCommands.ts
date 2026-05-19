@@ -6,7 +6,7 @@
 
 import type { CommandKnowledgeEntry, SafetyTier } from "../../../src/knowledge/knowledgeBase";
 import { mcpQueryLimitReason } from "../../../src/language/analysisLimits";
-import { levenshteinDistance } from "../../../src/language/diagnostics";
+import { levenshteinDistance } from "../../../src/language/diagnostics/stringDistance";
 import { fail, ok, type ToolResult } from "../config";
 
 export interface SearchCommandsInput {
