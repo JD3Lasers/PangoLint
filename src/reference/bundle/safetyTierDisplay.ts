@@ -1,4 +1,4 @@
-import type { SidebarSafetyTier } from "../types";
+import type { SidebarSafetyTier } from "./types";
 
 export function formatSafetyTierLabel(tier: SidebarSafetyTier): string | null {
   switch (tier) {

@@ -10,10 +10,7 @@ import {
   objectBehaviorSummaryParts,
   objectReadbackCardSummary,
 } from "../../src/reference/bundle/detail/objectPropertySummary";
-import {
-  formatSafetyTextForReference,
-  formatSafetyTierLabel,
-} from "../../src/reference/bundle/detail/safetyTierDisplay";
+import { formatSafetyTextForReference, formatSafetyTierLabel } from "../../src/reference/bundle/safetyTierDisplay";
 import type { ReferenceParameter } from "../../src/reference/bundle/types";
 
 function param(overrides: Partial<ReferenceParameter> = {}): ReferenceParameter {

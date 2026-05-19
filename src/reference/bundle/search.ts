@@ -1,5 +1,6 @@
 import Fuse from "fuse.js";
 
+import { formatSafetyTextForReference } from "./safetyTierDisplay";
 import type { ReferenceCommand } from "./types";
 
 export interface SearchIndex<T> {
@@ -77,7 +78,10 @@ function scoreCommandSearchMatch(command: ReferenceCommand, query: string): numb
 
   for (const form of command.forms) {
     best = Math.min(best, scoreSearchTarget(form.signature, normalizedQuery, compactQuery, queryWords, 3));
-    best = Math.min(best, scoreSearchTarget(form.description, normalizedQuery, compactQuery, queryWords, 4));
+    best = Math.min(
+      best,
+      scoreSearchTarget(formatReferenceSearchText(form.description), normalizedQuery, compactQuery, queryWords, 4),
+    );
   }
   best = Math.min(
     best,
@@ -103,11 +107,18 @@ function scoreCommandSearchMatch(command: ReferenceCommand, query: string): numb
       4,
     ),
   );
-  best = Math.min(best, scoreSearchTarget(command.description, normalizedQuery, compactQuery, queryWords, 5));
+  best = Math.min(
+    best,
+    scoreSearchTarget(formatReferenceSearchText(command.description), normalizedQuery, compactQuery, queryWords, 5),
+  );
   best = Math.min(best, scoreSearchTarget(command.category, normalizedQuery, compactQuery, queryWords, 6));
   best = Math.min(best, scoreSearchTarget(command.tags.join(" "), normalizedQuery, compactQuery, queryWords, 7));
 
   return Number.isFinite(best) ? best : null;
+}
+
+function formatReferenceSearchText(value: string | undefined): string | undefined {
+  return value ? formatSafetyTextForReference(value) : undefined;
 }
 
 function scoreSearchTarget(

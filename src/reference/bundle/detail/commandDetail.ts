@@ -1,10 +1,10 @@
 import { el } from "../dom";
+import { formatSafetyTextForReference, formatSafetyTierLabel } from "../safetyTierDisplay";
 import type { ReferenceState } from "../state";
 import type { ReferenceCommand, ReferenceForm, ReferenceObjectProperty, ReferenceParameter } from "../types";
 import { renderCopyButton } from "./copyControls";
 import { describeBoundaryBehavior, formatAcceptedValue } from "./objectPropertySummary";
 import { renderOscRouteList } from "./oscRouteDetail";
-import { formatSafetyTextForReference, formatSafetyTierLabel } from "./safetyTierDisplay";
 
 export function hasAnyMeaningfulParam(params: ReferenceParameter[]): boolean {
   return params.some(

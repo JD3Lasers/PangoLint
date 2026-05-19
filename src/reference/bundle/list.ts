@@ -1,7 +1,6 @@
 // Middle column: filter toolbar + scrollable list. Renders either
 // commands or object schemas depending on state.viewMode.
 
-import { formatSafetyTextForReference, formatSafetyTierLabel } from "./detail/safetyTierDisplay";
 import { clear, debounce, el, highlight } from "./dom";
 import {
   buildCueTypeReference,
@@ -10,6 +9,7 @@ import {
   type ObjectPropertyReferenceDetail,
   type ObjectPropertyReferenceRow,
 } from "./objectTree";
+import { formatSafetyTextForReference, formatSafetyTierLabel } from "./safetyTierDisplay";
 import type { ObjectReferenceSection, ReferenceState } from "./state";
 import type { ReferenceCommand, ReferenceObject } from "./types";
 
