@@ -11,7 +11,7 @@ import {
   sendTalkTcpCommands,
   type TalkTcpReply,
 } from "./talkTcp";
-import { sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
+import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
 
 export interface ReadbackOptions {
   talkHost: string;
@@ -185,6 +185,16 @@ export async function readBeyondProperty(
   const script = scriptLines.join("\n");
   try {
     validateTalkCommandLines(scriptLines);
+    const udpPayloadError = udpPayloadPreflightError(scriptLines, options);
+    if (udpPayloadError) {
+      return {
+        ok: false,
+        requestId,
+        propertyPath: options.propertyPath,
+        script,
+        error: udpPayloadError,
+      };
+    }
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
     return {
@@ -298,8 +308,32 @@ export async function verifyCommandWrite(
   const scriptLines = writeVerifyScriptLines(options.command, address, typeTag, options.readbackPath, options);
   try {
     validateTalkCommandLines(scriptLines);
+    const udpPayloadError = udpPayloadPreflightError(scriptLines, options);
+    if (udpPayloadError) {
+      return {
+        ok: false,
+        command: options.command,
+        readbackPath: options.readbackPath,
+        expected: options.expectedValue,
+        matched: false,
+        restored: false,
+        error: udpPayloadError,
+      };
+    }
     if (options.restoreCommand) {
       validateTalkCommandLines([options.restoreCommand]);
+      const restorePayloadError = udpPayloadPreflightError([options.restoreCommand], options);
+      if (restorePayloadError) {
+        return {
+          ok: false,
+          command: options.command,
+          readbackPath: options.readbackPath,
+          expected: options.expectedValue,
+          matched: false,
+          restored: false,
+          error: restorePayloadError,
+        };
+      }
     }
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -505,6 +539,19 @@ function writeCommandMayHaveReachedBeyond(result: RunScriptResult): boolean {
     );
   }
   return false;
+}
+
+function udpPayloadPreflightError(commands: readonly string[], options: ReadbackOptions): string | undefined {
+  if (!readbackUdpMayBeUsed(options)) {
+    return undefined;
+  }
+  const payloads = buildTalkPayloads([...commands]);
+  return payloads.length > 1 ? "Script exceeded payload limit." : undefined;
+}
+
+function readbackUdpMayBeUsed(options: ReadbackOptions): boolean {
+  const transport = options.talkTransport ?? "udp";
+  return transport === "udp" || (transport === "auto" && options.talkUdpFallbackAllowed === true);
 }
 
 function expectedReadbackOscSourceHosts(options: ReadbackOptions): string[] {

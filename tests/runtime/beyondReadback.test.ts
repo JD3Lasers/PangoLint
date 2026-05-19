@@ -645,6 +645,41 @@ describe("verifyCommandWrite", () => {
     );
   });
 
+  it("rejects UDP write verification scripts that would span multiple datagrams", async () => {
+    let sendCount = 0;
+    let listenCount = 0;
+    const longCommand = `Zoom ${"1".repeat(1180)}`;
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        sendCount += 1;
+      },
+      listenForOsc: () => {
+        listenCount += 1;
+        return {
+          ready: Promise.resolve(),
+          message: new Promise(() => {}),
+        };
+      },
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: longCommand,
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        talkTransport: "udp",
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("Script exceeded payload limit.");
+    expect(result.restored).toBe(false);
+    expect(sendCount).toBe(0);
+    expect(listenCount).toBe(0);
+  });
+
   it("sends write verification over Talk TCP when TCP transport is selected", async () => {
     const sentUdpPayloads: string[] = [];
     const tcpSends: SendTalkTcpCommandsOptions[] = [];
