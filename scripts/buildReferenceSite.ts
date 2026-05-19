@@ -7,6 +7,8 @@
 //   - data/pangoscript/command-property-coverage.json
 //   - data/pangoscript/object-tree/runtime-indexes/known-properties.json
 //   - data/pangoscript/object-tree/runtime-indexes/object-property-index.json
+//   - data/pangoscript/control-reference/command-control-reference/command-osc-route-links.json
+//   - data/pangoscript/control-reference/osc-control-reference/object-property-target-index.json
 //   - data/pangoscript/beyond-category-tree.json  (BEYOND-native category order)
 //   - src/knowledge/expressionFunctions.ts
 //
@@ -216,6 +218,50 @@ interface RawCategoryTree {
   categories: Array<{ name: string; order: number }>;
 }
 
+interface RawCommandOscRouteLink {
+  commandName: string;
+  linkKind: string;
+  normalizedPropertyPattern?: string;
+  route: RawOscRoute;
+}
+
+interface RawObjectPropertyOscRoute {
+  propertyPattern: string;
+  routeId: string;
+  namespace: string;
+  pathPattern: string;
+  args?: string[];
+  routeKind: string;
+  evidenceLevel: string;
+  supportStatus: string;
+  valueTransform?: RawOscValueTransform;
+}
+
+interface RawOscRoute {
+  routeId?: string;
+  id?: string;
+  addressSpace?: string;
+  namespace: string;
+  pathPattern: string;
+  args?: string[];
+  routeKind: string;
+  evidenceLevel: string;
+  supportStatus: string;
+  targetPropertyPatterns?: string[];
+  normalizedTargetPropertyPatterns?: string[];
+  valueTransform?: RawOscValueTransform;
+  safetyTier?: string;
+}
+
+interface RawOscValueTransform {
+  kind: string;
+  factor?: number;
+  amount?: number;
+  offset?: number;
+  clamp?: [number, number];
+  description?: string;
+}
+
 // ── Output types (mirror src/reference/bundle/types.ts) ───────────
 interface OutCommand {
   canonical: string;
@@ -233,6 +279,7 @@ interface OutCommand {
     setsProperty?: string[];
     notes?: string;
   };
+  oscRoutes?: OutOscRoute[];
 }
 
 interface OutForm {
@@ -254,6 +301,7 @@ interface OutObjectProperty {
   root: string;
   property: string;
   osc?: string;
+  oscRoutes?: OutOscRoute[];
   kind: string;
   setters: string[];
   probeContexts?: OutObjectProbeContext[];
@@ -292,6 +340,16 @@ interface OutCatalog {
   };
   commands: OutCommand[];
   objects: OutObject[];
+}
+
+interface OutOscRoute {
+  id: string;
+  pathPattern: string;
+  args: string[];
+  namespace: string;
+  targetPropertyPatterns?: string[];
+  normalizedTargetPropertyPatterns?: string[];
+  valueTransform?: RawOscValueTransform;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────
@@ -349,7 +407,11 @@ function transformForm(form: RawForm): OutForm {
   };
 }
 
-function transformCommand(cmd: RawCommand, coverage: RawCoverageEntry | undefined): OutCommand {
+function transformCommand(
+  cmd: RawCommand,
+  coverage: RawCoverageEntry | undefined,
+  oscRoutes: OutOscRoute[] | undefined,
+): OutCommand {
   const notes = (cmd.notes ?? []).map(noteText).filter((n): n is string => Boolean(n));
   const tags = (cmd.tags ?? []).filter((t) => !HIDDEN_TAGS.has(t.toLowerCase()));
   const out: OutCommand = {
@@ -364,6 +426,9 @@ function transformCommand(cmd: RawCommand, coverage: RawCoverageEntry | undefine
     notes,
     tags,
   };
+  if (oscRoutes?.length) {
+    out.oscRoutes = oscRoutes;
+  }
   if (coverage) {
     out.coverage = {
       status: coverage.status,
@@ -403,7 +468,12 @@ function transformExpressionFunction(fn: (typeof EXPRESSION_FUNCTIONS)[number]):
   };
 }
 
-function buildObjects(knownProps: RawKnownProperties, index: RawObjectIndex, commands: OutCommand[]): OutObject[] {
+function buildObjects(
+  knownProps: RawKnownProperties,
+  index: RawObjectIndex,
+  commands: OutCommand[],
+  propertyOscRoutes: Map<string, OutOscRoute[]>,
+): OutObject[] {
   // Reverse-lookup: property path → set of canonical commands that set it.
   const setters = new Map<string, Set<string>>();
   for (const cmd of commands) {
@@ -439,7 +509,7 @@ function buildObjects(knownProps: RawKnownProperties, index: RawObjectIndex, com
     const propsByPath = new Map<string, OutObjectProperty>();
 
     for (const entry of indexByRoot.get(name) ?? []) {
-      addObjectProperty(propsByPath, fromIndexedProperty(entry, setters));
+      addObjectProperty(propsByPath, fromIndexedProperty(entry, setters, propertyOscRoutes));
     }
 
     if (schema) {
@@ -451,6 +521,7 @@ function buildObjects(knownProps: RawKnownProperties, index: RawObjectIndex, com
           root: name,
           property: indexed?.property ?? property,
           osc: indexed?.osc,
+          oscRoutes: propertyRoutesFor(propertyOscRoutes, indexed?.path ?? path),
           kind: indexed?.kind ?? "object",
           setters: sortedSettersFor(setters, indexed?.path ?? path),
         });
@@ -484,9 +555,11 @@ function addObjectProperty(map: Map<string, OutObjectProperty>, property: OutObj
     return;
   }
   const setters = [...new Set([...existing.setters, ...property.setters])].sort();
+  const oscRoutes = mergeOscRoutes(existing.oscRoutes, property.oscRoutes);
   map.set(property.path, {
     ...existing,
     osc: existing.osc ?? property.osc,
+    ...(oscRoutes.length ? { oscRoutes } : {}),
     kind: existing.kind ?? property.kind,
     setters,
     valueMetadata: existing.valueMetadata ?? property.valueMetadata,
@@ -500,12 +573,14 @@ function addObjectProperty(map: Map<string, OutObjectProperty>, property: OutObj
 function fromIndexedProperty(
   entry: RawObjectIndex["entries"][number],
   setters: Map<string, Set<string>>,
+  propertyOscRoutes: Map<string, OutOscRoute[]>,
 ): OutObjectProperty {
   return {
     path: entry.path,
     root: entry.root,
     property: entry.property,
     osc: entry.osc,
+    oscRoutes: propertyRoutesFor(propertyOscRoutes, entry.path),
     kind: entry.kind ?? "object",
     setters: sortedSettersFor(setters, entry.path),
     probeContexts: publicObjectProbeContexts(entry.probeContexts),
@@ -623,6 +698,143 @@ function publicObjectReadbackMetadata(
   };
 }
 
+function buildCommandOscRouteMap(links: RawCommandOscRouteLink[]): Map<string, OutOscRoute[]> {
+  const routesByCommand = new Map<string, OutOscRoute[]>();
+  for (const link of links) {
+    if (!link.commandName) continue;
+    const route = publicCommandOscRoute(link);
+    if (!route) continue;
+    routesByCommand.set(link.commandName, mergeOscRoutes(routesByCommand.get(link.commandName), [route]));
+  }
+  return routesByCommand;
+}
+
+function buildObjectPropertyOscRouteMap(routes: RawObjectPropertyOscRoute[]): Map<string, OutOscRoute[]> {
+  const routesByProperty = new Map<string, OutOscRoute[]>();
+  for (const route of routes) {
+    if (!route.propertyPattern) continue;
+    const out = publicObjectPropertyOscRoute(route);
+    if (!out) continue;
+    for (const key of controlPropertyKeys(route.propertyPattern)) {
+      routesByProperty.set(key, mergeOscRoutes(routesByProperty.get(key), [out]));
+    }
+  }
+  return routesByProperty;
+}
+
+function publicCommandOscRoute(link: RawCommandOscRouteLink): OutOscRoute | null {
+  const route = link.route;
+  const id = route.routeId ?? route.id;
+  if (!id || !route.pathPattern) return null;
+  if (!isPublicOscRouteStatus(route.supportStatus)) return null;
+  const out: OutOscRoute = {
+    id,
+    pathPattern: route.pathPattern,
+    args: route.args ?? [],
+    namespace: route.namespace,
+    targetPropertyPatterns: route.targetPropertyPatterns,
+    normalizedTargetPropertyPatterns: route.normalizedTargetPropertyPatterns,
+    valueTransform: publicOscValueTransform(route.valueTransform),
+  };
+  return stripEmptyRouteFields(out);
+}
+
+function publicObjectPropertyOscRoute(route: RawObjectPropertyOscRoute): OutOscRoute | null {
+  if (!route.routeId || !route.pathPattern) return null;
+  if (!isPublicOscRouteStatus(route.supportStatus)) return null;
+  const out: OutOscRoute = {
+    id: route.routeId,
+    pathPattern: route.pathPattern,
+    args: route.args ?? [],
+    namespace: route.namespace,
+    valueTransform: publicOscValueTransform(route.valueTransform),
+  };
+  return stripEmptyRouteFields(out);
+}
+
+function isPublicOscRouteStatus(status: string): boolean {
+  return status === "confirmed" || status === "acceptedNoReadback";
+}
+
+function stripEmptyRouteFields(route: OutOscRoute): OutOscRoute {
+  return {
+    id: route.id,
+    pathPattern: route.pathPattern,
+    args: route.args,
+    namespace: route.namespace,
+    ...(route.targetPropertyPatterns?.length ? { targetPropertyPatterns: route.targetPropertyPatterns } : {}),
+    ...(route.normalizedTargetPropertyPatterns?.length
+      ? { normalizedTargetPropertyPatterns: route.normalizedTargetPropertyPatterns }
+      : {}),
+    ...(route.valueTransform ? { valueTransform: route.valueTransform } : {}),
+  };
+}
+
+function publicOscValueTransform(transform: RawOscValueTransform | undefined): RawOscValueTransform | undefined {
+  if (!transform) return undefined;
+  return {
+    kind: transform.kind,
+    ...(transform.factor !== undefined ? { factor: transform.factor } : {}),
+    ...(transform.amount !== undefined ? { amount: transform.amount } : {}),
+    ...(transform.offset !== undefined ? { offset: transform.offset } : {}),
+    ...(transform.clamp ? { clamp: transform.clamp } : {}),
+  };
+}
+
+function propertyRoutesFor(routesByProperty: Map<string, OutOscRoute[]>, path: string): OutOscRoute[] | undefined {
+  const routes = mergeOscRoutes(
+    routesByProperty.get(path),
+    routesByProperty.get(normalizeControlPropertyPattern(path)),
+    routesByProperty.get(normalizeNumericSegments(path)),
+  );
+  return routes.length ? routes : undefined;
+}
+
+function mergeOscRoutes(...routeLists: Array<OutOscRoute[] | undefined>): OutOscRoute[] {
+  const byKey = new Map<string, OutOscRoute>();
+  for (const routes of routeLists) {
+    for (const route of routes ?? []) {
+      byKey.set(oscRouteKey(route), route);
+    }
+  }
+  return [...byKey.values()].sort(compareOscRoutes);
+}
+
+function oscRouteKey(route: OutOscRoute): string {
+  return [route.id, route.pathPattern, route.args.join(",")].join("|");
+}
+
+function compareOscRoutes(a: OutOscRoute, b: OutOscRoute): number {
+  return (
+    a.namespace.localeCompare(b.namespace) ||
+    a.pathPattern.localeCompare(b.pathPattern) ||
+    a.args.join(",").localeCompare(b.args.join(","))
+  );
+}
+
+function controlPropertyKeys(pattern: string): string[] {
+  const normalized = normalizeControlPropertyPattern(pattern);
+  return [
+    ...new Set([pattern, normalized, normalizeNumericSegments(pattern), ...controlPropertyAliasKeys(normalized)]),
+  ];
+}
+
+function normalizeControlPropertyPattern(pattern: string): string {
+  return normalizeNumericSegments(pattern.replace(/\[(\d+)\]/g, ".$1").replace(/\[N\]/g, ".N"));
+}
+
+function controlPropertyAliasKeys(pattern: string): string[] {
+  const projectorLeafAliases: Record<string, string> = {
+    InvX: "InvertX",
+    InvY: "InvertY",
+    PosX: "PositionX",
+    PosY: "PositionY",
+  };
+  const match = /^Projector\.N\.(InvX|InvY|PosX|PosY)$/.exec(pattern);
+  if (!match) return [];
+  return [`Projector.N.${projectorLeafAliases[match[1]]}`];
+}
+
 function schemaPath(
   name: string,
   schema: RawSchema,
@@ -665,19 +877,27 @@ function buildCatalog(): OutCatalog {
   const rawCoverage = readJson<RawCoverage>("data/pangoscript/command-property-coverage.json");
   const rawKnown = readJson<RawKnownProperties>("data/pangoscript/object-tree/runtime-indexes/known-properties.json");
   const rawIndex = readJson<RawObjectIndex>("data/pangoscript/object-tree/runtime-indexes/object-property-index.json");
+  const rawCommandOscRouteLinks = readJson<RawCommandOscRouteLink[]>(
+    "data/pangoscript/control-reference/command-control-reference/command-osc-route-links.json",
+  );
+  const rawObjectPropertyOscRoutes = readJson<RawObjectPropertyOscRoute[]>(
+    "data/pangoscript/control-reference/osc-control-reference/object-property-target-index.json",
+  );
   const rawTree = readJson<RawCategoryTree>("data/pangoscript/beyond-category-tree.json");
+  const commandOscRoutes = buildCommandOscRouteMap(rawCommandOscRouteLinks);
+  const objectPropertyOscRoutes = buildObjectPropertyOscRouteMap(rawObjectPropertyOscRoutes);
 
   const commands: OutCommand[] = [];
   for (const cmd of Object.values(rawCommands.commands)) {
     if (!isBrowsableCommand(cmd)) continue;
-    commands.push(transformCommand(cmd, rawCoverage.commands[cmd.canonical]));
+    commands.push(transformCommand(cmd, rawCoverage.commands[cmd.canonical], commandOscRoutes.get(cmd.canonical)));
   }
   for (const fn of EXPRESSION_FUNCTIONS) {
     commands.push(transformExpressionFunction(fn));
   }
   commands.sort((a, b) => a.canonical.localeCompare(b.canonical));
 
-  const objects = buildObjects(rawKnown, rawIndex, commands);
+  const objects = buildObjects(rawKnown, rawIndex, commands, objectPropertyOscRoutes);
 
   // Per-category counts in BEYOND tree order
   const categoryCounts = new Map<string, number>();

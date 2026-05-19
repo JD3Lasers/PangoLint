@@ -24,6 +24,8 @@ export function buildIndex(commands: ReferenceCommand[]): SearchIndex<ReferenceC
         { name: "canonical", weight: 3 },
         { name: "aliases", weight: 2.5 },
         { name: "coverage.setsProperty", weight: 1.5 },
+        { name: "oscRoutes.pathPattern", weight: 1.5 },
+        { name: "oscRoutes.normalizedTargetPropertyPatterns", weight: 1 },
         { name: "description", weight: 1 },
         { name: "category", weight: 1 },
         { name: "tags", weight: 0.6 },
@@ -80,6 +82,26 @@ function scoreCommandSearchMatch(command: ReferenceCommand, query: string): numb
   best = Math.min(
     best,
     scoreSearchTarget(command.coverage?.setsProperty?.join(" "), normalizedQuery, compactQuery, queryWords, 4),
+  );
+  best = Math.min(
+    best,
+    scoreSearchTarget(
+      command.oscRoutes?.map((route) => route.pathPattern).join(" "),
+      normalizedQuery,
+      compactQuery,
+      queryWords,
+      4,
+    ),
+  );
+  best = Math.min(
+    best,
+    scoreSearchTarget(
+      command.oscRoutes?.flatMap((route) => route.normalizedTargetPropertyPatterns ?? []).join(" "),
+      normalizedQuery,
+      compactQuery,
+      queryWords,
+      4,
+    ),
   );
   best = Math.min(best, scoreSearchTarget(command.description, normalizedQuery, compactQuery, queryWords, 5));
   best = Math.min(best, scoreSearchTarget(command.category, normalizedQuery, compactQuery, queryWords, 6));

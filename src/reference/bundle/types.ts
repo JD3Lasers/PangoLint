@@ -111,6 +111,24 @@ export interface ReferenceCoverage {
   notes?: string;
 }
 
+export interface ReferenceOscValueTransform {
+  kind: string;
+  factor?: number;
+  amount?: number;
+  offset?: number;
+  clamp?: [number, number];
+}
+
+export interface ReferenceOscRoute {
+  id: string;
+  pathPattern: string;
+  args: string[];
+  namespace: string;
+  targetPropertyPatterns?: string[];
+  normalizedTargetPropertyPatterns?: string[];
+  valueTransform?: ReferenceOscValueTransform;
+}
+
 export interface ReferenceCommand {
   canonical: string;
   kind: Kind;
@@ -123,6 +141,7 @@ export interface ReferenceCommand {
   notes: string[];
   tags: string[];
   coverage?: ReferenceCoverage;
+  oscRoutes?: ReferenceOscRoute[];
 }
 
 export interface ReferenceCategory {
@@ -161,6 +180,7 @@ export interface ReferenceObjectProperty {
   root: string;
   property: string;
   osc?: string;
+  oscRoutes?: ReferenceOscRoute[];
   kind: string;
   /** Reverse lookup: which commands set this property. Empty if none. */
   setters: string[];

@@ -3,11 +3,25 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 
+import { valueTransformLabel } from "../../src/reference/bundle/detail";
 import { buildFxTree } from "../../src/reference/bundle/objectTree";
-import type { ReferenceCatalog } from "../../src/reference/bundle/types";
+import type { ReferenceCatalog, ReferenceOscRoute } from "../../src/reference/bundle/types";
 
 const repoRoot = process.cwd();
 const htmlPath = path.join(repoRoot, "media", "reference", "pangoscript-reference.html");
+const objectPropertyTargetIndexPath = path.join(
+  repoRoot,
+  "data",
+  "pangoscript",
+  "control-reference",
+  "osc-control-reference",
+  "object-property-target-index.json",
+);
+
+interface SourceObjectPropertyOscRoute {
+  routeId: string;
+  supportStatus: string;
+}
 
 function readReferenceHtml(): string {
   return readFileSync(htmlPath, "utf8");
@@ -18,6 +32,19 @@ function readCatalog(): ReferenceCatalog {
   const match = /<script id="reference-catalog" type="application\/json">([\s\S]*?)<\/script>/.exec(html);
   expect(match?.[1]).toBeTruthy();
   return JSON.parse((match?.[1] ?? "").replace(/<\\\//g, "</")) as ReferenceCatalog;
+}
+
+function readObjectPropertyTargetRoutes(): SourceObjectPropertyOscRoute[] {
+  return JSON.parse(readFileSync(objectPropertyTargetIndexPath, "utf8")) as SourceObjectPropertyOscRoute[];
+}
+
+function allOscRoutes(catalog: ReferenceCatalog): ReferenceOscRoute[] {
+  return [
+    ...catalog.commands.flatMap((command) => command.oscRoutes ?? []),
+    ...catalog.objects.flatMap((objectSchema) =>
+      objectSchema.properties.flatMap((property) => property.oscRoutes ?? []),
+    ),
+  ];
 }
 
 describe("standalone reference site build", () => {
@@ -84,6 +111,152 @@ describe("standalone reference site build", () => {
     expect(ws?.isArray).toBe(true);
     expect(captionColor?.osc).toBe("/b/WS/0/0/CaptionColor");
     expect(captionColor?.setters).toContain("SetCueCaptionColor");
+  });
+
+  it("emits public OSC control routes for commands and Object Tree properties", () => {
+    const catalog = readCatalog();
+    const setBpm = catalog.commands.find((candidate) => candidate.canonical === "SetBpm");
+    const dmxOut = catalog.commands.find((candidate) => candidate.canonical === "DmxOut");
+    const dmxOutput = catalog.objects
+      .find((candidate) => candidate.name === "DmxOutput")
+      ?.properties.find((property) => property.path === "DmxOutput.N");
+    const zonePosX = catalog.objects
+      .find((candidate) => candidate.name === "Zone")
+      ?.properties.find((property) => property.path === "Zone.N.PositionX");
+    const projector = catalog.objects.find((candidate) => candidate.name === "Projector");
+    const projectorPositionX = projector?.properties.find((property) => property.path === "Projector.N.PositionX");
+    const projectorInvertX = projector?.properties.find((property) => property.path === "Projector.N.InvertX");
+    const masterLcFx1 = catalog.objects
+      .find((candidate) => candidate.name === "MasterLC")
+      ?.properties.find((property) => property.path === "MasterLC.FX1");
+
+    expect(setBpm?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/general/SetBpm",
+          args: ["f"],
+          normalizedTargetPropertyPatterns: ["Master.BPM"],
+        }),
+      ]),
+    );
+    expect(dmxOut?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/dmx",
+          args: ["f[]"],
+          valueTransform: { kind: "arrayOffset", offset: 1 },
+        }),
+      ]),
+    );
+    expect(dmxOutput?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/dmx",
+          args: ["f[]"],
+          valueTransform: { kind: "arrayOffset", offset: 1 },
+        }),
+      ]),
+    );
+    expect(zonePosX?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/zone/<zone>/livecontrol/posx",
+          args: ["f"],
+        }),
+      ]),
+    );
+    expect(projectorPositionX?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/projector/<projector>/posx",
+          args: ["f"],
+        }),
+      ]),
+    );
+    expect(projectorInvertX?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/projector/<projector>/invx",
+          args: ["f"],
+        }),
+      ]),
+    );
+    expect(masterLcFx1?.oscRoutes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          pathPattern: "/beyond/master/livecontrol/fx",
+          args: ["f", "f", "f", "f"],
+          valueTransform: { kind: "subtract", amount: 1 },
+        }),
+      ]),
+    );
+  });
+
+  it("strips maintainer route status from public OSC control routes", () => {
+    const catalog = readCatalog();
+    const html = readReferenceHtml();
+    const privateRouteFields = ["routeKind", "evidenceLevel", "supportStatus", "safetyTier", "linkKind"];
+    const privateRouteValues = [
+      "wireAccepted",
+      "observedNoOp",
+      "untestedDestructive",
+      "inferredFromMatchedScope",
+      "acceptedNoReadback",
+      "notWorkingAsDocumented",
+    ];
+    const publishedRouteSignatures = new Set(
+      allOscRoutes(catalog).map((route) => `${route.pathPattern} (${route.args.join(",")})`),
+    );
+
+    for (const route of allOscRoutes(catalog)) {
+      for (const field of privateRouteFields) {
+        expect(route).not.toHaveProperty(field);
+      }
+      if (route.valueTransform) {
+        expect(route.valueTransform).not.toHaveProperty("description");
+      }
+    }
+    for (const value of privateRouteValues) {
+      expect(html).not.toContain(value);
+    }
+    expect(publishedRouteSignatures).not.toContain("/beyond/general/CueUp (i,i)");
+    expect(publishedRouteSignatures).not.toContain("/beyond/general/CueUp (i,i,i)");
+    expect(publishedRouteSignatures).not.toContain("/beyond/general/CueDown (i,i,i)");
+    expect(publishedRouteSignatures).not.toContain("/beyond/general/LoadWorkspace (s)");
+  });
+
+  it("publishes every public Object Tree OSC route from the control reference", () => {
+    const catalog = readCatalog();
+    const publicStatuses = new Set(["confirmed", "acceptedNoReadback"]);
+    const sourceRouteIds = new Set(
+      readObjectPropertyTargetRoutes()
+        .filter((route) => publicStatuses.has(route.supportStatus))
+        .map((route) => route.routeId),
+    );
+    const publishedRouteIds = new Set(
+      catalog.objects.flatMap((objectSchema) =>
+        objectSchema.properties.flatMap((property) => property.oscRoutes?.map((route) => route.id) ?? []),
+      ),
+    );
+    const missingRouteIds = [...sourceRouteIds].filter((routeId) => !publishedRouteIds.has(routeId)).sort();
+
+    expect(missingRouteIds).toEqual([]);
+  });
+
+  it("labels subtract OSC value transforms with their amount", () => {
+    expect(valueTransformLabel({ kind: "subtract", amount: 1 })).toBe("subtract 1");
+  });
+
+  it("renders OSC control route UI in the offline reference page", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain("OSC routes");
+    expect(html).toContain("detail__routes-list");
+    expect(html).toContain("object__routes");
+    expect(html).toContain("/beyond/general/SetBpm");
+    expect(html).toContain("/beyond/zone/<zone>/livecontrol/posx");
+    expect(html).not.toContain("Route facts");
+    expect(html).not.toContain("detail__route-meta");
   });
 
   it("emits public Object Tree behavior classification for reference object properties", () => {

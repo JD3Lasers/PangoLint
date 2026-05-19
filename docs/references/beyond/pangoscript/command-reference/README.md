@@ -75,6 +75,13 @@ their parameters listed after the corresponding signature.
 Verification gaps are tracked in GitHub issues. Command pages call out
 unverified behavior inline when it affects safe use or parameter shape.
 
+## OSC control routes
+
+The generated reference browser also joins selected commands and Object Tree
+properties to tracked OSC control routes. See
+[`../control-routes.md`](../control-routes.md) for the public data sources and
+MCP lookup tools behind those route summaries.
+
 ## Section index
 
 The command-reference files are aligned one-to-one with BEYOND command-tree categories. The order column mirrors `data/pangoscript/beyond-category-tree.json`.

@@ -10,7 +10,7 @@ Conservative linting, formatting, and BEYOND runtime readback checks for Pangoli
 
 - **`.BeyondCode` language support**: TextMate grammar plus semantic tokens that distinguish curated commands from unknown identifiers, so typos are easy to spot.
 - **21 diagnostic codes**: from real syntax errors (unclosed strings, unbalanced parens) to PangoScript-specific hints (unsupported `While`/`Loop`, `!=` instead of `<>`, `&&` instead of `and`, `for x = a to b` instead of `for x = a, b`, missing terminal `exit`, and more). Every code has a `Why?` action that opens the bundled rule reference offline.
-- **Catalog-aware completions, hover cards, and signature help**: backed by the bundled catalog of 529 PangoScript commands and Object Tree property data. Hovers show syntax form, parameters, safety tier, and a primary example.
+- **Catalog-aware completions, hover cards, and signature help**: backed by the bundled PangoScript command catalog, Object Tree property data, and tracked OSC control route links. Hovers show syntax form, parameters, safety tier, and a primary example.
 - **Quick fixes**: accept Levenshtein-ranked replacements for `unknown-command` warnings and `property-typo` hints, or register an unknown root as a user universe, zone alias, or master alias.
 - **PangoLint sidebar**: four stacked panels (Commands, Objects, Diagnostics, BEYOND Watcher). The Commands panel groups browsable commands and expression functions into categories with full-text search, inline detail panels, `Cmd+Enter` insert at cursor, and deep links into the bundled offline PangoScript reference site. The Objects panel browses FX Effects, Cue Types, Object Tree roots, and schema data with an OSC-address toggle.
 - **Conservative formatter**: preserves command order, strings, comments, labels, and any unknown syntax verbatim.
@@ -27,7 +27,7 @@ PangoLint is not on the VS Code Marketplace yet. Install from a [GitHub Release 
 ```bash
 npm ci
 npm run package:vsix
-code --install-extension pangolint-0.4.2.vsix --force
+code --install-extension pangolint-0.4.3.vsix --force
 ```
 
 Reload the VS Code window after installing. To uninstall:

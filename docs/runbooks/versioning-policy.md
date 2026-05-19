@@ -32,6 +32,29 @@ version.
 release or release-candidate correction. The hosted release workflow refuses to
 clobber a non-draft GitHub Release.
 
+## Pull request version policy
+
+Every PR into `main` must advance the PangoLint version once. Apply the version
+bump after implementation and focused verification are stable, but before final
+review and merge. Do not bump at issue creation time, because scope may change.
+Do not bump again for review fixes inside the same PR.
+
+Use the smallest appropriate SemVer change:
+
+- `PATCH` for fixes, docs, packaging, public reference corrections, or narrow
+  generated data corrections.
+- `MINOR` for new user-facing extension behavior, MCP behavior, reference UI
+  capability, shipped knowledge expansion, or compatibility-risking changes.
+- `prerelease` only for test builds that should not be treated as stable
+  release artifacts.
+
+The PR CI `Version policy` job verifies that:
+
+- `package.json`, `mcp/package.json`, and `package-lock.json` are in lockstep.
+- the PR version is greater than `main`.
+- `CHANGELOG.md` changed and includes a heading for the PR version.
+- the PR version does not already have a local release tag.
+
 ## Release version steps
 
 1. Choose `PATCH`, `MINOR`, or `prerelease` before packaging.
