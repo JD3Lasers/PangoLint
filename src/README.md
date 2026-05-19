@@ -10,8 +10,13 @@ modules under these folders:
   index loading/validation.
 - `runtime/`: Talk UDP, OSC, BEYOND readback, script-send behavior, and
   runtime command registration.
+- `sidebar/`: command, object, and diagnostic sidebar models plus TreeView and
+  webview renderers.
+- `reference/`: browser source and styles for the packaged offline
+  PangoScript reference site.
 - `workspace/`: workspace-root handling, file-backed registries, workspace
   scanning, workspace symbols, trust checks, and watcher view state.
+- `test/`: VS Code extension-host tests run through `vscode-test`.
 
 Do not add new production modules directly under `src/` unless they are another
 composition root. Add new behavior to the folder that owns the responsibility,

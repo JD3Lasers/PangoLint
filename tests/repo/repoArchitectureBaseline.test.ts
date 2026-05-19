@@ -27,6 +27,9 @@ describe("repo architecture baseline", () => {
       "`mcp/data/`",
       "`mcp/docs/`",
       "`mcp/LICENSE`",
+      "`src/reference/README.md`",
+      "`src/test/README.md`",
+      "`tests/repo/sourceLayout.test.ts`",
     ]) {
       expect(spec, text).toContain(text);
     }

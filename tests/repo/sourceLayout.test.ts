@@ -6,6 +6,8 @@ const sourceRoot = path.join(process.cwd(), "src");
 const scriptsRoot = path.join(process.cwd(), "scripts");
 const testsRoot = path.join(process.cwd(), "tests");
 
+const expectedSourceFolders = ["knowledge", "language", "reference", "runtime", "sidebar", "test", "workspace"];
+
 const expectedLayout = {
   knowledge: [
     "catalog.ts",
@@ -68,6 +70,7 @@ const expectedLayout = {
     "workspaceTrust.ts",
   ],
   sidebar: [],
+  reference: [],
 };
 
 const expectedSidebarSubfolders: Record<string, string[]> = {
@@ -105,6 +108,35 @@ const expectedLanguageSubfolders: Record<string, string[]> = {
   ],
 };
 
+const expectedReferenceSubfolders: Record<string, string[]> = {
+  bundle: [
+    "detail",
+    "dom.ts",
+    "list.ts",
+    "main.ts",
+    "nav.ts",
+    "objectTree.ts",
+    "router.ts",
+    "search.ts",
+    "state.ts",
+    "tsconfig.json",
+    "types.ts",
+  ],
+  "bundle/detail": [
+    "commandDetail.ts",
+    "copyControls.ts",
+    "detailColumn.ts",
+    "objectDetail.ts",
+    "objectPropertyFocus.ts",
+    "objectPropertySummary.ts",
+    "oscRouteDetail.ts",
+  ],
+};
+
+const expectedExtensionHostSubfolders: Record<string, string[]> = {
+  suite: ["extension.test.ts", "index.ts", "sidebar.test.ts"],
+};
+
 const expectedObjectPropertyIndexScriptModules = [
   "objectPropertyIndexCommandMetadata.ts",
   "objectPropertyIndexEntries.ts",
@@ -123,6 +155,12 @@ describe("source layout", () => {
       .sort();
 
     expect(rootTypeScriptFiles).toEqual(["extension.ts"]);
+    expect(
+      readdirSync(sourceRoot, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+        .sort(),
+    ).toEqual(expectedSourceFolders);
 
     for (const [folder, files] of Object.entries(expectedLayout)) {
       const folderPath = path.join(sourceRoot, folder);
@@ -132,6 +170,14 @@ describe("source layout", () => {
           .filter((entry) => entry.endsWith(".ts"))
           .sort(),
       ).toEqual(files);
+    }
+
+    const referencePath = path.join(sourceRoot, "reference");
+    expect(readdirSync(referencePath).sort()).toEqual(["README.md", "bundle", "styles.css"]);
+    for (const [subfolder, files] of Object.entries(expectedReferenceSubfolders)) {
+      const subfolderPath = path.join(referencePath, subfolder);
+      expect(existsSync(subfolderPath), `reference/${subfolder}/`).toBe(true);
+      expect(readdirSync(subfolderPath).sort()).toEqual(files);
     }
 
     const sidebarPath = path.join(sourceRoot, "sidebar");
@@ -149,6 +195,27 @@ describe("source layout", () => {
     for (const [subfolder, files] of Object.entries(expectedLanguageSubfolders)) {
       const subfolderPath = path.join(languagePath, subfolder);
       expect(existsSync(path.join(subfolderPath, "README.md")), `language/${subfolder}/README.md`).toBe(true);
+      expect(
+        readdirSync(subfolderPath)
+          .filter((entry) => entry.endsWith(".ts"))
+          .sort(),
+      ).toEqual(files);
+    }
+  });
+
+  it("keeps extension-host tests isolated under src/test", () => {
+    const extensionHostTestPath = path.join(sourceRoot, "test");
+
+    expect(existsSync(path.join(extensionHostTestPath, "README.md")), "test/README.md").toBe(true);
+    expect(
+      readdirSync(extensionHostTestPath)
+        .filter((entry) => entry.endsWith(".ts"))
+        .sort(),
+    ).toEqual(["runTests.ts"]);
+
+    for (const [subfolder, files] of Object.entries(expectedExtensionHostSubfolders)) {
+      const subfolderPath = path.join(extensionHostTestPath, subfolder);
+      expect(existsSync(subfolderPath), `test/${subfolder}/`).toBe(true);
       expect(
         readdirSync(subfolderPath)
           .filter((entry) => entry.endsWith(".ts"))
