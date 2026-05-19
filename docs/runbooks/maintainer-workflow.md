@@ -62,13 +62,13 @@ the script again.
 Use this after pushing a release tag and waiting for the release workflow:
 
 ```bash
-npm run workflow:watch-release -- --tag v0.4.8
+npm run workflow:watch-release -- --tag v0.4.9
 ```
 
 For a single immediate check:
 
 ```bash
-npm run workflow:watch-release -- --tag v0.4.8 --once
+npm run workflow:watch-release -- --tag v0.4.9 --once
 ```
 
 The script waits for the draft GitHub Release and verifies these assets:

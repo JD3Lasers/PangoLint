@@ -32,6 +32,8 @@ Allowed source module roles:
   and extension-host integration.
 - Workspace state: workspace scanning, user-object registry, watcher state,
   workspace-root selection.
+- Reference site: offline reference-site browser bundles, detail rendering,
+  search state, Object Tree navigation, and reference styles.
 - MCP server adapter: stdio server registration, MCP tool/resource adapters,
   npm tarball packaging, and agent-facing configuration surfaces.
 - Sidebar: activity-bar view container backed by VS Code TreeDataProviders.
@@ -217,6 +219,10 @@ The repository has these durable top-level folders:
   `src/sidebar/view/treeview/` (the current TreeView renderer). Future
   alternative renderers go beside `treeview/` (for example `view/webview/`)
   and consume the same model.
+- `src/reference/`: offline reference-site browser source. Keep browser app
+  code under `src/reference/bundle/`, detail rendering under
+  `src/reference/bundle/detail/`, and reference styles in
+  `src/reference/styles.css`. Generated HTML belongs under `media/reference/`.
 - `mcp/`: separate npm workspace for `pangolint-mcp`. Keep MCP source under
   `mcp/src/`, MCP tests under `mcp/tests/`, package metadata in
   `mcp/package.json`, and generated tarball assets under ignored

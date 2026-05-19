@@ -83,9 +83,9 @@ governing spec says otherwise.
 | `src/sidebar/model/` | Renderer-independent sidebar data | Command, object, diagnostic, and menu models plus formatting and action wrappers | Must not depend on VS Code TreeView classes. |
 | `src/sidebar/view/treeview/` | Current TreeView renderer | Diagnostics tree view registration and item rendering | Renderer code may use VS Code UI classes. |
 | `src/sidebar/view/webview/` | Commands and Objects webview renderer | Webview panels, messages, browser bundles, filters, detail views, and state | Webview bundles compile through package scripts. |
-| `src/reference/` | Offline reference-site source | Browser bundle and styles for the packaged PangoScript reference site | Generated HTML belongs under `media/reference/`. |
+| `src/reference/` | Offline reference-site source | Browser bundle, detail renderers, Object Tree navigation, search state, and styles for the packaged PangoScript reference site | Generated HTML belongs under `media/reference/`. `src/reference/README.md` owns local folder rules and `tests/repo/sourceLayout.test.ts` guards the source files. |
 | `src/workspace/` | Workspace state | User objects, watcher view, workspace root selection, workspace scanning, trust checks, and workspace symbols | Keep file system scanning separate from editor language parsing. |
-| `src/test/` | Extension-host tests | VS Code test runner and integration tests | Do not mix Vitest-only tests into this folder. |
+| `src/test/` | Extension-host tests | VS Code test runner and integration tests | Do not mix Vitest-only tests into this folder. `src/test/README.md` owns local folder rules and `tests/repo/sourceLayout.test.ts` guards the extension-host test layout. |
 
 ## MCP Workspace Source Map
 
@@ -192,6 +192,6 @@ Architecture and data-layout changes should run the narrow relevant tests, then
 the full gate before merge:
 
 ```bash
-npm test -- tests/sourceLayout.test.ts tests/dataLayoutPolicy.test.ts tests/publicPackagePolicy.test.ts
+npm test -- tests/repo/sourceLayout.test.ts tests/dataLayoutPolicy.test.ts tests/repo/publicPackagePolicy.test.ts
 npm run check
 ```

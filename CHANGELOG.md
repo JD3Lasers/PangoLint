@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.9] - 2026-05-19
+
+### Changed
+
+- Guard reference-site and extension-host source ownership with local README
+  files, stricter source-layout tests, and synced architecture docs.
+
 ## [0.4.8] - 2026-05-19
 
 ### Changed
@@ -104,7 +111,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.8...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.9...HEAD
+[0.4.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.8...v0.4.9
 [0.4.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.7...v0.4.8
 [0.4.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.6...v0.4.7
 [0.4.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.5...v0.4.6
