@@ -4,9 +4,9 @@ import type { ReferenceState } from "../state";
 import type { ReferenceObject, ReferenceObjectProperty } from "../types";
 import { renderCopyableCode } from "./copyControls";
 import {
-  buildObjectValueCardSummaryText,
-  buildObjectValueSummaryText,
-  objectBehaviorSummary,
+  buildObjectValueCardSummaryParts,
+  buildObjectValueSummaryParts,
+  objectBehaviorSummaryParts,
   objectReadbackCardSummary,
   objectReadbackSummary,
 } from "./objectPropertySummary";
@@ -133,7 +133,7 @@ function renderObjectPropertiesTable(
   const table = el("table", { className: "object__props" });
   const thead = el("thead", {});
   const headRow = el("tr", {});
-  for (const heading of ["Property", "Behavior", "Value", "Set by"]) {
+  for (const heading of ["Property", "Behavior", "Value", "Format", "Set by"]) {
     headRow.append(el("th", {}, heading));
   }
   thead.append(headRow);
@@ -182,31 +182,48 @@ function renderObjectPropertyTableRow(
   }
   row.append(pathCell);
 
-  const behaviorSummary = objectBehaviorSummary(p.propertyCard?.classification ?? p.classification);
+  const behaviorParts = objectBehaviorSummaryParts(p.propertyCard?.classification ?? p.classification);
   const behaviorCell = el("td", { className: "object__behavior", attrs: { "data-label": "Behavior" } });
-  if (behaviorSummary) {
-    behaviorCell.append(el("span", { className: "object__value-line" }, behaviorSummary));
+  if (behaviorParts.length > 0) {
+    for (const behaviorPart of behaviorParts) {
+      behaviorCell.append(el("span", { className: "object__behavior-line" }, behaviorPart));
+    }
   } else {
-    behaviorCell.append(el("span", { className: "object__value-empty" }, "—"));
+    behaviorCell.append(emptyObjectValue("object__value-empty"));
   }
   row.append(behaviorCell);
 
-  const valueSummary =
-    buildObjectValueCardSummaryText(p.propertyCard?.valueSummary) ??
-    objectReadbackCardSummary(p.propertyCard?.readbackSummary) ??
-    buildObjectValueSummaryText(p.valueMetadata) ??
-    objectReadbackSummary(p.readbackMetadata);
+  const valueDisplay =
+    buildObjectValueCardSummaryParts(p.propertyCard?.valueSummary) ?? buildObjectValueSummaryParts(p.valueMetadata);
+  const readbackSummary =
+    objectReadbackCardSummary(p.propertyCard?.readbackSummary) ?? objectReadbackSummary(p.readbackMetadata);
+  const valueParts =
+    valueDisplay && valueDisplay.valueParts.length > 0
+      ? valueDisplay.valueParts
+      : readbackSummary
+        ? [readbackSummary]
+        : [];
   const valueCell = el("td", { className: "object__value", attrs: { "data-label": "Value" } });
-  if (valueSummary) {
-    valueCell.append(el("span", { className: "object__value-line" }, valueSummary));
+  if (valueParts.length > 0) {
+    for (const valuePart of valueParts) {
+      valueCell.append(el("span", { className: "object__value-line" }, valuePart));
+    }
   } else {
-    valueCell.append(el("span", { className: "object__value-empty" }, "—"));
+    valueCell.append(emptyObjectValue("object__value-empty"));
   }
   row.append(valueCell);
 
+  const formatCell = el("td", { className: "object__format", attrs: { "data-label": "Format" } });
+  if (valueDisplay && valueDisplay.formatParts.length > 0) {
+    formatCell.append(el("span", { className: "object__value-line" }, valueDisplay.formatParts.join("; ")));
+  } else {
+    formatCell.append(emptyObjectValue("object__value-empty"));
+  }
+  row.append(formatCell);
+
   const settersCell = el("td", { className: "object__setters-cell", attrs: { "data-label": "Set by" } });
   if (p.setters.length === 0) {
-    settersCell.append(el("span", { className: "object__setters-empty" }, "—"));
+    settersCell.append(emptyObjectValue("object__setters-empty"));
   } else {
     const chipsWrap = el("div", { className: "object__setters" });
     for (const setter of p.setters) {
@@ -225,4 +242,8 @@ function renderObjectPropertyTableRow(
   }
   row.append(settersCell);
   return row;
+}
+
+function emptyObjectValue(className: string): HTMLElement {
+  return el("span", { className }, String.fromCharCode(0x2014));
 }

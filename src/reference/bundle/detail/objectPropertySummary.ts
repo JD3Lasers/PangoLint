@@ -1,51 +1,120 @@
 import type { ReferenceForm, ReferenceObjectProperty } from "../types";
 
+export interface ObjectValueDisplayParts {
+  valueParts: string[];
+  formatParts: string[];
+}
+
 export function buildObjectValueSummaryText(metadata: ReferenceObjectProperty["valueMetadata"]): string | null {
+  return joinObjectValueDisplayParts(buildObjectValueSummaryParts(metadata));
+}
+
+export function buildObjectValueSummaryParts(
+  metadata: ReferenceObjectProperty["valueMetadata"],
+): ObjectValueDisplayParts | null {
   if (!metadata) return null;
-  const parts: string[] = [];
-  appendDistinctSummaryPart(parts, metadata.valueType);
+  const valueParts: string[] = [];
+  const formatParts: string[] = [];
+  appendDistinctSummaryPart(valueParts, metadata.valueType);
+  appendValueFormatPart(formatParts, metadata.valueRange?.unit, metadata.valueType);
+  appendValueFormatPart(formatParts, metadata.unit, metadata.valueType);
   if (metadata.valueRange) {
     const bounds = objectValueRangeBounds(metadata.valueRange);
-    appendDistinctSummaryPart(parts, bounds);
-    appendDistinctSummaryPart(parts, metadata.valueRange.unit);
+    appendDistinctSummaryPart(valueParts, bounds);
     if (metadata.valueRange.boundaryBehavior) {
       appendDistinctSummaryPart(
-        parts,
+        valueParts,
         `${describeBoundaryBehavior(metadata.valueRange.boundaryBehavior)} outside range`,
       );
     }
-  } else if (metadata.unit) {
-    appendDistinctSummaryPart(parts, metadata.unit);
   }
-  if (metadata.defaultValue !== undefined) appendDistinctSummaryPart(parts, `default ${String(metadata.defaultValue)}`);
-  if (metadata.acceptedValues?.length) {
-    appendDistinctSummaryPart(parts, metadata.acceptedValues.map(formatAcceptedValue).join(", "));
+  if (metadata.defaultValue !== undefined)
+    appendDistinctSummaryPart(valueParts, `default ${String(metadata.defaultValue)}`);
+  if (metadata.acceptedValues?.length && !isDefaultBooleanAcceptedValues(metadata.valueType, metadata.acceptedValues)) {
+    appendDistinctSummaryPart(valueParts, metadata.acceptedValues.map(formatAcceptedValue).join(", "));
   }
-  if (metadata.locationContext?.populationDependent) appendDistinctSummaryPart(parts, "location-aware");
-  return parts.length > 0 ? parts.join("; ") : null;
+  appendDistinctSummaryPart(valueParts, visibleLocationContextLabel(metadata.locationContext));
+  return valueParts.length > 0 || formatParts.length > 0 ? { valueParts, formatParts } : null;
 }
 
 export function buildObjectValueCardSummaryText(
   summary: NonNullable<ReferenceObjectProperty["propertyCard"]>["valueSummary"] | undefined,
 ): string | null {
+  return joinObjectValueDisplayParts(buildObjectValueCardSummaryParts(summary));
+}
+
+export function buildObjectValueCardSummaryParts(
+  summary: NonNullable<ReferenceObjectProperty["propertyCard"]>["valueSummary"] | undefined,
+): ObjectValueDisplayParts | null {
   if (!summary) return null;
-  const parts: string[] = [];
-  appendDistinctSummaryPart(parts, summary.valueType);
+  const valueParts: string[] = [];
+  const formatParts: string[] = [];
+  appendDistinctSummaryPart(valueParts, summary.valueType);
+  appendValueFormatPart(formatParts, summary.range?.unit, summary.valueType);
+  appendValueFormatPart(formatParts, summary.unit, summary.valueType);
   if (summary.range) {
     const bounds = objectValueCardRangeBounds(summary.range);
-    appendDistinctSummaryPart(parts, bounds);
-    appendDistinctSummaryPart(parts, summary.range.unit);
+    appendDistinctSummaryPart(valueParts, bounds);
     if (summary.range.boundaryBehavior) {
-      appendDistinctSummaryPart(parts, `${describeBoundaryBehavior(summary.range.boundaryBehavior)} outside range`);
+      appendDistinctSummaryPart(
+        valueParts,
+        `${describeBoundaryBehavior(summary.range.boundaryBehavior)} outside range`,
+      );
     }
-  } else if (summary.unit) {
-    appendDistinctSummaryPart(parts, summary.unit);
   }
-  if (summary.defaultValue !== undefined) appendDistinctSummaryPart(parts, `default ${String(summary.defaultValue)}`);
-  if (summary.acceptedValueCount) appendDistinctSummaryPart(parts, `${summary.acceptedValueCount} accepted values`);
-  if (summary.locationKind)
-    appendDistinctSummaryPart(parts, behaviorLabel(summary.locationKind) ?? summary.locationKind);
-  return parts.length > 0 ? parts.join("; ") : null;
+  if (summary.defaultValue !== undefined)
+    appendDistinctSummaryPart(valueParts, `default ${String(summary.defaultValue)}`);
+  if (
+    summary.acceptedValueCount &&
+    !isDefaultBooleanAcceptedValueCount(summary.valueType, summary.acceptedValueCount)
+  ) {
+    appendDistinctSummaryPart(valueParts, `${summary.acceptedValueCount} accepted values`);
+  }
+  appendDistinctSummaryPart(valueParts, visibleLocationKind(summary.locationKind));
+  return valueParts.length > 0 || formatParts.length > 0 ? { valueParts, formatParts } : null;
+}
+
+function joinObjectValueDisplayParts(parts: ObjectValueDisplayParts | null): string | null {
+  if (!parts) return null;
+  const allParts = [...parts.valueParts, ...parts.formatParts];
+  return allParts.length > 0 ? allParts.join("; ") : null;
+}
+
+function appendValueFormatPart(parts: string[], part: string | undefined | null, valueType: string | undefined): void {
+  if (!part) return;
+  if (valueType && part.trim().toLowerCase() === valueType.trim().toLowerCase()) return;
+  appendDistinctSummaryPart(parts, part);
+}
+
+function isDefaultBooleanAcceptedValueCount(valueType: string | undefined, count: number): boolean {
+  return valueType?.trim().toLowerCase() === "boolean" && count === 2;
+}
+
+function isDefaultBooleanAcceptedValues(
+  valueType: string | undefined,
+  values: NonNullable<ReferenceObjectProperty["valueMetadata"]>["acceptedValues"],
+): boolean {
+  if (valueType?.trim().toLowerCase() !== "boolean" || values?.length !== 2) return false;
+  if (values.some((value) => value.label)) return false;
+  const normalizedValues = values.map((value) => String(value.value).trim().toLowerCase()).sort();
+  return (
+    (normalizedValues[0] === "0" && normalizedValues[1] === "1") ||
+    (normalizedValues[0] === "false" && normalizedValues[1] === "true")
+  );
+}
+
+function visibleLocationContextLabel(
+  locationContext: NonNullable<ReferenceObjectProperty["valueMetadata"]>["locationContext"] | undefined,
+): string | undefined {
+  if (!locationContext) return undefined;
+  const kind = visibleLocationKind(locationContext.kind);
+  if (kind) return kind;
+  return locationContext.kind ? undefined : locationContext.populationDependent ? "location-aware" : undefined;
+}
+
+function visibleLocationKind(locationKind: string | undefined): string | undefined {
+  if (!locationKind || locationKind === "indexed-root") return undefined;
+  return behaviorLabel(locationKind) ?? locationKind;
 }
 
 export function objectReadbackSummary(metadata: ReferenceObjectProperty["readbackMetadata"]): string | null {
@@ -53,7 +122,8 @@ export function objectReadbackSummary(metadata: ReferenceObjectProperty["readbac
   const parts = ["readback"];
   if (metadata.valueType) parts.push(metadata.valueType);
   if (metadata.observedValue !== undefined) parts.push(`observed ${String(metadata.observedValue)}`);
-  if (metadata.locationContext?.populationDependent) parts.push("location-aware");
+  const locationLabel = visibleLocationContextLabel(metadata.locationContext);
+  if (locationLabel) parts.push(locationLabel);
   return parts.length > 0 ? parts.join("; ") : null;
 }
 
@@ -61,20 +131,26 @@ export function objectReadbackCardSummary(
   summary: NonNullable<ReferenceObjectProperty["propertyCard"]>["readbackSummary"] | undefined,
 ): string | null {
   if (!summary) return null;
-  if (!summary.valueType && summary.observedValue === undefined && !summary.locationKind) return null;
+  const locationKind = visibleLocationKind(summary.locationKind);
+  if (!summary.valueType && summary.observedValue === undefined && !locationKind) return null;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (summary.valueType) parts.push(summary.valueType);
   if (summary.observedValue !== undefined) parts.push(`observed ${String(summary.observedValue)}`);
-  if (summary.locationKind) parts.push(behaviorLabel(summary.locationKind) ?? summary.locationKind);
+  if (locationKind) parts.push(locationKind);
   return parts.length > 0 ? parts.join("; ") : null;
 }
 
 export function objectBehaviorSummary(classification: ReferenceObjectProperty["classification"]): string | null {
-  if (!classification) return null;
+  const parts = objectBehaviorSummaryParts(classification);
+  return parts.length > 0 ? parts.join("; ") : null;
+}
+
+export function objectBehaviorSummaryParts(classification: ReferenceObjectProperty["classification"]): string[] {
+  if (!classification) return [];
   const parts = [behaviorLabel(classification.accessMode), behaviorLabel(classification.behaviorKind)].filter(
     (part): part is string => Boolean(part),
   );
-  return parts.length > 0 ? parts.join("; ") : null;
+  return parts;
 }
 
 export function formatAcceptedValue(

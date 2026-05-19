@@ -67,6 +67,18 @@ describe("reference command search", () => {
 
     expect(search(buildIndex(commands), "++")).toEqual([]);
   });
+
+  it("searches displayed safety labels from rewritten reference descriptions", () => {
+    const commands = [
+      command({
+        canonical: "ExecCmd",
+        description: "Runs a T4 command through the reference runtime path.",
+        safetyTier: "T4",
+      }),
+    ];
+
+    expect(search(buildIndex(commands), "Safety 1").map((hit) => hit.item.canonical)).toEqual(["ExecCmd"]);
+  });
 });
 
 describe("reference object list selection", () => {

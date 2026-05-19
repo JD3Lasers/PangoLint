@@ -1,4 +1,5 @@
 import { el } from "../dom";
+import { formatSafetyTextForReference, formatSafetyTierLabel } from "../safetyTierDisplay";
 import type { ReferenceState } from "../state";
 import type { ReferenceCommand, ReferenceForm, ReferenceObjectProperty, ReferenceParameter } from "../types";
 import { renderCopyButton } from "./copyControls";
@@ -34,13 +35,10 @@ export function renderCommandDetail(
 
   const chips = el("div", { className: "detail__chips" });
   chips.append(el("span", { className: "badge badge--category" }, cmd.category));
-  if (cmd.safetyTier && cmd.safetyTier !== "unknown") {
+  const safetyLabel = formatSafetyTierLabel(cmd.safetyTier);
+  if (safetyLabel) {
     chips.append(
-      el(
-        "span",
-        { className: `badge badge--tier badge--tier-${cmd.safetyTier.toLowerCase()}` },
-        `Safety ${cmd.safetyTier}`,
-      ),
+      el("span", { className: `badge badge--tier badge--tier-${cmd.safetyTier.toLowerCase()}` }, safetyLabel),
     );
   }
   header.append(chips);
@@ -55,7 +53,7 @@ export function renderCommandDetail(
   container.append(header);
 
   if (cmd.description) {
-    container.append(el("p", { className: "detail__description" }, cmd.description));
+    container.append(el("p", { className: "detail__description" }, formatSafetyTextForReference(cmd.description)));
   }
 
   if (cmd.forms.length > 0) {
@@ -109,7 +107,7 @@ export function renderCommandDetail(
     section.append(el("h2", { className: "detail__h" }, "Notes"));
     const ul = el("ul", { className: "detail__notes-list" });
     for (const note of cmd.notes) {
-      ul.append(el("li", { className: "detail__notes-item" }, note));
+      ul.append(el("li", { className: "detail__notes-item" }, formatSafetyTextForReference(note)));
     }
     section.append(ul);
     container.append(section);
@@ -161,7 +159,7 @@ function renderForm(form: ReferenceForm): HTMLElement {
   block.append(sigWrap);
 
   if (form.description) {
-    block.append(el("p", { className: "form__description" }, form.description));
+    block.append(el("p", { className: "form__description" }, formatSafetyTextForReference(form.description)));
   }
   if (form.parameters.length > 0 && hasAnyMeaningfulParam(form.parameters)) {
     const table = el("table", { className: "form__params" });
@@ -180,7 +178,11 @@ function renderForm(form: ReferenceForm): HTMLElement {
       row.append(el("td", { attrs: { "data-label": "Req" } }, p.required ? "✓" : ""));
       row.append(el("td", { attrs: { "data-label": "Range" } }, formatParameterRange(p)));
       row.append(
-        el("td", { className: "form__params-desc", attrs: { "data-label": "Description" } }, p.description ?? ""),
+        el(
+          "td",
+          { className: "form__params-desc", attrs: { "data-label": "Description" } },
+          p.description ? formatSafetyTextForReference(p.description) : "",
+        ),
       );
       tbody.append(row);
     }

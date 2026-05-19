@@ -74,9 +74,18 @@ describe("sidebar webview accessibility contracts", () => {
     const behaviorSummaryBlock = extractFunction(source, "behaviorSummary");
 
     expect(readbackSummaryBlock).toContain("summary.observedValue === undefined");
-    expect(readbackSummaryBlock).toContain("!summary.locationKind");
+    expect(readbackSummaryBlock).toContain("!locationLabel");
     expect(behaviorSummaryBlock).not.toContain("writeTestStatus");
     expect(behaviorSummaryBlock).not.toContain("readbackStatus");
+  });
+
+  it("keeps indexed-root location context out of visible object metadata", () => {
+    const source = readSource("src/sidebar/view/webview/objects-bundle/main.ts");
+    const metadataSummaryBlock = extractFunction(source, "metadataSummary");
+    const visibleLocationKindBlock = extractFunction(source, "visibleLocationKind");
+
+    expect(metadataSummaryBlock).toContain("visibleLocationKind(summary.locationKind)");
+    expect(visibleLocationKindBlock).toContain('locationKind === "indexed-root"');
   });
 });
 
