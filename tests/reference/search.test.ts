@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { buildCommandListSections, objectSelectionSelectors } from "../../src/reference/bundle/list";
+import {
+  buildCommandListSections,
+  isObjectReferenceSection,
+  objectSelectionSelectors,
+} from "../../src/reference/bundle/list";
 import { buildIndex, search } from "../../src/reference/bundle/search";
 import type { ReferenceCommand } from "../../src/reference/bundle/types";
 
@@ -87,5 +91,12 @@ describe("reference object list selection", () => {
       '.list__row[data-property-path="FX.N.N.N.Enabled"]',
       '.list__row[data-object="FX"]',
     ]);
+  });
+
+  it("treats Universe Components as an Object Tree reference section", () => {
+    expect(isObjectReferenceSection("fx")).toBe(true);
+    expect(isObjectReferenceSection("cue-types")).toBe(true);
+    expect(isObjectReferenceSection("universe-components")).toBe(true);
+    expect(isObjectReferenceSection("schemas")).toBe(false);
   });
 });

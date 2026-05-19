@@ -11,7 +11,7 @@ import {
   type ObjectPropertyReferenceRow,
 } from "./objectTree";
 import { formatSafetyTextForReference, formatSafetyTierLabel } from "./safetyTierDisplay";
-import type { ObjectReferenceSection, ReferenceState } from "./state";
+import type { ObjectReferenceSection, ObjectSection, ReferenceState } from "./state";
 import type { ReferenceCommand, ReferenceObject } from "./types";
 
 const SEARCH_DEBOUNCE_MS = 60;
@@ -245,7 +245,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
     if (change === "selection") {
       if (state.viewMode === "commands") {
         highlightCommandSelection(listBox, state.selectedCanonical);
-      } else if (state.objectSection === "fx" || state.objectSection === "cue-types") {
+      } else if (isObjectReferenceSection(state.objectSection)) {
         highlightObjectReferenceSelection(listBox, state.selectedObjectReference);
       } else {
         highlightObjectSelection(listBox, state.selectedObject, state.selectedObjectPropertyPath);
@@ -544,6 +544,10 @@ export function objectSelectionSelectors(name: string | null, propertyPath: stri
   return propertyPath
     ? [`.list__row[data-property-path="${cssEscape(propertyPath)}"]`, objectSelector]
     : [objectSelector];
+}
+
+export function isObjectReferenceSection(section: ObjectSection): section is ObjectReferenceSection {
+  return section === "fx" || section === "cue-types" || section === "universe-components";
 }
 
 function highlightObjectReferenceSelection(
