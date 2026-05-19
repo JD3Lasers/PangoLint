@@ -10,7 +10,7 @@ import { renderDetailColumn } from "./detail";
 import { renderListColumn } from "./list";
 import { renderNavColumn } from "./nav";
 import { installRouter } from "./router";
-import { ReferenceState } from "./state";
+import { hasVisibleDetailSelection, ReferenceState, type StateChange } from "./state";
 import type { ReferenceCatalog } from "./types";
 
 function readCatalog(): ReferenceCatalog {
@@ -29,7 +29,27 @@ function mount(): void {
 
   const layout = document.createElement("div");
   layout.className = "layout";
-  layout.append(renderNavColumn(state), renderListColumn(state), renderDetailColumn(state));
+  layout.dataset.mobilePanel = "browse";
+  const setMobilePanel = (panel: "browse" | "detail"): void => {
+    layout.dataset.mobilePanel = panel;
+  };
+  const syncMobilePanel = (change: StateChange): void => {
+    if (change === "filter") return;
+    setMobilePanel(hasVisibleDetailSelection(state) ? "detail" : "browse");
+  };
+  window.addEventListener("reference:mobile-panel", (event) => {
+    const panel = (event as CustomEvent<"browse" | "detail">).detail;
+    if (panel === "browse" || panel === "detail") setMobilePanel(panel);
+  });
+
+  state.subscribe(syncMobilePanel);
+  layout.append(
+    renderNavColumn(state),
+    renderListColumn(state),
+    renderDetailColumn(state, {
+      onBackToResults: () => setMobilePanel("browse"),
+    }),
+  );
   root.replaceChildren(layout);
 
   installRouter(state);
@@ -44,12 +64,14 @@ function installShortcuts(state: ReferenceState): void {
 
     // "/" → focus search (when not already typing)
     if (event.key === "/" && !inField) {
-      const search = document.querySelector<HTMLInputElement>(".toolbar__search");
-      if (search) {
-        event.preventDefault();
+      event.preventDefault();
+      window.dispatchEvent(new CustomEvent("reference:mobile-panel", { detail: "browse" }));
+      requestAnimationFrame(() => {
+        const search = document.querySelector<HTMLInputElement>(".toolbar__search");
+        if (!search) return;
         search.focus();
         search.select();
-      }
+      });
       return;
     }
     // Escape → clear when in search; otherwise clear filters

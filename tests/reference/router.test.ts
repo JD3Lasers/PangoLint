@@ -83,4 +83,14 @@ describe("applyHashToState", () => {
     expect(state.objectSection).toBe("fx");
     expect(state.selectedObjectReference).toEqual({ section: "fx", id: "Oscillating effect :: Zoom" });
   });
+
+  it("does not let a command value override an Object Tree browse hash", () => {
+    const state = new ReferenceState(emptyCatalog());
+    state.select("BlackOut");
+
+    applyHashToState(state, "#view=objects&cmd=BlackOut");
+
+    expect(state.viewMode).toBe("objects");
+    expect(state.selectedCanonical).toBeNull();
+  });
 });

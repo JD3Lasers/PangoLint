@@ -14,6 +14,11 @@ export interface ObjectReferenceSelection {
   id: string;
 }
 
+export type VisibleDetailSelection =
+  | { kind: "command"; canonical: string }
+  | { kind: "object"; name: string; propertyPath: string | null }
+  | { kind: "object-reference"; selection: ObjectReferenceSelection };
+
 export interface FilterState {
   query: string;
   category: string | null;
@@ -197,4 +202,22 @@ export class ReferenceState {
   filteredHits(): SearchHit<ReferenceCommand>[] {
     return this.filteredCommandHits();
   }
+}
+
+export function getVisibleDetailSelection(state: ReferenceState): VisibleDetailSelection | null {
+  if (state.viewMode === "commands") {
+    return state.selectedCanonical ? { kind: "command", canonical: state.selectedCanonical } : null;
+  }
+  if (state.objectSection === "schemas") {
+    return state.selectedObject
+      ? { kind: "object", name: state.selectedObject, propertyPath: state.selectedObjectPropertyPath }
+      : null;
+  }
+  return state.selectedObjectReference?.section === state.objectSection
+    ? { kind: "object-reference", selection: state.selectedObjectReference }
+    : null;
+}
+
+export function hasVisibleDetailSelection(state: ReferenceState): boolean {
+  return getVisibleDetailSelection(state) !== null;
 }

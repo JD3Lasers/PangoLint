@@ -20,7 +20,12 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
     {
       className: "mode-toggle__btn",
       attrs: { type: "button", role: "tab" },
-      on: { click: () => state.setViewMode("commands") },
+      on: {
+        click: () => {
+          state.setViewMode("commands");
+          showBrowsePanelOnNarrow();
+        },
+      },
     },
     el("span", { className: "mode-toggle__label" }, "Commands"),
     el("span", { className: "mode-toggle__count" }, String(state.catalog.commands.length)),
@@ -30,7 +35,12 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
     {
       className: "mode-toggle__btn",
       attrs: { type: "button", role: "tab" },
-      on: { click: () => state.setViewMode("objects") },
+      on: {
+        click: () => {
+          state.setViewMode("objects");
+          showBrowsePanelOnNarrow();
+        },
+      },
     },
     el("span", { className: "mode-toggle__label" }, "Object Tree"),
     el("span", { className: "mode-toggle__count" }, String(state.catalog.objects?.length ?? 0)),
@@ -143,4 +153,10 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
   renderCategories();
 
   return root;
+}
+
+function showBrowsePanelOnNarrow(): void {
+  if (window.innerWidth > 880) return;
+  window.dispatchEvent(new CustomEvent("reference:mobile-panel", { detail: "browse" }));
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
