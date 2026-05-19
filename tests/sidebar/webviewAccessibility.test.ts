@@ -73,7 +73,7 @@ describe("sidebar webview accessibility contracts", () => {
     const readbackSummaryBlock = extractFunction(source, "readbackSummary");
     const behaviorSummaryBlock = extractFunction(source, "behaviorSummary");
 
-    expect(readbackSummaryBlock).toContain("summary.observedValue === undefined");
+    expect(readbackSummaryBlock).not.toContain("observedValue");
     expect(readbackSummaryBlock).toContain("!locationLabel");
     expect(behaviorSummaryBlock).not.toContain("writeTestStatus");
     expect(behaviorSummaryBlock).not.toContain("readbackStatus");

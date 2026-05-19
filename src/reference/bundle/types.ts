@@ -251,9 +251,30 @@ export interface ReferenceObject {
   properties: ReferenceObjectProperty[];
 }
 
+export interface ReferenceUniverseComponentProperty {
+  path: string;
+  leafName: string;
+  objectPaths: string[];
+  oscPaths: string[];
+}
+
+export interface ReferenceUniverseComponent {
+  id: string;
+  label: string;
+  componentIndex: number;
+  defaultName: string;
+  propertyCount: number;
+  propertySetId: string;
+  addressForms: string[];
+  oscAddressForms: string[];
+  properties: ReferenceUniverseComponentProperty[];
+}
+
 export interface ReferenceCatalog {
   meta: ReferenceMeta;
   commands: ReferenceCommand[];
   /** Object schemas, keyed by name. */
   objects: ReferenceObject[];
+  /** Universe component type reference, keyed by component id. */
+  universeComponents?: ReferenceUniverseComponent[];
 }

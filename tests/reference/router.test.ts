@@ -84,6 +84,31 @@ describe("applyHashToState", () => {
     expect(state.selectedObjectReference).toEqual({ section: "fx", id: "Oscillating effect :: Zoom" });
   });
 
+  it("applies selected Universe Component reference rows from the hash", () => {
+    const state = new ReferenceState(emptyCatalog());
+
+    applyHashToState(state, "#view=objects&sec=universe-components&component=universe.drop-effect");
+
+    expect(state.objectSection).toBe("universe-components");
+    expect(state.selectedObjectReference).toEqual({
+      section: "universe-components",
+      id: "universe.drop-effect",
+    });
+  });
+
+  it("applies selected Universe Component reference rows without a sec value", () => {
+    const state = new ReferenceState(emptyCatalog());
+
+    applyHashToState(state, "#component=universe.drop-effect");
+
+    expect(state.viewMode).toBe("objects");
+    expect(state.objectSection).toBe("universe-components");
+    expect(state.selectedObjectReference).toEqual({
+      section: "universe-components",
+      id: "universe.drop-effect",
+    });
+  });
+
   it("does not let a command value override an Object Tree browse hash", () => {
     const state = new ReferenceState(emptyCatalog());
     state.select("BlackOut");

@@ -113,6 +113,25 @@ describe("standalone reference site build", () => {
     expect(captionColor?.setters).toContain("SetCueCaptionColor");
   });
 
+  it("emits public Universe component metadata for the Object Tree browser", () => {
+    const catalog = readCatalog();
+    const button = catalog.universeComponents?.find((component) => component.id === "universe.button");
+    const dropEffect = catalog.universeComponents?.find((component) => component.id === "universe.drop-effect");
+    const zoneByName = catalog.universeComponents?.find(
+      (component) => component.id === "universe.projection-zone-by-name",
+    );
+
+    expect(catalog.universeComponents?.length).toBe(24);
+    expect(button).toMatchObject({
+      label: "Button",
+      defaultName: "Button1",
+      propertyCount: 17,
+    });
+    expect(button?.properties.map((property) => property.path)).toContain("Caption");
+    expect(dropEffect?.properties.map((property) => property.path)).toContain("Effect.Name");
+    expect(zoneByName?.properties.map((property) => property.path)).toContain("Zone.Active");
+  });
+
   it("emits public OSC control routes for commands and Object Tree properties", () => {
     const catalog = readCatalog();
     const setBpm = catalog.commands.find((candidate) => candidate.canonical === "SetBpm");

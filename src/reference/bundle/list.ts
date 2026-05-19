@@ -5,6 +5,7 @@ import { clear, debounce, el, highlight } from "./dom";
 import {
   buildCueTypeReference,
   buildFxEffectReference,
+  buildUniverseComponentReference,
   filterObjectReferenceRows,
   type ObjectPropertyReferenceDetail,
   type ObjectPropertyReferenceRow,
@@ -88,9 +89,13 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
       listBox.append(emptyMessage(noMatchText));
       return;
     }
-    const ul = el("ul", { className: "list__items", attrs: { role: "list" } });
-    for (const row of filtered) ul.append(renderObjectReferenceRow(row, section, state, query));
-    listBox.append(ul);
+    const groupedRows = groupObjectReferenceRows(filtered);
+    for (const group of groupedRows) {
+      if (group.label) listBox.append(groupHeading(group.label, group.rows.length));
+      const ul = el("ul", { className: "list__items", attrs: { role: "list" } });
+      for (const row of group.rows) ul.append(renderObjectReferenceRow(row, section, state, query));
+      listBox.append(ul);
+    }
     requestAnimationFrame(() => highlightObjectReferenceSelection(listBox, state.selectedObjectReference));
   };
 
@@ -113,6 +118,20 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
       "cue-types",
       "No Cue Types data in this catalog.",
       "No Cue Types match this query.",
+    );
+  };
+
+  const renderUniverseComponentsSection = (): void => {
+    const reference = buildUniverseComponentReference(
+      state.catalog.objects ?? [],
+      state.catalog.universeComponents ?? [],
+    );
+    renderObjectReferenceRows(
+      reference.rows,
+      reference.details,
+      "universe-components",
+      "No Universe component data in this catalog.",
+      "No Universe components match this query.",
     );
   };
 
@@ -212,6 +231,9 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
         case "cue-types":
           renderCueTypesSection();
           break;
+        case "universe-components":
+          renderUniverseComponentsSection();
+          break;
         default:
           renderObjects();
       }
@@ -258,6 +280,23 @@ function makePill(label: string, kind: string, onDismiss: () => void): HTMLEleme
 
 function emptyMessage(text: string): HTMLElement {
   return el("div", { className: "list__empty" }, text);
+}
+
+function groupObjectReferenceRows(
+  rows: ObjectPropertyReferenceRow[],
+): Array<{ label: string | null; rows: ObjectPropertyReferenceRow[] }> {
+  if (!rows.some((row) => row.group)) return [{ label: null, rows }];
+  const groups: Array<{ label: string | null; rows: ObjectPropertyReferenceRow[] }> = [];
+  for (const row of rows) {
+    const label = row.group ?? "Other";
+    const last = groups[groups.length - 1];
+    if (last?.label === label) {
+      last.rows.push(row);
+    } else {
+      groups.push({ label, rows: [row] });
+    }
+  }
+  return groups;
 }
 
 function groupHeading(name: string, count: number, description?: string): HTMLElement {

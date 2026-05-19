@@ -5,12 +5,17 @@ export interface ObjectValueDisplayParts {
   formatParts: string[];
 }
 
+export interface ObjectValueDisplayOptions {
+  hideUnknownBoundaryBehavior?: boolean;
+}
+
 export function buildObjectValueSummaryText(metadata: ReferenceObjectProperty["valueMetadata"]): string | null {
   return joinObjectValueDisplayParts(buildObjectValueSummaryParts(metadata));
 }
 
 export function buildObjectValueSummaryParts(
   metadata: ReferenceObjectProperty["valueMetadata"],
+  options: ObjectValueDisplayOptions = {},
 ): ObjectValueDisplayParts | null {
   if (!metadata) return null;
   const valueParts: string[] = [];
@@ -21,7 +26,7 @@ export function buildObjectValueSummaryParts(
   if (metadata.valueRange) {
     const bounds = objectValueRangeBounds(metadata.valueRange);
     appendDistinctSummaryPart(valueParts, bounds);
-    if (metadata.valueRange.boundaryBehavior) {
+    if (shouldShowBoundaryBehavior(metadata.valueRange.boundaryBehavior, options)) {
       appendDistinctSummaryPart(
         valueParts,
         `${describeBoundaryBehavior(metadata.valueRange.boundaryBehavior)} outside range`,
@@ -45,6 +50,7 @@ export function buildObjectValueCardSummaryText(
 
 export function buildObjectValueCardSummaryParts(
   summary: NonNullable<ReferenceObjectProperty["propertyCard"]>["valueSummary"] | undefined,
+  options: ObjectValueDisplayOptions = {},
 ): ObjectValueDisplayParts | null {
   if (!summary) return null;
   const valueParts: string[] = [];
@@ -55,7 +61,7 @@ export function buildObjectValueCardSummaryParts(
   if (summary.range) {
     const bounds = objectValueCardRangeBounds(summary.range);
     appendDistinctSummaryPart(valueParts, bounds);
-    if (summary.range.boundaryBehavior) {
+    if (shouldShowBoundaryBehavior(summary.range.boundaryBehavior, options)) {
       appendDistinctSummaryPart(
         valueParts,
         `${describeBoundaryBehavior(summary.range.boundaryBehavior)} outside range`,
@@ -84,6 +90,14 @@ function appendValueFormatPart(parts: string[], part: string | undefined | null,
   if (!part) return;
   if (valueType && part.trim().toLowerCase() === valueType.trim().toLowerCase()) return;
   appendDistinctSummaryPart(parts, part);
+}
+
+function shouldShowBoundaryBehavior(
+  behavior: NonNullable<ReferenceForm["parameters"][number]["valueRange"]>["boundaryBehavior"] | undefined,
+  options: ObjectValueDisplayOptions,
+): behavior is NonNullable<ReferenceForm["parameters"][number]["valueRange"]>["boundaryBehavior"] {
+  if (!behavior) return false;
+  return !(options.hideUnknownBoundaryBehavior && behavior === "unknown");
 }
 
 function isDefaultBooleanAcceptedValueCount(valueType: string | undefined, count: number): boolean {
@@ -121,7 +135,6 @@ export function objectReadbackSummary(metadata: ReferenceObjectProperty["readbac
   if (!metadata) return null;
   const parts = ["readback"];
   if (metadata.valueType) parts.push(metadata.valueType);
-  if (metadata.observedValue !== undefined) parts.push(`observed ${String(metadata.observedValue)}`);
   const locationLabel = visibleLocationContextLabel(metadata.locationContext);
   if (locationLabel) parts.push(locationLabel);
   return parts.length > 0 ? parts.join("; ") : null;
@@ -132,10 +145,9 @@ export function objectReadbackCardSummary(
 ): string | null {
   if (!summary) return null;
   const locationKind = visibleLocationKind(summary.locationKind);
-  if (!summary.valueType && summary.observedValue === undefined && !locationKind) return null;
+  if (!summary.valueType && !locationKind) return null;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (summary.valueType) parts.push(summary.valueType);
-  if (summary.observedValue !== undefined) parts.push(`observed ${String(summary.observedValue)}`);
   if (locationKind) parts.push(locationKind);
   return parts.length > 0 ? parts.join("; ") : null;
 }
@@ -176,7 +188,7 @@ export function describeBoundaryBehavior(
     case "wrap":
       return "wraps";
     default:
-      return "unknown behavior";
+      return "unknown";
   }
 }
 
@@ -188,6 +200,7 @@ function appendDistinctSummaryPart(parts: string[], part: string | undefined | n
 }
 
 function behaviorLabel(value: string | undefined): string | undefined {
+  if (value === "computed-status") return "status";
   return value?.replaceAll("-", " ");
 }
 

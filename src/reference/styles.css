@@ -37,7 +37,7 @@
   --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
 
   --nav-width: 260px;
-  --list-width: 380px;
+  --list-width: 340px;
 }
 
 *,
@@ -174,17 +174,17 @@ kbd {
 
 @media (max-width: 1320px) {
   .layout {
-    grid-template-columns: 220px 320px minmax(0, 1fr);
+    grid-template-columns: 220px 300px minmax(0, 1fr);
     --nav-width: 220px;
-    --list-width: 320px;
+    --list-width: 300px;
   }
 }
 
 @media (max-width: 1100px) {
   .layout {
-    grid-template-columns: 200px 300px minmax(0, 1fr);
+    grid-template-columns: 200px 280px minmax(0, 1fr);
     --nav-width: 200px;
-    --list-width: 300px;
+    --list-width: 280px;
   }
 }
 
@@ -1283,19 +1283,36 @@ kbd {
 }
 /* Fixed Object Tree columns keep dense metadata readable without page overflow. */
 .object__props th:nth-child(1) {
-  width: 28%;
+  width: 31%;
 }
 .object__props th:nth-child(2) {
-  width: 12%;
+  width: 15%;
 }
 .object__props th:nth-child(3) {
-  width: 31%;
+  width: 25%;
 }
 .object__props th:nth-child(4) {
   width: 17%;
 }
 .object__props th:nth-child(5) {
   width: 12%;
+}
+@media (max-width: 1100px) {
+  .object__props th:nth-child(1) {
+    width: 32%;
+  }
+  .object__props th:nth-child(2) {
+    width: 19%;
+  }
+  .object__props th:nth-child(3) {
+    width: 22%;
+  }
+  .object__props th:nth-child(4) {
+    width: 15%;
+  }
+  .object__props th:nth-child(5) {
+    width: 12%;
+  }
 }
 .object__props tr:hover td {
   background: rgba(243, 178, 119, 0.04);
