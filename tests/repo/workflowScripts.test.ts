@@ -6,6 +6,7 @@ const repoRoot = process.cwd();
 
 const startIssueWork = require("../../scripts/startIssueWork.cjs") as {
   branchNameForIssue: (issueNumber: string | number, title: string) => string;
+  commandOutputText: (output: string | null) => string;
   parseArgs: (argv: string[]) => { issue?: string; title?: string; bodyFile?: string; labels: string[]; base: string };
   remoteTrackingFetchArgs: (base: string) => string[];
   slugifyTitle: (title: string) => string;
@@ -86,6 +87,11 @@ describe("maintainer workflow scripts", () => {
       "origin",
       "refs/heads/main:refs/remotes/origin/main",
     ]);
+  });
+
+  it("normalizes command output when stdout is ignored", () => {
+    expect(startIssueWork.commandOutputText(null)).toBe("");
+    expect(startIssueWork.commandOutputText("  main\n")).toBe("main");
   });
 
   it("summarizes hosted check state for PR readiness", () => {
