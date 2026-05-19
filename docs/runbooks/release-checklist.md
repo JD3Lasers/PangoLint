@@ -18,7 +18,7 @@ smoke checks.
 - [ ] `npm run check` passes on the maintainer machine. This is the strict
   verification gate for generated data, packaging, public checks, and MCP
   tarball verification.
-- [ ] `npm run check:release` passes — this is the clean-runner release gate
+- [ ] `npm run check:release` passes. This is the clean-runner release gate
   used by GitHub Actions. It verifies the checked-in release data and package
   contents from public tracked files.
 - [ ] `npm run check:public` passes from public tracked files.
@@ -149,6 +149,12 @@ smoke checks.
   - `release-vsix-contents.txt`
   - `release-mcp-tarball.json`
   - `SHA256SUMS`
+- [ ] Verify the draft release assets from the command line:
+
+  ```bash
+  npm run workflow:watch-release -- --tag v<version> --once
+  ```
+
 - [ ] Review the draft release notes and publish the release when ready.
 - [ ] Remember that GitHub Release assets are a manual installation channel
   only. They do not provide automatic VS Code or npm updates.

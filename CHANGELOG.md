@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.4] - 2026-05-19
+
+### Added
+
+- Add maintainer workflow scripts for issue branch startup, pull request
+  readiness checks, and GitHub Release artifact verification.
+
 ## [0.4.3] - 2026-05-19
 
 ### Added
@@ -69,7 +76,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.3...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.4...HEAD
+[0.4.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.3...v0.4.4
 [0.4.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.0...v0.4.1
