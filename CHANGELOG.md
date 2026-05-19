@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.5] - 2026-05-19
+
+### Fixed
+
+- Restore issue-start workflow script support for Node 25 when the silent git
+  fetch path ignores stdout.
+
 ## [0.4.4] - 2026-05-19
 
 ### Added
@@ -76,7 +83,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.4...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.5...HEAD
+[0.4.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.4...v0.4.5
 [0.4.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.3...v0.4.4
 [0.4.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.1...v0.4.2
