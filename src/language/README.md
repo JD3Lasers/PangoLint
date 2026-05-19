@@ -5,6 +5,7 @@ live BEYOND networking:
 
 - parsing and syntax-shape preservation,
 - diagnostics and quick language analysis,
+- focused diagnostic rules under `diagnostics/`,
 - formatting and semantic-token classification,
 - label/navigation helpers,
 - color and property-path recognition.

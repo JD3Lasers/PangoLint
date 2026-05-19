@@ -43,7 +43,8 @@ import { join, relative, resolve } from "node:path";
 import { loadBundledCatalog } from "../src/knowledge/catalogLoader";
 import type { CommandKnowledgeEntry, PangoKnowledgeBase } from "../src/knowledge/knowledgeBase";
 import { loadBundledPropertyIndex, type PropertyIndex } from "../src/knowledge/propertyIndex";
-import { lintPangoScript, type PangoDiagnostic } from "../src/language/diagnostics";
+import { lintPangoScript } from "../src/language/diagnostics";
+import type { PangoDiagnostic } from "../src/language/diagnostics/pangoDiagnostic";
 
 function knowledgeIndexFrom(kb: PangoKnowledgeBase): Map<string, CommandKnowledgeEntry> {
   const map = new Map<string, CommandKnowledgeEntry>();

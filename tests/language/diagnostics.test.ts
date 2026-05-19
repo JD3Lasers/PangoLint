@@ -745,7 +745,8 @@ describe("PangoScript diagnostics", () => {
 
 import { buildObjectPropertyIndex, type ObjectPropertyIndexFile } from "../../src/knowledge/objectPropertyIndex";
 import { buildPropertyIndex, type PropertyIndexFile } from "../../src/knowledge/propertyIndex";
-import { findPropertyTypoDiagnostics, levenshteinDistance } from "../../src/language/diagnostics";
+import { findPropertyTypoDiagnostics } from "../../src/language/diagnostics/propertyPathDiagnostics";
+import { levenshteinDistance } from "../../src/language/diagnostics/stringDistance";
 
 describe("levenshteinDistance", () => {
   it("returns 0 for identical strings (case-insensitive)", () => {

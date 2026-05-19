@@ -90,6 +90,20 @@ const expectedSidebarSubfolders: Record<string, string[]> = {
   "view/webview/objects-bundle": ["main.ts"],
 };
 
+const expectedLanguageSubfolders: Record<string, string[]> = {
+  diagnostics: [
+    "beyondCompatibilityDiagnostics.ts",
+    "commandDiagnostics.ts",
+    "controlFlowDiagnostics.ts",
+    "diagnosticLimits.ts",
+    "pangoDiagnostic.ts",
+    "pangoscriptTextSearch.ts",
+    "propertyPathDiagnostics.ts",
+    "stringDistance.ts",
+    "variableReadDiagnostics.ts",
+  ],
+};
+
 describe("source layout", () => {
   it("keeps production modules grouped by responsibility under src", () => {
     const rootTypeScriptFiles = readdirSync(sourceRoot)
@@ -112,6 +126,17 @@ describe("source layout", () => {
     for (const [subfolder, files] of Object.entries(expectedSidebarSubfolders)) {
       const subfolderPath = path.join(sidebarPath, subfolder);
       expect(existsSync(subfolderPath), `sidebar/${subfolder}/`).toBe(true);
+      expect(
+        readdirSync(subfolderPath)
+          .filter((entry) => entry.endsWith(".ts"))
+          .sort(),
+      ).toEqual(files);
+    }
+
+    const languagePath = path.join(sourceRoot, "language");
+    for (const [subfolder, files] of Object.entries(expectedLanguageSubfolders)) {
+      const subfolderPath = path.join(languagePath, subfolder);
+      expect(existsSync(path.join(subfolderPath, "README.md")), `language/${subfolder}/README.md`).toBe(true);
       expect(
         readdirSync(subfolderPath)
           .filter((entry) => entry.endsWith(".ts"))

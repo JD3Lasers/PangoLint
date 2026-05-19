@@ -11,7 +11,8 @@ import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase
 import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
 import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
 import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
-import { lintPangoScript, type PangoDiagnostic } from "../../../src/language/diagnostics";
+import { lintPangoScript } from "../../../src/language/diagnostics";
+import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
 import { fail, ok, type ToolResult } from "../config";
 
 export interface LintScriptInput {

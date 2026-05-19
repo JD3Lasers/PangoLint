@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.6] - 2026-05-19
+
+### Changed
+
+- Split language diagnostics into named source modules without changing the
+  diagnostic API or adding a compatibility layer.
+
 ## [0.4.5] - 2026-05-19
 
 ### Fixed
@@ -83,7 +90,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.5...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.6...HEAD
+[0.4.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.5...v0.4.6
 [0.4.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.4...v0.4.5
 [0.4.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.3...v0.4.4
 [0.4.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...v0.4.3

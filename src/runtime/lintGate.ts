@@ -1,4 +1,4 @@
-import type { PangoDiagnostic } from "../language/diagnostics";
+import type { PangoDiagnostic } from "../language/diagnostics/pangoDiagnostic";
 
 export interface RuntimeLintGateResult {
   ok: boolean;

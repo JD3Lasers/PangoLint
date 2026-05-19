@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import type { PangoDiagnostic } from "../language/diagnostics";
+import type { PangoDiagnostic } from "../language/diagnostics/pangoDiagnostic";
 import { propertyPathAtPosition } from "../language/propertyPath";
 import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
 import { checkBeyondConnection, readBeyondProperty, verifyCommandWrite } from "./beyondReadback";
