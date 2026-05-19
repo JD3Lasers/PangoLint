@@ -74,6 +74,10 @@ file is truly a package-level barrel with no behavior.
   `generateKnowledgeBase.ts`, `verifyPackageContents.ts`.
 - `scripts/` is public-safe maintainer tooling only: generators, corpus
   linting, packaging checks, and deterministic data-copy helpers.
+- `scripts/objectPropertyIndex/` owns the Object Tree property index generator
+  modules. Keep entry construction, source fact loading, metadata overlays,
+  metadata validation, path logic, search text, and generator data contracts in
+  named files under that folder.
 - One-off live BEYOND investigation scripts belong under ignored local tooling
   paths such as `.local-scripts/`. Do not track them in
   git; summarize durable public-safe findings in `docs/references/` and
