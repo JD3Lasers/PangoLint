@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { valueTransformLabel } from "../../src/reference/bundle/detail";
+import { valueTransformLabel } from "../../src/reference/bundle/detail/oscRouteDetail";
 import { buildFxTree } from "../../src/reference/bundle/objectTree";
 import type { ReferenceCatalog, ReferenceOscRoute } from "../../src/reference/bundle/types";
 
