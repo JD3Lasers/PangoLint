@@ -6,6 +6,7 @@ import {
   buildObjectValueCardSummaryText,
   buildObjectValueSummaryParts,
   buildObjectValueSummaryText,
+  describeBoundaryBehavior,
   objectBehaviorSummary,
   objectBehaviorSummaryParts,
   objectReadbackCardSummary,
@@ -123,6 +124,42 @@ describe("object value summary text", () => {
       formatParts: ["physics scalar"],
     });
   });
+
+  it("uses compact wording for unknown range behavior", () => {
+    expect(describeBoundaryBehavior("unknown")).toBe("unknown");
+    expect(
+      buildObjectValueCardSummaryParts({
+        valueType: "integer",
+        range: {
+          min: 256,
+          max: 256,
+          boundaryBehavior: "unknown",
+        },
+      }),
+    ).toEqual({
+      valueParts: ["integer", "256..256", "unknown outside range"],
+      formatParts: [],
+    });
+  });
+
+  it("can hide unknown range behavior for read-only object properties", () => {
+    expect(
+      buildObjectValueCardSummaryParts(
+        {
+          valueType: "integer",
+          range: {
+            min: 256,
+            max: 256,
+            boundaryBehavior: "unknown",
+          },
+        },
+        { hideUnknownBoundaryBehavior: true },
+      ),
+    ).toEqual({
+      valueParts: ["integer", "256..256"],
+      formatParts: [],
+    });
+  });
 });
 
 describe("object behavior summary text", () => {
@@ -147,6 +184,17 @@ describe("object behavior summary text", () => {
       }),
     ).toEqual(["read write", "flag state"]);
   });
+
+  it("uses compact wording for computed status rows", () => {
+    expect(
+      objectBehaviorSummaryParts({
+        accessMode: "read-only",
+        behaviorKind: "computed-status",
+        writeTestStatus: "write-no-op-tested",
+        readbackStatus: "readback-tested",
+      }),
+    ).toEqual(["read only", "status"]);
+  });
 });
 
 describe("object readback card summary text", () => {
@@ -154,10 +202,14 @@ describe("object readback card summary text", () => {
     expect(objectReadbackCardSummary({ status: "readback-tested", evidenceLevel: "observed" })).toBeNull();
   });
 
-  it("summarizes readback data when a readable value shape is present", () => {
+  it("summarizes readback data without exposing observed test values", () => {
     expect(objectReadbackCardSummary({ status: "readable", valueType: "float", observedValue: 1.5 })).toBe(
-      "readback; float; observed 1.5",
+      "readback; float",
     );
+  });
+
+  it("does not show observed readback values without a public value shape", () => {
+    expect(objectReadbackCardSummary({ status: "readable", observedValue: 1.5 })).toBeNull();
   });
 });
 
@@ -192,6 +244,16 @@ describe("object property path display", () => {
       primaryPath: "FX.N.N.N.Oscillator.Period",
       secondaryLabel: null,
       secondaryPath: null,
+    });
+  });
+
+  it("shows component-relative Universe property names while preserving the Object Tree path", () => {
+    expect(
+      objectPropertyPathDisplay("Universe.N.DropEff1.Effect.Name", "universe-component", "Universe.N.DropEff1"),
+    ).toEqual({
+      primaryPath: "Effect.Name",
+      secondaryLabel: "Object Tree path",
+      secondaryPath: "Universe.N.DropEff1.Effect.Name",
     });
   });
 });

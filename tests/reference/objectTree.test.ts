@@ -6,6 +6,7 @@ import {
   buildFxEffectPropertySections,
   buildFxEffectReference,
   buildFxTree,
+  buildUniverseComponentReference,
   countObjectTreeLeaves,
   filterObjectPropertySections,
   filterObjectReferenceRows,
@@ -13,7 +14,12 @@ import {
   type ObjectTreeNode,
 } from "../../src/reference/bundle/objectTree";
 import { getVisibleDetailSelection, hasVisibleDetailSelection, ReferenceState } from "../../src/reference/bundle/state";
-import type { ReferenceCatalog, ReferenceObject, ReferenceObjectProperty } from "../../src/reference/bundle/types";
+import type {
+  ReferenceCatalog,
+  ReferenceObject,
+  ReferenceObjectProperty,
+  ReferenceUniverseComponent,
+} from "../../src/reference/bundle/types";
 
 function emptyCatalog(): ReferenceCatalog {
   return {
@@ -186,6 +192,20 @@ function makeProperty(
 
 function makeObject(name: string, properties: ReferenceObjectProperty[]): ReferenceObject {
   return { name, isArray: false, propertyCount: properties.length, properties };
+}
+
+function makeUniverseComponent(
+  overrides: Partial<ReferenceUniverseComponent> & Pick<ReferenceUniverseComponent, "id" | "label" | "defaultName">,
+): ReferenceUniverseComponent {
+  return {
+    componentIndex: 0,
+    propertyCount: overrides.properties?.length ?? 0,
+    propertySetId: "props-test",
+    addressForms: [`Universe.0.${overrides.defaultName}`],
+    oscAddressForms: [`/b/Universe/0/${overrides.defaultName}`],
+    properties: [],
+    ...overrides,
+  };
 }
 
 function childrenOf(node: ObjectTreeNode | undefined): ObjectTreeNode[] {
@@ -444,6 +464,133 @@ describe("buildFxEffectReference", () => {
   });
 });
 
+describe("buildUniverseComponentReference", () => {
+  it("uses Universe component rows in the middle column and component-relative detail sections", () => {
+    const universe = makeObject("Universe", [
+      makeProperty("Universe.N.Button1.Caption", []),
+      makeProperty("Universe.N.Button1.Value", []),
+      makeProperty("Universe.N.DropEff1.Caption", []),
+      makeProperty("Universe.N.DropEff1.Effect.Name", []),
+      makeProperty("Universe.N.ZonePad2.Caption", []),
+      makeProperty("Universe.N.ZonePad2.Zone.Active", []),
+      makeProperty("Universe.N.ZonePad2.Zone.UGC.SizeX", []),
+      makeProperty("Universe.N.ZonePad2.Zone.Effect.Name", []),
+    ]);
+    const components = [
+      makeUniverseComponent({
+        id: "universe.button",
+        label: "Button",
+        defaultName: "Button1",
+        componentIndex: 0,
+        properties: [
+          {
+            path: "Caption",
+            leafName: "Caption",
+            objectPaths: ["Universe.0.0.Caption", "Universe.0.Button1.Caption"],
+            oscPaths: ["/b/Universe/0/0/Caption", "/b/Universe/0/Button1/Caption"],
+          },
+          {
+            path: "Value",
+            leafName: "Value",
+            objectPaths: ["Universe.0.0.Value", "Universe.0.Button1.Value"],
+            oscPaths: ["/b/Universe/0/0/Value", "/b/Universe/0/Button1/Value"],
+          },
+        ],
+      }),
+      makeUniverseComponent({
+        id: "universe.drop-effect",
+        label: "Drop Effect",
+        defaultName: "DropEff1",
+        componentIndex: 1,
+        properties: [
+          {
+            path: "Caption",
+            leafName: "Caption",
+            objectPaths: ["Universe.0.17.Caption", "Universe.0.DropEff1.Caption"],
+            oscPaths: ["/b/Universe/0/17/Caption", "/b/Universe/0/DropEff1/Caption"],
+          },
+          {
+            path: "Effect.Name",
+            leafName: "Name",
+            objectPaths: ["Universe.0.17.Effect.Name", "Universe.0.DropEff1.Effect.Name"],
+            oscPaths: ["/b/Universe/0/17/Effect/Name", "/b/Universe/0/DropEff1/Effect/Name"],
+          },
+        ],
+      }),
+      makeUniverseComponent({
+        id: "universe.zone-by-name",
+        label: "Projection Zone (by name)",
+        defaultName: "ZonePad2",
+        componentIndex: 2,
+        properties: [
+          {
+            path: "Caption",
+            leafName: "Caption",
+            objectPaths: ["Universe.0.23.Caption", "Universe.0.ZonePad2.Caption"],
+            oscPaths: ["/b/Universe/0/23/Caption", "/b/Universe/0/ZonePad2/Caption"],
+          },
+          {
+            path: "Zone.Active",
+            leafName: "Active",
+            objectPaths: ["Universe.0.23.Zone.Active", "Universe.0.ZonePad2.Zone.Active"],
+            oscPaths: ["/b/Universe/0/23/Zone/Active", "/b/Universe/0/ZonePad2/Zone/Active"],
+          },
+          {
+            path: "Zone.UGC.SizeX",
+            leafName: "SizeX",
+            objectPaths: ["Universe.0.23.Zone.UGC.SizeX", "Universe.0.ZonePad2.Zone.UGC.SizeX"],
+            oscPaths: ["/b/Universe/0/23/Zone/UGC/SizeX", "/b/Universe/0/ZonePad2/Zone/UGC/SizeX"],
+          },
+          {
+            path: "Zone.Effect.Name",
+            leafName: "Name",
+            objectPaths: ["Universe.0.23.Zone.Effect.Name", "Universe.0.ZonePad2.Zone.Effect.Name"],
+            oscPaths: ["/b/Universe/0/23/Zone/Effect/Name", "/b/Universe/0/ZonePad2/Zone/Effect/Name"],
+          },
+        ],
+      }),
+    ];
+
+    const reference = buildUniverseComponentReference([universe], components);
+
+    expect(reference.componentCount).toBe(3);
+    expect(reference.rows.map((row) => [row.group, row.label, row.description, row.propertyCount])).toEqual([
+      ["Standard Components", "Universe Button", "Universe.N.Button1", 2],
+      ["Effect Components", "Universe Drop Effect", "Universe.N.DropEff1", 2],
+      ["Projection Zones", "Universe Projection Zone (by name)", "Universe.N.ZonePad2", 4],
+    ]);
+    const dropEffect = reference.details.find((detail) => detail.id === "universe.drop-effect");
+    expect(dropEffect).toMatchObject({
+      label: "Universe Drop Effect",
+      detailKind: "universe component",
+      pathDisplayContext: "universe-component",
+      pathDisplayPrefix: "Universe.N.DropEff1",
+    });
+    expect(dropEffect?.sections.map((section) => section.label)).toEqual(["Component controls", "Effect controls"]);
+    expect(dropEffect?.sections[0].properties.map((property) => property.path)).toEqual([
+      "Universe.N.DropEff1.Caption",
+    ]);
+    const zone = reference.details.find((detail) => detail.id === "universe.zone-by-name");
+    expect(zone?.sections.map((section) => section.label)).toEqual([
+      "Component controls",
+      "Zone controls",
+      "Zone UGC controls",
+      "Zone effect controls",
+    ]);
+  });
+
+  it("returns no rows when the Universe object is missing", () => {
+    const reference = buildUniverseComponentReference(
+      [],
+      [makeUniverseComponent({ id: "universe.button", label: "Button", defaultName: "Button1" })],
+    );
+
+    expect(reference.rows).toEqual([]);
+    expect(reference.details).toEqual([]);
+    expect(reference.componentCount).toBe(0);
+  });
+});
+
 describe("filterObjectReferenceRows", () => {
   it("filters reference rows by label and property paths from the detail", () => {
     const caption = makeProperty("WS.N.N.Caption", [
@@ -459,6 +606,17 @@ describe("filterObjectReferenceRows", () => {
     ]);
     expect(filterObjectReferenceRows(reference.rows, reference.details, "fontsize").map((row) => row.label)).toEqual([
       "Text",
+    ]);
+  });
+
+  it("filters reference rows by row group", () => {
+    const rows = [
+      { id: "universe.button", label: "Universe Button", group: "Standard Components", propertyCount: 17 },
+      { id: "universe.drop-effect", label: "Universe Drop Effect", group: "Effect Components", propertyCount: 28 },
+    ];
+
+    expect(filterObjectReferenceRows(rows, [], "effect components").map((row) => row.id)).toEqual([
+      "universe.drop-effect",
     ]);
   });
 });

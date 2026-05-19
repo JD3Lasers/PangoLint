@@ -6,6 +6,7 @@
 //   #q=metro+shift
 //   #cue=Text
 //   #effect=Oscillating+effect+%3A%3A+Zoom
+//   #component=universe.drop-effect
 // State writes back to the URL via History API replaceState so back/
 // forward navigation is sane.
 
@@ -21,6 +22,7 @@ interface ParsedHash {
   sec?: string;
   cue?: string;
   effect?: string;
+  component?: string;
 }
 
 function parseHash(hash: string): ParsedHash {
@@ -41,7 +43,8 @@ function parseHash(hash: string): ParsedHash {
       k === "q" ||
       k === "sec" ||
       k === "cue" ||
-      k === "effect"
+      k === "effect" ||
+      k === "component"
     ) {
       out[k] = decoded;
     }
@@ -71,6 +74,9 @@ function buildHash(state: ReferenceState): string {
   if (detailSelection?.kind === "object-reference" && detailSelection.selection.section === "fx") {
     parts.push(`effect=${encode(detailSelection.selection.id)}`);
   }
+  if (detailSelection?.kind === "object-reference" && detailSelection.selection.section === "universe-components") {
+    parts.push(`component=${encode(detailSelection.selection.id)}`);
+  }
   return parts.length ? `#${parts.join("&")}` : "";
 }
 
@@ -79,13 +85,19 @@ function encode(value: string): string {
 }
 
 function parsedObjectSection(sec: string | undefined): ObjectSection {
-  if (sec === "fx" || sec === "cue-types") return sec;
+  if (sec === "fx" || sec === "cue-types" || sec === "universe-components") return sec;
   return "schemas";
 }
 
 export function applyHashToState(state: ReferenceState, hash: string): void {
   const parsed = parseHash(hash);
-  const objectReferenceSection = parsed.cue ? "cue-types" : parsed.effect ? "fx" : null;
+  const objectReferenceSection = parsed.cue
+    ? "cue-types"
+    : parsed.effect
+      ? "fx"
+      : parsed.component
+        ? "universe-components"
+        : null;
   // Resolve mode first so subsequent filter/selection writes land in
   // the right vocabulary. selectObject/select also flip mode if
   // needed; this just handles the "no selection, view=objects" case.
@@ -102,6 +114,8 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
     state.selectObjectReference("cue-types", parsed.cue);
   } else if (parsed.effect) {
     state.selectObjectReference("fx", parsed.effect);
+  } else if (parsed.component) {
+    state.selectObjectReference("universe-components", parsed.component);
   } else if (parsed.cmd && parsed.view !== "objects") {
     state.select(parsed.cmd);
   } else {

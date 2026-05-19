@@ -170,10 +170,9 @@ function metadataSummary(summary: ValueSummary | undefined): string | undefined 
 function readbackSummary(summary: ReadbackSummary | undefined): string | undefined {
   if (!summary) return undefined;
   const locationLabel = visibleLocationKind(summary.locationKind);
-  if (!summary.valueType && summary.observedValue === undefined && !locationLabel) return undefined;
+  if (!summary.valueType && !locationLabel) return undefined;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (summary.valueType) parts.push(summary.valueType);
-  if (summary.observedValue !== undefined) parts.push(`observed ${String(summary.observedValue)}`);
   if (locationLabel) parts.push(locationLabel);
   return parts.filter(Boolean).join("; ");
 }
@@ -185,6 +184,7 @@ function behaviorSummary(classification: BehaviorClassification | undefined): st
 }
 
 function behaviorLabel(value: string | undefined): string | undefined {
+  if (value === "computed-status") return "status";
   return value?.replaceAll("-", " ");
 }
 

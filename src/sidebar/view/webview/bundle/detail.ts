@@ -265,6 +265,6 @@ function describeBoundaryBehavior(behavior: NonNullable<ParameterDetail["valueRa
     case "wrap":
       return "wraps";
     default:
-      return "unknown behavior";
+      return "unknown";
   }
 }

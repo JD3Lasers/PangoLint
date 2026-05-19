@@ -9,6 +9,7 @@
 //   - data/pangoscript/object-tree/runtime-indexes/object-property-index.json
 //   - data/pangoscript/control-reference/command-control-reference/command-osc-route-links.json
 //   - data/pangoscript/control-reference/osc-control-reference/object-property-target-index.json
+//   - data/pangoscript/control-reference/object-control-reference/universe-component-types.json
 //   - data/pangoscript/beyond-category-tree.json  (BEYOND-native category order)
 //   - src/knowledge/expressionFunctions.ts
 //
@@ -137,6 +138,25 @@ interface RawObjectIndex {
     classification?: RawObjectBehaviorClassification;
     contextValueMetadata?: Array<RawObjectValueMetadata & { contextId: string }>;
   }>;
+}
+
+interface RawUniverseComponent {
+  id: string;
+  label: string;
+  componentIndex: number;
+  defaultName: string;
+  propertyCount: number;
+  propertySetId: string;
+  addressForms: string[];
+  oscAddressForms: string[];
+  properties: RawUniverseComponentProperty[];
+}
+
+interface RawUniverseComponentProperty {
+  path: string;
+  leafName: string;
+  objectPaths: string[];
+  oscPaths: string[];
 }
 
 interface RawObjectProbeContext {
@@ -329,6 +349,18 @@ interface OutObject {
   properties: OutObjectProperty[];
 }
 
+interface OutUniverseComponent {
+  id: string;
+  label: string;
+  componentIndex: number;
+  defaultName: string;
+  propertyCount: number;
+  propertySetId: string;
+  addressForms: string[];
+  oscAddressForms: string[];
+  properties: RawUniverseComponentProperty[];
+}
+
 interface OutCatalog {
   meta: {
     generatedAt: string;
@@ -340,6 +372,7 @@ interface OutCatalog {
   };
   commands: OutCommand[];
   objects: OutObject[];
+  universeComponents: OutUniverseComponent[];
 }
 
 interface OutOscRoute {
@@ -883,6 +916,9 @@ function buildCatalog(): OutCatalog {
   const rawObjectPropertyOscRoutes = readJson<RawObjectPropertyOscRoute[]>(
     "data/pangoscript/control-reference/osc-control-reference/object-property-target-index.json",
   );
+  const rawUniverseComponents = readJson<RawUniverseComponent[]>(
+    "data/pangoscript/control-reference/object-control-reference/universe-component-types.json",
+  );
   const rawTree = readJson<RawCategoryTree>("data/pangoscript/beyond-category-tree.json");
   const commandOscRoutes = buildCommandOscRouteMap(rawCommandOscRouteLinks);
   const objectPropertyOscRoutes = buildObjectPropertyOscRouteMap(rawObjectPropertyOscRoutes);
@@ -898,6 +934,7 @@ function buildCatalog(): OutCatalog {
   commands.sort((a, b) => a.canonical.localeCompare(b.canonical));
 
   const objects = buildObjects(rawKnown, rawIndex, commands, objectPropertyOscRoutes);
+  const universeComponents = rawUniverseComponents.map(publicUniverseComponent);
 
   // Per-category counts in BEYOND tree order
   const categoryCounts = new Map<string, number>();
@@ -928,6 +965,26 @@ function buildCatalog(): OutCatalog {
     },
     commands,
     objects,
+    universeComponents,
+  };
+}
+
+function publicUniverseComponent(component: RawUniverseComponent): OutUniverseComponent {
+  return {
+    id: component.id,
+    label: component.label,
+    componentIndex: component.componentIndex,
+    defaultName: component.defaultName,
+    propertyCount: component.propertyCount,
+    propertySetId: component.propertySetId,
+    addressForms: [...component.addressForms],
+    oscAddressForms: [...component.oscAddressForms],
+    properties: component.properties.map((property) => ({
+      path: property.path,
+      leafName: property.leafName,
+      objectPaths: [...property.objectPaths],
+      oscPaths: [...property.oscPaths],
+    })),
   };
 }
 

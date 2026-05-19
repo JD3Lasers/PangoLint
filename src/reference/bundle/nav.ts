@@ -4,7 +4,7 @@
 // reference sections.
 
 import { clear, el } from "./dom";
-import { buildCueTypeReference, buildFxEffectReference } from "./objectTree";
+import { buildCueTypeReference, buildFxEffectReference, buildUniverseComponentReference } from "./objectTree";
 import type { ObjectSection, ReferenceState } from "./state";
 
 export function renderNavColumn(state: ReferenceState): HTMLElement {
@@ -68,13 +68,22 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
           "div",
           { className: "nav__heading" },
           el("span", {}, "Object Tree"),
-          el("span", { className: "nav__heading-count" }, "3"),
+          el("span", { className: "nav__heading-count" }, "4"),
         ),
       );
       const cueTypes = buildCueTypeReference(state.catalog.objects ?? []);
       const fxEffects = buildFxEffectReference(state.catalog.objects ?? []);
+      const universeComponents = buildUniverseComponentReference(
+        state.catalog.objects ?? [],
+        state.catalog.universeComponents ?? [],
+      );
       const sections: Array<{ label: string; section: ObjectSection; count: number }> = [
         { label: "Schemas", section: "schemas", count: state.catalog.objects?.length ?? 0 },
+        {
+          label: "Universe Components",
+          section: "universe-components",
+          count: universeComponents.componentCount,
+        },
         { label: "Cue Types", section: "cue-types", count: cueTypes.typeCount },
         { label: "FX Effects", section: "fx", count: fxEffects.effectCount },
       ];

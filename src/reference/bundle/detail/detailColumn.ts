@@ -1,5 +1,10 @@
 import { clear, el } from "../dom";
-import { buildCueTypeReference, buildFxEffectReference, type ObjectPropertyReferenceDetail } from "../objectTree";
+import {
+  buildCueTypeReference,
+  buildFxEffectReference,
+  buildUniverseComponentReference,
+  type ObjectPropertyReferenceDetail,
+} from "../objectTree";
 import {
   getVisibleDetailSelection,
   hasVisibleDetailSelection,
@@ -109,15 +114,20 @@ function objectTreeEmptyState(state: ReferenceState): HTMLElement {
           title: "Cue Types",
           body: "Pick a cue type on the left to inspect its WS Object Tree paths here.",
         }
-      : state.objectSection === "fx"
+      : state.objectSection === "universe-components"
         ? {
-            title: "FX Effects",
-            body: "Pick an FX effect on the left to inspect its FX Object Tree paths here.",
+            title: "Universe Components",
+            body: "Pick a Universe component type on the left to inspect its Object Tree paths here.",
           }
-        : {
-            title: `${objectCount} Object Tree schemas`,
-            body: "Pick an object schema on the left, or search by object and property name.",
-          };
+        : state.objectSection === "fx"
+          ? {
+              title: "FX Effects",
+              body: "Pick an FX effect on the left to inspect its FX Object Tree paths here.",
+            }
+          : {
+              title: `${objectCount} Object Tree schemas`,
+              body: "Pick an object schema on the left, or search by object and property name.",
+            };
   return el(
     "div",
     { className: "detail__empty" },
@@ -142,7 +152,9 @@ function findObjectReferenceDetail(
   const reference =
     selection.section === "cue-types"
       ? buildCueTypeReference(state.catalog.objects ?? [])
-      : buildFxEffectReference(state.catalog.objects ?? []);
+      : selection.section === "universe-components"
+        ? buildUniverseComponentReference(state.catalog.objects ?? [], state.catalog.universeComponents ?? [])
+        : buildFxEffectReference(state.catalog.objects ?? []);
   return reference.details.find((detail) => detail.id === selection.id) ?? null;
 }
 

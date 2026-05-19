@@ -12,7 +12,7 @@ import {
 } from "./objectPropertySummary";
 import { renderObjectRouteSummary } from "./oscRouteDetail";
 
-export type ObjectPropertyPathDisplayContext = "schema" | "fx-effect";
+export type ObjectPropertyPathDisplayContext = "schema" | "fx-effect" | "universe-component";
 
 export interface ObjectPropertyPathDisplay {
   primaryPath: string;
@@ -23,12 +23,25 @@ export interface ObjectPropertyPathDisplay {
 export function objectPropertyPathDisplay(
   path: string,
   context: ObjectPropertyPathDisplayContext,
+  pathDisplayPrefix?: string,
 ): ObjectPropertyPathDisplay {
   const quickFxCellPathPrefix = "FX.N.N.N.";
   if (context === "fx-effect" && path.startsWith(quickFxCellPathPrefix) && path.length > quickFxCellPathPrefix.length) {
     return {
       primaryPath: path.slice(quickFxCellPathPrefix.length),
       secondaryLabel: "QuickFX cell path",
+      secondaryPath: path,
+    };
+  }
+  if (
+    context === "universe-component" &&
+    pathDisplayPrefix &&
+    path.startsWith(`${pathDisplayPrefix}.`) &&
+    path.length > pathDisplayPrefix.length + 1
+  ) {
+    return {
+      primaryPath: path.slice(pathDisplayPrefix.length + 1),
+      secondaryLabel: "Object Tree path",
       secondaryPath: path,
     };
   }
@@ -89,7 +102,9 @@ export function renderObjectReferenceDetail(detail: ObjectPropertyReferenceDetai
   const header = el("header", { className: "detail__header" });
   const titleRow = el("div", { className: "detail__title-row" });
   const title = el("h1", { className: "detail__title" }, detail.label);
-  title.append(el("span", { className: "detail__kind" }, detail.root === "WS" ? "cue type" : "FX effect"));
+  title.append(
+    el("span", { className: "detail__kind" }, detail.detailKind ?? (detail.root === "WS" ? "cue type" : "FX effect")),
+  );
   titleRow.append(title);
   header.append(titleRow);
 
@@ -116,7 +131,13 @@ export function renderObjectReferenceDetail(detail: ObjectPropertyReferenceDetai
       section.append(el("p", { className: "detail__description" }, sectionDetail.description));
     }
     section.append(
-      renderObjectPropertiesTable(sectionDetail.properties, state, null, detail.root === "FX" ? "fx-effect" : "schema"),
+      renderObjectPropertiesTable(
+        sectionDetail.properties,
+        state,
+        null,
+        detail.pathDisplayContext ?? (detail.root === "FX" ? "fx-effect" : "schema"),
+        detail.pathDisplayPrefix,
+      ),
     );
     container.append(section);
   }
@@ -129,6 +150,7 @@ function renderObjectPropertiesTable(
   state: ReferenceState,
   focusedPropertyPath: string | null,
   pathDisplayContext: ObjectPropertyPathDisplayContext = "schema",
+  pathDisplayPrefix?: string,
 ): HTMLElement {
   const table = el("table", { className: "object__props" });
   const thead = el("thead", {});
@@ -140,7 +162,9 @@ function renderObjectPropertiesTable(
   table.append(thead);
   const tbody = el("tbody", {});
   for (const p of properties) {
-    tbody.append(renderObjectPropertyTableRow(p, state, p.path === focusedPropertyPath, pathDisplayContext));
+    tbody.append(
+      renderObjectPropertyTableRow(p, state, p.path === focusedPropertyPath, pathDisplayContext, pathDisplayPrefix),
+    );
   }
   table.append(tbody);
   return el("div", { className: "object__props-scroll" }, table);
@@ -151,6 +175,7 @@ function renderObjectPropertyTableRow(
   state: ReferenceState,
   isFocusedProperty: boolean,
   pathDisplayContext: ObjectPropertyPathDisplayContext,
+  pathDisplayPrefix?: string,
 ): HTMLElement {
   const row = el("tr", {
     className: `object__prop-row${isFocusedProperty ? " is-focused" : ""}`,
@@ -162,7 +187,7 @@ function renderObjectPropertyTableRow(
   });
 
   const pathCell = el("td", { className: "object__prop-cell", attrs: { "data-label": "Property" } });
-  const pathDisplay = objectPropertyPathDisplay(p.path, pathDisplayContext);
+  const pathDisplay = objectPropertyPathDisplay(p.path, pathDisplayContext, pathDisplayPrefix);
   pathCell.append(el("code", {}, pathDisplay.primaryPath));
   if (pathDisplay.secondaryPath) {
     const pathLine = el("div", { className: "object__path-secondary" });
@@ -182,7 +207,8 @@ function renderObjectPropertyTableRow(
   }
   row.append(pathCell);
 
-  const behaviorParts = objectBehaviorSummaryParts(p.propertyCard?.classification ?? p.classification);
+  const classification = p.propertyCard?.classification ?? p.classification;
+  const behaviorParts = objectBehaviorSummaryParts(classification);
   const behaviorCell = el("td", { className: "object__behavior", attrs: { "data-label": "Behavior" } });
   if (behaviorParts.length > 0) {
     for (const behaviorPart of behaviorParts) {
@@ -193,8 +219,12 @@ function renderObjectPropertyTableRow(
   }
   row.append(behaviorCell);
 
+  const valueDisplayOptions = {
+    hideUnknownBoundaryBehavior: classification?.accessMode === "read-only",
+  };
   const valueDisplay =
-    buildObjectValueCardSummaryParts(p.propertyCard?.valueSummary) ?? buildObjectValueSummaryParts(p.valueMetadata);
+    buildObjectValueCardSummaryParts(p.propertyCard?.valueSummary, valueDisplayOptions) ??
+    buildObjectValueSummaryParts(p.valueMetadata, valueDisplayOptions);
   const readbackSummary =
     objectReadbackCardSummary(p.propertyCard?.readbackSummary) ?? objectReadbackSummary(p.readbackMetadata);
   const valueParts =

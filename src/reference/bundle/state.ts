@@ -6,8 +6,8 @@ import { buildIndex, type SearchHit, type SearchIndex, search } from "./search";
 import type { ReferenceCatalog, ReferenceCommand, ReferenceObject } from "./types";
 
 export type ViewMode = "commands" | "objects";
-export type ObjectSection = "fx" | "cue-types" | "schemas";
-export type ObjectReferenceSection = "fx" | "cue-types";
+export type ObjectSection = "fx" | "cue-types" | "schemas" | "universe-components";
+export type ObjectReferenceSection = "fx" | "cue-types" | "universe-components";
 
 export interface ObjectReferenceSelection {
   section: ObjectReferenceSection;
