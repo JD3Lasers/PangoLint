@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
+import { hasAnyMeaningfulParam } from "../../src/reference/bundle/detail/commandDetail";
+import { objectPropertyPathDisplay } from "../../src/reference/bundle/detail/objectDetail";
 import {
   buildObjectValueCardSummaryText,
   buildObjectValueSummaryText,
-  hasAnyMeaningfulParam,
   objectBehaviorSummary,
-  objectPropertyPathDisplay,
   objectReadbackCardSummary,
-} from "../../src/reference/bundle/detail";
+} from "../../src/reference/bundle/detail/objectPropertySummary";
 import type { ReferenceParameter } from "../../src/reference/bundle/types";
 
 function param(overrides: Partial<ReferenceParameter> = {}): ReferenceParameter {

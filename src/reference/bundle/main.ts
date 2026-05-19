@@ -6,7 +6,7 @@
 // reads the catalog, instantiates state, installs the router, and
 // renders the 3-column layout.
 
-import { renderDetailColumn } from "./detail";
+import { renderDetailColumn } from "./detail/detailColumn";
 import { renderListColumn } from "./list";
 import { renderNavColumn } from "./nav";
 import { installRouter } from "./router";
