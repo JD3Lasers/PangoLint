@@ -39,7 +39,7 @@ export interface ReadBeyondPropertyOutput {
 export type ReadBeyondPropertyResult = ToolResult<ReadBeyondPropertyOutput>;
 
 export interface ReadBeyondPropertyDeps {
-  /** Transport seam for tests; defaults to the real node UDP transport. */
+  /** Transport override for tests; defaults to the real Node readback transport. */
   transport?: ReadbackTransport;
 }
 
