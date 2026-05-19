@@ -6,6 +6,19 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-05-19
+
+### Added
+
+- Add a Universe Components section to the offline Object Tree reference so
+  Button, Drop Effect, Projection Zone, and related component types can be
+  browsed directly.
+
+### Changed
+
+- Polish Object Tree reference table layout and visible value and behavior
+  labels while keeping internal Object Tree metadata unchanged.
+
 ## [0.4.10] - 2026-05-19
 
 ### Changed
@@ -118,7 +131,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.10...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.10...v0.5.0
 [0.4.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.9...v0.4.10
 [0.4.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.8...v0.4.9
 [0.4.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.7...v0.4.8
