@@ -133,7 +133,7 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
   try {
     connection = await openConnection({ host: options.host, port: options.port, timeoutMs });
   } catch (error) {
-    return failedTcpResult("closed", errorMessage(error));
+    return failedTcpResult(talkTcpStatusForError(error), errorMessage(error));
   }
 
   const talkReplies: TalkTcpReply[] = [];
@@ -217,7 +217,7 @@ export async function openTalkTcpConnection(options: {
   }
 }
 
-class TalkTcpTimeoutError extends Error {
+export class TalkTcpTimeoutError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "TalkTcpTimeoutError";
@@ -343,6 +343,10 @@ function failedTcpResult(talkStatus: TalkTcpStatus, error: string): SendTalkTcpC
     bytesSent: 0,
     error,
   };
+}
+
+function talkTcpStatusForError(error: unknown): Extract<TalkTcpStatus, "timeout" | "closed"> {
+  return error instanceof TalkTcpTimeoutError ? "timeout" : "closed";
 }
 
 function waitForConnect(socket: net.Socket, timeoutMs: number): Promise<void> {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { parseTalkTcpReply, redactTalkText, sendTalkTcpCommands } from "../../src/runtime/talkTcp";
+import { parseTalkTcpReply, redactTalkText, sendTalkTcpCommands, TalkTcpTimeoutError } from "../../src/runtime/talkTcp";
 
 describe("Talk TCP reply parsing", () => {
   it("classifies output followed by OK as a successful command reply", () => {
@@ -155,5 +155,21 @@ describe("sendTalkTcpCommands", () => {
       replyLine: 'ERROR Line: 1, Error: Password "<redacted>" invalid',
       redacted: true,
     });
+  });
+
+  it("reports connection setup timeouts distinctly from closed connections", async () => {
+    const result = await sendTalkTcpCommands({
+      host: "127.0.0.1",
+      port: 16063,
+      commands: ["Hello"],
+      openConnection: async () => {
+        throw new TalkTcpTimeoutError("Talk TCP timed out while connecting to BEYOND");
+      },
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.talkStatus).toBe("timeout");
+    expect(result.error).toBe("Talk TCP timed out while connecting to BEYOND");
+    expect(result.linesSent).toBe(0);
   });
 });

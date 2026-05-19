@@ -10,7 +10,7 @@ import {
   sendTalkTcpCommands,
   type TalkTcpReply,
 } from "./talkTcp";
-import { buildTalkPayloads, sendTalkUdp } from "./talkUdp";
+import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
 
 export type BeyondTalkTransport = "auto" | "tcp" | "udp";
 
@@ -94,9 +94,8 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
     return { ok: false, linesSent: 0, payloadsSent: 0, bytesSent: 0, error: "No executable lines to send." };
   }
 
-  let payloads: Buffer[];
   try {
-    payloads = buildTalkPayloads(lines, { maxPayloadBytes: options.maxPayloadBytes });
+    validateTalkCommandLines(lines);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return { ok: false, linesSent: 0, payloadsSent: 0, bytesSent: 0, error: message };
@@ -143,14 +142,18 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
     }
   }
 
-  return sendTalkUdpPayloads(lines, payloads, options);
+  return sendTalkUdpPayloads(lines, options);
 }
 
-async function sendTalkUdpPayloads(
-  lines: readonly string[],
-  payloads: readonly Buffer[],
-  options: RunScriptOptions,
-): Promise<RunScriptResult> {
+async function sendTalkUdpPayloads(lines: string[], options: RunScriptOptions): Promise<RunScriptResult> {
+  let payloads: Buffer[];
+  try {
+    payloads = buildTalkPayloads(lines, { maxPayloadBytes: options.maxPayloadBytes });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return { ok: false, linesSent: 0, payloadsSent: 0, bytesSent: 0, error: message };
+  }
+
   const send = options.send ?? sendTalkUdp;
   let bytesSent = 0;
   let payloadsSent = 0;

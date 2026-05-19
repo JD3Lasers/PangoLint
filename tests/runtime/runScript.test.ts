@@ -165,6 +165,37 @@ describe("runScript", () => {
     expect(result.talkReplies?.[1].replyLines).toEqual(["Hello!", "OK"]);
   });
 
+  it("does not apply UDP datagram sizing to TCP-only sends", async () => {
+    const longCommand = `DisplayPopup "${"x".repeat(80)}"`;
+    const result = await runScript(longCommand, {
+      talkHost: "127.0.0.1",
+      talkPort: 16062,
+      talkTransport: "tcp",
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      maxPayloadBytes: 20,
+      sendTcp: async (options) => {
+        expect(options.commands).toEqual([longCommand]);
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: [{ lineNumber: 1, commandText: longCommand, status: "ok", replyLines: ["OK"], redacted: false }],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: Buffer.byteLength(`${longCommand}\r\n`, "ascii"),
+        };
+      },
+      send: async () => {
+        throw new Error("UDP fallback should not run");
+      },
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.transport).toBe("tcp");
+    expect(result.linesSent).toBe(1);
+  });
+
   it("falls back from auto TCP to UDP only when fallback is explicitly allowed before TCP replies", async () => {
     const udpPayloads: Buffer[] = [];
     const result = await runScript("Hello", {
