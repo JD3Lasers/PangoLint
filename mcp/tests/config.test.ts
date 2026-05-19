@@ -7,8 +7,15 @@ describe("loadConfig", () => {
     expect(cfg).toEqual({
       runtimeReadEnabled: false,
       runtimeWriteEnabled: false,
+      beyondTalkTransport: "auto",
       beyondTalkHost: "127.0.0.1",
       beyondTalkPort: 16062,
+      beyondTalkTcpHost: "127.0.0.1",
+      beyondTalkTcpPort: 16063,
+      beyondTalkUdpHost: "127.0.0.1",
+      beyondTalkUdpPort: 16062,
+      beyondTalkUdpFallbackAllowed: false,
+      beyondTalkTcpPassword: "",
       oscListenHost: "0.0.0.0",
       oscListenPort: 7000,
       readbackTimeoutMs: 3000,
@@ -42,14 +49,44 @@ describe("loadConfig", () => {
     const cfg = loadConfig({
       PANGOLINT_MCP_BEYOND_TALK_HOST: "192.0.2.147",
       PANGOLINT_MCP_BEYOND_TALK_PORT: "16062",
+      PANGOLINT_MCP_BEYOND_TALK_TRANSPORT: "tcp",
+      PANGOLINT_MCP_BEYOND_TALK_TCP_HOST: "192.0.2.148",
+      PANGOLINT_MCP_BEYOND_TALK_TCP_PORT: "16063",
+      PANGOLINT_MCP_BEYOND_TALK_UDP_HOST: "192.0.2.149",
+      PANGOLINT_MCP_BEYOND_TALK_UDP_PORT: "16064",
+      PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED: "true",
+      PANGOLINT_MCP_BEYOND_TALK_TCP_PASSWORD: "secret",
+    });
+    expect(cfg.beyondTalkTransport).toBe("tcp");
+    expect(cfg.beyondTalkHost).toBe("192.0.2.149");
+    expect(cfg.beyondTalkPort).toBe(16064);
+    expect(cfg.beyondTalkTcpHost).toBe("192.0.2.148");
+    expect(cfg.beyondTalkTcpPort).toBe(16063);
+    expect(cfg.beyondTalkUdpHost).toBe("192.0.2.149");
+    expect(cfg.beyondTalkUdpPort).toBe(16064);
+    expect(cfg.beyondTalkUdpFallbackAllowed).toBe(true);
+    expect(cfg.beyondTalkTcpPassword).toBe("secret");
+  });
+
+  it("uses legacy talk host and port as UDP defaults when UDP env vars are unset", () => {
+    const cfg = loadConfig({
+      PANGOLINT_MCP_BEYOND_TALK_HOST: "192.0.2.147",
+      PANGOLINT_MCP_BEYOND_TALK_PORT: "16062",
     });
     expect(cfg.beyondTalkHost).toBe("192.0.2.147");
     expect(cfg.beyondTalkPort).toBe(16062);
+    expect(cfg.beyondTalkUdpHost).toBe("192.0.2.147");
+    expect(cfg.beyondTalkUdpPort).toBe(16062);
   });
 
   it("rejects out-of-range ports", () => {
     expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_PORT: "0" })).toThrow(/valid port/);
     expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_PORT: "70000" })).toThrow(/valid port/);
+    expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_TCP_PORT: "70000" })).toThrow(/valid port/);
+  });
+
+  it("rejects invalid talk transport values", () => {
+    expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_TRANSPORT: "http" })).toThrow(/transport/);
   });
 
   it("rejects non-positive readback timeouts", () => {

@@ -65,7 +65,7 @@ export async function runScriptWithOscCapture(
         listenPort: options.listenPort,
         timeoutMs: options.timeoutMs,
         addresses: callbackAddresses,
-        expectedSourceHost: options.talkHost,
+        expectedSourceHost: expectedOscSourceHost(options),
         maxMessages: options.maxCallbackMessages,
       });
       capture.done.catch(() => {
@@ -115,4 +115,16 @@ function isCapturableAddress(address: string, prefix: string): boolean {
     }
   }
   return true;
+}
+
+function expectedOscSourceHost(options: RunScriptWithOscCaptureOptions): string | undefined {
+  if (options.talkTransport === "tcp") {
+    return options.talkTcpHost ?? options.talkHost;
+  }
+  if (options.talkTransport === "auto") {
+    const tcpHost = options.talkTcpHost ?? options.talkHost;
+    const udpHost = options.talkUdpHost ?? options.talkHost;
+    return options.talkUdpFallbackAllowed && tcpHost !== udpHost ? undefined : tcpHost;
+  }
+  return options.talkUdpHost ?? options.talkHost;
 }

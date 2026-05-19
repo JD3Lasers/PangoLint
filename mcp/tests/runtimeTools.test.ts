@@ -6,6 +6,7 @@ import { PANGO_ANALYSIS_LIMITS } from "../../src/language/analysisLimits";
 import type { ReadbackOscListener, ReadbackTransport } from "../../src/runtime/beyondReadback";
 import type { OscMessage } from "../../src/runtime/osc";
 import type { McpConfig } from "../src/config";
+import { checkTalkConnection } from "../src/tools/checkTalkConnection";
 import { healthCheck } from "../src/tools/healthCheck";
 import { readBeyondProperty } from "../src/tools/readBeyondProperty";
 import { runScript } from "../src/tools/runScript";
@@ -13,8 +14,15 @@ import { runScript } from "../src/tools/runScript";
 const readEnabledConfig: McpConfig = {
   runtimeReadEnabled: true,
   runtimeWriteEnabled: false,
+  beyondTalkTransport: "udp",
   beyondTalkHost: "127.0.0.1",
   beyondTalkPort: 16062,
+  beyondTalkTcpHost: "127.0.0.1",
+  beyondTalkTcpPort: 16063,
+  beyondTalkUdpHost: "127.0.0.1",
+  beyondTalkUdpPort: 16062,
+  beyondTalkUdpFallbackAllowed: false,
+  beyondTalkTcpPassword: "",
   oscListenHost: "0.0.0.0",
   oscListenPort: 7000,
   readbackTimeoutMs: 100,
@@ -74,6 +82,48 @@ describe("healthCheck", () => {
     if (result.ok) {
       expect(result.data.reachable).toBe(false);
       expect(result.data.error).toContain("udp connect failed");
+    }
+  });
+});
+
+describe("checkTalkConnection", () => {
+  it("returns blocked when runtime is disabled", async () => {
+    const result = await checkTalkConnection(disabledConfig);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.blocked).toBe(true);
+      expect(result.error).toContain("PANGOLINT_MCP_RUNTIME_READ=enabled");
+    }
+  });
+
+  it("checks Talk TCP greeting and status commands", async () => {
+    const result = await checkTalkConnection(readEnabledConfig, {
+      sendTcp: async (options) => {
+        expect(options.host).toBe("127.0.0.1");
+        expect(options.port).toBe(16063);
+        expect(options.commands).toEqual(["Hello", "Version"]);
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkGreeting: "Welcome to BEYOND!",
+          talkReplies: [
+            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            { lineNumber: 1, commandText: "Hello", status: "ok", replyLines: ["Hello!", "OK"], redacted: false },
+            { lineNumber: 2, commandText: "Version", status: "ok", replyLines: ["5.5.0.2030", "OK"], redacted: false },
+          ],
+          linesSent: 2,
+          payloadsSent: 0,
+          bytesSent: 31,
+        };
+      },
+    });
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.data.ok).toBe(true);
+      expect(result.data.talkGreeting).toBe("Welcome to BEYOND!");
+      expect(result.data.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 1", "Hello", "Version"]);
     }
   });
 });
@@ -286,5 +336,48 @@ describe("runScript", () => {
       expect(result.data.refusedDueToErrors).toBeUndefined();
     }
     expect(send).toHaveBeenCalled();
+  });
+
+  it("returns Talk TCP status and BEYOND errors when TCP transport is selected", async () => {
+    const result = await runScript(
+      { text: "badcommand 123" },
+      { ...writeEnabledConfig, beyondTalkTransport: "tcp" },
+      { catalog, knowledgeByName, propertyIndex },
+      {
+        sendTcp: async () => ({
+          ok: false,
+          transport: "tcp",
+          talkStatus: "error",
+          talkReplies: [
+            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            {
+              lineNumber: 1,
+              commandText: "badcommand 123",
+              status: "error",
+              replyLines: ["ERROR Line: 1, Error: Unknown command: badcommand"],
+              redacted: false,
+            },
+          ],
+          beyondError: {
+            lineNumber: 1,
+            message: "Unknown command: badcommand",
+            replyLine: "ERROR Line: 1, Error: Unknown command: badcommand",
+            redacted: false,
+          },
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 29,
+          error: "Unknown command: badcommand",
+        }),
+      },
+    );
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.data.ok).toBe(false);
+      expect(result.data.transport).toBe("tcp");
+      expect(result.data.talkStatus).toBe("error");
+      expect(result.data.beyondError?.message).toBe("Unknown command: badcommand");
+    }
   });
 });

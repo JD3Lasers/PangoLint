@@ -6,6 +6,22 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-05-19
+
+### Added
+
+- Prefer BEYOND Talk TCP for runtime command sends, with structured command
+  replies, BEYOND error mapping, password redaction, and explicit Talk UDP
+  fallback controls.
+- Add MCP `checkTalkConnection` for Talk TCP greeting, `Echo 1`, `Hello`, and
+  `Version` checks.
+
+### Changed
+
+- Surface Talk TCP status in `PangoLint: Run`, MCP `runScript`, runtime
+  settings, and operator documentation while keeping OSC readback as the state
+  proof path.
+
 ## [0.5.0] - 2026-05-19
 
 ### Added
@@ -131,7 +147,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.10...v0.5.0
 [0.4.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.9...v0.4.10
 [0.4.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.8...v0.4.9

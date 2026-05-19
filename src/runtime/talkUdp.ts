@@ -8,10 +8,9 @@ export function buildTalkPayloads(commands: string[], options: TalkPayloadOption
   const maxPayloadBytes = Math.max(1, options.maxPayloadBytes ?? 1200);
   const payloads: Buffer[] = [];
   let current = Buffer.alloc(0);
+  const lines = prepareTalkLines(commands);
 
-  commands.forEach((command, index) => {
-    const line = normalizeTalkLine(command, index + 1);
-    assertAscii(line, index + 1);
+  lines.forEach((line, index) => {
     const encoded = Buffer.from(line, "ascii");
 
     if (encoded.length > maxPayloadBytes) {
@@ -32,6 +31,10 @@ export function buildTalkPayloads(commands: string[], options: TalkPayloadOption
   }
 
   return payloads;
+}
+
+export function validateTalkCommandLines(commands: readonly string[]): void {
+  prepareTalkLines(commands);
 }
 
 export async function sendTalkUdp(host: string, port: number, payload: Buffer): Promise<void> {
@@ -67,6 +70,14 @@ export async function sendTalkUdp(host: string, port: number, payload: Buffer): 
       // Socket may already be closed if an error event closed it.
     }
   }
+}
+
+function prepareTalkLines(commands: readonly string[]): string[] {
+  return commands.map((command, index) => {
+    const line = normalizeTalkLine(command, index + 1);
+    assertAscii(line, index + 1);
+    return line;
+  });
 }
 
 function normalizeTalkLine(command: string, lineNumber: number): string {

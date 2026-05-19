@@ -114,4 +114,38 @@ describe("runScriptWithOscCapture", () => {
     expect(startCapture).not.toHaveBeenCalled();
     expect(send).not.toHaveBeenCalled();
   });
+
+  it("uses the Talk TCP host as expected OSC source when TCP transport is selected", async () => {
+    const events: string[] = [];
+    const startCapture: StartOscCapture = vi.fn(async () =>
+      captureSession([{ address: "/pangolint/smoke/done", typeTags: "s", args: ["req-1"] }], events),
+    );
+
+    await runScriptWithOscCapture('OscOutTTS "/pangolint/smoke/done", "s", requestId', {
+      talkHost: "192.0.2.147",
+      talkPort: 16062,
+      talkTransport: "tcp",
+      talkTcpHost: "192.0.2.148",
+      talkTcpPort: 16063,
+      listenHost: "0.0.0.0",
+      listenPort: 7000,
+      timeoutMs: 1000,
+      startCapture,
+      sendTcp: async () => ({
+        ok: true,
+        transport: "tcp",
+        talkStatus: "ok",
+        talkReplies: [],
+        linesSent: 1,
+        payloadsSent: 0,
+        bytesSent: 10,
+      }),
+    });
+
+    expect(startCapture).toHaveBeenCalledWith(
+      expect.objectContaining({
+        expectedSourceHost: "192.0.2.148",
+      }),
+    );
+  });
 });

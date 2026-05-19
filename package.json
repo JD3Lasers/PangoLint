@@ -2,7 +2,7 @@
   "name": "pangolint",
   "displayName": "PangoLint",
   "description": "Conservative linting, formatting, and BEYOND runtime readback checks for Pangolin BEYOND PangoScript.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "publisher": "jd3",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -51,10 +51,17 @@
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": "limited",
-      "description": "PangoScript language features work in Restricted Mode. BEYOND network readback checks, live value reads/writes, Talk UDP command batches, and workspace user-object registry writes require a trusted workspace.",
+      "description": "PangoScript language features work in Restricted Mode. BEYOND network readback checks, live value reads/writes, Talk command batches, and workspace user-object registry writes require a trusted workspace.",
       "restrictedConfigurations": [
         "pangolint.beyond.talkHost",
         "pangolint.beyond.talkPort",
+        "pangolint.beyond.talkTransport",
+        "pangolint.beyond.talkTcpHost",
+        "pangolint.beyond.talkTcpPort",
+        "pangolint.beyond.talkUdpHost",
+        "pangolint.beyond.talkUdpPort",
+        "pangolint.beyond.talkUdpFallbackAllowed",
+        "pangolint.beyond.talkTcpPassword",
         "pangolint.beyond.oscListenHost",
         "pangolint.beyond.oscListenPort",
         "pangolint.beyond.readbackTimeoutMs",
@@ -447,13 +454,65 @@
           "type": "string",
           "scope": "machine",
           "default": "127.0.0.1",
-          "description": "BEYOND host for Talk UDP commands."
+          "description": "Legacy BEYOND Talk UDP host. New setups should use pangolint.beyond.talkUdpHost."
         },
         "pangolint.beyond.talkPort": {
           "type": "number",
           "scope": "machine",
           "default": 16062,
-          "description": "BEYOND Talk UDP port."
+          "description": "Legacy BEYOND Talk UDP port. New setups should use pangolint.beyond.talkUdpPort."
+        },
+        "pangolint.beyond.talkTransport": {
+          "type": "string",
+          "scope": "machine",
+          "enum": [
+            "auto",
+            "tcp",
+            "udp"
+          ],
+          "enumDescriptions": [
+            "Try Talk TCP first, then use Talk UDP only when explicit UDP fallback is allowed.",
+            "Use Talk TCP and fail closed when TCP connection or command status fails.",
+            "Use legacy Talk UDP send-only behavior."
+          ],
+          "default": "auto",
+          "description": "BEYOND Talk transport used for command sends."
+        },
+        "pangolint.beyond.talkTcpHost": {
+          "type": "string",
+          "scope": "machine",
+          "default": "127.0.0.1",
+          "description": "BEYOND host for Talk TCP command sends."
+        },
+        "pangolint.beyond.talkTcpPort": {
+          "type": "number",
+          "scope": "machine",
+          "default": 16063,
+          "description": "BEYOND Talk TCP port."
+        },
+        "pangolint.beyond.talkUdpHost": {
+          "type": "string",
+          "scope": "machine",
+          "default": "127.0.0.1",
+          "description": "BEYOND host for Talk UDP fallback command sends."
+        },
+        "pangolint.beyond.talkUdpPort": {
+          "type": "number",
+          "scope": "machine",
+          "default": 16062,
+          "description": "BEYOND Talk UDP fallback port."
+        },
+        "pangolint.beyond.talkUdpFallbackAllowed": {
+          "type": "boolean",
+          "scope": "machine",
+          "default": false,
+          "description": "Allow auto transport to use unauthenticated Talk UDP when Talk TCP is unavailable before authentication or command send begins."
+        },
+        "pangolint.beyond.talkTcpPassword": {
+          "type": "string",
+          "scope": "machine",
+          "default": "",
+          "description": "Optional BEYOND TCP Talk Server password. PangoLint redacts this value from runtime output."
         },
         "pangolint.beyond.oscListenHost": {
           "type": "string",
@@ -477,7 +536,7 @@
           "type": "boolean",
           "scope": "machine",
           "default": false,
-          "description": "Allow PangoLint to send straight-line Talk UDP command batches to BEYOND. Control-flow scripts are blocked; paste labels/goto/if/loops/waits/exit scripts directly into BEYOND's PangoScript editor. WARNING: commands run with full BEYOND permissions including projector / output / geometry commands. Disabled by default."
+          "description": "Allow PangoLint to send straight-line BEYOND Talk command batches. Control-flow scripts are blocked; paste labels/goto/if/loops/waits/exit scripts directly into BEYOND's PangoScript editor. WARNING: commands run with full BEYOND permissions including projector / output / geometry commands. Disabled by default."
         },
         "pangolint.beyond.confirmRunEachSession": {
           "type": "boolean",

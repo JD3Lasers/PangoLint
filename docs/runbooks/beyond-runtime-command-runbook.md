@@ -1,6 +1,6 @@
 # Local BEYOND Runtime Command Runbook
 
-Last updated: 2026-05-05
+Last updated: 2026-05-19
 
 ## Purpose
 
@@ -17,8 +17,8 @@ general remote-control model.
 ## Scope Boundary
 
 Use this runbook for:
-- Talk UDP command transport and PangoScript callback checks,
-- straight-line Talk UDP command batches that do not depend on script control
+- Talk TCP command transport, Talk UDP fallback, and PangoScript callback checks,
+- straight-line Talk command batches that do not depend on script control
   flow,
 - OSC writes and OSC query/readback checks,
 - source/test-backed confirmation of command shapes before a runtime-sensitive
@@ -26,8 +26,8 @@ Use this runbook for:
 - recording BEYOND command evidence in issue/PR closeout notes.
 
 Do not use this runbook to:
-- authorize remote clients to send raw Talk UDP, OSC, or PangoScript,
-- treat Talk UDP as equivalent to running a `.BeyondCode` script in BEYOND's
+- authorize remote clients to send raw Talk TCP, Talk UDP, OSC, or PangoScript,
+- treat BEYOND Talk as equivalent to running a `.BeyondCode` script in BEYOND's
   PangoScript editor,
 - bypass the runtime safety rules in the engineering standards,
 - run live-output commands without explicit operator supervision.
@@ -49,6 +49,7 @@ For canonical Pangolin documentation, refer to
 PangoLint reference data and docs for tests and package builds.
 
 Implementation anchors:
+- `src/runtime/talkTcp.ts`
 - `src/runtime/beyondReadback.ts`
 - `src/runtime/talkUdp.ts`
 - `src/runtime/osc.ts`
@@ -59,6 +60,7 @@ Implementation anchors:
 ## Endpoint Model
 
 Default BEYOND endpoints:
+- Talk TCP: app to BEYOND on TCP `16063`
 - Talk UDP: app to BEYOND on UDP `16062`
 - OSC In: app to BEYOND on UDP `8000`
 - OSC Out: BEYOND to app listener on UDP `7000`
@@ -74,7 +76,7 @@ For a Mac-to-Windows lab shape:
   not `127.0.0.1` on the Windows machine.
 - The app listener should bind `0.0.0.0:<osc_listen_port>` or the Mac's specific
   LAN interface address when receiving callbacks from the Windows machine.
-- Windows firewall must allow the selected BEYOND UDP ports.
+- Windows firewall must allow the selected BEYOND TCP and UDP ports.
 - macOS firewall/network permissions must allow inbound OSC callback traffic to
   the app listener.
 
@@ -94,12 +96,12 @@ T3 and T4 commands must be issue-scoped. Record the exact target zone/projector,
 the physical safety state, the command sent, the observed BEYOND result, and the
 restore/cleanup action.
 
-## Talk UDP Command-Batch Limit
+## BEYOND Talk Command-Batch Limit
 
-Treat Talk UDP as command-batch transport. Current runtime evidence shows it
+Treat BEYOND Talk as command-batch transport. Current runtime evidence shows it
 does not preserve BEYOND editor script semantics for labels, `goto`, `if`,
 loops, waits, or `exit`; lines that should be skipped by control flow can still
-execute when sent over Talk UDP.
+execute when sent over Talk TCP or Talk UDP.
 
 PangoLint therefore blocks those constructs in `Send Talk Batch to BEYOND` and
 MCP `runScript` runtime sends. To validate a full `.BeyondCode` script with
@@ -118,7 +120,7 @@ python run_test_console.py
 
 1. Configure endpoints in the Test Console `Connections` panel.
 2. Start the OSC listener.
-3. Send the Talk UDP snippet:
+3. Send the Talk snippet:
 
 ```text
 OscOutTTS "/bpb/ping", "s", "hello"

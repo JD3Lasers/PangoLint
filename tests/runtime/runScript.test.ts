@@ -125,4 +125,148 @@ describe("runScript", () => {
     });
     expect(calls[0].toString("ascii")).toContain("Brightness 50  // dim it");
   });
+
+  it("uses Talk TCP when TCP transport is selected", async () => {
+    const result = await runScript("Hello", {
+      talkHost: "127.0.0.1",
+      talkPort: 16062,
+      talkTransport: "tcp",
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      sendTcp: async (options) => {
+        expect(options.commands).toEqual(["Hello"]);
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkGreeting: "Welcome to BEYOND!",
+          talkReplies: [
+            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            { lineNumber: 1, commandText: "Hello", status: "ok", replyLines: ["Hello!", "OK"], redacted: false },
+          ],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 15,
+        };
+      },
+      send: async () => {
+        throw new Error("UDP fallback should not run");
+      },
+    });
+
+    expect(result).toMatchObject({
+      ok: true,
+      transport: "tcp",
+      talkStatus: "ok",
+      talkGreeting: "Welcome to BEYOND!",
+      linesSent: 1,
+      payloadsSent: 0,
+    });
+    expect(result.talkReplies?.[1].replyLines).toEqual(["Hello!", "OK"]);
+  });
+
+  it("does not apply UDP datagram sizing to TCP-only sends", async () => {
+    const longCommand = `DisplayPopup "${"x".repeat(80)}"`;
+    const result = await runScript(longCommand, {
+      talkHost: "127.0.0.1",
+      talkPort: 16062,
+      talkTransport: "tcp",
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      maxPayloadBytes: 20,
+      sendTcp: async (options) => {
+        expect(options.commands).toEqual([longCommand]);
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: [{ lineNumber: 1, commandText: longCommand, status: "ok", replyLines: ["OK"], redacted: false }],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: Buffer.byteLength(`${longCommand}\r\n`, "ascii"),
+        };
+      },
+      send: async () => {
+        throw new Error("UDP fallback should not run");
+      },
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.transport).toBe("tcp");
+    expect(result.linesSent).toBe(1);
+  });
+
+  it("falls back from auto TCP to UDP only when fallback is explicitly allowed before TCP replies", async () => {
+    const udpPayloads: Buffer[] = [];
+    const result = await runScript("Hello", {
+      talkHost: "127.0.0.1",
+      talkPort: 16062,
+      talkTransport: "auto",
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      talkUdpFallbackAllowed: true,
+      sendTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "ECONNREFUSED",
+      }),
+      send: async (_host, _port, payload) => {
+        udpPayloads.push(payload);
+      },
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.transport).toBe("udp");
+    expect(result.talkStatus).toBe("send-only");
+    expect(udpPayloads).toHaveLength(1);
+  });
+
+  it("does not fall back to UDP after TCP returns a BEYOND error", async () => {
+    const send = vi.fn(async () => {});
+    const result = await runScript("badcommand 123", {
+      talkHost: "127.0.0.1",
+      talkPort: 16062,
+      talkTransport: "auto",
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      talkUdpFallbackAllowed: true,
+      sendTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "error",
+        talkReplies: [
+          { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+          {
+            lineNumber: 1,
+            commandText: "badcommand 123",
+            status: "error",
+            replyLines: ["ERROR Line: 1, Error: Unknown command: badcommand"],
+            redacted: false,
+          },
+        ],
+        beyondError: {
+          lineNumber: 1,
+          message: "Unknown command: badcommand",
+          replyLine: "ERROR Line: 1, Error: Unknown command: badcommand",
+          redacted: false,
+        },
+        linesSent: 1,
+        payloadsSent: 0,
+        bytesSent: 29,
+        error: "Unknown command: badcommand",
+      }),
+      send,
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.transport).toBe("tcp");
+    expect(result.talkStatus).toBe("error");
+    expect(result.beyondError?.message).toBe("Unknown command: badcommand");
+    expect(send).not.toHaveBeenCalled();
+  });
 });

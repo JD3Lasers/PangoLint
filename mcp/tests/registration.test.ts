@@ -104,8 +104,15 @@ const fixtureKnowledge: McpKnowledgeBase = {
 const fixtureConfig: McpConfig = {
   runtimeReadEnabled: false,
   runtimeWriteEnabled: false,
+  beyondTalkTransport: "auto",
   beyondTalkHost: "127.0.0.1",
   beyondTalkPort: 16062,
+  beyondTalkTcpHost: "127.0.0.1",
+  beyondTalkTcpPort: 16063,
+  beyondTalkUdpHost: "127.0.0.1",
+  beyondTalkUdpPort: 16062,
+  beyondTalkUdpFallbackAllowed: false,
+  beyondTalkTcpPassword: "",
   oscListenHost: "0.0.0.0",
   oscListenPort: 7000,
   readbackTimeoutMs: 3000,
@@ -129,7 +136,7 @@ describe("registerKnowledgeTools annotations contract", () => {
     "getServerConfig",
   ] as const;
 
-  it("registers all 14 tools", () => {
+  it("registers all 15 tools", () => {
     expect(tools.map((t) => t.name).sort()).toEqual(
       [
         "lookupCommand",
@@ -144,6 +151,7 @@ describe("registerKnowledgeTools annotations contract", () => {
         "explainDiagnostic",
         "getServerConfig",
         "healthCheck",
+        "checkTalkConnection",
         "readBeyondProperty",
         "runScript",
       ].sort(),
@@ -156,8 +164,8 @@ describe("registerKnowledgeTools annotations contract", () => {
     expect(tool?.config.annotations).toEqual(KNOWLEDGE_TOOL_ANNOTATIONS);
   });
 
-  it("healthCheck and readBeyondProperty carry RUNTIME_READ_TOOL_ANNOTATIONS", () => {
-    for (const name of ["healthCheck", "readBeyondProperty"] as const) {
+  it("runtime read tools carry RUNTIME_READ_TOOL_ANNOTATIONS", () => {
+    for (const name of ["healthCheck", "checkTalkConnection", "readBeyondProperty"] as const) {
       const tool = tools.find((t) => t.name === name);
       expect(tool?.config.annotations).toEqual(RUNTIME_READ_TOOL_ANNOTATIONS);
     }
