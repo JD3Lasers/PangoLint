@@ -2,7 +2,7 @@
   "name": "pangolint",
   "displayName": "PangoLint",
   "description": "Conservative linting, formatting, and BEYOND runtime readback checks for Pangolin BEYOND PangoScript.",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "publisher": "jd3",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -489,7 +489,7 @@
           "type": "boolean",
           "scope": "machine",
           "default": false,
-          "description": "Augment property-path hover tooltips with the current value fetched from BEYOND via Talk UDP / OSC readback. Cached for 30 seconds per path. Off by default — generates network traffic on every hover."
+          "description": "Augment property-path hover tooltips with the current value fetched from BEYOND via Talk UDP / OSC readback. Cached for 30 seconds per path. Off by default; generates network traffic on every hover."
         },
         "pangolint.codeLens.labelReferences": {
           "type": "boolean",
@@ -553,6 +553,9 @@
     "release:version": "node scripts/releaseVersion.cjs",
     "release:preflight": "node scripts/checkReleasePreflight.cjs",
     "check:pr-version": "node scripts/checkPrVersionBump.cjs",
+    "workflow:start-issue": "node scripts/startIssueWork.cjs",
+    "workflow:check-pr": "node scripts/checkPullRequestReady.cjs",
+    "workflow:watch-release": "node scripts/watchReleaseArtifacts.cjs",
     "lint": "biome check src tests scripts mcp/src mcp/tests",
     "lint:fix": "biome check --write src tests scripts mcp/src mcp/tests",
     "lint:examples": "esbuild scripts/lintCorpus.ts --bundle --platform=node --format=cjs --outfile=dist/lintCorpus.cjs && node dist/lintCorpus.cjs",
