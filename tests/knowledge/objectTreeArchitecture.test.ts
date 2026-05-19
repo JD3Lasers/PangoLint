@@ -267,10 +267,12 @@ describe("Object Tree architecture data contract", () => {
   });
 
   it("points Object Tree generators at tracked source facts by default", () => {
-    const objectPropertyGenerator = readFile(path.join(repoRoot, "scripts", "generateObjectPropertyIndex.ts"));
+    const objectPropertyGeneratorPaths = readFile(
+      path.join(repoRoot, "scripts", "objectPropertyIndex", "objectPropertyIndexPaths.ts"),
+    );
     const knownPropertiesGenerator = readFile(path.join(repoRoot, "scripts", "generateKnownProperties.ts"));
 
-    for (const source of [objectPropertyGenerator, knownPropertiesGenerator]) {
+    for (const source of [objectPropertyGeneratorPaths, knownPropertiesGenerator]) {
       expect(source).toContain("data/pangoscript/object-tree/source-facts/object-paths.json");
     }
   });

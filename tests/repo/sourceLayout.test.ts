@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const sourceRoot = path.join(process.cwd(), "src");
+const scriptsRoot = path.join(process.cwd(), "scripts");
 const testsRoot = path.join(process.cwd(), "tests");
 
 const expectedLayout = {
@@ -104,6 +105,17 @@ const expectedLanguageSubfolders: Record<string, string[]> = {
   ],
 };
 
+const expectedObjectPropertyIndexScriptModules = [
+  "objectPropertyIndexCommandMetadata.ts",
+  "objectPropertyIndexEntries.ts",
+  "objectPropertyIndexMetadata.ts",
+  "objectPropertyIndexPaths.ts",
+  "objectPropertyIndexSearchText.ts",
+  "objectPropertyIndexSourceFacts.ts",
+  "objectPropertyIndexTypes.ts",
+  "objectPropertyIndexValidation.ts",
+];
+
 describe("source layout", () => {
   it("keeps production modules grouped by responsibility under src", () => {
     const rootTypeScriptFiles = readdirSync(sourceRoot)
@@ -143,6 +155,19 @@ describe("source layout", () => {
           .sort(),
       ).toEqual(files);
     }
+  });
+});
+
+describe("script layout", () => {
+  it("splits Object Tree property index generation by data responsibility", () => {
+    const folderPath = path.join(scriptsRoot, "objectPropertyIndex");
+
+    expect(existsSync(path.join(folderPath, "README.md")), "scripts/objectPropertyIndex/README.md").toBe(true);
+    expect(
+      readdirSync(folderPath)
+        .filter((entry) => entry.endsWith(".ts"))
+        .sort(),
+    ).toEqual(expectedObjectPropertyIndexScriptModules);
   });
 });
 
