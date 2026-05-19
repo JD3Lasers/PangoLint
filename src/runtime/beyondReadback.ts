@@ -112,7 +112,7 @@ export async function checkBeyondConnection(
     validateTalkCommandLines(commands);
     return await withOscPortLock(options, async () => {
       logger?.(`[connection] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
-      const expectedSourceHost = expectedReadbackOscSourceHost(options);
+      const expectedSourceHosts = expectedReadbackOscSourceHosts(options);
       const listener = transport.listenForOsc(
         options.listenHost,
         options.listenPort,
@@ -121,7 +121,7 @@ export async function checkBeyondConnection(
             address: "/pangolint/ping",
             typeTags: "s",
             expectedArgs: [requestId],
-            expectedSourceHost,
+            expectedSourceHosts,
           }),
         options.timeoutMs,
       );
@@ -150,7 +150,7 @@ export async function checkBeyondConnection(
         address: "/pangolint/ping",
         typeTags: "s",
         expectedArgs: [requestId],
-        expectedSourceHost,
+        expectedSourceHosts,
       });
       logger?.(`[connection] received callback: ${message.address}`);
       return { ok: true, requestId, command, message, ...readbackTalkStatus(sendResult) };
@@ -199,7 +199,7 @@ export async function readBeyondProperty(
   try {
     return await withOscPortLock(options, async () => {
       logger?.(`[readback] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
-      const expectedSourceHost = expectedReadbackOscSourceHost(options);
+      const expectedSourceHosts = expectedReadbackOscSourceHosts(options);
       const listener = transport.listenForOsc(
         options.listenHost,
         options.listenPort,
@@ -207,7 +207,7 @@ export async function readBeyondProperty(
           isExpectedOscCallback(message, {
             address,
             typeTags: typeTag,
-            expectedSourceHost,
+            expectedSourceHosts,
           }),
         options.timeoutMs,
       );
@@ -233,7 +233,7 @@ export async function readBeyondProperty(
       assertExpectedOscCallback(message, {
         address,
         typeTags: typeTag,
-        expectedSourceHost,
+        expectedSourceHosts,
       });
       logger?.(`[readback] received callback: ${message.address} args=${JSON.stringify(message.args)}`);
       const raw = message.args[0];
@@ -336,7 +336,7 @@ export async function verifyCommandWrite(
     return await withOscPortLock(options, async () => {
       try {
         logger?.(`[verify] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
-        const expectedSourceHost = expectedReadbackOscSourceHost(options);
+        const expectedSourceHosts = expectedReadbackOscSourceHosts(options);
         const listener = transport.listenForOsc(
           options.listenHost,
           options.listenPort,
@@ -344,7 +344,7 @@ export async function verifyCommandWrite(
             isExpectedOscCallback(message, {
               address,
               typeTags: typeTag,
-              expectedSourceHost,
+              expectedSourceHosts,
             }),
           options.timeoutMs,
         );
@@ -356,13 +356,17 @@ export async function verifyCommandWrite(
         const sendResult = await sendReadbackTalk(scriptLines, options, transport);
         if (!sendResult.ok) {
           closeReadbackOscListener(listener);
+          writePacketSent = sendResult.linesSent > 0 || sendResult.payloadsSent > 0 || sendResult.bytesSent > 0;
+          if (writePacketSent) {
+            await sendRestore();
+          }
           return {
             ok: false,
             command: options.command,
             readbackPath: options.readbackPath,
             expected: options.expectedValue,
             matched: false,
-            restored: false,
+            restored,
             ...readbackTalkStatus(sendResult),
             error: sendResult.error ?? "Talk send failed.",
           };
@@ -373,7 +377,7 @@ export async function verifyCommandWrite(
         assertExpectedOscCallback(message, {
           address,
           typeTags: typeTag,
-          expectedSourceHost,
+          expectedSourceHosts,
         });
         logger?.(`[verify] received callback: ${message.address} args=${JSON.stringify(message.args)}`);
 
@@ -489,17 +493,21 @@ function readbackTalkStatus(result: RunScriptResult): ReadbackTalkStatus {
   };
 }
 
-function expectedReadbackOscSourceHost(options: ReadbackOptions): string | undefined {
+function expectedReadbackOscSourceHosts(options: ReadbackOptions): string[] {
   const transport = options.talkTransport ?? "udp";
   if (transport === "tcp") {
-    return options.talkTcpHost ?? options.talkHost;
+    return [options.talkTcpHost ?? options.talkHost];
   }
   if (transport === "auto") {
     const tcpHost = options.talkTcpHost ?? options.talkHost;
     const udpHost = options.talkUdpHost ?? options.talkHost;
-    return options.talkUdpFallbackAllowed && tcpHost !== udpHost ? undefined : tcpHost;
+    return options.talkUdpFallbackAllowed ? uniqueDefinedHosts([tcpHost, udpHost]) : [tcpHost];
   }
-  return options.talkUdpHost ?? options.talkHost;
+  return [options.talkUdpHost ?? options.talkHost];
+}
+
+function uniqueDefinedHosts(hosts: readonly string[]): string[] {
+  return [...new Set(hosts.filter((host) => host.trim().length > 0))];
 }
 
 function closeReadbackOscListener(listener: ReadbackOscListener): void {
@@ -514,14 +522,14 @@ function closeReadbackOscListener(listener: ReadbackOscListener): void {
 interface ExpectedOscCallback {
   address: string;
   typeTags: "f" | "i" | "s";
-  expectedSourceHost?: string;
+  expectedSourceHosts: readonly string[];
   expectedArgs?: readonly OscArg[];
 }
 
 function isExpectedOscCallback(message: OscMessage, expected: ExpectedOscCallback): boolean {
   if (message.address !== expected.address) return false;
   if (message.typeTags !== expected.typeTags) return false;
-  if (!sourceMatchesExpectedHost(message, expected.expectedSourceHost)) return false;
+  if (!sourceMatchesAnyExpectedHost(message, expected.expectedSourceHosts)) return false;
 
   if (expected.expectedArgs) {
     if (message.args.length !== expected.expectedArgs.length) return false;
@@ -530,6 +538,10 @@ function isExpectedOscCallback(message: OscMessage, expected: ExpectedOscCallbac
 
   if (message.args.length !== expected.typeTags.length) return false;
   return expected.typeTags.split("").every((tag, index) => argMatchesTypeTag(message.args[index], tag));
+}
+
+function sourceMatchesAnyExpectedHost(message: OscMessage, expectedHosts: readonly string[]): boolean {
+  return expectedHosts.length === 0 || expectedHosts.some((host) => sourceMatchesExpectedHost(message, host));
 }
 
 function assertExpectedOscCallback(message: OscMessage, expected: ExpectedOscCallback): void {
