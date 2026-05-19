@@ -453,7 +453,13 @@ export function activate(context: vscode.ExtensionContext): void {
         placeHolder: "Pick a user object to remove",
       });
       if (!picked) return;
-      removeUserObject(workspaceFolder, picked);
+      try {
+        removeUserObject(workspaceFolder, picked);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        void vscode.window.showErrorMessage(`PangoLint: ${message}`);
+        return;
+      }
       await refreshUserObjects();
       void vscode.window.showInformationMessage(`PangoLint: removed '${picked}' from user objects.`);
     }),
