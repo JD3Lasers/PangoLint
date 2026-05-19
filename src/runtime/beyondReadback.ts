@@ -356,7 +356,7 @@ export async function verifyCommandWrite(
         const sendResult = await sendReadbackTalk(scriptLines, options, transport);
         if (!sendResult.ok) {
           closeReadbackOscListener(listener);
-          writePacketSent = sendResult.linesSent > 0 || sendResult.payloadsSent > 0 || sendResult.bytesSent > 0;
+          writePacketSent = writeCommandMayHaveReachedBeyond(sendResult);
           if (writePacketSent) {
             await sendRestore();
           }
@@ -491,6 +491,20 @@ function readbackTalkStatus(result: RunScriptResult): ReadbackTalkStatus {
     payloadsSent: result.payloadsSent,
     bytesSent: result.bytesSent,
   };
+}
+
+function writeCommandMayHaveReachedBeyond(result: RunScriptResult): boolean {
+  if (result.transport === "udp") {
+    return result.payloadsSent > 0 || result.bytesSent > 0;
+  }
+  if (result.transport === "tcp") {
+    return (
+      result.linesSent > 0 ||
+      result.talkReplies?.some((reply) => reply.lineNumber === 1) === true ||
+      result.beyondError?.lineNumber === 1
+    );
+  }
+  return false;
 }
 
 function expectedReadbackOscSourceHosts(options: ReadbackOptions): string[] {

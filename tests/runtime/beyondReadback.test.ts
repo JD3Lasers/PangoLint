@@ -833,6 +833,39 @@ describe("verifyCommandWrite", () => {
     expect(tcpSends[1].commands).toEqual(["Zoom 100"]);
   });
 
+  it("does not restore when a UDP write verification send fails before any datagram is sent", async () => {
+    const close = vi.fn();
+    let sendCount = 0;
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        sendCount += 1;
+        throw new Error("socket send failed");
+      },
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        restoreCommand: "Zoom 100",
+        talkTransport: "udp",
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.restored).toBe(false);
+    expect(sendCount).toBe(1);
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
   it("returns matched: true when readback equals expected value", async () => {
     const transport: ReadbackTransport = {
       sendTalk: async () => {},
