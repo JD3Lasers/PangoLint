@@ -111,8 +111,23 @@ Runtime settings should support this order:
 1. If Talk TCP is enabled in tool settings, use TCP and fail closed when the TCP
    connection fails.
 2. If transport mode is `auto`, try TCP first, then fall back to UDP only when
-   TCP is unavailable and UDP fallback is allowed.
+   TCP is unavailable before authentication and UDP fallback is explicitly
+   allowed.
 3. If transport mode is `udp`, preserve current UDP behavior.
+
+UDP fallback must be disabled by default. TCP password use makes the transport
+choice security-sensitive because UDP has no equivalent authentication. In
+`auto` mode, the tool may use UDP only when all of these are true:
+
+- `beyondTalkUdpFallbackAllowed` is `true`.
+- TCP connect failed or timed out before any password or command was sent.
+- The operator-visible status says Talk UDP fallback was used and BEYOND command
+  status is unavailable.
+
+The tool must not fall back to UDP after a TCP password rejection, a BEYOND
+`ERROR Line` reply, a TCP timeout after commands begin, or a TCP connection
+close after authentication begins. Those cases are hard failures and should
+preserve the TCP error for the user.
 
 Proposed settings:
 
@@ -123,6 +138,7 @@ Proposed settings:
   "beyondTalkTcpPort": 16063,
   "beyondTalkUdpHost": "127.0.0.1",
   "beyondTalkUdpPort": 16062,
+  "beyondTalkUdpFallbackAllowed": false,
   "beyondTalkTcpPassword": "",
   "beyondTalkCommandTimeoutMs": 3000
 }
@@ -211,6 +227,10 @@ The stronger proof shape is:
 - TCP connection check reports greeting, `Hello`, `Version`, and `OK`.
 - Unknown command over TCP produces a user-visible and MCP-visible BEYOND error.
 - UDP mode remains available and keeps current behavior.
+- `auto` mode falls back to UDP only when fallback is explicitly allowed and TCP
+  failed before authentication or command send began.
+- TCP password rejection, BEYOND command rejection, command timeout, or
+  authenticated connection close does not fall back to UDP.
 - TCP mode does not leak password values in logs or responses.
 - Readback workflows still require OSC evidence for state claims.
 - Existing tests cover TCP parser behavior and UDP fallback behavior.

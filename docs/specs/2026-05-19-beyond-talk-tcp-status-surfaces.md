@@ -179,6 +179,7 @@ interface BeyondTalkError {
   lineNumber?: number;
   message: string;
   replyLine: string;
+  redacted: boolean;
 }
 
 interface OscCallbackSummary {
@@ -218,21 +219,16 @@ For TCP:
   "beyondTalkTcpPort": 16063,
   "beyondTalkUdpHost": "127.0.0.1",
   "beyondTalkUdpPort": 16062,
+  "beyondTalkUdpFallbackAllowed": false,
   "runtimeReadEnabled": true,
   "runtimeWriteEnabled": true
 }
 ```
 
-`healthCheck` should either:
+Use this fixed tool split:
 
-- report both TCP and UDP checks in one response, or
-- stay as low-level socket reachability and add a separate
-  `checkTalkConnection` tool for Talk TCP greeting and `Hello`/`Version`
-  probes.
-
-Preferred tool split:
-
-- `healthCheck`: fast network reachability.
+- `healthCheck`: fast MCP server and configured socket reachability. It must not
+  claim BEYOND accepted PangoScript commands.
 - `checkTalkConnection`: Talk TCP greeting, `Echo 1`, `Hello`, and `Version`
   status.
 - `readBeyondProperty`: OSC readback path.
@@ -257,6 +253,11 @@ Safe default:
 - record command line numbers and command names,
 - record full command text only when it does not contain a known sensitive
   command.
+- sanitize `TalkReply.replyLines`, `BeyondTalkError.message`, and
+  `BeyondTalkError.replyLine` before storing them or returning them to MCP
+  clients.
+- keep raw TCP reply text in short-lived parser state only, then discard it
+  after sanitized fields are produced.
 
 Example redaction:
 
@@ -280,12 +281,31 @@ Output:
 {
   "lineNumber": 1,
   "message": "Unknown command: badcommand",
-  "replyLine": "ERROR Line: 1, Error: Unknown command: badcommand"
+  "replyLine": "ERROR Line: 1, Error: Unknown command: badcommand",
+  "redacted": false
 }
 ```
 
-If BEYOND returns an unrecognized error line, preserve the raw line in
-`replyLine` and use the whole text as `message`.
+If BEYOND returns an unrecognized error line, preserve a sanitized form in
+`replyLine` and use the sanitized text as `message`. Do not store or return the
+raw line.
+
+Sensitive input example:
+
+```text
+ERROR Line: 1, Error: Password "sample-secret" invalid
+```
+
+Sanitized output:
+
+```json
+{
+  "lineNumber": 1,
+  "message": "Password \"<redacted>\" invalid",
+  "replyLine": "ERROR Line: 1, Error: Password \"<redacted>\" invalid",
+  "redacted": true
+}
+```
 
 ## Implementation Plan
 
@@ -296,7 +316,8 @@ If BEYOND returns an unrecognized error line, preserve the raw line in
    readbacks.
 5. Update MCP `runScript` output shape with transport, Talk status, replies,
    BEYOND error, and OSC callback summary.
-6. Update `getServerConfig` and connection-check behavior for TCP settings.
+6. Update `getServerConfig`, `healthCheck`, and `checkTalkConnection` behavior
+   for TCP settings.
 7. Update manual, MCP README, and runtime runbook.
 8. Add tests for success, BEYOND error, timeout, UDP fallback, and redaction.
 
@@ -309,8 +330,14 @@ If BEYOND returns an unrecognized error line, preserve the raw line in
   text.
 - Watcher still shows captured OSC callbacks from runtime runs.
 - MCP `runScript` returns structured Talk TCP status and BEYOND error fields.
+- MCP `checkTalkConnection` reports Talk TCP greeting, `Echo 1`, `Hello`, and
+  `Version` without changing show state.
+- MCP `healthCheck` stays a reachability check and does not claim BEYOND command
+  acceptance.
 - UDP fallback responses clearly say command status is unavailable.
 - Password commands and configured TCP Talk password values are redacted in
   extension output and MCP responses.
+- `TalkReply.replyLines`, `BeyondTalkError.message`, and
+  `BeyondTalkError.replyLine` are sanitized before storage or return.
 - Tests cover VS Code formatting helpers, MCP output shape, error parsing, and
   redaction.
