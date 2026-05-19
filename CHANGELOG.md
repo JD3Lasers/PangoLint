@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-05-18
+
+### Fixed
+
+- Keep the mobile reference site in browse mode when switching between Commands
+  and Object Tree sections with a preserved selection from another mode.
+- Prevent stale preserved selections from driving the visible reference detail
+  pane or URL hash outside their active mode.
+
 ## [0.4.1] - 2026-05-18
 
 ### Fixed
@@ -49,6 +58,7 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/JD3Lasers/PangoLint/releases/tag/v0.4.0

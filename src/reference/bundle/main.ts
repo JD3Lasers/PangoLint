@@ -10,7 +10,7 @@ import { renderDetailColumn } from "./detail";
 import { renderListColumn } from "./list";
 import { renderNavColumn } from "./nav";
 import { installRouter } from "./router";
-import { ReferenceState, type StateChange } from "./state";
+import { hasVisibleDetailSelection, ReferenceState, type StateChange } from "./state";
 import type { ReferenceCatalog } from "./types";
 
 function readCatalog(): ReferenceCatalog {
@@ -35,7 +35,7 @@ function mount(): void {
   };
   const syncMobilePanel = (change: StateChange): void => {
     if (change === "filter") return;
-    setMobilePanel(hasDetailSelection(state) ? "detail" : "browse");
+    setMobilePanel(hasVisibleDetailSelection(state) ? "detail" : "browse");
   };
   window.addEventListener("reference:mobile-panel", (event) => {
     const panel = (event as CustomEvent<"browse" | "detail">).detail;
@@ -54,10 +54,6 @@ function mount(): void {
 
   installRouter(state);
   installShortcuts(state);
-}
-
-function hasDetailSelection(state: ReferenceState): boolean {
-  return Boolean(state.selectedCanonical || state.selectedObject || state.selectedObjectReference);
 }
 
 function installShortcuts(state: ReferenceState): void {

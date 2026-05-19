@@ -12,7 +12,7 @@ import {
   filterObjectTree,
   type ObjectTreeNode,
 } from "../../src/reference/bundle/objectTree";
-import { ReferenceState } from "../../src/reference/bundle/state";
+import { getVisibleDetailSelection, hasVisibleDetailSelection, ReferenceState } from "../../src/reference/bundle/state";
 import type { ReferenceCatalog, ReferenceObject, ReferenceObjectProperty } from "../../src/reference/bundle/types";
 
 function emptyCatalog(): ReferenceCatalog {
@@ -129,6 +129,36 @@ describe("ReferenceState objectSection", () => {
     expect(state.selectedObjectReference).toBeNull();
     expect(state.selectedObject).toBeNull();
     expect(state.selectedObjectPropertyPath).toBeNull();
+  });
+
+  it("does not expose a preserved command selection as Object Tree detail", () => {
+    const state = new ReferenceState(emptyCatalog());
+    state.select("BlackOut");
+    state.setViewMode("objects");
+
+    expect(state.selectedCanonical).toBe("BlackOut");
+    expect(hasVisibleDetailSelection(state)).toBe(false);
+    expect(getVisibleDetailSelection(state)).toBeNull();
+  });
+
+  it("reports only the current mode's selection as visible detail", () => {
+    const state = new ReferenceState(emptyCatalog());
+
+    state.select("BlackOut");
+    expect(getVisibleDetailSelection(state)).toEqual({ kind: "command", canonical: "BlackOut" });
+
+    state.selectObject("Master", "Master.BPM");
+    expect(getVisibleDetailSelection(state)).toEqual({
+      kind: "object",
+      name: "Master",
+      propertyPath: "Master.BPM",
+    });
+
+    state.selectObjectReference("fx", "Oscillating effect :: Zoom");
+    expect(getVisibleDetailSelection(state)).toEqual({
+      kind: "object-reference",
+      selection: { section: "fx", id: "Oscillating effect :: Zoom" },
+    });
   });
 });
 

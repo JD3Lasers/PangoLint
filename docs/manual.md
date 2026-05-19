@@ -63,7 +63,7 @@ coding agents.
    ```bash
    npm ci
    npm run package:vsix
-   code --install-extension pangolint-0.4.1.vsix --force
+   code --install-extension pangolint-0.4.2.vsix --force
    ```
 
 2. Open any `.BeyondCode` file. Syntax highlighting, diagnostics,
@@ -460,7 +460,7 @@ need the MCP server.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.4.1.tgz
+npm install -g ./pangolint-mcp-0.4.2.tgz
 which pangolint-mcp
 ```
 
@@ -468,7 +468,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.4.1.tgz
+npm install -g ./mcp/pangolint-mcp-0.4.2.tgz
 which pangolint-mcp
 ```
 

@@ -5,7 +5,12 @@
 
 import { clear, el } from "./dom";
 import { buildCueTypeReference, buildFxEffectReference, type ObjectPropertyReferenceDetail } from "./objectTree";
-import type { ReferenceState } from "./state";
+import {
+  getVisibleDetailSelection,
+  hasVisibleDetailSelection,
+  type ObjectReferenceSelection,
+  type ReferenceState,
+} from "./state";
 import type {
   ReferenceCommand,
   ReferenceForm,
@@ -62,24 +67,25 @@ export function renderDetailColumn(state: ReferenceState, options: DetailColumnO
 
   const render = (): void => {
     clear(root);
-    const selectedPropertyPath = state.selectedObjectPropertyPath;
-    if (hasDetailSelection(state) && options.onBackToResults) {
+    const detailSelection = getVisibleDetailSelection(state);
+    const selectedPropertyPath = detailSelection?.kind === "object" ? detailSelection.propertyPath : null;
+    if (hasVisibleDetailSelection(state) && options.onBackToResults) {
       root.append(renderMobileBackButton(options.onBackToResults));
     }
-    if (state.selectedObjectReference) {
-      const objectReference = findObjectReferenceDetail(state);
+    if (detailSelection?.kind === "object-reference") {
+      const objectReference = findObjectReferenceDetail(state, detailSelection.selection);
       root.append(
         objectReference
           ? renderObjectReferenceDetail(objectReference, state)
-          : notFoundState(state.selectedObjectReference.id, "object"),
+          : notFoundState(detailSelection.selection.id, "object"),
       );
-    } else if (state.selectedObject) {
-      const obj = state.objectsByName.get(state.selectedObject);
-      root.append(obj ? renderObjectDetail(obj, state) : notFoundState(state.selectedObject, "object"));
-    } else if (state.selectedCanonical) {
-      const cmd = state.commandsByCanonical.get(state.selectedCanonical);
+    } else if (detailSelection?.kind === "object") {
+      const obj = state.objectsByName.get(detailSelection.name);
+      root.append(obj ? renderObjectDetail(obj, state) : notFoundState(detailSelection.name, "object"));
+    } else if (detailSelection?.kind === "command") {
+      const cmd = state.commandsByCanonical.get(detailSelection.canonical);
       root.append(
-        cmd ? renderCommandDetail(cmd, objectIndex, state) : notFoundState(state.selectedCanonical, "command"),
+        cmd ? renderCommandDetail(cmd, objectIndex, state) : notFoundState(detailSelection.canonical, "command"),
       );
     } else {
       root.append(emptyState(state));
@@ -97,10 +103,6 @@ export function renderDetailColumn(state: ReferenceState, options: DetailColumnO
   render();
 
   return root;
-}
-
-function hasDetailSelection(state: ReferenceState): boolean {
-  return Boolean(state.selectedCanonical || state.selectedObject || state.selectedObjectReference);
 }
 
 function renderMobileBackButton(onBackToResults: () => void): HTMLElement {
@@ -179,9 +181,10 @@ function objectTreeEmptyState(state: ReferenceState): HTMLElement {
   );
 }
 
-function findObjectReferenceDetail(state: ReferenceState): ObjectPropertyReferenceDetail | null {
-  const selection = state.selectedObjectReference;
-  if (!selection) return null;
+function findObjectReferenceDetail(
+  state: ReferenceState,
+  selection: ObjectReferenceSelection,
+): ObjectPropertyReferenceDetail | null {
   const reference =
     selection.section === "cue-types"
       ? buildCueTypeReference(state.catalog.objects ?? [])

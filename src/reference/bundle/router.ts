@@ -9,7 +9,7 @@
 // State writes back to the URL via History API replaceState so back/
 // forward navigation is sane.
 
-import type { ObjectSection, ReferenceState, ViewMode } from "./state";
+import { getVisibleDetailSelection, type ObjectSection, type ReferenceState, type ViewMode } from "./state";
 
 interface ParsedHash {
   view?: ViewMode;
@@ -59,16 +59,17 @@ function buildHash(state: ReferenceState): string {
   }
   if (state.filter.query) parts.push(`q=${encode(state.filter.query)}`);
   if (state.filter.category) parts.push(`cat=${encode(state.filter.category)}`);
-  if (state.selectedCanonical) parts.push(`cmd=${encode(state.selectedCanonical)}`);
-  if (state.selectedObject) parts.push(`obj=${encode(state.selectedObject)}`);
-  if (state.selectedObject && state.selectedObjectPropertyPath) {
-    parts.push(`prop=${encode(state.selectedObjectPropertyPath)}`);
+  const detailSelection = getVisibleDetailSelection(state);
+  if (detailSelection?.kind === "command") parts.push(`cmd=${encode(detailSelection.canonical)}`);
+  if (detailSelection?.kind === "object") {
+    parts.push(`obj=${encode(detailSelection.name)}`);
+    if (detailSelection.propertyPath) parts.push(`prop=${encode(detailSelection.propertyPath)}`);
   }
-  if (state.selectedObjectReference?.section === "cue-types") {
-    parts.push(`cue=${encode(state.selectedObjectReference.id)}`);
+  if (detailSelection?.kind === "object-reference" && detailSelection.selection.section === "cue-types") {
+    parts.push(`cue=${encode(detailSelection.selection.id)}`);
   }
-  if (state.selectedObjectReference?.section === "fx") {
-    parts.push(`effect=${encode(state.selectedObjectReference.id)}`);
+  if (detailSelection?.kind === "object-reference" && detailSelection.selection.section === "fx") {
+    parts.push(`effect=${encode(detailSelection.selection.id)}`);
   }
   return parts.length ? `#${parts.join("&")}` : "";
 }
@@ -101,8 +102,10 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
     state.selectObjectReference("cue-types", parsed.cue);
   } else if (parsed.effect) {
     state.selectObjectReference("fx", parsed.effect);
+  } else if (parsed.cmd && parsed.view !== "objects") {
+    state.select(parsed.cmd);
   } else {
-    state.select(parsed.cmd ?? null);
+    state.select(null);
   }
 }
 
