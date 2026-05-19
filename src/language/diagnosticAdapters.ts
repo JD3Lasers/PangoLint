@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import type { PangoDiagnostic } from "./diagnostics";
+import type { PangoDiagnostic } from "./diagnostics/pangoDiagnostic";
 
 const DIAGNOSTIC_DOCS_BASE = "https://github.com/JD3Lasers/PangoLint/blob/main/docs/references/diagnostics/README.md";
 
