@@ -1,6 +1,6 @@
-// Tool: readBeyondProperty — single readback of a PangoScript property
-// path against the configured BEYOND host. T1 read-only — sends a tiny
-// `OscOutTTS …; OscOutXxx <path>, …` script and waits for the OSC
+// Tool: readBeyondProperty: single readback of a PangoScript property
+// path against the configured BEYOND host. T1 read-only: sends a tiny
+// `OscOutTTS ...; OscOutXxx <path>, ...` script and waits for the OSC
 // callback. Wraps src/runtime/beyondReadback.readBeyondProperty so the same
 // transport plumbing the extension uses also serves the MCP runtime tool.
 
@@ -11,12 +11,13 @@ import {
   readBeyondProperty as runtimeReadBeyondProperty,
   validateReadbackPropertyPath,
 } from "../../../src/runtime/beyondReadback";
+import type { SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
 import { fail, ok, type ToolResult } from "../config";
 
 export interface ReadBeyondPropertyInput {
   path: string;
-  /** Readback response type tag. Defaults to "f" (float — most numeric BEYOND properties). */
+  /** Readback response type tag. Defaults to "f" for most numeric BEYOND properties. */
   typeTag?: "f" | "i" | "s";
 }
 
@@ -25,6 +26,13 @@ export interface ReadBeyondPropertyOutput {
   path: string;
   requestId: string;
   value?: string | number;
+  transport?: "tcp" | "udp";
+  talkHost?: string;
+  talkPort?: number;
+  talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
+  talkGreeting?: string;
+  talkReplies?: TalkTcpReply[];
+  beyondError?: SendTalkTcpCommandsResult["beyondError"];
   error?: string;
 }
 
@@ -41,7 +49,7 @@ export async function readBeyondProperty(
   deps: ReadBeyondPropertyDeps = {},
 ): Promise<ReadBeyondPropertyResult> {
   if (!config.runtimeReadEnabled) {
-    return fail("runtime read disabled — set PANGOLINT_MCP_RUNTIME_READ=enabled to enable read runtime tools", true);
+    return fail("runtime read disabled: set PANGOLINT_MCP_RUNTIME_READ=enabled to enable read runtime tools", true);
   }
   const path = input.path?.trim();
   if (!path) return fail("path is required");
@@ -58,6 +66,14 @@ export async function readBeyondProperty(
         typeTag: input.typeTag ?? "f",
         talkHost: config.beyondTalkHost,
         talkPort: config.beyondTalkPort,
+        talkTransport: config.beyondTalkTransport,
+        talkTcpHost: config.beyondTalkTcpHost,
+        talkTcpPort: config.beyondTalkTcpPort,
+        talkUdpHost: config.beyondTalkUdpHost,
+        talkUdpPort: config.beyondTalkUdpPort,
+        talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
+        talkTcpPassword: config.beyondTalkTcpPassword,
+        commandTimeoutMs: config.readbackTimeoutMs,
         listenHost: config.oscListenHost,
         listenPort: config.oscListenPort,
         timeoutMs: config.readbackTimeoutMs,
@@ -73,6 +89,13 @@ export async function readBeyondProperty(
     path: result.propertyPath,
     requestId: result.requestId,
     value: result.value,
+    transport: result.transport,
+    talkHost: result.transport === "tcp" ? config.beyondTalkTcpHost : config.beyondTalkUdpHost,
+    talkPort: result.transport === "tcp" ? config.beyondTalkTcpPort : config.beyondTalkUdpPort,
+    talkStatus: result.talkStatus,
+    talkGreeting: result.talkGreeting,
+    talkReplies: result.talkReplies,
+    beyondError: result.beyondError,
     error: result.error,
   });
 }

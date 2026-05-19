@@ -8,6 +8,7 @@ const {
   registerCommandMock,
   runScriptWithOscCaptureMock,
   showErrorMessageMock,
+  showInformationMessageMock,
   showWarningMessageMock,
   vscodeState,
 } = vi.hoisted(() => {
@@ -28,6 +29,7 @@ const {
     }),
     runScriptWithOscCaptureMock: vi.fn(),
     showErrorMessageMock: vi.fn(),
+    showInformationMessageMock: vi.fn(),
     showWarningMessageMock: vi.fn(),
     vscodeState: {
       activeTextEditor: undefined as unknown,
@@ -61,6 +63,7 @@ vi.mock("vscode", () => ({
     createStatusBarItem: vi.fn(() => ({ show: vi.fn(), dispose: vi.fn() })),
     setStatusBarMessage: vi.fn(),
     showErrorMessage: showErrorMessageMock,
+    showInformationMessage: showInformationMessageMock,
     showWarningMessage: showWarningMessageMock,
     withProgress: vi.fn((_options, task: () => unknown) => task()),
   },
@@ -76,6 +79,7 @@ vi.mock("../../src/runtime/runScriptWithOscCapture", () => ({
   runScriptWithOscCapture: runScriptWithOscCaptureMock,
 }));
 
+import { readBeyondProperty } from "../../src/runtime/beyondReadback";
 import { registerBeyondRuntimeCommands } from "../../src/runtime/runtimeCommands";
 
 describe("registerBeyondRuntimeCommands", () => {
@@ -87,6 +91,7 @@ describe("registerBeyondRuntimeCommands", () => {
     registerCommandMock.mockClear();
     runScriptWithOscCaptureMock.mockReset();
     showErrorMessageMock.mockReset();
+    showInformationMessageMock.mockReset();
     showWarningMessageMock.mockReset();
     showWarningMessageMock.mockResolvedValue("Run");
     vscodeState.config = new Map<string, unknown>([
@@ -246,6 +251,41 @@ describe("registerBeyondRuntimeCommands", () => {
     expect(outputChannelMock.appendLine).toHaveBeenCalledWith(expect.stringContaining("line 1 ok <- Hello! / OK"));
     expect(outputChannelMock.appendLine).toHaveBeenCalledWith(
       expect.stringContaining("ok - 1 line sent over Talk TCP"),
+    );
+  });
+
+  it("passes configured Talk TCP settings to live value fetches", async () => {
+    vi.mocked(readBeyondProperty).mockResolvedValue({
+      ok: true,
+      requestId: "req-fetch",
+      propertyPath: "Master.Brightness",
+      script: "",
+      value: 100,
+    });
+    vscodeState.config.set("talkTransport", "tcp");
+    vscodeState.config.set("talkTcpHost", "192.0.2.148");
+    vscodeState.config.set("talkTcpPort", 16063);
+    vscodeState.activeTextEditor = {
+      document: {
+        languageId: "pangoscript",
+        lineAt: vi.fn(() => ({ text: "Master.Brightness" })),
+      },
+      selection: { active: { line: 0, character: 8 } },
+    };
+    const context = { subscriptions: [] } as unknown as vscode.ExtensionContext;
+    registerBeyondRuntimeCommands(context);
+
+    await commandHandlers.get("pangolint.fetchObjectValue")?.();
+
+    expect(readBeyondProperty).toHaveBeenCalledWith(
+      expect.objectContaining({
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+        talkUdpHost: "127.0.0.1",
+        talkUdpPort: 16062,
+      }),
     );
   });
 });

@@ -312,14 +312,14 @@ async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<v
   }
 
   const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+  const runtimeConfig = getBeyondRuntimeConfig(config);
 
   output.show(true);
-  output.appendLine(`[${new Date().toISOString()}] fetch ${path} ← ${talkHost}:${talkPort}`);
+  output.appendLine(`[${new Date().toISOString()}] fetch ${path} from ${describeConfiguredTalkTarget(runtimeConfig)}`);
 
   const result = await vscode.window.withProgress(
     { location: vscode.ProgressLocation.Notification, title: `PangoLint fetching ${path}`, cancellable: false },
-    () => readBeyondProperty({ propertyPath: path, talkHost, talkPort, listenHost, listenPort, timeoutMs }),
+    () => readBeyondProperty({ propertyPath: path, ...runtimeConfig }),
   );
 
   if (result.ok) {
@@ -371,11 +371,11 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
   }
   const { command, expectedValue, typeTag } = assignment;
 
-  const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+  const runtimeConfig = getBeyondRuntimeConfig(config);
 
   if (!state.confirmed || config.get<boolean>("confirmRunEachSession", true)) {
     const choice = await vscode.window.showWarningMessage(
-      `Send '${command}' to BEYOND at ${talkHost}:${talkPort} and verify via readback?\n\nThe write executes live on the BEYOND host.`,
+      `Send '${command}' to BEYOND at ${describeConfiguredTalkTarget(runtimeConfig)} and verify via readback?\n\nThe write executes live on the BEYOND host.`,
       { modal: true },
       "Run",
     );
@@ -384,7 +384,9 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
   }
 
   output.show(true);
-  output.appendLine(`[${new Date().toISOString()}] set ${command} → ${talkHost}:${talkPort}`);
+  output.appendLine(
+    `[${new Date().toISOString()}] set ${command} through ${describeConfiguredTalkTarget(runtimeConfig)}`,
+  );
 
   const result = await vscode.window.withProgress(
     { location: vscode.ProgressLocation.Notification, title: `PangoLint setting ${path}`, cancellable: false },
@@ -394,11 +396,7 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
         readbackPath: path,
         expectedValue,
         typeTag,
-        talkHost,
-        talkPort,
-        listenHost,
-        listenPort,
-        timeoutMs,
+        ...runtimeConfig,
       }),
   );
 
@@ -433,8 +431,9 @@ const liveValueCache = new Map<string, CachedLiveValue>();
 export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string): Promise<vscode.Hover> {
   if (!vscode.workspace.isTrusted) return base;
   const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  const { talkHost, talkPort, timeoutMs: configuredTimeoutMs, listenHost, listenPort } = getBeyondRuntimeConfig(config);
-  const cacheKey = `${talkHost}:${talkPort}|${path}`;
+  const runtimeConfig = getBeyondRuntimeConfig(config);
+  const { timeoutMs: configuredTimeoutMs } = runtimeConfig;
+  const cacheKey = `${runtimeConfig.talkTransport}:${runtimeConfig.talkTcpHost}:${runtimeConfig.talkTcpPort}:${runtimeConfig.talkUdpHost}:${runtimeConfig.talkUdpPort}|${path}`;
   const now = Date.now();
 
   const cached = liveValueCache.get(cacheKey);
@@ -446,10 +445,7 @@ export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string
   try {
     const result = await readBeyondProperty({
       propertyPath: path,
-      talkHost,
-      talkPort,
-      listenHost,
-      listenPort,
+      ...runtimeConfig,
       timeoutMs,
     });
     const entry: CachedLiveValue = result.ok

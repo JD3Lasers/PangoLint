@@ -4,11 +4,26 @@ import dgram from "node:dgram";
 import type { OscArg, OscMessage } from "./osc";
 import { decodeOscPacket, sourceMatchesExpectedHost } from "./osc";
 import { withOscPortLock } from "./oscPortLock";
-import { buildTalkPayloads, sendTalkUdp } from "./talkUdp";
+import { type BeyondTalkTransport, type RunScriptResult, runScript } from "./runScript";
+import {
+  type SendTalkTcpCommandsOptions,
+  type SendTalkTcpCommandsResult,
+  sendTalkTcpCommands,
+  type TalkTcpReply,
+} from "./talkTcp";
+import { sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
 
 export interface ReadbackOptions {
   talkHost: string;
   talkPort: number;
+  talkTransport?: BeyondTalkTransport;
+  talkTcpHost?: string;
+  talkTcpPort?: number;
+  talkUdpHost?: string;
+  talkUdpPort?: number;
+  talkUdpFallbackAllowed?: boolean;
+  talkTcpPassword?: string;
+  commandTimeoutMs?: number;
   listenHost: string;
   listenPort: number;
   timeoutMs: number;
@@ -16,7 +31,18 @@ export interface ReadbackOptions {
   logger?: (msg: string) => void;
 }
 
-export interface ConnectionCheckResult {
+interface ReadbackTalkStatus {
+  transport?: "tcp" | "udp";
+  talkStatus?: RunScriptResult["talkStatus"];
+  talkGreeting?: string;
+  talkReplies?: TalkTcpReply[];
+  beyondError?: SendTalkTcpCommandsResult["beyondError"];
+  linesSent?: number;
+  payloadsSent?: number;
+  bytesSent?: number;
+}
+
+export interface ConnectionCheckResult extends ReadbackTalkStatus {
   ok: boolean;
   requestId: string;
   command: string;
@@ -29,7 +55,7 @@ export interface PropertyReadbackOptions extends ReadbackOptions {
   typeTag?: "f" | "i" | "s";
 }
 
-export interface PropertyReadbackResult {
+export interface PropertyReadbackResult extends ReadbackTalkStatus {
   ok: boolean;
   requestId: string;
   propertyPath: string;
@@ -58,6 +84,7 @@ export function validateReadbackPropertyPath(path: string): string | undefined {
 
 export interface ReadbackTransport {
   sendTalk(host: string, port: number, payload: Buffer): Promise<void>;
+  sendTalkTcp?: (options: SendTalkTcpCommandsOptions) => Promise<SendTalkTcpCommandsResult>;
   listenForOsc(
     host: string,
     port: number,
@@ -78,11 +105,13 @@ export async function checkBeyondConnection(
   const { logger } = options;
   const requestId = options.requestId ?? createRequestId();
   const command = `OscOutTTS "/pangolint/ping", "s", "${requestId}"`;
-  const [payload] = buildTalkPayloads([command]);
+  const commands = [command];
 
   try {
+    validateTalkCommandLines(commands);
     return await withOscPortLock(options, async () => {
       logger?.(`[connection] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
+      const expectedSourceHost = expectedReadbackOscSourceHost(options);
       const listener = transport.listenForOsc(
         options.listenHost,
         options.listenPort,
@@ -91,7 +120,7 @@ export async function checkBeyondConnection(
             address: "/pangolint/ping",
             typeTags: "s",
             expectedArgs: [requestId],
-            talkHost: options.talkHost,
+            expectedSourceHost,
           }),
         options.timeoutMs,
       );
@@ -102,18 +131,27 @@ export async function checkBeyondConnection(
       });
 
       await listener.ready;
-      logger?.(`[connection] listener ready — sending Talk UDP to ${options.talkHost}:${options.talkPort}`);
-      await transport.sendTalk(options.talkHost, options.talkPort, payload);
-      logger?.("[connection] command sent — awaiting OSC callback");
+      logger?.(`[connection] listener ready, sending Talk command`);
+      const sendResult = await sendReadbackTalk(commands, options, transport);
+      if (!sendResult.ok) {
+        return {
+          ok: false,
+          requestId,
+          command,
+          ...readbackTalkStatus(sendResult),
+          error: sendResult.error ?? "Talk send failed.",
+        };
+      }
+      logger?.("[connection] command sent, awaiting OSC callback");
       const message = await listener.message;
       assertExpectedOscCallback(message, {
         address: "/pangolint/ping",
         typeTags: "s",
         expectedArgs: [requestId],
-        talkHost: options.talkHost,
+        expectedSourceHost,
       });
       logger?.(`[connection] received callback: ${message.address}`);
-      return { ok: true, requestId, command, message };
+      return { ok: true, requestId, command, message, ...readbackTalkStatus(sendResult) };
     });
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -141,12 +179,10 @@ export async function readBeyondProperty(
     };
   }
 
-  const scriptLines = [`var v`, `v = ${options.propertyPath}`, `OscOutTTS "${address}", "${typeTag}", v`];
+  const scriptLines = propertyReadbackScriptLines(address, typeTag, options.propertyPath, options);
   const script = scriptLines.join("\n");
-
-  let payloads: Buffer[];
   try {
-    payloads = buildTalkPayloads(scriptLines);
+    validateTalkCommandLines(scriptLines);
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
     return {
@@ -157,19 +193,11 @@ export async function readBeyondProperty(
       error: msg,
     };
   }
-  if (payloads.length !== 1) {
-    return {
-      ok: false,
-      requestId,
-      propertyPath: options.propertyPath,
-      script,
-      error: "Script exceeded payload limit.",
-    };
-  }
 
   try {
     return await withOscPortLock(options, async () => {
       logger?.(`[readback] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
+      const expectedSourceHost = expectedReadbackOscSourceHost(options);
       const listener = transport.listenForOsc(
         options.listenHost,
         options.listenPort,
@@ -177,7 +205,7 @@ export async function readBeyondProperty(
           isExpectedOscCallback(message, {
             address,
             typeTags: typeTag,
-            talkHost: options.talkHost,
+            expectedSourceHost,
           }),
         options.timeoutMs,
       );
@@ -185,19 +213,37 @@ export async function readBeyondProperty(
       listener.message.catch(() => {});
 
       await listener.ready;
-      logger?.(`[readback] listener ready — sending property read script for ${options.propertyPath}`);
-      await transport.sendTalk(options.talkHost, options.talkPort, payloads[0]);
-      logger?.("[readback] script sent — awaiting OSC callback");
+      logger?.(`[readback] listener ready, sending property read script for ${options.propertyPath}`);
+      const sendResult = await sendReadbackTalk(scriptLines, options, transport);
+      if (!sendResult.ok) {
+        return {
+          ok: false,
+          requestId,
+          propertyPath: options.propertyPath,
+          script,
+          ...readbackTalkStatus(sendResult),
+          error: sendResult.error ?? "Talk send failed.",
+        };
+      }
+      logger?.("[readback] script sent, awaiting OSC callback");
       const message = await listener.message;
       assertExpectedOscCallback(message, {
         address,
         typeTags: typeTag,
-        talkHost: options.talkHost,
+        expectedSourceHost,
       });
       logger?.(`[readback] received callback: ${message.address} args=${JSON.stringify(message.args)}`);
       const raw = message.args[0];
       const value = typeof raw === "string" || typeof raw === "number" ? raw : undefined;
-      return { ok: true, requestId, propertyPath: options.propertyPath, script, value, message };
+      return {
+        ok: true,
+        requestId,
+        propertyPath: options.propertyPath,
+        script,
+        value,
+        message,
+        ...readbackTalkStatus(sendResult),
+      };
     });
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -214,7 +260,7 @@ export interface WriteVerifyOptions extends ReadbackOptions {
   typeTag?: "f" | "i" | "s";
 }
 
-export interface WriteVerifyResult {
+export interface WriteVerifyResult extends ReadbackTalkStatus {
   ok: boolean;
   command: string;
   readbackPath: string;
@@ -246,19 +292,11 @@ export async function verifyCommandWrite(
     };
   }
 
-  const scriptLines = [
-    options.command,
-    "var v",
-    `v = ${options.readbackPath}`,
-    `OscOutTTS "${address}", "${typeTag}", v`,
-  ];
-
-  let payloads: Buffer[];
-  let restorePayload: Buffer | undefined;
+  const scriptLines = writeVerifyScriptLines(options.command, address, typeTag, options.readbackPath, options);
   try {
-    payloads = buildTalkPayloads(scriptLines);
+    validateTalkCommandLines(scriptLines);
     if (options.restoreCommand) {
-      [restorePayload] = buildTalkPayloads([options.restoreCommand]);
+      validateTalkCommandLines([options.restoreCommand]);
     }
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -272,26 +310,17 @@ export async function verifyCommandWrite(
       error: msg,
     };
   }
-  if (payloads.length !== 1) {
-    return {
-      ok: false,
-      command: options.command,
-      readbackPath: options.readbackPath,
-      expected: options.expectedValue,
-      matched: false,
-      restored: false,
-      error: "Script exceeded payload limit.",
-    };
-  }
-
   let after: number | string | undefined;
   let matched = false;
   let restored = false;
   let writePacketSent = false;
   const sendRestore = async (): Promise<void> => {
-    if (!restorePayload || !options.restoreCommand) return;
+    if (!options.restoreCommand) return;
     try {
-      await transport.sendTalk(options.talkHost, options.talkPort, restorePayload);
+      const restoreResult = await sendReadbackTalk([options.restoreCommand], options, transport);
+      if (!restoreResult.ok) {
+        throw new Error(restoreResult.error ?? "restore send failed");
+      }
       restored = true;
       logger?.(`[verify] restore sent: ${options.restoreCommand}`);
     } catch (restoreError) {
@@ -304,6 +333,7 @@ export async function verifyCommandWrite(
     return await withOscPortLock(options, async () => {
       try {
         logger?.(`[verify] binding OSC listener on ${options.listenHost}:${options.listenPort}`);
+        const expectedSourceHost = expectedReadbackOscSourceHost(options);
         const listener = transport.listenForOsc(
           options.listenHost,
           options.listenPort,
@@ -311,7 +341,7 @@ export async function verifyCommandWrite(
             isExpectedOscCallback(message, {
               address,
               typeTags: typeTag,
-              talkHost: options.talkHost,
+              expectedSourceHost,
             }),
           options.timeoutMs,
         );
@@ -319,15 +349,27 @@ export async function verifyCommandWrite(
         listener.message.catch(() => {});
 
         await listener.ready;
-        logger?.(`[verify] listener ready — sending write+readback script for ${options.command}`);
-        await transport.sendTalk(options.talkHost, options.talkPort, payloads[0]);
+        logger?.(`[verify] listener ready, sending write+readback script for ${options.command}`);
+        const sendResult = await sendReadbackTalk(scriptLines, options, transport);
+        if (!sendResult.ok) {
+          return {
+            ok: false,
+            command: options.command,
+            readbackPath: options.readbackPath,
+            expected: options.expectedValue,
+            matched: false,
+            restored: false,
+            ...readbackTalkStatus(sendResult),
+            error: sendResult.error ?? "Talk send failed.",
+          };
+        }
         writePacketSent = true;
-        logger?.("[verify] script sent — awaiting OSC callback");
+        logger?.("[verify] script sent, awaiting OSC callback");
         const message = await listener.message;
         assertExpectedOscCallback(message, {
           address,
           typeTags: typeTag,
-          talkHost: options.talkHost,
+          expectedSourceHost,
         });
         logger?.(`[verify] received callback: ${message.address} args=${JSON.stringify(message.args)}`);
 
@@ -345,6 +387,7 @@ export async function verifyCommandWrite(
           expected: options.expectedValue,
           matched,
           restored,
+          ...readbackTalkStatus(sendResult),
         };
       } catch (error) {
         const msg = error instanceof Error ? error.message : String(error);
@@ -378,17 +421,94 @@ export async function verifyCommandWrite(
   }
 }
 
+function propertyReadbackScriptLines(
+  address: string,
+  typeTag: "f" | "i" | "s",
+  propertyPath: string,
+  options: ReadbackOptions,
+): string[] {
+  if (usesStatusProducingReadbackLine(options)) {
+    return [`OscOutTTS "${address}", "${typeTag}", ${propertyPath}`];
+  }
+  return ["var v", `v = ${propertyPath}`, `OscOutTTS "${address}", "${typeTag}", v`];
+}
+
+function writeVerifyScriptLines(
+  command: string,
+  address: string,
+  typeTag: "f" | "i" | "s",
+  readbackPath: string,
+  options: ReadbackOptions,
+): string[] {
+  if (usesStatusProducingReadbackLine(options)) {
+    return [command, `OscOutTTS "${address}", "${typeTag}", ${readbackPath}`];
+  }
+  return [command, "var v", `v = ${readbackPath}`, `OscOutTTS "${address}", "${typeTag}", v`];
+}
+
+function usesStatusProducingReadbackLine(options: ReadbackOptions): boolean {
+  const transport = options.talkTransport ?? "udp";
+  return transport === "tcp" || transport === "auto";
+}
+
+async function sendReadbackTalk(
+  commands: readonly string[],
+  options: ReadbackOptions,
+  transport: ReadbackTransport,
+): Promise<RunScriptResult> {
+  return runScript(commands.join("\n"), {
+    talkHost: options.talkHost,
+    talkPort: options.talkPort,
+    talkTransport: options.talkTransport ?? "udp",
+    talkTcpHost: options.talkTcpHost,
+    talkTcpPort: options.talkTcpPort,
+    talkUdpHost: options.talkUdpHost ?? options.talkHost,
+    talkUdpPort: options.talkUdpPort ?? options.talkPort,
+    talkUdpFallbackAllowed: options.talkUdpFallbackAllowed,
+    talkTcpPassword: options.talkTcpPassword,
+    commandTimeoutMs: options.commandTimeoutMs ?? options.timeoutMs,
+    send: transport.sendTalk,
+    sendTcp: transport.sendTalkTcp,
+  });
+}
+
+function readbackTalkStatus(result: RunScriptResult): ReadbackTalkStatus {
+  return {
+    transport: result.transport,
+    talkStatus: result.talkStatus,
+    talkGreeting: result.talkGreeting,
+    talkReplies: result.talkReplies,
+    beyondError: result.beyondError,
+    linesSent: result.linesSent,
+    payloadsSent: result.payloadsSent,
+    bytesSent: result.bytesSent,
+  };
+}
+
+function expectedReadbackOscSourceHost(options: ReadbackOptions): string | undefined {
+  const transport = options.talkTransport ?? "udp";
+  if (transport === "tcp") {
+    return options.talkTcpHost ?? options.talkHost;
+  }
+  if (transport === "auto") {
+    const tcpHost = options.talkTcpHost ?? options.talkHost;
+    const udpHost = options.talkUdpHost ?? options.talkHost;
+    return options.talkUdpFallbackAllowed && tcpHost !== udpHost ? undefined : tcpHost;
+  }
+  return options.talkUdpHost ?? options.talkHost;
+}
+
 interface ExpectedOscCallback {
   address: string;
   typeTags: "f" | "i" | "s";
-  talkHost: string;
+  expectedSourceHost?: string;
   expectedArgs?: readonly OscArg[];
 }
 
 function isExpectedOscCallback(message: OscMessage, expected: ExpectedOscCallback): boolean {
   if (message.address !== expected.address) return false;
   if (message.typeTags !== expected.typeTags) return false;
-  if (!sourceMatchesExpectedHost(message, expected.talkHost)) return false;
+  if (!sourceMatchesExpectedHost(message, expected.expectedSourceHost)) return false;
 
   if (expected.expectedArgs) {
     if (message.args.length !== expected.expectedArgs.length) return false;
@@ -415,6 +535,10 @@ function argMatchesTypeTag(arg: OscArg | undefined, tag: string): boolean {
 export const nodeReadbackTransport: ReadbackTransport = {
   async sendTalk(host: string, port: number, payload: Buffer): Promise<void> {
     await sendTalkUdp(host, port, payload);
+  },
+
+  async sendTalkTcp(options: SendTalkTcpCommandsOptions): Promise<SendTalkTcpCommandsResult> {
+    return sendTalkTcpCommands(options);
   },
 
   listenForOsc(

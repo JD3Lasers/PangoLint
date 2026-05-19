@@ -28,11 +28,11 @@ export async function validateActiveDocumentAgainstBeyond(
   }
 
   const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+  const runtimeConfig = getBeyondRuntimeConfig(config);
   const propertyIndex = hooks.getPropertyIndex();
 
   output.show(true);
-  output.appendLine(`[${new Date().toISOString()}] validate ${editor.document.fileName} ← ${talkHost}:${talkPort}`);
+  output.appendLine(`[${new Date().toISOString()}] validate ${editor.document.fileName}`);
 
   const { report, requestIdByEntry } = await vscode.window.withProgress(
     {
@@ -44,17 +44,13 @@ export async function validateActiveDocumentAgainstBeyond(
       runValidation({
         documentText: editor.document.getText(),
         propertyIndex,
-        talkHost,
-        talkPort,
-        listenHost,
-        listenPort,
-        timeoutMs,
+        ...runtimeConfig,
         logger: (msg) => output.appendLine(msg),
       }),
   );
 
   if (report.entries.length === 0) {
-    output.appendLine("  (nothing to validate — every root is already grounded)");
+    output.appendLine("  (nothing to validate - every root is already grounded)");
     void vscode.window.showInformationMessage(
       "PangoLint: every property root in this file is already known. No readbacks sent.",
     );
@@ -65,12 +61,12 @@ export async function validateActiveDocumentAgainstBeyond(
   if (changed.size > 0) hooks.onValidatedRootsChanged();
 
   output.appendLine(
-    `  summary — confirmed=${report.confirmed} silent=${report.silent} unreachable=${report.unreachable}`,
+    `  summary - confirmed=${report.confirmed} silent=${report.silent} unreachable=${report.unreachable}`,
   );
 
   const summary = `BEYOND validate: ${report.confirmed} confirmed, ${report.silent} inconclusive, ${report.unreachable} unreachable`;
   if (report.unreachable > 0 && report.confirmed === 0) {
-    void vscode.window.showErrorMessage(`${summary} — check Talk UDP host/port.`);
+    void vscode.window.showErrorMessage(`${summary} - check configured Talk and OSC settings.`);
   } else if (report.confirmed > 0) {
     void vscode.window.showInformationMessage(summary);
   } else {
