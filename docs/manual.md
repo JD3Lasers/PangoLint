@@ -63,7 +63,7 @@ coding agents.
    ```bash
    npm ci
    npm run package:vsix
-   code --install-extension pangolint-0.4.2.vsix --force
+   code --install-extension pangolint-0.4.3.vsix --force
    ```
 
 2. Open any `.BeyondCode` file. Syntax highlighting, diagnostics,
@@ -460,7 +460,7 @@ need the MCP server.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.4.2.tgz
+npm install -g ./pangolint-mcp-0.4.3.tgz
 which pangolint-mcp
 ```
 
@@ -468,7 +468,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.4.2.tgz
+npm install -g ./mcp/pangolint-mcp-0.4.3.tgz
 which pangolint-mcp
 ```
 
@@ -552,7 +552,7 @@ The full env-var list lives in [mcp/README.md](../mcp/README.md).
 
 ### Knowledge tools (always on)
 
-Nine offline tools the agent can call without any opt-in:
+Eleven offline tools the agent can call without any opt-in:
 
 | Tool | What it does |
 |---|---|
@@ -562,6 +562,8 @@ Nine offline tools the agent can call without any opt-in:
 | `listObjects` | Object roots from canonical schemas plus Object Tree-only families such as `WS`, `FX`, and `DmxOutput`. |
 | `searchObjectProperties` | Ranked search over BEYOND Object Tree property paths (e.g. `Master.ShowSpeed`, `FX.N.N.N.Oscillator.Period`). |
 | `lookupObjectProperty` | Exact lookup for a single property path. |
+| `lookupPropertyControls` | Exact property lookup with Object Tree path, direct `/b/` address, PangoScript command links, OSC routes, range data, readback, and behavior metadata. |
+| `searchPropertyControls` | Search property controls by path, OSC route, command name, context, and value metadata. |
 | `lintScript` | Run PangoLint diagnostics over text and return the structured diagnostic list. |
 | `explainDiagnostic` | Markdown documentation for one diagnostic code. |
 | `getServerConfig` | Current config and which tools are available. Agents are instructed to call this first. |

@@ -759,7 +759,7 @@
 <body>
 
 <header class="cover">
-  <div class="cover-eyebrow">PangoLint v0.4.2</div>
+  <div class="cover-eyebrow">PangoLint v0.4.3</div>
   <div class="cover-grid">
     <div>
       <h1 class="cover-title">PangoLint <em>User Manual</em></h1>
@@ -894,7 +894,7 @@
       <li>Install the VSIX:
         <pre data-lang="bash"><code>npm ci
 npm run package:vsix
-code --install-extension pangolint-0.4.2.vsix --force</code></pre>
+code --install-extension pangolint-0.4.3.vsix --force</code></pre>
       </li>
       <li>Open any <code>.BeyondCode</code> file. Syntax highlighting,
       diagnostics, completions, and the activity-bar sidebar light up
@@ -1488,13 +1488,13 @@ code --install-extension pangolint-0.4.2.vsix --force</code></pre>
     <h3 id="install-configure">Install &amp; configure</h3>
     <p>Install the <code>pangolint-mcp</code> tarball attached to a
     GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.4.2.tgz
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.4.3.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.4.2.tgz
+npm install -g ./mcp/pangolint-mcp-0.4.3.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
@@ -1560,7 +1560,7 @@ codex mcp get PangoLint</code></pre>
     <p>The full env-var list lives in <code>mcp/README.md</code>.</p>
 
     <h3 id="knowledge-tools">Knowledge tools (always on)</h3>
-    <p>Nine offline tools the agent can call without any opt-in:</p>
+    <p>Eleven offline tools the agent can call without any opt-in:</p>
     <div class="table-wrap">
     <table>
       <thead><tr><th>Tool</th><th>What it does</th></tr></thead>
@@ -1571,6 +1571,8 @@ codex mcp get PangoLint</code></pre>
         <tr><td><code>listObjects</code></td><td>Object roots from canonical schemas plus Object Tree-only families such as <code>WS</code>, <code>FX</code>, and <code>DmxOutput</code>.</td></tr>
         <tr><td><code>searchObjectProperties</code></td><td>Ranked search over BEYOND Object Tree property paths (e.g. <code>Master.ShowSpeed</code>, <code>FX.N.N.N.Oscillator.Period</code>).</td></tr>
         <tr><td><code>lookupObjectProperty</code></td><td>Exact lookup for a single property path.</td></tr>
+        <tr><td><code>lookupPropertyControls</code></td><td>Exact property lookup with Object Tree path, direct <code>/b/</code> address, PangoScript command links, OSC routes, range data, readback, and behavior metadata.</td></tr>
+        <tr><td><code>searchPropertyControls</code></td><td>Search property controls by path, OSC route, command name, context, and value metadata.</td></tr>
         <tr><td><code>lintScript</code></td><td>Run PangoLint diagnostics over text and return the structured diagnostic list.</td></tr>
         <tr><td><code>explainDiagnostic</code></td><td>Markdown documentation for one diagnostic code.</td></tr>
         <tr><td><code>getServerConfig</code></td><td>Current config and which tools are available. Agents are instructed to call this first.</td></tr>
@@ -1854,7 +1856,7 @@ codex mcp get PangoLint</code></pre>
     </p>
   </div>
   <div class="doc-footer-meta">
-    PangoLint &nbsp;·&nbsp; v0.4.2<br>
+    PangoLint &nbsp;·&nbsp; v0.4.3<br>
     Catalog build 2044<br>
     Document revised 2026-05-18
   </div>

@@ -14,6 +14,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  version-policy:
+    name: Version policy
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Verify PR version bump
+        run: npm run check:pr-version
+
   public-gate:
     name: Public gate
     runs-on: ubuntu-latest

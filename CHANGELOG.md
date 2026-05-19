@@ -6,6 +6,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-05-19
+
+### Added
+
+- Surface tracked OSC control routes in the generated PangoScript reference
+  site for command detail pages and Object Tree property rows.
+- Add public control route documentation and MCP/manual entries for the
+  property control lookup tools.
+- Enforce a PR version policy in CI so every PR into `main` advances the root
+  extension, MCP package, and lockfile versions together.
+
 ## [0.4.2] - 2026-05-18
 
 ### Fixed
@@ -58,7 +69,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.3...HEAD
+[0.4.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/JD3Lasers/PangoLint/releases/tag/v0.4.0

@@ -43,6 +43,9 @@ smoke checks.
 
 - [ ] Apply the [Version selection policy](versioning-policy.md): choose
   `PATCH`, `MINOR`, or a `prerelease` suffix before packaging.
+- [ ] For normal PR work, apply this bump after implementation and focused
+  verification are stable, before final review and merge. Do not bump again for
+  review fixes inside the same PR.
 - [ ] Bump `version` in [package.json](../../package.json) and
   [mcp/package.json](../../mcp/package.json) together. Keep root and MCP
   versions lockstep unless the release issue explicitly says otherwise:

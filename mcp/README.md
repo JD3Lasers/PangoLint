@@ -24,7 +24,7 @@ context.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.4.2.tgz
+npm install -g ./pangolint-mcp-0.4.3.tgz
 which pangolint-mcp
 ```
 
@@ -33,7 +33,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.4.2.tgz
+npm install -g ./mcp/pangolint-mcp-0.4.3.tgz
 which pangolint-mcp
 ```
 
@@ -58,6 +58,8 @@ The binary is `pangolint-mcp` (stdio transport).
 | `listObjects` | Object roots from canonical schemas plus Object Tree-only families such as `WS`, `FX`, and `DmxOutput`. |
 | `searchObjectProperties` | Ranked search over Object Tree and FX property paths. |
 | `lookupObjectProperty` | Exact lookup for one Object Tree property path. |
+| `lookupPropertyControls` | Exact property lookup with Object Tree path, direct `/b/` address, PangoScript command links, OSC routes, range data, readback, and behavior metadata. |
+| `searchPropertyControls` | Search property controls by path, OSC route, command name, context, and value metadata. |
 | `lintScript` | Run PangoLint diagnostics over text, using bundled object schemas and Object Tree paths for property hints. |
 | `explainDiagnostic` | Markdown for one diagnostic code. |
 | `getServerConfig` | Current config + which tools are available. Call this first. |

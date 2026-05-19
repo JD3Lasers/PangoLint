@@ -3,6 +3,9 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const repoRoot = process.cwd();
+const { compareVersions } = require("../../scripts/checkPrVersionBump.cjs") as {
+  compareVersions: (left: string, right: string) => number;
+};
 const { isStrictSemver } = require("../../scripts/releaseSemver.cjs") as {
   isStrictSemver: (version: string) => boolean;
 };
@@ -28,6 +31,16 @@ describe("release workflow", () => {
     const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "ci.yml"), "utf8");
 
     expect(workflow).toContain("npm run check:mcp");
+  });
+
+  it("enforces PR version bumps in hosted CI", () => {
+    const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "ci.yml"), "utf8");
+    const versionPolicyJob = workflowJobSection(workflow, "version-policy");
+
+    expect(versionPolicyJob).toContain("name: Version policy");
+    expect(versionPolicyJob).toContain("if: github.event_name == 'pull_request'");
+    expect(versionPolicyJob).toContain("fetch-depth: 0");
+    expect(versionPolicyJob).toContain("npm run check:pr-version");
   });
 
   it("defines a GitHub Release artifact workflow without registry publishing", () => {
@@ -104,6 +117,7 @@ describe("release workflow", () => {
     expect(packageJson.scripts?.["check:release"]).toBe("npm run check:public && npm run check:mcp");
     expect(packageJson.scripts?.["release:version"]).toContain("scripts/releaseVersion.cjs");
     expect(packageJson.scripts?.["release:preflight"]).toContain("scripts/checkReleasePreflight.cjs");
+    expect(packageJson.scripts?.["check:pr-version"]).toContain("scripts/checkPrVersionBump.cjs");
   });
 
   it("keeps the extension and standalone MCP artifact versions in lockstep", () => {
@@ -136,6 +150,16 @@ describe("release workflow", () => {
     for (const version of invalid) expect(isStrictSemver(version), version).toBe(false);
   });
 
+  it("compares SemVer versions for PR version policy", () => {
+    expect(compareVersions("0.4.3", "0.4.2")).toBeGreaterThan(0);
+    expect(compareVersions("0.5.0", "0.4.9")).toBeGreaterThan(0);
+    expect(compareVersions("0.4.3-alpha.2", "0.4.3-alpha.1")).toBeGreaterThan(0);
+    expect(compareVersions("0.4.3-alpha-2", "0.4.3-alpha-1")).toBeGreaterThan(0);
+    expect(compareVersions("0.4.3", "0.4.3-alpha.1")).toBeGreaterThan(0);
+    expect(compareVersions("0.4.3-alpha.1", "0.4.3")).toBeLessThan(0);
+    expect(compareVersions("0.4.3", "0.4.3")).toBe(0);
+  });
+
   it("documents version selection before release packaging", () => {
     const policy = readFileSync(path.join(repoRoot, "docs", "runbooks", "versioning-policy.md"), "utf8");
     const checklist = readFileSync(path.join(repoRoot, "docs", "runbooks", "release-checklist.md"), "utf8");
@@ -145,8 +169,18 @@ describe("release workflow", () => {
     expect(policy).toContain("MINOR");
     expect(policy).toContain("prerelease");
     expect(policy).toContain("lockstep");
+    expect(policy).toContain("Every PR into `main` must advance");
+    expect(policy).toContain("Version policy");
     expect(checklist).toContain("Version selection policy");
     expect(checklist).toContain("npm run release:preflight");
+  });
+
+  it("keeps PR version policy visible in the pull request template", () => {
+    const template = readFileSync(path.join(repoRoot, ".github", "pull_request_template.md"), "utf8");
+
+    expect(template).toContain("npm run release:version");
+    expect(template).toContain("CHANGELOG.md");
+    expect(template).toContain("docs/runbooks/versioning-policy.md");
   });
 
   it("keeps local release artifact staging out of git", () => {
@@ -154,6 +188,8 @@ describe("release workflow", () => {
     const vscodeignore = readFileSync(path.join(repoRoot, ".vscodeignore"), "utf8");
 
     expect(gitignore).toContain("artifacts/");
+    expect(gitignore).toContain(".playwright-mcp/");
     expect(vscodeignore).toContain("artifacts/**");
+    expect(vscodeignore).toContain(".playwright-mcp/**");
   });
 });

@@ -2,7 +2,7 @@
 
 Companion fixture: [vsix-smoke-test.BeyondCode](vsix-smoke-test.BeyondCode).
 
-Runs against a freshly built `pangolint-0.4.2.vsix`. The goal is to confirm
+Runs against a freshly built `pangolint-0.4.3.vsix`. The goal is to confirm
 the packaged extension activates, registers the language, surfaces the smoke
 diagnostics from `src/language/diagnostics.ts`, exposes the contributed palette
 commands, and respects the conservative formatter contract.
@@ -24,7 +24,7 @@ npm run package:vsix
 
 `package:vsix` chains `npm run check:public`, `vsce package --no-dependencies`,
 and the cross-platform SHA256 writer. On success it writes
-`pangolint-0.4.2.vsix` and `pangolint.vsix.sha256` into the repo root. Verify
+`pangolint-0.4.3.vsix` and `pangolint.vsix.sha256` into the repo root. Verify
 the size is in the expected hundreds-of-KB range and that `dist/extension.js`
 and `data/pangoscript/commands.merged.json` are present in the package:
 
@@ -41,7 +41,7 @@ Pick one path.
 ### Option A — VS Code CLI
 
 ```powershell
-code --install-extension .\pangolint-0.4.2.vsix --force
+code --install-extension .\pangolint-0.4.3.vsix --force
 ```
 
 Restart VS Code (or use `Developer: Reload Window` from the palette) so the
@@ -51,12 +51,12 @@ extension activates against any open `.BeyondCode` files.
 
 1. `Ctrl+Shift+X` to open the Extensions view.
 2. Click the `…` menu (top of the panel) → **Install from VSIX…**.
-3. Pick `pangolint-0.4.2.vsix`.
+3. Pick `pangolint-0.4.3.vsix`.
 4. Reload the window when prompted.
 
 ### Verify install
 
-- Extensions view shows **PangoLint 0.4.2** (publisher `jd3`).
+- Extensions view shows **PangoLint 0.4.3** (publisher `jd3`).
 - Open `docs/runbooks/vsix-smoke-test.BeyondCode`. The status bar should read
   **PangoScript** as the language mode.
 
