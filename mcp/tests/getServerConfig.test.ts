@@ -5,8 +5,15 @@ import { getServerConfig } from "../src/tools/getServerConfig";
 const baseConfig: McpConfig = {
   runtimeReadEnabled: false,
   runtimeWriteEnabled: false,
+  beyondTalkTransport: "auto",
   beyondTalkHost: "127.0.0.1",
   beyondTalkPort: 16062,
+  beyondTalkTcpHost: "127.0.0.1",
+  beyondTalkTcpPort: 16063,
+  beyondTalkUdpHost: "127.0.0.1",
+  beyondTalkUdpPort: 16062,
+  beyondTalkUdpFallbackAllowed: false,
+  beyondTalkTcpPassword: "",
   oscListenHost: "0.0.0.0",
   oscListenPort: 7000,
   readbackTimeoutMs: 3000,
@@ -40,6 +47,7 @@ describe("getServerConfig", () => {
       expect(result.data.availableTools).not.toContain("runScript");
       expect(result.data.availableTools).toContain("readBeyondProperty");
       expect(result.data.availableTools).toContain("healthCheck");
+      expect(result.data.availableTools).toContain("checkTalkConnection");
     }
   });
 
@@ -53,6 +61,7 @@ describe("getServerConfig", () => {
       expect(result.data.availableTools).toContain("runScript");
       expect(result.data.availableTools).toContain("readBeyondProperty");
       expect(result.data.availableTools).toContain("healthCheck");
+      expect(result.data.availableTools).toContain("checkTalkConnection");
     }
   });
 
@@ -61,8 +70,15 @@ describe("getServerConfig", () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.data.version).toBe("9.9.9");
+      expect(result.data.beyondTalkTransport).toBe("auto");
       expect(result.data.beyondTalkHost).toBe("127.0.0.1");
       expect(result.data.beyondTalkPort).toBe(16062);
+      expect(result.data.beyondTalkTcpHost).toBe("127.0.0.1");
+      expect(result.data.beyondTalkTcpPort).toBe(16063);
+      expect(result.data.beyondTalkUdpHost).toBe("127.0.0.1");
+      expect(result.data.beyondTalkUdpPort).toBe(16062);
+      expect(result.data.beyondTalkUdpFallbackAllowed).toBe(false);
+      expect("beyondTalkTcpPassword" in result.data).toBe(false);
     }
   });
 });

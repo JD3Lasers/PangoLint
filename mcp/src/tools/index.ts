@@ -8,6 +8,7 @@ import { PANGO_ANALYSIS_LIMITS } from "../../../src/language/analysisLimits";
 import { buildCommandReferenceSearchIndex } from "../commandReference";
 import type { McpConfig } from "../config";
 import type { McpKnowledgeBase } from "../knowledgeBase";
+import { checkTalkConnection } from "./checkTalkConnection";
 import { explainDiagnostic } from "./explainDiagnostic";
 import { getServerConfig } from "./getServerConfig";
 import { healthCheck } from "./healthCheck";
@@ -454,11 +455,22 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
     "healthCheck",
     {
       description:
-        "Check that the configured BEYOND target host is resolvable and a UDP socket can address it. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled. Does NOT verify BEYOND is actually listening; for that, use readBeyondProperty.",
+        "Check that the configured BEYOND UDP target host is resolvable and a UDP socket can address it. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled. Does NOT verify BEYOND accepts commands; for Talk TCP command status, use checkTalkConnection.",
       inputSchema: {},
       annotations: RUNTIME_READ_TOOL_ANNOTATIONS,
     },
     async () => asTextResult(await healthCheck(ctx.config)),
+  );
+
+  server.registerTool(
+    "checkTalkConnection",
+    {
+      description:
+        "Open the configured BEYOND Talk TCP target and verify greeting, Echo 1, Hello, and Version replies. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled.",
+      inputSchema: {},
+      annotations: RUNTIME_READ_TOOL_ANNOTATIONS,
+    },
+    async () => asTextResult(await checkTalkConnection(ctx.config)),
   );
 
   server.registerTool(
@@ -482,7 +494,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
     "runScript",
     {
       description:
-        "Lint the supplied PangoScript text; if any error-severity diagnostic fires, refuse to send and return the diagnostics. Otherwise transmit via Talk UDP to the configured BEYOND host. WRITE RUNTIME ONLY: returns blocked unless PANGOLINT_MCP_RUNTIME_WRITE is enabled. Hint and warning diagnostics are reported but do not block. Surface them to the user.",
+        "Lint the supplied PangoScript text; if any error-severity diagnostic fires, refuse to send and return the diagnostics. Otherwise transmit via configured BEYOND Talk transport. WRITE RUNTIME ONLY: returns blocked unless PANGOLINT_MCP_RUNTIME_WRITE is enabled. Hint and warning diagnostics are reported but do not block. Surface them to the user.",
       inputSchema: {
         text: z.string().max(PANGO_ANALYSIS_LIMITS.maxMcpTextChars).describe("PangoScript source text to send."),
       },

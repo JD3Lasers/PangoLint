@@ -8,7 +8,7 @@ import { buildObjectValueAssignment } from "./objectValueAssignment";
 import type { OscMessage } from "./osc";
 import type { RunScriptWithOscCaptureResult } from "./runScriptWithOscCapture";
 import { runScriptWithOscCapture } from "./runScriptWithOscCapture";
-import { getBeyondRuntimeConfig } from "./runtimeConfig";
+import { type BeyondRuntimeConfig, getBeyondRuntimeConfig } from "./runtimeConfig";
 import { type RuntimeCommandHooks, validateActiveDocumentAgainstBeyond } from "./validationCommands";
 
 interface RunSessionState {
@@ -65,7 +65,7 @@ export function registerBeyondRuntimeCommands(context: vscode.ExtensionContext, 
 
 /**
  * Send the active editor's straight-line PangoScript document (or selection)
- * to BEYOND as a Talk UDP command batch. Safety-gated by workspace trust, the
+ * to BEYOND as a Talk command batch. Safety-gated by workspace trust, the
  * execution setting, and a per-session confirmation modal.
  */
 async function runActiveDocument(
@@ -98,15 +98,16 @@ async function runActiveDocument(
     return;
   }
 
-  const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+  const runtimeConfig = getBeyondRuntimeConfig(config);
+  const { timeoutMs } = runtimeConfig;
   const lineCount = text.split(/\r?\n/).filter((line) => line.trim() && !/^\s*\/\//.test(line)).length;
   const lintGate = hooks?.lintScriptText ? evaluateRuntimeLintGate(hooks.lintScriptText(text)) : undefined;
   if (lintGate && !lintGate.ok) {
     output.show(true);
     output.appendLine(
-      `[${new Date().toISOString()}] lint gate refused Talk batch — errors=${lintGate.errorCount} warnings=${lintGate.warningCount} hints=${lintGate.hintCount}`,
+      `[${new Date().toISOString()}] lint gate refused Talk batch - errors=${lintGate.errorCount} warnings=${lintGate.warningCount} hints=${lintGate.hintCount}`,
     );
-    output.appendLine(`  FAIL — ${lintGate.error}`);
+    output.appendLine(`  FAIL - ${lintGate.error}`);
     void vscode.window.showErrorMessage(`PangoLint run blocked: ${lintGate.error}`);
     return;
   }
@@ -114,7 +115,7 @@ async function runActiveDocument(
   if (!state.confirmed || config.get<boolean>("confirmRunEachSession", true)) {
     const target = opts.selectionOnly ? "selection" : "document";
     const choice = await vscode.window.showWarningMessage(
-      `Send ${lineCount} executable line${lineCount === 1 ? "" : "s"} from this ${target} as a Talk UDP command batch to BEYOND at ${talkHost}:${talkPort}?\n\nTalk UDP is not the BEYOND editor runner. PangoLint blocks labels, goto, if, loops, waits, and exit; paste full control-flow scripts into BEYOND's PangoScript editor.`,
+      `Send ${lineCount} executable line${lineCount === 1 ? "" : "s"} from this ${target} as a BEYOND Talk command batch to ${describeConfiguredTalkTarget(runtimeConfig)}?\n\nBEYOND Talk command transport is not the editor runner. PangoLint blocks labels, goto, if, loops, waits, and exit; paste full control-flow scripts into BEYOND's PangoScript editor.`,
       { modal: true },
       "Run",
     );
@@ -123,23 +124,22 @@ async function runActiveDocument(
   }
 
   output.show(true);
-  output.appendLine(`[${new Date().toISOString()}] Talk batch → ${talkHost}:${talkPort} (${lineCount} lines)`);
+  output.appendLine(`[${new Date().toISOString()}] ${formatConfiguredRunHeader(runtimeConfig, lineCount)}`);
 
-  const result = await runScriptWithOscCapture(text, { talkHost, talkPort, listenHost, listenPort, timeoutMs });
+  const result = await runScriptWithOscCapture(text, runtimeConfig);
   if (result.ok) {
-    output.appendLine(
-      `  ok — ${result.linesSent} lines, ${result.payloadsSent} datagram${result.payloadsSent === 1 ? "" : "s"}, ${result.bytesSent} bytes`,
-    );
+    appendTalkRunResult(output, result);
     appendCallbackCaptureResult(output, result, timeoutMs);
     notifyCapturedCallbacks(result, hooks);
     void vscode.window.setStatusBarMessage(
-      `PangoLint: sent ${result.linesSent} Talk line${result.linesSent === 1 ? "" : "s"} to BEYOND`,
+      `PangoLint: sent ${result.linesSent} Talk line${result.linesSent === 1 ? "" : "s"} over ${result.transport === "tcp" ? "TCP" : "UDP"}`,
       3000,
     );
     state.lastText = text;
     showReplayStatusItem(state, lineCount);
   } else {
-    output.appendLine(`  FAIL — ${result.error}`);
+    appendTalkRunResult(output, result);
+    output.appendLine(`  FAIL - ${result.error}`);
     void vscode.window.showErrorMessage(`PangoLint run failed: ${result.error}`);
   }
 }
@@ -166,12 +166,13 @@ async function replayLastScript(
     );
     return;
   }
-  const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+  const runtimeConfig = getBeyondRuntimeConfig(config);
+  const { timeoutMs } = runtimeConfig;
   const lineCount = state.lastText.split(/\r?\n/).filter((line) => line.trim() && !/^\s*\/\//.test(line)).length;
 
   if (config.get<boolean>("confirmRunEachSession", true)) {
     const choice = await vscode.window.showWarningMessage(
-      `Re-send the last Talk UDP command batch (${lineCount} executable line${lineCount === 1 ? "" : "s"}) to BEYOND at ${talkHost}:${talkPort}?`,
+      `Re-send the last BEYOND Talk command batch (${lineCount} executable line${lineCount === 1 ? "" : "s"}) to ${describeConfiguredTalkTarget(runtimeConfig)}?`,
       { modal: true },
       "Run",
     );
@@ -179,27 +180,67 @@ async function replayLastScript(
   }
 
   output.show(true);
-  output.appendLine(`[${new Date().toISOString()}] replay Talk batch → ${talkHost}:${talkPort} (${lineCount} lines)`);
-  const result = await runScriptWithOscCapture(state.lastText, {
-    talkHost,
-    talkPort,
-    listenHost,
-    listenPort,
-    timeoutMs,
-  });
+  output.appendLine(`[${new Date().toISOString()}] replay ${formatConfiguredRunHeader(runtimeConfig, lineCount)}`);
+  const result = await runScriptWithOscCapture(state.lastText, runtimeConfig);
   if (result.ok) {
-    output.appendLine(
-      `  ok — ${result.linesSent} lines, ${result.payloadsSent} datagram${result.payloadsSent === 1 ? "" : "s"}, ${result.bytesSent} bytes`,
-    );
+    appendTalkRunResult(output, result);
     appendCallbackCaptureResult(output, result, timeoutMs);
     notifyCapturedCallbacks(result, hooks);
     void vscode.window.setStatusBarMessage(
-      `PangoLint: replayed ${result.linesSent} Talk line${result.linesSent === 1 ? "" : "s"}`,
+      `PangoLint: replayed ${result.linesSent} Talk line${result.linesSent === 1 ? "" : "s"} over ${result.transport === "tcp" ? "TCP" : "UDP"}`,
       3000,
     );
   } else {
-    output.appendLine(`  FAIL — ${result.error}`);
+    appendTalkRunResult(output, result);
+    output.appendLine(`  FAIL - ${result.error}`);
     void vscode.window.showErrorMessage(`PangoLint replay failed: ${result.error}`);
+  }
+}
+
+function formatConfiguredRunHeader(config: BeyondRuntimeConfig, lineCount: number): string {
+  if (config.talkTransport === "tcp") {
+    return `Talk TCP -> ${config.talkTcpHost}:${config.talkTcpPort} (${lineCount} lines)`;
+  }
+  if (config.talkTransport === "udp") {
+    return `Talk UDP -> ${config.talkUdpHost}:${config.talkUdpPort} (${lineCount} lines)`;
+  }
+  return `Talk auto -> TCP ${config.talkTcpHost}:${config.talkTcpPort}, UDP fallback ${config.talkUdpFallbackAllowed ? "allowed" : "disabled"} (${lineCount} lines)`;
+}
+
+function describeConfiguredTalkTarget(config: BeyondRuntimeConfig): string {
+  if (config.talkTransport === "tcp") {
+    return `Talk TCP at ${config.talkTcpHost}:${config.talkTcpPort}`;
+  }
+  if (config.talkTransport === "udp") {
+    return `Talk UDP at ${config.talkUdpHost}:${config.talkUdpPort}`;
+  }
+  return `Talk TCP at ${config.talkTcpHost}:${config.talkTcpPort} with UDP fallback ${config.talkUdpFallbackAllowed ? "allowed" : "disabled"}`;
+}
+
+function appendTalkRunResult(output: vscode.OutputChannel, result: RunScriptWithOscCaptureResult): void {
+  if (result.transport === "tcp") {
+    appendTalkTcpResult(output, result);
+    return;
+  }
+  if (result.transport !== "udp") {
+    return;
+  }
+  output.appendLine(
+    `  ${result.ok ? "ok" : "sent"} - ${result.linesSent} line${result.linesSent === 1 ? "" : "s"} over Talk UDP, ${result.payloadsSent} datagram${result.payloadsSent === 1 ? "" : "s"}, ${result.bytesSent} bytes. BEYOND command status unavailable.`,
+  );
+}
+
+function appendTalkTcpResult(output: vscode.OutputChannel, result: RunScriptWithOscCaptureResult): void {
+  if (result.talkGreeting) {
+    output.appendLine(`  greeting <- ${result.talkGreeting}`);
+  }
+  for (const reply of result.talkReplies ?? []) {
+    const label = reply.lineNumber === undefined ? "setup" : `line ${reply.lineNumber}`;
+    const lines = reply.replyLines.length > 0 ? reply.replyLines.join(" / ") : reply.status;
+    output.appendLine(`  ${label} ${reply.status} <- ${lines}`);
+  }
+  if (result.ok) {
+    output.appendLine(`  ok - ${result.linesSent} line${result.linesSent === 1 ? "" : "s"} sent over Talk TCP`);
   }
 }
 
@@ -221,20 +262,20 @@ function appendCallbackCaptureResult(
   const callbacks = result.callbacks;
   if (!callbacks) {
     output.appendLine(
-      `  callbacks — ${result.callbackAddresses.length} PangoLint OSC address${result.callbackAddresses.length === 1 ? "" : "es"} detected, capture did not run`,
+      `  callbacks - ${result.callbackAddresses.length} PangoLint OSC address${result.callbackAddresses.length === 1 ? "" : "es"} detected, capture did not run`,
     );
     return;
   }
   if (!callbacks.ok) {
-    output.appendLine(`  callbacks FAIL — ${callbacks.error ?? "unknown OSC capture error"}`);
+    output.appendLine(`  callbacks FAIL - ${callbacks.error ?? "unknown OSC capture error"}`);
     return;
   }
   if (callbacks.messages.length === 0) {
-    output.appendLine(`  callbacks — no matching /pangolint/ OSC messages captured after ${timeoutMs}ms`);
+    output.appendLine(`  callbacks - no matching /pangolint/ OSC messages captured after ${timeoutMs}ms`);
     return;
   }
   output.appendLine(
-    `  callbacks — captured ${callbacks.messages.length} matching OSC message${callbacks.messages.length === 1 ? "" : "s"}${callbacks.timedOut ? ` in ${timeoutMs}ms window` : ""}`,
+    `  callbacks - captured ${callbacks.messages.length} matching OSC message${callbacks.messages.length === 1 ? "" : "s"}${callbacks.timedOut ? ` in ${timeoutMs}ms window` : ""}`,
   );
   for (const message of callbacks.messages) {
     output.appendLine(`    ← ${message.address} (${message.typeTags || "no args"}) ${JSON.stringify(message.args)}`);
@@ -282,10 +323,10 @@ async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<v
   );
 
   if (result.ok) {
-    output.appendLine(`  ok — ${path} = ${JSON.stringify(result.value)}`);
+    output.appendLine(`  ok - ${path} = ${JSON.stringify(result.value)}`);
     void vscode.window.showInformationMessage(`${path} = ${result.value}`);
   } else {
-    output.appendLine(`  FAIL — ${result.error}`);
+    output.appendLine(`  FAIL - ${result.error}`);
     void vscode.window.showErrorMessage(`PangoLint fetch failed: ${result.error ?? "unknown error"}`);
   }
 }
@@ -363,14 +404,14 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
 
   if (result.ok) {
     const verdict = result.matched ? "matched" : `mismatched (got ${JSON.stringify(result.after)})`;
-    output.appendLine(`  ok — readback ${verdict}`);
+    output.appendLine(`  ok - readback ${verdict}`);
     void vscode.window.showInformationMessage(
       result.matched
         ? `${path} = ${result.after} (verified)`
         : `Wrote ${path} = ${expectedValue}, but readback returned ${result.after}.`,
     );
   } else {
-    output.appendLine(`  FAIL — ${result.error}`);
+    output.appendLine(`  FAIL - ${result.error}`);
     void vscode.window.showErrorMessage(`PangoLint set failed: ${result.error ?? "unknown error"}`);
   }
 }

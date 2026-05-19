@@ -1,25 +1,48 @@
-// Send straight-line PangoScript command batches to BEYOND via Talk UDP.
-// Talk UDP is not equivalent to running a script in BEYOND's editor; control
+// Send straight-line PangoScript command batches to BEYOND via Talk.
+// BEYOND Talk command transport is not equivalent to running a script in BEYOND's editor; control
 // flow is refused before transport so skipped branches, loops, and exits are
 // not flattened into line-by-line execution.
 
 import { type ParsedLine, parseScript } from "../language/parser";
+import {
+  type SendTalkTcpCommandsOptions,
+  type SendTalkTcpCommandsResult,
+  sendTalkTcpCommands,
+  type TalkTcpReply,
+} from "./talkTcp";
 import { buildTalkPayloads, sendTalkUdp } from "./talkUdp";
+
+export type BeyondTalkTransport = "auto" | "tcp" | "udp";
 
 export interface RunScriptOptions {
   talkHost: string;
   talkPort: number;
+  talkTransport?: BeyondTalkTransport;
+  talkTcpHost?: string;
+  talkTcpPort?: number;
+  talkUdpHost?: string;
+  talkUdpPort?: number;
+  talkUdpFallbackAllowed?: boolean;
+  talkTcpPassword?: string;
+  commandTimeoutMs?: number;
   /** Max bytes per UDP datagram. Defaults to 1200 to stay below typical MTU. */
   maxPayloadBytes?: number;
-  /** Hook for testing — defaults to the real UDP sender. */
+  /** Hook for testing: defaults to the real UDP sender. */
   send?: (host: string, port: number, payload: Buffer) => Promise<void>;
+  /** Hook for testing: defaults to the real TCP sender. */
+  sendTcp?: (options: SendTalkTcpCommandsOptions) => Promise<SendTalkTcpCommandsResult>;
 }
 
 export interface RunScriptResult {
   ok: boolean;
+  transport?: "tcp" | "udp";
+  talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
+  talkGreeting?: string;
+  talkReplies?: TalkTcpReply[];
+  beyondError?: SendTalkTcpCommandsResult["beyondError"];
   /** Number of non-blank, non-comment lines actually transmitted. */
   linesSent: number;
-  /** Number of UDP datagrams transmitted. */
+  /** Number of UDP datagrams transmitted. TCP runs use 0. */
   payloadsSent: number;
   /** Total bytes transmitted. */
   bytesSent: number;
@@ -47,7 +70,7 @@ export function findUnsupportedTalkControlFlow(text: string): TalkControlFlowFin
 
 /**
  * Strip blank lines and full-line comments, then send to BEYOND. Inline
- * trailing comments (e.g. `Brightness 50  // dim`) are preserved as-is —
+ * trailing comments (e.g. `Brightness 50  // dim`) are preserved as-is:
  * BEYOND's parser drops them.
  */
 export async function runScript(text: string, options: RunScriptOptions): Promise<RunScriptResult> {
@@ -79,26 +102,96 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
     return { ok: false, linesSent: 0, payloadsSent: 0, bytesSent: 0, error: message };
   }
 
+  const transport = options.talkTransport ?? "udp";
+  if (transport === "tcp" || transport === "auto") {
+    const sendTcp = options.sendTcp ?? sendTalkTcpCommands;
+    let tcpResult: SendTalkTcpCommandsResult;
+    try {
+      tcpResult = await sendTcp({
+        host: options.talkTcpHost ?? options.talkHost,
+        port: options.talkTcpPort ?? options.talkPort,
+        commands: lines,
+        password: options.talkTcpPassword,
+        timeoutMs: options.commandTimeoutMs,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      tcpResult = {
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: message,
+      };
+    }
+    if (tcpResult.ok || transport === "tcp" || !canUseUdpFallback(tcpResult, options)) {
+      return {
+        ok: tcpResult.ok,
+        transport: "tcp",
+        talkStatus: tcpResult.talkStatus,
+        talkGreeting: tcpResult.talkGreeting,
+        talkReplies: tcpResult.talkReplies,
+        beyondError: tcpResult.beyondError,
+        linesSent: tcpResult.linesSent,
+        payloadsSent: tcpResult.payloadsSent,
+        bytesSent: tcpResult.bytesSent,
+        error: tcpResult.error,
+      };
+    }
+  }
+
+  return sendTalkUdpPayloads(lines, payloads, options);
+}
+
+async function sendTalkUdpPayloads(
+  lines: readonly string[],
+  payloads: readonly Buffer[],
+  options: RunScriptOptions,
+): Promise<RunScriptResult> {
   const send = options.send ?? sendTalkUdp;
   let bytesSent = 0;
   let payloadsSent = 0;
   try {
     for (const payload of payloads) {
-      await send(options.talkHost, options.talkPort, payload);
+      await send(options.talkUdpHost ?? options.talkHost, options.talkUdpPort ?? options.talkPort, payload);
       payloadsSent++;
       bytesSent += payload.length;
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return { ok: false, linesSent: lines.length, payloadsSent, bytesSent, error: message };
+    return {
+      ok: false,
+      transport: "udp",
+      talkStatus: "send-only",
+      talkReplies: [],
+      linesSent: lines.length,
+      payloadsSent,
+      bytesSent,
+      error: message,
+    };
   }
 
   return {
     ok: true,
+    transport: "udp",
+    talkStatus: "send-only",
+    talkReplies: [],
     linesSent: lines.length,
     payloadsSent,
     bytesSent,
   };
+}
+
+function canUseUdpFallback(tcpResult: SendTalkTcpCommandsResult, options: RunScriptOptions): boolean {
+  return (
+    options.talkUdpFallbackAllowed === true &&
+    (tcpResult.talkStatus === "closed" || tcpResult.talkStatus === "timeout") &&
+    tcpResult.linesSent === 0 &&
+    tcpResult.talkReplies.length === 0
+  );
 }
 
 function controlFlowFindingForLine(line: ParsedLine): TalkControlFlowFinding | undefined {

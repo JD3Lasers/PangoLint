@@ -92,8 +92,15 @@ describe("registerBeyondRuntimeCommands", () => {
     vscodeState.config = new Map<string, unknown>([
       ["allowScriptExecution", true],
       ["confirmRunEachSession", true],
+      ["talkTransport", "auto"],
       ["talkHost", "127.0.0.1"],
       ["talkPort", 16062],
+      ["talkTcpHost", "127.0.0.1"],
+      ["talkTcpPort", 16063],
+      ["talkUdpHost", "127.0.0.1"],
+      ["talkUdpPort", 16062],
+      ["talkUdpFallbackAllowed", false],
+      ["talkTcpPassword", ""],
       ["oscListenHost", "0.0.0.0"],
       ["oscListenPort", 7000],
       ["readbackTimeoutMs", 3000],
@@ -184,11 +191,61 @@ describe("registerBeyondRuntimeCommands", () => {
       "Run",
     );
     expect(runScriptWithOscCaptureMock).toHaveBeenCalledWith("Brightness 50", {
+      talkTransport: "auto",
       talkHost: "127.0.0.1",
       talkPort: 16062,
+      talkTcpHost: "127.0.0.1",
+      talkTcpPort: 16063,
+      talkUdpHost: "127.0.0.1",
+      talkUdpPort: 16062,
+      talkUdpFallbackAllowed: false,
+      talkTcpPassword: "",
       listenHost: "0.0.0.0",
       listenPort: 7000,
       timeoutMs: 3000,
     });
+  });
+
+  it("prints Talk TCP replies in the run output channel", async () => {
+    runScriptWithOscCaptureMock.mockResolvedValue({
+      ok: true,
+      transport: "tcp",
+      talkStatus: "ok",
+      talkGreeting: "Welcome to BEYOND!",
+      talkReplies: [
+        { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+        { lineNumber: 1, commandText: "Hello", status: "ok", replyLines: ["Hello!", "OK"], redacted: false },
+      ],
+      linesSent: 1,
+      payloadsSent: 0,
+      bytesSent: 15,
+      callbackAddresses: [],
+    });
+    vscodeState.config.set("talkTransport", "tcp");
+    vscodeState.activeTextEditor = {
+      document: {
+        languageId: "pangoscript",
+        getText: vi.fn(() => "Hello"),
+      },
+      selection: { isEmpty: true },
+    };
+    const context = { subscriptions: [] } as unknown as vscode.ExtensionContext;
+    registerBeyondRuntimeCommands(context, {
+      validatedRootsCache: new Map(),
+      getPropertyIndex: vi.fn(),
+      onValidatedRootsChanged: vi.fn(),
+      lintScriptText: () => [],
+    });
+
+    await commandHandlers.get("pangolint.runScript")?.();
+
+    expect(outputChannelMock.appendLine).toHaveBeenCalledWith(expect.stringContaining("Talk TCP -> 127.0.0.1:16063"));
+    expect(outputChannelMock.appendLine).toHaveBeenCalledWith(
+      expect.stringContaining("greeting <- Welcome to BEYOND!"),
+    );
+    expect(outputChannelMock.appendLine).toHaveBeenCalledWith(expect.stringContaining("line 1 ok <- Hello! / OK"));
+    expect(outputChannelMock.appendLine).toHaveBeenCalledWith(
+      expect.stringContaining("ok - 1 line sent over Talk TCP"),
+    );
   });
 });

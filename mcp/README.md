@@ -24,7 +24,7 @@ context.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.5.0.tgz
+npm install -g ./pangolint-mcp-0.6.0.tgz
 which pangolint-mcp
 ```
 
@@ -33,7 +33,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.5.0.tgz
+npm install -g ./mcp/pangolint-mcp-0.6.0.tgz
 which pangolint-mcp
 ```
 
@@ -73,9 +73,10 @@ script-send capability.
 
 | Tool | Tier | What it does |
 |---|---|---|
-| `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND target. Does not verify BEYOND is listening. |
+| `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND UDP target. Does not verify BEYOND accepts commands. |
+| `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, `Echo 1`, `Hello`, and `Version` replies. |
 | `readBeyondProperty` | T1 read | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (e.g. `Master.Brightness`). |
-| `runScript` | T2+ | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints; refuses on any error-severity diagnostic; otherwise sends via Talk UDP. |
+| `runScript` | T2+ | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints; refuses on any error-severity diagnostic; otherwise sends via configured Talk transport. Talk TCP reports BEYOND replies; UDP fallback is send-only. |
 
 `runScript`'s lint-before-run gate is the load-bearing developer
 guarantee: nothing reaches BEYOND that PangoLint already knows is
@@ -84,14 +85,14 @@ but do not block.
 
 ## Resources
 
-- `pangoscript://catalog/commands` — full curated command catalog (JSON)
-- `pangoscript://schemas/objects` — every canonical object schema (JSON)
-- `pangoscript://diagnostics/codes` — diagnostics doc (markdown)
-- `pangoscript://reference/operators` — operator reference (markdown)
-- `pangoscript://reference/syntax` — parser-shape reference (markdown)
-- `pangoscript://reference/command-reference` — full command reference (markdown)
-- `pangoscript://reference/master-object-tree` — Object Tree root reference (markdown)
-- `pangoscript://reference/object-model` — object model overview (markdown)
+- `pangoscript://catalog/commands` - full curated command catalog (JSON)
+- `pangoscript://schemas/objects` - every canonical object schema (JSON)
+- `pangoscript://diagnostics/codes` - diagnostics doc (markdown)
+- `pangoscript://reference/operators` - operator reference (markdown)
+- `pangoscript://reference/syntax` - parser-shape reference (markdown)
+- `pangoscript://reference/command-reference` - full command reference (markdown)
+- `pangoscript://reference/master-object-tree` - Object Tree root reference (markdown)
+- `pangoscript://reference/object-model` - object model overview (markdown)
 
 Browse these to load PangoScript context into the agent without
 calling individual tools.
@@ -105,10 +106,10 @@ calling individual tools.
 - Runtime-only evidence remains scoped to the lab/build that produced it.
   Use command `evidenceLevel`, `verification`, and safety-tier fields before
   presenting a behavior as confirmed.
-- `runScript` uses Talk UDP for straight-line command batches. It is not
-  equivalent to BEYOND's editor runner, so labels, `goto`, `if`, loops,
-  waits, and multi-section scripts still need BEYOND editor/manual
-  validation.
+- `runScript` uses BEYOND Talk for straight-line command batches. Talk TCP
+  reports command replies when enabled, but it is still not equivalent to
+  BEYOND's editor runner. Labels, `goto`, `if`, loops, waits, and
+  multi-section scripts still need BEYOND editor/manual validation.
 - Property validation uses bundled canonical schemas plus the Object Tree
   index. It cannot validate showfile-specific aliases without workspace or
   runtime context.
@@ -117,11 +118,18 @@ calling individual tools.
 
 | Variable | Default | Description |
 |---|---|---|
-| `PANGOLINT_MCP_RUNTIME_READ` | (off) | Set to `enabled` (or `1` / `true`) to enable read runtime tools: `healthCheck` and `readBeyondProperty`. |
+| `PANGOLINT_MCP_RUNTIME_READ` | (off) | Set to `enabled` (or `1` / `true`) to enable read runtime tools: `healthCheck`, `checkTalkConnection`, and `readBeyondProperty`. |
 | `PANGOLINT_MCP_RUNTIME_WRITE` | (off) | Set to `enabled` (or `1` / `true`) to enable `runScript`. Also enables read runtime tools. |
 | `PANGOLINT_MCP_RUNTIME` | (off) | Legacy alias for read runtime only. Does not enable `runScript`. |
-| `PANGOLINT_MCP_BEYOND_TALK_HOST` | `127.0.0.1` | BEYOND Talk UDP host. |
-| `PANGOLINT_MCP_BEYOND_TALK_PORT` | `16062` | BEYOND Talk UDP port. |
+| `PANGOLINT_MCP_BEYOND_TALK_TRANSPORT` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and only uses UDP when fallback is explicitly allowed. |
+| `PANGOLINT_MCP_BEYOND_TALK_TCP_HOST` | `127.0.0.1` | BEYOND Talk TCP host. |
+| `PANGOLINT_MCP_BEYOND_TALK_TCP_PORT` | `16063` | BEYOND Talk TCP port. |
+| `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` | legacy host or `127.0.0.1` | BEYOND Talk UDP fallback host. |
+| `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` | legacy port or `16062` | BEYOND Talk UDP fallback port. |
+| `PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED` | (off) | Set to `enabled` (or `1` / `true`) to allow auto mode to use unauthenticated UDP when TCP is unavailable before authentication or command send begins. |
+| `PANGOLINT_MCP_BEYOND_TALK_TCP_PASSWORD` | (empty) | Optional BEYOND TCP Talk Server password. This value is redacted from runtime output. |
+| `PANGOLINT_MCP_BEYOND_TALK_HOST` | `127.0.0.1` | Legacy alias used as the UDP fallback host when `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` is unset. |
+| `PANGOLINT_MCP_BEYOND_TALK_PORT` | `16062` | Legacy alias used as the UDP fallback port when `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` is unset. |
 | `PANGOLINT_MCP_BEYOND_OSC_LISTEN_HOST` | `0.0.0.0` | Local interface for OSC callbacks. |
 | `PANGOLINT_MCP_BEYOND_OSC_LISTEN_PORT` | `7000` | Local UDP port for OSC callbacks. |
 | `PANGOLINT_MCP_READBACK_TIMEOUT_MS` | `3000` | Readback timeout (ms). |
@@ -158,8 +166,9 @@ To enable read runtime tools against a local BEYOND:
       "command": "pangolint-mcp",
       "env": {
         "PANGOLINT_MCP_RUNTIME_READ": "enabled",
-        "PANGOLINT_MCP_BEYOND_TALK_HOST": "127.0.0.1",
-        "PANGOLINT_MCP_BEYOND_TALK_PORT": "16062"
+        "PANGOLINT_MCP_BEYOND_TALK_TRANSPORT": "tcp",
+        "PANGOLINT_MCP_BEYOND_TALK_TCP_HOST": "127.0.0.1",
+        "PANGOLINT_MCP_BEYOND_TALK_TCP_PORT": "16063"
       }
     }
   }
@@ -202,7 +211,8 @@ To enable read runtime tools against a local BEYOND:
 2. **First time targeting a BEYOND**: launch with
    `PANGOLINT_MCP_RUNTIME_READ=enabled` and the right host/port. Have
    the agent call `getServerConfig` to confirm read runtime is on, then
-   `healthCheck` to verify reachability.
+   `healthCheck` to verify UDP reachability and `checkTalkConnection`
+   to verify Talk TCP replies.
 3. **Iterating**: `lintScript` first to catch errors locally;
    enable `PANGOLINT_MCP_RUNTIME_WRITE=enabled` only when you want
    agents to send scripts to BEYOND through `runScript`. The

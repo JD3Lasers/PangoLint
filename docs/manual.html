@@ -759,7 +759,7 @@
 <body>
 
 <header class="cover">
-  <div class="cover-eyebrow">PangoLint v0.5.0</div>
+  <div class="cover-eyebrow">PangoLint v0.6.0</div>
   <div class="cover-grid">
     <div>
       <h1 class="cover-title">PangoLint <em>User Manual</em></h1>
@@ -894,7 +894,7 @@
       <li>Install the VSIX:
         <pre data-lang="bash"><code>npm ci
 npm run package:vsix
-code --install-extension pangolint-0.5.0.vsix --force</code></pre>
+code --install-extension pangolint-0.6.0.vsix --force</code></pre>
       </li>
       <li>Open any <code>.BeyondCode</code> file. Syntax highlighting,
       diagnostics, completions, and the activity-bar sidebar light up
@@ -1284,10 +1284,8 @@ code --install-extension pangolint-0.5.0.vsix --force</code></pre>
     <h3 id="test-connection">Test BEYOND connection</h3>
     <p>Command Palette → <strong>PangoLint: Test BEYOND
     Connection</strong>.</p>
-    <p>PangoLint sends a small <code>OscOutTTS</code> ping over Talk
-    UDP to the configured
-    <code>pangolint.beyond.talkHost:talkPort</code>, then waits for
-    the OSC echo on
+    <p>PangoLint sends a small <code>OscOutTTS</code> ping over the
+    configured BEYOND Talk path, then waits for the OSC echo on
     <code>oscListenHost:oscListenPort</code>. The status bar reports
     success or the specific failure mode (DNS lookup, bind, no
     callback, etc.). <strong>Readback-only</strong> - no projector,
@@ -1338,7 +1336,7 @@ code --install-extension pangolint-0.5.0.vsix --force</code></pre>
     BEYOND's workspace-scoped object visibility.</p>
 
     <h3 id="send-talk-batch">Send Talk batch to BEYOND</h3>
-    <p>Two commands send straight-line PangoScript over Talk UDP:</p>
+    <p>Two commands send straight-line PangoScript over BEYOND Talk:</p>
     <ul>
       <li><strong>PangoLint: Send Talk Batch to BEYOND</strong> -
       sends the entire active <code>.BeyondCode</code> file.</li>
@@ -1360,7 +1358,7 @@ code --install-extension pangolint-0.5.0.vsix --force</code></pre>
       fires an error-severity diagnostic, or any text where PangoLint's
       analysis limits prevent a full lint pass. Hint and warning
       diagnostics surface in the response but don't block.</li>
-      <li><strong>Control-flow blocked</strong> - Talk UDP isn't
+      <li><strong>Control-flow blocked</strong> - BEYOND Talk isn't
       editor-equivalent. PangoLint blocks labels, <code>goto</code>,
       <code>if</code>, loops, waits, and <code>exit</code> in this
       path. Paste full control-flow scripts directly into BEYOND's
@@ -1371,12 +1369,12 @@ code --install-extension pangolint-0.5.0.vsix --force</code></pre>
     gates) - useful for tight iteration when nothing's changed.</p>
 
     <figure class="figure figure--inline">
-      <img src="assets/manual/talk-batch-confirm.png" alt="A modal warning dialog with a yellow caution triangle. Header: 'Send 36 executable lines from this document as a Talk UDP command batch to BEYOND at &lt;beyond-host&gt;:16062?'. Body: 'Talk UDP is not the BEYOND editor runner. PangoLint blocks labels, goto, if, loops, waits, and exit; paste full control-flow scripts into BEYOND's PangoScript editor.' Buttons: Cancel and Run.">
+      <img src="assets/manual/talk-batch-confirm.png" alt="A modal warning dialog with a yellow caution triangle, a BEYOND Talk command-batch confirmation message, and Cancel and Run buttons.">
       <figcaption><span class="fig-num">Fig 04.3a</span>The Talk-batch confirmation modal. The header carries the line count and exact host:port; the body re-states the control-flow restriction so it's impossible to miss before clicking <strong>Run</strong>.</figcaption>
     </figure>
 
     <figure class="figure">
-      <img src="assets/manual/talk-batch-error.png" alt="A red-bordered error notification: 'PangoLint run failed: Talk UDP can only send straight-line command batches. This script contains label control flow at line 2: OnClick:. (11 more control-flow lines found) Paste/run it directly in BEYOND's PangoScript editor to test full script control flow.' Source: PangoLint.">
+      <img src="assets/manual/talk-batch-error.png" alt="A red-bordered error notification explaining that BEYOND Talk command transport refused a script with control flow.">
       <figcaption><span class="fig-num">Fig 04.3b</span>If a script contains control flow, PangoLint refuses the send with a precise message - the first offending line, the count of additional offenders, and a pointer at the right runner (BEYOND's PangoScript editor).</figcaption>
     </figure>
 
@@ -1488,13 +1486,13 @@ code --install-extension pangolint-0.5.0.vsix --force</code></pre>
     <h3 id="install-configure">Install &amp; configure</h3>
     <p>Install the <code>pangolint-mcp</code> tarball attached to a
     GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.5.0.tgz
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.6.0.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.5.0.tgz
+npm install -g ./mcp/pangolint-mcp-0.6.0.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
@@ -1528,8 +1526,9 @@ codex mcp get PangoLint</code></pre>
     when you register the server:</p>
     <pre data-lang="bash"><code>codex mcp add PangoLint \
   --env PANGOLINT_MCP_RUNTIME_READ=enabled \
-  --env PANGOLINT_MCP_BEYOND_TALK_HOST=127.0.0.1 \
-  --env PANGOLINT_MCP_BEYOND_TALK_PORT=16062 \
+  --env PANGOLINT_MCP_BEYOND_TALK_TRANSPORT=tcp \
+  --env PANGOLINT_MCP_BEYOND_TALK_TCP_HOST=127.0.0.1 \
+  --env PANGOLINT_MCP_BEYOND_TALK_TCP_PORT=16063 \
   -- "$(which pangolint-mcp)"</code></pre>
 
     <h4>Cursor / VS Code (with MCP)</h4>
@@ -1550,8 +1549,9 @@ codex mcp get PangoLint</code></pre>
       "command": "pangolint-mcp",
       "env": {
         "PANGOLINT_MCP_RUNTIME_READ": "enabled",
-        "PANGOLINT_MCP_BEYOND_TALK_HOST": "127.0.0.1",
-        "PANGOLINT_MCP_BEYOND_TALK_PORT": "16062"
+        "PANGOLINT_MCP_BEYOND_TALK_TRANSPORT": "tcp",
+        "PANGOLINT_MCP_BEYOND_TALK_TCP_HOST": "127.0.0.1",
+        "PANGOLINT_MCP_BEYOND_TALK_TCP_PORT": "16063"
       }
     }
   }
@@ -1589,9 +1589,10 @@ codex mcp get PangoLint</code></pre>
     <table>
       <thead><tr><th>Tool</th><th>Tier</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td><code>healthCheck</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. DNS + UDP-socket reachability of the configured BEYOND target. Doesn't verify BEYOND is listening.</td></tr>
+        <tr><td><code>healthCheck</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. DNS + UDP-socket reachability of the configured BEYOND UDP target. Doesn't verify BEYOND accepts commands.</td></tr>
+        <tr><td><code>checkTalkConnection</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Opens Talk TCP and checks greeting, <code>Echo 1</code>, <code>Hello</code>, and <code>Version</code> replies.</td></tr>
         <tr><td><code>readBeyondProperty</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Single readback of a property path (<code>Master.Brightness</code>, <code>Zone.0.Red</code>, …) and returns the value.</td></tr>
-        <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via Talk UDP.</td></tr>
+        <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport.</td></tr>
       </tbody>
     </table>
     </div>
@@ -1602,7 +1603,7 @@ codex mcp get PangoLint</code></pre>
         <code>runScript</code>'s lint-before-send gate is the
         <strong>load-bearing developer behavior</strong>:
         <code>runScript</code> blocks script text that produces an
-        error-severity PangoLint diagnostic before any Talk UDP send
+        error-severity PangoLint diagnostic before any BEYOND Talk send
         is attempted. Hint and warning diagnostics surface in the
         response but don't block the send. This is a syntax gate,
         not a safety gate - it does not validate operational
@@ -1645,12 +1646,19 @@ codex mcp get PangoLint</code></pre>
     <table>
       <thead><tr><th>Setting</th><th>Default</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td><code>pangolint.beyond.talkHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND host for Talk UDP commands.</td></tr>
-        <tr><td><code>pangolint.beyond.talkPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP port.</td></tr>
+        <tr><td><code>pangolint.beyond.talkTransport</code></td><td><code>auto</code></td><td><code>auto</code>, <code>tcp</code>, or <code>udp</code>. Auto tries Talk TCP first and uses UDP only when fallback is explicitly allowed.</td></tr>
+        <tr><td><code>pangolint.beyond.talkTcpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk TCP host.</td></tr>
+        <tr><td><code>pangolint.beyond.talkTcpPort</code></td><td><code>16063</code></td><td>BEYOND Talk TCP port.</td></tr>
+        <tr><td><code>pangolint.beyond.talkUdpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk UDP fallback host.</td></tr>
+        <tr><td><code>pangolint.beyond.talkUdpPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP fallback port.</td></tr>
+        <tr><td><code>pangolint.beyond.talkUdpFallbackAllowed</code></td><td><code>false</code></td><td>Allow unauthenticated UDP fallback when TCP is unavailable before authentication or command send begins.</td></tr>
+        <tr><td><code>pangolint.beyond.talkTcpPassword</code></td><td><code>""</code></td><td>Optional BEYOND TCP Talk Server password. Redacted from runtime output.</td></tr>
+        <tr><td><code>pangolint.beyond.talkHost</code></td><td><code>127.0.0.1</code></td><td>Legacy UDP host alias.</td></tr>
+        <tr><td><code>pangolint.beyond.talkPort</code></td><td><code>16062</code></td><td>Legacy UDP port alias.</td></tr>
         <tr><td><code>pangolint.beyond.oscListenHost</code></td><td><code>0.0.0.0</code></td><td>Local interface used for OSC callbacks from BEYOND.</td></tr>
         <tr><td><code>pangolint.beyond.oscListenPort</code></td><td><code>7000</code></td><td>Local UDP port used for OSC callbacks from BEYOND.</td></tr>
         <tr><td><code>pangolint.beyond.readbackTimeoutMs</code></td><td><code>3000</code></td><td>Timeout for OSC readback callbacks (ms).</td></tr>
-        <tr><td><code>pangolint.beyond.allowScriptExecution</code></td><td><code>false</code></td><td>Allow sending Talk UDP command batches to BEYOND. Off by default.</td></tr>
+        <tr><td><code>pangolint.beyond.allowScriptExecution</code></td><td><code>false</code></td><td>Allow sending BEYOND Talk command batches. Off by default.</td></tr>
         <tr><td><code>pangolint.beyond.confirmRunEachSession</code></td><td><code>true</code></td><td>Confirm modal before each script-run (recommended on).</td></tr>
         <tr><td><code>pangolint.beyond.liveHoverValues</code></td><td><code>false</code></td><td>Augment hover tooltips with live BEYOND values. Generates network traffic per hover.</td></tr>
         <tr><td><code>pangolint.codeLens.labelReferences</code></td><td><code>false</code></td><td>Show <code>N references</code> code lens above each label declaration.</td></tr>
@@ -1803,7 +1811,7 @@ codex mcp get PangoLint</code></pre>
     <h4>Talk batch sent, BEYOND unchanged.</h4>
     <p>Check whether the script uses control flow
     (<code>label:</code> / <code>goto</code> / <code>if</code> /
-    loops / waits / <code>exit</code>). Talk UDP is for straight-line
+    loops / waits / <code>exit</code>). BEYOND Talk is for straight-line
     command batches only; paste full scripts directly into BEYOND's
     PangoScript editor. The <code>BEYOND Notification Center</code>
     (in BEYOND itself) is the runtime oracle for failed sends; check
@@ -1856,7 +1864,7 @@ codex mcp get PangoLint</code></pre>
     </p>
   </div>
   <div class="doc-footer-meta">
-    PangoLint &nbsp;·&nbsp; v0.5.0<br>
+    PangoLint &nbsp;·&nbsp; v0.6.0<br>
     Catalog build 2044<br>
     Document revised 2026-05-18
   </div>

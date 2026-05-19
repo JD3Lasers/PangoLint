@@ -173,7 +173,9 @@ function shouldScanPackedText(packedPath) {
   return packedPath.startsWith("data/") || packedPath.startsWith(commandReferencePrefix);
 }
 
-const rawPack = execFileSync("npm", ["pack", "--dry-run", "--json"], {
+const npmCommand = process.env.npm_execpath ? process.execPath : process.platform === "win32" ? "npm.cmd" : "npm";
+const npmArgs = [...(process.env.npm_execpath ? [process.env.npm_execpath] : []), "pack", "--dry-run", "--json"];
+const rawPack = execFileSync(npmCommand, npmArgs, {
   cwd: mcpRoot,
   encoding: "utf8",
   stdio: ["ignore", "pipe", "pipe"],

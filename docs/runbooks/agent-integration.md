@@ -1,6 +1,6 @@
 # Agent Integration Runbook
 
-Last updated: 2026-05-10
+Last updated: 2026-05-19
 
 ## Purpose
 
@@ -17,15 +17,16 @@ fast feedback. Live-show control is out of scope.
 1. Node.js 18+ installed (the published tarball is an ESM bundle).
 2. An MCP-aware client.
 3. (Optional, for runtime tools) a dev BEYOND instance reachable
-   over the LAN with Talk UDP enabled. Defaults are `127.0.0.1:16062`
-   for Talk and `0.0.0.0:7000` for OSC callbacks.
+   over the LAN with Talk TCP enabled. Defaults are `127.0.0.1:16063`
+   for Talk TCP, `127.0.0.1:16062` for Talk UDP fallback, and
+   `0.0.0.0:7000` for OSC callbacks.
 
 ## Install
 
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.5.0.tgz
+npm install -g ./pangolint-mcp-0.6.0.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -35,7 +36,7 @@ checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.5.0.tgz
+npm install -g ./mcp/pangolint-mcp-0.6.0.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -88,8 +89,9 @@ Only after the knowledge-only configuration works.
    running:
 
    ```bash
-   PANGOLINT_MCP_BEYOND_TALK_HOST="<beyond-host>"
-   PANGOLINT_MCP_BEYOND_TALK_PORT=16062
+   PANGOLINT_MCP_BEYOND_TALK_TRANSPORT=tcp
+   PANGOLINT_MCP_BEYOND_TALK_TCP_HOST="<beyond-host>"
+   PANGOLINT_MCP_BEYOND_TALK_TCP_PORT=16063
    ```
 
 2. In BEYOND: enable OSC input (Configuration > Network > OSC) so it
@@ -107,8 +109,9 @@ Only after the knowledge-only configuration works.
          "command": "pangolint-mcp",
          "env": {
            "PANGOLINT_MCP_RUNTIME_READ": "enabled",
-           "PANGOLINT_MCP_BEYOND_TALK_HOST": "<beyond-host>",
-           "PANGOLINT_MCP_BEYOND_TALK_PORT": "16062"
+          "PANGOLINT_MCP_BEYOND_TALK_TRANSPORT": "tcp",
+          "PANGOLINT_MCP_BEYOND_TALK_TCP_HOST": "<beyond-host>",
+          "PANGOLINT_MCP_BEYOND_TALK_TCP_PORT": "16063"
          }
        }
      }
@@ -118,45 +121,57 @@ Only after the knowledge-only configuration works.
 4. Restart the client. Have the agent call `getServerConfig` →
    `runtimeEnabled` and `runtimeReadEnabled` should now be `true`,
    `runtimeWriteEnabled` should still be `false`, and the
-   available-tools list should include `healthCheck` and
-   `readBeyondProperty` but not `runScript`.
+   available-tools list should include `healthCheck`,
+   `checkTalkConnection`, and `readBeyondProperty` but not
+   `runScript`.
 
 5. `healthCheck` first. Expected `reachable: true` with the resolved
-   address. If `reachable: false`, the server cannot address the
-   target — DNS or routing problem on the launch machine, not
-   BEYOND-side.
+   UDP fallback address. If `reachable: false`, the server cannot
+   address the target, which usually means DNS or routing trouble on
+   the launch machine.
 
-6. `readBeyondProperty` with `path: "Master.Brightness"`. Expected `ok:
+6. `checkTalkConnection` next. Expected `ok: true`, a BEYOND greeting,
+   and `Hello` / `Version` replies. If this fails while `healthCheck`
+   passes, inspect BEYOND TCP Talk Server settings, password, firewall,
+   and port `16063`.
+
+7. `readBeyondProperty` with `path: "Master.Brightness"`. Expected `ok:
    true` with the current value. A timeout means BEYOND is reachable
    at the network layer but not responding to OSC; check the
    listen-port settings on both sides.
 
-7. Only when operator-supervised script sending is in scope, add
+8. Only when operator-supervised script sending is in scope, add
    `"PANGOLINT_MCP_RUNTIME_WRITE": "enabled"` to the same `env` block,
    restart the client, and confirm `getServerConfig` reports
    `runtimeWriteEnabled: true`.
 
-8. `runScript` with a known-good straight-line command such as
+9. `runScript` with a known-good straight-line command such as
    `OscOutTTS "/pangolint/mcp/smoke", "s", "manual-smoke"`.
-   Expected lint-clean and `linesSent: 1`, with the callback visible in
-   the configured OSC monitor.
+   Expected lint-clean, `transport: "tcp"`, `talkStatus: "ok"`, and
+   `linesSent: 1`, with the callback visible in the configured OSC
+   monitor.
 
 ## Recovery / common failures
 
-- **"runtime disabled" returned even with env set** — the relevant env
+- **"runtime disabled" returned even with env set** - the relevant env
   var wasn't passed through. Most clients need the `env` block inside
   `mcpServers`; setting the variable in the parent shell does not
   reach the spawned subprocess. Read tools need
   `PANGOLINT_MCP_RUNTIME_READ`; `runScript` needs
   `PANGOLINT_MCP_RUNTIME_WRITE`.
-- **`healthCheck` reachable but `readBeyondProperty` timeouts** — BEYOND
+- **`healthCheck` reachable but `checkTalkConnection` fails** - BEYOND
+  is reachable at the UDP fallback target, but TCP Talk Server is not
+  accepting command connections. Check TCP Talk Server enabled state,
+  password, firewall, and port `16063`.
+- **`healthCheck` and `checkTalkConnection` work but
+  `readBeyondProperty` timeouts** - BEYOND
   is on the network but isn't echoing OSC. Check `OSC In` /
   `OSC Out` ports in BEYOND; defaults vary by build.
-- **`runScript` returns `refusedDueToErrors`** — the script has
+- **`runScript` returns `refusedDueToErrors`** - the script has
   error-severity diagnostics. Read the `diagnostics` array in the
   response, fix the script, retry. This is by design, not a bug.
-- **`runScript` returns a Talk UDP control-flow refusal** — the script
-  contains labels, `goto`, `if`, loops, waits, or `exit`. Talk UDP is
+- **`runScript` returns a Talk control-flow refusal** - the script
+  contains labels, `goto`, `if`, loops, waits, or `exit`. BEYOND Talk is
   command-batch transport, not the BEYOND editor runner; paste full
   control-flow scripts directly in BEYOND for semantic validation. Confirm the
   source buffer is CRLF before copying because LF-only clipboard text can paste

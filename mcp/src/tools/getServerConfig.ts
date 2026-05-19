@@ -12,8 +12,14 @@ export interface ServerConfigSnapshot {
   runtimeEnabled: boolean;
   runtimeReadEnabled: boolean;
   runtimeWriteEnabled: boolean;
+  beyondTalkTransport: "auto" | "tcp" | "udp";
   beyondTalkHost: string;
   beyondTalkPort: number;
+  beyondTalkTcpHost: string;
+  beyondTalkTcpPort: number;
+  beyondTalkUdpHost: string;
+  beyondTalkUdpPort: number;
+  beyondTalkUdpFallbackAllowed: boolean;
   oscListenHost: string;
   oscListenPort: number;
   readbackTimeoutMs: number;
@@ -40,7 +46,7 @@ const ALWAYS_ON_TOOLS = [
   "getServerConfig",
 ];
 
-const RUNTIME_READ_TOOLS = ["healthCheck", "readBeyondProperty"];
+const RUNTIME_READ_TOOLS = ["healthCheck", "checkTalkConnection", "readBeyondProperty"];
 const RUNTIME_WRITE_TOOLS = ["runScript"];
 
 export function getServerConfig(version: string, config: McpConfig): GetServerConfigResult {
@@ -54,8 +60,14 @@ export function getServerConfig(version: string, config: McpConfig): GetServerCo
     runtimeEnabled: config.runtimeReadEnabled || config.runtimeWriteEnabled,
     runtimeReadEnabled: config.runtimeReadEnabled,
     runtimeWriteEnabled: config.runtimeWriteEnabled,
+    beyondTalkTransport: config.beyondTalkTransport,
     beyondTalkHost: config.beyondTalkHost,
     beyondTalkPort: config.beyondTalkPort,
+    beyondTalkTcpHost: config.beyondTalkTcpHost,
+    beyondTalkTcpPort: config.beyondTalkTcpPort,
+    beyondTalkUdpHost: config.beyondTalkUdpHost,
+    beyondTalkUdpPort: config.beyondTalkUdpPort,
+    beyondTalkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
     oscListenHost: config.oscListenHost,
     oscListenPort: config.oscListenPort,
     readbackTimeoutMs: config.readbackTimeoutMs,

@@ -1,12 +1,9 @@
-// Tool: runScript — sends a straight-line PangoScript command batch to the
-// configured BEYOND host via Talk UDP. The lint-before-run gate refuses
+// Tool: runScript: sends a straight-line PangoScript command batch to the
+// configured BEYOND host via Talk. The lint-before-run gate refuses
 // `error`-severity diagnostics or analysis-limited lint results, and the shared
-// runtime transport refuses control-flow scripts because Talk UDP is not BEYOND
+// runtime transport refuses control-flow scripts because Talk is not BEYOND
 // editor-equivalent. Hint and warning diagnostics are reported but do not block;
 // agents are expected to surface them to the user.
-//
-// Wraps src/runtime/runScript.runScript so the existing transport seam
-// (and its `send` injection point for tests) is reused unchanged.
 
 import type { CommandCatalog } from "../../../src/knowledge/catalog";
 import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
@@ -16,6 +13,7 @@ import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
 import { lintPangoScript } from "../../../src/language/diagnostics";
 import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
 import { runScript as runtimeRunScript } from "../../../src/runtime/runScript";
+import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
 import { fail, ok, type ToolResult } from "../config";
 
@@ -31,6 +29,13 @@ export interface RunScriptOutput {
   errorCount: number;
   warningCount: number;
   hintCount: number;
+  transport?: "tcp" | "udp";
+  talkHost?: string;
+  talkPort?: number;
+  talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
+  talkGreeting?: string;
+  talkReplies: TalkTcpReply[];
+  beyondError?: SendTalkTcpCommandsResult["beyondError"];
   /** Number of non-blank, non-comment lines transmitted (0 when refused). */
   linesSent: number;
   /** Number of UDP datagrams transmitted. */
@@ -48,8 +53,10 @@ export interface RunScriptOutput {
 export type RunScriptResult = ToolResult<RunScriptOutput>;
 
 export interface RunScriptDeps {
-  /** Transport seam; defaults to the real Talk UDP sender. */
+  /** Test hook: defaults to the real Talk UDP sender. */
   send?: (host: string, port: number, payload: Buffer) => Promise<void>;
+  /** Test hook: defaults to the real Talk TCP sender. */
+  sendTcp?: (options: SendTalkTcpCommandsOptions) => Promise<SendTalkTcpCommandsResult>;
 }
 
 interface LintInput {
@@ -66,7 +73,7 @@ export async function runScript(
   deps: RunScriptDeps = {},
 ): Promise<RunScriptResult> {
   if (!config.runtimeWriteEnabled) {
-    return fail("runtime write disabled — set PANGOLINT_MCP_RUNTIME_WRITE=enabled to enable runScript", true);
+    return fail("runtime write disabled - set PANGOLINT_MCP_RUNTIME_WRITE=enabled to enable runScript", true);
   }
   if (typeof input.text !== "string") return fail("text is required");
   const textLimitReason = mcpTextLimitReason(input.text);
@@ -96,10 +103,11 @@ export async function runScript(
       errorCount,
       warningCount,
       hintCount,
+      talkReplies: [],
       linesSent: 0,
       payloadsSent: 0,
       bytesSent: 0,
-      error: `refused: script has ${errorCount} error-severity diagnostic${errorCount === 1 ? "" : "s"} — fix these and retry`,
+      error: `refused: script has ${errorCount} error-severity diagnostic${errorCount === 1 ? "" : "s"} - fix these and retry`,
       refusedDueToErrors: true,
     });
   }
@@ -110,6 +118,7 @@ export async function runScript(
       errorCount,
       warningCount,
       hintCount,
+      talkReplies: [],
       linesSent: 0,
       payloadsSent: 0,
       bytesSent: 0,
@@ -121,7 +130,16 @@ export async function runScript(
   const sendResult = await runtimeRunScript(input.text, {
     talkHost: config.beyondTalkHost,
     talkPort: config.beyondTalkPort,
+    talkTransport: config.beyondTalkTransport,
+    talkTcpHost: config.beyondTalkTcpHost,
+    talkTcpPort: config.beyondTalkTcpPort,
+    talkUdpHost: config.beyondTalkUdpHost,
+    talkUdpPort: config.beyondTalkUdpPort,
+    talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
+    talkTcpPassword: config.beyondTalkTcpPassword,
+    commandTimeoutMs: config.readbackTimeoutMs,
     send: deps.send,
+    sendTcp: deps.sendTcp,
   });
 
   return ok({
@@ -130,6 +148,13 @@ export async function runScript(
     errorCount,
     warningCount,
     hintCount,
+    transport: sendResult.transport,
+    talkHost: sendResult.transport === "tcp" ? config.beyondTalkTcpHost : config.beyondTalkUdpHost,
+    talkPort: sendResult.transport === "tcp" ? config.beyondTalkTcpPort : config.beyondTalkUdpPort,
+    talkStatus: sendResult.talkStatus,
+    talkGreeting: sendResult.talkGreeting,
+    talkReplies: sendResult.talkReplies ?? [],
+    beyondError: sendResult.beyondError,
     linesSent: sendResult.linesSent,
     payloadsSent: sendResult.payloadsSent,
     bytesSent: sendResult.bytesSent,
