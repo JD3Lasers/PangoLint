@@ -12,11 +12,16 @@ function fail(message) {
 }
 
 function run(command, args, options = {}) {
-  return execFileSync(command, args, {
+  const output = execFileSync(command, args, {
     cwd: root,
     encoding: "utf8",
     stdio: options.stdio ?? ["ignore", "pipe", "pipe"],
-  }).trim();
+  });
+  return commandOutputText(output);
+}
+
+function commandOutputText(output) {
+  return typeof output === "string" ? output.trim() : "";
 }
 
 function usage() {
@@ -170,6 +175,7 @@ if (require.main === module) {
 
 module.exports = {
   branchNameForIssue,
+  commandOutputText,
   parseArgs,
   remoteTrackingFetchArgs,
   slugifyTitle,
