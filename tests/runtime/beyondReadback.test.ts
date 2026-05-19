@@ -117,6 +117,47 @@ describe("BEYOND readback", () => {
     expect(events).toEqual(["ready", "send"]);
   });
 
+  it("closes the OSC listener when a TCP ping send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {},
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await checkBeyondConnection(
+      {
+        talkHost: "127.0.0.1",
+        talkPort: 16062,
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+        listenHost: "0.0.0.0",
+        listenPort: 7000,
+        requestId: "request-123",
+        timeoutMs: 1000,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
   it("returns a readiness failure before sending Talk UDP", async () => {
     const sends: Buffer[] = [];
     const readinessError = new Error("bind failed");
@@ -308,6 +349,46 @@ describe("readBeyondProperty", () => {
         commands: ['OscOutTTS "/pangolint/readback/req-abc", "f", Master.Brightness'],
       }),
     );
+  });
+
+  it("closes the OSC listener when a TCP readback send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await readBeyondProperty(
+      {
+        ...baseOptions,
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(result.transport).toBe("tcp");
+    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it("uses string type tag when explicitly requested", async () => {
@@ -578,6 +659,49 @@ describe("verifyCommandWrite", () => {
         commands: ["Zoom 50", 'OscOutTTS "/pangolint/verify/req-verify", "f", Master.Zoom'],
       }),
     );
+  });
+
+  it("closes the OSC listener when a TCP write verification send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(result.transport).toBe("tcp");
+    expect(result.restored).toBe(false);
+    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it("returns matched: true when readback equals expected value", async () => {

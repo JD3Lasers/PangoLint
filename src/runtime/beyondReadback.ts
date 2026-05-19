@@ -96,6 +96,7 @@ export interface ReadbackTransport {
 export interface ReadbackOscListener {
   ready: Promise<void>;
   message: Promise<OscMessage>;
+  close?: () => void;
 }
 
 export async function checkBeyondConnection(
@@ -134,6 +135,7 @@ export async function checkBeyondConnection(
       logger?.(`[connection] listener ready, sending Talk command`);
       const sendResult = await sendReadbackTalk(commands, options, transport);
       if (!sendResult.ok) {
+        closeReadbackOscListener(listener);
         return {
           ok: false,
           requestId,
@@ -216,6 +218,7 @@ export async function readBeyondProperty(
       logger?.(`[readback] listener ready, sending property read script for ${options.propertyPath}`);
       const sendResult = await sendReadbackTalk(scriptLines, options, transport);
       if (!sendResult.ok) {
+        closeReadbackOscListener(listener);
         return {
           ok: false,
           requestId,
@@ -352,6 +355,7 @@ export async function verifyCommandWrite(
         logger?.(`[verify] listener ready, sending write+readback script for ${options.command}`);
         const sendResult = await sendReadbackTalk(scriptLines, options, transport);
         if (!sendResult.ok) {
+          closeReadbackOscListener(listener);
           return {
             ok: false,
             command: options.command,
@@ -498,6 +502,15 @@ function expectedReadbackOscSourceHost(options: ReadbackOptions): string | undef
   return options.talkUdpHost ?? options.talkHost;
 }
 
+function closeReadbackOscListener(listener: ReadbackOscListener): void {
+  try {
+    listener.close?.();
+  } catch {
+    // Listener cleanup is best-effort after transport failure. The original
+    // Talk send result remains the actionable error for the caller.
+  }
+}
+
 interface ExpectedOscCallback {
   address: string;
   typeTags: "f" | "i" | "s";
@@ -550,6 +563,7 @@ export const nodeReadbackTransport: ReadbackTransport = {
     const socket = dgram.createSocket("udp4");
     const readyDeferred = createDeferred<void>();
     let settled = false;
+    let closeListener = (): void => {};
 
     const message = new Promise<OscMessage>((resolve, reject) => {
       const timer = setTimeout(
@@ -573,6 +587,11 @@ export const nodeReadbackTransport: ReadbackTransport = {
           // The socket may already be closed by a bind error.
         }
         settle();
+      };
+      closeListener = (): void => {
+        const closeError = new Error("OSC listener closed before callback.");
+        readyDeferred.reject(closeError);
+        finish(() => reject(closeError));
       };
 
       socket.on("error", (error) => {
@@ -604,7 +623,7 @@ export const nodeReadbackTransport: ReadbackTransport = {
     });
 
     socket.bind(Number(port), host);
-    return { ready: readyDeferred.promise, message };
+    return { ready: readyDeferred.promise, message, close: closeListener };
   },
 };
 
