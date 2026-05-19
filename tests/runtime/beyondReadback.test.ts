@@ -7,6 +7,7 @@ import {
   validateReadbackPropertyPath,
   verifyCommandWrite,
 } from "../../src/runtime/beyondReadback";
+import type { SendTalkTcpCommandsOptions } from "../../src/runtime/talkTcp";
 
 function deferred<T = void>(): { promise: Promise<T>; resolve: (value: T) => void } {
   let resolve: (value: T) => void = () => {};
@@ -116,6 +117,47 @@ describe("BEYOND readback", () => {
     expect(events).toEqual(["ready", "send"]);
   });
 
+  it("closes the OSC listener when a TCP ping send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {},
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await checkBeyondConnection(
+      {
+        talkHost: "127.0.0.1",
+        talkPort: 16062,
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+        listenHost: "0.0.0.0",
+        listenPort: 7000,
+        requestId: "request-123",
+        timeoutMs: 1000,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
   it("returns a readiness failure before sending Talk UDP", async () => {
     const sends: Buffer[] = [];
     const readinessError = new Error("bind failed");
@@ -151,7 +193,7 @@ describe("BEYOND readback", () => {
   });
 });
 
-describe("checkBeyondConnection — logger", () => {
+describe("checkBeyondConnection logger", () => {
   const transport: ReadbackTransport = {
     sendTalk: async () => {},
     listenForOsc: () => ({
@@ -237,6 +279,175 @@ describe("readBeyondProperty", () => {
     expect(sentPayloads).toEqual([
       'var v\r\nv = Master.Brightness\r\nOscOutTTS "/pangolint/readback/req-abc", "f", v\r\n',
     ]);
+  });
+
+  it("sends readback over Talk TCP when TCP transport is selected", async () => {
+    const sentUdpPayloads: string[] = [];
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    let callbackAddress = "/pangolint/readback/unset";
+    let sentTcp!: () => void;
+    const tcpSent = new Promise<void>((resolve) => {
+      sentTcp = resolve;
+    });
+    const transport: ReadbackTransport = {
+      sendTalk: async (_host, _port, payload) => {
+        sentUdpPayloads.push(payload.toString("ascii"));
+      },
+      sendTalkTcp: async (options) => {
+        tcpSends.push(options);
+        callbackAddress = options.commands[0].match(/OscOutTTS "([^"]+)"/)?.[1] ?? callbackAddress;
+        sentTcp();
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkGreeting: "Welcome to BEYOND!",
+          talkReplies: [
+            { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+          ],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 64,
+        };
+      },
+      listenForOsc: (_host, _port, predicate) => ({
+        ready: Promise.resolve(),
+        message: tcpSent.then(() => {
+          const message = {
+            address: callbackAddress,
+            typeTags: "f",
+            args: [100],
+            sourceAddress: "192.0.2.148",
+          };
+          expect(predicate(message)).toBe(true);
+          return message;
+        }),
+      }),
+    };
+
+    const result = await readBeyondProperty(
+      {
+        ...baseOptions,
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(true);
+    expect(result.value).toBe(100);
+    expect(result.transport).toBe("tcp");
+    expect(result.talkStatus).toBe("ok");
+    expect(sentUdpPayloads).toEqual([]);
+    expect(tcpSends).toHaveLength(1);
+    expect(tcpSends[0]).toEqual(
+      expect.objectContaining({
+        host: "192.0.2.148",
+        port: 16063,
+        commands: ['OscOutTTS "/pangolint/readback/req-abc", "f", Master.Brightness'],
+      }),
+    );
+  });
+
+  it("keeps OSC source filtering to configured hosts in auto fallback mode", async () => {
+    let callbackAddress = "/pangolint/readback/unset";
+    let sentTcp!: () => void;
+    const tcpSent = new Promise<void>((resolve) => {
+      sentTcp = resolve;
+    });
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP fallback should not be used when TCP succeeds");
+      },
+      sendTalkTcp: async (options) => {
+        callbackAddress = options.commands[0].match(/OscOutTTS "([^"]+)"/)?.[1] ?? callbackAddress;
+        sentTcp();
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: [
+            { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+          ],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 64,
+        };
+      },
+      listenForOsc: (_host, _port, predicate) => ({
+        ready: Promise.resolve(),
+        message: tcpSent.then(() => {
+          const baseMessage = {
+            address: callbackAddress,
+            typeTags: "f",
+            args: [100],
+          };
+          expect(predicate({ ...baseMessage, sourceAddress: "192.0.2.200" })).toBe(false);
+          expect(predicate({ ...baseMessage, sourceAddress: "192.0.2.148" })).toBe(true);
+          expect(predicate({ ...baseMessage, sourceAddress: "192.0.2.149" })).toBe(true);
+          return { ...baseMessage, sourceAddress: "192.0.2.148" };
+        }),
+      }),
+    };
+
+    const result = await readBeyondProperty(
+      {
+        ...baseOptions,
+        propertyPath: "Master.Brightness",
+        talkTransport: "auto",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+        talkUdpHost: "192.0.2.149",
+        talkUdpPort: 16062,
+        talkUdpFallbackAllowed: true,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(true);
+    expect(result.value).toBe(100);
+  });
+
+  it("closes the OSC listener when a TCP readback send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await readBeyondProperty(
+      {
+        ...baseOptions,
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(result.transport).toBe("tcp");
+    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it("uses string type tag when explicitly requested", async () => {
@@ -432,6 +643,262 @@ describe("verifyCommandWrite", () => {
     expect(sentPayloads[0]).toBe(
       'Zoom 50\r\nvar v\r\nv = Master.Zoom\r\nOscOutTTS "/pangolint/verify/req-verify", "f", v\r\n',
     );
+  });
+
+  it("rejects UDP write verification scripts that would span multiple datagrams", async () => {
+    let sendCount = 0;
+    let listenCount = 0;
+    const longCommand = `Zoom ${"1".repeat(1180)}`;
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        sendCount += 1;
+      },
+      listenForOsc: () => {
+        listenCount += 1;
+        return {
+          ready: Promise.resolve(),
+          message: new Promise(() => {}),
+        };
+      },
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: longCommand,
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        talkTransport: "udp",
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("Script exceeded payload limit.");
+    expect(result.restored).toBe(false);
+    expect(sendCount).toBe(0);
+    expect(listenCount).toBe(0);
+  });
+
+  it("sends write verification over Talk TCP when TCP transport is selected", async () => {
+    const sentUdpPayloads: string[] = [];
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    let callbackAddress = "/pangolint/verify/unset";
+    let sentTcp!: () => void;
+    const tcpSent = new Promise<void>((resolve) => {
+      sentTcp = resolve;
+    });
+    const transport: ReadbackTransport = {
+      sendTalk: async (_host, _port, payload) => {
+        sentUdpPayloads.push(payload.toString("ascii"));
+      },
+      sendTalkTcp: async (options) => {
+        tcpSends.push(options);
+        callbackAddress = options.commands.at(-1)?.match(/OscOutTTS "([^"]+)"/)?.[1] ?? callbackAddress;
+        sentTcp();
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: options.commands.map((commandText, index) => ({
+            lineNumber: index + 1,
+            commandText,
+            status: "ok",
+            replyLines: ["OK"],
+            redacted: false,
+          })),
+          linesSent: options.commands.length,
+          payloadsSent: 0,
+          bytesSent: 90,
+        };
+      },
+      listenForOsc: (_host, _port, predicate) => ({
+        ready: Promise.resolve(),
+        message: tcpSent.then(() => {
+          const message = {
+            address: callbackAddress,
+            typeTags: "f",
+            args: [50],
+            sourceAddress: "192.0.2.148",
+          };
+          expect(predicate(message)).toBe(true);
+          return message;
+        }),
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        talkTransport: "tcp",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(true);
+    expect(result.matched).toBe(true);
+    expect(result.transport).toBe("tcp");
+    expect(result.talkStatus).toBe("ok");
+    expect(sentUdpPayloads).toEqual([]);
+    expect(tcpSends).toHaveLength(1);
+    expect(tcpSends[0]).toEqual(
+      expect.objectContaining({
+        host: "192.0.2.148",
+        port: 16063,
+        commands: ["Zoom 50", 'OscOutTTS "/pangolint/verify/req-verify", "f", Master.Zoom'],
+      }),
+    );
+  });
+
+  it("closes the OSC listener when a TCP write verification send fails", async () => {
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async () => ({
+        ok: false,
+        transport: "tcp",
+        talkStatus: "closed",
+        talkReplies: [],
+        linesSent: 0,
+        payloadsSent: 0,
+        bytesSent: 0,
+        error: "connect ECONNREFUSED",
+      }),
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toBe("connect ECONNREFUSED");
+    expect(result.transport).toBe("tcp");
+    expect(result.restored).toBe(false);
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it("attempts restore when a TCP write verification send partially succeeds", async () => {
+    const close = vi.fn();
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async (options) => {
+        tcpSends.push(options);
+        if (tcpSends.length === 1) {
+          return {
+            ok: false,
+            transport: "tcp",
+            talkStatus: "error",
+            talkReplies: [
+              { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+              {
+                lineNumber: 2,
+                commandText: options.commands[1],
+                status: "error",
+                replyLines: ["ERROR Line: 2, Error: no readback"],
+                redacted: false,
+              },
+            ],
+            linesSent: 1,
+            payloadsSent: 0,
+            bytesSent: 32,
+            error: "ERROR Line: 2, Error: no readback",
+          };
+        }
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: [
+            { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+          ],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 16,
+        };
+      },
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        restoreCommand: "Zoom 100",
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.restored).toBe(true);
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(tcpSends).toHaveLength(2);
+    expect(tcpSends[1].commands).toEqual(["Zoom 100"]);
+  });
+
+  it("does not restore when a UDP write verification send fails before any datagram is sent", async () => {
+    const close = vi.fn();
+    let sendCount = 0;
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        sendCount += 1;
+        throw new Error("socket send failed");
+      },
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        restoreCommand: "Zoom 100",
+        talkTransport: "udp",
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.restored).toBe(false);
+    expect(sendCount).toBe(1);
+    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it("returns matched: true when readback equals expected value", async () => {

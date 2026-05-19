@@ -5,6 +5,7 @@ import { buildPropertyIndex } from "../../src/knowledge/propertyIndex";
 import { PANGO_ANALYSIS_LIMITS } from "../../src/language/analysisLimits";
 import type { ReadbackOscListener, ReadbackTransport } from "../../src/runtime/beyondReadback";
 import type { OscMessage } from "../../src/runtime/osc";
+import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult } from "../../src/runtime/talkTcp";
 import type { McpConfig } from "../src/config";
 import { checkTalkConnection } from "../src/tools/checkTalkConnection";
 import { healthCheck } from "../src/tools/healthCheck";
@@ -155,6 +156,49 @@ function fakeReadbackTransport(value: string | number): ReadbackTransport {
   };
 }
 
+function fakeTcpReadbackTransport(value: string | number, tcpSends: SendTalkTcpCommandsOptions[]): ReadbackTransport {
+  let callbackAddress = "/pangolint/readback/unset";
+  let resolveSent: () => void = () => {};
+  const sent = new Promise<void>((resolve) => {
+    resolveSent = resolve;
+  });
+  return {
+    sendTalk: vi.fn(async () => {
+      throw new Error("UDP should not be used when Talk TCP is selected");
+    }),
+    sendTalkTcp: vi.fn(async (options) => {
+      tcpSends.push(options);
+      callbackAddress = options.commands[0].match(/OscOutTTS "([^"]+)"/)?.[1] ?? callbackAddress;
+      resolveSent();
+      const result: SendTalkTcpCommandsResult = {
+        ok: true,
+        transport: "tcp",
+        talkStatus: "ok",
+        talkReplies: [
+          { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+        ],
+        linesSent: 1,
+        payloadsSent: 0,
+        bytesSent: 64,
+      };
+      return result;
+    }),
+    listenForOsc: (_host, _port, predicate, _timeout): ReadbackOscListener => ({
+      ready: Promise.resolve(),
+      message: sent.then(() => {
+        const message = {
+          address: callbackAddress,
+          typeTags: typeof value === "string" ? "s" : "f",
+          args: [value],
+          sourceAddress: "192.0.2.148",
+        } satisfies OscMessage;
+        expect(predicate(message)).toBe(true);
+        return message;
+      }),
+    }),
+  };
+}
+
 describe("readBeyondProperty", () => {
   it("returns blocked when runtime is disabled", async () => {
     const result = await readBeyondProperty({ path: "Master.Brightness" }, disabledConfig);
@@ -172,6 +216,40 @@ describe("readBeyondProperty", () => {
       expect(result.data.value).toBe(50);
       expect(result.data.path).toBe("Master.Brightness");
     }
+  });
+
+  it("uses the configured Talk TCP target for readback sends", async () => {
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    const result = await readBeyondProperty(
+      { path: "Master.Brightness" },
+      {
+        ...readEnabledConfig,
+        beyondTalkTransport: "tcp",
+        beyondTalkTcpHost: "192.0.2.148",
+        beyondTalkTcpPort: 16063,
+      },
+      {
+        transport: fakeTcpReadbackTransport(50, tcpSends),
+      },
+    );
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.data.ok).toBe(true);
+      expect(result.data.value).toBe(50);
+      expect(result.data.transport).toBe("tcp");
+      expect(result.data.talkHost).toBe("192.0.2.148");
+      expect(result.data.talkPort).toBe(16063);
+    }
+    expect(tcpSends).toHaveLength(1);
+    expect(tcpSends[0]).toEqual(
+      expect.objectContaining({
+        host: "192.0.2.148",
+        port: 16063,
+        commands: [expect.stringContaining('OscOutTTS "/pangolint/readback/')],
+      }),
+    );
+    expect(tcpSends[0].commands[0]).toContain('"f", Master.Brightness');
   });
 
   it("fails when path is missing", async () => {
@@ -322,7 +400,7 @@ describe("runScript", () => {
 
   it("sends despite warnings/hints (only error-severity blocks)", async () => {
     const send = vi.fn(async () => {});
-    // 'BogusCommand' is an unknown command — warning level, not error.
+    // 'BogusCommand' is an unknown command: warning level, not error.
     const result = await runScript(
       { text: "BogusCommand 1" },
       writeEnabledConfig,

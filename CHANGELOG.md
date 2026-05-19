@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-05-19
+
+### Fixed
+
+- Route readback `OscOutTTS` sends through the configured Talk transport so
+  Talk TCP mode keeps command status for VS Code and MCP readbacks.
+
 ## [0.6.0] - 2026-05-19
 
 ### Added

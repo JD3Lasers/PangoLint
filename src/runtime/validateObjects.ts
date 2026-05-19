@@ -2,7 +2,7 @@
 // roots. Walks a document, collects (root, button) candidates that aren't
 // strongly grounded in the bundled or registry indices, sends a T1 readback
 // of `<root>.<button>.Caption` for each, and updates a session-scoped
-// validated-roots map. Manual invocation only — no automatic network
+// validated-roots map. Manual invocation only, no automatic network
 // traffic. Caption is chosen as the read target because every BEYOND
 // universe control declares one (string typeTag); a non-empty result is a
 // high-confidence existence proof.
@@ -23,6 +23,7 @@ import {
 import { splitCodeAndComment, stripStringLiterals } from "../language/parser";
 import {
   createReadbackRequestId,
+  type PropertyReadbackOptions,
   type PropertyReadbackResult,
   type ReadbackTransport,
   readBeyondProperty,
@@ -51,7 +52,7 @@ export type ValidatedRootsCache = Map<string, ValidatedRoot>;
 /**
  * Outcome of reading back a single (root, button) pair.
  * - `confirmed`: BEYOND returned a non-empty string for `Caption`.
- * - `silent`: BEYOND returned an empty value or zero — the silent-0 footgun.
+ * - `silent`: BEYOND returned an empty value or zero, the silent-0 footgun.
  *   Inconclusive, treat as not-validated.
  * - `unreachable`: readback timed out or transport failed. Surfaces a separate
  *   summary so the operator knows network state, not "all your objects are
@@ -87,7 +88,7 @@ const PATH_RE = /\b([A-Za-z_][A-Za-z0-9_]*)\.([A-Za-z_][A-Za-z0-9_]*)(?:\.[A-Za-
  *   - the root doesn't resolve at all (unknown root, possibly a typo).
  *
  * Roots that resolve to a registered user object or a bundled canonical
- * schema (Master, Zone, Projector, …) are skipped — they don't need
+ * schema (Master, Zone, Projector, ...) are skipped because they don't need
  * runtime validation because the user or bundled Object Tree data has
  * already vouched for them.
  *
@@ -117,7 +118,7 @@ export function extractValidationCandidates(documentText: string, propertyIndex:
       if (existing.discoverySource === "beyondReadback" && existing.arrayIndices?.includes(button)) {
         continue;
       }
-      // Bundled canonical or registry-classified — no need to revalidate.
+      // Bundled catalog or registry-classified, no need to revalidate.
       if (existing.discoverySource === undefined) continue;
     }
 
@@ -138,7 +139,7 @@ export function classifyPropertyReadbackResult(result: PropertyReadbackResult): 
   if (!result.ok) return "unreachable";
   const v = result.value;
   if (typeof v === "string" && v.length > 0) return "confirmed";
-  // Empty string, missing value, or numeric zero — BEYOND's silent-0 footgun
+  // Empty string, missing value, or numeric zero: BEYOND's silent-0 footgun
   // means we cannot distinguish "object exists with empty caption" from
   // "object doesn't exist." Treat as inconclusive.
   return "silent";
@@ -224,15 +225,10 @@ export function buildRuntimeIndex(cache: ValidatedRootsCache, bundledIndex: Prop
   return buildPropertyIndex(file);
 }
 
-export interface RunValidationOptions {
+export interface RunValidationOptions
+  extends Omit<PropertyReadbackOptions, "propertyPath" | "typeTag" | "requestId" | "logger"> {
   documentText: string;
   propertyIndex: PropertyIndex;
-  /** Readback transport options shared with `readBeyondProperty`. */
-  talkHost: string;
-  talkPort: number;
-  listenHost: string;
-  listenPort: number;
-  timeoutMs: number;
   /** Injectable for tests; defaults to the real readBeyondProperty. */
   readProperty?: (path: string, requestId: string) => Promise<PropertyReadbackResult>;
   /**
@@ -248,8 +244,8 @@ export interface RunValidationOptions {
 }
 
 /**
- * Sequentially reads back each candidate (root, button) pair. Sequential —
- * not parallel — because every readback binds the same OSC listen port; per
+ * Sequentially reads back each candidate (root, button) pair. Sequential,
+ * not parallel, because every readback binds the same OSC listen port; per
  * the engineering standards, parallel binds on a single UDP port
  * are not allowed.
  */
@@ -268,6 +264,14 @@ export async function runValidation(options: RunValidationOptions): Promise<{
         requestId,
         talkHost: options.talkHost,
         talkPort: options.talkPort,
+        talkTransport: options.talkTransport,
+        talkTcpHost: options.talkTcpHost,
+        talkTcpPort: options.talkTcpPort,
+        talkUdpHost: options.talkUdpHost,
+        talkUdpPort: options.talkUdpPort,
+        talkUdpFallbackAllowed: options.talkUdpFallbackAllowed,
+        talkTcpPassword: options.talkTcpPassword,
+        commandTimeoutMs: options.commandTimeoutMs,
         listenHost: options.listenHost,
         listenPort: options.listenPort,
         timeoutMs: options.timeoutMs,
@@ -303,7 +307,7 @@ export async function runValidation(options: RunValidationOptions): Promise<{
     );
     // Bail early if BEYOND is unreachable so we don't waste round-trips.
     if (outcome === "unreachable" && i === 0) {
-      options.logger?.("[validate] first readback unreachable — aborting remaining readbacks");
+      options.logger?.("[validate] first readback unreachable, aborting remaining readbacks");
       // Mark the rest as unreachable for transparency.
       for (let j = i + 1; j < Math.min(candidates.length, limit); j++) {
         const { root: r2, button: b2 } = candidates[j];
