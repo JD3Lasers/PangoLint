@@ -1,4 +1,4 @@
-import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -94,7 +94,7 @@ describe("loadUserObjects", () => {
     const dir = makeWorkspace();
     try {
       const path = userObjectsFilePath(dir);
-      require("node:fs").mkdirSync(join(path, ".."), { recursive: true });
+      mkdirSync(join(path, ".."), { recursive: true });
       writeFileSync(path, `${" ".repeat(128 * 1024 + 1)}`);
       const result = loadUserObjects(dir);
       expect(result.source).toBe("error");
@@ -109,6 +109,30 @@ describe("loadUserObjects", () => {
     const result = loadUserObjects("");
     expect(result.source).toBe("absent");
     expect(result.registry.size()).toBe(0);
+  });
+
+  it("rejects a symlinked registry file", () => {
+    const dir = makeWorkspace();
+    const outside = makeWorkspace();
+    try {
+      const registryPath = userObjectsFilePath(dir);
+      const outsidePath = join(outside, "user-objects.json");
+      mkdirSync(join(registryPath, ".."), { recursive: true });
+      writeFileSync(
+        outsidePath,
+        `${JSON.stringify({ schemaVersion: 1, objects: { Outside: { kind: "universe", addedAt: "" } } })}\n`,
+      );
+      symlinkSync(outsidePath, registryPath);
+
+      const result = loadUserObjects(dir);
+
+      expect(result.source).toBe("error");
+      expect(result.error).toMatch(/symlink/i);
+      expect(result.registry.size()).toBe(0);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+      rmSync(outside, { recursive: true, force: true });
+    }
   });
 });
 
@@ -193,11 +217,50 @@ describe("addUserObject + removeUserObject", () => {
     }
   });
 
+  it("refuses to write through a dangling symlinked registry file", () => {
+    const dir = makeWorkspace();
+    const outside = makeWorkspace();
+    try {
+      const registryPath = userObjectsFilePath(dir);
+      const outsidePath = join(outside, "created-by-symlink.json");
+      mkdirSync(join(registryPath, ".."), { recursive: true });
+      symlinkSync(outsidePath, registryPath);
+
+      expect(() => addUserObject(dir, "SYMLINKED", "universe")).toThrow(/symlink/i);
+      expect(existsSync(outsidePath)).toBe(false);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+      rmSync(outside, { recursive: true, force: true });
+    }
+  });
+
+  it("refuses to remove through a symlinked registry file", () => {
+    const dir = makeWorkspace();
+    const outside = makeWorkspace();
+    try {
+      const registryPath = userObjectsFilePath(dir);
+      const outsidePath = join(outside, "user-objects.json");
+      const original = `${JSON.stringify({
+        schemaVersion: 1,
+        objects: { KeepMe: { kind: "universe", addedAt: "" } },
+      })}\n`;
+      mkdirSync(join(registryPath, ".."), { recursive: true });
+      writeFileSync(outsidePath, original);
+      symlinkSync(outsidePath, registryPath);
+
+      expect(() => removeUserObject(dir, "KeepMe")).toThrow(/symlink/i);
+      expect(readFileSync(outsidePath, "utf8")).toBe(original);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+      rmSync(outside, { recursive: true, force: true });
+    }
+  });
+
   it("refuses to overwrite an oversized existing registry", () => {
     const dir = makeWorkspace();
     try {
       const path = userObjectsFilePath(dir);
-      require("node:fs").mkdirSync(join(path, ".."), { recursive: true });
+      mkdirSync(join(path, ".."), { recursive: true });
       const original = `${" ".repeat(128 * 1024 + 1)}`;
       writeFileSync(path, original);
 
