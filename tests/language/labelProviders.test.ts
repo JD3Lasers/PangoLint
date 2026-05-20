@@ -57,6 +57,17 @@ const vscodeMock = vi.hoisted(() => {
     ) {}
   }
 
+  class CompletionItem {
+    detail?: string;
+    insertText?: string;
+    sortText?: string;
+
+    constructor(
+      readonly label: string,
+      readonly kind?: number,
+    ) {}
+  }
+
   class WorkspaceEdit {
     readonly edits: Array<{ uri: unknown; range: Range; newText: string }> = [];
 
@@ -67,6 +78,8 @@ const vscodeMock = vi.hoisted(() => {
 
   return {
     CodeLens,
+    CompletionItem,
+    CompletionItemKind: { Reference: 18 },
     DocumentHighlight,
     DocumentHighlightKind: { Read: 2, Write: 3 },
     DocumentSymbol,
@@ -84,6 +97,7 @@ import { PANGO_ANALYSIS_LIMITS } from "../../src/language/analysisLimits";
 import {
   definitionForGotoTarget,
   documentSymbolsForScript,
+  gotoLabelCompletionItems,
   labelReferenceCodeLenses,
   labelReferences,
   labelRenameEdits,
@@ -161,6 +175,40 @@ describe("labelProviders", () => {
     );
 
     expect(definition).toBeUndefined();
+  });
+
+  it("suggests declared labels after a goto target prefix", () => {
+    const document = fakeDocument(["Start:", "Done: Exit", "Goto St"]);
+
+    const items = gotoLabelCompletionItems(
+      document,
+      new vscodeMock.Position(2, "Goto St".length) as unknown as vscode.Position,
+    );
+
+    expect(items?.map((item) => String(item.label))).toEqual(["Start", "Done"]);
+    expect(items?.[0].detail).toBe("Label declared on line 1");
+  });
+
+  it("suggests declared labels after a conditional goto", () => {
+    const document = fakeDocument(["Loop:", "ExitSection:", "If Counter > 0 Goto Lo"]);
+
+    const items = gotoLabelCompletionItems(
+      document,
+      new vscodeMock.Position(2, "If Counter > 0 Goto Lo".length) as unknown as vscode.Position,
+    );
+
+    expect(items?.map((item) => String(item.label))).toEqual(["Loop", "ExitSection"]);
+  });
+
+  it("does not suggest labels for a declared variable goto target", () => {
+    const document = fakeDocument(["var targetName", "targetNameSuffix:", "DoneSection:", "goto targetName"]);
+
+    const items = gotoLabelCompletionItems(
+      document,
+      new vscodeMock.Position(3, "goto targetName".length) as unknown as vscode.Position,
+    );
+
+    expect(items).toBeUndefined();
   });
 });
 

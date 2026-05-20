@@ -112,6 +112,21 @@ suite("Extension Host", () => {
     assert.ok(labels.includes("SelectZone"), `SelectZone missing from completions: ${labels.join(", ")}`);
   });
 
+  test("completion: returns script labels after Goto", async () => {
+    const doc = await vscode.workspace.openTextDocument({
+      content: ["Start:", "Done: Exit", "Goto St"].join("\n"),
+      language: "pangoscript",
+    });
+    await vscode.window.showTextDocument(doc);
+    const completions = await vscode.commands.executeCommand<vscode.CompletionList>(
+      "vscode.executeCompletionItemProvider",
+      doc.uri,
+      new vscode.Position(2, "Goto St".length),
+    );
+    const labels = completions.items.map((item) => labelText(item.label));
+    assert.ok(labels.includes("Start"), `Start label missing from completions: ${labels.join(", ")}`);
+  });
+
   test("signature help: returns OscOutTTS signature", async () => {
     const doc = await vscode.workspace.openTextDocument({
       content: 'OscOutTTS "/pangolint/smoke", ',
