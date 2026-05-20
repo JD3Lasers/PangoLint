@@ -519,7 +519,7 @@ function highlightCommandSelection(listBox: HTMLElement, canonical: string | nul
   if (next) {
     next.classList.add("is-selected");
     next.setAttribute("aria-selected", "true");
-    next.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    next.scrollIntoView({ block: "nearest", behavior: "auto" });
   }
 }
 
@@ -534,7 +534,7 @@ function highlightObjectSelection(listBox: HTMLElement, name: string | null, pro
   if (next) {
     next.classList.add("is-selected");
     next.setAttribute("aria-selected", "true");
-    next.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    next.scrollIntoView({ block: "nearest", behavior: "auto" });
   }
 }
 
@@ -567,7 +567,7 @@ function highlightObjectReferenceSelection(
   if (next) {
     next.classList.add("is-selected");
     next.setAttribute("aria-selected", "true");
-    next.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    next.scrollIntoView({ block: "nearest", behavior: "auto" });
   }
 }
 
