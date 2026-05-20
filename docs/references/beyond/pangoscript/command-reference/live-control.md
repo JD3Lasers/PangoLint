@@ -1068,7 +1068,7 @@ adjacent to a Live Control slider - they continuously increment or
 decrement the slider value at a configured speed. Stopping requires
 sending the same command with `0`.
 
-Per Pangolin Wiki (entries 0070–0080) and the BEYOND export
+Per Pangolin Wiki (entries 0070-0080) and the BEYOND export
 comments, the speed parameter follows a consistent convention:
 **recommended range −5..−1 or 1..5; 0 stops the scroll.**
 

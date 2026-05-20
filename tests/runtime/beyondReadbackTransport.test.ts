@@ -36,7 +36,7 @@ describe("nodeReadbackTransport (integration)", () => {
     // Bind listener on OS-assigned port, capture the port number, let it time out.
     const listener = nodeReadbackTransport.listenForOsc("127.0.0.1", 0, () => false, 50);
     const address = await new Promise<{ port: number }>((resolve) => {
-      // We need the bound port before the timeout fires — read it from the socket
+      // We need the bound port before the timeout fires - read it from the socket
       // by attaching to the ready promise and then querying the socket indirectly
       // via a second bind on port 0 (we just check we can rebind after timeout).
       listener.ready.then(resolve as () => void).catch(() => {});

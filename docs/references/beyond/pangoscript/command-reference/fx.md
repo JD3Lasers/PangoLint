@@ -212,7 +212,7 @@ Example:
 
 Safety: T2 - visible blend change.
 
-Related: `FXAction`, `SetFXAction1`–`SetFXAction8`.
+Related: `FXAction`, `SetFXAction1`-`SetFXAction8`.
 
 ### FXAction
 
@@ -237,7 +237,7 @@ Runtime readback confirms the variadic form writes the action
 properties left to right: `FXAction 12, 34` produced
 `Master.FX1Action = 12` and `Master.FX2Action = 34`.
 
-Related: `SetFXAction`, `SetFXAction1`–`SetFXAction8`.
+Related: `SetFXAction`, `SetFXAction1`-`SetFXAction8`.
 
 ### ZoneFXTimeScale
 
@@ -889,7 +889,7 @@ Related: `DropFX` (in [fx.md](./fx.md)).
 Signature: `SetFXAction<N> <action>`
 
 Per-layer action setter - `SetFXAction1` through `SetFXAction8`,
-each affecting its named layer. Per Pangolin Wiki (entries 0172–0353):
+each affecting its named layer. Per Pangolin Wiki (entries 0172-0353):
 "act same as clicking on QuickFX grid." Convenient for one-shot
 MIDI bindings where the layer is known statically.
 

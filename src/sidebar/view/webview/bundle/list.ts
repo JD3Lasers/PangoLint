@@ -1,5 +1,5 @@
 // Collapsible grouped command list. Commands are always grouped by
-// category. Each category header is clickable — clicking expands or
+// category. Each category header is clickable - clicking expands or
 // collapses that group. While a search query is active all groups
 // show their commands unconditionally so results are never hidden.
 

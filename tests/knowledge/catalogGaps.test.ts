@@ -143,7 +143,7 @@ describe("analyzeCatalogGaps", () => {
     };
     const report = analyzeCatalogGaps({ knowledgeBase: mixed, usages: new Map(), corpusFileCount: 0 });
     expect(report.summary.emptyDescriptions.total).toBe(1);
-    expect(report.summary.terseDescriptions.total).toBe(1); // TerseDesc only — empty is excluded
+    expect(report.summary.terseDescriptions.total).toBe(1); // TerseDesc only - empty is excluded
   });
 
   it("sorts gaps alphabetically", () => {
@@ -175,7 +175,7 @@ describe("formatGapReport", () => {
     const md = formatGapReport(report);
     expect(md).toContain("# PangoLint catalog gap report");
     expect(md).toContain("informational only");
-    expect(md).toContain("## Top empty descriptions — by corpus frequency");
+    expect(md).toContain("## Top empty descriptions - by corpus frequency");
     expect(md).toContain("`Sleep`");
     expect(md).toContain("1:9"); // arity histogram
   });
@@ -188,8 +188,8 @@ describe("formatGapReport", () => {
       commands: { OscOutString: oscOutString },
     };
     const md = formatGapReport(analyzeCatalogGaps({ knowledgeBase: empty, usages, corpusFileCount: 17 }));
-    expect(md).not.toContain("## Top empty descriptions — by corpus frequency");
-    expect(md).not.toContain("## Top missing parameters — by corpus frequency");
+    expect(md).not.toContain("## Top empty descriptions - by corpus frequency");
+    expect(md).not.toContain("## Top missing parameters - by corpus frequency");
     expect(md).not.toContain("## All commands with empty descriptions");
   });
 });

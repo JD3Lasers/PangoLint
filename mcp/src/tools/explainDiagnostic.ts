@@ -1,4 +1,4 @@
-// Tool: explainDiagnostic — returns the human-readable section for a
+// Tool: explainDiagnostic - returns the human-readable section for a
 // diagnostic code from docs/references/diagnostics/README.md and returns
 // it as markdown.
 //

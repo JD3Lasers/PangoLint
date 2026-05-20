@@ -1,4 +1,4 @@
-// Tool: searchCommands — task-intent search over command names, aliases,
+// Tool: searchCommands - task-intent search over command names, aliases,
 // descriptions, categories, forms, parameters, notes, tags, and optional
 // command-reference prose, with typo tolerance from Levenshtein distance. The
 // catalog schema declares safetyTier values T0..T4 plus "unknown"; filtering

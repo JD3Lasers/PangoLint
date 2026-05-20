@@ -1,8 +1,8 @@
 # PangoLint sidebar runbook
 
 The sidebar lives behind the PangoLint icon in the VS Code activity bar.
-It is implemented as three stacked `vscode.TreeDataProvider`s — Commands,
-Objects, Diagnostics — sharing a renderer-agnostic model layer so the
+It is implemented as three stacked `vscode.TreeDataProvider`s - Commands,
+Objects, Diagnostics - sharing a renderer-agnostic model layer so the
 renderer can be swapped (for example, to a webview) without touching the
 data, queries, or formatting.
 
@@ -10,7 +10,7 @@ data, queries, or formatting.
 
 | View ID | What it shows | Source |
 | --- | --- | --- |
-| `pangolint.commandsView` | Every PangoScript command in the bundled catalog. Each row is collapsible — children are detail rows (Signature / Safety / Evidence / Object / Example) and action rows (Insert at cursor / Copy signature / View in full reference). Hover yields a Markdown tooltip with the syntax-highlighted example. | `data/pangoscript/commands.merged.json` |
+| `pangolint.commandsView` | Every PangoScript command in the bundled catalog. Each row is collapsible - children are detail rows (Signature / Safety / Evidence / Object / Example) and action rows (Insert at cursor / Copy signature / View in full reference). Hover yields a Markdown tooltip with the syntax-highlighted example. | `data/pangoscript/commands.merged.json` |
 | `pangolint.objectsView` | BEYOND object schemas (Master, Zone, UniversePanel, and related roots) with property counts and array/scalar shape. Hover yields a Markdown property listing. | `data/pangoscript/object-tree/runtime-indexes/known-properties.json` |
 | `pangolint.diagnosticsView` | Active `.BeyondCode` file's diagnostics, grouped by rule. Each entry jumps to the source range. Each group exposes a `Why?` action that opens `docs/references/diagnostics/README.md` scrolled to the rule's heading. | `vscode.languages.getDiagnostics` for the active editor URI |
 
@@ -40,7 +40,7 @@ src/sidebar/
                             getCommandDetail, groupByObject.
     objects.ts              buildSidebarObjects, getObjectTree,
                             getObjectDetail.
-    diagnostics.ts          summarizeDiagnostics — pure grouping.
+    diagnostics.ts          summarizeDiagnostics - pure grouping.
     formatting.ts           renderCommandMarkdown, renderObjectMarkdown
                             for tooltips today and webview detail
                             panels tomorrow.
@@ -79,7 +79,7 @@ enforces this.
    shapes) and unit-test them under `tests/sidebar/`.
 2. **Add the TreeDataProvider.** Create
    `src/sidebar/view/treeview/<name>View.ts`. Construct TreeItems only
-   through helpers in `treeItems.ts` — extend `treeItems.ts` if a new
+   through helpers in `treeItems.ts` - extend `treeItems.ts` if a new
    shape is needed.
 3. **Register the view.** Add the view ID to the `pangolint` container
    in `package.json` under `contributes.views.pangolint`. Wire the
@@ -88,7 +88,7 @@ enforces this.
    `vscode.window.registerTreeDataProvider`.
 4. **Pin the file in `tests/sourceLayout.test.ts`.** The
    `expectedSidebarSubfolders["view/treeview"]` array enforces the
-   file list — drift breaks the test on purpose.
+   file list - drift breaks the test on purpose.
 5. **Add an extension-host smoke test.** Extend
    `src/test/suite/sidebar.test.ts` so command-registration changes
    surface in CI.

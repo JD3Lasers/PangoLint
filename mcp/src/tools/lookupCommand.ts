@@ -1,4 +1,4 @@
-// Tool: lookupCommand — returns the curated knowledge entry for a single
+// Tool: lookupCommand - returns the curated knowledge entry for a single
 // PangoScript command name (canonical or alias). Lower-cased lookup.
 
 import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";

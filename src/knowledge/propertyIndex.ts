@@ -3,7 +3,7 @@
 // and exposes lookup helpers for the extension's completion / hover providers.
 //
 // The JSON is generated from BEYOND Object Tree data. It contains canonical
-// object schemas only — workspace-specific identifiers are stripped during
+// object schemas only - workspace-specific identifiers are stripped during
 // the build step.
 
 import { existsSync, readFileSync } from "node:fs";
@@ -42,15 +42,15 @@ export interface KnownObjectSchema {
    * a key is present, completion / hover dispatch to that schema's
    * properties for paths under `<Panel>.<button>.…`. Buttons absent from
    * this map fall back to the panel's own `properties` (which inherits
-   * from `inheritedFrom` — typically `UniversePanel`).
+   * from `inheritedFrom` - typically `UniversePanel`).
    */
   perIndexSchemas?: Record<string, string>;
   /**
    * How this schema entered the workspace index. Absent for bundled
    * canonical schemas and for explicitly registered user objects.
-   * - `folderScope` — workspace scanner inferred it from two or more
+   * - `folderScope` - workspace scanner inferred it from two or more
    *   sibling `.BeyondCode` files in the same parent folder.
-   * - `beyondReadback` — confirmed via runtime readback of `<root>.<button>.Caption`
+   * - `beyondReadback` - confirmed via runtime readback of `<root>.<button>.Caption`
    *   against a live BEYOND instance (T1 readback-only). Session-scoped.
    */
   discoverySource?: "folderScope" | "beyondReadback";

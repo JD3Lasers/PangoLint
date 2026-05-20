@@ -29,6 +29,6 @@ sharp(sourceSvg, { density: (72 * RENDER_SIZE) / 128 })
     process.stdout.write(`buildIcon: wrote ${outputPng} (${info.width}x${info.height}, ${info.size} bytes)\n`);
   })
   .catch((err) => {
-    process.stderr.write(`buildIcon: failed — ${err instanceof Error ? err.message : String(err)}\n`);
+    process.stderr.write(`buildIcon: failed - ${err instanceof Error ? err.message : String(err)}\n`);
     process.exit(1);
   });

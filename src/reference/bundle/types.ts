@@ -166,7 +166,7 @@ export interface ReferenceMeta {
   version: string;
   /** Knowledge-base build identifier (BEYOND export build number). */
   catalogBuild?: string;
-  /** Total browsable items (commands + functions) — pre-computed. */
+  /** Total browsable items (commands + functions) - pre-computed. */
   total: number;
   /** Per-category command counts, sorted by BEYOND tree order. */
   categories: ReferenceCategory[];

@@ -29,7 +29,7 @@ function postMessage(message: WebviewToHostMessage): void {
 
 function showToast(message: string, kind: "ok" | "warn" = "ok"): void {
   state.setToast(kind, message);
-  // Auto-clear after 1.8s — long enough to read, short enough that
+  // Auto-clear after 1.8s - long enough to read, short enough that
   // rapid action sequences (insert ↦ copy ↦ next command) don't feel
   // delayed.
   window.setTimeout(() => state.clearToast(), 1800);

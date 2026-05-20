@@ -190,7 +190,7 @@ describe("sidebar catalog", () => {
   it("matches commands by their BEYOND category name", () => {
     const catalog = buildSidebarCatalog(fixture);
 
-    // "cue" matches the "Cue clicking" category — only PlayCue has that category
+    // "cue" matches the "Cue clicking" category - only PlayCue has that category
     const cueCat = getCommands(catalog, { query: "cue clicking" });
     expect(cueCat.map((c) => c.canonical)).toContain("PlayCue");
     expect(cueCat.map((c) => c.canonical)).not.toContain("OscOutInt");

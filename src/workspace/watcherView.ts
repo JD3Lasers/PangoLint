@@ -1,6 +1,6 @@
 // BEYOND Watcher: TreeView in the sidebar showing pinned property paths
 // and their last-fetched values. Driven by manual refresh (button on the
-// view title) — fetches via readBeyondProperty rather than RegisterOscFeedback
+// view title) - fetches via readBeyondProperty rather than RegisterOscFeedback
 // to avoid the leak-until-BEYOND-restart issue noted in the runtime standards.
 //
 // Pinned paths persist across sessions in workspace state so the panel

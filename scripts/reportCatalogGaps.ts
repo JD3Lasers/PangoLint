@@ -2,7 +2,7 @@
 // per command, and writes a markdown gap report at
 // docs/references/catalog-gaps.md.
 //
-// The report is informational only — it never emits draft catalog
+// The report is informational only - it never emits draft catalog
 // entries. Use it to prioritize manual curation in
 // data/pangoscript/commands.overlay.json.
 //

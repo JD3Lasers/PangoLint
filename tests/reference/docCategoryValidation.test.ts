@@ -35,7 +35,7 @@ describe("parseDocFrontmatter", () => {
     expect(parsed.headings).toEqual(["SomeCmd"]);
   });
 
-  it("ignores ## (section) headings — only ### are commands", () => {
+  it("ignores ## (section) headings - only ### are commands", () => {
     const md = ["---", "category: FX", "order: 14", "---", "# FX", "", "## Bulk", "", "### StopFX"].join("\n");
     const parsed = parseDocFrontmatter(md);
     expect(parsed.headings).toEqual(["StopFX"]);

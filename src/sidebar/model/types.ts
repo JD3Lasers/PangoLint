@@ -4,7 +4,7 @@
 //
 // SidebarSafetyTier / SidebarEvidenceLevel mirror the canonical
 // `SafetyTier` / `EvidenceLevel` types from src/knowledge/knowledgeBase.ts
-// — duplicated here as plain string-literal unions so the webview
+// - duplicated here as plain string-literal unions so the webview
 // bundle's tsconfig can type-check this file without pulling in the
 // node-side knowledge-base modules (which import `node:fs`).
 

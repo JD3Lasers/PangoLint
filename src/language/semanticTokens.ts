@@ -1,5 +1,5 @@
 // Semantic-token classifier for PangoScript. Goes beyond the TextMate
-// grammar by using parser + catalog awareness — known curated commands
+// grammar by using parser + catalog awareness - known curated commands
 // get one color, unknown commands get a different one, label
 // declarations vs references are distinguished, and variable
 // declarations stand out from reads.
@@ -163,7 +163,7 @@ export function classifySemanticTokens(
           const isWordBoundary = !/[A-Za-z0-9_]/.test(before) && !/[A-Za-z0-9_]/.test(after);
           if (isWordBoundary) {
             // Don't paint the leading "Var" / "GlobalVar" keyword if our name
-            // happens to equal that — keywords already get TextMate coloring.
+            // happens to equal that - keywords already get TextMate coloring.
             const tokLower = declName.toLowerCase();
             if (tokLower !== "var" && tokLower !== "globalvar") {
               addToken({
@@ -264,7 +264,7 @@ export function classifySemanticTokens(
 }
 
 /**
- * Scan a line for identifiers in property-path-root position — bare
+ * Scan a line for identifiers in property-path-root position - bare
  * identifiers immediately followed by `.` or `[`. Skips identifiers
  * inside double-quoted strings and `//` line comments.
  */

@@ -6202,7 +6202,7 @@
           "method": "controlledWriteReadback",
           "safetyTier": "T0",
           "verificationScript": "var v / v = ClientHardwareSerial / OscOutTTS \"<reply>\", \"i\", v ; var ClientHardwareSerial / ClientHardwareSerial = <sentinelInteger> / OscOutTTS \"<reply>\", \"i\", ClientHardwareSerial",
-          "expectedCallback": "Probed without invoking MakeSecuredFile (file-write side effects avoided). (1) Reading `ClientHardwareSerial` as a bare identifier in an expression returned 0 (silent-zero default for undefined identifier) - refutes case (a) 'built-in token resolved at runtime'. (2) Declaring `var ClientHardwareSerial` and assigning a synthetic sentinel integer, then reading it, returned that same sentinel - confirms case (b) regular variable name. The export's example value is a placeholder, NOT a magic identifier. Operators wanting to bind to live hardware should use Projector.<N>.Serial as the value source.",
+          "expectedCallback": "Probed without invoking MakeSecuredFile (file-write side effects avoided). (1) Reading `ClientHardwareSerial` as a bare identifier in an expression returned 0 (silent-zero default for undefined identifier) - refutes case (a) 'built-in token resolved at runtime'. (2) Declaring `var ClientHardwareSerial` and assigning a synthetic sentinel integer, then reading it, returned that same sentinel - confirms case (b) regular variable name. The export's example value is a placeholder, NOT a special identifier. Operators wanting to bind to live hardware should use Projector.<N>.Serial as the value source.",
           "cleanup": "none",
           "operatorRequired": false
         }

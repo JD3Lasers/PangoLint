@@ -6,6 +6,20 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.3] - 2026-05-19
+
+### Added
+
+- Add a repo-policy test for maintained written content so long dash
+  characters and blocked planning wording do not drift back into docs,
+  comments, public strings, issue guidance, or PR guidance.
+
+### Changed
+
+- Normalize maintained docs and code comments to the written-content naming
+  policy, with attributed examples and generated package staging left outside
+  the enforced surface.
+
 ## [0.6.2] - 2026-05-19
 
 ### Fixed

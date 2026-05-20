@@ -1,7 +1,7 @@
-// The single seam where renderer-agnostic sidebar model types are turned
+// The only place where renderer-agnostic sidebar model types are turned
 // into vscode.TreeItem instances for the Diagnostics view.
 // Per the engineering standards model/view split, no other file in
-// src/sidebar/view/treeview/ should construct TreeItems directly — they
+// src/sidebar/view/treeview/ should construct TreeItems directly - they
 // go through these helpers.
 
 import * as vscode from "vscode";

@@ -13,7 +13,7 @@ The OSC address pattern at the bottom of the BEYOND tree window shows
 These are the property names available for `RegisterOscFeedback "<addr>",
 "master.<name>"` registration and for direct assignment via
 `Master.<Name> = <value>`. **Note**: this is NOT the same surface as
-the BEYOND command export — many commands (`AngleX`, `Size`, `MasterSpeed`)
+the BEYOND command export - many commands (`AngleX`, `Size`, `MasterSpeed`)
 have names that DO NOT appear in this property tree but still write
 SOMEWHERE. See the runtime-observation notes for verified
 command-to-property mappings.
@@ -121,27 +121,27 @@ Zoom                        N
 
 ## Notes
 
-- **No `AngleX/Y/Z`** — but `RotoAngleX/Y/Z` and `RotoAccX/Y/Z` exist.
+- **No `AngleX/Y/Z`** - but `RotoAngleX/Y/Z` and `RotoAccX/Y/Z` exist.
   The `AngleX 30` command writes to `Master.RotoAngleX` (verified via
   feedback check).
-- **No bare `Speed`** — instead: `CueSpeed`, `LCSpeed`, `FXSpeed`,
+- **No bare `Speed`** - instead: `CueSpeed`, `LCSpeed`, `FXSpeed`,
   `ShowSpeed`, `ZoneFxSpeed`, `LCScrollSpeed`, `AnimationSpeed`. The
   `MasterSpeed <v>` command's actual write target is still unknown
   (none of CueSpeed/FXSpeed/ShowSpeed received a callback).
-- **No `Size` aggregate** — only `SizeX/Y/Z` and `Zoom`. The `Size <v>`
+- **No `Size` aggregate** - only `SizeX/Y/Z` and `Zoom`. The `Size <v>`
   command's write target is unknown.
-- **`PosX/Y/Z` and `PositionX/Y/Z`** are both present — likely two
+- **`PosX/Y/Z` and `PositionX/Y/Z`** are both present - likely two
   different concepts (perhaps current position vs offset). Untested.
 - **`MasterBrightness`** is a separate property from `Brightness`. The
   `Brightness` command writes to `Master.Brightness` (verified Tier 1).
   Direct assignment to `Master.MasterBrightness = 73` did NOT trigger
-  feedback — possibly read-only or under different scope.
-- **Many `Cue*` properties** — `CueBeatShift`, `CueClockShift`,
+  feedback - possibly read-only or under different scope.
+- **Many `Cue*` properties** - `CueBeatShift`, `CueClockShift`,
   `CueFinishTime`, `CueLcSpeed`, `CuePauseTime`, `CueRule`, `CueSpeed`,
   `CueStartTime`, `CueUnPauseTime`. These reflect the currently active
   cue and may be cue-tab-scoped.
 - **OSC address convention**: `/b/Master/<PropertyName>` (case may
-  matter — UI shows `Master.Zoom` ↔ `/b/Master/Zoom` with matching case).
+  matter - UI shows `Master.Zoom` ↔ `/b/Master/Zoom` with matching case).
 
 ## What this list does NOT include
 
@@ -261,12 +261,12 @@ MuteInput        number
 MuteOutput       number
 ```
 
-`DmxIO.DoBeep` is the first method-typed entry seen — confirms BEYOND's
+`DmxIO.DoBeep` is the first method-typed entry seen - confirms BEYOND's
 object model exposes callable methods, not just properties. Methods
 likely call as `DmxIO.DoBeep` (no args) but invocation syntax is
 unverified.
 
-### Other root-level objects (names only — substructure not listed here)
+### Other root-level objects (names only - substructure not listed here)
 
 ```
 DmxOutput
@@ -288,15 +288,15 @@ ProTrack1
 ProTrack2..ProTrack8     (8 numbered ProTrack objects)
 ProTrack                 (master)
 ---DUMMYZONE---          (separator label)
-#1..#18                  (workspace zone-alias names — operator-assigned)
+#1..#18                  (workspace zone-alias names - operator-assigned)
 ---PAIRS---              (separator)
-P1..P9                   (workspace zone-alias names — pair labels)
+P1..P9                   (workspace zone-alias names - pair labels)
 ---GROUPS---             (separator)
-ALL, SL, SR, ODD, EVEN, G1, G2   (workspace zone-alias names — group labels)
+ALL, SL, SR, ODD, EVEN, G1, G2   (workspace zone-alias names - group labels)
 ---PIXELMAPS---          (separator)
-Map1, Map2, Map3         (workspace zone-alias names — pixelmap labels)
-FB3_XXXXX / FB3-XXXXX    (hardware identifier — FB3 controller serial; source data may normalize separators differently)
-FB4-XXXXX                (hardware identifier — FB4 controller serial)
+Map1, Map2, Map3         (workspace zone-alias names - pixelmap labels)
+FB3_XXXXX / FB3-XXXXX    (hardware identifier - FB3 controller serial; source data may normalize separators differently)
+FB4-XXXXX                (hardware identifier - FB4 controller serial)
 Untitled, Selected, QShift, TouchPoints
 Universe, DefaultLayout  (DefaultLayout = workspace-named Universe page layout)
 UCenter, UTool, URight, UPreview, UMax    (UI panel objects)
@@ -357,7 +357,7 @@ sub-children `ARRAY` and (presumably) `Count`. Verified properties on
 ColorShift              number
 Connected               boolean
 DefaultSampleRate       number
-Description             struct/string  (icon yellow — possibly nested object)
+Description             struct/string  (icon yellow - possibly nested object)
 IdleCenterOffsetX       number
 IdleCenterOffsetY       number
 InvertX                 boolean
@@ -375,7 +375,7 @@ SizeX, SizeY            number
 SwapXY                  boolean
 ```
 
-Plus `Projector.0.Optimisation` (yellow icon — nested object):
+Plus `Projector.0.Optimisation` (yellow icon - nested object):
 
 ```
 AngleRepeats            number
@@ -426,7 +426,7 @@ Blue                    number
 Brightness              number
 ColorSlider             number
 Count                   number
-FX1..FX8                number  (8 entries — see FX-pattern subtree below)
+FX1..FX8                number  (8 entries - see FX-pattern subtree below)
 Green                   number
 Hue                     number
 HueShift                number
@@ -465,7 +465,7 @@ VisualizationId         number
 Zoom                    number
 ```
 
-**Per-FX subtree** (`Zone.0.FX{1..8}*` — pattern repeats for FX1 through FX8):
+**Per-FX subtree** (`Zone.0.FX{1..8}*` - pattern repeats for FX1 through FX8):
 
 ```
 FX{N}                   number
@@ -481,10 +481,10 @@ FX{N}TimeShiftMetro     number
 
 (72 properties total across FX1..FX8.)
 
-**`Zone.0.BAM`** (yellow icon — nested object, substructure not listed
+**`Zone.0.BAM`** (yellow icon - nested object, substructure not listed
 here).
 
-**`Zone.0.Effect`** (yellow icon — nested aggregator):
+**`Zone.0.Effect`** (yellow icon - nested aggregator):
 
 ```
 ChasePeriod             number
@@ -500,14 +500,14 @@ Zone                    string
 ZoneMode                number
 ```
 
-**`Zone.0.Mesh`** (yellow icon — nested object):
+**`Zone.0.Mesh`** (yellow icon - nested object):
 
 ```
 IndexX, IndexY          number
 NodeX, NodeY            number
 ```
 
-**`Zone.0.Preview`** (yellow icon — visualization config):
+**`Zone.0.Preview`** (yellow icon - visualization config):
 
 ```
 AsBeams                 number
@@ -521,12 +521,12 @@ MirrorXProjector        number
 PositionX, PositionY    number
 ProjPositionX, ProjPositionY    number
 SizeX, SizeY            number
-TextureIntencity        number  (sic — BEYOND ships this typo)
+TextureIntencity        number  (sic - BEYOND ships this typo)
 TextureScrollSpeed      number
 WindowRotation          number
 ```
 
-**`Zone.0.UGC`** (yellow icon — geometry correction; "User Generated
+**`Zone.0.UGC`** (yellow icon - geometry correction; "User Generated
 Content"?):
 
 ```
@@ -547,11 +547,11 @@ SymmetryX, SymmetryY    number
 
 **Cross-references confirmed by this subtree**:
 
-- `Zone.N.RotoAngleX/Y/Z` exists — confirms our prior readback finding
+- `Zone.N.RotoAngleX/Y/Z` exists - confirms our prior readback finding
   that `SelectZone N + ControlZone N + AngleX 30` writes to
   `Zone.<N-1>.RotoAngleX` (with the 1-vs-0 indexing offset).
 - `Zone.N.RGBColor` is the per-zone color aggregate (analogous to
   `Master.RGBColor`).
 - The repeated `FX{N}*` pattern across 8 FX slots matches the
-  `Master.FX{N}*` pattern — same FX channel structure at zone scope
+  `Master.FX{N}*` pattern - same FX channel structure at zone scope
   too.

@@ -88,7 +88,7 @@ function buildHover(entry: CommandKnowledgeEntry, range: vscode.Range): vscode.H
   const md = new vscode.MarkdownString();
   md.isTrusted = { enabledCommands: ["pangolint.sidebar.showCommand"] };
   if (entry.description) {
-    md.appendMarkdown(`**${entry.canonical}** — ${entry.description}\n\n`);
+    md.appendMarkdown(`**${entry.canonical}** - ${entry.description}\n\n`);
   } else {
     md.appendMarkdown(`**${entry.canonical}**\n\n`);
   }
@@ -124,7 +124,7 @@ function buildHover(entry: CommandKnowledgeEntry, range: vscode.Range): vscode.H
 function buildExpressionFunctionHover(entry: ExpressionFunctionEntry, range: vscode.Range): vscode.Hover {
   const md = new vscode.MarkdownString();
   md.isTrusted = false;
-  md.appendMarkdown(`**${entry.canonical}** — ${entry.description}\n\n`);
+  md.appendMarkdown(`**${entry.canonical}** - ${entry.description}\n\n`);
   for (const form of entry.forms) {
     md.appendCodeblock(form.signature, "pangoscript");
     if (form.description) {

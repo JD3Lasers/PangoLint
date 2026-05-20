@@ -297,7 +297,7 @@ Talk UDP and OSC behavior crosses the BEYOND runtime safety boundary.
 - Multiple readback checks that share an OSC listen port must serialize or use
   a shared listener. Do not bind the same UDP port in parallel.
 - New T2+ runtime behavior requires source evidence, safety-tier notes, and a
-  focused test seam before implementation.
+  focused test boundary before implementation.
 
 ## Workspace And Filesystem Boundaries
 

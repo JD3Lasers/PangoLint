@@ -863,7 +863,7 @@ const PARAMETRIC_IMAGE_SHAPES: readonly ParametricImageShape[] = [
 ];
 
 // 18 cue types in index order (New Cue menu order, Flash Animation and
-// 3D Animation omitted — could not be captured in the test workspace).
+// 3D Animation omitted - could not be captured in the test workspace).
 export const CUE_TYPES: readonly CueTypeEntry[] = [
   {
     label: "Frames (Simple)",

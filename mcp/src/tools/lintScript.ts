@@ -1,4 +1,4 @@
-// Tool: lintScript — runs PangoLint's diagnostics over the supplied script
+// Tool: lintScript - runs PangoLint's diagnostics over the supplied script
 // text and returns the structured diagnostic list.
 //
 // The MCP linter has no workspace, so user-defined universes / folder-

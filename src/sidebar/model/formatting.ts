@@ -1,5 +1,5 @@
 // Markdown rendering for command hover/detail surfaces. Returns plain
-// Markdown source — the view layer wraps it in vscode.MarkdownString or
+// Markdown source - the view layer wraps it in vscode.MarkdownString or
 // whatever its renderer expects. No vscode imports.
 
 import type { CommandDetail } from "./types";

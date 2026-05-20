@@ -1,7 +1,7 @@
 // Scans .BeyondCode files in the workspace to discover button names under
 // user-registered universe panels. Builds a PropertyIndex so the linter
 // can offer completion/hover for the user's own universes (COLORPICKER,
-// SHOWKONTROL, etc. — whatever they've classified via the code action).
+// SHOWKONTROL, etc. - whatever they've classified via the code action).
 //
 // Universes inherit the canonical UniversePanel schema (the 17-prop
 // per-button shape derived from BEYOND's Object Tree data). Workspace
@@ -10,7 +10,7 @@
 // `Panel.<button>.<TAB>` suggests the canonical button props.
 //
 // Zone aliases and Master aliases inherit canonical Zone/Master schemas
-// directly — no scanning needed.
+// directly - no scanning needed.
 
 import { lstat, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
@@ -148,8 +148,7 @@ export async function scanWorkspaceForUserObjects(
       const rootKey = root.toLowerCase();
 
       // Skip roots we already know about from the bundled catalog or that
-      // the user has explicitly classified as a non-universe alias —
-      // they shouldn't enter folder-scope auto-discovery.
+      // the user has explicitly classified as a non-universe alias - // they shouldn't enter folder-scope auto-discovery.
       if (bundledRootsLower.has(rootKey) && !universesByLower.has(rootKey)) continue;
       if (nonUniverseAliasesLower.has(rootKey) && !universesByLower.has(rootKey)) continue;
 
@@ -160,7 +159,7 @@ export async function scanWorkspaceForUserObjects(
 
       let scan = rootScans.get(rootKey);
       if (!scan) {
-        // Unregistered root — only track it when folder-scope discovery is on.
+        // Unregistered root - only track it when folder-scope discovery is on.
         if (!folderScopedUniverses) continue;
         scan = {
           displayName: root,
@@ -319,7 +318,7 @@ export async function scanWorkspaceForUserObjects(
 
 /**
  * Returns the largest number of distinct files in any single parent folder
- * for this root. Used to gate folder-scoped auto-discovery — a root must
+ * for this root. Used to gate folder-scoped auto-discovery - a root must
  * appear in ≥ 2 files in the same folder to be auto-promoted.
  */
 function maxFolderFileCount(scan: RootScan): number {
