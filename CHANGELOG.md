@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-05-20
+
+### Fixed
+
+- Preserve the BEYOND underscore separator when redacting FB3 and FB4 hardware
+  Object Tree roots, so public reference data shows `FB3_XXXXX` and
+  `FB4_XXXXX` instead of dashed placeholders.
+
 ## [0.7.1] - 2026-05-20
 
 ### Changed
@@ -197,7 +205,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.2...HEAD
+[0.7.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.4...v0.7.0
 [0.6.4]: https://github.com/JD3Lasers/PangoLint/compare/99b5626713295d0aa5be44edf6ec630a6eb9ac8b...v0.6.4

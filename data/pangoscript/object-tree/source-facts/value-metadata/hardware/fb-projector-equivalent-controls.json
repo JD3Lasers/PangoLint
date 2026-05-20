@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "entries": [
     {
-      "path": "FB3-XXXXX.DefaultSampleRate",
+      "path": "FB3_XXXXX.DefaultSampleRate",
       "valueType": "integer",
       "valueRange": {
         "min": -2147483648,
@@ -10,19 +10,19 @@
         "unit": "samples per second",
         "boundaryBehavior": "wrap",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.DefaultSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB3 UI maximum is 120000, but PangoScript accepted values above that UI limit during this probe."
+        "notes": "SetProp write/readback to FB3_XXXXX.DefaultSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB3 UI maximum is 120000, but PangoScript accepted values above that UI limit during this probe."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.DefaultSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.DefaultSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.MaxSampleRate",
+      "path": "FB3_XXXXX.MaxSampleRate",
       "valueType": "integer",
       "valueRange": {
         "min": -2147483648,
@@ -30,19 +30,19 @@
         "unit": "samples per second",
         "boundaryBehavior": "wrap",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.MaxSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB3 UI maximum is 120000, but PangoScript accepted values above that UI limit during this probe."
+        "notes": "SetProp write/readback to FB3_XXXXX.MaxSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB3 UI maximum is 120000, but PangoScript accepted values above that UI limit during this probe."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.MaxSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.MaxSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.PositionX",
+      "path": "FB3_XXXXX.PositionX",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -50,19 +50,19 @@
         "unit": "projector coordinate",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PositionX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PositionX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.PositionY",
+      "path": "FB3_XXXXX.PositionY",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -70,19 +70,19 @@
         "unit": "projector coordinate",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PositionY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PositionY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.PostRotation",
+      "path": "FB3_XXXXX.PostRotation",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -90,19 +90,19 @@
         "unit": "degrees",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PostRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PostRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.PreRotation",
+      "path": "FB3_XXXXX.PreRotation",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -110,19 +110,19 @@
         "unit": "degrees",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.PreRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PreRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.SizeX",
+      "path": "FB3_XXXXX.SizeX",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -130,19 +130,19 @@
         "unit": "percent",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.SizeX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.SizeX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB3-XXXXX.SizeY",
+      "path": "FB3_XXXXX.SizeY",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -150,19 +150,19 @@
         "unit": "percent",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3-XXXXX.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB3_XXXXX.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3-XXXXX.SizeY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.SizeY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete FB3 hardware root name.",
         "notes": "Runtime evidence used a connected FB3 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.DefaultSampleRate",
+      "path": "FB4_XXXXX.DefaultSampleRate",
       "valueType": "integer",
       "valueRange": {
         "min": -2147483648,
@@ -170,19 +170,19 @@
         "unit": "samples per second",
         "boundaryBehavior": "wrap",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.DefaultSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB4 UI maximum is 60000, but PangoScript accepted values above that UI limit during this probe."
+        "notes": "SetProp write/readback to FB4_XXXXX.DefaultSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB4 UI maximum is 60000, but PangoScript accepted values above that UI limit during this probe."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.DefaultSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.DefaultSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.MaxSampleRate",
+      "path": "FB4_XXXXX.MaxSampleRate",
       "valueType": "integer",
       "valueRange": {
         "min": -2147483648,
@@ -190,19 +190,19 @@
         "unit": "samples per second",
         "boundaryBehavior": "wrap",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.MaxSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB4 UI maximum is 60000, but PangoScript accepted values above that UI limit during this probe."
+        "notes": "SetProp write/readback to FB4_XXXXX.MaxSampleRate confirmed signed 32-bit wrap behavior: -2147483649->2147483647, -2147483648->-2147483648, -1000000->-1000000, -120000->-120000, -100000->-100000, -60000->-60000, -1->-1, 0->0, 1->1, 60000->60000, 100000->100000, 120000->120000, 1000000->1000000, 2147483647->2147483647, 2147483648->-2147483648. FB4 UI maximum is 60000, but PangoScript accepted values above that UI limit during this probe."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.MaxSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.MaxSampleRate accepts the shipped -2147483648..2147483647 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.PositionX",
+      "path": "FB4_XXXXX.PositionX",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -210,19 +210,19 @@
         "unit": "projector coordinate",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PositionX accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.PositionX accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.PositionY",
+      "path": "FB4_XXXXX.PositionY",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -230,19 +230,19 @@
         "unit": "projector coordinate",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PositionY accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.PositionY accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.PostRotation",
+      "path": "FB4_XXXXX.PostRotation",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -250,19 +250,19 @@
         "unit": "degrees",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PostRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.PostRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.PreRotation",
+      "path": "FB4_XXXXX.PreRotation",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -270,19 +270,19 @@
         "unit": "degrees",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.PreRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.PreRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.SizeX",
+      "path": "FB4_XXXXX.SizeX",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -290,19 +290,19 @@
         "unit": "percent",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.SizeX accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.SizeX accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     },
     {
-      "path": "FB4-XXXXX.SizeY",
+      "path": "FB4_XXXXX.SizeY",
       "valueType": "number",
       "valueRange": {
         "min": -1000000,
@@ -310,14 +310,14 @@
         "unit": "percent",
         "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB4-XXXXX.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "SetProp write/readback to FB4_XXXXX.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4-XXXXX.SizeY accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB4_XXXXX.SizeY accepts the shipped -1000000..1000000 range with baseline restore on connected FB4 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete FB4 hardware root name.",
         "notes": "Runtime evidence used a connected FB4 root with the serial-bearing path redacted in public data."
       }
     }

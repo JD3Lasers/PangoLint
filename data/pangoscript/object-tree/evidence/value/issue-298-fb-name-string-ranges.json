@@ -11,8 +11,8 @@
   },
   "entries": [
     {
-      "objectPath": "FB3-XXXXX.Name",
-      "probePath": "FB3-XXXXX.Name",
+      "objectPath": "FB3_XXXXX.Name",
+      "probePath": "FB3_XXXXX.Name",
       "probeMode": "command-write-readback",
       "shipsMetadata": true,
       "valueType": "string",
@@ -32,37 +32,37 @@
       "testedValues": [
         {
           "input": "",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"\"",
           "readback": "",
           "behavior": "pass-through"
         },
         {
           "input": "A",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"A\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"A\"",
           "readback": "A",
           "behavior": "pass-through"
         },
         {
           "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
           "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
           "behavior": "pass-through"
         },
         {
           "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
           "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
           "behavior": "pass-through"
         },
         {
           "input": "FBNameSeed001",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"FBNameSeed001\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"FBNameSeed001\"",
           "readback": "FBNameSeed001",
           "behavior": "pass-through"
         },
         {
           "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
-          "command": "SetProp \"FB3-XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "command": "SetProp \"FB3_XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
           "readback": "FBNameSeed001",
           "behavior": "no-op"
         }
@@ -72,18 +72,18 @@
         "restoredValue": "",
         "notes": "The probe restored the observed baseline after the accepted-value writes and after the over-limit write, then verified final readback before moving to the next path."
       },
-      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.Name on connected FB3 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3_XXXXX.Name on connected FB3 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
       "locationAware": true,
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "concreteContext": "FB3 connected hardware root with serial-bearing name redacted",
-        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public evidence."
+        "notes": "FB3_XXXXX redacts the concrete FB3 hardware root name in public evidence."
       }
     },
     {
-      "objectPath": "FB4-XXXXX.Name",
-      "probePath": "FB4-XXXXX.Name",
+      "objectPath": "FB4_XXXXX.Name",
+      "probePath": "FB4_XXXXX.Name",
       "probeMode": "command-write-readback",
       "shipsMetadata": true,
       "valueType": "string",
@@ -103,37 +103,37 @@
       "testedValues": [
         {
           "input": "",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"\"",
           "readback": "",
           "behavior": "pass-through"
         },
         {
           "input": "A",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"A\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"A\"",
           "readback": "A",
           "behavior": "pass-through"
         },
         {
           "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
           "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
           "behavior": "pass-through"
         },
         {
           "input": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\"",
           "readback": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
           "behavior": "pass-through"
         },
         {
           "input": "FBNameSeed001",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"FBNameSeed001\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"FBNameSeed001\"",
           "readback": "FBNameSeed001",
           "behavior": "pass-through"
         },
         {
           "input": "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
-          "command": "SetProp \"FB4-XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
+          "command": "SetProp \"FB4_XXXXX.Name\", \"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\"",
           "readback": "FBNameSeed001",
           "behavior": "no-op"
         }
@@ -143,13 +143,13 @@
         "restoredValue": "",
         "notes": "The probe restored the observed baseline after the accepted-value writes and after the over-limit write, then verified final readback before moving to the next path."
       },
-      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.Name on connected FB4 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "evidenceNote": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4_XXXXX.Name on connected FB4 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
       "locationAware": true,
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "concreteContext": "FB4 connected hardware root with serial-bearing name redacted",
-        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+        "notes": "FB4_XXXXX redacts the concrete FB4 hardware root name in public evidence."
       }
     }
   ]

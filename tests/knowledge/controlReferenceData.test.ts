@@ -120,7 +120,7 @@ describe("tracked BEYOND control reference data", () => {
     const beamActive = crosswalk.find((row) => row.normalizedPropertyPattern === "Beam.N.Active");
     const channelsValue = crosswalk.find((row) => row.normalizedPropertyPattern === "Channels.N.Value");
     const configShowAudioTab = crosswalk.find((row) => row.normalizedPropertyPattern === "Config.ShowAudioTab");
-    const fb4Connected = crosswalk.find((row) => row.normalizedPropertyPattern === "FB4-XXXXX.Connected");
+    const fb4Connected = crosswalk.find((row) => row.normalizedPropertyPattern === "FB4_XXXXX.Connected");
     const wsFx1Mute = crosswalk.find((row) => row.normalizedPropertyPattern === "WS.N.N.FX1Mute");
     const wsBounceMaxX = crosswalk.find((row) => row.normalizedPropertyPattern === "WS.N.N.Image.BounceMaxX");
     const wsGlobalCharTime = crosswalk.find((row) => row.normalizedPropertyPattern === "WS.N.N.Image.GlobalCharTime");

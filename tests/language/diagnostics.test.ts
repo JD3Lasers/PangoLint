@@ -867,15 +867,15 @@ describe("findPropertyTypoDiagnostics", () => {
         variants: [{ path: "Universe.1.Button1.Caption" }],
       },
       {
-        path: "FB4-XXXXX.Connected",
-        normalizedPath: "FB4-XXXXX.Connected",
-        root: "FB4-XXXXX",
+        path: "FB4_XXXXX.Connected",
+        normalizedPath: "FB4_XXXXX.Connected",
+        root: "FB4_XXXXX",
         property: "Connected",
         kind: "object",
         confidence: "observed",
         searchText: "fb4 hardware controller connected",
         variantCount: 1,
-        variants: [{ path: "FB4-XXXXX.Connected" }],
+        variants: [{ path: "FB4_XXXXX.Connected" }],
       },
     ],
   } satisfies ObjectPropertyIndexFile);
@@ -957,7 +957,7 @@ describe("findPropertyTypoDiagnostics", () => {
         message: expect.stringContaining("FB4_ABC123.Connected"),
       }),
     );
-    expect(diagnostics[0].message).not.toContain("FB4-XXXXX.Connected");
+    expect(diagnostics[0].message).not.toContain("FB4_XXXXX.Connected");
   });
 
   it("accepts hyphenated FB controller roots end to end when Object Tree confirms the path", () => {
@@ -988,7 +988,7 @@ describe("findPropertyTypoDiagnostics", () => {
         message: expect.stringContaining("FB4-ABC123.Connected"),
       }),
     );
-    expect(diagnostics[0].message).not.toContain("FB4-XXXXX.Connected");
+    expect(diagnostics[0].message).not.toContain("FB4_XXXXX.Connected");
   });
 
   it("does not suggest Object Tree template placeholders as concrete fixes", () => {
