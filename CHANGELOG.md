@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.3] - 2026-05-20
+
+### Fixed
+
+- Stabilize repository line-ending policy across Windows and macOS so JSONL,
+  HTML, and other text files keep LF checkouts while `.BeyondCode` fixtures
+  keep CRLF for BEYOND paste behavior.
+- Add shared EditorConfig settings matching the Git attributes line-ending
+  policy.
+
 ## [0.7.2] - 2026-05-20
 
 ### Fixed
@@ -205,7 +215,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.2...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.3...HEAD
+[0.7.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.2...v0.7.3
 [0.7.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.4...v0.7.0
