@@ -147,6 +147,9 @@ and the Problems panel.
   syntax form, and safety tier.
 - **Property completions** - type `Master.` (or `Zone.0.`, `FX.0.`,
   etc.) and PangoLint suggests properties from the schemas.
+- **Goto label completions** - after `Goto ` or `If ... Goto `,
+  PangoLint suggests labels declared in the current file. Declared
+  variable goto targets keep their variable-reference behavior.
 - **Hover tooltips** - hover any command name for a Markdown card with
   the syntax form, parameters, safety tier, and a primary example.
   Hover an object path for property listings, with segment-aware

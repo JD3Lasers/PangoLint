@@ -19,6 +19,7 @@ import { inlayHintsForRange } from "./language/inlayHints";
 import {
   definitionForGotoTarget,
   documentSymbolsForScript,
+  gotoLabelCompletionItems,
   labelHighlights,
   labelReferenceCodeLenses,
   labelReferences,
@@ -232,6 +233,15 @@ export function activate(context: vscode.ExtensionContext): void {
         return commandCompletionItems(catalog, knowledgeByName);
       },
     }),
+    vscode.languages.registerCompletionItemProvider(
+      LANGUAGE_ID,
+      {
+        provideCompletionItems(document, position): vscode.CompletionItem[] | undefined {
+          return gotoLabelCompletionItems(document, position);
+        },
+      },
+      " ",
+    ),
     vscode.languages.registerHoverProvider(LANGUAGE_ID, {
       provideHover(document, position): vscode.Hover | undefined {
         return commandHoverForPosition(document, position, knowledgeByName);

@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-05-20
+
+### Added
+
+- Suggest current-file labels after `Goto` and `If ... Goto` in the VS Code
+  editor while preserving declared variable goto-target behavior.
+
 ## [0.6.4] - 2026-05-20
 
 ### Fixed
@@ -182,7 +189,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.4...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.4...v0.7.0
 [0.6.4]: https://github.com/JD3Lasers/PangoLint/compare/99b5626713295d0aa5be44edf6ec630a6eb9ac8b...v0.6.4
 [0.6.3]: https://github.com/JD3Lasers/PangoLint/compare/5fbfafbe8aad3d768fca306ef163b6809aa1e7b2...99b5626713295d0aa5be44edf6ec630a6eb9ac8b
 [0.6.2]: https://github.com/JD3Lasers/PangoLint/compare/776ebc7651739c6564887f68bf5980522527befd...5fbfafbe8aad3d768fca306ef163b6809aa1e7b2

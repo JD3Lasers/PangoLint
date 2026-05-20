@@ -64,6 +64,47 @@ export function findLabelOccurrences(document: vscode.TextDocument, name: string
   return buildLabelIndex(document)?.byName.get(name.toLowerCase()) ?? [];
 }
 
+export function gotoLabelCompletionItems(
+  document: vscode.TextDocument,
+  position: vscode.Position,
+): vscode.CompletionItem[] | undefined {
+  const lineText = document.lineAt(position.line).text;
+  if (lineAnalysisLimitReason(lineText)) return undefined;
+  const context = gotoTargetCompletionContext(lineText, position.character);
+  if (!context) return undefined;
+
+  const index = buildLabelIndex(document);
+  if (!index || index.declarations.length === 0) return undefined;
+  const typedKey = context.typedTarget.toLowerCase();
+  if (typedKey && index.declaredVariables.has(typedKey)) {
+    return undefined;
+  }
+
+  const seen = new Set<string>();
+  const range =
+    context.typedTarget.length > 0
+      ? new vscode.Range(
+          position.line,
+          position.character - context.typedTarget.length,
+          position.line,
+          position.character,
+        )
+      : undefined;
+  const items: vscode.CompletionItem[] = [];
+  for (const declaration of index.declarations) {
+    const key = declaration.name.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const item = new vscode.CompletionItem(declaration.name, vscode.CompletionItemKind.Reference);
+    item.detail = `Label declared on line ${declaration.occurrence.range.start.line + 1}`;
+    item.insertText = declaration.name;
+    item.sortText = `0_${key}`;
+    if (range) item.range = range;
+    items.push(item);
+  }
+  return items;
+}
+
 interface LabelIndex {
   byName: Map<string, LabelOccurrence[]>;
   declarations: Array<{ name: string; occurrence: LabelOccurrence }>;
@@ -227,4 +268,11 @@ export function labelNameAtPosition(lineText: string, column: number): string | 
     if (column >= nameStart && column <= nameEnd) return name;
   }
   return undefined;
+}
+
+function gotoTargetCompletionContext(lineText: string, column: number): { typedTarget: string } | undefined {
+  const linePrefix = lineText.slice(0, column);
+  const match = /\bgoto\s+([A-Za-z_][A-Za-z0-9_]*)?$/i.exec(linePrefix);
+  if (!match) return undefined;
+  return { typedTarget: match[1] ?? "" };
 }
