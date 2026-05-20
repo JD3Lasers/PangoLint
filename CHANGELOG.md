@@ -175,7 +175,10 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.3...HEAD
+[0.6.3]: https://github.com/JD3Lasers/PangoLint/compare/5fbfafbe8aad3d768fca306ef163b6809aa1e7b2...v0.6.3
+[0.6.2]: https://github.com/JD3Lasers/PangoLint/compare/776ebc7651739c6564887f68bf5980522527befd...5fbfafbe8aad3d768fca306ef163b6809aa1e7b2
+[0.6.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.0...776ebc7651739c6564887f68bf5980522527befd
 [0.6.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.10...v0.5.0
 [0.4.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.9...v0.4.10
