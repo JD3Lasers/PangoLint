@@ -295,8 +295,8 @@ P1..P9                   (workspace zone-alias names - pair labels)
 ALL, SL, SR, ODD, EVEN, G1, G2   (workspace zone-alias names - group labels)
 ---PIXELMAPS---          (separator)
 Map1, Map2, Map3         (workspace zone-alias names - pixelmap labels)
-FB3_XXXXX / FB3-XXXXX    (hardware identifier - FB3 controller serial; source data may normalize separators differently)
-FB4-XXXXX                (hardware identifier - FB4 controller serial)
+FB3_XXXXX                (hardware identifier - FB3 controller serial)
+FB4_XXXXX                (hardware identifier - FB4 controller serial)
 Untitled, Selected, QShift, TouchPoints
 Universe, DefaultLayout  (DefaultLayout = workspace-named Universe page layout)
 UCenter, UTool, URight, UPreview, UMax    (UI panel objects)
@@ -339,12 +339,12 @@ Implication for scripting:
   with the panel name from the loaded show and `Control` with the
   component name under that panel.
 
-The remaining `FB3_<serial>` / `FB3-<serial>` / `FB4-<serial>` roots
+The remaining `FB3_<serial>` / `FB4_<serial>` roots
 ARE BEYOND-controlled (the suffix is the hardware serial), and the
 workspace-instance source data includes the connected controllers. They DO
 differ across labs but the namespace is BEYOND-defined, not
 workspace-defined. The generated Object Tree index collapses concrete
-serials to `FB3-XXXXX` / `FB4-XXXXX` so agents can recognize the
+serials to `FB3_XXXXX` / `FB4_XXXXX` so agents can recognize the
 controller property surface without learning a lab-specific serial.
 
 ### `Projector.ARRAY[N]`

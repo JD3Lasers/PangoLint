@@ -11,8 +11,8 @@
   },
   "entries": [
     {
-      "objectPath": "FB4-XXXXX.Connected",
-      "probePath": "FB4-XXXXX.Connected",
+      "objectPath": "FB4_XXXXX.Connected",
+      "probePath": "FB4_XXXXX.Connected",
       "probeMode": "readback-only",
       "shipsMetadata": true,
       "valueType": "boolean",
@@ -33,12 +33,12 @@
         {
           "value": 0,
           "label": "DISCONNECTED",
-          "description": "FB4-XXXXX.Connected reads disconnected."
+          "description": "FB4_XXXXX.Connected reads disconnected."
         },
         {
           "value": 1,
           "label": "CONNECTED",
-          "description": "FB4-XXXXX.Connected reads connected."
+          "description": "FB4_XXXXX.Connected reads connected."
         }
       ],
       "testedValues": [
@@ -57,13 +57,13 @@
         "strategy": "not-needed",
         "notes": "Readback-only hardware connection probe sent no writes. Operator reconnected FB4 before the connected-state readback."
       },
-      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB4-XXXXX.Connected as a 0/1 hardware connection domain. The disconnected state read 0, then the same FB4 hardware root read 1 after operator-supervised reconnect.",
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB4_XXXXX.Connected as a 0/1 hardware connection domain. The disconnected state read 0, then the same FB4 hardware root read 1 after operator-supervised reconnect.",
       "locationAware": true,
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "concreteContext": "FB4 hardware root with serial-bearing name redacted",
-        "notes": "FB4-XXXXX redacts the concrete FB4 hardware root name in public evidence."
+        "notes": "FB4_XXXXX redacts the concrete FB4 hardware root name in public evidence."
       }
     }
   ]

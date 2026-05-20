@@ -448,18 +448,18 @@ function normalizedSourceSegments(segments: string[]): string[] {
 }
 
 function publicHardwareRoot(root: string): string | undefined {
-  const match = /^FB([34])[_-]\d+$/.exec(root);
+  const match = /^FB([34])[_-](?:\d+|XXXXX)$/.exec(root);
   if (!match) return undefined;
-  return `FB${match[1]}-XXXXX`;
+  return `FB${match[1]}_XXXXX`;
 }
 
 function redactPublicHardwareIdentifier(value: string | undefined): string | undefined {
-  return value?.replace(/\bFB([34])_\d+\b/g, "FB$1_XXXXX").replace(/\bFB([34])-\d+\b/g, "FB$1-XXXXX");
+  return value?.replace(/\bFB([34])[_-](?:\d+|XXXXX)\b/g, "FB$1_XXXXX");
 }
 
 function redactPublicSearchText(value: string | undefined, root: string): string | undefined {
   const redacted = redactPublicHardwareIdentifier(value);
-  if (!redacted || !/^FB[34]-XXXXX$/.test(root)) return redacted;
+  if (!redacted || !/^FB[34]_XXXXX$/.test(root)) return redacted;
   return tokenize(redacted)
     .filter((token) => !/^\d{4,}$/.test(token))
     .join(" ");
@@ -507,7 +507,7 @@ function aliasAddressSearchText(metadata: ObjectPropertyAddressMetadata): string
 }
 
 function isRedactedHardwareRoot(root: string): boolean {
-  return /^FB[34]-XXXXX$/.test(root);
+  return /^FB[34]_XXXXX$/.test(root);
 }
 
 function compactFx(fx: NonNullable<CachePathEntry["fx"]>) {

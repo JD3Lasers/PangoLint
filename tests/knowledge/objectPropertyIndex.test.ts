@@ -110,26 +110,26 @@ const sample: ObjectPropertyIndexFile = {
       },
     },
     {
-      path: "FB3-XXXXX.ColorShift",
-      normalizedPath: "FB3-XXXXX.ColorShift",
-      root: "FB3-XXXXX",
+      path: "FB3_XXXXX.ColorShift",
+      normalizedPath: "FB3_XXXXX.ColorShift",
+      root: "FB3_XXXXX",
       property: "ColorShift",
       kind: "object",
       confidence: "observed",
       searchText: "fb3 hardware controller color shift",
       variantCount: 1,
-      variants: [{ path: "FB3-XXXXX.ColorShift" }],
+      variants: [{ path: "FB3_XXXXX.ColorShift" }],
     },
     {
-      path: "FB4-XXXXX.Connected",
-      normalizedPath: "FB4-XXXXX.Connected",
-      root: "FB4-XXXXX",
+      path: "FB4_XXXXX.Connected",
+      normalizedPath: "FB4_XXXXX.Connected",
+      root: "FB4_XXXXX",
       property: "Connected",
       kind: "object",
       confidence: "observed",
       searchText: "fb4 hardware controller connected",
       variantCount: 1,
-      variants: [{ path: "FB4-XXXXX.Connected" }],
+      variants: [{ path: "FB4_XXXXX.Connected" }],
     },
   ],
 };
@@ -210,11 +210,11 @@ describe("buildObjectPropertyIndex", () => {
     const fb3Root = ["F", "B", "3"].join("");
     const fb4Root = ["F", "B", "4"].join("");
 
-    expect(index.lookup(`${fb3Root}-${numericSerial}.ColorShift`)?.entry.path).toBe("FB3-XXXXX.ColorShift");
-    expect(index.lookup(`${fb3Root}_${numericSerial}.ColorShift`)?.entry.path).toBe("FB3-XXXXX.ColorShift");
-    expect(index.lookup(`${fb4Root}-${alphaSerial}.Connected`)?.entry.path).toBe("FB4-XXXXX.Connected");
+    expect(index.lookup(`${fb3Root}-${numericSerial}.ColorShift`)?.entry.path).toBe("FB3_XXXXX.ColorShift");
+    expect(index.lookup(`${fb3Root}_${numericSerial}.ColorShift`)?.entry.path).toBe("FB3_XXXXX.ColorShift");
+    expect(index.lookup(`${fb4Root}-${alphaSerial}.Connected`)?.entry.path).toBe("FB4_XXXXX.Connected");
     expect(index.entriesForRoot(`${fb4Root}_${alphaSerial}`).map((entry) => entry.path)).toEqual([
-      "FB4-XXXXX.Connected",
+      "FB4_XXXXX.Connected",
     ]);
   });
 

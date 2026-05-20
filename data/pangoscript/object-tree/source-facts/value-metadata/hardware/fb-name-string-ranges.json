@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "entries": [
     {
-      "path": "FB3-XXXXX.Name",
+      "path": "FB3_XXXXX.Name",
       "valueType": "string",
       "valueRange": {
         "min": 0,
@@ -13,16 +13,16 @@
         "notes": "SetProp writes to connected FB3 hardware name confirmed 0..254 characters. Lengths 0, 1, 32, and 254 read back as written; a 255-character write left the seed value unchanged."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3-XXXXX.Name on connected FB3 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB3_XXXXX.Name on connected FB3 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB3-XXXXX redacts the concrete connected FB3 hardware root name.",
+        "indexBasis": "FB3_XXXXX redacts the concrete connected FB3 hardware root name.",
         "notes": "The runtime probe used a connected serial-bearing hardware root that is redacted in public metadata."
       }
     },
     {
-      "path": "FB4-XXXXX.Name",
+      "path": "FB4_XXXXX.Name",
       "valueType": "string",
       "valueRange": {
         "min": 0,
@@ -33,11 +33,11 @@
         "notes": "SetProp writes to connected FB4 hardware name confirmed 0..254 characters. Lengths 0, 1, 32, and 254 read back as written; a 255-character write left the seed value unchanged."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4-XXXXX.Name on connected FB4 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
+      "notes": "Runtime command-write/readback on 2026-05-14 issue #298 confirmed FB4_XXXXX.Name on connected FB4 hardware uses 0..254 characters with over-limit no-op behavior and baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
-        "indexBasis": "FB4-XXXXX redacts the concrete connected FB4 hardware root name.",
+        "indexBasis": "FB4_XXXXX redacts the concrete connected FB4 hardware root name.",
         "notes": "The runtime probe used a connected serial-bearing hardware root that is redacted in public metadata."
       }
     }

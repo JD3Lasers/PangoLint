@@ -3192,8 +3192,8 @@ describe("checked-in PangoScript knowledge data", () => {
       "Projector.N.SizeX",
       "Projector.N.Optimisation.EnableAngleTable",
       "Status.LaserEnabled",
-      "FB3-XXXXX.InvertY",
-      "FB4-XXXXX.InvertY",
+      "FB3_XXXXX.InvertY",
+      "FB4_XXXXX.InvertY",
     ]) {
       expect(
         byPath
@@ -3232,11 +3232,11 @@ describe("checked-in PangoScript knowledge data", () => {
     expect(issue298Fb).toHaveLength(28);
     expect(countsByRoot).toEqual(
       new Map([
-        ["FB3-XXXXX", 14],
-        ["FB4-XXXXX", 14],
+        ["FB3_XXXXX", 14],
+        ["FB4_XXXXX", 14],
       ]),
     );
-    expect(byPath.get("FB3-XXXXX.ColorShift")?.valueMetadata).toMatchObject({
+    expect(byPath.get("FB3_XXXXX.ColorShift")?.valueMetadata).toMatchObject({
       valueType: "integer",
       valueRange: {
         min: -32768,
@@ -3246,7 +3246,7 @@ describe("checked-in PangoScript knowledge data", () => {
         evidenceLevel: "observed",
       },
     });
-    expect(byPath.get("FB4-XXXXX.IdleCenterOffsetX")?.valueMetadata).toMatchObject({
+    expect(byPath.get("FB4_XXXXX.IdleCenterOffsetX")?.valueMetadata).toMatchObject({
       valueType: "integer",
       valueRange: {
         min: -100,
@@ -3256,7 +3256,7 @@ describe("checked-in PangoScript knowledge data", () => {
         evidenceLevel: "observed",
       },
     });
-    expect(byPath.get("FB3-XXXXX.InvertX")?.valueMetadata).toMatchObject({
+    expect(byPath.get("FB3_XXXXX.InvertX")?.valueMetadata).toMatchObject({
       valueType: "boolean",
       valueRange: {
         min: 0,
@@ -3269,7 +3269,7 @@ describe("checked-in PangoScript knowledge data", () => {
         { value: 1, label: "ON" },
       ],
     });
-    expect(byPath.get("FB4-XXXXX.SwapXY")?.valueMetadata).toMatchObject({
+    expect(byPath.get("FB4_XXXXX.SwapXY")?.valueMetadata).toMatchObject({
       valueType: "boolean",
       valueRange: {
         min: 0,
@@ -3282,7 +3282,7 @@ describe("checked-in PangoScript knowledge data", () => {
         { value: 1, label: "ON" },
       ],
     });
-    for (const path of ["FB3-XXXXX.Name", "FB4-XXXXX.Name"]) {
+    for (const path of ["FB3_XXXXX.Name", "FB4_XXXXX.Name"]) {
       expect(byPath.get(path)?.valueMetadata).toMatchObject({
         valueType: "string",
         valueRange: {
@@ -3298,7 +3298,7 @@ describe("checked-in PangoScript knowledge data", () => {
         },
       });
     }
-    for (const path of ["FB3-XXXXX.Connected", "FB4-XXXXX.Connected"]) {
+    for (const path of ["FB3_XXXXX.Connected", "FB4_XXXXX.Connected"]) {
       expect(byPath.get(path)?.valueMetadata).toMatchObject({
         valueType: "boolean",
         valueRange: {
@@ -3322,10 +3322,10 @@ describe("checked-in PangoScript knowledge data", () => {
     }
 
     for (const path of [
-      "FB3-XXXXX.Serial",
-      "FB4-XXXXX.Serial",
-      "FB3-XXXXX.Optimisation.EnableAngleTable",
-      "FB4-XXXXX.Optimisation.EnableAngleTable",
+      "FB3_XXXXX.Serial",
+      "FB4_XXXXX.Serial",
+      "FB3_XXXXX.Optimisation.EnableAngleTable",
+      "FB4_XXXXX.Optimisation.EnableAngleTable",
     ]) {
       expect(byPath.get(path)?.valueMetadata, path).toBeUndefined();
     }
@@ -3377,7 +3377,7 @@ describe("checked-in PangoScript knowledge data", () => {
     }>("object-range-evidence/issue-298-fb-projector-equivalent-controls.json");
 
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
-    const roots = ["FB3-XXXXX", "FB4-XXXXX"];
+    const roots = ["FB3_XXXXX", "FB4_XXXXX"];
     const expectedValueEntries = new Map<
       string,
       { valueType: string; unit: string; min: number; max: number; boundaryBehavior: string }
@@ -3565,7 +3565,7 @@ describe("checked-in PangoScript knowledge data", () => {
       assertObjectPropertyReadbackMetadata(entry?.readbackMetadata as ObjectPropertyReadbackMetadata);
     }
 
-    for (const serialPath of ["FB3-XXXXX.Serial", "FB4-XXXXX.Serial"]) {
+    for (const serialPath of ["FB3_XXXXX.Serial", "FB4_XXXXX.Serial"]) {
       expect(byPath.get(serialPath)?.readbackMetadata).toMatchObject({
         valueType: "string",
         typeTag: "s",
@@ -13117,14 +13117,14 @@ describe("checked-in PangoScript knowledge data", () => {
     );
     expect(index.entries).toContainEqual(
       expect.objectContaining({
-        path: "FB4-XXXXX.Connected",
-        root: "FB4-XXXXX",
+        path: "FB4_XXXXX.Connected",
+        root: "FB4_XXXXX",
       }),
     );
-    const redactedHardwareEntry = index.entries.find((entry) => entry.path === "FB4-XXXXX.Connected");
+    const redactedHardwareEntry = index.entries.find((entry) => entry.path === "FB4_XXXXX.Connected");
     expect(redactedHardwareEntry).toBeDefined();
     expect(redactedHardwareEntry).not.toHaveProperty("osc");
-    expect(redactedHardwareEntry?.variants).toContainEqual({ path: "FB4-XXXXX.Connected" });
+    expect(redactedHardwareEntry?.variants).toContainEqual({ path: "FB4_XXXXX.Connected" });
 
     const serialized = JSON.stringify(index.entries);
     for (const name of showfileSpecificNames) {
@@ -13132,6 +13132,31 @@ describe("checked-in PangoScript knowledge data", () => {
     }
     expect(serialized).not.toMatch(/\/b\/FB[34]_\d+/);
     expect(serialized).not.toMatch(/\/b\/FB[34]_XXXXX/);
+  });
+
+  it("uses underscore placeholders for redacted FB hardware roots", () => {
+    const index = readJson<{
+      entries: Array<{
+        path: string;
+        normalizedPath: string;
+        root: string;
+        variants: Array<{ path: string; osc?: string }>;
+      }>;
+    }>("object-property-index.json");
+    const serialized = JSON.stringify(index.entries);
+
+    expect(serialized).toContain("FB3_XXXXX.");
+    expect(serialized).toContain("FB4_XXXXX.");
+    expect(serialized).not.toMatch(/FB[34]-XXXXX/);
+
+    const fb4Connected = index.entries.find((entry) => entry.path === "FB4_XXXXX.Connected");
+    expect(fb4Connected).toMatchObject({
+      path: "FB4_XXXXX.Connected",
+      normalizedPath: "FB4_XXXXX.Connected",
+      root: "FB4_XXXXX",
+      variants: [{ path: "FB4_XXXXX.Connected" }],
+    });
+    expect(fb4Connected).not.toHaveProperty("osc");
   });
 
   it("marks user-configurable Object Tree alias placeholders", () => {

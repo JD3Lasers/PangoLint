@@ -399,7 +399,7 @@ export function canonicalizeObjectPropertyHardwareRootPath(rawPath: string): str
 export function canonicalizeObjectPropertyHardwareRoot(root: string): string {
   const match = /^FB([34])[-_][^.]+$/i.exec(root);
   if (!match) return root;
-  return `FB${match[1]}-XXXXX`;
+  return `FB${match[1]}_XXXXX`;
 }
 
 function searchEntries(input: ObjectPropertySearchInput, entries: ObjectPropertyEntry[]): ObjectPropertySearchHit[] {

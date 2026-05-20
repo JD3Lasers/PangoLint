@@ -11,8 +11,8 @@
   },
   "entries": [
     {
-      "objectPath": "FB3-XXXXX.Connected",
-      "probePath": "FB3-XXXXX.Connected",
+      "objectPath": "FB3_XXXXX.Connected",
+      "probePath": "FB3_XXXXX.Connected",
       "probeMode": "readback-only",
       "shipsMetadata": true,
       "valueType": "boolean",
@@ -33,12 +33,12 @@
         {
           "value": 0,
           "label": "DISCONNECTED",
-          "description": "FB3-XXXXX.Connected reads disconnected."
+          "description": "FB3_XXXXX.Connected reads disconnected."
         },
         {
           "value": 1,
           "label": "CONNECTED",
-          "description": "FB3-XXXXX.Connected reads connected."
+          "description": "FB3_XXXXX.Connected reads connected."
         }
       ],
       "testedValues": [
@@ -57,13 +57,13 @@
         "strategy": "not-needed",
         "notes": "Readback-only hardware connection probe sent no writes. Operator disconnected FB3 before the disconnected-state readback."
       },
-      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB3-XXXXX.Connected as a 0/1 hardware connection domain. The connected state read 1, then the same FB3 hardware root read 0 after operator-supervised disconnect.",
+      "evidenceNote": "Runtime readback-only evidence on 2026-05-14 issue #298 confirmed FB3_XXXXX.Connected as a 0/1 hardware connection domain. The connected state read 1, then the same FB3 hardware root read 0 after operator-supervised disconnect.",
       "locationAware": true,
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "concreteContext": "FB3 hardware root with serial-bearing name redacted",
-        "notes": "FB3-XXXXX redacts the concrete FB3 hardware root name in public metadata."
+        "notes": "FB3_XXXXX redacts the concrete FB3 hardware root name in public metadata."
       }
     }
   ]
