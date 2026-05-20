@@ -130,6 +130,7 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
   } else if (parsed.component) {
     state.selectObjectReference("universe-components", parsed.component);
   } else if (parsed.cmd && parsed.view !== "objects") {
+    if (state.viewMode !== "commands") state.setViewMode("commands");
     state.select(commandHashTarget(state, parsed.cmd));
   } else {
     state.select(null);

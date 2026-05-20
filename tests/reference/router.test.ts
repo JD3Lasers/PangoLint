@@ -181,4 +181,14 @@ describe("applyHashToState", () => {
     expect(state.viewMode).toBe("commands");
     expect(state.selectedCanonical).toBeNull();
   });
+
+  it("keeps stale command hashes in command view after Object Tree browsing", () => {
+    const state = new ReferenceState(commandCatalog());
+    state.setViewMode("objects");
+
+    applyHashToState(state, "#cmd=RemovedCommand");
+
+    expect(state.viewMode).toBe("commands");
+    expect(state.selectedCanonical).toBeNull();
+  });
 });
