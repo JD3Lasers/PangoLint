@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.2] - 2026-05-19
+
+### Fixed
+
+- Focus command deep links in the offline reference page when opening from the
+  sidebar, including case or alias hash variants and stale hash fallbacks.
+
 ## [0.6.1] - 2026-05-19
 
 ### Fixed

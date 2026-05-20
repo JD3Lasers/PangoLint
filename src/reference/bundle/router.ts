@@ -89,6 +89,19 @@ function parsedObjectSection(sec: string | undefined): ObjectSection {
   return "schemas";
 }
 
+function commandHashTarget(state: ReferenceState, value: string): string | null {
+  const requested = value.trim();
+  if (!requested) return null;
+  if (state.commandsByCanonical.has(requested)) return requested;
+  const requestedLower = requested.toLowerCase();
+  const match = state.catalog.commands.find(
+    (command) =>
+      command.canonical.toLowerCase() === requestedLower ||
+      command.aliases.some((alias) => alias.toLowerCase() === requestedLower),
+  );
+  return match?.canonical ?? null;
+}
+
 export function applyHashToState(state: ReferenceState, hash: string): void {
   const parsed = parseHash(hash);
   const objectReferenceSection = parsed.cue
@@ -117,7 +130,8 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
   } else if (parsed.component) {
     state.selectObjectReference("universe-components", parsed.component);
   } else if (parsed.cmd && parsed.view !== "objects") {
-    state.select(parsed.cmd);
+    if (state.viewMode !== "commands") state.setViewMode("commands");
+    state.select(commandHashTarget(state, parsed.cmd));
   } else {
     state.select(null);
   }
@@ -131,8 +145,7 @@ export function installRouter(state: ReferenceState): void {
   // Initial route
   applyHashToState(state, window.location.hash);
 
-  // State -> URL
-  state.subscribe(() => {
+  const syncHashFromState = (): void => {
     const next = buildHash(state);
     const current = window.location.hash;
     if (next === current) return;
@@ -141,7 +154,11 @@ export function installRouter(state: ReferenceState): void {
     } else {
       history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     }
-  });
+  };
+
+  // State -> URL
+  state.subscribe(syncHashFromState);
+  syncHashFromState();
 
   // URL -> state (back/forward)
   window.addEventListener("hashchange", () => applyHashToState(state, window.location.hash));

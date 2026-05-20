@@ -17,6 +17,41 @@ function emptyCatalog(): ReferenceCatalog {
   };
 }
 
+function commandCatalog(): ReferenceCatalog {
+  return {
+    ...emptyCatalog(),
+    meta: {
+      ...emptyCatalog().meta,
+      total: 2,
+      categories: [{ name: "General", count: 2, order: 0 }],
+    },
+    commands: [
+      {
+        canonical: "BlackOut",
+        kind: "command",
+        aliases: ["Blackout"],
+        category: "General",
+        safetyTier: "T2",
+        description: "",
+        forms: [],
+        notes: [],
+        tags: [],
+      },
+      {
+        canonical: "WaitForBeat",
+        kind: "command",
+        aliases: [],
+        category: "General",
+        safetyTier: "T0",
+        description: "",
+        forms: [],
+        notes: [],
+        tags: [],
+      },
+    ],
+  };
+}
+
 describe("applyHashToState", () => {
   it("resets objectSection to schemas when an objects hash omits sec", () => {
     const state = new ReferenceState(emptyCatalog());
@@ -116,6 +151,44 @@ describe("applyHashToState", () => {
     applyHashToState(state, "#view=objects&cmd=BlackOut");
 
     expect(state.viewMode).toBe("objects");
+    expect(state.selectedCanonical).toBeNull();
+  });
+
+  it("selects a command from a command hash", () => {
+    const state = new ReferenceState(commandCatalog());
+
+    applyHashToState(state, "#cmd=WaitForBeat");
+
+    expect(state.viewMode).toBe("commands");
+    expect(state.selectedCanonical).toBe("WaitForBeat");
+  });
+
+  it("resolves case-insensitive command and alias hashes to the browsable command", () => {
+    const state = new ReferenceState(commandCatalog());
+
+    applyHashToState(state, "#cmd=blackout");
+    expect(state.selectedCanonical).toBe("BlackOut");
+
+    applyHashToState(state, "#cmd=Blackout");
+    expect(state.selectedCanonical).toBe("BlackOut");
+  });
+
+  it("clears stale command hashes instead of selecting a missing row", () => {
+    const state = new ReferenceState(commandCatalog());
+
+    applyHashToState(state, "#cmd=RemovedCommand");
+
+    expect(state.viewMode).toBe("commands");
+    expect(state.selectedCanonical).toBeNull();
+  });
+
+  it("keeps stale command hashes in command view after Object Tree browsing", () => {
+    const state = new ReferenceState(commandCatalog());
+    state.setViewMode("objects");
+
+    applyHashToState(state, "#cmd=RemovedCommand");
+
+    expect(state.viewMode).toBe("commands");
     expect(state.selectedCanonical).toBeNull();
   });
 });
