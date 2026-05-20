@@ -1,12 +1,16 @@
-# Keep source files LF for stable diffs, but check out PangoScript scripts as
-# CRLF. BEYOND's PangoScript editor paste path treats LF-only clipboard text as
-# one logical line, so operator-facing .BeyondCode fixtures must stay CRLF in
-# the working tree.
+# Keep text files LF for stable diffs across Windows and macOS, but check out
+# PangoScript scripts as CRLF. BEYOND's PangoScript editor paste path treats
+# LF-only clipboard text as one logical line, so operator-facing .BeyondCode
+# fixtures must stay CRLF in the working tree.
 
+*               text=auto eol=lf
 .gitattributes  text eol=lf
+.editorconfig   text eol=lf
 *.BeyondCode    text eol=crlf
 *.md            text eol=lf
+*.html          text eol=lf
 *.json          text eol=lf
+*.jsonl         text eol=lf
 *.ts            text eol=lf
 *.tsx           text eol=lf
 *.js            text eol=lf
@@ -16,3 +20,14 @@
 *.yml           text eol=lf
 *.yaml          text eol=lf
 *.sh            text eol=lf
+
+*.png           -text
+*.jpg           -text
+*.jpeg          -text
+*.gif           -text
+*.webp          -text
+*.ico           -text
+*.pdf           -text
+*.vsix          -text
+*.tgz           -text
+*.zip           -text
