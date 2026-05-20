@@ -3,7 +3,7 @@
 PangoScript is Delphi-shaped. Operator support is sparsely documented;
 this page captures what we have observed in working scripts plus what
 the bundled parser recognizes. Treat it as a starting point, not a
-guarantee — if you need operator behavior PangoLint hasn't verified,
+guarantee - if you need operator behavior PangoLint hasn't verified,
 run a small readback check and inspect a safe property such as `Master.Brightness` instead of
 guessing.
 
@@ -30,8 +30,8 @@ if (Master.Brightness > 50) goto BrightPath
 
 Recognized comparisons:
 
-- `=`, `<>` — equality / inequality
-- `<`, `<=`, `>`, `>=` — ordering
+- `=`, `<>` - equality / inequality
+- `<`, `<=`, `>`, `>=` - ordering
 - `==` is also accepted in observed scripts; use `=` when in doubt
 - `!=` was rejected during BEYOND validation with `Operation expected: !`;
   use `<>` for not-equal comparisons
@@ -40,9 +40,9 @@ Recognized comparisons:
 
 Color packing in the corpus uses bitwise operators heavily:
 
-- `|` — bitwise OR
-- `&` — bitwise AND
-- `<<`, `>>` — left / right shift
+- `|` - bitwise OR
+- `&` - bitwise AND
+- `<<`, `>>` - left / right shift
 
 ```
 var packed
@@ -96,9 +96,8 @@ Line comments only, started with `//`. There is no `{ ... }` or
 
 ## Sources
 
-- `data/pangoscript/commands.merged.json` — curated command catalog
-- `docs/references/beyond/pangoscript/working-examples/jd3/` — corpus
+- `data/pangoscript/commands.merged.json` - curated command catalog
+- `docs/references/beyond/pangoscript/working-examples/jd3/` - corpus
   scripts we lint as "must stay diagnostic-free"
-- `docs/references/beyond/pangoscript/working-examples/jvyduna/` —
-  attributed third-party examples linted as informational
+- `docs/references/beyond/pangoscript/working-examples/jvyduna/` - attributed third-party examples linted as informational
 - Parser source: `src/language/parser.ts`

@@ -20,14 +20,14 @@ function makeCommands(categories: string[]): CommandSummary[] {
 }
 
 describe("collapsible category groups", () => {
-  it("groups are always computed — no toggle required", () => {
+  it("groups are always computed - no toggle required", () => {
     const state = new SidebarState();
     const commands = makeCommands(["General", "OSC output", "FX"]);
     state.setCatalog({ commands, categories: [], categoryOrder: {} });
     expect(state.groups()).toHaveLength(3);
   });
 
-  it("expanded categories starts empty — all groups collapsed by default", () => {
+  it("expanded categories starts empty - all groups collapsed by default", () => {
     const state = new SidebarState();
     state.setCatalog({ commands: makeCommands(["A", "B"]), categories: [] });
     expect(state.expandedCategories.size).toBe(0);

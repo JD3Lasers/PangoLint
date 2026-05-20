@@ -28,7 +28,7 @@ export interface ColorMatch {
   red: number;
   green: number;
   blue: number;
-  /** How the literal is encoded — used by ColorPresentation to round-trip. */
+  /** How the literal is encoded - used by ColorPresentation to round-trip. */
   format: ColorFormat;
   /** Original literal text (for re-encoding decimal vs hex). */
   literal: string;
@@ -88,10 +88,10 @@ function decodePacked(value: number, format: ColorFormat): { r: number; g: numbe
   const lo = value & 0xff;
   switch (format) {
     case "ColorBGR":
-      // R=hi, G=mid, B=lo (per runtime observation — name is misleading)
+      // R=hi, G=mid, B=lo (per runtime observation - name is misleading)
       return { r: hi, g: mid, b: lo };
     case "ColorRGB":
-      // R=lo, G=mid, B=hi (per runtime observation — name is misleading)
+      // R=lo, G=mid, B=hi (per runtime observation - name is misleading)
       return { r: lo, g: mid, b: hi };
     case "ColorChannelInt":
       // BGR-packed: R=lo, G=mid, B=hi

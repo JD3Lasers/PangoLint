@@ -77,7 +77,7 @@ Signature: `PlayersSetLoop`
 
 Three-call pattern first call memorizes time
 position A; second call memorizes time position B; subsequently
-players bounce time within the A–B range. A third call clears the
+players bounce time within the A-B range. A third call clears the
 loop and players resume normal playback.
 
 Example:

@@ -28,13 +28,13 @@ export function propertyCompletionsForPrefix(
       if (schema.arrayIndices && schema.arrayIndices.length > 0) {
         return schema.arrayIndices.map((name) => {
           const item = new vscode.CompletionItem(name, vscode.CompletionItemKind.EnumMember);
-          item.detail = `${schema.object}.${name} — discovered control`;
+          item.detail = `${schema.object}.${name} - discovered control`;
           item.insertText = name;
           return item;
         });
       }
       const indexCompletion = new vscode.CompletionItem("0", vscode.CompletionItemKind.Value);
-      indexCompletion.detail = `${schema.object}.0 — index into ${schema.object}.ARRAY`;
+      indexCompletion.detail = `${schema.object}.0 - index into ${schema.object}.ARRAY`;
       indexCompletion.insertText = "0";
       return [indexCompletion];
     }
@@ -151,9 +151,9 @@ export function hoverForPropertyPath(
       const known = schema.arrayIndices?.includes(seg);
       const kindNote =
         controlKind === "effect"
-          ? " — classified as **Effect control** from observed `Effect.*` usage"
+          ? " - classified as **Effect control** from observed `Effect.*` usage"
           : controlKind === "zonePad"
-            ? " — classified as **ZonePad control** from observed `Zone.*` usage"
+            ? " - classified as **ZonePad control** from observed `Zone.*` usage"
             : "";
       md.appendMarkdown(
         `Control \`${seg}\` on \`${schema.object}\`${known ? " (discovered in workspace)" : " (not yet observed in scripts)"}${kindNote}.${inheritedNote}`,
@@ -317,7 +317,7 @@ export function quickFixesForUnknownCommand(
 function appendRootHoverMarkdown(md: vscode.MarkdownString, schema: KnownObjectSchema, inheritedNote: string): void {
   if (schema.inheritedFrom === "UniversePanel") {
     const buttonCount = schema.arrayIndices?.length ?? 0;
-    const buttonsNote = buttonCount > 0 ? ` — ${buttonCount} discovered control${buttonCount === 1 ? "" : "s"}` : "";
+    const buttonsNote = buttonCount > 0 ? ` - ${buttonCount} discovered control${buttonCount === 1 ? "" : "s"}` : "";
     let kindLabel: string;
     let sourceNote = "";
     if (schema.discoverySource === "beyondReadback") {
@@ -336,7 +336,7 @@ function appendRootHoverMarkdown(md: vscode.MarkdownString, schema: KnownObjectS
     md.appendMarkdown(`Registered **master alias** \`${schema.object}\`.${inheritedNote}`);
   } else {
     md.appendMarkdown(
-      `Known BEYOND object **\`${schema.object}\`**${schema.isArray ? " (indexed)" : ""} — ${schema.propertyCount} verified properties.`,
+      `Known BEYOND object **\`${schema.object}\`**${schema.isArray ? " (indexed)" : ""} - ${schema.propertyCount} verified properties.`,
     );
   }
 }

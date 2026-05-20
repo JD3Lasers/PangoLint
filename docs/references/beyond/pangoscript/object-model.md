@@ -2,7 +2,7 @@
 
 Empirical findings about how BEYOND exposes state to PangoScript, derived from
 runtime observations against a live BEYOND instance and from cross-checking the
-official help reference. This is the canonical record — keep it in sync when
+official help reference. This is the canonical record - keep it in sync when
 new runtime observations invalidate or extend any claim here.
 
 Parenthetical evidence labels are public-safe summaries, not shipped
@@ -12,13 +12,13 @@ maintainer provenance IDs.
 
 These objects exist in every BEYOND install and can have knowledge-base entries:
 
-- `Master` — global master state. Examples: `Master.BPM`, `Master.Brightness`,
+- `Master` - global master state. Examples: `Master.BPM`, `Master.Brightness`,
   `Master.DISPLAYPOPUPTIMEOUT`.
-- `Zone` — indexed zone access. Examples: `Zone.0.Name`,
+- `Zone` - indexed zone access. Examples: `Zone.0.Name`,
   `Zone.0.Brightness`.
-- `Channels` — channel values. Example: `Channels.101.Value`.
-- `Cue` — cue properties (typically read after `ControlCue <page>, <cue>`).
-- `Projector` — projector properties (typically read after `ControlProJector <n>`).
+- `Channels` - channel values. Example: `Channels.101.Value`.
+- `Cue` - cue properties (typically read after `ControlCue <page>, <cue>`).
+- `Projector` - projector properties (typically read after `ControlProJector <n>`).
 
 OSC equivalents: `/beyond/master/...`, `/beyond/zone/#/...`,
 `/beyond/cue/#/#/...`, `/beyond/projector/#/...`, `/beyond/smart/#/...`.
@@ -72,7 +72,7 @@ Evidence: live BEYOND runtime readback.
 even immediately after a write. The same pattern holds at both Master and Zone
 scope.
 
-**Use per-axis instead** — `SizeX`, `SizeY`, `SizeZ` work normally.
+**Use per-axis instead** - `SizeX`, `SizeY`, `SizeZ` work normally.
 
 `Master.Size` and `Zone.N.Size` are best treated as derived read-only
 aggregates rather than writable scalars.
@@ -105,7 +105,7 @@ Runtime observations from the macOS laptop against BEYOND on the LAN show:
 
 - `Brightness 50` (no `ControlMaster` prefix) → `Master.Brightness` reads 50.
 - `Zoom 60` (no prefix) → `Master.Zoom` reads 60.
-- Adding `ControlMaster` first changes nothing — both writes already land on
+- Adding `ControlMaster` first changes nothing - both writes already land on
   Master by default.
 
 So LiveControl-style write commands default to the Master destination. The
@@ -113,17 +113,17 @@ AngleX/MasterSpeed mystery has a different cause (see next section).
 
 Evidence: live BEYOND runtime readback.
 
-## BEYOND-side log channels — investigated, not useful
+## BEYOND-side log channels - investigated, not useful
 
 Investigated 2026-05-04 (do not re-investigate without new information):
 
 - **Syslog client** (Network > SysLog client, RFC 3164/5424). Works, but
   forwards only UI hint messages (e.g. tooltip text). Does not log script
-  command execution, parse errors, or property writes — even with a deliberate
+  command execution, parse errors, or property writes - even with a deliberate
   garbage command sent over Talk UDP.
 - **`BEYONDLog.dat`** in the BEYOND `Log/` directory. Binary file with header
   `PangolinCrshLg1` ("Pangolin Crash Log"). Tiny (~1.5 KB) regardless of
-  session length — appears to be metadata only. Not greppable.
+  session length - appears to be metadata only. Not greppable.
 - **`BEYOND_<timestamp>_PartN.log`** files (multi-MB). Look like text but
   contents are encrypted/encoded (Notepad++ shows gibberish). Pangolin's
   intensive-logging output is intended for Pangolin support, not user
@@ -132,14 +132,14 @@ Investigated 2026-05-04 (do not re-investigate without new information):
 Conclusion: BEYOND has no plain-text runtime trace channel reachable over
 the network. **OSC readback is the only programmatic diagnostic surface**.
 
-**However, BEYOND DOES have a runtime-command-failure log — but it's
+**However, BEYOND DOES have a runtime-command-failure log - but it's
 in-app only**: the **Notification Center** (PangoScript panel →
 Notification center tab in the BEYOND UI) emits human-readable diagnostics
-when commands silently fail (e.g. *"Select Zone — Command has not action
+when commands silently fail (e.g. *"Select Zone - Command has not action
 because no selected Zone."*). When a runtime check inexplicably produces no
 observable change, the user can check the Notification Center for the
 explanation. This was discovered 2026-05-04 while debugging the
-destination model — it doesn't appear in any of the three log channels
+destination model - it doesn't appear in any of the three log channels
 above and cannot be piped over the network as of build 5.5.0.2044.
 
 ## Silent zero on unknown property reads (footgun)
@@ -147,12 +147,12 @@ above and cannot be piped over the network as of build 5.5.0.2044.
 **BEYOND returns `0` for any `Master.<unknown>` read with no error.** Verified
 against `Master.RotX`, `Master.SpeedMaster`, `Master.Angle`,
 `Master.AngleX.Value`, `Master.RotateX`, `Master.RotationX`,
-`Master.MasterSpeed`, and `MasterSpeed` (no object prefix) — all returned 0
+`Master.MasterSpeed`, and `MasterSpeed` (no object prefix) - all returned 0
 indistinguishably from a property that genuinely holds zero.
 
 **Implications:**
 
-1. A `0` readback proves nothing — the path may not exist at all.
+1. A `0` readback proves nothing - the path may not exist at all.
 2. The "Confirmed readable `Master.*` properties" list below was built on the
    assumption that any responding read path was real. Properties whose default
    value happens to be 0 (`AngleX`, `AngleY`, `AngleZ`, `Speed`, etc.) need
@@ -162,7 +162,7 @@ indistinguishably from a property that genuinely holds zero.
 
 Evidence: live BEYOND runtime readback.
 
-### AngleX / MasterSpeed write behavior — still unexplained
+### AngleX / MasterSpeed write behavior - still unexplained
 
 `AngleX 30` and `MasterSpeed 80` were sent via Talk UDP and confirmed to
 reach BEYOND (the OSC return path completed normally). Neither write
@@ -189,7 +189,7 @@ the silent-0-on-unknown-property finding, those claims were re-checked with a
 stricter protocol: write a distinctive value (73, or a property-appropriate
 test value), then read back and require an exact match.
 
-### Tier 1 — confirmed writable + readable (20)
+### Tier 1 - confirmed writable + readable (20)
 
 `Master.<Name>` reads back the value just written via `<Name> <value>`. Safe
 to lint and validate with confidence:
@@ -202,11 +202,11 @@ Hue (-1 = disabled), HueShift, Saturation, ScanRate,
 StrobeSpeed, VisiblePoints, BeamBrush, ColorSlider
 ```
 
-### Tier 2 — confirmed readable only; direct write doesn't take (8)
+### Tier 2 - confirmed readable only; direct write doesn't take (8)
 
 These read consistent non-zero values that are too distinctive to be the
 silent-0 footgun, so the read path is real. `<Name> <value>` does not update
-them — they need a different write mechanism (typically tab-scoped or via a
+them - they need a different write mechanism (typically tab-scoped or via a
 specialized command):
 
 | Property | Default observed | Likely write path |
@@ -220,7 +220,7 @@ specialized command):
 | `ShowSpeed` | 1 | show-scoped command |
 | `TransitionIndex` | 3 | cue-selection driven |
 
-### Tier 3 — no evidence the `Master.<Name>` read path exists (14)
+### Tier 3 - no evidence the `Master.<Name>` read path exists (14)
 
 These properties read 0 with original=0, and stayed at 0 through every
 alternate write attempt: direct command, property-assignment syntax
@@ -238,7 +238,7 @@ ManualBPM, AudioBPM
 entries above were checking the WRONG names. The actual Tier-1 readable
 master color paths are **`Master.Red`, `Master.Green`, `Master.Blue`,
 `Master.Alpha`** (no `Color` prefix on the component). Verified by writing
-via `RGBA r,g,b,a` and `ColorBGR/ColorRGB <hex>` — see the "Color writes"
+via `RGBA r,g,b,a` and `ColorBGR/ColorRGB <hex>` - see the "Color writes"
 section. The `ColorR/ColorG/ColorB/Alpha` paths remain genuinely
 silent-0 and should not be relied on.
 
@@ -257,7 +257,7 @@ readable property may be on different surfaces. Evidence: live BEYOND runtime re
 **Update 2026-05-04 (RegisterOscFeedback as the disambiguation tool)**:
 the silent-0 footgun is finally solvable. `RegisterOscFeedback "<addr>",
 "<property>"` correctly stays silent for unknown property paths and only
-fires callbacks when a real property changes — even with cue running for
+fires callbacks when a real property changes - even with cue running for
 runtime-state-dependent commands. Verified `master.totallymadeupthing`
 (fabricated) → no callbacks; `master.brightness` (real) → callbacks fired
 with new values. Evidence: live BEYOND runtime readback.
@@ -268,17 +268,17 @@ runs.
 
 **Tier-1 graduations from feedback observation**:
 
-- `Master.BPM` — `Master.BPM = 137` triggers callback. Was Tier 2
+- `Master.BPM` - `Master.BPM = 137` triggers callback. Was Tier 2
   (readable, command-write inert); now Tier 1 (assignable).
-- `Master.Pause` — confirmed from previous check; assignment fires
+- `Master.Pause` - confirmed from previous check; assignment fires
   callback as expected.
 
 **Confirmed-fake property paths** (assignment via `Master.<X> = value`
-produces NO feedback callback, same as the negative control — these are
+produces NO feedback callback, same as the negative control - these are
 NOT real registered properties):
 
 - `master.anglex`, `master.angley`, `master.anglez` (real names are
-  `master.rotoanglex/y/z` — see below)
+  `master.rotoanglex/y/z` - see below)
 - `master.speed`
 - `master.size` (the aggregate; `master.sizex/y/z` work as Tier 1)
 
@@ -296,20 +296,20 @@ the tree and checking via feedback:
 
 **New Tier-1 graduations from the tree-driven check**:
 
-- `Master.RotoAngleX/Y/Z` — both command (`AngleX 30`) and assignment
+- `Master.RotoAngleX/Y/Z` - both command (`AngleX 30`) and assignment
   (`Master.RotoAngleX = 30`) write here.
-- `Master.RGBColor` — aggregate color path; `ColorBGR/RGB <hex>` write
+- `Master.RGBColor` - aggregate color path; `ColorBGR/RGB <hex>` write
   here in addition to per-component `Master.Red/Green/Blue`.
-- `Master.CueSpeed` — assignment works (`Master.CueSpeed = 0.7`).
-- `Master.Pan` — assignment works.
-- `Master.Tilt` — assignment works.
+- `Master.CueSpeed` - assignment works (`Master.CueSpeed = 0.7`).
+- `Master.Pan` - assignment works.
+- `Master.Tilt` - assignment works.
 
 **Update 2026-05-04 (BEYOND command reference)**:
 cross-referenced our outstanding mysteries against BEYOND's in-app
 command documentation, then verified each candidate with
 `RegisterOscFeedback`:
 
-- **`SetBpm 137`** is the real BPM-setting command — writes to
+- **`SetBpm 137`** is the real BPM-setting command - writes to
   `master.bpm` cleanly (verified by feedback callback args=[137], 120
   on restore). NOT `BPM` and NOT `ManualBPM` (which appear in the
   command list but didn't fire feedback against `master.bpm`).
@@ -319,19 +319,19 @@ command documentation, then verified each candidate with
   `MasterCueSpeed` (Tier 1, verified). The other commands' write
   targets remain opaque from the introspection plane.
 - `Size <v>` is documented as setting "Size X, Y and Z of the current
-  Live Control" — explicit Live Control destination requirement, same
+  Live Control" - explicit Live Control destination requirement, same
   prerequisite pattern as `RotoAngleX`. Needs `SelectZone`+`ControlZone`
   retest with the right indexing.
 
 **Still unresolved**:
 
 - `MasterSpeed`, `MasterLCSpeed`, `MasterFXSpeed`, `MasterShowSpeed`
-  command write surfaces — feedback registration produces no callbacks
+  command write surfaces - feedback registration produces no callbacks
   at the most obvious candidate property names. Treat as opaque
   write surface; effects probably visible in BEYOND UI but not via
   the Talk+OSC introspection plane.
 - `Master.MasterBrightness` exists in the tree but assignment produced
-  no feedback callback — likely read-only or scope-restricted.
+  no feedback callback - likely read-only or scope-restricted.
 
 **Linter posture**: do not include these in any known-properties list driving
 completions, hovers, or diagnostics. They were over-attributed in the original
@@ -340,9 +340,9 @@ readback coverage check via the silent-0 footgun. Evidence: live BEYOND runtime 
 **What we know about each (despite the read failure)**:
 
 - `Size` is documented as an aggregate; per-axis SizeX/Y/Z work (Tier 1).
-- `Pause`, `Color*`, `ManualBPM` are real BEYOND concepts — the entities exist,
+- `Pause`, `Color*`, `ManualBPM` are real BEYOND concepts - the entities exist,
   but their script-readable surface isn't `Master.<Name>` over Talk+OscOutTTS.
-- `AudioBPM` is likely read-only audio-analyzer output — 0 with no audio input
+- `AudioBPM` is likely read-only audio-analyzer output - 0 with no audio input
   is plausible, but unverified as a real path.
 - `AngleX/Y/Z` writes reach BEYOND (no error) but don't manifest at any read
   path tried. Possibly no-op without an active cue.
@@ -387,7 +387,7 @@ B = (packed >> 16) & 255
 Verified by writing `ColorChannel.0.Color = 3302600` (R=200, G=100, B=50
 under BGR-packed assumption) and reading back `ColorChannel.0.R = 200`,
 `.G = 100`, `.B = 50`. Writing the RGB-packed equivalent (13132850)
-produces a transposed result — R and B byte positions swap.
+produces a transposed result - R and B byte positions swap.
 
 This matches the `build_colorchannel_commands` helper in
 `Beyond_Preview_Builder/src/beyond_preview_builder/protocols/talk_udp.py`.
@@ -412,13 +412,13 @@ the output bytes still land in the correct bit positions** because:
 1. The encoder uses the same convention as the decoder (so what came out of
    bit position N goes back into bit position N).
 2. The transformation `T` is channel-symmetric (linear interpolation per
-   channel, max-of-channels) — applying it to R and B is equivalent to
+   channel, max-of-channels) - applying it to R and B is equivalent to
    applying it to B and R.
 
 So these scripts produce **visually correct** colors despite the misleading
 naming. A future refactor could rename for clarity (`r` → `b` and vice
 versa, or fix the bit shifts) without changing any output. Do not "fix"
-these scripts as if they were buggy — the math works.
+these scripts as if they were buggy - the math works.
 
 The bug pattern would only manifest if a transformation treated channels
 asymmetrically (e.g. "boost only R" or "shift hue clockwise"). None of the
@@ -428,8 +428,8 @@ checked-in working examples do that.
 
 | Attempted | Result |
 |---|---|
-| `Color <r>, <g>, <b>` | **Not a real command** — bare `Color` is not in the BEYOND export. Silently dropped. |
-| `Color 0xRRGGBB` and `Color 0xBBGGRR` | Same — `Color` is not a real command. |
+| `Color <r>, <g>, <b>` | **Not a real command** - bare `Color` is not in the BEYOND export. Silently dropped. |
+| `Color 0xRRGGBB` and `Color 0xBBGGRR` | Same - `Color` is not a real command. |
 | `Zone.N.Color` (aggregate read) | Always reads 0. Likely silent-0 unknown path; per-component reads are the answer. |
 
 ### Master-scope color commands (verified 2026-05-04)
@@ -438,7 +438,7 @@ Evidence: live BEYOND runtime readback.
 
 The BEYOND export contains three color-input commands. All three write to
 `Master.Red`, `Master.Green`, `Master.Blue` (and `Master.Alpha` where
-applicable) — these are confirmed Tier-1 readable paths, distinct from the
+applicable) - these are confirmed Tier-1 readable paths, distinct from the
 silent-0 `Master.ColorR/G/B` names checked earlier.
 
 | Command | Form | What it writes |
@@ -456,7 +456,7 @@ wants visually, not the byte order of the integer:
 If you want blue, type the hex such that B is in the position the command
 suffix implies. The two commands are inverses of each other.
 
-**Recommendation**: prefer `RGBA r, g, b, a` for new code — no ambiguity,
+**Recommendation**: prefer `RGBA r, g, b, a` for new code - no ambiguity,
 explicit components.
 
 **Master color readable paths** (Tier 1, verified):
@@ -465,11 +465,11 @@ explicit components.
 Master.Red, Master.Green, Master.Blue, Master.Alpha
 ```
 
-These are distinct from `Master.ColorR/G/B` (silent-0 unknown — Tier 3).
+These are distinct from `Master.ColorR/G/B` (silent-0 unknown - Tier 3).
 The previously-recorded Tier 3 entries `ColorR, ColorG, ColorB, Alpha` may
-have been the wrong names — `Red/Green/Blue/Alpha` is the actual surface.
+have been the wrong names - `Red/Green/Blue/Alpha` is the actual surface.
 
-### Destination model — verified rules and gotchas (2026-05-04)
+### Destination model - verified rules and gotchas (2026-05-04)
 
 Evidence: live BEYOND runtime readback (checked against live BEYOND
 with the user observing the in-app Notification Center, which revealed
@@ -507,9 +507,9 @@ rejected and **all subsequent commands until the next destination switch
 are no-ops** at any observable path.
 
 When this happens, BEYOND emits a diagnostic to its in-app **Notification
-Center** (PangoScript tab → Notification center): *"Select Zone — Command
+Center** (PangoScript tab → Notification center): *"Select Zone - Command
 has not action because no selected Zone."* This is the only place the
-failure is reported — it does NOT appear in syslog, the binary
+failure is reported - it does NOT appear in syslog, the binary
 `BEYONDLog.dat`, or the encrypted intensive `.log` files. The
 Notification Center is BEYOND's runtime-command-failure oracle.
 
@@ -527,7 +527,7 @@ Notification Center is BEYOND's runtime-command-failure oracle.
 **Recommendation for scripts**:
 
 - For per-zone writes, prefer the explicit property-assignment form
-  `Zone.N.Red = X` (0-indexed) — no destination state to manage, no
+  `Zone.N.Red = X` (0-indexed) - no destination state to manage, no
   prerequisite. Works regardless of selection state.
 - Use `SelectZone N` + `ControlZone N` only when you specifically need
   the destination model (e.g., to forward many scalar commands to one
@@ -547,7 +547,7 @@ explanation there.
   that scripts and palettes can reference. Use this for shared color state
   consumed by other UI elements (button captions, color-pickers, etc.).
 
-These are independent surfaces — writing one does not affect the other.
+These are independent surfaces - writing one does not affect the other.
 
 ## Operator semantics relevant to property paths
 
@@ -566,7 +566,7 @@ for parsing assignment vs comparison correctly:
 
 ## What this means for the linter
 
-1. **Permissive bias on object paths.** Any `<Identifier>(\.<Identifier>|\[<expr>\])+` should parse and lint cleanly, even if the head identifier is unknown — it could be a user-defined universe.
+1. **Permissive bias on object paths.** Any `<Identifier>(\.<Identifier>|\[<expr>\])+` should parse and lint cleanly, even if the head identifier is unknown - it could be a user-defined universe.
 2. **Both `Zone.N.X` and `Zone[N].X` parse.** Don't error on either form.
 3. **Property-write assignments** (`Master.X = value`, `Zone.N.X = value`,
    `Universe.Item.Caption = value`) are valid statements and the existing
@@ -587,5 +587,5 @@ for parsing assignment vs comparison correctly:
 When new runtime evidence contradicts or extends a claim here, edit this file,
 update related public-safe overlay notes in
 [`data/pangoscript/commands.overlay.json`](../../../../data/pangoscript/commands.overlay.json).
-This file is the canonical record — claims here outrank older notes in
+This file is the canonical record - claims here outrank older notes in
 agent-local memory.

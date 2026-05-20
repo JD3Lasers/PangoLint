@@ -94,7 +94,7 @@
         },
         "category": {
           "type": "string",
-          "description": "BEYOND category for this command. In the overlay (commands.overlay.json) this is an optional override — omit it and the build resolves the category from beyond-category-tree.json. In the merged output (commands.merged.json) every command has category set; that requirement is enforced by the build pipeline (resolveCategoriesStrict), not by this schema, because $defs/command is shared by both files."
+          "description": "BEYOND category for this command. In the overlay (commands.overlay.json) this is an optional override: omit it and the build resolves the category from beyond-category-tree.json. In the merged output (commands.merged.json) every command has category set; that requirement is enforced by the build pipeline (resolveCategoriesStrict), not by this schema, because $defs/command is shared by both files."
         },
         "setsProperty": {
           "type": "array",

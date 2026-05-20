@@ -1,4 +1,4 @@
-// Tool: listObjects — returns canonical schema names plus Object Tree-only
+// Tool: listObjects - returns canonical schema names plus Object Tree-only
 // roots (WS, FX, workspace-safe aliases, etc.) so agents can discover the
 // same object families visible in the VS Code Objects panel.
 

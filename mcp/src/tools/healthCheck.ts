@@ -1,10 +1,10 @@
-// Tool: healthCheck — verifies the configured BEYOND target is reachable.
+// Tool: healthCheck - verifies the configured BEYOND target is reachable.
 //
 // Two-stage check:
 //   1. Resolve the host via DNS (catches typos in PANGOLINT_MCP_BEYOND_TALK_HOST
 //      before any socket creation).
 //   2. Open + close a UDP socket bound to the target. UDP is connectionless
-//      so this only proves the local end can address the remote — it cannot
+//      so this only proves the local end can address the remote - it cannot
 //      detect whether BEYOND is actually listening on the other side.
 //      That's the right tradeoff for a fast pre-flight check; deeper
 //      verification belongs to readBeyondProperty (which actually waits for an
@@ -30,9 +30,9 @@ export type HealthCheckResult = ToolResult<HealthCheckOutput>;
 export interface HealthCheckDeps {
   /** Resolves a hostname to an address; defaults to node:dns/promises.lookup. */
   resolve?: (host: string) => Promise<{ address: string; family: 4 | 6 }>;
-  /** Creates + binds a UDP socket; defaults to node:dgram. Test seam. */
+  /** Creates + binds a UDP socket; defaults to node:dgram. Test socket check. */
   socketCheck?: (address: string, port: number, family: 4 | 6) => Promise<void>;
-  /** Clock for elapsed-time measurement. Test seam. */
+  /** Clock for elapsed-time measurement. Test clock. */
   now?: () => number;
 }
 
@@ -50,7 +50,7 @@ const defaultSocketCheck = (address: string, port: number, family: 4 | 6): Promi
     });
     try {
       // connect() on a UDP socket binds the remote endpoint and validates the
-      // address — no packet is sent.
+      // address - no packet is sent.
       socket.connect(port, address, () => {
         socket.close();
         resolve();
@@ -63,7 +63,7 @@ const defaultSocketCheck = (address: string, port: number, family: 4 | 6): Promi
 
 export async function healthCheck(config: McpConfig, deps: HealthCheckDeps = {}): Promise<HealthCheckResult> {
   if (!config.runtimeReadEnabled) {
-    return fail("runtime read disabled — set PANGOLINT_MCP_RUNTIME_READ=enabled to enable read runtime tools", true);
+    return fail("runtime read disabled - set PANGOLINT_MCP_RUNTIME_READ=enabled to enable read runtime tools", true);
   }
 
   const now = deps.now ?? (() => Date.now());

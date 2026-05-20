@@ -2,30 +2,30 @@
 
 PangoLint's parser recognizes the line shapes below. PangoScript is
 Delphi-shaped and sparsely documented; the parser is intentionally
-permissive — unknown syntax is preserved, not rejected, so you can
+permissive - unknown syntax is preserved, not rejected, so you can
 experiment without the linter blocking you.
 
 ## Line kinds
 
 Every line is classified into one of:
 
-- `blank` — empty or whitespace only
-- `comment` — `// …` only (no block-comment form)
-- `label` — `<name>:` standalone, optionally with a same-line
+- `blank` - empty or whitespace only
+- `comment` - `// …` only (no block-comment form)
+- `label` - `<name>:` standalone, optionally with a same-line
   statement after it (`mylabel: WaitForBeat 4`)
-- `declaration` — `Var <name>[, <name>...]` or
+- `declaration` - `Var <name>[, <name>...]` or
   `GlobalVar <name>[, <name>...]`
-- `assignment` — `<target> = <expression>` where target is a variable
+- `assignment` - `<target> = <expression>` where target is a variable
   or property path
-- `command` — a leading identifier followed by space-separated args
+- `command` - a leading identifier followed by space-separated args
   (`Brightness 50`), Delphi function-call form
   (`SetCueCaptionColor(1, 1, 0)`), or an OSC address pattern
-- `oscAddress` — line begins with `/…` (OSC-style address used by
+- `oscAddress` - line begins with `/…` (OSC-style address used by
   some BEYOND output paths)
-- `goto` — `goto <label>` or `goto <variableName>`
-- `if` — `if (<cond>) <statement>` (one-line) or `if (<cond>) { … }`
-  (braced block — the brace tokens themselves are not validated)
-- `blockBoundary` — `}` or `Next` on its own line
+- `goto` - `goto <label>` or `goto <variableName>`
+- `if` - `if (<cond>) <statement>` (one-line) or `if (<cond>) { … }`
+  (braced block - the brace tokens themselves are not validated)
+- `blockBoundary` - `}` or `Next` on its own line
 
 Multi-statement lines separated by `;` are NOT split by the parser;
 the leading statement determines the kind. The diagnostic engine
@@ -113,7 +113,7 @@ hint, not evidence that BEYOND will reject the script.
 
 ## Expression syntax
 
-The parser does not build an AST for expressions — it preserves the
+The parser does not build an AST for expressions - it preserves the
 text and reads bare identifiers for read-tracking. Any operator
 the BEYOND interpreter accepts is fine; see `docs/references/operators.md`
 for the observed set.

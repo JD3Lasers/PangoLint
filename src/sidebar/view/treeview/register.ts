@@ -103,7 +103,7 @@ export function registerSidebar(context: vscode.ExtensionContext, options: Regis
           }
         } catch {
           await vscode.window.showInformationMessage(
-            `PangoLint: diagnostic '${payload.rule}' — reference not available in this build.`,
+            `PangoLint: diagnostic '${payload.rule}' - reference not available in this build.`,
           );
         }
       },

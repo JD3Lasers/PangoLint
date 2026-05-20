@@ -1,4 +1,4 @@
-// Tiny DOM helpers — replaces a framework dependency for the webview.
+// Tiny DOM helpers - replaces a framework dependency for the webview.
 // `el` is JSX-shaped without the JSX: tag name + attrs/listeners + children.
 
 export type Child = Node | string | number | null | undefined | false | Child[];
@@ -92,7 +92,7 @@ export function setClass(node: HTMLElement, className: string, on: boolean): voi
 }
 
 /**
- * Debounce a function — used for the search input so we don't re-render
+ * Debounce a function - used for the search input so we don't re-render
  * on every keystroke when the user is typing fast.
  */
 export function debounce<Args extends unknown[]>(fn: (...args: Args) => void, ms: number): (...args: Args) => void {

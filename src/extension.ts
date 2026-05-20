@@ -213,7 +213,7 @@ export function activate(context: vscode.ExtensionContext): void {
     }),
     vscode.languages.registerDocumentRangeFormattingEditProvider(LANGUAGE_ID, {
       provideDocumentRangeFormattingEdits(document, range): vscode.TextEdit[] {
-        // Expand the range to whole lines — partial-line formatting would
+        // Expand the range to whole lines - partial-line formatting would
         // break the line-by-line conservative formatter's contract.
         const wholeLines = new vscode.Range(
           range.start.line,
@@ -342,7 +342,7 @@ export function activate(context: vscode.ExtensionContext): void {
           ? (context as unknown as { _format?: string; _literal?: string })
           : ({} as { _format?: string; _literal?: string });
         // VS Code drops our stashed metadata between provideDocumentColors
-        // and provideColorPresentations — recover format/literal by re-
+        // and provideColorPresentations - recover format/literal by re-
         // scanning the line at the picker's range.
         const document = context.document;
         const line = document.lineAt(context.range.start.line).text;
@@ -499,7 +499,7 @@ export function activate(context: vscode.ExtensionContext): void {
     fsWatcher.onDidDelete(onBeyondCodeChange),
   );
 
-  // PangoLint sidebar — Commands / Objects / Diagnostics views in the
+  // PangoLint sidebar - Commands / Objects / Diagnostics views in the
   // activity-bar container. Phase 1 renders flat lists; later phases add
   // inline detail children + MarkdownString tooltips.
   registerSidebar(context, {
@@ -508,7 +508,7 @@ export function activate(context: vscode.ExtensionContext): void {
     objectPropertyIndex: objectPropertyLoad.index,
   });
 
-  // BEYOND Watcher panel — pinned property paths with manual refresh.
+  // BEYOND Watcher panel - pinned property paths with manual refresh.
   context.subscriptions.push(
     vscode.window.registerTreeDataProvider("pangolintWatcher", watcher),
     vscode.commands.registerCommand("pangolint.pinToWatcher", () => {

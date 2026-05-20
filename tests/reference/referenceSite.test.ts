@@ -61,7 +61,7 @@ describe("standalone reference site build", () => {
     expect(html).not.toContain("fonts.gstatic.com");
     expect(html).not.toContain("sourceRefs");
     expect(html).not.toContain("generatedFrom");
-    expect(html).not.toContain("Catalog build —");
+    expect(html).not.toContain("Catalog build \u2014");
     expect(html).toContain("topbar__meta-short");
   });
 

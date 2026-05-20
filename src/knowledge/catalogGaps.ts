@@ -4,7 +4,7 @@
 // human can prioritize where to spend curation time.
 //
 // This module never emits draft catalog entries. It produces a report.
-// All curation decisions stay manual — the corpus arity stats here are
+// All curation decisions stay manual - the corpus arity stats here are
 // labeled "informational only" so they never get auto-promoted.
 
 import type { CommandKnowledgeEntry, EvidenceLevel, PangoKnowledgeBase, SafetyTier } from "./knowledgeBase";
@@ -16,7 +16,7 @@ export interface CommandUsage {
   canonical: string;
   totalUses: number;
   fileCount: number;
-  /** Arity → count. Information-only — never used to emit catalog entries. */
+  /** Arity → count. Information-only - never used to emit catalog entries. */
   arities: Map<number, number>;
 }
 
@@ -105,7 +105,7 @@ export function formatGapReport(report: GapReport): string {
   lines.push("## How to read this report");
   lines.push("");
   lines.push(
-    "This report is **informational only**. The corpus-arity columns are *not* recommended parameter shapes — they are observations of how commands are used in the bundled corpus. Always verify a signature against PangolinWiki, your local BEYOND export, or a runtime probe before adding it to `data/pangoscript/commands.overlay.json`. Blank is better than wrong.",
+    "This report is **informational only**. The corpus-arity columns are *not* recommended parameter shapes - they are observations of how commands are used in the bundled corpus. Always verify a signature against PangolinWiki, your local BEYOND export, or a runtime probe before adding it to `data/pangoscript/commands.overlay.json`. Blank is better than wrong.",
   );
   lines.push("");
   lines.push("## Summary");
@@ -119,22 +119,22 @@ export function formatGapReport(report: GapReport): string {
     `| Missing parameters (signature implies args) | ${report.summary.missingParameters.total} | ${report.summary.missingParameters.withCorpusUses} |`,
   );
   lines.push(
-    `| Terse description (1–${TERSE_DESCRIPTION_THRESHOLD - 1} chars, non-empty) | ${report.summary.terseDescriptions.total} | ${report.summary.terseDescriptions.withCorpusUses} |`,
+    `| Terse description (1-${TERSE_DESCRIPTION_THRESHOLD - 1} chars, non-empty) | ${report.summary.terseDescriptions.total} | ${report.summary.terseDescriptions.withCorpusUses} |`,
   );
   lines.push(
     `| Safety tier = unknown | ${report.summary.unknownSafety.total} | ${report.summary.unknownSafety.withCorpusUses} |`,
   );
   lines.push("");
   lines.push(
-    "Zero-argument commands (signature equals canonical name) are not flagged as missing parameters — empty is correct for them.",
+    "Zero-argument commands (signature equals canonical name) are not flagged as missing parameters - empty is correct for them.",
   );
   lines.push("");
 
-  appendTopByCorpus(lines, "Top empty descriptions — by corpus frequency", report.gaps, (g) => g.hasEmptyDescription);
-  appendTopByCorpus(lines, "Top missing parameters — by corpus frequency", report.gaps, (g) => g.missingParameters);
+  appendTopByCorpus(lines, "Top empty descriptions - by corpus frequency", report.gaps, (g) => g.hasEmptyDescription);
+  appendTopByCorpus(lines, "Top missing parameters - by corpus frequency", report.gaps, (g) => g.missingParameters);
   appendTopByCorpus(
     lines,
-    "Top terse (non-empty) descriptions — by corpus frequency",
+    "Top terse (non-empty) descriptions - by corpus frequency",
     report.gaps,
     (g) => !g.hasMeaningfulDescription && !g.hasEmptyDescription,
   );
@@ -175,9 +175,9 @@ function appendTopByCorpus(
   lines.push("| --- | --- | --- | --- | --- | --- | --- |");
   for (const gap of matching) {
     const usage = gap.usage;
-    const arities = usage ? formatArityHistogram(usage.arities) : "—";
+    const arities = usage ? formatArityHistogram(usage.arities) : "-";
     lines.push(
-      `| \`${gap.canonical}\` | ${usage?.totalUses ?? 0} | ${usage?.fileCount ?? 0} | ${arities} | ${escapeCell(gap.description) || "—"} | ${gap.safetyTier} | ${gap.evidenceLevel} |`,
+      `| \`${gap.canonical}\` | ${usage?.totalUses ?? 0} | ${usage?.fileCount ?? 0} | ${arities} | ${escapeCell(gap.description) || "-"} | ${gap.safetyTier} | ${gap.evidenceLevel} |`,
     );
   }
   lines.push("");
@@ -200,16 +200,16 @@ function appendAllByName(
   lines.push("| --- | --- | --- | --- | --- | --- |");
   for (const gap of matching) {
     const usage = gap.usage;
-    const arities = usage ? formatArityHistogram(usage.arities) : "—";
+    const arities = usage ? formatArityHistogram(usage.arities) : "-";
     lines.push(
-      `| \`${gap.canonical}\` | ${usage?.totalUses ?? 0} | ${usage?.fileCount ?? 0} | ${arities} | ${escapeCell(gap.description) || "—"} | ${gap.evidenceLevel} |`,
+      `| \`${gap.canonical}\` | ${usage?.totalUses ?? 0} | ${usage?.fileCount ?? 0} | ${arities} | ${escapeCell(gap.description) || "-"} | ${gap.evidenceLevel} |`,
     );
   }
   lines.push("");
 }
 
 function toGap(entry: CommandKnowledgeEntry, usage: CommandUsage | undefined): CommandGap {
-  // Walk all forms — `forms[0]` is typically the BEYOND-export-derived
+  // Walk all forms - `forms[0]` is typically the BEYOND-export-derived
   // form with no description; the curated form usually lives in
   // `forms[1+]`. Use `||` not `??` so empty strings fall through.
   const description =
@@ -241,7 +241,7 @@ function toGap(entry: CommandKnowledgeEntry, usage: CommandUsage | undefined): C
 }
 
 function signatureHasArgs(signature: string, canonical: string): boolean {
-  // BEYOND-export signatures are "<Name>" or "<Name> <args>" — anything
+  // BEYOND-export signatures are "<Name>" or "<Name> <args>" - anything
   // beyond the leading name token (case-insensitive) means the command
   // takes arguments. Also treats `Foo()` as zero-arg.
   const trimmed = signature.trim();
@@ -270,7 +270,7 @@ function countBucket(gaps: CommandGap[], predicate: (gap: CommandGap) => boolean
 
 function formatArityHistogram(arities: Map<number, number>): string {
   const entries = [...arities.entries()].sort(([a], [b]) => a - b);
-  if (entries.length === 0) return "—";
+  if (entries.length === 0) return "-";
   return entries.map(([arity, count]) => `${arity}:${count}`).join(", ");
 }
 

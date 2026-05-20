@@ -3,7 +3,7 @@
 Every PangoLint diagnostic carries a code that links here. The code in
 the Problems panel is clickable when VS Code renders this page.
 
-PangoLint biases permissive — most rules below are **warning** or
+PangoLint biases permissive - most rules below are **warning** or
 **hint** level, not error, so an unfamiliar pattern doesn't block
 your edit. Real errors are reserved for unambiguous syntax failures.
 
@@ -64,7 +64,7 @@ control-flow keyword (`for`, `next`, `if`, `goto`, `var`, `globalvar`,
   issue at <https://github.com/JD3Lasers/PangoLint/issues> with the
   command name and a usage example.
 - If the line is intentionally unknown syntax (Delphi-shaped accessor,
-  etc.), the warning is informational — PangoLint preserves the line
+  etc.), the warning is informational - PangoLint preserves the line
   unchanged.
 
 ---
@@ -81,7 +81,7 @@ Two common shapes:
 - The signature declares `<param>` placeholders and the call has the
   wrong arity (e.g. `Brightness` with no value, or `Brightness 50, 100`).
 - The signature is zero-arity (no `<...>` placeholders, no parameters
-  list) and the call passed something — caught the
+  list) and the call passed something - caught the
   `EnableLaserOutput 1` class of bug.
 
 **How to fix:** consult the hover tooltip or signature help for the
@@ -100,7 +100,7 @@ so `goto targetName` does not emit this diagnostic when `targetName`
 is declared.
 
 **How to fix:** add the label declaration, fix the typo (case-
-insensitive match — PangoScript labels are case-insensitive), or
+insensitive match - PangoScript labels are case-insensitive), or
 remove the goto if it's dead code.
 
 ---
@@ -124,8 +124,8 @@ BEYOND has been observed rejecting quoted `Goto` targets such as
 A variable declared with `Var X` is read in an expression before any
 local `X = ...` assignment.
 
-**How to fix:** initialize the variable before reading it, or — if the
-variable is set externally (e.g. via OSC or another script) — use
+**How to fix:** initialize the variable before reading it, or - if the
+variable is set externally (e.g. via OSC or another script) - use
 `GlobalVar` instead of `Var` to mark its scope.
 
 ---
@@ -134,8 +134,7 @@ variable is set externally (e.g. via OSC or another script) — use
 
 **Severity:** hint.
 
-The line begins with `While`, `Do`, `Repeat`, `Until`, or `Loop` —
-constructs that exist in other languages but are **not** valid
+The line begins with `While`, `Do`, `Repeat`, `Until`, or `Loop` - constructs that exist in other languages but are **not** valid
 PangoScript. Documented conditional loops use label-and-goto control
 flow.
 
@@ -310,7 +309,7 @@ inline trigger commands that do not need `ExtValue`.
 A variable declared with `Var <name>` is never read in any expression
 in this file. Likely dead code or a typo.
 
-`GlobalVar` declarations are intentionally exempt — those are
+`GlobalVar` declarations are intentionally exempt - those are
 routinely mutated externally (OSC, sister scripts) and "unused" inside
 the current file says nothing about whether they're live.
 
@@ -318,7 +317,7 @@ the current file says nothing about whether they're live.
 
 - Remove the declaration if the variable really is dead.
 - If the variable is set by an external script and read here, the
-  current parser hasn't seen its read site yet — silence the hint by
+  current parser hasn't seen its read site yet - silence the hint by
   promoting the declaration to `GlobalVar`.
 - If the name is a typo of a real read site (e.g. you wrote
   `Var ZoneName` and read `zonename` in another file), reconcile the
@@ -334,7 +333,7 @@ A label declared with `<name>:` is never the target of a `Goto` or
 `If <cond> Goto` in this file.
 
 The rule only fires when the file already contains at least one
-`Goto` — files with zero gotos are typically event handlers where the
+`Goto` - files with zero gotos are typically event handlers where the
 label IS the entry point invoked externally by BEYOND. The rule also
 exempts common entry-point names: `Init`, `Start`, `Main`, `Setup`,
 `End`, `Finish`, `OnClick`, `OnDoubleClick`, `OnPress`, `OnRelease`,
@@ -360,7 +359,7 @@ match (within Levenshtein distance ≤ 2 absolute or ≤ 30% of length)
 **is** in the schema.
 
 PangoLint silently passes unknown property paths under unknown roots
-(permissive) — this hint only fires when the root IS known and we
+(permissive) - this hint only fires when the root IS known and we
 have high confidence the property name is a typo.
 
 **How to fix:** take the lightbulb's suggested replacement, or fix

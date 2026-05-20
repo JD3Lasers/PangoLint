@@ -148,7 +148,7 @@ describe("resolveCategoriesStrict", () => {
   });
 });
 
-describe("validateDocCategories — META_FILES skip", () => {
+describe("validateDocCategories - META_FILES skip", () => {
   const tree: BeyondCategoryTree = {
     categories: [{ name: "General", order: 1, items: [] }],
   };

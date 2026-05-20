@@ -1097,7 +1097,7 @@ describe("findPropertyTypoDiagnostics", () => {
     );
   });
 
-  it("dedupes per line — same path mentioned twice yields one hint", () => {
+  it("dedupes per line - same path mentioned twice yields one hint", () => {
     const diagnostics = findPropertyTypoDiagnostics("a = Master.RotoAngeX + Master.RotoAngeX", 0, propertyIndex);
     expect(diagnostics).toHaveLength(1);
   });

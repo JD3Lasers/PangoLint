@@ -2,7 +2,7 @@
 // derived (filtered + grouped) list, and the selected command. Emits a
 // "change" event when anything updates so renderers can re-draw.
 //
-// Filtering and scoring run locally — the host pushed the full catalog
+// Filtering and scoring run locally - the host pushed the full catalog
 // in the init message, so the webview can answer keystroke-by-keystroke
 // search without round-tripping to the extension.
 
@@ -19,7 +19,7 @@ export interface ViewModel {
   /** When non-null, the detail panel is open for this command. */
   selectedCommand: string | null;
   /**
-   * Pending detail fetch — present while the host is resolving the
+   * Pending detail fetch - present while the host is resolving the
    * detail message. The webview can show a loading state while waiting.
    */
   detailLoading: boolean;
@@ -48,9 +48,9 @@ export class SidebarState {
     toast: null,
   };
 
-  /** Cached filtered list — recomputed on filter or catalog change. */
+  /** Cached filtered list - recomputed on filter or catalog change. */
   private filteredList: CommandSummary[] = [];
-  /** Cached grouped list — always computed. */
+  /** Cached grouped list - always computed. */
   private filteredGroups: CommandGroup[] = [];
 
   subscribe(listener: StateListener): () => void {
@@ -135,12 +135,12 @@ export class SidebarState {
     this.emit("toast");
   }
 
-  /** Flat filtered list — used for status bar count. */
+  /** Flat filtered list - used for status bar count. */
   list(): CommandSummary[] {
     return this.filteredList;
   }
 
-  /** Grouped filtered list — always populated. */
+  /** Grouped filtered list - always populated. */
   groups(): CommandGroup[] {
     return this.filteredGroups;
   }

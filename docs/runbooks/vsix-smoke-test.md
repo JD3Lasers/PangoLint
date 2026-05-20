@@ -38,7 +38,7 @@ If `verifyPackageContents` fails, fix the underlying issue. Do not pass go.
 
 Pick one path.
 
-### Option A — VS Code CLI
+### Option A - VS Code CLI
 
 ```powershell
 code --install-extension .\pangolint-0.5.0.vsix --force
@@ -47,7 +47,7 @@ code --install-extension .\pangolint-0.5.0.vsix --force
 Restart VS Code (or use `Developer: Reload Window` from the palette) so the
 extension activates against any open `.BeyondCode` files.
 
-### Option B — Extensions panel
+### Option B - Extensions panel
 
 1. `Ctrl+Shift+X` to open the Extensions view.
 2. Click the `…` menu (top of the panel) → **Install from VSIX…**.
@@ -65,22 +65,22 @@ extension activates against any open `.BeyondCode` files.
 Open `docs/runbooks/vsix-smoke-test.BeyondCode`. Diagnostics should populate
 within a second or two of activation.
 
-Map of expected diagnostics — line numbers reference the fixture as committed:
+Map of expected diagnostics - line numbers reference the fixture as committed:
 
 | Fixture lines | Code | Severity | Notes |
 |---|---|---|---|
-| 9–12  (`SelectZone 1`, `Brightness 50`, `WaitForBeat 4`, `DisplayPopup`) | — | none | Known commands; clean. |
+| 9-12  (`SelectZone 1`, `Brightness 50`, `WaitForBeat 4`, `DisplayPopup`) | - | none | Known commands; clean. |
 | 15 (`TotallyMadeUpCommand 99`) | `unknown-command` | warning | Yellow squiggle on the command name. |
 | 18 (`DisplayPopup "no closing quote`) | `unclosed-string` | error | Red squiggle, full-line range. |
 | 21 (`if ((1 > 0) DisplayPopup "bad"`) | `unbalanced-parentheses` | warning | |
-| 24–25 (inline label + goto) | — | none | `mylabel:` is collected; goto resolves. |
+| 24-25 (inline label + goto) | - | none | `mylabel:` is collected; goto resolves. |
 | 28 (`goto DefinitelyNotALabel`) | `missing-label` | warning | Bare missing target. Quoted targets are BEYOND-rejected and covered by `unsupported-quoted-goto-label`. |
-| 31–32 (`var zoneName` then `OscOutTTS` reading it) | `uninitialized-variable` | warning | Squiggle on the `zoneName` identifier in the OscOutTTS arg list. |
-| 35–37 (`var beatRate`, assign 120, then read) | — | none | Confirms assignment-then-read suppresses the warning. |
-| 40–42 (`zoneBrightness = Zone.0.Brightness`, then OSC address with `<zoneBrightness>`) | — | none | Confirms dotted property access is preserved by the permissive parser posture. |
+| 31-32 (`var zoneName` then `OscOutTTS` reading it) | `uninitialized-variable` | warning | Squiggle on the `zoneName` identifier in the OscOutTTS arg list. |
+| 35-37 (`var beatRate`, assign 120, then read) | - | none | Confirms assignment-then-read suppresses the warning. |
+| 40-42 (`zoneBrightness = Zone.0.Brightness`, then OSC address with `<zoneBrightness>`) | - | none | Confirms dotted property access is preserved by the permissive parser posture. |
 | End of file (fixture intentionally has no final `exit`) | `missing-terminal-exit` | hint | BEYOND accepts this shape; PangoLint recommends `exit` as a fall-through guard. |
 
-Total expected PangoLint diagnostics: **6** — one each of `unknown-command`,
+Total expected PangoLint diagnostics: **6** - one each of `unknown-command`,
 `unclosed-string`, `unbalanced-parentheses`, `missing-label`,
 `uninitialized-variable`, and `missing-terminal-exit`.
 
@@ -104,7 +104,7 @@ Still in the fixture file:
   the merged knowledge base).
 - **Format Document.** Run `Shift+Alt+F` (or palette →
   *Format Document*). The buffer should be byte-identical save for the
-  formatter's documented low-risk transforms — strings, comments, labels,
+  formatter's documented low-risk transforms - strings, comments, labels,
   command order, and Delphi-shaped expressions must be preserved. If the
   formatter mutates the unclosed string, the unbalanced parens, or the
   property-access line, treat that as a failure.
@@ -113,18 +113,18 @@ Still in the fixture file:
 
 Open the command palette (`Ctrl+Shift+P`) and run each of:
 
-- **PangoLint: Validate Current Script** — should run against the active
+- **PangoLint: Validate Current Script** - should run against the active
   buffer, write a detailed report to the **PangoLint: Validation** Output
   channel, reveal that Output channel when diagnostics exist, and show a
   notification with a diagnostic count matching the table in step 3 (6). The
   notification should expose actions for **Show Diagnostics**, **Show Output**,
   and **Open Problems**.
-- **PangoLint: Test BEYOND Connection** — should attempt the readback-only
+- **PangoLint: Test BEYOND Connection** - should attempt the readback-only
   `OscOutTTS` ping. Without a real BEYOND host on the configured
   `pangolint.beyond.talkHost:talkPort` target (default `127.0.0.1:16062`),
   expect a notification along the lines of *"BEYOND readback failed: Timed
   out after 3000 ms"* after the configured `readbackTimeoutMs`. A timeout is
-  the **expected** result here — anything else (immediate bind error,
+  the **expected** result here - anything else (immediate bind error,
   silent failure, unhandled exception) is a smoke failure.
 
 If you do have a BEYOND host reachable, a successful connection check should surface

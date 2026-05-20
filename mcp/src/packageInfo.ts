@@ -1,6 +1,6 @@
 // Resolves the pangolint-mcp package version at runtime so the
 // McpServer constructor and `getServerConfig` always advertise the
-// version declared in package.json — no hardcoded constant to drift.
+// version declared in package.json - no hardcoded constant to drift.
 //
 // The resolver assumes the standard mcp/ layout: this module is bundled
 // into mcp/dist/server.js (published tarball) or executed from

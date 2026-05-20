@@ -290,7 +290,7 @@ function main(): void {
       }
     } else if (report.filesWithDiagnostics.length > 0) {
       console.log(
-        `  (${report.filesWithDiagnostics.length} files have diagnostics — set PANGOLINT_CORPUS_VERBOSE=1 to print)`,
+        `  (${report.filesWithDiagnostics.length} files have diagnostics - set PANGOLINT_CORPUS_VERBOSE=1 to print)`,
       );
     }
     if (isExpectedFailureReport(report) && report.expectationFailures.length > 0) {

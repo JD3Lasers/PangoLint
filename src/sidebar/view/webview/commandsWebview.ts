@@ -2,7 +2,7 @@
 // bundled HTML/CSS/JS, sends the catalog snapshot on `ready`, and
 // dispatches webview action messages to the existing
 // pangolint.sidebar.* commands so the message protocol is the only
-// renderer-aware seam.
+// renderer-aware contract.
 //
 // Confidence + sources are intentionally not surfaced (they are
 // maintainer-only metadata; see the `UI: hide confidence + sources`
@@ -236,7 +236,7 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
 // ============================================================
 
 function toClientSummary(summary: CommandSummary): CommandSummary {
-  // Defensive copy — the webview gets to mutate its own copy without
+  // Defensive copy - the webview gets to mutate its own copy without
   // poisoning the catalog. (Currently the webview doesn't mutate, but
   // this keeps the contract symmetric for future expansion.)
   return {

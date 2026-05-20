@@ -3,7 +3,7 @@
 // parameters / example, and the action buttons that post messages back
 // to the extension host.
 //
-// Sources and confidence are intentionally NOT rendered — they live in
+// Sources and confidence are intentionally NOT rendered - they live in
 // commands.overlay.json as maintainer-only metadata.
 
 import type { CommandDetail, ParameterDetail } from "../../../model/types";
@@ -134,7 +134,7 @@ function renderDetailBody(detail: CommandDetail, options: DetailOptions): HTMLEl
     out.push(tagRow);
   }
 
-  // Action bar — the user-facing reason the panel exists. Posts to the
+  // Action bar - the user-facing reason the panel exists. Posts to the
   // extension host which dispatches to the registered command IDs.
   out.push(
     el(

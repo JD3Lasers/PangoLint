@@ -57,6 +57,20 @@ The script verifies:
 If a new commit is pushed after review, request a fresh `@codex` review and run
 the script again.
 
+## Written Content Policy
+
+Issue bodies, PR descriptions, review replies, and commit messages must follow
+the same naming rules as tracked docs and comments:
+
+- Use concrete product language from the engineering standards.
+- Avoid blocked planning wording unless quoting an external literal or a
+  checked-in schema field that cannot be renamed.
+- Do not use long dash characters. Use a comma, colon, plain hyphen, or rewrite
+  the sentence.
+
+The repo-policy test checks tracked files, not GitHub-hosted text, so review
+issue bodies and PR descriptions before posting.
+
 ## Watch Release Artifacts
 
 Use this after pushing a release tag and waiting for the release workflow:

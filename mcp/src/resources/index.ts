@@ -1,4 +1,4 @@
-// Registers MCP resources — agent-readable context blobs.
+// Registers MCP resources - agent-readable context blobs.
 //
 // Reference resources:
 //   pangoscript://catalog/commands     curated command catalog (JSON)
@@ -39,7 +39,7 @@ const COMMAND_REFERENCE_META_FILES = new Set(["README.md"]);
 
 /**
  * Build the JSON payload served by `pangoscript://catalog/commands`.
- * Returns the curated knowledge base as-is — the agent can introspect
+ * Returns the curated knowledge base as-is - the agent can introspect
  * commands, forms, parameters, safetyTier, evidenceLevel, and notes.
  */
 export function buildCatalogPayload(knowledge: McpKnowledgeBase): string {
@@ -55,8 +55,8 @@ export function buildCatalogPayload(knowledge: McpKnowledgeBase): string {
 
 /**
  * Build the JSON payload served by `pangoscript://schemas/objects`.
- * Returns every canonical object schema bundled with the extension —
- * Master, Zone, UniversePanel, ColorChannel, …
+ * Returns every canonical object schema bundled with the extension, including
+ * Master, Zone, UniversePanel, and ColorChannel.
  */
 export function buildSchemasPayload(knowledge: McpKnowledgeBase): string {
   const names = knowledge.propertyIndex.allObjectNames();
@@ -112,7 +112,7 @@ export function readMarkdownDoc(relativePath: string, env: NodeJS.ProcessEnv = p
 
 /**
  * Wrap a string payload as the SDK's read-resource result shape. Pure
- * factory — no side effects.
+ * factory - no side effects.
  */
 export function asResourceContents(uri: string, mimeType: string, text: string) {
   return {
@@ -172,7 +172,7 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
       mimeType: "application/json",
       size: catalogSize,
       description:
-        "Full curated PangoScript command catalog — canonical name, aliases, forms, parameters, safetyTier, evidenceLevel, and notes. Agents should browse this when generating PangoScript to verify command names and arity.",
+        "Full curated PangoScript command catalog - canonical name, aliases, forms, parameters, safetyTier, evidenceLevel, and notes. Agents should browse this when generating PangoScript to verify command names and arity.",
     },
     async () => asResourceContents(URI_CATALOG, "application/json", catalogText),
   );
@@ -226,7 +226,7 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
       mimeType: "text/markdown",
       ...(operatorsDoc ? { size: operatorsDoc.size } : {}),
       description:
-        "PangoScript operator reference — assignment, comparison, bitwise, arithmetic, logical, plus case-insensitivity and string/comment rules.",
+        "PangoScript operator reference - assignment, comparison, bitwise, arithmetic, logical, plus case-insensitivity and string/comment rules.",
     },
     async () => {
       if (!operatorsDoc) throw new Error("operators reference not found in bundled data");
@@ -241,7 +241,7 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
       mimeType: "text/markdown",
       ...(syntaxDoc ? { size: syntaxDoc.size } : {}),
       description:
-        "PangoScript parser-shape reference — recognized line kinds, identifier rules, label/goto behavior, loop construct, and the permissive parser posture.",
+        "PangoScript parser-shape reference - recognized line kinds, identifier rules, label/goto behavior, loop construct, and the permissive parser posture.",
     },
     async () => {
       if (!syntaxDoc) throw new Error("syntax reference not found in bundled data");

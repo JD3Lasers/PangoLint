@@ -97,7 +97,7 @@ export interface CommandKnowledgeEntry {
   tags?: string[];
   /**
    * Resolved BEYOND category from data/pangoscript/beyond-category-tree.json
-   * (or overlay override). Required — the build fails if any command is
+   * (or overlay override). Required - the build fails if any command is
    * unresolved (see resolveCategoriesStrict).
    */
   category: string;
@@ -407,7 +407,7 @@ function mergeForms(left: KnowledgeForm[], right: KnowledgeForm[]): KnowledgeFor
   for (const form of right) {
     const existingIndex = indexBySignature.get(form.signature);
     if (existingIndex !== undefined) {
-      // Same signature on both sides — merge fields with right (overlay) winning.
+      // Same signature on both sides - merge fields with right (overlay) winning.
       // Without this, curated descriptions/parameters on zero-arg commands
       // (where canonical-name == signature == auto-generated signature) get
       // silently dropped on top of the generated form.

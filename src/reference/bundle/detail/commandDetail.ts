@@ -174,7 +174,7 @@ function renderForm(form: ReferenceForm): HTMLElement {
     for (const p of form.parameters) {
       const row = el("tr", {});
       row.append(el("td", { attrs: { "data-label": "Name" } }, el("code", {}, p.name)));
-      row.append(el("td", { attrs: { "data-label": "Type" } }, p.type ?? "—"));
+      row.append(el("td", { attrs: { "data-label": "Type" } }, p.type ?? "-"));
       row.append(el("td", { attrs: { "data-label": "Req" } }, p.required ? "✓" : ""));
       row.append(el("td", { attrs: { "data-label": "Range" } }, formatParameterRange(p)));
       row.append(

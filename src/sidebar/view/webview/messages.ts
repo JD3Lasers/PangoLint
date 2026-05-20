@@ -45,7 +45,7 @@ export interface InitPayload {
   commands: CommandSummary[];
   /**
    * Distinct BEYOND categories with per-category command counts. Used by
-   * the category chip strip — sorted by BEYOND tree order (the `order`
+   * the category chip strip - sorted by BEYOND tree order (the `order`
    * field from `beyond-category-tree.json`).
    */
   categories: CategorySummary[];

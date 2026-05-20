@@ -4,7 +4,7 @@ order: 17
 ---
 # Tabs
 
-Tabs commands navigate the Live Control tab strip in the BEYOND workspace, selecting one of the numbered LC tabs (1–8) or switching the active tab mode. They map directly to the tab row visible above the Live Control sliders.
+Tabs commands navigate the Live Control tab strip in the BEYOND workspace, selecting one of the numbered LC tabs (1-8) or switching the active tab mode. They map directly to the tab row visible above the Live Control sliders.
 
 ## Commands
 
