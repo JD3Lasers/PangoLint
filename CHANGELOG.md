@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.4] - 2026-05-20
+
+### Fixed
+
+- Update changelog comparison links so release preflight can package the
+  current GitHub Release artifact set.
+
 ## [0.6.3] - 2026-05-19
 
 ### Added
@@ -175,7 +182,11 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.4...HEAD
+[0.6.4]: https://github.com/JD3Lasers/PangoLint/compare/99b5626713295d0aa5be44edf6ec630a6eb9ac8b...v0.6.4
+[0.6.3]: https://github.com/JD3Lasers/PangoLint/compare/5fbfafbe8aad3d768fca306ef163b6809aa1e7b2...99b5626713295d0aa5be44edf6ec630a6eb9ac8b
+[0.6.2]: https://github.com/JD3Lasers/PangoLint/compare/776ebc7651739c6564887f68bf5980522527befd...5fbfafbe8aad3d768fca306ef163b6809aa1e7b2
+[0.6.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.6.0...776ebc7651739c6564887f68bf5980522527befd
 [0.6.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.10...v0.5.0
 [0.4.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.4.9...v0.4.10
