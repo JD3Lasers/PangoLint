@@ -231,29 +231,12 @@ describe("safety tier display labels", () => {
 });
 
 describe("object property path display", () => {
-  it("shows effect-relative FX control names while preserving the QuickFX cell path", () => {
-    expect(objectPropertyPathDisplay("FX.N.N.N.Oscillator.Period", "fx-effect")).toEqual({
-      primaryPath: "Oscillator.Period",
-      secondaryLabel: "QuickFX cell path",
-      secondaryPath: "FX.N.N.N.Oscillator.Period",
-    });
-  });
-
-  it("keeps full FX paths as the primary schema label", () => {
-    expect(objectPropertyPathDisplay("FX.N.N.N.Oscillator.Period", "schema")).toEqual({
-      primaryPath: "FX.N.N.N.Oscillator.Period",
-      secondaryLabel: null,
-      secondaryPath: null,
-    });
-  });
-
-  it("shows component-relative Universe property names while preserving the Object Tree path", () => {
-    expect(
-      objectPropertyPathDisplay("Universe.N.DropEff1.Effect.Name", "universe-component", "Universe.N.DropEff1"),
-    ).toEqual({
-      primaryPath: "Effect.Name",
-      secondaryLabel: "Object Tree path",
-      secondaryPath: "Universe.N.DropEff1.Effect.Name",
-    });
+  it.each([
+    ["schema", "Beam.N.Active"],
+    ["FX", "FX.N.N.N.Oscillator.Period"],
+    ["Cue Type", "WS.N.N.Alpha"],
+    ["Universe component", "Universe.N.DropEff1.Effect.Name"],
+  ])("keeps full %s Object Tree paths as the primary property label", (_label, path) => {
+    expect(objectPropertyPathDisplay(path)).toBe(path);
   });
 });

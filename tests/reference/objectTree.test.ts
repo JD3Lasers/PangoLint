@@ -563,8 +563,6 @@ describe("buildUniverseComponentReference", () => {
     expect(dropEffect).toMatchObject({
       label: "Universe Drop Effect",
       detailKind: "universe component",
-      pathDisplayContext: "universe-component",
-      pathDisplayPrefix: "Universe.N.DropEff1",
     });
     expect(dropEffect?.sections.map((section) => section.label)).toEqual(["Component controls", "Effect controls"]);
     expect(dropEffect?.sections[0].properties.map((property) => property.path)).toEqual([

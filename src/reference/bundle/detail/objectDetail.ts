@@ -12,40 +12,8 @@ import {
 } from "./objectPropertySummary";
 import { renderObjectRouteSummary } from "./oscRouteDetail";
 
-export type ObjectPropertyPathDisplayContext = "schema" | "fx-effect" | "universe-component";
-
-export interface ObjectPropertyPathDisplay {
-  primaryPath: string;
-  secondaryLabel: string | null;
-  secondaryPath: string | null;
-}
-
-export function objectPropertyPathDisplay(
-  path: string,
-  context: ObjectPropertyPathDisplayContext,
-  pathDisplayPrefix?: string,
-): ObjectPropertyPathDisplay {
-  const quickFxCellPathPrefix = "FX.N.N.N.";
-  if (context === "fx-effect" && path.startsWith(quickFxCellPathPrefix) && path.length > quickFxCellPathPrefix.length) {
-    return {
-      primaryPath: path.slice(quickFxCellPathPrefix.length),
-      secondaryLabel: "QuickFX cell path",
-      secondaryPath: path,
-    };
-  }
-  if (
-    context === "universe-component" &&
-    pathDisplayPrefix &&
-    path.startsWith(`${pathDisplayPrefix}.`) &&
-    path.length > pathDisplayPrefix.length + 1
-  ) {
-    return {
-      primaryPath: path.slice(pathDisplayPrefix.length + 1),
-      secondaryLabel: "Object Tree path",
-      secondaryPath: path,
-    };
-  }
-  return { primaryPath: path, secondaryLabel: null, secondaryPath: null };
+export function objectPropertyPathDisplay(path: string): string {
+  return path;
 }
 
 export function renderObjectDetail(obj: ReferenceObject, state: ReferenceState): HTMLElement {
@@ -130,15 +98,7 @@ export function renderObjectReferenceDetail(detail: ObjectPropertyReferenceDetai
     if (sectionDetail.description) {
       section.append(el("p", { className: "detail__description" }, sectionDetail.description));
     }
-    section.append(
-      renderObjectPropertiesTable(
-        sectionDetail.properties,
-        state,
-        null,
-        detail.pathDisplayContext ?? (detail.root === "FX" ? "fx-effect" : "schema"),
-        detail.pathDisplayPrefix,
-      ),
-    );
+    section.append(renderObjectPropertiesTable(sectionDetail.properties, state, null));
     container.append(section);
   }
 
@@ -149,8 +109,6 @@ function renderObjectPropertiesTable(
   properties: ReferenceObjectProperty[],
   state: ReferenceState,
   focusedPropertyPath: string | null,
-  pathDisplayContext: ObjectPropertyPathDisplayContext = "schema",
-  pathDisplayPrefix?: string,
 ): HTMLElement {
   const table = el("table", { className: "object__props" });
   const thead = el("thead", {});
@@ -162,9 +120,7 @@ function renderObjectPropertiesTable(
   table.append(thead);
   const tbody = el("tbody", {});
   for (const p of properties) {
-    tbody.append(
-      renderObjectPropertyTableRow(p, state, p.path === focusedPropertyPath, pathDisplayContext, pathDisplayPrefix),
-    );
+    tbody.append(renderObjectPropertyTableRow(p, state, p.path === focusedPropertyPath));
   }
   table.append(tbody);
   return el("div", { className: "object__props-scroll" }, table);
@@ -174,8 +130,6 @@ function renderObjectPropertyTableRow(
   p: ReferenceObjectProperty,
   state: ReferenceState,
   isFocusedProperty: boolean,
-  pathDisplayContext: ObjectPropertyPathDisplayContext,
-  pathDisplayPrefix?: string,
 ): HTMLElement {
   const row = el("tr", {
     className: `object__prop-row${isFocusedProperty ? " is-focused" : ""}`,
@@ -187,16 +141,7 @@ function renderObjectPropertyTableRow(
   });
 
   const pathCell = el("td", { className: "object__prop-cell", attrs: { "data-label": "Property" } });
-  const pathDisplay = objectPropertyPathDisplay(p.path, pathDisplayContext, pathDisplayPrefix);
-  pathCell.append(el("code", {}, pathDisplay.primaryPath));
-  if (pathDisplay.secondaryPath) {
-    const pathLine = el("div", { className: "object__path-secondary" });
-    if (pathDisplay.secondaryLabel) {
-      pathLine.append(el("span", { className: "object__path-secondary-label" }, `${pathDisplay.secondaryLabel}: `));
-    }
-    pathLine.append(renderCopyableCode(pathDisplay.secondaryPath));
-    pathCell.append(pathLine);
-  }
+  pathCell.append(el("code", {}, objectPropertyPathDisplay(p.path)));
   if (p.osc) {
     const oscLine = el("div", { className: "object__osc" });
     oscLine.append(renderCopyableCode(p.osc));

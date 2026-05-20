@@ -42,8 +42,6 @@ export interface ObjectPropertyReferenceDetail {
   description?: string;
   root: string;
   detailKind?: string;
-  pathDisplayContext?: "schema" | "fx-effect" | "universe-component";
-  pathDisplayPrefix?: string;
   propertyCount: number;
   sections: ObjectPropertySection[];
 }
@@ -545,8 +543,6 @@ export function buildUniverseComponentReference(
         description: `${group} / ${pathDisplayPrefix}`,
         root: "Universe",
         detailKind: "universe component",
-        pathDisplayContext: "universe-component",
-        pathDisplayPrefix,
         propertyCount: properties.length,
         sections: universeComponentPropertySections(properties, pathDisplayPrefix),
       },
