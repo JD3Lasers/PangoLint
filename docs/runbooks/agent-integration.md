@@ -26,7 +26,7 @@ fast feedback. Live-show control is out of scope.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.5.tgz
+npm install -g ./pangolint-mcp-0.7.6.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -36,12 +36,11 @@ checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.5.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.6.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
-If npm publishing is selected for a later release, the registry install path
-will be:
+Or install the published package from npm:
 
 ```bash
 npm install -g pangolint-mcp

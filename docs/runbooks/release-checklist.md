@@ -159,13 +159,20 @@ smoke checks.
 - [ ] Remember that GitHub Release assets are a manual installation channel
   only. They do not provide automatic VS Code or npm updates.
 
-## 7. Optional registry publishes
+## 7. Registry publishes
 
-- [ ] npm publish for `pangolint-mcp` only after the npm publishing plan is
-  selected for this release:
+- [ ] Publish `pangolint-mcp` through the `Publish MCP to npm` workflow after
+  the GitHub Release is published. The npm package trusted publisher must
+  reference `JD3Lasers/PangoLint` and `.github/workflows/npm-publish.yml`.
 
   ```bash
-  npm publish --workspace mcp
+  gh workflow run npm-publish.yml -f tag=v<version>
+  ```
+
+- [ ] Confirm npm shows the new version:
+
+  ```bash
+  npm view pangolint-mcp@<version> version
   ```
 
 - [ ] Marketplace publish only after Azure DevOps / Visual Studio Marketplace

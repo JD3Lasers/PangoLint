@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.6] - 2026-05-21
+
+### Changed
+
+- Add the GitHub Actions trusted publishing workflow for the `pangolint-mcp`
+  npm package and document the active npm install channel.
+
 ## [0.7.5] - 2026-05-21
 
 ### Changed
@@ -234,7 +241,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...HEAD
+[0.7.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...v0.7.6
 [0.7.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...v0.7.5
 [0.7.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.3...v0.7.4
 [0.7.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.2...v0.7.3
