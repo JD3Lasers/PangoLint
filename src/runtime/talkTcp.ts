@@ -168,8 +168,8 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
     for (let index = 0; index < options.commands.length; index += 1) {
       const lineNumber = index + 1;
       const command = options.commands[index];
-      const parsed = await sendOneLine(command, lineNumber);
       linesSent += 1;
+      const parsed = await sendOneLine(command, lineNumber);
       if (parsed.beyondError) {
         return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, parsed.beyondError);
       }

@@ -7,8 +7,8 @@
 //   #cue=Text
 //   #effect=Oscillating+effect+%3A%3A+Zoom
 //   #component=universe.drop-effect
-// State writes back to the URL via History API replaceState so back/
-// forward navigation is sane.
+// State writes back to the URL with the History API so browser back/
+// forward navigation can revisit prior reference selections.
 
 import { getVisibleDetailSelection, type ObjectSection, type ReferenceState, type ViewMode } from "./state";
 
@@ -145,21 +145,42 @@ export function installRouter(state: ReferenceState): void {
   // Initial route
   applyHashToState(state, window.location.hash);
 
-  const syncHashFromState = (): void => {
+  let applyingHash = false;
+
+  const writeHashFromState = (mode: "push" | "replace"): void => {
     const next = buildHash(state);
     const current = window.location.hash;
     if (next === current) return;
-    if (next) {
-      history.replaceState(null, "", `${window.location.pathname}${window.location.search}${next}`);
+    const url = next
+      ? `${window.location.pathname}${window.location.search}${next}`
+      : `${window.location.pathname}${window.location.search}`;
+    if (mode === "push") {
+      history.pushState(null, "", url);
     } else {
-      history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+      history.replaceState(null, "", url);
     }
+  };
+
+  const applyCurrentHashToState = (): void => {
+    applyingHash = true;
+    try {
+      applyHashToState(state, window.location.hash);
+    } finally {
+      applyingHash = false;
+    }
+    writeHashFromState("replace");
+  };
+
+  const syncHashFromState = (): void => {
+    if (applyingHash) return;
+    writeHashFromState("push");
   };
 
   // State -> URL
   state.subscribe(syncHashFromState);
-  syncHashFromState();
+  writeHashFromState("replace");
 
-  // URL -> state (back/forward)
-  window.addEventListener("hashchange", () => applyHashToState(state, window.location.hash));
+  // URL -> state (browser back/forward and manual hash edits)
+  window.addEventListener("hashchange", applyCurrentHashToState);
+  window.addEventListener("popstate", applyCurrentHashToState);
 }

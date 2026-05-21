@@ -7,7 +7,7 @@ import {
   validateReadbackPropertyPath,
   verifyCommandWrite,
 } from "../../src/runtime/beyondReadback";
-import type { SendTalkTcpCommandsOptions } from "../../src/runtime/talkTcp";
+import { type SendTalkTcpCommandsOptions, sendTalkTcpCommands, TalkTcpTimeoutError } from "../../src/runtime/talkTcp";
 
 function deferred<T = void>(): { promise: Promise<T>; resolve: (value: T) => void } {
   let resolve: (value: T) => void = () => {};
@@ -864,6 +864,71 @@ describe("verifyCommandWrite", () => {
     expect(result.ok).toBe(false);
     expect(result.restored).toBe(true);
     expect(close).toHaveBeenCalledTimes(1);
+    expect(tcpSends).toHaveLength(2);
+    expect(tcpSends[1].commands).toEqual(["Zoom 100"]);
+  });
+
+  it("attempts restore when a TCP write command times out before its reply", async () => {
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async (options) => {
+        tcpSends.push(options);
+        if (tcpSends.length === 1) {
+          return sendTalkTcpCommands({
+            ...options,
+            openConnection: async () => ({
+              greeting: "Welcome to BEYOND!",
+              sendLine: async (line) => {
+                if (line === "Echo 1") return ["OK"];
+                if (line === "Zoom 50") {
+                  throw new TalkTcpTimeoutError("Talk TCP timed out waiting for BEYOND status");
+                }
+                throw new Error(`unexpected line ${line}`);
+              },
+              close: () => {},
+            }),
+          });
+        }
+        return {
+          ok: true,
+          transport: "tcp",
+          talkStatus: "ok",
+          talkReplies: [
+            { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
+          ],
+          linesSent: 1,
+          payloadsSent: 0,
+          bytesSent: 10,
+        };
+      },
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close: () => {},
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        restoreCommand: "Zoom 100",
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.talkStatus).toBe("timeout");
+    expect(result.linesSent).toBe(1);
+    expect(result.restored).toBe(true);
     expect(tcpSends).toHaveLength(2);
     expect(tcpSends[1].commands).toEqual(["Zoom 100"]);
   });

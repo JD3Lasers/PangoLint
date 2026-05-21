@@ -50,6 +50,14 @@ describe("sidebar webview message protocol", () => {
     expect(isWebviewToHostMessage(undefined)).toBe(false);
     expect(isWebviewToHostMessage(42)).toBe(false);
     expect(isWebviewToHostMessage({ type: "init" })).toBe(false); // host-only variant
+    expect(isWebviewToHostMessage({ type: "requestDetail" })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "requestDetail", command: 42 })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "insertAtCursor", command: "Cue" })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "insertAtCursor", command: "Cue", snippet: 42 })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "copySignature", command: "Cue" })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "copySignature", command: "Cue", text: 42 })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "openReference" })).toBe(false);
+    expect(isWebviewToHostMessage({ type: "openReference", command: 42 })).toBe(false);
     expect(isWebviewToHostMessage({})).toBe(false);
   });
 
