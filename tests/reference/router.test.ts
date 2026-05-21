@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { applyHashToState } from "../../src/reference/bundle/router";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { applyHashToState, installRouter } from "../../src/reference/bundle/router";
 import { ReferenceState } from "../../src/reference/bundle/state";
 import type { ReferenceCatalog } from "../../src/reference/bundle/types";
 
@@ -51,6 +51,44 @@ function commandCatalog(): ReferenceCatalog {
     ],
   };
 }
+
+function installFakeBrowserLocation(initialHash = ""): {
+  dispatch: (type: string) => void;
+  location: { pathname: string; search: string; hash: string };
+  pushState: ReturnType<typeof vi.fn>;
+  replaceState: ReturnType<typeof vi.fn>;
+} {
+  const listeners = new Map<string, Array<(event: Event) => void>>();
+  const location = { pathname: "/pangoscript-reference.html", search: "", hash: initialHash };
+  const writeUrl = (url?: string | URL | null): void => {
+    const text = url ? String(url) : "";
+    const hashStart = text.indexOf("#");
+    location.hash = hashStart >= 0 ? text.slice(hashStart) : "";
+  };
+  const pushState = vi.fn((_state: unknown, _title: string, url?: string | URL | null) => writeUrl(url));
+  const replaceState = vi.fn((_state: unknown, _title: string, url?: string | URL | null) => writeUrl(url));
+  vi.stubGlobal("history", { pushState, replaceState });
+  vi.stubGlobal("window", {
+    location,
+    addEventListener: (type: string, listener: EventListener) => {
+      const callbacks = listeners.get(type) ?? [];
+      callbacks.push(listener);
+      listeners.set(type, callbacks);
+    },
+  });
+  return {
+    dispatch: (type: string) => {
+      for (const listener of listeners.get(type) ?? []) listener({ type } as Event);
+    },
+    location,
+    pushState,
+    replaceState,
+  };
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe("applyHashToState", () => {
   it("resets objectSection to schemas when an objects hash omits sec", () => {
@@ -190,5 +228,63 @@ describe("applyHashToState", () => {
 
     expect(state.viewMode).toBe("commands");
     expect(state.selectedCanonical).toBeNull();
+  });
+});
+
+describe("installRouter", () => {
+  it("pushes browser history entries for reference selections", () => {
+    const browser = installFakeBrowserLocation();
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+
+    state.select("BlackOut");
+
+    expect(browser.pushState).toHaveBeenCalledWith(null, "", "/pangoscript-reference.html#cmd=BlackOut");
+    expect(browser.replaceState).not.toHaveBeenCalled();
+    expect(browser.location.hash).toBe("#cmd=BlackOut");
+  });
+
+  it("replaces browser history entries for filter changes", () => {
+    const browser = installFakeBrowserLocation();
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+
+    state.setQuery("b");
+    state.setQuery("bl");
+    state.setCategory("General");
+
+    expect(browser.pushState).not.toHaveBeenCalled();
+    expect(browser.replaceState).toHaveBeenLastCalledWith(null, "", "/pangoscript-reference.html#q=bl&cat=General");
+    expect(browser.location.hash).toBe("#q=bl&cat=General");
+  });
+
+  it("pushes a browser history entry when selecting from a filtered list", () => {
+    const browser = installFakeBrowserLocation();
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+    state.setQuery("black");
+    browser.pushState.mockClear();
+    browser.replaceState.mockClear();
+
+    state.select("BlackOut");
+
+    expect(browser.pushState).toHaveBeenCalledWith(null, "", "/pangoscript-reference.html#q=black&cmd=BlackOut");
+    expect(browser.replaceState).not.toHaveBeenCalled();
+    expect(browser.location.hash).toBe("#q=black&cmd=BlackOut");
+  });
+
+  it("applies browser back navigation from popstate without writing a new history entry", () => {
+    const browser = installFakeBrowserLocation("#cmd=BlackOut");
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+    browser.pushState.mockClear();
+    browser.replaceState.mockClear();
+
+    browser.location.hash = "#cmd=WaitForBeat";
+    browser.dispatch("popstate");
+
+    expect(state.selectedCanonical).toBe("WaitForBeat");
+    expect(browser.pushState).not.toHaveBeenCalled();
+    expect(browser.replaceState).not.toHaveBeenCalled();
   });
 });

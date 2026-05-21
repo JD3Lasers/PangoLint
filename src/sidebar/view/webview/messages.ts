@@ -129,12 +129,15 @@ export function isHostToWebviewMessage(value: unknown): value is HostToWebviewMe
 
 export function isWebviewToHostMessage(value: unknown): value is WebviewToHostMessage {
   if (!value || typeof value !== "object") return false;
-  const candidate = value as { type?: unknown };
-  return (
-    candidate.type === "ready" ||
-    candidate.type === "requestDetail" ||
-    candidate.type === "insertAtCursor" ||
-    candidate.type === "copySignature" ||
-    candidate.type === "openReference"
-  );
+  const candidate = value as { command?: unknown; snippet?: unknown; text?: unknown; type?: unknown };
+  if (candidate.type === "ready") return true;
+  if (candidate.type === "requestDetail") return typeof candidate.command === "string";
+  if (candidate.type === "insertAtCursor") {
+    return typeof candidate.command === "string" && typeof candidate.snippet === "string";
+  }
+  if (candidate.type === "copySignature") {
+    return typeof candidate.command === "string" && typeof candidate.text === "string";
+  }
+  if (candidate.type === "openReference") return typeof candidate.command === "string";
+  return false;
 }

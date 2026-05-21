@@ -32,7 +32,7 @@ export interface ParseTalkTcpReplyResult {
 
 export interface TalkTcpConnection {
   greeting?: string;
-  sendLine(line: string, timeoutMs: number): Promise<string[]>;
+  sendLine(line: string, timeoutMs: number, onLineWritten?: () => void): Promise<string[]>;
   close(): void;
 }
 
@@ -140,9 +140,20 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
   let linesSent = 0;
   let bytesSent = 0;
 
-  const sendOneLine = async (line: string, lineNumber?: number): Promise<ParseTalkTcpReplyResult> => {
-    bytesSent += Buffer.byteLength(`${line}\r\n`, "ascii");
-    const replyLines = await connection.sendLine(line, timeoutMs);
+  const sendOneLine = async (
+    line: string,
+    lineNumber?: number,
+    countCommand = false,
+  ): Promise<ParseTalkTcpReplyResult> => {
+    let lineWritten = false;
+    const recordLineWritten = (): void => {
+      if (lineWritten) return;
+      lineWritten = true;
+      bytesSent += Buffer.byteLength(`${line}\r\n`, "ascii");
+      if (countCommand) linesSent += 1;
+    };
+    const replyLines = await connection.sendLine(line, timeoutMs, recordLineWritten);
+    recordLineWritten();
     const parsed = parseTalkTcpReply({ lineNumber, commandText: line, replyLines, secrets });
     talkReplies.push(parsed.reply);
     return parsed;
@@ -168,8 +179,7 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
     for (let index = 0; index < options.commands.length; index += 1) {
       const lineNumber = index + 1;
       const command = options.commands[index];
-      const parsed = await sendOneLine(command, lineNumber);
-      linesSent += 1;
+      const parsed = await sendOneLine(command, lineNumber, true);
       if (parsed.beyondError) {
         return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, parsed.beyondError);
       }
@@ -205,8 +215,9 @@ export async function openTalkTcpConnection(options: {
     const greeting = await reader.readLine(options.timeoutMs);
     return {
       greeting,
-      sendLine: async (line, timeoutMs) => {
+      sendLine: async (line, timeoutMs, onLineWritten) => {
         await writeAsciiLine(socket, line);
+        onLineWritten?.();
         return reader.readReply(timeoutMs);
       },
       close: () => socket.destroy(),

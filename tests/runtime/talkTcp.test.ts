@@ -126,6 +126,59 @@ describe("sendTalkTcpCommands", () => {
     });
   });
 
+  it("counts a command as sent when its TCP reply times out", async () => {
+    const sent: string[] = [];
+    const result = await sendTalkTcpCommands({
+      host: "127.0.0.1",
+      port: 16063,
+      commands: ["Brightness 50"],
+      openConnection: async () => ({
+        greeting: "Welcome to BEYOND!",
+        sendLine: async (line, _timeoutMs, onLineWritten) => {
+          sent.push(line);
+          onLineWritten?.();
+          if (line === "Echo 1") return ["OK"];
+          throw new TalkTcpTimeoutError("Talk TCP timed out waiting for BEYOND status");
+        },
+        close: () => {},
+      }),
+    });
+
+    expect(sent).toEqual(["Echo 1", "Brightness 50"]);
+    expect(result.ok).toBe(false);
+    expect(result.talkStatus).toBe("timeout");
+    expect(result.linesSent).toBe(1);
+    expect(result.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 1"]);
+  });
+
+  it("does not count a command as sent when the TCP write fails before delivery", async () => {
+    const sent: string[] = [];
+    const result = await sendTalkTcpCommands({
+      host: "127.0.0.1",
+      port: 16063,
+      commands: ["Brightness 50"],
+      openConnection: async () => ({
+        greeting: "Welcome to BEYOND!",
+        sendLine: async (line, _timeoutMs, onLineWritten) => {
+          sent.push(line);
+          if (line === "Echo 1") {
+            onLineWritten?.();
+            return ["OK"];
+          }
+          throw new Error("write EPIPE");
+        },
+        close: () => {},
+      }),
+    });
+
+    expect(sent).toEqual(["Echo 1", "Brightness 50"]);
+    expect(result.ok).toBe(false);
+    expect(result.talkStatus).toBe("closed");
+    expect(result.linesSent).toBe(0);
+    expect(result.bytesSent).toBe(Buffer.byteLength("Echo 1\r\n", "ascii"));
+    expect(result.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 1"]);
+  });
+
   it("authenticates before command sends and redacts password replies", async () => {
     const sent: string[] = [];
     const result = await sendTalkTcpCommands({
