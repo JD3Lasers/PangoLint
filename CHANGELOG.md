@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.5] - 2026-05-21
+
+### Changed
+
+- Publish the VS Code extension under the JD3 Lasers LLC Marketplace publisher
+  identity and refresh install examples for `jd3lasersllc.pangolint`.
+
 ## [0.7.4] - 2026-05-21
 
 ### Fixed
@@ -227,7 +234,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...HEAD
+[0.7.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...v0.7.5
 [0.7.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.3...v0.7.4
 [0.7.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.2...v0.7.3
 [0.7.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.1...v0.7.2

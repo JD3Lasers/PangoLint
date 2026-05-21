@@ -63,7 +63,7 @@ coding agents.
    ```bash
    npm ci
    npm run package:vsix
-   code --install-extension pangolint-0.6.0.vsix --force
+   code --install-extension pangolint-0.7.5.vsix --force
    ```
 
 2. Open any `.BeyondCode` file. Syntax highlighting, diagnostics,
@@ -177,7 +177,7 @@ Run **Format Document** (`Shift+Alt+F`) or wire format-on-save:
 // .vscode/settings.json
 {
   "[pangoscript]": {
-    "editor.defaultFormatter": "jd3.pangolint",
+    "editor.defaultFormatter": "jd3lasersllc.pangolint",
     "editor.formatOnSave": true
   }
 }
@@ -463,7 +463,7 @@ need the MCP server.
 Install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.6.0.tgz
+npm install -g ./pangolint-mcp-0.7.5.tgz
 which pangolint-mcp
 ```
 
@@ -471,7 +471,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.6.0.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.5.tgz
 which pangolint-mcp
 ```
 

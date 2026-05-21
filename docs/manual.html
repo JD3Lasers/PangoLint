@@ -894,7 +894,7 @@
       <li>Install the VSIX:
         <pre data-lang="bash"><code>npm ci
 npm run package:vsix
-code --install-extension pangolint-0.6.0.vsix --force</code></pre>
+code --install-extension pangolint-0.7.5.vsix --force</code></pre>
       </li>
       <li>Open any <code>.BeyondCode</code> file. Syntax highlighting,
       diagnostics, completions, and the activity-bar sidebar light up
@@ -1069,7 +1069,7 @@ code --install-extension pangolint-0.6.0.vsix --force</code></pre>
     <pre data-lang="jsonc"><code>// .vscode/settings.json
 {
   "[pangoscript]": {
-    "editor.defaultFormatter": "jd3.pangolint",
+    "editor.defaultFormatter": "jd3lasersllc.pangolint",
     "editor.formatOnSave": true
   }
 }</code></pre>
@@ -1490,13 +1490,13 @@ code --install-extension pangolint-0.6.0.vsix --force</code></pre>
     <h3 id="install-configure">Install &amp; configure</h3>
     <p>Install the <code>pangolint-mcp</code> tarball attached to a
     GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.6.0.tgz
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.5.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.6.0.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.5.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
