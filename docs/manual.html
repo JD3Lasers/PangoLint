@@ -891,10 +891,8 @@
     </figure>
 
     <ol>
-      <li>Install the VSIX:
-        <pre data-lang="bash"><code>npm ci
-npm run package:vsix
-code --install-extension pangolint-0.7.5.vsix --force</code></pre>
+      <li>Install the VS Code extension from the Marketplace:
+    <pre data-lang="bash"><code>code --install-extension jd3lasersllc.pangolint</code></pre>
       </li>
       <li>Open any <code>.BeyondCode</code> file. Syntax highlighting,
       diagnostics, completions, and the activity-bar sidebar light up
@@ -1488,15 +1486,18 @@ code --install-extension pangolint-0.7.5.vsix --force</code></pre>
     don't need the MCP server.</p>
 
     <h3 id="install-configure">Install &amp; configure</h3>
-    <p>Install the <code>pangolint-mcp</code> tarball attached to a
-    GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.5.tgz
+    <p>Install the published package from npm:</p>
+    <pre data-lang="bash"><code>npm install -g pangolint-mcp
+which pangolint-mcp</code></pre>
+    <p>Or install the <code>pangolint-mcp</code> tarball attached to a
+      GitHub Release:</p>
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.7.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.5.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.7.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>

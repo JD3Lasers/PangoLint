@@ -1,8 +1,9 @@
 # PangoLint release checklist
 
 Run through this list before publishing a new release artifact set. The default
-path is a GitHub Release with VSIX, standalone MCP tarball, and checksums. npm
-and VS Code Marketplace publishing are separate protected phases.
+path is a GitHub Release with VSIX, standalone MCP tarball, and checksums.
+Publishing the GitHub Release triggers the npm and VS Code Marketplace
+publishing workflows.
 
 Open a release issue before broad readiness work such as regression-script
 promotion, dependency audit cleanup, MCP package readiness, or manual runtime
@@ -155,18 +156,21 @@ smoke checks.
   npm run workflow:watch-release -- --tag v<version> --once
   ```
 
-- [ ] Review the draft release notes and publish the release when ready.
-- [ ] Remember that GitHub Release assets are a manual installation channel
-  only. They do not provide automatic VS Code or npm updates.
+- [ ] Review the draft release notes and publish the release when ready. This
+  triggers the npm and Marketplace publishing workflows for the same tag.
+- [ ] Remember that GitHub Release assets are a manual fallback channel. The
+  Marketplace and npm registry are the auto-update install channels.
 
 ## 7. Registry publishes
 
-- [ ] Publish `pangolint-mcp` through the `Publish MCP to npm` workflow after
-  the GitHub Release is published. The npm package trusted publisher must
-  reference `JD3Lasers/PangoLint` and `.github/workflows/npm-publish.yml`.
+- [ ] Confirm the `Publish MCP to npm` workflow succeeded after the GitHub
+  Release was published. The npm package trusted publisher must reference
+  `JD3Lasers/PangoLint` and `.github/workflows/npm-publish.yml`.
 
   ```bash
-  gh workflow run npm-publish.yml -f tag=v<version>
+  gh run list --workflow npm-publish.yml --event release --limit 20 \
+    --json headBranch,status,conclusion,url \
+    --jq '.[] | select(.headBranch == "v<version>")'
   ```
 
 - [ ] Confirm npm shows the new version:
@@ -175,12 +179,22 @@ smoke checks.
   npm view pangolint-mcp@<version> version
   ```
 
-- [ ] Marketplace publish only after Azure DevOps / Visual Studio Marketplace
-  publisher setup is complete and public-facing listing content has been
-  reviewed:
+- [ ] Confirm the `Publish VSIX to Marketplace` workflow succeeded after the
+  GitHub Release was published. GitHub Actions secret `VSCE_PAT` must contain a
+  Marketplace `Manage` PAT for publisher `jd3lasersllc`.
 
   ```bash
-  npx vsce publish --packagePath pangolint-<version>.vsix
+  gh run list --workflow marketplace-publish.yml --event release --limit 20 \
+    --json headBranch,status,conclusion,url \
+    --jq '.[] | select(.headBranch == "v<version>")'
+  ```
+
+- [ ] If either registry workflow needs a retry after fixing setup, dispatch
+  the matching workflow manually:
+
+  ```bash
+  gh workflow run npm-publish.yml -f tag=v<version>
+  gh workflow run marketplace-publish.yml -f tag=v<version>
   ```
 
 ## 8. Post-publish

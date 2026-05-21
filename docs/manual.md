@@ -58,12 +58,10 @@ coding agents.
 
 ## Quick start
 
-1. Install the VSIX:
+1. Install the VS Code extension from the Marketplace:
 
    ```bash
-   npm ci
-   npm run package:vsix
-   code --install-extension pangolint-0.7.5.vsix --force
+   code --install-extension jd3lasersllc.pangolint
    ```
 
 2. Open any `.BeyondCode` file. Syntax highlighting, diagnostics,
@@ -460,10 +458,17 @@ need the MCP server.
 
 ### Install & configure
 
-Install the `pangolint-mcp` tarball attached to a GitHub Release:
+Install the published package from npm:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.5.tgz
+npm install -g pangolint-mcp
+which pangolint-mcp
+```
+
+Or install the `pangolint-mcp` tarball attached to a GitHub Release:
+
+```bash
+npm install -g ./pangolint-mcp-0.7.7.tgz
 which pangolint-mcp
 ```
 
@@ -471,7 +476,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.5.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.7.tgz
 which pangolint-mcp
 ```
 

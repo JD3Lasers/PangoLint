@@ -23,10 +23,17 @@ fast feedback. Live-show control is out of scope.
 
 ## Install
 
-Install the `pangolint-mcp` tarball attached to a GitHub Release:
+Install the published package from npm:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.6.tgz
+npm install -g pangolint-mcp
+which pangolint-mcp   # confirm the binary is on PATH
+```
+
+Or install the `pangolint-mcp` tarball attached to a GitHub Release:
+
+```bash
+npm install -g ./pangolint-mcp-0.7.7.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -36,14 +43,8 @@ checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.6.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.7.tgz
 which pangolint-mcp   # confirm the binary is on PATH
-```
-
-Or install the published package from npm:
-
-```bash
-npm install -g pangolint-mcp
 ```
 
 The package ships a stdio MCP server. Logging is stderr-only; stdout
