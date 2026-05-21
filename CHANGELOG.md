@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.7] - 2026-05-21
+
+### Changed
+
+- Document Marketplace and npm as the primary install channels and add the
+  GitHub Actions workflow for VS Code Marketplace publishing.
+
 ## [0.7.6] - 2026-05-21
 
 ### Changed
@@ -241,7 +248,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...HEAD
+[0.7.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.7
 [0.7.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...v0.7.6
 [0.7.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...v0.7.5
 [0.7.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.3...v0.7.4

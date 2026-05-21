@@ -22,12 +22,28 @@ Conservative linting, formatting, and BEYOND runtime readback checks for Pangoli
 
 ## Install
 
-Install PangoLint from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jd3lasersllc.pangolint), from a [GitHub Release VSIX](https://github.com/JD3Lasers/PangoLint/releases/latest), or build one locally:
+Install the VS Code extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jd3lasersllc.pangolint):
+
+```bash
+code --install-extension jd3lasersllc.pangolint
+```
+
+Marketplace installs receive normal VS Code extension updates. To install the
+MCP server for AI coding agents:
+
+```bash
+npm install -g pangolint-mcp
+pangolint-mcp --help
+```
+
+[GitHub Release assets](https://github.com/JD3Lasers/PangoLint/releases/latest)
+remain available as manual fallback downloads. To build and install a local
+VSIX from source:
 
 ```bash
 npm ci
 npm run package:vsix
-code --install-extension pangolint-0.7.5.vsix --force
+code --install-extension pangolint-<version>.vsix --force
 ```
 
 Reload the VS Code window after installing. To uninstall:
