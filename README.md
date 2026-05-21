@@ -22,18 +22,18 @@ Conservative linting, formatting, and BEYOND runtime readback checks for Pangoli
 
 ## Install
 
-PangoLint is not on the VS Code Marketplace yet. Install from a [GitHub Release VSIX](https://github.com/JD3Lasers/PangoLint/releases/latest), or build one locally:
+Install PangoLint from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jd3lasersllc.pangolint), from a [GitHub Release VSIX](https://github.com/JD3Lasers/PangoLint/releases/latest), or build one locally:
 
 ```bash
 npm ci
 npm run package:vsix
-code --install-extension pangolint-0.5.0.vsix --force
+code --install-extension pangolint-0.7.5.vsix --force
 ```
 
 Reload the VS Code window after installing. To uninstall:
 
 ```bash
-code --uninstall-extension jd3.pangolint
+code --uninstall-extension jd3lasersllc.pangolint
 ```
 
 ## BEYOND runtime setup (optional)
@@ -58,7 +58,7 @@ Then run **PangoLint: Test BEYOND Connection** from the Command Palette. The con
 // .vscode/settings.json
 {
   "[pangoscript]": {
-    "editor.defaultFormatter": "jd3.pangolint",
+    "editor.defaultFormatter": "jd3lasersllc.pangolint",
     "editor.formatOnSave": true
   }
 }

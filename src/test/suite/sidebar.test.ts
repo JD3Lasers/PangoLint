@@ -1,7 +1,8 @@
 import * as assert from "node:assert";
 import * as vscode from "vscode";
 
-const EXTENSION_ID = "jd3.pangolint";
+const extensionPackage = require("../../../package.json") as { name: string; publisher: string };
+const EXTENSION_ID = `${extensionPackage.publisher}.${extensionPackage.name}`;
 
 const EXPECTED_SIDEBAR_COMMANDS = [
   "pangolint.sidebar.clearFilter",
