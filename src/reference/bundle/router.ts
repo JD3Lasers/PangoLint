@@ -10,7 +10,13 @@
 // State writes back to the URL with the History API so browser back/
 // forward navigation can revisit prior reference selections.
 
-import { getVisibleDetailSelection, type ObjectSection, type ReferenceState, type ViewMode } from "./state";
+import {
+  getVisibleDetailSelection,
+  type ObjectSection,
+  type ReferenceState,
+  type StateChange,
+  type ViewMode,
+} from "./state";
 
 interface ParsedHash {
   view?: ViewMode;
@@ -171,9 +177,9 @@ export function installRouter(state: ReferenceState): void {
     writeHashFromState("replace");
   };
 
-  const syncHashFromState = (): void => {
+  const syncHashFromState = (change: StateChange): void => {
     if (applyingHash) return;
-    writeHashFromState("push");
+    writeHashFromState(change === "filter" ? "replace" : "push");
   };
 
   // State -> URL

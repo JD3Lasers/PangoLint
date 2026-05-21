@@ -881,7 +881,8 @@ describe("verifyCommandWrite", () => {
             ...options,
             openConnection: async () => ({
               greeting: "Welcome to BEYOND!",
-              sendLine: async (line) => {
+              sendLine: async (line, _timeoutMs, onLineWritten) => {
+                onLineWritten?.();
                 if (line === "Echo 1") return ["OK"];
                 if (line === "Zoom 50") {
                   throw new TalkTcpTimeoutError("Talk TCP timed out waiting for BEYOND status");
@@ -931,6 +932,62 @@ describe("verifyCommandWrite", () => {
     expect(result.restored).toBe(true);
     expect(tcpSends).toHaveLength(2);
     expect(tcpSends[1].commands).toEqual(["Zoom 100"]);
+  });
+
+  it("does not restore when a TCP write command fails before delivery", async () => {
+    const tcpSends: SendTalkTcpCommandsOptions[] = [];
+    const close = vi.fn();
+    const transport: ReadbackTransport = {
+      sendTalk: async () => {
+        throw new Error("UDP should not be used");
+      },
+      sendTalkTcp: async (options) => {
+        tcpSends.push(options);
+        return sendTalkTcpCommands({
+          ...options,
+          openConnection: async () => ({
+            greeting: "Welcome to BEYOND!",
+            sendLine: async (line, _timeoutMs, onLineWritten) => {
+              if (line === "Echo 1") {
+                onLineWritten?.();
+                return ["OK"];
+              }
+              if (line === "Zoom 50") {
+                throw new Error("write EPIPE");
+              }
+              throw new Error(`unexpected line ${line}`);
+            },
+            close: () => {},
+          }),
+        });
+      },
+      listenForOsc: () => ({
+        ready: Promise.resolve(),
+        message: new Promise(() => {}),
+        close,
+      }),
+    };
+
+    const result = await verifyCommandWrite(
+      {
+        ...baseOptions,
+        command: "Zoom 50",
+        readbackPath: "Master.Zoom",
+        expectedValue: 50,
+        restoreCommand: "Zoom 100",
+        talkTransport: "tcp",
+        talkTcpHost: "127.0.0.1",
+        talkTcpPort: 16063,
+      },
+      transport,
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.talkStatus).toBe("closed");
+    expect(result.linesSent).toBe(0);
+    expect(result.restored).toBe(false);
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(tcpSends).toHaveLength(1);
   });
 
   it("does not restore when a UDP write verification send fails before any datagram is sent", async () => {

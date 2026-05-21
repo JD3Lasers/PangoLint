@@ -244,6 +244,35 @@ describe("installRouter", () => {
     expect(browser.location.hash).toBe("#cmd=BlackOut");
   });
 
+  it("replaces browser history entries for filter changes", () => {
+    const browser = installFakeBrowserLocation();
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+
+    state.setQuery("b");
+    state.setQuery("bl");
+    state.setCategory("General");
+
+    expect(browser.pushState).not.toHaveBeenCalled();
+    expect(browser.replaceState).toHaveBeenLastCalledWith(null, "", "/pangoscript-reference.html#q=bl&cat=General");
+    expect(browser.location.hash).toBe("#q=bl&cat=General");
+  });
+
+  it("pushes a browser history entry when selecting from a filtered list", () => {
+    const browser = installFakeBrowserLocation();
+    const state = new ReferenceState(commandCatalog());
+    installRouter(state);
+    state.setQuery("black");
+    browser.pushState.mockClear();
+    browser.replaceState.mockClear();
+
+    state.select("BlackOut");
+
+    expect(browser.pushState).toHaveBeenCalledWith(null, "", "/pangoscript-reference.html#q=black&cmd=BlackOut");
+    expect(browser.replaceState).not.toHaveBeenCalled();
+    expect(browser.location.hash).toBe("#q=black&cmd=BlackOut");
+  });
+
   it("applies browser back navigation from popstate without writing a new history entry", () => {
     const browser = installFakeBrowserLocation("#cmd=BlackOut");
     const state = new ReferenceState(commandCatalog());
