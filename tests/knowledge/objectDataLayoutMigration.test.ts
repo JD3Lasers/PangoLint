@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { findPublicArtifactLeaks } from "../../scripts/publicArtifactPolicy";
+import { findPublicArtifactLeaks } from "../../scripts/package/publicArtifactPolicy";
 import { readJson } from "./readKnowledgeTestData";
 
 describe("checked-in Object Tree data layout migration", () => {
@@ -201,7 +201,10 @@ describe("checked-in Object Tree data layout migration", () => {
   });
 
   it("keeps the public artifact leak policy free of private artifact classes", () => {
-    const policySource = readFileSync(path.join(process.cwd(), "scripts", "publicArtifactPolicy.ts"), "utf8");
+    const policySource = readFileSync(
+      path.join(process.cwd(), "scripts", "package", "publicArtifactPolicy.ts"),
+      "utf8",
+    );
 
     expect(findPublicArtifactLeaks(policySource)).toEqual([]);
   });

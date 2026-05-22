@@ -77,7 +77,7 @@ file is truly a package-level barrel with no behavior.
   `generateKnowledgeBase.ts`, `verifyPackageContents.ts`.
 - `scripts/` is public-safe maintainer tooling only: generators, corpus
   linting, packaging checks, and deterministic data-copy helpers.
-- `scripts/objectPropertyIndex/` owns the Object Tree property index generator
+- `scripts/objectTree/propertyIndex/` owns the Object Tree property index generator
   modules. Keep entry construction, source fact loading, metadata overlays,
   metadata validation, path logic, search text, and generator data contracts in
   named files under that folder.

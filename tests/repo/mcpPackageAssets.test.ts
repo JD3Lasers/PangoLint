@@ -4,7 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const repoRoot = process.cwd();
-const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
+const packageSurfacePolicy = require("../../scripts/package/packageSurfacePolicy.cjs") as {
   allowedMcpDataPaths: Set<string>;
   findForbiddenMcpPackagePathLabels: (relativePath: string) => string[];
   mcpAssetDirectories: string[];
@@ -13,7 +13,7 @@ const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") a
 
 describe("MCP package asset copier", () => {
   it("includes reference docs needed by script-writing agents", () => {
-    const script = readFileSync(path.join(repoRoot, "scripts", "copyMcpData.cjs"), "utf8");
+    const script = readFileSync(path.join(repoRoot, "scripts", "package", "copyMcpData.cjs"), "utf8");
 
     expect(packageSurfacePolicy.mcpAssetFiles).toContain("data/pangoscript/command-property-coverage.json");
     expect(packageSurfacePolicy.mcpAssetFiles).toContain(
@@ -61,7 +61,7 @@ describe("MCP package asset copier", () => {
 
   it("verifies the MCP tarball data surface after assets are copied", () => {
     const packageJson = readFileSync(path.join(repoRoot, "mcp", "package.json"), "utf8");
-    const verifier = readFileSync(path.join(repoRoot, "scripts", "verifyMcpPackageContents.cjs"), "utf8");
+    const verifier = readFileSync(path.join(repoRoot, "scripts", "package", "verifyMcpPackageContents.cjs"), "utf8");
 
     expect(packageJson).toContain("verifyMcpPackageContents.cjs");
     expect(verifier).toContain("allowedMcpDataPaths");

@@ -3,10 +3,10 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const repoRoot = process.cwd();
-const { compareVersions } = require("../../scripts/checkPrVersionBump.cjs") as {
+const { compareVersions } = require("../../scripts/release/checkPrVersionBump.cjs") as {
   compareVersions: (left: string, right: string) => number;
 };
-const { isStrictSemver } = require("../../scripts/releaseSemver.cjs") as {
+const { isStrictSemver } = require("../../scripts/release/releaseSemver.cjs") as {
   isStrictSemver: (version: string) => boolean;
 };
 const githubRepoEnv = "GH_REPO: $" + "{{ github.repository }}";
@@ -115,9 +115,9 @@ describe("release workflow", () => {
 
     expect(packageJson.scripts?.["package:mcp"]).toContain("npm --workspace mcp run package:tarball");
     expect(packageJson.scripts?.["check:release"]).toBe("npm run check:public && npm run check:mcp");
-    expect(packageJson.scripts?.["release:version"]).toContain("scripts/releaseVersion.cjs");
-    expect(packageJson.scripts?.["release:preflight"]).toContain("scripts/checkReleasePreflight.cjs");
-    expect(packageJson.scripts?.["check:pr-version"]).toContain("scripts/checkPrVersionBump.cjs");
+    expect(packageJson.scripts?.["release:version"]).toContain("scripts/release/releaseVersion.cjs");
+    expect(packageJson.scripts?.["release:preflight"]).toContain("scripts/release/checkReleasePreflight.cjs");
+    expect(packageJson.scripts?.["check:pr-version"]).toContain("scripts/release/checkPrVersionBump.cjs");
   });
 
   it("keeps the extension and standalone MCP artifact versions in lockstep", () => {

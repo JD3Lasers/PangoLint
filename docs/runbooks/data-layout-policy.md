@@ -54,7 +54,7 @@ No active files move in #519. Future move PRs must use this order:
 
 1. Add or update the replacement path.
 2. Move the active consumer to the replacement path.
-3. Update scripts, tests, docs, `.vscodeignore`, `scripts/copyMcpData.cjs`, and `scripts/verifyPackageContents.ts`.
+3. Update scripts, tests, docs, `.vscodeignore`, `scripts/package/copyMcpData.cjs`, and `scripts/package/verifyPackageContents.ts`.
 4. Run the validation commands named below.
 5. Only then remove the old file or folder.
 
@@ -103,7 +103,7 @@ npm run check
 
 - Control-reference package policy:
   `data/pangoscript/control-reference/package-policy.json`
-- VSIX package verifier: `scripts/verifyPackageContents.ts`
-- MCP asset copier: `scripts/copyMcpData.cjs`
+- VSIX package verifier: `scripts/package/verifyPackageContents.ts`
+- MCP asset copier: `scripts/package/copyMcpData.cjs`
 - MCP package asset test: `tests/mcpPackageAssets.test.ts`
 - Public package path policy test: `tests/publicPackagePolicy.test.ts`

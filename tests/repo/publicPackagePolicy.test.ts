@@ -3,12 +3,12 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 import { describe, expect, it } from "vitest";
-import { findPublicArtifactLeaks, findPublicArtifactPathLeaks } from "../../scripts/publicArtifactPolicy";
+import { findPublicArtifactLeaks, findPublicArtifactPathLeaks } from "../../scripts/package/publicArtifactPolicy";
 import { REFERENCE_SITE_PATH } from "../../src/extensionHost/packagePaths";
 import { BUNDLED_PANGOSCRIPT_DATA_PATHS } from "../../src/knowledge/bundledDataPaths";
 
 const repoRoot = process.cwd();
-const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
+const packageSurfacePolicy = require("../../scripts/package/packageSurfacePolicy.cjs") as {
   allowedMcpDataPaths: Set<string>;
   allowedMcpDataDirectoryPrefixes: string[];
   expectedVsixPackagePaths: string[];
@@ -102,16 +102,16 @@ describe("public package path policy", () => {
   });
 
   it("wires path policy into VSIX and MCP package verification paths", () => {
-    expect(readFile("scripts/verifyPackageContents.ts")).toContain("findPublicArtifactPathLeaks");
-    expect(readFile("scripts/verifyPackageContents.ts")).toContain("packageSurfacePolicy.cjs");
+    expect(readFile("scripts/package/verifyPackageContents.ts")).toContain("findPublicArtifactPathLeaks");
+    expect(readFile("scripts/package/verifyPackageContents.ts")).toContain("packageSurfacePolicy.cjs");
 
-    const copyMcpData = readFile("scripts/copyMcpData.cjs");
+    const copyMcpData = readFile("scripts/package/copyMcpData.cjs");
     expect(copyMcpData).toContain("assertApprovedMcpAssetPath");
     expect(copyMcpData).toContain("packageSurfacePolicy.cjs");
   });
 
   it("pins VSIX data packaging to the approved runtime and reference surface", () => {
-    const verifyPackageContents = readFile("scripts/verifyPackageContents.ts");
+    const verifyPackageContents = readFile("scripts/package/verifyPackageContents.ts");
     const vscodeignore = readFile(".vscodeignore");
 
     expect(verifyPackageContents).toContain("findForbiddenVsixPackagePathLabels");
@@ -139,8 +139,8 @@ describe("public package path policy", () => {
 
   it("pins MCP tarball data packaging to approved runtime and compact reference data", () => {
     const packageJson = readFile("mcp/package.json");
-    const copyMcpData = readFile("scripts/copyMcpData.cjs");
-    const verifyMcpPackageContents = readFile("scripts/verifyMcpPackageContents.cjs");
+    const copyMcpData = readFile("scripts/package/copyMcpData.cjs");
+    const verifyMcpPackageContents = readFile("scripts/package/verifyMcpPackageContents.cjs");
 
     expect(packageJson).toContain("verifyMcpPackageContents.cjs");
     expect(copyMcpData).toContain("assertApprovedMcpAssetPath");
@@ -175,7 +175,7 @@ describe("public package path policy", () => {
   });
 
   it("keeps build:knowledge usable when optional maintainer command exports are absent", () => {
-    const generateKnowledgeBase = readFile("scripts/generateKnowledgeBase.ts");
+    const generateKnowledgeBase = readFile("scripts/knowledge/generateKnowledgeBase.ts");
 
     expect(generateKnowledgeBase).toContain("data/pangoscript/commands.generated.json");
   });

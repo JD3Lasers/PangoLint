@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-const policy = require("../../scripts/packageSurfacePolicy.cjs") as {
+const policy = require("../../scripts/package/packageSurfacePolicy.cjs") as {
   allowedMcpDataPaths: Set<string>;
   expectedVsixPackagePaths: string[];
   forbiddenMcpDataPrefixes: Array<[string, string]>;
