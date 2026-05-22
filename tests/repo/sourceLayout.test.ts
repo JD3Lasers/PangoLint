@@ -226,10 +226,10 @@ const expectedKnowledgeDataTestFiles = [
   "objectDataLayoutMigration.test.ts",
   "objectPropertyClassificationData.test.ts",
   "objectReadbackMetadataData.test.ts",
-  "objectValueMetadataCueAndZoneData.test.ts",
-  "objectValueMetadataDeviceData.test.ts",
   "readKnowledgeTestData.ts",
 ];
+
+const expectedObjectValueMetadataTestFiles = ["cue-and-zone.test.ts", "device.test.ts"];
 
 const expectedKnowledgeFixtureFiles = ["objectMetadataPathGroups.ts"];
 
@@ -408,6 +408,7 @@ describe("test layout", () => {
 
   it("keeps large knowledge-data checks split by evidence area", () => {
     const knowledgePath = path.join(testsRoot, "knowledge");
+    const objectValueMetadataPath = path.join(knowledgePath, "object-value-metadata");
     const fixturePath = path.join(testsRoot, "fixtures", "knowledge");
 
     expect(
@@ -415,6 +416,9 @@ describe("test layout", () => {
         .filter((entry) => expectedKnowledgeDataTestFiles.includes(entry) || entry === "knowledgeBaseData.test.ts")
         .sort(),
     ).toEqual(expectedKnowledgeDataTestFiles);
+    expect(readdirSync(objectValueMetadataPath).sort()).toEqual(expectedObjectValueMetadataTestFiles);
+    expect(existsSync(path.join(knowledgePath, "objectValueMetadataCueAndZoneData.test.ts"))).toBe(false);
+    expect(existsSync(path.join(knowledgePath, "objectValueMetadataDeviceData.test.ts"))).toBe(false);
     expect(readdirSync(fixturePath).sort()).toEqual(expectedKnowledgeFixtureFiles);
     expect(existsSync(path.join(knowledgePath, "knowledgeBaseData.test.ts"))).toBe(false);
   });

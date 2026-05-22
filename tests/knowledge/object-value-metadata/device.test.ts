@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { issue338FxCellEffectControlPaths } from "../fixtures/knowledge/objectMetadataPathGroups";
+import { issue338FxCellEffectControlPaths } from "../../fixtures/knowledge/objectMetadataPathGroups";
 import {
   assertObjectPropertyReadbackMetadata,
   assertObjectPropertyValueMetadata,
@@ -9,7 +9,7 @@ import {
   type ObjectPropertyValueMetadata,
   readJson,
   readObjectPropertyRangeOverlayFiles,
-} from "./readKnowledgeTestData";
+} from "../readKnowledgeTestData";
 
 describe("checked-in Object Tree device value metadata data", () => {
   it("keeps object-property range overlay entries structurally valid", () => {

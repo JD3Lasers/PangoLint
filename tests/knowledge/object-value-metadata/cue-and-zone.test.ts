@@ -6,7 +6,7 @@ import {
   issue294WsSingleVariantStateDeferredPaths,
   issue294WsSingleVariantStatePaths,
   issue294WsStringControlPaths,
-} from "../fixtures/knowledge/objectMetadataPathGroups";
+} from "../../fixtures/knowledge/objectMetadataPathGroups";
 import {
   assertObjectPropertyReadbackMetadata,
   assertObjectPropertyValueMetadata,
@@ -14,7 +14,7 @@ import {
   type ObjectPropertyReadbackMetadata,
   type ObjectPropertyValueMetadata,
   readJson,
-} from "./readKnowledgeTestData";
+} from "../readKnowledgeTestData";
 
 describe("checked-in Object Tree cue and zone value metadata data", () => {
   it("ships issue 393 Live Control position alias ranges from routed command readback", () => {
