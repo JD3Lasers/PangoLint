@@ -25,7 +25,6 @@ const expectedLayout = {
     "catalogGaps.ts",
     "catalogLoader.ts",
     "categoryResolution.ts",
-    "cueProperties.ts",
     "expressionFunctions.ts",
     "knowledgeBase.ts",
     "mcpControlReference.ts",
@@ -77,7 +76,6 @@ const expectedSidebarSubfolders: Record<string, string[]> = {
   model: [
     "actions.ts",
     "catalog.ts",
-    "cueMenu.ts",
     "diagnostics.ts",
     "formatting.ts",
     "fxMenu.ts",
@@ -92,6 +90,16 @@ const expectedSidebarSubfolders: Record<string, string[]> = {
   "view/webview": ["commandsWebview.ts", "messages.ts", "objectsMessages.ts", "objectsWebview.ts"],
   "view/webview/bundle": ["detail.ts", "dom.ts", "filters.ts", "list.ts", "main.ts", "state.ts", "status.ts"],
   "view/webview/objects-bundle": ["main.ts"],
+};
+
+const expectedKnowledgeSubfolders: Record<string, string[]> = {
+  "cue-properties": [
+    "cueCommonProperties.ts",
+    "cuePropertyPaths.ts",
+    "cuePropertyTypes.ts",
+    "cueTypes.ts",
+    "parametricImageShapes.ts",
+  ],
 };
 
 const expectedLanguageSubfolders: Record<string, string[]> = {
@@ -317,6 +325,17 @@ describe("source layout", () => {
       const subfolderPath = path.join(referencePath, subfolder);
       expect(existsSync(subfolderPath), `reference/${subfolder}/`).toBe(true);
       expect(readdirSync(subfolderPath).sort()).toEqual(files);
+    }
+
+    const knowledgePath = path.join(sourceRoot, "knowledge");
+    for (const [subfolder, files] of Object.entries(expectedKnowledgeSubfolders)) {
+      const subfolderPath = path.join(knowledgePath, subfolder);
+      expect(existsSync(subfolderPath), `knowledge/${subfolder}/`).toBe(true);
+      expect(
+        readdirSync(subfolderPath)
+          .filter((entry) => entry.endsWith(".ts"))
+          .sort(),
+      ).toEqual(files);
     }
 
     const runtimePath = path.join(sourceRoot, "runtime");

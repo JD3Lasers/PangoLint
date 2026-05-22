@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.24] - 2026-05-22
+
+### Changed
+
+- Split cue property knowledge into focused modules for common properties,
+  cue types, Parametric Image shapes, shared types, and Object Tree path
+  builders.
+- Remove the old root `src/knowledge/cueProperties.ts` file and the sidebar
+  cue-menu re-export alias so consumers import concrete knowledge modules.
+
 ## [0.7.23] - 2026-05-22
 
 ### Changed
@@ -297,7 +307,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.23...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.24...HEAD
+[0.7.24]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.23...v0.7.24
 [0.7.23]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...v0.7.23
 [0.7.22]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.21...v0.7.22
 [0.7.21]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.20...v0.7.21

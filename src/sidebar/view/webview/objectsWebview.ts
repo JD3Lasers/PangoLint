@@ -9,10 +9,11 @@ import {
   SIDEBAR_OBJECTS_CSS_PATH,
   SIDEBAR_OBJECTS_SCRIPT_PATH,
 } from "../../../extensionHost/packagePaths";
+import { getCueShapeProperties, getCueTypeProperties } from "../../../knowledge/cue-properties/cuePropertyPaths";
+import { CUE_TYPES } from "../../../knowledge/cue-properties/cueTypes";
 import type { PangoKnowledgeBase } from "../../../knowledge/knowledgeBase";
 import { buildObjectPropertyCard, type ObjectPropertyCard } from "../../../knowledge/objectPropertyCards";
 import type { ObjectPropertyEntry, ObjectPropertyIndex } from "../../../knowledge/objectPropertyIndex";
-import { CUE_TYPES, getCueShapeProperties, getCueTypeProperties } from "../../model/cueMenu";
 import { FX_MENU, type FxPropertyGroup, filterFxEffectProperties, fxPathToRelative } from "../../model/fxMenu";
 import { getObjectDetail, getObjectTree, getPropertyPaths, type SidebarObjects } from "../../model/objects";
 import { SIDEBAR_COMMAND_IDS } from "../../model/types";
