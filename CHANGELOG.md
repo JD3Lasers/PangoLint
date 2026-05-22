@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.18] - 2026-05-22
+
+### Changed
+
+- Add a knip unused-code audit command for files, exports, types, and package
+  dependencies.
+- Document the repo housekeeping audit commands and keep unused export findings
+  as warnings until the first cleanup pass is triaged.
+
 ## [0.7.17] - 2026-05-22
 
 ### Changed

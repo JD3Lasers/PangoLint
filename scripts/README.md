@@ -14,3 +14,13 @@ are easy to find.
 - `release/`: release version updates, release preflight checks, PR version
   policy, and release asset watching.
 - `workflow/`: issue branch and PR readiness helpers.
+
+Repo housekeeping commands:
+
+- `npm run audit:imports`: enforce source import boundaries with
+  dependency-cruiser.
+- `npm run graph:imports`: emit a Mermaid import graph from dependency-cruiser.
+- `npm run audit:unused`: report unused files, exports, and package
+  dependencies with knip. Unused export and type findings are warnings while
+  the first cleanup issues are triaged. This audit is intentionally separate
+  from `npm run check` until its signal stays stable across cleanup work.
