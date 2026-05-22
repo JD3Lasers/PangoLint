@@ -1,0 +1,39 @@
+{
+  "$schema": "https://unpkg.com/knip@6.14.1/schema.json",
+  "treatConfigHintsAsErrors": true,
+  "rules": {
+    "exports": "warn",
+    "types": "warn",
+    "nsExports": "warn",
+    "nsTypes": "warn",
+    "enumMembers": "warn",
+    "namespaceMembers": "warn"
+  },
+  "workspaces": {
+    ".": {
+      "entry": [
+        ".vscode-test.mjs",
+        "src/test/runTests.ts",
+        "src/test/suite/**/*.ts",
+        "src/reference/bundle/main.ts",
+        "tests/**/*.test.ts",
+        ".github/workflows/*.yml"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "scripts/**/*.ts",
+        "scripts/**/*.cjs",
+        "tests/**/*.ts"
+      ]
+    },
+    "mcp": {
+      "entry": [
+        "tests/**/*.test.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "tests/**/*.ts"
+      ]
+    }
+  }
+}
