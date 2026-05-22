@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.17] - 2026-05-22
+
+### Changed
+
+- Organize repository scripts into build, knowledge, Object Tree, package,
+  release, and workflow task-area folders.
+- Keep public npm script names stable while updating script paths and repo
+  layout policy coverage.
+
 ## [0.7.16] - 2026-05-22
 
 ### Changed
@@ -337,7 +346,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.16...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.17...HEAD
+[0.7.17]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.16...v0.7.17
 [0.7.16]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...v0.7.16
 [0.7.15]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...v0.7.15
 [0.7.14]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.13...v0.7.14

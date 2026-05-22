@@ -48,7 +48,7 @@ export interface McpKnowledgeBase {
  *
  * - **Published npm tarball**: `node_modules/pangolint-mcp/dist/server.js`
  *   → `data/` and `docs/` live one level up (alongside `dist/`), copied
- *   in by `scripts/copyMcpData.cjs` at publish time.
+ *   in by `scripts/package/copyMcpData.cjs` at publish time.
  * - **Monorepo dev**: `mcp/src/knowledgeBase.ts` (vitest) or
  *   `mcp/dist/server.js` → `data/` and `docs/` live at the repo root.
  *

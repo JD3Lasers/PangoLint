@@ -19,8 +19,8 @@ describe("data layout policy", () => {
       "Retirement Rules",
       "Validation Commands",
       "data/pangoscript/control-reference/package-policy.json",
-      "scripts/copyMcpData.cjs",
-      "scripts/verifyPackageContents.ts",
+      "scripts/package/copyMcpData.cjs",
+      "scripts/package/verifyPackageContents.ts",
       "mcp/data/",
     ]) {
       expect(plan, text).toContain(text);

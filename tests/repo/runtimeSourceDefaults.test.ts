@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { findPublicArtifactLeaks } from "../../scripts/publicArtifactPolicy";
+import { findPublicArtifactLeaks } from "../../scripts/package/publicArtifactPolicy";
 
 const repoRoot = process.cwd();
 const shippedRoots = [path.join(repoRoot, "src"), path.join(repoRoot, "package.json")];

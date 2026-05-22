@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 const repoRoot = process.cwd();
 
-const startIssueWork = require("../../scripts/startIssueWork.cjs") as {
+const startIssueWork = require("../../scripts/workflow/startIssueWork.cjs") as {
   branchNameForIssue: (issueNumber: string | number, title: string) => string;
   commandOutputText: (output: string | null) => string;
   parseArgs: (argv: string[]) => { issue?: string; title?: string; bodyFile?: string; labels: string[]; base: string };
@@ -12,7 +12,7 @@ const startIssueWork = require("../../scripts/startIssueWork.cjs") as {
   slugifyTitle: (title: string) => string;
 };
 
-const checkPullRequestReady = require("../../scripts/checkPullRequestReady.cjs") as {
+const checkPullRequestReady = require("../../scripts/workflow/checkPullRequestReady.cjs") as {
   activeUnresolvedThreads: (
     reviewThreads: Array<{ isResolved: boolean; isOutdated: boolean }>,
   ) => Array<{ isResolved: boolean; isOutdated: boolean }>;
@@ -58,7 +58,7 @@ const checkPullRequestReady = require("../../scripts/checkPullRequestReady.cjs")
   responseMatchesHead: (entry: { body?: string; commitOid?: string; kind?: string }, head: string) => boolean;
 };
 
-const watchReleaseArtifacts = require("../../scripts/watchReleaseArtifacts.cjs") as {
+const watchReleaseArtifacts = require("../../scripts/release/watchReleaseArtifacts.cjs") as {
   expectedReleaseAssetNames: (version: string) => string[];
   missingReleaseAssets: (release: { assets?: Array<{ name: string }> }, version: string) => string[];
   normalizeReleaseTag: (tag: string) => { tag: string; version: string };
@@ -300,9 +300,9 @@ describe("maintainer workflow scripts", () => {
     };
     const runbook = readFileSync(path.join(repoRoot, "docs", "runbooks", "maintainer-workflow.md"), "utf8");
 
-    expect(packageJson.scripts?.["workflow:start-issue"]).toBe("node scripts/startIssueWork.cjs");
-    expect(packageJson.scripts?.["workflow:check-pr"]).toBe("node scripts/checkPullRequestReady.cjs");
-    expect(packageJson.scripts?.["workflow:watch-release"]).toBe("node scripts/watchReleaseArtifacts.cjs");
+    expect(packageJson.scripts?.["workflow:start-issue"]).toBe("node scripts/workflow/startIssueWork.cjs");
+    expect(packageJson.scripts?.["workflow:check-pr"]).toBe("node scripts/workflow/checkPullRequestReady.cjs");
+    expect(packageJson.scripts?.["workflow:watch-release"]).toBe("node scripts/release/watchReleaseArtifacts.cjs");
     expect(runbook).toContain("npm run workflow:start-issue");
     expect(runbook).toContain("npm run workflow:check-pr");
     expect(runbook).toContain("npm run workflow:watch-release");

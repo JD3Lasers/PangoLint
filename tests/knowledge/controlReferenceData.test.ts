@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 import { describe, expect, it } from "vitest";
-import { findPublicArtifactLeaks } from "../../scripts/publicArtifactPolicy";
+import { findPublicArtifactLeaks } from "../../scripts/package/publicArtifactPolicy";
 
 const dataRoot = path.join(process.cwd(), "data", "pangoscript", "control-reference");
 

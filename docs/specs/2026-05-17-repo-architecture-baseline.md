@@ -102,7 +102,7 @@ governing spec says otherwise.
 | `mcp/src/resources/` | MCP resources | Documentation and reference resources exposed to clients | Resources should use approved package data and docs. |
 | `mcp/src/knowledgeBase.ts` | MCP data loading | Loads command, Object Tree, and control-reference package data | Must load approved package surfaces, not full maintainer-only trees. |
 | `mcp/tests/` | MCP workspace tests | Tool behavior, package assets, config, resources, and response-size tests | Tests must protect package surface and response caps. |
-| `mcp/data/`, `mcp/docs/`, `mcp/LICENSE` | Generated tarball staging | Copied from root source by `scripts/copyMcpData.cjs` | Ignored. Never edit directly. |
+| `mcp/data/`, `mcp/docs/`, `mcp/LICENSE` | Generated tarball staging | Copied from root source by `scripts/package/copyMcpData.cjs` | Ignored. Never edit directly. |
 | `mcp/dist/` | Generated bundled server | Built by MCP compile script | Ignored build output. |
 
 ## PangoScript Data Map
@@ -133,13 +133,13 @@ The long-term data model should keep these roles separate:
 | `docs/references/beyond/pangoscript/` | Public-safe PangoScript reference material, working examples, command-reference markdown, and regression corpus | Keep BEYOND-facing examples public-safe and preserve line-ending rules for `.BeyondCode` files. |
 | `docs/references/beyond/osc/` | OSC reference material | Use this for public-safe OSC facts and source notes. |
 | `docs/references/diagnostics/` | Diagnostic rule documentation | Diagnostic docs should explain why a warning or hint exists. |
-| `scripts/generateKnowledgeBase.ts` | Command knowledge generator | Reads command source and overlay data, writes generated command files. |
-| `scripts/generateObjectPropertyIndex.ts` | Object Tree property index generator | Reads source facts, range, readback, and behavior metadata to write `object-tree/runtime-indexes/object-property-index.json`. |
-| `scripts/generateMcpControlReference.ts` | MCP control-reference projection generator | Reads tracked control-reference source and writes compact MCP projection data. |
-| `scripts/buildReferenceSite.ts` | Offline reference-site builder | Writes packaged HTML under `media/reference/`. |
-| `scripts/packageSurfacePolicy.cjs` | Public package path policy | Shared VSIX and MCP package path lists plus maintainer-only path checks. |
-| `scripts/copyMcpData.cjs` | MCP asset copier | Copies approved root data and docs into ignored MCP package staging. |
-| `scripts/verifyPackageContents.ts` | VSIX package verifier | Fails when required package files are missing or unapproved data surfaces ship. |
+| `scripts/knowledge/generateKnowledgeBase.ts` | Command knowledge generator | Reads command source and overlay data, writes generated command files. |
+| `scripts/objectTree/generateObjectPropertyIndex.ts` | Object Tree property index generator | Reads source facts, range, readback, and behavior metadata to write `object-tree/runtime-indexes/object-property-index.json`. |
+| `scripts/objectTree/generateMcpControlReference.ts` | MCP control-reference projection generator | Reads tracked control-reference source and writes compact MCP projection data. |
+| `scripts/build/buildReferenceSite.ts` | Offline reference-site builder | Writes packaged HTML under `media/reference/`. |
+| `scripts/package/packageSurfacePolicy.cjs` | Public package path policy | Shared VSIX and MCP package path lists plus maintainer-only path checks. |
+| `scripts/package/copyMcpData.cjs` | MCP asset copier | Copies approved root data and docs into ignored MCP package staging. |
+| `scripts/package/verifyPackageContents.ts` | VSIX package verifier | Fails when required package files are missing or unapproved data surfaces ship. |
 | `tests/knowledgeBaseData.test.ts` | Broad checked-in data contract | Protects many Object Tree metadata and evidence paths until a cleanup PR replaces them. |
 | `tests/publicPackagePolicy.test.ts`, `tests/mcpPackageAssets.test.ts` | Package-surface policy tests | Protect VSIX and MCP package boundaries. |
 | `media/reference/` | Generated offline reference site | Generated package asset. Do not hand-edit. |

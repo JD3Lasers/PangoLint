@@ -33,7 +33,7 @@ interface ParityManifest {
 
 const repoRoot = path.resolve(__dirname, "..", "..");
 const manifestPath = path.join(repoRoot, "docs", "references", "mcp-knowledge-parity.json");
-const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
+const packageSurfacePolicy = require("../../scripts/package/packageSurfacePolicy.cjs") as {
   mcpAssetDirectories: string[];
   mcpAssetFiles: string[];
 };

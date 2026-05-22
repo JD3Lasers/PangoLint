@@ -147,6 +147,7 @@ const expectedExtensionHostSubfolders: Record<string, string[]> = {
 };
 
 const expectedObjectPropertyIndexScriptModules = [
+  "README.md",
   "objectPropertyIndexCommandMetadata.ts",
   "objectPropertyIndexEntries.ts",
   "objectPropertyIndexMetadata.ts",
@@ -157,13 +158,46 @@ const expectedObjectPropertyIndexScriptModules = [
   "objectPropertyIndexValidation.ts",
 ];
 
-const expectedReferenceSiteScriptModules = [
-  "buildReferenceCatalog.ts",
-  "referenceCatalogTypes.ts",
-  "referenceHtmlFile.ts",
-  "referenceInputFiles.ts",
-  "referenceRendererBundle.ts",
-];
+const expectedScriptRootEntries = ["README.md", "build", "knowledge", "objectTree", "package", "release", "workflow"];
+
+const expectedScriptFolders: Record<string, string[]> = {
+  build: ["buildIcon.cjs", "buildReferenceSite.ts", "referenceSite"],
+  "build/referenceSite": [
+    "README.md",
+    "buildReferenceCatalog.ts",
+    "referenceCatalogTypes.ts",
+    "referenceHtmlFile.ts",
+    "referenceInputFiles.ts",
+    "referenceRendererBundle.ts",
+  ],
+  knowledge: ["generateKnowledgeBase.ts", "lintCorpus.ts", "reportCatalogGaps.ts"],
+  objectTree: [
+    "generateKnownProperties.ts",
+    "generateMcpControlReference.ts",
+    "generateObjectBehaviorAudit.ts",
+    "generateObjectDataQualityAudit.ts",
+    "generateObjectPropertyIndex.ts",
+    "propertyIndex",
+    "validateObjectRangeEvidence.ts",
+  ],
+  "objectTree/propertyIndex": expectedObjectPropertyIndexScriptModules,
+  package: [
+    "copyMcpData.cjs",
+    "packageSurfacePolicy.cjs",
+    "publicArtifactPolicy.ts",
+    "verifyMcpPackageContents.cjs",
+    "verifyPackageContents.ts",
+    "writeVsixSha256.cjs",
+  ],
+  release: [
+    "checkPrVersionBump.cjs",
+    "checkReleasePreflight.cjs",
+    "releaseSemver.cjs",
+    "releaseVersion.cjs",
+    "watchReleaseArtifacts.cjs",
+  ],
+  workflow: ["checkPullRequestReady.cjs", "startIssueWork.cjs"],
+};
 
 const expectedMcpToolRegistrationModules = [
   "commandKnowledgeTools.ts",
@@ -311,26 +345,14 @@ describe("source layout", () => {
 });
 
 describe("script layout", () => {
-  it("splits reference site building by input, catalog, bundle, and HTML responsibilities", () => {
-    const folderPath = path.join(scriptsRoot, "referenceSite");
+  it("keeps repository scripts grouped by task area", () => {
+    expect(readdirSync(scriptsRoot).sort()).toEqual(expectedScriptRootEntries);
 
-    expect(existsSync(path.join(folderPath, "README.md")), "scripts/referenceSite/README.md").toBe(true);
-    expect(
-      readdirSync(folderPath)
-        .filter((entry) => entry.endsWith(".ts"))
-        .sort(),
-    ).toEqual(expectedReferenceSiteScriptModules);
-  });
-
-  it("splits Object Tree property index generation by data responsibility", () => {
-    const folderPath = path.join(scriptsRoot, "objectPropertyIndex");
-
-    expect(existsSync(path.join(folderPath, "README.md")), "scripts/objectPropertyIndex/README.md").toBe(true);
-    expect(
-      readdirSync(folderPath)
-        .filter((entry) => entry.endsWith(".ts"))
-        .sort(),
-    ).toEqual(expectedObjectPropertyIndexScriptModules);
+    for (const [folder, entries] of Object.entries(expectedScriptFolders)) {
+      const folderPath = path.join(scriptsRoot, folder);
+      expect(existsSync(folderPath), `scripts/${folder}/`).toBe(true);
+      expect(readdirSync(folderPath).sort()).toEqual(entries);
+    }
   });
 });
 

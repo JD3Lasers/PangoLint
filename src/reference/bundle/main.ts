@@ -1,6 +1,6 @@
 // Entry point for the PangoScript reference page bundle.
 //
-// The build script (scripts/buildReferenceSite.ts) inlines the catalog
+// The build script (scripts/build/buildReferenceSite.ts) inlines the catalog
 // as a <script type="application/json" id="reference-catalog"> block,
 // then loads the compiled bundle as a deferred ES module. This file
 // reads the catalog, instantiates state, installs the router, and

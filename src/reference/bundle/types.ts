@@ -1,7 +1,7 @@
 // Renderer types for the standalone PangoScript reference page.
 //
 // These shapes mirror the public-safe subset of the bundled catalog data
-// that scripts/buildReferenceSite.ts inlines into the page. The build
+// that scripts/build/buildReferenceSite.ts inlines into the page. The build
 // script is the contract: any field present here MUST be emitted into
 // the inlined catalog JSON, and vice versa. The build script trims
 // maintainer-only fields (confidence, source IDs, inferred / unverified

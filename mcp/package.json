@@ -1,6 +1,6 @@
 {
   "name": "pangolint-mcp",
-  "version": "0.7.16",
+  "version": "0.7.17",
   "description": "MCP server exposing PangoLint's curated PangoScript knowledge to AI coding agents.",
   "license": "GPL-3.0-or-later",
   "repository": {
@@ -34,10 +34,10 @@
   ],
   "scripts": {
     "compile": "tsc --noEmit && esbuild src/server.ts --bundle --platform=node --format=esm --outfile=dist/server.js --banner:js=\"import{createRequire}from'node:module';const require=createRequire(import.meta.url);\"",
-    "copy:assets": "node ../scripts/copyMcpData.cjs",
+    "copy:assets": "node ../scripts/package/copyMcpData.cjs",
     "prepare:tarball": "npm run compile && npm run copy:assets",
     "package:tarball": "npm run prepare:tarball && npm pack",
-    "verify:tarball": "npm run prepare:tarball && node ../scripts/verifyMcpPackageContents.cjs"
+    "verify:tarball": "npm run prepare:tarball && node ../scripts/package/verifyMcpPackageContents.cjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",

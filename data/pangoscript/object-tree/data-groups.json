@@ -35,8 +35,8 @@
         "data/pangoscript/object-tree/source-facts/object-paths.json"
       ],
       "consumers": [
-        "scripts/generateObjectPropertyIndex.ts",
-        "scripts/generateKnownProperties.ts"
+        "scripts/objectTree/generateObjectPropertyIndex.ts",
+        "scripts/objectTree/generateKnownProperties.ts"
       ],
       "generator": "Checked-in source facts are read by Object Tree generators.",
       "packageSurface": "not packaged",
@@ -54,12 +54,12 @@
       "consumers": [
         "src/knowledge/propertyIndex.ts",
         "mcp/src/knowledgeBase.ts",
-        "scripts/buildReferenceSite.ts",
-        "scripts/copyMcpData.cjs",
-        "scripts/verifyPackageContents.ts",
+        "scripts/build/buildReferenceSite.ts",
+        "scripts/package/copyMcpData.cjs",
+        "scripts/package/verifyPackageContents.ts",
         "tests/propertyIndex.test.ts"
       ],
-      "generator": "scripts/generateKnownProperties.ts writes this runtime index.",
+      "generator": "scripts/objectTree/generateKnownProperties.ts writes this runtime index.",
       "packageSurface": "approved VSIX and MCP runtime data",
       "retirementPolicy": "Delete old root generated files when the generator reproduces them."
     },
@@ -75,13 +75,13 @@
       "consumers": [
         "src/knowledge/objectPropertyIndex.ts",
         "mcp/src/knowledgeBase.ts",
-        "scripts/buildReferenceSite.ts",
-        "scripts/generateMcpControlReference.ts",
-        "scripts/copyMcpData.cjs",
-        "scripts/verifyPackageContents.ts",
+        "scripts/build/buildReferenceSite.ts",
+        "scripts/objectTree/generateMcpControlReference.ts",
+        "scripts/package/copyMcpData.cjs",
+        "scripts/package/verifyPackageContents.ts",
         "tests/objectPropertyIndex.test.ts"
       ],
-      "generator": "scripts/generateObjectPropertyIndex.ts writes this runtime index.",
+      "generator": "scripts/objectTree/generateObjectPropertyIndex.ts writes this runtime index.",
       "packageSurface": "approved VSIX and MCP runtime data",
       "retirementPolicy": "Delete old root generated files when the generator reproduces them."
     },
@@ -96,7 +96,7 @@
         "data/pangoscript/object-tree/source-facts/value-metadata/"
       ],
       "consumers": [
-        "scripts/generateObjectPropertyIndex.ts",
+        "scripts/objectTree/generateObjectPropertyIndex.ts",
         "tests/knowledgeBaseData.test.ts",
         "tests/objectPropertyClassificationData.test.ts"
       ],
@@ -114,8 +114,8 @@
         "data/pangoscript/object-tree/source-facts/readback-metadata/"
       ],
       "consumers": [
-        "scripts/generateObjectPropertyIndex.ts",
-        "scripts/generateObjectBehaviorAudit.ts",
+        "scripts/objectTree/generateObjectPropertyIndex.ts",
+        "scripts/objectTree/generateObjectBehaviorAudit.ts",
         "tests/knowledgeBaseData.test.ts",
         "tests/objectBehaviorAudit.test.ts"
       ],
@@ -134,8 +134,8 @@
         "data/pangoscript/object-tree/source-facts/behavior-metadata/"
       ],
       "consumers": [
-        "scripts/generateObjectPropertyIndex.ts",
-        "scripts/generateObjectDataQualityAudit.ts",
+        "scripts/objectTree/generateObjectPropertyIndex.ts",
+        "scripts/objectTree/generateObjectDataQualityAudit.ts",
         "tests/knowledgeBaseData.test.ts",
         "tests/objectPropertyClassificationData.test.ts"
       ],
@@ -256,7 +256,7 @@
         "data/pangoscript/object-tree/evidence/value.schema.json"
       ],
       "consumers": [
-        "scripts/validateObjectRangeEvidence.ts",
+        "scripts/objectTree/validateObjectRangeEvidence.ts",
         "tests/objectRangeEvidence.test.ts"
       ],
       "generator": "Hand-authored schema file.",
@@ -290,11 +290,11 @@
         "data/pangoscript/object-tree/audits/behavior/"
       ],
       "consumers": [
-        "scripts/generateObjectBehaviorAudit.ts",
+        "scripts/objectTree/generateObjectBehaviorAudit.ts",
         "tests/objectBehaviorAudit.test.ts",
         "Object Tree review runbooks"
       ],
-      "generator": "scripts/generateObjectBehaviorAudit.ts",
+      "generator": "scripts/objectTree/generateObjectBehaviorAudit.ts",
       "packageSurface": "not packaged",
       "retirementPolicy": "Active behavior audit output now lives under the target path."
     },
@@ -325,11 +325,11 @@
         "data/pangoscript/object-tree/audits/data-quality/final-object-data-quality-audit.json"
       ],
       "consumers": [
-        "scripts/generateObjectDataQualityAudit.ts",
+        "scripts/objectTree/generateObjectDataQualityAudit.ts",
         "tests/objectDataQualityAudit.test.ts",
         "tests/objectPropertyClassificationData.test.ts"
       ],
-      "generator": "scripts/generateObjectDataQualityAudit.ts",
+      "generator": "scripts/objectTree/generateObjectDataQualityAudit.ts",
       "packageSurface": "not packaged",
       "retirementPolicy": "Active data-quality audit output now lives under the target path."
     }
