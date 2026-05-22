@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 const sourceRoot = path.join(process.cwd(), "src");
 const scriptsRoot = path.join(process.cwd(), "scripts");
+const mcpSourceRoot = path.join(process.cwd(), "mcp", "src");
 const testsRoot = path.join(process.cwd(), "tests");
 
 const expectedSourceFolders = [
@@ -154,6 +155,25 @@ const expectedObjectPropertyIndexScriptModules = [
   "objectPropertyIndexValidation.ts",
 ];
 
+const expectedReferenceSiteScriptModules = [
+  "buildReferenceCatalog.ts",
+  "referenceCatalogTypes.ts",
+  "referenceHtmlFile.ts",
+  "referenceInputFiles.ts",
+  "referenceRendererBundle.ts",
+];
+
+const expectedMcpToolRegistrationModules = [
+  "commandKnowledgeTools.ts",
+  "objectTreeKnowledgeTools.ts",
+  "propertyControlTools.ts",
+  "runtimeReadTools.ts",
+  "runtimeWriteTools.ts",
+  "scriptAnalysisTools.ts",
+  "toolRegistrationResult.ts",
+  "toolRegistrationTypes.ts",
+];
+
 const expectedKnowledgeDataTestFiles = [
   "commandKnowledgeData.test.ts",
   "controlReferenceData.test.ts",
@@ -258,6 +278,17 @@ describe("source layout", () => {
 });
 
 describe("script layout", () => {
+  it("splits reference site building by input, catalog, bundle, and HTML responsibilities", () => {
+    const folderPath = path.join(scriptsRoot, "referenceSite");
+
+    expect(existsSync(path.join(folderPath, "README.md")), "scripts/referenceSite/README.md").toBe(true);
+    expect(
+      readdirSync(folderPath)
+        .filter((entry) => entry.endsWith(".ts"))
+        .sort(),
+    ).toEqual(expectedReferenceSiteScriptModules);
+  });
+
   it("splits Object Tree property index generation by data responsibility", () => {
     const folderPath = path.join(scriptsRoot, "objectPropertyIndex");
 
@@ -267,6 +298,18 @@ describe("script layout", () => {
         .filter((entry) => entry.endsWith(".ts"))
         .sort(),
     ).toEqual(expectedObjectPropertyIndexScriptModules);
+  });
+});
+
+describe("MCP source layout", () => {
+  it("splits MCP tool registration by product area", () => {
+    const folderPath = path.join(mcpSourceRoot, "tools", "registration");
+
+    expect(
+      readdirSync(folderPath)
+        .filter((entry) => entry.endsWith(".ts"))
+        .sort(),
+    ).toEqual(expectedMcpToolRegistrationModules);
   });
 });
 
