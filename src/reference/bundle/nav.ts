@@ -4,8 +4,8 @@
 // reference sections.
 
 import { clear, el } from "./dom";
-import { buildCueTypeReference, buildFxEffectReference, buildUniverseComponentReference } from "./objectTree";
-import type { ObjectSection, ReferenceState } from "./state";
+import { buildObjectTreeNavigationSections } from "./object-tree/objectTreeNavigation";
+import type { ReferenceState } from "./state";
 
 export function renderNavColumn(state: ReferenceState): HTMLElement {
   const root = el("aside", { className: "col col--nav", attrs: { "aria-label": "Navigation" } });
@@ -71,22 +71,7 @@ export function renderNavColumn(state: ReferenceState): HTMLElement {
           el("span", { className: "nav__heading-count" }, "4"),
         ),
       );
-      const cueTypes = buildCueTypeReference(state.catalog.objects ?? []);
-      const fxEffects = buildFxEffectReference(state.catalog.objects ?? []);
-      const universeComponents = buildUniverseComponentReference(
-        state.catalog.objects ?? [],
-        state.catalog.universeComponents ?? [],
-      );
-      const sections: Array<{ label: string; section: ObjectSection; count: number }> = [
-        { label: "Schemas", section: "schemas", count: state.catalog.objects?.length ?? 0 },
-        {
-          label: "Universe Components",
-          section: "universe-components",
-          count: universeComponents.componentCount,
-        },
-        { label: "Cue Types", section: "cue-types", count: cueTypes.typeCount },
-        { label: "FX Effects", section: "fx", count: fxEffects.effectCount },
-      ];
+      const sections = buildObjectTreeNavigationSections(state);
       const ul = el("ul", { className: "nav__list", attrs: { role: "list" } });
       for (const { label, section, count } of sections) {
         const btn = el(

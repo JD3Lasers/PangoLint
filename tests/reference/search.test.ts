@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
-import {
-  buildCommandListSections,
-  isObjectReferenceSection,
-  objectSelectionSelectors,
-} from "../../src/reference/bundle/list";
+import { buildCommandListSections, objectSelectionSelectors } from "../../src/reference/bundle/list";
+import { isObjectReferenceSection } from "../../src/reference/bundle/object-tree/objectTreeListRows";
 import { buildIndex, search } from "../../src/reference/bundle/search";
 import type { ReferenceCommand } from "../../src/reference/bundle/types";
 

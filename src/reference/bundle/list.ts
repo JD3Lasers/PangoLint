@@ -1,17 +1,19 @@
 // Middle column: filter toolbar + scrollable list. Renders either
 // commands or object schemas depending on state.viewMode.
 
-import { clear, debounce, el, highlight } from "./dom";
+import { clear, cssEscape, debounce, el, highlight } from "./dom";
+import { emptyListMessage, listGroupHeading } from "./listElements";
+import { buildCueTypeReference } from "./object-tree/cueTypeReference";
+import { buildFxEffectReference } from "./object-tree/fxEffectReference";
 import {
-  buildCueTypeReference,
-  buildFxEffectReference,
-  buildUniverseComponentReference,
-  filterObjectReferenceRows,
-  type ObjectPropertyReferenceDetail,
-  type ObjectPropertyReferenceRow,
-} from "./objectTree";
+  highlightObjectReferenceSelection,
+  isObjectReferenceSection,
+  renderObjectTreeReferenceRows,
+} from "./object-tree/objectTreeListRows";
+import type { ObjectPropertyReferenceDetail, ObjectPropertyReferenceRow } from "./object-tree/objectTreeTypes";
+import { buildUniverseComponentReference } from "./object-tree/universeComponentReference";
 import { formatSafetyTextForReference, formatSafetyTierLabel } from "./safetyTierDisplay";
-import type { ObjectReferenceSection, ObjectSection, ReferenceState } from "./state";
+import type { ObjectReferenceSection, ReferenceState } from "./state";
 import type { ReferenceCommand, ReferenceObject } from "./types";
 
 const SEARCH_DEBOUNCE_MS = 60;
@@ -77,26 +79,18 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
     noMatchText: string,
   ): void => {
     const query = state.filter.query.trim();
-    const filtered = filterObjectReferenceRows(rows, details, query);
-    counter.textContent = query
-      ? `${filtered.length} ${filtered.length === 1 ? "match" : "matches"}`
-      : `${rows.length} ${rows.length === 1 ? "entry" : "entries"}`;
-    if (!rows.length) {
-      listBox.append(emptyMessage(emptyText));
-      return;
-    }
-    if (!filtered.length) {
-      listBox.append(emptyMessage(noMatchText));
-      return;
-    }
-    const groupedRows = groupObjectReferenceRows(filtered);
-    for (const group of groupedRows) {
-      if (group.label) listBox.append(groupHeading(group.label, group.rows.length));
-      const ul = el("ul", { className: "list__items", attrs: { role: "list" } });
-      for (const row of group.rows) ul.append(renderObjectReferenceRow(row, section, state, query));
-      listBox.append(ul);
-    }
-    requestAnimationFrame(() => highlightObjectReferenceSelection(listBox, state.selectedObjectReference));
+    renderObjectTreeReferenceRows({
+      rows,
+      details,
+      section,
+      state,
+      query,
+      listBox,
+      counter,
+      emptyText,
+      noMatchText,
+      afterSelect: scrollToDetailOnNarrow,
+    });
   };
 
   const renderFxSection = (): void => {
@@ -174,7 +168,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
     counter.textContent = `${hits.length} of ${state.catalog.commands.length}`;
 
     if (hits.length === 0) {
-      listBox.append(emptyMessage("No matches. Try a shorter search, or clear filters."));
+      listBox.append(emptyListMessage("No matches. Try a shorter search, or clear filters."));
       return;
     }
 
@@ -185,7 +179,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
       query,
     );
     for (const section of sections) {
-      if (section.category) listBox.append(groupHeading(section.category, section.commands.length));
+      if (section.category) listBox.append(listGroupHeading(section.category, section.commands.length));
       const ul = el("ul", { className: "list__items", attrs: { role: "list" } });
       for (const cmd of section.commands) ul.append(renderCommandRow(cmd, state, query));
       listBox.append(ul);
@@ -201,7 +195,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
     counter.textContent = `${matches.length} of ${state.catalog.objects?.length ?? 0}`;
 
     if (matches.length === 0) {
-      listBox.append(emptyMessage("No object schemas match this query."));
+      listBox.append(emptyListMessage("No object schemas match this query."));
       return;
     }
 
@@ -275,40 +269,6 @@ function makePill(label: string, kind: string, onDismiss: () => void): HTMLEleme
     },
     el("span", { className: "pill__label" }, label),
     el("span", { className: "pill__dismiss", attrs: { "aria-hidden": "true" } }, "×"),
-  );
-}
-
-function emptyMessage(text: string): HTMLElement {
-  return el("div", { className: "list__empty" }, text);
-}
-
-function groupObjectReferenceRows(
-  rows: ObjectPropertyReferenceRow[],
-): Array<{ label: string | null; rows: ObjectPropertyReferenceRow[] }> {
-  if (!rows.some((row) => row.group)) return [{ label: null, rows }];
-  const groups: Array<{ label: string | null; rows: ObjectPropertyReferenceRow[] }> = [];
-  for (const row of rows) {
-    const label = row.group ?? "Other";
-    const last = groups[groups.length - 1];
-    if (last?.label === label) {
-      last.rows.push(row);
-    } else {
-      groups.push({ label, rows: [row] });
-    }
-  }
-  return groups;
-}
-
-function groupHeading(name: string, count: number, description?: string): HTMLElement {
-  const label = el("span", { className: "list__group-name" }, name);
-  if (description) {
-    label.append(el("span", { className: "list__group-desc" }, description));
-  }
-  return el(
-    "div",
-    { className: "list__group-heading", attrs: { role: "heading", "aria-level": "3" } },
-    label,
-    el("span", { className: "list__group-count" }, String(count)),
   );
 }
 
@@ -421,60 +381,6 @@ function renderObjectRow(obj: ReferenceObject, state: ReferenceState, query: str
   return li;
 }
 
-function renderObjectReferenceRow(
-  row: ObjectPropertyReferenceRow,
-  section: ObjectReferenceSection,
-  state: ReferenceState,
-  query: string,
-): HTMLElement {
-  const selected = state.selectedObjectReference?.section === section && state.selectedObjectReference.id === row.id;
-  const li = el("li", {
-    className: "list__row",
-    attrs: {
-      role: "button",
-      tabindex: "0",
-      "data-object-reference-section": section,
-      "data-object-reference-id": row.id,
-      "aria-selected": selected ? "true" : "false",
-    },
-  });
-  if (selected) li.classList.add("is-selected");
-
-  const name = el("div", { className: "list__name" });
-  name.append(highlight(row.label, query));
-  li.append(name);
-
-  if (row.description) {
-    const desc = el("div", { className: "list__desc" });
-    desc.append(highlight(row.description, query));
-    li.append(desc);
-  }
-
-  const meta = el("div", { className: "list__meta" });
-  meta.append(
-    el(
-      "span",
-      { className: "badge badge--neutral" },
-      `${row.propertyCount} ${row.propertyCount === 1 ? "property" : "properties"}`,
-    ),
-  );
-  li.append(meta);
-
-  const onSelect = () => {
-    state.selectObjectReference(section, row.id);
-    scrollToDetailOnNarrow();
-  };
-  li.addEventListener("click", onSelect);
-  li.addEventListener("keydown", (event) => {
-    const ev = event as KeyboardEvent;
-    if (ev.key === "Enter" || ev.key === " ") {
-      ev.preventDefault();
-      onSelect();
-    }
-  });
-  return li;
-}
-
 export function buildCommandListSections(
   commands: ReferenceCommand[],
   categoryOrder: string[],
@@ -544,36 +450,6 @@ export function objectSelectionSelectors(name: string | null, propertyPath: stri
   return propertyPath
     ? [`.list__row[data-property-path="${cssEscape(propertyPath)}"]`, objectSelector]
     : [objectSelector];
-}
-
-export function isObjectReferenceSection(section: ObjectSection): section is ObjectReferenceSection {
-  return section === "fx" || section === "cue-types" || section === "universe-components";
-}
-
-function highlightObjectReferenceSelection(
-  listBox: HTMLElement,
-  selection: ReferenceState["selectedObjectReference"],
-): void {
-  for (const node of listBox.querySelectorAll(".list__row.is-selected")) {
-    node.classList.remove("is-selected");
-    node.setAttribute("aria-selected", "false");
-  }
-  if (!selection) return;
-  const next = listBox.querySelector<HTMLElement>(
-    `.list__row[data-object-reference-section="${cssEscape(selection.section)}"][data-object-reference-id="${cssEscape(
-      selection.id,
-    )}"]`,
-  );
-  if (next) {
-    next.classList.add("is-selected");
-    next.setAttribute("aria-selected", "true");
-    next.scrollIntoView({ block: "nearest", behavior: "auto" });
-  }
-}
-
-function cssEscape(value: string): string {
-  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") return CSS.escape(value);
-  return value.replace(/["\\\n]/g, "\\$&");
 }
 
 /**

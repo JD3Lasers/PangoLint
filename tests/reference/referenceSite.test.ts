@@ -4,7 +4,7 @@ import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { valueTransformLabel } from "../../src/reference/bundle/detail/oscRouteDetail";
-import { buildFxTree } from "../../src/reference/bundle/objectTree";
+import { buildFxTree } from "../../src/reference/bundle/object-tree/objectTreeRows";
 import type { ReferenceCatalog, ReferenceOscRoute } from "../../src/reference/bundle/types";
 
 const repoRoot = process.cwd();

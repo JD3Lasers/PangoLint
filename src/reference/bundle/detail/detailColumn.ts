@@ -1,16 +1,6 @@
 import { clear, el } from "../dom";
-import {
-  buildCueTypeReference,
-  buildFxEffectReference,
-  buildUniverseComponentReference,
-  type ObjectPropertyReferenceDetail,
-} from "../objectTree";
-import {
-  getVisibleDetailSelection,
-  hasVisibleDetailSelection,
-  type ObjectReferenceSelection,
-  type ReferenceState,
-} from "../state";
+import { findObjectTreeReferenceDetail } from "../object-tree/objectTreeDetailReference";
+import { getVisibleDetailSelection, hasVisibleDetailSelection, type ReferenceState } from "../state";
 import type { ReferenceObjectProperty } from "../types";
 import { renderCommandDetail } from "./commandDetail";
 import { renderObjectDetail, renderObjectReferenceDetail } from "./objectDetail";
@@ -36,7 +26,7 @@ export function renderDetailColumn(state: ReferenceState, options: DetailColumnO
       root.append(renderMobileBackButton(options.onBackToResults));
     }
     if (detailSelection?.kind === "object-reference") {
-      const objectReference = findObjectReferenceDetail(state, detailSelection.selection);
+      const objectReference = findObjectTreeReferenceDetail(state, detailSelection.selection);
       root.append(
         objectReference
           ? renderObjectReferenceDetail(objectReference, state)
@@ -143,19 +133,6 @@ function objectTreeEmptyState(state: ReferenceState): HTMLElement {
       " clears filters",
     ),
   );
-}
-
-function findObjectReferenceDetail(
-  state: ReferenceState,
-  selection: ObjectReferenceSelection,
-): ObjectPropertyReferenceDetail | null {
-  const reference =
-    selection.section === "cue-types"
-      ? buildCueTypeReference(state.catalog.objects ?? [])
-      : selection.section === "universe-components"
-        ? buildUniverseComponentReference(state.catalog.objects ?? [], state.catalog.universeComponents ?? [])
-        : buildFxEffectReference(state.catalog.objects ?? []);
-  return reference.details.find((detail) => detail.id === selection.id) ?? null;
 }
 
 function notFoundState(name: string, kind: "command" | "object"): HTMLElement {

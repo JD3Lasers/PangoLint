@@ -1,5 +1,5 @@
 import { el } from "../dom";
-import type { ObjectPropertyReferenceDetail } from "../objectTree";
+import type { ObjectPropertyReferenceDetail } from "../object-tree/objectTreeTypes";
 import type { ReferenceState } from "../state";
 import type { ReferenceObject, ReferenceObjectProperty } from "../types";
 import { renderCopyableCode } from "./copyControls";

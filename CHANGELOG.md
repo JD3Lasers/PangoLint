@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.23] - 2026-05-22
+
+### Changed
+
+- Split reference-site Object Tree browser code into focused modules for tree
+  rows, reference search, list rows, navigation counts, detail lookup, and
+  cue-type, FX effect, and Universe component reference data.
+- Remove the old broad `src/reference/bundle/objectTree.ts` module so reference
+  bundle imports point at the files that own the behavior.
+
 ## [0.7.22] - 2026-05-22
 
 ### Changed
@@ -287,7 +297,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.23...HEAD
+[0.7.23]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...v0.7.23
 [0.7.22]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.21...v0.7.22
 [0.7.21]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.20...v0.7.21
 [0.7.20]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.20
