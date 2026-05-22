@@ -29,6 +29,28 @@ export const EXTENSION_SETTING_KEYS = {
   confirmRunEachSession: "confirmRunEachSession",
 } as const;
 
+export const EXTENSION_SETTING_IDS = {
+  folderScopedUniverses: `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.folderScopedUniverses}`,
+  codeLensLabelReferences: `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.codeLensLabelReferences}`,
+  diagnosticsHighlightStyle: `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.diagnosticsHighlightStyle}`,
+  diagnosticsInlineMessages: `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.diagnosticsInlineMessages}`,
+  talkHost: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkHost}`,
+  talkPort: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkPort}`,
+  talkTransport: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkTransport}`,
+  talkTcpHost: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkTcpHost}`,
+  talkTcpPort: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkTcpPort}`,
+  talkUdpHost: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkUdpHost}`,
+  talkUdpPort: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkUdpPort}`,
+  talkUdpFallbackAllowed: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkUdpFallbackAllowed}`,
+  talkTcpPassword: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.talkTcpPassword}`,
+  oscListenHost: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.oscListenHost}`,
+  oscListenPort: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.oscListenPort}`,
+  readbackTimeoutMs: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.readbackTimeoutMs}`,
+  liveHoverValues: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.liveHoverValues}`,
+  allowScriptExecution: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.allowScriptExecution}`,
+  confirmRunEachSession: `${EXTENSION_CONFIG_SECTIONS.beyond}.${EXTENSION_SETTING_KEYS.confirmRunEachSession}`,
+} as const;
+
 export const EXTENSION_COMMAND_IDS = {
   validateCurrentScript: "pangolint.validateCurrentScript",
   checkBeyondConnection: "pangolint.checkBeyondConnection",

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import * as extensionIds from "../../src/extensionHost/extensionIds";
 
 const repoRoot = process.cwd();
 const manifest = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "utf8")) as {
@@ -10,6 +11,7 @@ const manifest = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "u
       "view/title"?: Array<{ command: string; when?: string }>;
     };
     keybindings?: Array<{ command: string; when?: string }>;
+    views?: Record<string, Array<{ id: string; name?: string }>>;
     configuration?: {
       properties?: Record<
         string,
@@ -20,6 +22,53 @@ const manifest = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "u
 };
 
 describe("package contributions", () => {
+  it("keeps manifest command and view IDs in sync with source constants", () => {
+    const contributedCommandIds = (manifest.contributes.commands ?? []).map((entry) => entry.command).sort();
+    const internalCommandIds = new Set<string>([extensionIds.EXTENSION_COMMAND_IDS.sidebarOpenReference]);
+    const sourceCommandIds = Object.values(extensionIds.EXTENSION_COMMAND_IDS)
+      .filter((commandId) => !internalCommandIds.has(commandId))
+      .sort();
+    const contributedViewIds = Object.values(manifest.contributes.views ?? {})
+      .flat()
+      .map((entry) => entry.id)
+      .sort();
+
+    expect(contributedCommandIds).toEqual(sourceCommandIds);
+    expect(contributedCommandIds).not.toContain(extensionIds.EXTENSION_COMMAND_IDS.sidebarOpenReference);
+    expect(contributedViewIds).toEqual(Object.values(extensionIds.EXTENSION_VIEW_IDS).sort());
+  });
+
+  it("keeps manifest setting IDs mapped to source section and key constants", () => {
+    const manifestSettingIds = Object.keys(manifest.contributes.configuration?.properties ?? {}).sort();
+    expect(manifestSettingIds).toEqual(Object.values(extensionIds.EXTENSION_SETTING_IDS).sort());
+
+    const beyondSettingKeys = [
+      "talkHost",
+      "talkPort",
+      "talkTransport",
+      "talkTcpHost",
+      "talkTcpPort",
+      "talkUdpHost",
+      "talkUdpPort",
+      "talkUdpFallbackAllowed",
+      "talkTcpPassword",
+      "oscListenHost",
+      "oscListenPort",
+      "readbackTimeoutMs",
+      "liveHoverValues",
+      "allowScriptExecution",
+      "confirmRunEachSession",
+    ];
+    for (const [name, key] of Object.entries(extensionIds.EXTENSION_SETTING_KEYS)) {
+      const section = beyondSettingKeys.includes(name)
+        ? extensionIds.EXTENSION_CONFIG_SECTIONS.beyond
+        : extensionIds.EXTENSION_CONFIG_SECTIONS.pangolint;
+      expect(extensionIds.EXTENSION_SETTING_IDS[name as keyof typeof extensionIds.EXTENSION_SETTING_IDS], name).toBe(
+        `${section}.${key}`,
+      );
+    }
+  });
+
   it("scopes the sidebar insert keybinding to PangoScript editors", () => {
     const binding = manifest.contributes.keybindings?.find(
       (candidate) => candidate.command === "pangolint.sidebar.insertSelectedCommand",
