@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/analysisLimits";
+import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/mcpLanguageExports";
 import { runScript } from "../runScript";
 import { MCP_TOOL_IDS, RUNTIME_WRITE_TOOL_ANNOTATIONS } from "../toolDefinitions";
 import { asTextResult } from "./toolRegistrationResult";

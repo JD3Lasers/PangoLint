@@ -1,8 +1,8 @@
 // Tool: lookupCommand - returns the curated knowledge entry for a single
 // PangoScript command name (canonical or alias). Lower-cased lookup.
 
-import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
-import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
+import type { CommandKnowledgeEntry } from "../../../src/knowledge/mcpKnowledgeExports";
+import { mcpNameLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupCommandInput {

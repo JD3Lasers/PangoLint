@@ -4,9 +4,8 @@
 // catalog schema declares safetyTier values T0..T4 plus "unknown"; filtering
 // is case-sensitive on the enum.
 
-import type { CommandKnowledgeEntry, SafetyTier } from "../../../src/knowledge/knowledgeBase";
-import { mcpQueryLimitReason } from "../../../src/language/analysisLimits";
-import { levenshteinDistance } from "../../../src/language/diagnostics/stringDistance";
+import type { CommandKnowledgeEntry, SafetyTier } from "../../../src/knowledge/mcpKnowledgeExports";
+import { levenshteinDistance, mcpQueryLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface SearchCommandsInput {

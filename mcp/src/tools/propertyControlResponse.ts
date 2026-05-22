@@ -4,7 +4,7 @@ import type {
   McpPropertyControlObjectContext,
   McpPropertyControlOscRoute,
   McpPropertyControlParameterRange,
-} from "../../../src/knowledge/mcpControlReference";
+} from "../../../src/knowledge/mcpKnowledgeExports";
 
 export const PROPERTY_CONTROL_RESPONSE_LIMITS = {
   defaultExampleLimit: 3,

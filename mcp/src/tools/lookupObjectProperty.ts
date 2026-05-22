@@ -1,13 +1,13 @@
 // Tool: lookupObjectProperty: exact lookup for BEYOND Object Tree property
 // paths. Concrete indexed paths resolve to their normalized entry.
 
+import type { ObjectPropertyIndex } from "../../../src/knowledge/mcpKnowledgeExports";
 import {
   buildObjectPropertyCard,
   type ObjectPropertyCard,
   type ObjectPropertyDetailInput,
-} from "../../../src/knowledge/objectPropertyCards";
-import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
-import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
+} from "../../../src/knowledge/mcpKnowledgeExports";
+import { mcpNameLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupObjectPropertyInput extends ObjectPropertyDetailInput {

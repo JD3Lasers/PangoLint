@@ -12,7 +12,7 @@
 // Network target (host/port) is fixed at startup; the agent cannot
 // redirect runtime calls. This is the primary network-safety boundary.
 
-import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/runtimeConfig";
+import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/mcpRuntimeExports";
 import { MCP_ENV_VARS, parseMcpBoolean, parseMcpPort, parseMcpPositiveInt, parseMcpTalkTransport } from "./configEnv";
 
 export interface McpConfig {

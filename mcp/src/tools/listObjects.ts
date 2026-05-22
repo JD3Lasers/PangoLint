@@ -2,8 +2,7 @@
 // roots (WS, FX, workspace-safe aliases, etc.) so agents can discover the
 // same object families visible in the VS Code Objects panel.
 
-import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
-import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
+import type { ObjectPropertyIndex, PropertyIndex } from "../../../src/knowledge/mcpKnowledgeExports";
 import { ok, type ToolResult } from "../toolResult";
 import type { LookupObjectSource } from "./lookupObject";
 

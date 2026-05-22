@@ -3,7 +3,7 @@ import {
   type SendTalkTcpCommandsResult,
   sendTalkTcpCommands,
   type TalkTcpReply,
-} from "../../../src/runtime/talk/talkTcp";
+} from "../../../src/runtime/mcpRuntimeExports";
 import type { McpConfig } from "../config";
 import { fail, ok, type ToolResult } from "../toolResult";
 

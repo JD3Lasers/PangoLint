@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/analysisLimits";
+import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/mcpLanguageExports";
 import { lookupPropertyControls } from "../lookupPropertyControls";
 import { searchPropertyControls } from "../searchPropertyControls";
 import { KNOWLEDGE_TOOL_ANNOTATIONS, MCP_TOOL_IDS } from "../toolDefinitions";

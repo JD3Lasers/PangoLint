@@ -1,17 +1,17 @@
 // Tool: readBeyondProperty: single readback of a PangoScript property
 // path against the configured BEYOND host. T1 read-only: sends a tiny
 // `OscOutTTS ...; OscOutXxx <path>, ...` script and waits for the OSC
-// callback. Wraps src/runtime/readback/beyondReadback.readBeyondProperty so the same
+// callback. Wraps mcpRuntimeExports.readBeyondProperty so the same
 // transport plumbing the extension uses also serves the MCP runtime tool.
 
-import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
+import { mcpNameLimitReason } from "../../../src/language/mcpLanguageExports";
+import type { SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/mcpRuntimeExports";
 import {
   type PropertyReadbackResult,
   type ReadbackTransport,
   readBeyondProperty as runtimeReadBeyondProperty,
   validateReadbackPropertyPath,
-} from "../../../src/runtime/readback/beyondReadback";
-import type { SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talk/talkTcp";
+} from "../../../src/runtime/mcpRuntimeExports";
 import type { McpConfig } from "../config";
 import { readbackOptionsFromMcpConfig, talkTargetFromMcpConfig } from "../runtimeToolOptions";
 import { fail, ok, type ToolResult } from "../toolResult";

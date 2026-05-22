@@ -7,7 +7,7 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
+import { mcpNameLimitReason } from "../../../src/language/mcpLanguageExports";
 import { resolveDataDir } from "../knowledgeBase";
 import { fail, ok, type ToolResult } from "../toolResult";
 

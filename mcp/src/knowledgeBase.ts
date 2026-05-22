@@ -5,13 +5,22 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "../../src/knowledge/bundledDataPaths";
-import type { CommandCatalog } from "../../src/knowledge/catalog";
-import { loadBundledCatalog } from "../../src/knowledge/catalogLoader";
-import type { CommandKnowledgeEntry, PangoKnowledgeBase } from "../../src/knowledge/knowledgeBase";
-import { loadBundledMcpControlReference, type McpPropertyControlIndex } from "../../src/knowledge/mcpControlReference";
-import { loadBundledObjectPropertyIndex, type ObjectPropertyIndex } from "../../src/knowledge/objectPropertyIndex";
-import { loadBundledPropertyIndex, type PropertyIndex } from "../../src/knowledge/propertyIndex";
+import type {
+  CommandCatalog,
+  CommandKnowledgeEntry,
+  PangoKnowledgeBase,
+} from "../../src/knowledge/mcpKnowledgeExports";
+import {
+  BUNDLED_PANGOSCRIPT_DATA_PATHS,
+  bundledDataPathSegments,
+  loadBundledCatalog,
+  loadBundledMcpControlReference,
+  loadBundledObjectPropertyIndex,
+  loadBundledPropertyIndex,
+  type McpPropertyControlIndex,
+  type ObjectPropertyIndex,
+  type PropertyIndex,
+} from "../../src/knowledge/mcpKnowledgeExports";
 import { MCP_ENV_VARS } from "./configEnv";
 
 const MCP_LOG_PREFIX = "PangoLint MCP";
