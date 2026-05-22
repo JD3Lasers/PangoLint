@@ -5,22 +5,22 @@ import {
   EXTENSION_OUTPUT_CHANNELS,
   EXTENSION_SETTING_KEYS,
   PANGOSCRIPT_LANGUAGE_ID,
-} from "../extensionHost/extensionIds";
-import type { PangoDiagnostic } from "../language/diagnostics/pangoDiagnostic";
-import { propertyPathAtPosition } from "../language/propertyPath";
-import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
-import { checkBeyondConnection, readBeyondProperty, verifyCommandWrite } from "./beyondReadback";
-import { evaluateRuntimeLintGate } from "./lintGate";
-import { buildObjectValueAssignment } from "./objectValueAssignment";
-import type { OscMessage } from "./osc";
-import type { RunScriptWithOscCaptureResult } from "./runScriptWithOscCapture";
-import { runScriptWithOscCapture } from "./runScriptWithOscCapture";
-import { type BeyondRuntimeConfig, getBeyondRuntimeConfig } from "./runtimeConfig";
+} from "../../extensionHost/extensionIds";
+import type { PangoDiagnostic } from "../../language/diagnostics/pangoDiagnostic";
+import { propertyPathAtPosition } from "../../language/propertyPath";
+import { requireWorkspaceTrust } from "../../workspace/workspaceTrust";
+import { evaluateRuntimeLintGate } from "../commandBatch/lintGate";
+import { buildObjectValueAssignment } from "../commandBatch/objectValueAssignment";
+import type { RunScriptWithOscCaptureResult } from "../commandBatch/runScriptWithOscCapture";
+import { runScriptWithOscCapture } from "../commandBatch/runScriptWithOscCapture";
+import type { OscMessage } from "../osc/osc";
+import { checkBeyondConnection, readBeyondProperty, verifyCommandWrite } from "../readback/beyondReadback";
+import { type BeyondRuntimeConfig, getBeyondRuntimeConfig } from "../runtimeConfig";
 import {
   describeConfiguredTalkTarget,
   readbackOptionsFromRuntimeConfig,
   runScriptWithOscCaptureOptionsFromRuntimeConfig,
-} from "./runtimeOptions";
+} from "../runtimeOptions";
 import { type RuntimeCommandHooks, validateActiveDocumentAgainstBeyond } from "./validationCommands";
 
 interface RunSessionState {

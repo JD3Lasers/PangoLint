@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildObjectValueAssignment } from "../../src/runtime/objectValueAssignment";
+import { buildObjectValueAssignment } from "../../src/runtime/commandBatch/objectValueAssignment";
 
 describe("object value assignment serialization", () => {
   it("serializes numbers as a single assignment", () => {

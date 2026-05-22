@@ -1,13 +1,17 @@
 import { describe, expect, it, vi } from "vitest";
-import type { ReadbackTransport } from "../../src/runtime/beyondReadback";
+import type { ReadbackTransport } from "../../src/runtime/readback/beyondReadback";
 import {
   checkBeyondConnection,
   createReadbackRequestId,
   readBeyondProperty,
   validateReadbackPropertyPath,
   verifyCommandWrite,
-} from "../../src/runtime/beyondReadback";
-import { type SendTalkTcpCommandsOptions, sendTalkTcpCommands, TalkTcpTimeoutError } from "../../src/runtime/talkTcp";
+} from "../../src/runtime/readback/beyondReadback";
+import {
+  type SendTalkTcpCommandsOptions,
+  sendTalkTcpCommands,
+  TalkTcpTimeoutError,
+} from "../../src/runtime/talk/talkTcp";
 
 function deferred<T = void>(): { promise: Promise<T>; resolve: (value: T) => void } {
   let resolve: (value: T) => void = () => {};

@@ -1,10 +1,10 @@
 import * as vscode from "vscode";
-import { EXTENSION_CONFIG_SECTIONS, PANGOSCRIPT_LANGUAGE_ID } from "../extensionHost/extensionIds";
-import type { PropertyIndex } from "../knowledge/propertyIndex";
-import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
-import { getBeyondRuntimeConfig } from "./runtimeConfig";
-import { readbackOptionsFromRuntimeConfig } from "./runtimeOptions";
-import { applyReportToCache, runValidation, type ValidatedRootsCache } from "./validateObjects";
+import { EXTENSION_CONFIG_SECTIONS, PANGOSCRIPT_LANGUAGE_ID } from "../../extensionHost/extensionIds";
+import type { PropertyIndex } from "../../knowledge/propertyIndex";
+import { requireWorkspaceTrust } from "../../workspace/workspaceTrust";
+import { applyReportToCache, runValidation, type ValidatedRootsCache } from "../readback/validateObjects";
+import { getBeyondRuntimeConfig } from "../runtimeConfig";
+import { readbackOptionsFromRuntimeConfig } from "../runtimeOptions";
 
 export interface RuntimeCommandHooks {
   validatedRootsCache: ValidatedRootsCache;

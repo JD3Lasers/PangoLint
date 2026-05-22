@@ -55,23 +55,7 @@ const expectedLayout = {
     "validationReport.ts",
     "variableProviders.ts",
   ],
-  runtime: [
-    "beyondReadback.ts",
-    "lintGate.ts",
-    "objectValueAssignment.ts",
-    "osc.ts",
-    "oscCapture.ts",
-    "oscPortLock.ts",
-    "runScript.ts",
-    "runScriptWithOscCapture.ts",
-    "runtimeCommands.ts",
-    "runtimeConfig.ts",
-    "runtimeOptions.ts",
-    "talkTcp.ts",
-    "talkUdp.ts",
-    "validateObjects.ts",
-    "validationCommands.ts",
-  ],
+  runtime: ["runtimeConfig.ts", "runtimeOptions.ts"],
   workspace: [
     "userObjects.ts",
     "watcherView.ts",
@@ -147,6 +131,14 @@ const expectedReferenceSubfolders: Record<string, string[]> = {
   ],
 };
 
+const expectedRuntimeSubfolders: Record<string, string[]> = {
+  commandBatch: ["lintGate.ts", "objectValueAssignment.ts", "runScript.ts", "runScriptWithOscCapture.ts"],
+  osc: ["osc.ts", "oscCapture.ts", "oscPortLock.ts"],
+  readback: ["beyondReadback.ts", "validateObjects.ts"],
+  talk: ["talkTcp.ts", "talkUdp.ts"],
+  vscode: ["runtimeCommands.ts", "validationCommands.ts"],
+};
+
 const expectedExtensionHostSubfolders: Record<string, string[]> = {
   suite: ["extension.test.ts", "index.ts", "sidebar.test.ts"],
 };
@@ -192,6 +184,17 @@ describe("source layout", () => {
       const subfolderPath = path.join(referencePath, subfolder);
       expect(existsSync(subfolderPath), `reference/${subfolder}/`).toBe(true);
       expect(readdirSync(subfolderPath).sort()).toEqual(files);
+    }
+
+    const runtimePath = path.join(sourceRoot, "runtime");
+    for (const [subfolder, files] of Object.entries(expectedRuntimeSubfolders)) {
+      const subfolderPath = path.join(runtimePath, subfolder);
+      expect(existsSync(subfolderPath), `runtime/${subfolder}/`).toBe(true);
+      expect(
+        readdirSync(subfolderPath)
+          .filter((entry) => entry.endsWith(".ts"))
+          .sort(),
+      ).toEqual(files);
     }
 
     const sidebarPath = path.join(sourceRoot, "sidebar");

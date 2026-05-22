@@ -1,6 +1,6 @@
-import { splitCodeAndComment } from "../language/parser";
-import type { OscCaptureResult, StartOscCapture } from "./oscCapture";
-import { startOscCapture as defaultStartOscCapture } from "./oscCapture";
+import { splitCodeAndComment } from "../../language/parser";
+import type { OscCaptureResult, StartOscCapture } from "../osc/oscCapture";
+import { startOscCapture as defaultStartOscCapture } from "../osc/oscCapture";
 import type { RunScriptOptions, RunScriptResult } from "./runScript";
 import { findUnsupportedTalkControlFlow, formatUnsupportedTalkControlFlowError, runScript } from "./runScript";
 

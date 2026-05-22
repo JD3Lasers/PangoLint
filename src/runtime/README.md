@@ -1,16 +1,19 @@
 # Runtime Modules
 
-This folder owns live BEYOND interaction and transport behavior:
+This folder owns live BEYOND interaction and transport behavior. Runtime code
+is grouped by responsibility so protocol modules, readback workflows, command
+batch safety gates, and VS Code adapter code can be reviewed separately.
 
-- Talk TCP command sending and reply parsing,
-- Talk UDP payload construction and sending,
-- OSC packet handling,
-- BEYOND readback flows,
-- Talk command-batch helpers,
-- runtime lint and value-serialization gates,
-- bounded `/pangolint/` OSC callback capture for Talk batch runs,
-- shared VS Code runtime setting defaults,
-- VS Code command registration for runtime operations.
+- `talk/`: Talk TCP command sending, reply parsing, and Talk UDP payload
+  construction.
+- `osc/`: OSC packet handling, capture sessions, and OSC port serialization.
+- `readback/`: BEYOND readback flows and object validation readbacks.
+- `commandBatch/`: Talk command-batch sending, control-flow refusal, runtime
+  lint gating, and object value assignment text.
+- `vscode/`: VS Code command registration, output formatting, confirmation
+  prompts, and live value hover integration.
+- `runtimeConfig.ts` and `runtimeOptions.ts`: shared VS Code runtime setting
+  defaults and option mapping.
 
 Runtime changes cross the BEYOND safety boundary. Keep write/playback/output
 behavior gated by settings, workspace trust, and operator confirmation.

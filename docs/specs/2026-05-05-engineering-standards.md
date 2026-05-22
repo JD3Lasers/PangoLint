@@ -59,7 +59,8 @@ file is truly a package-level barrel with no behavior.
 - Source files under `mcp/src/` also use lower camel-case:
   `knowledgeBase.ts`, `getServerConfig.ts`, `readBeyondProperty.ts`.
 - Test files mirror the source file when possible:
-  `src/runtime/runtimeCommands.ts` has `tests/runtimeCommands.test.ts`.
+  `src/runtime/vscode/runtimeCommands.ts` has
+  `tests/runtime/runtimeCommands.test.ts`.
 - Classes and exported types use PascalCase.
 - Functions, local variables, and module-level state use lower camel-case.
 - Constants that represent fixed policy or protocol values use UPPER_SNAKE or
@@ -209,8 +210,9 @@ The repository has these durable top-level folders:
   color/property-path helpers, and other PangoScript language behavior.
 - `src/knowledge/`: command catalog, curated command knowledge, and
   source-backed property index loading/validation.
-- `src/runtime/`: Talk UDP, OSC, BEYOND readback, script execution, and
-  runtime command registration.
+- `src/runtime/`: BEYOND runtime code grouped into `talk/`, `osc/`,
+  `readback/`, `commandBatch/`, and `vscode/`, plus shared runtime config
+  and option mapping.
 - `src/workspace/`: workspace-root selection, workspace trust, user-object
   registry, workspace scans/symbols, and watcher state.
 - `src/sidebar/`: VS Code activity-bar view container. Split into

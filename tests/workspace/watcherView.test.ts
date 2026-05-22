@@ -48,7 +48,7 @@ vi.mock("vscode", () => {
   };
 });
 
-vi.mock("../../src/runtime/beyondReadback", () => ({
+vi.mock("../../src/runtime/readback/beyondReadback", () => ({
   readBeyondProperty: readBeyondPropertyMock,
 }));
 

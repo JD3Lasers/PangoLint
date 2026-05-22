@@ -92,18 +92,18 @@ vi.mock("vscode", () => ({
   },
 }));
 
-vi.mock("../../src/runtime/beyondReadback", () => ({
+vi.mock("../../src/runtime/readback/beyondReadback", () => ({
   checkBeyondConnection: vi.fn(),
   readBeyondProperty: vi.fn(),
   verifyCommandWrite: vi.fn(),
 }));
 
-vi.mock("../../src/runtime/runScriptWithOscCapture", () => ({
+vi.mock("../../src/runtime/commandBatch/runScriptWithOscCapture", () => ({
   runScriptWithOscCapture: runScriptWithOscCaptureMock,
 }));
 
-import { readBeyondProperty } from "../../src/runtime/beyondReadback";
-import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "../../src/runtime/runtimeCommands";
+import { readBeyondProperty } from "../../src/runtime/readback/beyondReadback";
+import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "../../src/runtime/vscode/runtimeCommands";
 
 describe("registerBeyondRuntimeCommands", () => {
   beforeEach(() => {

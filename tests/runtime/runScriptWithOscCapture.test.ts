@@ -1,8 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
-
-import type { OscMessage } from "../../src/runtime/osc";
-import type { OscCaptureSession, StartOscCapture } from "../../src/runtime/oscCapture";
-import { extractPangoLintOscAddresses, runScriptWithOscCapture } from "../../src/runtime/runScriptWithOscCapture";
+import {
+  extractPangoLintOscAddresses,
+  runScriptWithOscCapture,
+} from "../../src/runtime/commandBatch/runScriptWithOscCapture";
+import type { OscMessage } from "../../src/runtime/osc/osc";
+import type { OscCaptureSession, StartOscCapture } from "../../src/runtime/osc/oscCapture";
 
 function captureSession(messages: OscMessage[], events: string[]): OscCaptureSession {
   return {

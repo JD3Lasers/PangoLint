@@ -1,17 +1,16 @@
 import { randomBytes } from "node:crypto";
 import dgram from "node:dgram";
-
-import type { OscArg, OscMessage } from "./osc";
-import { decodeOscPacket, sourceMatchesExpectedHost } from "./osc";
-import { withOscPortLock } from "./oscPortLock";
-import { type BeyondTalkTransport, type RunScriptResult, runScript } from "./runScript";
+import { type BeyondTalkTransport, type RunScriptResult, runScript } from "../commandBatch/runScript";
+import type { OscArg, OscMessage } from "../osc/osc";
+import { decodeOscPacket, sourceMatchesExpectedHost } from "../osc/osc";
+import { withOscPortLock } from "../osc/oscPortLock";
 import {
   type SendTalkTcpCommandsOptions,
   type SendTalkTcpCommandsResult,
   sendTalkTcpCommands,
   type TalkTcpReply,
-} from "./talkTcp";
-import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
+} from "../talk/talkTcp";
+import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "../talk/talkUdp";
 
 export interface ReadbackOptions {
   talkHost: string;

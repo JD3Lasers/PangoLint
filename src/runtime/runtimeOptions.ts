@@ -1,6 +1,6 @@
-import type { ReadbackOptions } from "./beyondReadback";
-import type { RunScriptOptions } from "./runScript";
-import type { RunScriptWithOscCaptureOptions } from "./runScriptWithOscCapture";
+import type { RunScriptOptions } from "./commandBatch/runScript";
+import type { RunScriptWithOscCaptureOptions } from "./commandBatch/runScriptWithOscCapture";
+import type { ReadbackOptions } from "./readback/beyondReadback";
 import type { BeyondRuntimeConfig } from "./runtimeConfig";
 
 export function readbackOptionsFromRuntimeConfig(

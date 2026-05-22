@@ -42,9 +42,9 @@ OscOutTTS "/pangolint/ping", "s", "<request-id>"
 - `src/language/parser.ts`: tokenizes line-oriented PangoScript, preserving comments, labels, assignments, commands, OSC-address statements, strings, and expressions.
 - `src/language/diagnostics.ts`: returns conservative diagnostics for syntax balance, unknown commands, missing labels, and declared-but-uninitialized variable use.
 - `src/language/formatter.ts`: applies low-risk whitespace normalization without reordering or restructuring code.
-- `src/runtime/talkUdp.ts`: normalizes Talk UDP payloads as ASCII `\r\n`-terminated lines.
-- `src/runtime/osc.ts`: builds and decodes the small OSC 1.0 subset needed for readback checks.
-- `src/runtime/beyondReadback.ts`: sends read-only PangoScript readback commands and waits for matching OSC callbacks.
+- `src/runtime/talk/talkUdp.ts`: normalizes Talk UDP payloads as ASCII `\r\n`-terminated lines.
+- `src/runtime/osc/osc.ts`: builds and decodes the small OSC 1.0 subset needed for readback checks.
+- `src/runtime/readback/beyondReadback.ts`: sends read-only PangoScript readback commands and waits for matching OSC callbacks.
 - `src/extension.ts`: registers VS Code diagnostics, formatter, catalog completions, and commands.
 
 ## Diagnostics Scope

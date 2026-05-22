@@ -309,7 +309,8 @@ Sanitized output:
 
 ## Implementation Plan
 
-1. Add shared Talk reply parsing and redaction functions under `src/runtime/`.
+1. Add shared Talk reply parsing and redaction functions under
+   `src/runtime/talk/`.
 2. Update Talk TCP send code to produce per-command status records.
 3. Update `PangoLint: Run` output formatting for TCP and UDP modes.
 4. Keep Watcher updates limited to OSC callback entries and pinned property

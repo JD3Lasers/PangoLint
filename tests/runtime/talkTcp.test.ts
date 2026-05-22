@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { parseTalkTcpReply, redactTalkText, sendTalkTcpCommands, TalkTcpTimeoutError } from "../../src/runtime/talkTcp";
+import {
+  parseTalkTcpReply,
+  redactTalkText,
+  sendTalkTcpCommands,
+  TalkTcpTimeoutError,
+} from "../../src/runtime/talk/talkTcp";
 
 describe("Talk TCP reply parsing", () => {
   it("classifies output followed by OK as a successful command reply", () => {
