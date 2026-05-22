@@ -16,6 +16,11 @@ import type { OscMessage } from "./osc";
 import type { RunScriptWithOscCaptureResult } from "./runScriptWithOscCapture";
 import { runScriptWithOscCapture } from "./runScriptWithOscCapture";
 import { type BeyondRuntimeConfig, getBeyondRuntimeConfig } from "./runtimeConfig";
+import {
+  describeConfiguredTalkTarget,
+  readbackOptionsFromRuntimeConfig,
+  runScriptWithOscCaptureOptionsFromRuntimeConfig,
+} from "./runtimeOptions";
 import { type RuntimeCommandHooks, validateActiveDocumentAgainstBeyond } from "./validationCommands";
 
 interface RunSessionState {
@@ -40,13 +45,14 @@ export function registerBeyondRuntimeCommands(context: vscode.ExtensionContext, 
     vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.checkBeyondConnection, async () => {
       if (!requireWorkspaceTrust("BEYOND runtime readback checks")) return;
       const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
+      const runtimeConfig = getBeyondRuntimeConfig(config);
       const result = await vscode.window.withProgress(
         {
           location: vscode.ProgressLocation.Notification,
           title: "PangoLint testing BEYOND connection",
           cancellable: false,
         },
-        () => checkBeyondConnection(getBeyondRuntimeConfig(config)),
+        () => checkBeyondConnection(readbackOptionsFromRuntimeConfig(runtimeConfig)),
       );
 
       if (result.ok) {
@@ -108,6 +114,7 @@ async function runActiveDocument(
   }
 
   const runtimeConfig = getBeyondRuntimeConfig(config);
+  const runOptions = runScriptWithOscCaptureOptionsFromRuntimeConfig(runtimeConfig);
   const { timeoutMs } = runtimeConfig;
   const lineCount = text.split(/\r?\n/).filter((line) => line.trim() && !/^\s*\/\//.test(line)).length;
   const lintGate = hooks?.lintScriptText ? evaluateRuntimeLintGate(hooks.lintScriptText(text)) : undefined;
@@ -135,7 +142,7 @@ async function runActiveDocument(
   output.show(true);
   output.appendLine(`[${new Date().toISOString()}] ${formatConfiguredRunHeader(runtimeConfig, lineCount)}`);
 
-  const result = await runScriptWithOscCapture(text, runtimeConfig);
+  const result = await runScriptWithOscCapture(text, runOptions);
   if (result.ok) {
     appendTalkRunResult(output, result);
     appendCallbackCaptureResult(output, result, timeoutMs);
@@ -176,6 +183,7 @@ async function replayLastScript(
     return;
   }
   const runtimeConfig = getBeyondRuntimeConfig(config);
+  const runOptions = runScriptWithOscCaptureOptionsFromRuntimeConfig(runtimeConfig);
   const { timeoutMs } = runtimeConfig;
   const lineCount = state.lastText.split(/\r?\n/).filter((line) => line.trim() && !/^\s*\/\//.test(line)).length;
 
@@ -190,7 +198,7 @@ async function replayLastScript(
 
   output.show(true);
   output.appendLine(`[${new Date().toISOString()}] replay ${formatConfiguredRunHeader(runtimeConfig, lineCount)}`);
-  const result = await runScriptWithOscCapture(state.lastText, runtimeConfig);
+  const result = await runScriptWithOscCapture(state.lastText, runOptions);
   if (result.ok) {
     appendTalkRunResult(output, result);
     appendCallbackCaptureResult(output, result, timeoutMs);
@@ -214,16 +222,6 @@ function formatConfiguredRunHeader(config: BeyondRuntimeConfig, lineCount: numbe
     return `Talk UDP -> ${config.talkUdpHost}:${config.talkUdpPort} (${lineCount} lines)`;
   }
   return `Talk auto -> TCP ${config.talkTcpHost}:${config.talkTcpPort}, UDP fallback ${config.talkUdpFallbackAllowed ? "allowed" : "disabled"} (${lineCount} lines)`;
-}
-
-function describeConfiguredTalkTarget(config: BeyondRuntimeConfig): string {
-  if (config.talkTransport === "tcp") {
-    return `Talk TCP at ${config.talkTcpHost}:${config.talkTcpPort}`;
-  }
-  if (config.talkTransport === "udp") {
-    return `Talk UDP at ${config.talkUdpHost}:${config.talkUdpPort}`;
-  }
-  return `Talk TCP at ${config.talkTcpHost}:${config.talkTcpPort} with UDP fallback ${config.talkUdpFallbackAllowed ? "allowed" : "disabled"}`;
 }
 
 function appendTalkRunResult(output: vscode.OutputChannel, result: RunScriptWithOscCaptureResult): void {
@@ -297,7 +295,7 @@ function showReplayStatusItem(state: RunSessionState, lineCount: number): void {
     state.replayStatusItem.command = EXTENSION_COMMAND_IDS.replayLastScript;
   }
   state.replayStatusItem.text = `$(debug-restart) Re-run (${lineCount})`;
-  state.replayStatusItem.tooltip = "PangoLint: Re-send the last Talk UDP command batch to BEYOND";
+  state.replayStatusItem.tooltip = "PangoLint: Re-send the last BEYOND Talk command batch";
   state.replayStatusItem.show();
 }
 
@@ -328,7 +326,7 @@ async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<v
 
   const result = await vscode.window.withProgress(
     { location: vscode.ProgressLocation.Notification, title: `PangoLint fetching ${path}`, cancellable: false },
-    () => readBeyondProperty({ propertyPath: path, ...runtimeConfig }),
+    () => readBeyondProperty({ propertyPath: path, ...readbackOptionsFromRuntimeConfig(runtimeConfig) }),
   );
 
   if (result.ok) {
@@ -405,7 +403,7 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
         readbackPath: path,
         expectedValue,
         typeTag,
-        ...runtimeConfig,
+        ...readbackOptionsFromRuntimeConfig(runtimeConfig),
       }),
   );
 
@@ -441,6 +439,7 @@ export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string
   if (!vscode.workspace.isTrusted) return base;
   const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
   const runtimeConfig = getBeyondRuntimeConfig(config);
+  const readbackOptions = readbackOptionsFromRuntimeConfig(runtimeConfig);
   const { timeoutMs: configuredTimeoutMs } = runtimeConfig;
   const cacheKey = `${runtimeConfig.talkTransport}:${runtimeConfig.talkTcpHost}:${runtimeConfig.talkTcpPort}:${runtimeConfig.talkUdpHost}:${runtimeConfig.talkUdpPort}|${path}`;
   const now = Date.now();
@@ -454,7 +453,7 @@ export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string
   try {
     const result = await readBeyondProperty({
       propertyPath: path,
-      ...runtimeConfig,
+      ...readbackOptions,
       timeoutMs,
     });
     const entry: CachedLiveValue = result.ok

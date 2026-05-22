@@ -1,11 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type * as vscode from "vscode";
 
-const { readBeyondPropertyMock, showInformationMessageMock, updateWorkspaceStateMock } = vi.hoisted(() => ({
-  readBeyondPropertyMock: vi.fn(),
-  showInformationMessageMock: vi.fn(),
-  updateWorkspaceStateMock: vi.fn(),
-}));
+const { readBeyondPropertyMock, showInformationMessageMock, updateWorkspaceStateMock, workspaceConfig } = vi.hoisted(
+  () => ({
+    readBeyondPropertyMock: vi.fn(),
+    showInformationMessageMock: vi.fn(),
+    updateWorkspaceStateMock: vi.fn(),
+    workspaceConfig: new Map<string, unknown>(),
+  }),
+);
 
 vi.mock("vscode", () => {
   class EventEmitter<T = void> {
@@ -39,7 +42,7 @@ vi.mock("vscode", () => {
     },
     workspace: {
       getConfiguration: () => ({
-        get: (_key: string, fallback: unknown) => fallback,
+        get: (key: string, fallback: unknown) => (workspaceConfig.has(key) ? workspaceConfig.get(key) : fallback),
       }),
     },
   };
@@ -54,6 +57,7 @@ import { WatcherTreeProvider } from "../../src/workspace/watcherView";
 describe("WatcherTreeProvider", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    workspaceConfig.clear();
   });
 
   it("refreshes watched properties sequentially so OSC listener binds do not overlap", async () => {
@@ -104,6 +108,40 @@ describe("WatcherTreeProvider", () => {
 
     expect(maxActiveReadbacks).toBe(1);
     expect(readBeyondPropertyMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("passes the selected BEYOND Talk transport settings to readback refreshes", async () => {
+    workspaceConfig.set("talkTransport", "tcp");
+    workspaceConfig.set("talkTcpHost", "192.0.2.148");
+    workspaceConfig.set("talkTcpPort", 16063);
+    workspaceConfig.set("talkUdpHost", "192.0.2.149");
+    workspaceConfig.set("talkUdpPort", 16062);
+    workspaceConfig.set("talkUdpFallbackAllowed", true);
+    workspaceConfig.set("talkTcpPassword", "secret");
+    workspaceConfig.set("oscListenHost", "0.0.0.0");
+    workspaceConfig.set("oscListenPort", 7000);
+    workspaceConfig.set("readbackTimeoutMs", 4500);
+    readBeyondPropertyMock.mockResolvedValue({ ok: true, value: 50 });
+
+    const watcher = new WatcherTreeProvider(fakeContext(["Master.Brightness"]));
+
+    await watcher.refresh();
+
+    expect(readBeyondPropertyMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+        talkUdpHost: "192.0.2.149",
+        talkUdpPort: 16062,
+        talkUdpFallbackAllowed: true,
+        talkTcpPassword: "secret",
+        listenHost: "0.0.0.0",
+        listenPort: 7000,
+        timeoutMs: 4500,
+      }),
+    );
   });
 
   it("shows captured run callback messages as transient watcher rows", () => {

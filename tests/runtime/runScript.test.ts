@@ -37,7 +37,7 @@ describe("runScript", () => {
     expect(result.linesSent).toBe(0);
   });
 
-  it("refuses control-flow scripts before sending Talk UDP", async () => {
+  it("refuses control-flow scripts before sending BEYOND Talk", async () => {
     let sends = 0;
     const result = await runScript(
       [
@@ -60,7 +60,8 @@ describe("runScript", () => {
     expect(result.linesSent).toBe(0);
     expect(result.payloadsSent).toBe(0);
     expect(result.bytesSent).toBe(0);
-    expect(result.error).toMatch(/Talk UDP.*straight-line command batches/i);
+    expect(result.error).toMatch(/BEYOND Talk.*straight-line command batches/i);
+    expect(result.error).not.toMatch(/Talk UDP/i);
     expect(result.error).toMatch(/line 2/i);
     expect(result.error).toMatch(/paste.*BEYOND/i);
     expect(sends).toBe(0);

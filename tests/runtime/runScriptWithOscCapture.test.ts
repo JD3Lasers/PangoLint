@@ -91,7 +91,7 @@ describe("runScriptWithOscCapture", () => {
     expect(startCapture).not.toHaveBeenCalled();
   });
 
-  it("does not open an OSC capture listener when Talk UDP preflight refuses control flow", async () => {
+  it("does not open an OSC capture listener when BEYOND Talk preflight refuses control flow", async () => {
     const startCapture: StartOscCapture = vi.fn();
     const send = vi.fn(async () => {});
 
@@ -109,7 +109,8 @@ describe("runScriptWithOscCapture", () => {
     );
 
     expect(result.ok).toBe(false);
-    expect(result.error).toMatch(/Talk UDP.*straight-line command batches/i);
+    expect(result.error).toMatch(/BEYOND Talk.*straight-line command batches/i);
+    expect(result.error).not.toMatch(/Talk UDP/i);
     expect(result.callbackAddresses).toEqual(["/pangolint/smoke/start"]);
     expect(startCapture).not.toHaveBeenCalled();
     expect(send).not.toHaveBeenCalled();

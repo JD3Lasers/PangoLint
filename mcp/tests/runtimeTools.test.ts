@@ -355,7 +355,7 @@ describe("runScript", () => {
     expect(send).not.toHaveBeenCalled();
   });
 
-  it("refuses Talk UDP control-flow scripts after linting", async () => {
+  it("refuses BEYOND Talk control-flow scripts after linting", async () => {
     const send = vi.fn(async () => {});
     const result = await runScript(
       {
@@ -374,7 +374,11 @@ describe("runScript", () => {
     if (result.ok) {
       expect(result.data.ok).toBe(false);
       expect(result.data.refusedDueToErrors).toBeUndefined();
-      expect(result.data.error).toMatch(/Talk UDP.*straight-line command batches/i);
+      expect(result.data.error).toMatch(/BEYOND Talk.*straight-line command batches/i);
+      expect(result.data.error).not.toMatch(/Talk UDP/i);
+      expect(result.data.transport).toBeUndefined();
+      expect(result.data.talkHost).toBeUndefined();
+      expect(result.data.talkPort).toBeUndefined();
       expect(result.data.linesSent).toBe(0);
     }
     expect(send).not.toHaveBeenCalled();

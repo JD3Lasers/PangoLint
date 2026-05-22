@@ -10,6 +10,7 @@ const {
   showErrorMessageMock,
   showInformationMessageMock,
   showWarningMessageMock,
+  statusBarItemMock,
   vscodeState,
 } = vi.hoisted(() => {
   const handlers = new Map<string, (...args: unknown[]) => unknown>();
@@ -18,6 +19,13 @@ const {
     clear: vi.fn(),
     dispose: vi.fn(),
     show: vi.fn(),
+  };
+  const statusBarItem = {
+    command: undefined as string | undefined,
+    dispose: vi.fn(),
+    show: vi.fn(),
+    text: "",
+    tooltip: "",
   };
   return {
     commandHandlers: handlers,
@@ -31,6 +39,7 @@ const {
     showErrorMessageMock: vi.fn(),
     showInformationMessageMock: vi.fn(),
     showWarningMessageMock: vi.fn(),
+    statusBarItemMock: statusBarItem,
     vscodeState: {
       activeTextEditor: undefined as unknown,
       config: new Map<string, unknown>(),
@@ -60,7 +69,7 @@ vi.mock("vscode", () => ({
       return vscodeState.activeTextEditor;
     },
     createOutputChannel: createOutputChannelMock,
-    createStatusBarItem: vi.fn(() => ({ show: vi.fn(), dispose: vi.fn() })),
+    createStatusBarItem: vi.fn(() => statusBarItemMock),
     setStatusBarMessage: vi.fn(),
     showErrorMessage: showErrorMessageMock,
     showInformationMessage: showInformationMessageMock,
@@ -94,6 +103,10 @@ describe("registerBeyondRuntimeCommands", () => {
     showInformationMessageMock.mockReset();
     showWarningMessageMock.mockReset();
     showWarningMessageMock.mockResolvedValue("Run");
+    statusBarItemMock.command = undefined;
+    statusBarItemMock.text = "";
+    statusBarItemMock.tooltip = "";
+    statusBarItemMock.show.mockClear();
     vscodeState.config = new Map<string, unknown>([
       ["allowScriptExecution", true],
       ["confirmRunEachSession", true],
@@ -205,10 +218,34 @@ describe("registerBeyondRuntimeCommands", () => {
       talkUdpPort: 16062,
       talkUdpFallbackAllowed: false,
       talkTcpPassword: "",
+      commandTimeoutMs: 3000,
       listenHost: "0.0.0.0",
       listenPort: 7000,
       timeoutMs: 3000,
     });
+  });
+
+  it("uses transport-neutral wording for the replay status item", async () => {
+    runScriptWithOscCaptureMock.mockResolvedValue({
+      ok: true,
+      transport: "tcp",
+      linesSent: 1,
+      payloadsSent: 0,
+      bytesSent: 15,
+      callbackAddresses: [],
+    });
+    const context = { subscriptions: [] } as unknown as vscode.ExtensionContext;
+    registerBeyondRuntimeCommands(context, {
+      validatedRootsCache: new Map(),
+      getPropertyIndex: vi.fn(),
+      onValidatedRootsChanged: vi.fn(),
+      lintScriptText: () => [],
+    });
+
+    await commandHandlers.get("pangolint.runScript")?.();
+
+    expect(statusBarItemMock.tooltip).toContain("BEYOND Talk command batch");
+    expect(statusBarItemMock.tooltip).not.toContain("Talk UDP");
   });
 
   it("prints Talk TCP replies in the run output channel", async () => {
