@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.13] - 2026-05-22
+
+### Changed
+
+- Split oversized checked-in knowledge data tests into command, Object Tree
+  value, readback, behavior, and layout files with named shared test data
+  readers.
+- Document knowledge test fixture folders and add source-layout coverage for
+  the split test files.
+
 ## [0.7.12] - 2026-05-22
 
 ### Changed
@@ -299,7 +309,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.13...HEAD
+[0.7.13]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...v0.7.13
 [0.7.12]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...v0.7.12
 [0.7.11]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...v0.7.11
 [0.7.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...v0.7.10

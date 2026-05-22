@@ -1,0 +1,76 @@
+export const issue294WsCueEffectControlPaths = new Set([
+  "WS.N.N.ClickMode",
+  "WS.N.N.Effect.ChasePeriod",
+  "WS.N.N.Effect.ClockLimit",
+  "WS.N.N.Effect.ClockShift",
+  "WS.N.N.Effect.EnableClockLimit",
+  "WS.N.N.Effect.EnableMetroLimit",
+  "WS.N.N.Effect.MetroLimit",
+  "WS.N.N.Effect.MetroShift",
+]);
+export const issue294WsStringControlPaths = new Set([
+  "WS.N.N.Caption",
+  "WS.N.N.Effect.Name",
+  "WS.N.N.Image.Effect.Name",
+  "WS.N.N.Image.LIST.0.Effect.Name",
+]);
+export const issue294WsSingleVariantStatePaths = new Set([
+  "WS.N.N.Image.BeamConnect",
+  "WS.N.N.Image.BeamRepeat",
+  "WS.N.N.Image.EnableRecording",
+  "WS.N.N.Image.EnableStaticMode",
+  "WS.N.N.Image.FftMode",
+  "WS.N.N.Image.Mode",
+  "WS.N.N.Image.MonoSpaced",
+  "WS.N.N.Image.NGonCount",
+  "WS.N.N.Image.PhysicsActive",
+  "WS.N.N.Image.ShowCorners",
+  "WS.N.N.Image.StartShape",
+  "WS.N.N.Image.LIST.0.Image.BeamConnect",
+  "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+  "WS.N.N.Image.LIST.0.Image.EnableRecording",
+  "WS.N.N.Image.LIST.0.Image.FftMode",
+  "WS.N.N.Image.LIST.0.Image.Loops",
+  "WS.N.N.Image.LIST.0.Image.Mode",
+  "WS.N.N.Image.LIST.0.Image.NGonCount",
+  "WS.N.N.Image.LIST.0.Image.PhysicsActive",
+  "WS.N.N.Image.LIST.0.Image.PointCount",
+  "WS.N.N.Image.LIST.0.Image.ShowCorners",
+  "WS.N.N.Image.LIST.0.Image.StartShape",
+  "WS.N.N.Image.LIST.0.Muted",
+]);
+export const issue294WsSingleVariantStateDeferredPaths = new Set([
+  "WS.N.N.Ani.0.Muted",
+  "WS.N.N.Ani.0.PreventReroute",
+  "WS.N.N.Ani.0.Solo",
+  "WS.N.N.Image.AudioMode",
+  "WS.N.N.Image.AutoRecord",
+  "WS.N.N.Image.EnableRecord",
+  "WS.N.N.Image.MultiLaser",
+  "WS.N.N.Image.LIST.0.Image.AudioMode",
+]);
+export const issue294WsNestedEffectControlPaths = new Set([
+  "WS.N.N.Image.Effect.ChasePeriod",
+  "WS.N.N.Image.LIST.0.Effect.ChasePeriod",
+  "WS.N.N.Image.LIST.0.Effect.ClockLimit",
+  "WS.N.N.Image.LIST.0.Effect.ClockShift",
+  "WS.N.N.Image.LIST.0.Effect.EnableClockLimit",
+  "WS.N.N.Image.LIST.0.Effect.EnableMetroLimit",
+  "WS.N.N.Image.LIST.0.Effect.MetroLimit",
+  "WS.N.N.Image.LIST.0.Effect.MetroShift",
+]);
+export const issue294WsNestedEffectDeferredPaths = new Set([
+  "WS.N.N.Image.Effect.ChaseTimeMode",
+  "WS.N.N.Image.LIST.0.Effect.ChaseTimeMode",
+  "WS.N.N.Image.LIST.0.Effect.Zone",
+  "WS.N.N.Image.LIST.0.Effect.ZoneMode",
+]);
+export const issue338FxCellEffectControlPaths = new Set([
+  "FX.N.N.ChasePeriod",
+  "FX.N.N.ClockLimit",
+  "FX.N.N.ClockShift",
+  "FX.N.N.EnableClockLimit",
+  "FX.N.N.EnableMetroLimit",
+  "FX.N.N.MetroLimit",
+  "FX.N.N.MetroShift",
+]);
