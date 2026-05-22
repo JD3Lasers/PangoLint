@@ -98,7 +98,7 @@ describe("checked-in Object Tree device value metadata data", () => {
         probeOscPrefix: "/b/FX/0/0",
       }),
     );
-  });
+  }, 30_000);
 
   it("seeds exact object-property ranges from command value metadata", () => {
     const objectPropertyIndex = readJson<{

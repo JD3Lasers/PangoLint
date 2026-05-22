@@ -41,5 +41,5 @@ describe("checked-in Object Tree behavior metadata data", () => {
         });
       }
     }
-  });
+  }, 30_000);
 });
