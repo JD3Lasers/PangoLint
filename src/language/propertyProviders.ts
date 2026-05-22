@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { EXTENSION_COMMAND_IDS } from "../extensionHost/extensionIds";
 import type { CommandCatalog } from "../knowledge/catalog";
 import { type KnownObjectSchema, type PropertyIndex, perIndexSchemaName } from "../knowledge/propertyIndex";
 import { lineAnalysisLimitReason, PANGO_ANALYSIS_LIMITS } from "./analysisLimits";
@@ -212,7 +213,7 @@ export function codeActionsForUnknownRoot(
     vscode.CodeActionKind.QuickFix,
   );
   universeAction.command = {
-    command: "pangolint.addUserObject",
+    command: EXTENSION_COMMAND_IDS.addUserObject,
     title: "Add user universe",
     arguments: [containing.root, "universe"],
   };
@@ -222,7 +223,7 @@ export function codeActionsForUnknownRoot(
     vscode.CodeActionKind.QuickFix,
   );
   zoneAction.command = {
-    command: "pangolint.addUserObject",
+    command: EXTENSION_COMMAND_IDS.addUserObject,
     title: "Add zone alias",
     arguments: [containing.root, "zoneAlias"],
   };
@@ -232,7 +233,7 @@ export function codeActionsForUnknownRoot(
     vscode.CodeActionKind.QuickFix,
   );
   masterAction.command = {
-    command: "pangolint.addUserObject",
+    command: EXTENSION_COMMAND_IDS.addUserObject,
     title: "Add Master alias",
     arguments: [containing.root, "masterAlias"],
   };

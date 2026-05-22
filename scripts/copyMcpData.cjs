@@ -10,78 +10,21 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const {
+  assertApprovedMcpAssetPath: assertApprovedPolicyPath,
+  mcpAssetDirectories,
+  mcpAssetFiles,
+} = require("./packageSurfacePolicy.cjs");
 
 const repoRoot = path.resolve(__dirname, "..");
 const mcpRoot = path.join(repoRoot, "mcp");
-const forbiddenMcpAssetPathPatterns = [
-  ["local probe directory", /(^|\/)probes?(?:\/|$)/i],
-  ["local probe file", /(^|\/)probe-[^/]*$/i],
-  ["maintainer-only evidence directory", /(^|\/)maintainer[-_]evidence(?:\/|$)/i],
-];
-
-const forbiddenMcpDataPrefixes = [
-  ["Object Tree source facts", "data/pangoscript/object-tree/source-facts/"],
-  ["Object Tree evidence", "data/pangoscript/object-tree/evidence/"],
-  ["Object Tree audit output", "data/pangoscript/object-tree/audits/"],
-  ["Object Tree package projection", "data/pangoscript/object-tree/package-projections/"],
-];
-
-const FILES = [
-  "LICENSE",
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "data/pangoscript/control-reference/README.md",
-  "data/pangoscript/control-reference/package-policy.json",
-  "docs/references/diagnostics/README.md",
-  "docs/references/operators.md",
-  "docs/references/syntax.md",
-  "docs/references/beyond/pangoscript/master-object-tree.md",
-  "docs/references/beyond/pangoscript/object-model.md",
-];
-
-const DIRECTORIES = [
-  "data/pangoscript/control-reference/mcp-control-reference",
-  "docs/references/beyond/pangoscript/command-reference",
-];
-
-const allowedMcpDataPaths = new Set([
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "data/pangoscript/control-reference/README.md",
-  "data/pangoscript/control-reference/package-policy.json",
-  "data/pangoscript/control-reference/mcp-control-reference/README.md",
-  "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
-  "data/pangoscript/control-reference/mcp-control-reference/summary.json",
-]);
-
-const allowedMcpDataDirectoryPrefixes = ["data/pangoscript/control-reference/mcp-control-reference/"];
-
-function isAllowedMcpDataPath(rel) {
-  if (!rel.startsWith("data/")) return true;
-  if (allowedMcpDataPaths.has(rel)) return true;
-  return allowedMcpDataDirectoryPrefixes.some((prefix) => rel === prefix.slice(0, -1) || rel.startsWith(prefix));
-}
 
 function assertApprovedMcpAssetPath(rel) {
-  for (const [label, pattern] of forbiddenMcpAssetPathPatterns) {
-    const match = pattern.exec(rel);
-    if (match?.[0]) {
-      process.stderr.write(`copyMcpData: refused maintainer-only asset path: ${rel} (${label})\n`);
-      process.exit(1);
-    }
-  }
-  for (const [label, prefix] of forbiddenMcpDataPrefixes) {
-    if (rel === prefix.slice(0, -1) || rel.startsWith(prefix)) {
-      process.stderr.write(`copyMcpData: refused maintainer-only asset path: ${rel} (${label})\n`);
-      process.exit(1);
-    }
-  }
-  if (!isAllowedMcpDataPath(rel)) {
-    process.stderr.write(`copyMcpData: refused unapproved MCP data path: ${rel}\n`);
+  try {
+    assertApprovedPolicyPath(rel);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    process.stderr.write(`copyMcpData: ${message}\n`);
     process.exit(1);
   }
 }
@@ -120,7 +63,7 @@ for (const rel of ["data", "docs"]) {
 }
 
 let copied = 0;
-for (const rel of FILES) {
+for (const rel of mcpAssetFiles) {
   assertApprovedMcpAssetPath(rel);
   const source = path.join(repoRoot, rel);
   const dest = path.join(mcpRoot, rel);
@@ -133,7 +76,7 @@ for (const rel of FILES) {
   copied++;
 }
 
-for (const rel of DIRECTORIES) {
+for (const rel of mcpAssetDirectories) {
   assertApprovedMcpAssetPath(rel);
   const source = path.join(repoRoot, rel);
   const dest = path.join(mcpRoot, rel);

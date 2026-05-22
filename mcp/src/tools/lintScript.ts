@@ -13,7 +13,7 @@ import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
 import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
 import { lintPangoScript } from "../../../src/language/diagnostics";
 import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LintScriptInput {
   text: string;

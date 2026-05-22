@@ -5,7 +5,7 @@ import {
   type TalkTcpReply,
 } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface CheckTalkConnectionOutput {
   ok: boolean;

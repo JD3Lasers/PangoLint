@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundledDataPaths";
 import {
   canonicalizeObjectPropertyHardwareRoot,
   canonicalizeObjectPropertyHardwareRootPath,
@@ -203,11 +204,7 @@ export function buildMcpPropertyControlIndex(file: McpControlReferenceFile): Mcp
 export function loadBundledMcpControlReference(extensionPath: string): McpControlReferenceLoadResult {
   const filePath = path.join(
     extensionPath,
-    "data",
-    "pangoscript",
-    "control-reference",
-    "mcp-control-reference",
-    "property-controls.json",
+    ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.mcpPropertyControls),
   );
   if (!existsSync(filePath)) {
     return {

@@ -4,6 +4,7 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundledDataPaths";
 
 export type ObjectPropertyKind = "object" | "fx";
 export type ObjectPropertyConfidence = "observed" | "inferred" | "unverified";
@@ -289,11 +290,7 @@ export function buildObjectPropertyIndex(file: ObjectPropertyIndexFile): ObjectP
 export function loadBundledObjectPropertyIndex(extensionPath: string): ObjectPropertyIndexLoadResult {
   const filePath = path.join(
     extensionPath,
-    "data",
-    "pangoscript",
-    "object-tree",
-    "runtime-indexes",
-    "object-property-index.json",
+    ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.objectPropertyIndex),
   );
   if (!existsSync(filePath)) {
     return {

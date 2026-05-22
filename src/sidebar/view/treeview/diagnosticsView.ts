@@ -4,6 +4,7 @@
 // "Why?" docs action.
 
 import * as vscode from "vscode";
+import { PANGOSCRIPT_LANGUAGE_ID } from "../../../extensionHost/extensionIds";
 import { summarizePangoLintDiagnostics } from "../../model/diagnostics";
 import type { DiagnosticGroup, DiagnosticInput, DiagnosticSeverity } from "../../model/types";
 import {
@@ -12,8 +13,6 @@ import {
   buildDiagnosticGroupTreeItem,
   buildEmptyMessageTreeItem,
 } from "./treeItems";
-
-const PANGOSCRIPT_LANGUAGE_ID = "pangoscript";
 
 type DiagnosticsNode =
   | { kind: "group"; group: DiagnosticGroup }

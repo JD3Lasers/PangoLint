@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.8] - 2026-05-22
+
+### Changed
+
+- Organize VSIX and MCP source identifiers, bundled data paths, tool result
+  shapes, resource paths, and public package path policy into named modules
+  with repo-policy tests for persistence and package boundaries.
+
 ## [0.7.7] - 2026-05-21
 
 ### Changed
@@ -248,7 +256,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.8...HEAD
+[0.7.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...v0.7.8
 [0.7.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.7
 [0.7.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...v0.7.6
 [0.7.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...v0.7.5

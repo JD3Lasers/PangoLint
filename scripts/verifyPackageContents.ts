@@ -3,66 +3,14 @@ import { readFileSync } from "node:fs";
 
 import { findPublicArtifactLeaks, findPublicArtifactPathLeaks } from "./publicArtifactPolicy";
 
-const expectedPaths = [
-  "dist/extension.js",
-  "dist/sidebar-commands-webview.js",
-  "dist/sidebar-objects-webview.js",
-  "data/pangoscript/beyond-category-tree.json",
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "language-configuration.json",
-  "syntaxes/pangoscript.tmLanguage.json",
-  "snippets/pangoscript.json",
-  "media/icon.png",
-  "media/icon-activity-bar.svg",
-  "media/reference/pangoscript-reference.html",
-  "media/sidebar/commands.html",
-  "media/sidebar/commands.css",
-  "media/sidebar/objects.html",
-  "media/sidebar/objects.css",
-  "docs/references/diagnostics/README.md",
-  "package.json",
-  "README.md",
-  "LICENSE",
-  "NOTICE.md",
-  "CHANGELOG.md",
-];
+const { expectedVsixPackagePaths, findForbiddenVsixPackagePathLabels, forbiddenVsixPackagePrefixes } =
+  require("./packageSurfacePolicy.cjs") as {
+    expectedVsixPackagePaths: string[];
+    findForbiddenVsixPackagePathLabels: (relativePath: string) => string[];
+    forbiddenVsixPackagePrefixes: string[];
+  };
 
-const forbiddenPrefixes = [
-  ".git/",
-  ".github/",
-  ".pangolint/",
-  ".trash/",
-  ".vscode-test/",
-  ".vscode/",
-  "__MACOSX/",
-  "coverage/",
-  "docs/",
-  "node_modules/",
-  "scripts/",
-  "src/",
-  "tests/",
-];
-
-const unapprovedVsixDataPrefixes = [
-  "data/pangoscript/control-reference/",
-  "data/pangoscript/object-tree/source-facts/",
-  "data/pangoscript/object-tree/evidence/",
-  "data/pangoscript/object-tree/audits/",
-  "data/pangoscript/object-tree/package-projections/",
-  "data/pangoscript/object-behavior-audits/",
-  "data/pangoscript/object-readback-audits/",
-  "data/pangoscript/object-range-evidence/",
-  "data/pangoscript/object-readback-evidence/",
-  "data/pangoscript/object-behavior-evidence/",
-  "data/pangoscript/object-property-ranges/",
-  "data/pangoscript/object-property-readbacks/",
-  "data/pangoscript/object-property-classifications/",
-];
-
-const expectedPathSet = new Set(expectedPaths);
+const expectedPathSet = new Set(expectedVsixPackagePaths);
 
 const output = execSync("vsce ls --no-dependencies", {
   encoding: "utf8",
@@ -79,19 +27,17 @@ if (pathLeaks.length > 0) {
   );
 }
 
-const unapprovedData = [...paths].filter((packedPath) =>
-  unapprovedVsixDataPrefixes.some((prefix) => packedPath.startsWith(prefix)),
-);
+const unapprovedData = [...paths].filter((packedPath) => findForbiddenVsixPackagePathLabels(packedPath).length > 0);
 if (unapprovedData.length > 0) {
   throw new Error(`VSIX includes unapproved data surface(s): ${unapprovedData.join(", ")}`);
 }
 
-const missing = expectedPaths.filter((requiredPath) => !paths.has(requiredPath));
+const missing = expectedVsixPackagePaths.filter((requiredPath) => !paths.has(requiredPath));
 if (missing.length > 0) {
   throw new Error(`VSIX is missing required file(s): ${missing.join(", ")}`);
 }
 
-const unexpected = [...paths].filter((packedPath) => !expectedPaths.includes(packedPath));
+const unexpected = [...paths].filter((packedPath) => !expectedVsixPackagePaths.includes(packedPath));
 if (unexpected.length > 0) {
   throw new Error(`VSIX includes unexpected file(s): ${unexpected.join(", ")}`);
 }
@@ -99,13 +45,13 @@ if (unexpected.length > 0) {
 const forbidden = [...paths].filter(
   (packedPath) =>
     !expectedPathSet.has(packedPath) &&
-    forbiddenPrefixes.some((prefix) => packedPath === prefix.slice(0, -1) || packedPath.startsWith(prefix)),
+    forbiddenVsixPackagePrefixes.some((prefix) => packedPath === prefix.slice(0, -1) || packedPath.startsWith(prefix)),
 );
 if (forbidden.length > 0) {
   throw new Error(`VSIX includes forbidden file(s): ${forbidden.join(", ")}`);
 }
 
-const leaks = expectedPaths.flatMap((packedPath) => {
+const leaks = expectedVsixPackagePaths.flatMap((packedPath) => {
   if (!/\.(?:json|md|html|js|css|txt)$/.test(packedPath)) return [];
 
   const contents = readFileSync(packedPath, "utf8");

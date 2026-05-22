@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { EXTENSION_CONFIG_SECTIONS, EXTENSION_SETTING_KEYS } from "../extensionHost/extensionIds";
 
 export interface DiagnosticDecorationOptions {
   source?: string;
@@ -90,8 +91,12 @@ export function registerDiagnosticDecorations(
     }),
     vscode.workspace.onDidChangeConfiguration((event) => {
       if (
-        !event.affectsConfiguration("pangolint.diagnostics.highlightStyle") &&
-        !event.affectsConfiguration("pangolint.diagnostics.inlineMessages")
+        !event.affectsConfiguration(
+          `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.diagnosticsHighlightStyle}`,
+        ) &&
+        !event.affectsConfiguration(
+          `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.diagnosticsInlineMessages}`,
+        )
       ) {
         return;
       }
@@ -103,9 +108,9 @@ export function registerDiagnosticDecorations(
 }
 
 function readSettings(): Settings {
-  const config = vscode.workspace.getConfiguration("pangolint");
-  const highlightStyle = config.get<HighlightStyle>("diagnostics.highlightStyle", "lineBackground");
-  const inlineMessages = config.get<InlineMode>("diagnostics.inlineMessages", "off");
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.pangolint);
+  const highlightStyle = config.get<HighlightStyle>(EXTENSION_SETTING_KEYS.diagnosticsHighlightStyle, "lineBackground");
+  const inlineMessages = config.get<InlineMode>(EXTENSION_SETTING_KEYS.diagnosticsInlineMessages, "off");
   return { highlightStyle, inlineMessages };
 }
 

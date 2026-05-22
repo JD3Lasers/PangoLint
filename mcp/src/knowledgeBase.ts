@@ -5,12 +5,14 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "../../src/knowledge/bundledDataPaths";
 import type { CommandCatalog } from "../../src/knowledge/catalog";
 import { loadBundledCatalog } from "../../src/knowledge/catalogLoader";
 import type { CommandKnowledgeEntry, PangoKnowledgeBase } from "../../src/knowledge/knowledgeBase";
 import { loadBundledMcpControlReference, type McpPropertyControlIndex } from "../../src/knowledge/mcpControlReference";
 import { loadBundledObjectPropertyIndex, type ObjectPropertyIndex } from "../../src/knowledge/objectPropertyIndex";
 import { loadBundledPropertyIndex, type PropertyIndex } from "../../src/knowledge/propertyIndex";
+import { MCP_ENV_VARS } from "./configEnv";
 
 const MCP_LOG_PREFIX = "PangoLint MCP";
 
@@ -47,7 +49,8 @@ export interface McpKnowledgeBase {
  * pointing the server at a freshly-rebuilt repo during dev).
  */
 export function resolveDataDir(env: NodeJS.ProcessEnv = process.env): string {
-  if (env.PANGOLINT_MCP_DATA_DIR) return env.PANGOLINT_MCP_DATA_DIR;
+  const dataDir = env[MCP_ENV_VARS.dataDir];
+  if (dataDir) return dataDir;
 
   const here = fileURLToPath(import.meta.url);
   const dir = path.dirname(here);
@@ -55,7 +58,7 @@ export function resolveDataDir(env: NodeJS.ProcessEnv = process.env): string {
   // 2. Monorepo dev layout: mcp/src/knowledgeBase.ts or mcp/dist/server.js → repo root
   const candidates = [path.resolve(dir, ".."), path.resolve(dir, "..", "..")];
   for (const candidate of candidates) {
-    if (existsSync(path.join(candidate, "data", "pangoscript", "commands.merged.json"))) {
+    if (existsSync(path.join(candidate, ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.commandsMerged)))) {
       return candidate;
     }
   }

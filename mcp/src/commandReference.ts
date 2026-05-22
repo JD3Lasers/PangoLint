@@ -6,10 +6,8 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { COMMAND_REFERENCE_DIR, COMMAND_REFERENCE_META_FILES } from "./bundledResourcePaths";
 import { resolveDataDir } from "./knowledgeBase";
-
-const COMMAND_REFERENCE_DIR = "docs/references/beyond/pangoscript/command-reference";
-const COMMAND_REFERENCE_META_FILES = new Set(["README.md"]);
 
 export type CommandReferenceSearchIndex = ReadonlyMap<string, string>;
 

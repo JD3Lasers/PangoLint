@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { fail, loadConfig, ok } from "../src/config";
+import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/runtimeConfig";
+import { loadConfig } from "../src/config";
+import { fail, ok } from "../src/toolResult";
 
 describe("loadConfig", () => {
   it("returns defaults with runtime disabled when no env is set", () => {
@@ -7,18 +9,18 @@ describe("loadConfig", () => {
     expect(cfg).toEqual({
       runtimeReadEnabled: false,
       runtimeWriteEnabled: false,
-      beyondTalkTransport: "auto",
-      beyondTalkHost: "127.0.0.1",
-      beyondTalkPort: 16062,
-      beyondTalkTcpHost: "127.0.0.1",
-      beyondTalkTcpPort: 16063,
-      beyondTalkUdpHost: "127.0.0.1",
-      beyondTalkUdpPort: 16062,
-      beyondTalkUdpFallbackAllowed: false,
-      beyondTalkTcpPassword: "",
-      oscListenHost: "0.0.0.0",
-      oscListenPort: 7000,
-      readbackTimeoutMs: 3000,
+      beyondTalkTransport: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTransport,
+      beyondTalkHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkHost,
+      beyondTalkPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkPort,
+      beyondTalkTcpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpHost,
+      beyondTalkTcpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPort,
+      beyondTalkUdpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpHost,
+      beyondTalkUdpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpPort,
+      beyondTalkUdpFallbackAllowed: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
+      beyondTalkTcpPassword: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPassword,
+      oscListenHost: DEFAULT_BEYOND_RUNTIME_CONFIG.listenHost,
+      oscListenPort: DEFAULT_BEYOND_RUNTIME_CONFIG.listenPort,
+      readbackTimeoutMs: DEFAULT_BEYOND_RUNTIME_CONFIG.timeoutMs,
     });
   });
 

@@ -3,7 +3,7 @@
 
 import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
 import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupCommandInput {
   name: string;

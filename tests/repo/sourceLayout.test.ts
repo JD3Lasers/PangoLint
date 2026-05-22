@@ -6,10 +6,20 @@ const sourceRoot = path.join(process.cwd(), "src");
 const scriptsRoot = path.join(process.cwd(), "scripts");
 const testsRoot = path.join(process.cwd(), "tests");
 
-const expectedSourceFolders = ["knowledge", "language", "reference", "runtime", "sidebar", "test", "workspace"];
+const expectedSourceFolders = [
+  "extensionHost",
+  "knowledge",
+  "language",
+  "reference",
+  "runtime",
+  "sidebar",
+  "test",
+  "workspace",
+];
 
 const expectedLayout = {
   knowledge: [
+    "bundledDataPaths.ts",
     "catalog.ts",
     "catalogGaps.ts",
     "catalogLoader.ts",
@@ -72,6 +82,7 @@ const expectedLayout = {
   ],
   sidebar: [],
   reference: [],
+  extensionHost: ["extensionIds.ts", "packagePaths.ts"],
 };
 
 const expectedSidebarSubfolders: Record<string, string[]> = {

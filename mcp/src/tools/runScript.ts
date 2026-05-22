@@ -15,7 +15,7 @@ import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDia
 import { runScript as runtimeRunScript } from "../../../src/runtime/runScript";
 import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface RunScriptInput {
   text: string;

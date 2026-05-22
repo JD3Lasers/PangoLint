@@ -8,6 +8,8 @@
 // bundle's tsconfig can type-check this file without pulling in the
 // node-side knowledge-base modules (which import `node:fs`).
 
+import { EXTENSION_COMMAND_IDS } from "../../extensionHost/extensionIds";
+
 export type SidebarSafetyTier = "T0" | "T1" | "T2" | "T3" | "T4" | "unknown";
 export type SidebarEvidenceLevel = "exported" | "documented" | "observed" | "inferred" | "unverified";
 
@@ -117,17 +119,17 @@ export interface FilterState {
  * to these IDs so swapping renderers does not break command bindings.
  */
 export const SIDEBAR_COMMAND_IDS = {
-  insertAtCursor: "pangolint.sidebar.insertAtCursor",
-  copySignature: "pangolint.sidebar.copySignature",
-  openReference: "pangolint.sidebar.openReference",
-  revealDiagnostic: "pangolint.sidebar.revealDiagnostic",
-  openDiagnosticDocs: "pangolint.sidebar.openDiagnosticDocs",
-  refresh: "pangolint.sidebar.refresh",
-  filterCommands: "pangolint.sidebar.filterCommands",
-  clearFilter: "pangolint.sidebar.clearFilter",
-  insertSelectedCommand: "pangolint.sidebar.insertSelectedCommand",
-  showCommand: "pangolint.sidebar.showCommand",
-  showCommandAtCursor: "pangolint.sidebar.showCommandAtCursor",
+  insertAtCursor: EXTENSION_COMMAND_IDS.sidebarInsertAtCursor,
+  copySignature: EXTENSION_COMMAND_IDS.sidebarCopySignature,
+  openReference: EXTENSION_COMMAND_IDS.sidebarOpenReference,
+  revealDiagnostic: EXTENSION_COMMAND_IDS.sidebarRevealDiagnostic,
+  openDiagnosticDocs: EXTENSION_COMMAND_IDS.sidebarOpenDiagnosticDocs,
+  refresh: EXTENSION_COMMAND_IDS.sidebarRefresh,
+  filterCommands: EXTENSION_COMMAND_IDS.sidebarFilterCommands,
+  clearFilter: EXTENSION_COMMAND_IDS.sidebarClearFilter,
+  insertSelectedCommand: EXTENSION_COMMAND_IDS.sidebarInsertSelectedCommand,
+  showCommand: EXTENSION_COMMAND_IDS.sidebarShowCommand,
+  showCommandAtCursor: EXTENSION_COMMAND_IDS.sidebarShowCommandAtCursor,
 } as const;
 
 export type SidebarCommandId = (typeof SIDEBAR_COMMAND_IDS)[keyof typeof SIDEBAR_COMMAND_IDS];

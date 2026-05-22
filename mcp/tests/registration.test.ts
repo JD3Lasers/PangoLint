@@ -14,12 +14,14 @@ import type { McpConfig } from "../src/config";
 import type { McpKnowledgeBase } from "../src/knowledgeBase";
 import { buildCatalogPayload, buildSchemasPayload, registerResources } from "../src/resources/index";
 import { SERVER_DISPLAY_NAME, SERVER_INFO, SERVER_INSTRUCTIONS, SERVER_NAME } from "../src/server";
+import { getServerConfig } from "../src/tools/getServerConfig";
 import {
   KNOWLEDGE_TOOL_ANNOTATIONS,
   RUNTIME_READ_TOOL_ANNOTATIONS,
   RUNTIME_WRITE_TOOL_ANNOTATIONS,
   registerKnowledgeTools,
 } from "../src/tools/index";
+import { availableToolIdsForConfig, MCP_TOOL_DEFINITIONS } from "../src/tools/toolDefinitions";
 
 interface CapturedTool {
   name: string;
@@ -137,25 +139,18 @@ describe("registerKnowledgeTools annotations contract", () => {
   ] as const;
 
   it("registers all 15 tools", () => {
-    expect(tools.map((t) => t.name).sort()).toEqual(
-      [
-        "lookupCommand",
-        "searchCommands",
-        "lookupObject",
-        "listObjects",
-        "searchObjectProperties",
-        "lookupObjectProperty",
-        "lookupPropertyControls",
-        "searchPropertyControls",
-        "lintScript",
-        "explainDiagnostic",
-        "getServerConfig",
-        "healthCheck",
-        "checkTalkConnection",
-        "readBeyondProperty",
-        "runScript",
-      ].sort(),
-    );
+    expect(tools.map((t) => t.name).sort()).toEqual(MCP_TOOL_DEFINITIONS.map((tool) => tool.id).sort());
+  });
+
+  it("advertises available tools from the same definitions used by registration", () => {
+    const disabledConfig = getServerConfig("test", fixtureConfig);
+    if (!disabledConfig.ok) throw new Error(disabledConfig.error);
+    expect(disabledConfig.data.availableTools.sort()).toEqual(availableToolIdsForConfig(fixtureConfig).sort());
+
+    const writeConfig: McpConfig = { ...fixtureConfig, runtimeReadEnabled: true, runtimeWriteEnabled: true };
+    const enabledConfig = getServerConfig("test", writeConfig);
+    if (!enabledConfig.ok) throw new Error(enabledConfig.error);
+    expect(enabledConfig.data.availableTools.sort()).toEqual(availableToolIdsForConfig(writeConfig).sort());
   });
 
   it.each(KNOWLEDGE_TOOL_NAMES)("knowledge tool %s carries KNOWLEDGE_TOOL_ANNOTATIONS", (name) => {

@@ -13,6 +13,14 @@
 import { readFileSync } from "node:fs";
 import * as path from "node:path";
 import * as vscode from "vscode";
+import { EXTENSION_COMMAND_IDS, EXTENSION_VIEW_IDS } from "../../../extensionHost/extensionIds";
+import {
+  DIST_PATH,
+  SIDEBAR_COMMANDS_CSS_PATH,
+  SIDEBAR_COMMANDS_SCRIPT_PATH,
+  SIDEBAR_MEDIA_ROOT_PATH,
+} from "../../../extensionHost/packagePaths";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "../../../knowledge/bundledDataPaths";
 import type { BeyondCategoryTree } from "../../../knowledge/categoryResolution";
 import { getCommandDetail, getCommands, type SidebarCatalog } from "../../model/catalog";
 import type { CommandSummary } from "../../model/types";
@@ -41,8 +49,8 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
     view.webview.options = {
       enableScripts: true,
       localResourceRoots: [
-        vscode.Uri.joinPath(this.extensionUri, "media", "sidebar"),
-        vscode.Uri.joinPath(this.extensionUri, "dist"),
+        vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_MEDIA_ROOT_PATH),
+        vscode.Uri.joinPath(this.extensionUri, ...DIST_PATH),
       ],
     };
     view.webview.html = this.buildHtml(view.webview);
@@ -71,10 +79,10 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
   showCommand(canonical: string): void {
     this.pendingCommand = canonical;
     if (!this.view) {
-      void vscode.commands.executeCommand("pangolint.commandsView.focus");
+      void vscode.commands.executeCommand(`${EXTENSION_VIEW_IDS.commands}.focus`);
       return;
     }
-    void vscode.commands.executeCommand("pangolint.commandsView.focus");
+    void vscode.commands.executeCommand(`${EXTENSION_VIEW_IDS.commands}.focus`);
     this.view.show(true);
     this.flushPendingCommand();
   }
@@ -136,7 +144,10 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
   private loadCategoryOrder(): Record<string, number> {
     if (this.categoryOrderCache) return this.categoryOrderCache;
     try {
-      const treePath = path.join(this.extensionUri.fsPath, "data", "pangoscript", "beyond-category-tree.json");
+      const treePath = path.join(
+        this.extensionUri.fsPath,
+        ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.beyondCategoryTree),
+      );
       const tree = JSON.parse(readFileSync(treePath, "utf8")) as BeyondCategoryTree;
       const order: Record<string, number> = {};
       for (const cat of tree.categories) order[cat.name] = cat.order;
@@ -193,7 +204,7 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
     let ok = true;
     let errorMessage: string | undefined;
     try {
-      await vscode.commands.executeCommand("pangolint.openReferenceSite", canonical);
+      await vscode.commands.executeCommand(EXTENSION_COMMAND_IDS.openReferenceSite, canonical);
     } catch (error) {
       ok = false;
       errorMessage = error instanceof Error ? error.message : String(error);
@@ -210,10 +221,8 @@ export class CommandsWebviewProvider implements vscode.WebviewViewProvider {
   }
 
   private buildHtml(webview: vscode.Webview): string {
-    const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, "media", "sidebar", "commands.css"));
-    const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, "dist", "sidebar-commands-webview.js"),
-    );
+    const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_COMMANDS_CSS_PATH));
+    const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_COMMANDS_SCRIPT_PATH));
     const nonce = generateNonce();
     return /* html */ `<!doctype html>
 <html lang="en">
