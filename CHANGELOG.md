@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.26] - 2026-05-22
+
+### Changed
+
+- Split validation and user-object command registration out of the VS Code
+  activation entry point, keeping behavior in language and workspace modules.
+
 ## [0.7.25] - 2026-05-22
 
 ### Added

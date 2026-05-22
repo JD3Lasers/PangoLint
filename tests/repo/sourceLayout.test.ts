@@ -54,11 +54,13 @@ const expectedLayout = {
     "propertyProviders.ts",
     "semanticTokens.ts",
     "usageDiagnostics.ts",
+    "validationCommand.ts",
     "validationReport.ts",
     "variableProviders.ts",
   ],
   runtime: ["mcpRuntimeExports.ts", "runtimeConfig.ts", "runtimeOptions.ts"],
   workspace: [
+    "userObjectCommands.ts",
     "userObjects.ts",
     "watcherView.ts",
     "workspaceRoot.ts",

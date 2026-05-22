@@ -2,7 +2,6 @@ import * as vscode from "vscode";
 import {
   EXTENSION_COMMAND_IDS,
   EXTENSION_CONFIG_SECTIONS,
-  EXTENSION_OUTPUT_CHANNELS,
   EXTENSION_SETTING_KEYS,
   EXTENSION_VIEW_IDS,
   PANGOLINT_DIAGNOSTIC_SOURCE,
@@ -43,23 +42,13 @@ import {
   quickFixesForUnknownCommand,
 } from "./language/propertyProviders";
 import { classifySemanticTokens, TOKEN_MODIFIERS, TOKEN_TYPES } from "./language/semanticTokens";
-import {
-  formatValidationReport,
-  type ValidationReportDiagnostic,
-  type ValidationSeverity,
-} from "./language/validationReport";
+import { registerValidationCommand } from "./language/validationCommand";
 import { prepareRenameDispatch, provideRenameEditsDispatch, variableReferences } from "./language/variableProviders";
 import { buildRuntimeIndex, type ValidatedRootsCache } from "./runtime/readback/validateObjects";
 import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "./runtime/vscode/runtimeCommands";
 import { registerSidebar } from "./sidebar/view/treeview/register";
-import {
-  addUserObject,
-  emptyUserObjectsRegistry,
-  loadUserObjects,
-  removeUserObject,
-  type UserObjectKind,
-  type UserObjectsRegistry,
-} from "./workspace/userObjects";
+import { registerUserObjectCommands } from "./workspace/userObjectCommands";
+import { emptyUserObjectsRegistry, loadUserObjects, type UserObjectsRegistry } from "./workspace/userObjects";
 import { type WatchEntry, WatcherTreeProvider } from "./workspace/watcherView";
 import { firstFileWorkspaceFolderPath } from "./workspace/workspaceRoot";
 import { scanWorkspaceForUserObjects } from "./workspace/workspaceScanner";
@@ -105,7 +94,6 @@ export function activate(context: vscode.ExtensionContext): void {
   let workspaceScanGeneration = 0;
   let activeWorkspaceScan: { cancelled: boolean } | undefined;
   const diagnosticCollection = vscode.languages.createDiagnosticCollection(PANGOLINT_DIAGNOSTIC_SOURCE);
-  const validationOutput = vscode.window.createOutputChannel(EXTENSION_OUTPUT_CHANNELS.validation);
   const watcher = new WatcherTreeProvider(context);
 
   const refreshDiagnostics = (document: vscode.TextDocument): void => {
@@ -414,90 +402,16 @@ export function activate(context: vscode.ExtensionContext): void {
       " ",
       ",",
     ),
-    validationOutput,
-    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.validateCurrentScript, async () => {
-      const document = vscode.window.activeTextEditor?.document;
-      if (!document || document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
-        void vscode.window.showWarningMessage("Open a PangoScript document before validating.");
-        return;
-      }
-      refreshDiagnostics(document);
-      const diagnostics = diagnosticCollection.get(document.uri) ?? [];
-      const count = diagnostics.length;
-      validationOutput.clear();
-      validationOutput.appendLine(
-        formatValidationReport({
-          documentName: vscode.workspace.asRelativePath(document.uri, false),
-          diagnostics: diagnostics.map(toValidationReportDiagnostic),
-        }),
-      );
-      if (count > 0) {
-        validationOutput.show(true);
-      }
-      const picked = await vscode.window.showInformationMessage(
-        count === 0 ? "PangoLint: no diagnostics found." : `PangoLint: ${count} diagnostic(s) found.`,
-        "Show Diagnostics",
-        "Show Output",
-        "Open Problems",
-      );
-      if (picked === "Show Diagnostics") {
-        await vscode.commands.executeCommand(`${EXTENSION_VIEW_IDS.diagnostics}.focus`);
-      } else if (picked === "Show Output") {
-        validationOutput.show(true);
-      } else if (picked === "Open Problems") {
-        await vscode.commands.executeCommand("workbench.panel.markers.view.focus");
-      }
-    }),
-    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.addUserObject, async (name: string, kind: UserObjectKind) => {
-      if (!requireWorkspaceTrust("user-object registry writes")) return;
-      if (!workspaceFolder) {
-        void vscode.window.showWarningMessage("PangoLint: open a workspace folder first.");
-        return;
-      }
-      try {
-        addUserObject(workspaceFolder, name, kind);
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        void vscode.window.showErrorMessage(`PangoLint: ${message}`);
-        return;
-      }
-      await refreshUserObjects();
-      void vscode.window.showInformationMessage(`PangoLint: added '${name}' as ${kind}.`);
-    }),
-    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.removeUserObject, async () => {
-      if (!requireWorkspaceTrust("user-object registry writes")) return;
-      if (!workspaceFolder) {
-        void vscode.window.showWarningMessage("PangoLint: open a workspace folder first.");
-        return;
-      }
-      const names = userObjectsRegistry.names();
-      if (names.length === 0) {
-        void vscode.window.showInformationMessage("PangoLint: no user objects to remove.");
-        return;
-      }
-      const picked = await vscode.window.showQuickPick(names, {
-        placeHolder: "Pick a user object to remove",
-      });
-      if (!picked) return;
-      try {
-        removeUserObject(workspaceFolder, picked);
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        void vscode.window.showErrorMessage(`PangoLint: ${message}`);
-        return;
-      }
-      await refreshUserObjects();
-      void vscode.window.showInformationMessage(`PangoLint: removed '${picked}' from user objects.`);
-    }),
-    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.showUserObjects, () => {
-      const lines: string[] = [`PangoLint user objects (${userObjectsRegistry.size()} entries):`, ""];
-      for (const name of userObjectsRegistry.names()) {
-        const entry = userObjectsRegistry.get(name);
-        lines.push(`  ${name}  [${entry?.kind ?? "?"}]`);
-      }
-      void vscode.window.showInformationMessage(lines.join("\n"), { modal: true });
-    }),
   );
+  registerValidationCommand(context, {
+    diagnosticCollection,
+    refreshDiagnostics,
+  });
+  registerUserObjectCommands(context, {
+    refreshUserObjects,
+    getWorkspaceFolder: () => workspaceFolder,
+    getUserObjectsRegistry: () => userObjectsRegistry,
+  });
   registerBeyondRuntimeCommands(context, {
     validatedRootsCache,
     getPropertyIndex: () => propertyIndex,
@@ -589,34 +503,4 @@ export function activate(context: vscode.ExtensionContext): void {
 
 export function deactivate(): void {
   // No persistent resources are held outside command execution.
-}
-
-function toValidationReportDiagnostic(diagnostic: vscode.Diagnostic): ValidationReportDiagnostic {
-  return {
-    severity: validationSeverity(diagnostic.severity),
-    code: diagnosticCodeValue(diagnostic),
-    message: diagnostic.message,
-    line: diagnostic.range.start.line,
-    character: diagnostic.range.start.character,
-  };
-}
-
-function validationSeverity(severity: vscode.DiagnosticSeverity): ValidationSeverity {
-  switch (severity) {
-    case vscode.DiagnosticSeverity.Error:
-      return "error";
-    case vscode.DiagnosticSeverity.Information:
-      return "information";
-    case vscode.DiagnosticSeverity.Hint:
-      return "hint";
-    default:
-      return "warning";
-  }
-}
-
-function diagnosticCodeValue(diagnostic: vscode.Diagnostic): string {
-  const code = diagnostic.code;
-  if (typeof code === "string" || typeof code === "number") return String(code);
-  if (code && typeof code === "object" && "value" in code) return String(code.value);
-  return "unknown";
 }

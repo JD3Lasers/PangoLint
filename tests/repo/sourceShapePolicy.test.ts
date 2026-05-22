@@ -18,10 +18,6 @@ const folderNameAuditRoots = ["src", "scripts", "mcp/src", "tests", "mcp/tests"]
 // this audit. Those paths preserve public, source, or upstream names.
 const allowedOversizedTypeScriptFiles = new Map<string, string>([
   [
-    "src/extension.ts",
-    "VS Code activation wiring remains centralized until extension commands are split by product area.",
-  ],
-  [
     "src/knowledge/cue-properties/parametricImageShapes.ts",
     "Captured Parametric Image shape data is intentionally kept as one readable metadata table.",
   ],
