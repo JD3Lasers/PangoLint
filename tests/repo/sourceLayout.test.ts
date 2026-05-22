@@ -191,7 +191,16 @@ const expectedObjectPropertyIndexScriptModules = [
   "objectPropertyIndexValidation.ts",
 ];
 
-const expectedScriptRootEntries = ["README.md", "build", "knowledge", "objectTree", "package", "release", "workflow"];
+const expectedScriptRootEntries = [
+  "README.md",
+  "build",
+  "knowledge",
+  "objectTree",
+  "package",
+  "release",
+  "runtime",
+  "workflow",
+];
 
 const expectedScriptFolders: Record<string, string[]> = {
   build: ["buildIcon.cjs", "buildReferenceSite.ts", "referenceSite"],
@@ -229,6 +238,7 @@ const expectedScriptFolders: Record<string, string[]> = {
     "releaseVersion.cjs",
     "watchReleaseArtifacts.cjs",
   ],
+  runtime: ["liveBeyondSmokeLib.ts", "runLiveBeyondSmoke.ts"],
   workflow: ["checkPullRequestReady.cjs", "startIssueWork.cjs"],
 };
 

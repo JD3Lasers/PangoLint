@@ -1,0 +1,85 @@
+name: Live BEYOND Smoke
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_live_beyond:
+        description: Confirm an operator-supervised BEYOND bench is online.
+        required: true
+        type: boolean
+        default: false
+      smoke_mode:
+        description: Live smoke profile to run.
+        required: true
+        type: choice
+        default: all
+        options:
+          - all
+          - connection
+          - readback
+          - udp
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ inputs.smoke_mode }}
+  cancel-in-progress: false
+
+jobs:
+  live-beyond-smoke:
+    name: Live BEYOND smoke
+    if: ${{ inputs.confirm_live_beyond }}
+    runs-on:
+      - self-hosted
+      - pangolint-live-beyond
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply optional bench variables
+        env:
+          BENCH_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_HOST }}
+          TALK_TCP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST }}
+          TALK_TCP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT }}
+          TALK_UDP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST }}
+          TALK_UDP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT }}
+          TCP_PASSWORD: ${{ secrets.PANGOLINT_LIVE_BEYOND_TCP_PASSWORD }}
+          OSC_LISTEN_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST }}
+          OSC_LISTEN_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT }}
+          READBACK_TIMEOUT_MS: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS }}
+          READBACK_PATH: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_PATH }}
+          READBACK_TYPE: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TYPE }}
+        run: |
+          write_env() {
+            local name="$1"
+            local value="$2"
+            if [[ -n "$value" ]]; then
+              printf '%s=%s\n' "$name" "$value" >> "$GITHUB_ENV"
+            fi
+          }
+
+          write_env PANGOLINT_LIVE_BEYOND_HOST "$BENCH_HOST"
+          write_env PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST "$TALK_TCP_HOST"
+          write_env PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT "$TALK_TCP_PORT"
+          write_env PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST "$TALK_UDP_HOST"
+          write_env PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT "$TALK_UDP_PORT"
+          write_env PANGOLINT_LIVE_BEYOND_TCP_PASSWORD "$TCP_PASSWORD"
+          write_env PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST "$OSC_LISTEN_HOST"
+          write_env PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT "$OSC_LISTEN_PORT"
+          write_env PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS "$READBACK_TIMEOUT_MS"
+          write_env PANGOLINT_LIVE_BEYOND_READBACK_PATH "$READBACK_PATH"
+          write_env PANGOLINT_LIVE_BEYOND_READBACK_TYPE "$READBACK_TYPE"
+
+      - name: Run live BEYOND smoke
+        run: npm run smoke:live-beyond -- --mode "${{ inputs.smoke_mode }}"

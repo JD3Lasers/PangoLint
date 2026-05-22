@@ -1,6 +1,6 @@
 # Local BEYOND Runtime Command Runbook
 
-Last updated: 2026-05-19
+Last updated: 2026-05-22
 
 ## Purpose
 
@@ -133,6 +133,52 @@ Expected callback:
 
 If the callback is missing, verify the BEYOND OSC Out destination host/port and
 the app listener bind address before testing write paths.
+
+## Manual Live Smoke Workflow
+
+Use `.github/workflows/live-beyond-smoke.yml` for opt-in CI runs against an
+operator-supervised BEYOND bench. The workflow is `workflow_dispatch` only and
+targets a self-hosted runner with the `pangolint-live-beyond` label. It is not
+part of normal public PR CI and should not be added to branch protection.
+
+The workflow runs:
+- Talk TCP `Hello` and `Version` to verify parser/status readback.
+- A readback-only `OscOutTTS` ping sent over Talk TCP.
+- A harmless Object Tree readback, defaulting to `Master.Brightness`.
+- A Talk UDP `OscOutTTS` callback smoke check. This proves the datagram path and
+  callback route, but Talk UDP remains send-only for parser/status reporting.
+
+Configure the bench through runner environment variables or GitHub Actions
+variables. Keep local network addresses out of checked-in files.
+
+| Name | Purpose |
+| --- | --- |
+| `PANGOLINT_LIVE_BEYOND_HOST` | Optional shared BEYOND host for Talk TCP and Talk UDP. |
+| `PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST` | Talk TCP host when it differs from the shared host. |
+| `PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT` | Talk TCP port. Defaults to `16063`. |
+| `PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST` | Talk UDP host when it differs from the shared host. |
+| `PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT` | Talk UDP port. Defaults to `16062`. |
+| `PANGOLINT_LIVE_BEYOND_TCP_PASSWORD` | Optional Talk TCP password, preferably a GitHub Actions secret. |
+| `PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST` | Local listener bind host. Defaults to `0.0.0.0`. |
+| `PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT` | Local OSC callback listener port. Defaults to `7000`. |
+| `PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS` | Readback timeout. Defaults to `5000`. |
+| `PANGOLINT_LIVE_BEYOND_READBACK_PATH` | Readback Object Tree path. Defaults to `Master.Brightness`. |
+| `PANGOLINT_LIVE_BEYOND_READBACK_TYPE` | OSC type tag for the readback path: `f`, `i`, or `s`. Defaults to `f`. |
+
+Run the same smoke locally with:
+
+```bash
+npm run smoke:live-beyond -- --mode all
+```
+
+Available modes:
+- `connection`: Talk TCP plus the readback-only OSC ping.
+- `readback`: connection checks plus the configured property readback.
+- `udp`: Talk UDP callback smoke only.
+- `all`: every check above.
+
+Range spot checks should stay in a separate issue and manual profile. Use this
+workflow to prove the bench is reachable before running curated range canaries.
 
 ## Zone Identity Readback Check
 

@@ -2,7 +2,7 @@
   "name": "pangolint",
   "displayName": "PangoLint",
   "description": "Conservative linting, formatting, and BEYOND runtime readback checks for Pangolin BEYOND PangoScript.",
-  "version": "0.7.29",
+  "version": "0.7.30",
   "publisher": "jd3lasersllc",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -621,6 +621,7 @@
     "lint": "biome check src tests scripts mcp/src mcp/tests",
     "lint:fix": "biome check --write src tests scripts mcp/src mcp/tests",
     "lint:examples": "esbuild scripts/knowledge/lintCorpus.ts --bundle --platform=node --format=cjs --outfile=dist/lintCorpus.cjs && node dist/lintCorpus.cjs",
+    "smoke:live-beyond": "esbuild scripts/runtime/runLiveBeyondSmoke.ts --bundle --platform=node --format=cjs --outfile=dist/runLiveBeyondSmoke.cjs && node dist/runLiveBeyondSmoke.cjs",
     "validate:object-range-evidence": "esbuild scripts/objectTree/validateObjectRangeEvidence.ts --bundle --platform=node --format=cjs --outfile=dist/validateObjectRangeEvidence.cjs && node dist/validateObjectRangeEvidence.cjs",
     "report:gaps": "esbuild scripts/knowledge/reportCatalogGaps.ts --bundle --platform=node --format=cjs --outfile=dist/reportCatalogGaps.cjs && node dist/reportCatalogGaps.cjs",
     "test": "vitest run",

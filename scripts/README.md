@@ -13,6 +13,8 @@ are easy to find.
   asset copying, and VSIX checksum writing.
 - `release/`: release version updates, release preflight checks, PR version
   policy, and release asset watching.
+- `runtime/`: operator-supervised live BEYOND smoke checks for LAN-connected
+  test benches.
 - `workflow/`: issue branch and PR readiness helpers.
 
 Repo housekeeping commands:
