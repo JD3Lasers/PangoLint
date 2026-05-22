@@ -6,12 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [0.7.26] - 2026-05-22
+## [0.7.27] - 2026-05-22
 
 ### Changed
 
 - Split validation and user-object command registration out of the VS Code
   activation entry point, keeping behavior in language and workspace modules.
+- Update release comparison links so the published artifact set passes
+  release preflight from a clean checkout.
 
 ## [0.7.25] - 2026-05-22
 
@@ -324,7 +326,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.25...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.27...HEAD
+[0.7.27]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.25...v0.7.27
 [0.7.25]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.24...v0.7.25
 [0.7.24]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.23...v0.7.24
 [0.7.23]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...v0.7.23
