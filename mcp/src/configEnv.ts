@@ -1,4 +1,4 @@
-import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/runtimeConfig";
+import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/mcpRuntimeExports";
 
 export const MCP_ENV_VARS = {
   runtimeRead: "PANGOLINT_MCP_RUNTIME_READ",

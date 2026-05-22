@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -29,6 +29,7 @@ const expectedLayout = {
     "expressionFunctions.ts",
     "knowledgeBase.ts",
     "mcpControlReference.ts",
+    "mcpKnowledgeExports.ts",
     "objectPropertyCards.ts",
     "objectPropertyIndex.ts",
     "objectRangeEvidence.ts",
@@ -48,6 +49,7 @@ const expectedLayout = {
     "formatter.ts",
     "inlayHints.ts",
     "labelProviders.ts",
+    "mcpLanguageExports.ts",
     "parser.ts",
     "propertyPath.ts",
     "propertyProviders.ts",
@@ -56,7 +58,7 @@ const expectedLayout = {
     "validationReport.ts",
     "variableProviders.ts",
   ],
-  runtime: ["runtimeConfig.ts", "runtimeOptions.ts"],
+  runtime: ["mcpRuntimeExports.ts", "runtimeConfig.ts", "runtimeOptions.ts"],
   workspace: [
     "userObjects.ts",
     "watcherView.ts",
@@ -174,6 +176,14 @@ const expectedMcpToolRegistrationModules = [
   "toolRegistrationTypes.ts",
 ];
 
+const allowedMcpVsixSourceImports = new Set([
+  "src/knowledge/mcpKnowledgeExports",
+  "src/language/mcpLanguageExports",
+  "src/runtime/mcpRuntimeExports",
+]);
+
+const mcpVsixSourceImportPattern = /^src\/(?:knowledge|language|runtime)\//;
+
 const expectedKnowledgeDataTestFiles = [
   "commandKnowledgeData.test.ts",
   "controlReferenceData.test.ts",
@@ -188,6 +198,29 @@ const expectedKnowledgeDataTestFiles = [
 ];
 
 const expectedKnowledgeFixtureFiles = ["objectMetadataPathGroups.ts"];
+
+function readTypeScriptFiles(folderPath: string): string[] {
+  const files: string[] = [];
+  for (const entry of readdirSync(folderPath, { withFileTypes: true })) {
+    const entryPath = path.join(folderPath, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...readTypeScriptFiles(entryPath));
+    } else if (entry.name.endsWith(".ts")) {
+      files.push(entryPath);
+    }
+  }
+  return files;
+}
+
+function importPathsFromTypeScript(filePath: string): string[] {
+  const source = readFileSync(filePath, "utf8");
+  return [...source.matchAll(/\bfrom\s+["']([^"']+)["']/g)].map((match) => match[1]);
+}
+
+function repoPathForRelativeImport(filePath: string, importPath: string): string | undefined {
+  if (!importPath.startsWith(".")) return undefined;
+  return path.relative(process.cwd(), path.resolve(path.dirname(filePath), importPath)).replaceAll(path.sep, "/");
+}
 
 describe("source layout", () => {
   it("keeps production modules grouped by responsibility under src", () => {
@@ -310,6 +343,19 @@ describe("MCP source layout", () => {
         .filter((entry) => entry.endsWith(".ts"))
         .sort(),
     ).toEqual(expectedMcpToolRegistrationModules);
+  });
+
+  it("keeps MCP imports from VSIX source behind shared product exports", () => {
+    const directVsixSourceImports = readTypeScriptFiles(mcpSourceRoot).flatMap((filePath) =>
+      importPathsFromTypeScript(filePath)
+        .map((importPath) => repoPathForRelativeImport(filePath, importPath))
+        .filter((importPath): importPath is string => importPath !== undefined)
+        .filter((importPath) => mcpVsixSourceImportPattern.test(importPath))
+        .filter((importPath) => !allowedMcpVsixSourceImports.has(importPath))
+        .map((importPath) => `${path.relative(process.cwd(), filePath)} -> ${importPath}`),
+    );
+
+    expect(directVsixSourceImports).toEqual([]);
   });
 });
 

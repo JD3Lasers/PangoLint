@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.15] - 2026-05-22
+
+### Changed
+
+- Add MCP-facing knowledge, language, and runtime export files for VSIX source
+  APIs used by the MCP server.
+- Update MCP source imports to use the shared export files and add repo policy
+  coverage for the shared import boundary.
+
 ## [0.7.14] - 2026-05-22
 
 ### Changed
@@ -319,7 +328,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...HEAD
+[0.7.15]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...v0.7.15
 [0.7.14]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.13...v0.7.14
 [0.7.13]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...v0.7.13
 [0.7.12]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...v0.7.12

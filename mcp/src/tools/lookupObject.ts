@@ -3,20 +3,21 @@
 // Object Tree property index for roots such as WS and FX that are visible
 // in the extension Objects panel but not canonical schemas.
 
+import type {
+  KnownObjectSchema,
+  ObjectPropertyIndex,
+  ObjectPropertyKind,
+  ObjectPropertyLookupResult,
+  PropertyIndex,
+} from "../../../src/knowledge/mcpKnowledgeExports";
 import {
   buildObjectPropertyCard,
   type ObjectPropertyCard,
   type ObjectPropertyDetailInput,
   type PageResult,
   pageItems,
-} from "../../../src/knowledge/objectPropertyCards";
-import type {
-  ObjectPropertyIndex,
-  ObjectPropertyKind,
-  ObjectPropertyLookupResult,
-} from "../../../src/knowledge/objectPropertyIndex";
-import type { KnownObjectSchema, PropertyIndex } from "../../../src/knowledge/propertyIndex";
-import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
+} from "../../../src/knowledge/mcpKnowledgeExports";
+import { mcpNameLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupObjectInput extends ObjectPropertyDetailInput {

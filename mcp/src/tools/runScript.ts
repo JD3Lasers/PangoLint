@@ -5,19 +5,20 @@
 // editor-equivalent. Hint and warning diagnostics are reported but do not block;
 // agents are expected to surface them to the user.
 
-import type { CommandCatalog } from "../../../src/knowledge/catalog";
-import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
-import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
-import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
-import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
-import { lintPangoScript } from "../../../src/language/diagnostics";
-import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
-import { runScript as runtimeRunScript } from "../../../src/runtime/commandBatch/runScript";
+import type {
+  CommandCatalog,
+  CommandKnowledgeEntry,
+  ObjectPropertyIndex,
+  PropertyIndex,
+} from "../../../src/knowledge/mcpKnowledgeExports";
+import type { PangoDiagnostic } from "../../../src/language/mcpLanguageExports";
+import { lintPangoScript, mcpTextLimitReason } from "../../../src/language/mcpLanguageExports";
 import type {
   SendTalkTcpCommandsOptions,
   SendTalkTcpCommandsResult,
   TalkTcpReply,
-} from "../../../src/runtime/talk/talkTcp";
+} from "../../../src/runtime/mcpRuntimeExports";
+import { runScript as runtimeRunScript } from "../../../src/runtime/mcpRuntimeExports";
 import type { McpConfig } from "../config";
 import { runScriptOptionsFromMcpConfig, talkTargetFromMcpConfig } from "../runtimeToolOptions";
 import { fail, ok, type ToolResult } from "../toolResult";

@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/analysisLimits";
+import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/mcpLanguageExports";
 import { explainDiagnostic } from "../explainDiagnostic";
 import { getServerConfig } from "../getServerConfig";
 import { lintScript } from "../lintScript";

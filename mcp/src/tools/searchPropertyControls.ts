@@ -1,6 +1,5 @@
-import type { McpPropertyControlIndex } from "../../../src/knowledge/mcpControlReference";
-import type { ObjectPropertyKind } from "../../../src/knowledge/objectPropertyIndex";
-import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/analysisLimits";
+import type { McpPropertyControlIndex, ObjectPropertyKind } from "../../../src/knowledge/mcpKnowledgeExports";
+import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 import {
   buildPropertyControlCard,

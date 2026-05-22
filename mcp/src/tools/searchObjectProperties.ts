@@ -1,13 +1,13 @@
 // Tool: searchObjectProperties: ranked search over BEYOND Object Tree
 // property paths promoted into data/pangoscript/object-tree/runtime-indexes/object-property-index.json.
 
+import type { ObjectPropertyIndex, ObjectPropertyKind } from "../../../src/knowledge/mcpKnowledgeExports";
 import {
   buildObjectPropertyCard,
   type ObjectPropertyCard,
   type ObjectPropertyDetailInput,
-} from "../../../src/knowledge/objectPropertyCards";
-import type { ObjectPropertyIndex, ObjectPropertyKind } from "../../../src/knowledge/objectPropertyIndex";
-import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/analysisLimits";
+} from "../../../src/knowledge/mcpKnowledgeExports";
+import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface SearchObjectPropertiesInput extends ObjectPropertyDetailInput {

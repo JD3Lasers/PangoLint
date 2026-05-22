@@ -6,13 +6,14 @@
 // canonical bundled schemas (Master, Zone, UniversePanel, …) inform
 // property-typo hints.
 
-import type { CommandCatalog } from "../../../src/knowledge/catalog";
-import type { CommandKnowledgeEntry } from "../../../src/knowledge/knowledgeBase";
-import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
-import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
-import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
-import { lintPangoScript } from "../../../src/language/diagnostics";
-import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
+import type {
+  CommandCatalog,
+  CommandKnowledgeEntry,
+  ObjectPropertyIndex,
+  PropertyIndex,
+} from "../../../src/knowledge/mcpKnowledgeExports";
+import type { PangoDiagnostic } from "../../../src/language/mcpLanguageExports";
+import { lintPangoScript, mcpTextLimitReason } from "../../../src/language/mcpLanguageExports";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LintScriptInput {

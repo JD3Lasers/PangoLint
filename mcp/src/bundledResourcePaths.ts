@@ -1,4 +1,4 @@
-import { BUNDLED_PANGOSCRIPT_DATA_PATHS } from "../../src/knowledge/bundledDataPaths";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS } from "../../src/knowledge/mcpKnowledgeExports";
 
 export const MCP_RESOURCE_URIS = {
   catalog: "pangoscript://catalog/commands",
