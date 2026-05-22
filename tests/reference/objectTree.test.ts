@@ -2,17 +2,23 @@ import { describe, expect, it } from "vitest";
 import {
   buildCueTypePropertySections,
   buildCueTypeReference,
-  buildCueTypesTree,
+} from "../../src/reference/bundle/object-tree/cueTypeReference";
+import {
   buildFxEffectPropertySections,
   buildFxEffectReference,
+} from "../../src/reference/bundle/object-tree/fxEffectReference";
+import {
+  buildCueTypesTree,
   buildFxTree,
-  buildUniverseComponentReference,
   countObjectTreeLeaves,
+} from "../../src/reference/bundle/object-tree/objectTreeRows";
+import {
   filterObjectPropertySections,
   filterObjectReferenceRows,
   filterObjectTree,
-  type ObjectTreeNode,
-} from "../../src/reference/bundle/objectTree";
+} from "../../src/reference/bundle/object-tree/objectTreeSearch";
+import type { ObjectTreeNode } from "../../src/reference/bundle/object-tree/objectTreeTypes";
+import { buildUniverseComponentReference } from "../../src/reference/bundle/object-tree/universeComponentReference";
 import { getVisibleDetailSelection, hasVisibleDetailSelection, ReferenceState } from "../../src/reference/bundle/state";
 import type {
   ReferenceCatalog,
