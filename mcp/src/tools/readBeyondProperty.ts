@@ -13,6 +13,7 @@ import {
 } from "../../../src/runtime/beyondReadback";
 import type { SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
+import { readbackOptionsFromMcpConfig, talkTargetFromMcpConfig } from "../runtimeToolOptions";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface ReadBeyondPropertyInput {
@@ -64,19 +65,7 @@ export async function readBeyondProperty(
       {
         propertyPath: path,
         typeTag: input.typeTag ?? "f",
-        talkHost: config.beyondTalkHost,
-        talkPort: config.beyondTalkPort,
-        talkTransport: config.beyondTalkTransport,
-        talkTcpHost: config.beyondTalkTcpHost,
-        talkTcpPort: config.beyondTalkTcpPort,
-        talkUdpHost: config.beyondTalkUdpHost,
-        talkUdpPort: config.beyondTalkUdpPort,
-        talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
-        talkTcpPassword: config.beyondTalkTcpPassword,
-        commandTimeoutMs: config.readbackTimeoutMs,
-        listenHost: config.oscListenHost,
-        listenPort: config.oscListenPort,
-        timeoutMs: config.readbackTimeoutMs,
+        ...readbackOptionsFromMcpConfig(config),
       },
       deps.transport,
     );
@@ -90,8 +79,7 @@ export async function readBeyondProperty(
     requestId: result.requestId,
     value: result.value,
     transport: result.transport,
-    talkHost: result.transport === "tcp" ? config.beyondTalkTcpHost : config.beyondTalkUdpHost,
-    talkPort: result.transport === "tcp" ? config.beyondTalkTcpPort : config.beyondTalkUdpPort,
+    ...talkTargetFromMcpConfig(config, result.transport),
     talkStatus: result.talkStatus,
     talkGreeting: result.talkGreeting,
     talkReplies: result.talkReplies,

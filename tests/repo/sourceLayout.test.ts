@@ -66,6 +66,7 @@ const expectedLayout = {
     "runScriptWithOscCapture.ts",
     "runtimeCommands.ts",
     "runtimeConfig.ts",
+    "runtimeOptions.ts",
     "talkTcp.ts",
     "talkUdp.ts",
     "validateObjects.ts",

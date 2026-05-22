@@ -15,6 +15,7 @@ import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDia
 import { runScript as runtimeRunScript } from "../../../src/runtime/runScript";
 import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
 import type { McpConfig } from "../config";
+import { runScriptOptionsFromMcpConfig, talkTargetFromMcpConfig } from "../runtimeToolOptions";
 import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface RunScriptInput {
@@ -22,7 +23,7 @@ export interface RunScriptInput {
 }
 
 export interface RunScriptOutput {
-  /** True when Talk UDP transmission completed without error. */
+  /** True when BEYOND Talk transmission completed without error. */
   ok: boolean;
   /** Lint summary returned regardless of whether send was attempted. */
   diagnostics: PangoDiagnostic[];
@@ -53,7 +54,7 @@ export interface RunScriptOutput {
 export type RunScriptResult = ToolResult<RunScriptOutput>;
 
 export interface RunScriptDeps {
-  /** Test hook: defaults to the real Talk UDP sender. */
+  /** Test hook: defaults to the real UDP sender. */
   send?: (host: string, port: number, payload: Buffer) => Promise<void>;
   /** Test hook: defaults to the real Talk TCP sender. */
   sendTcp?: (options: SendTalkTcpCommandsOptions) => Promise<SendTalkTcpCommandsResult>;
@@ -128,19 +129,11 @@ export async function runScript(
   }
 
   const sendResult = await runtimeRunScript(input.text, {
-    talkHost: config.beyondTalkHost,
-    talkPort: config.beyondTalkPort,
-    talkTransport: config.beyondTalkTransport,
-    talkTcpHost: config.beyondTalkTcpHost,
-    talkTcpPort: config.beyondTalkTcpPort,
-    talkUdpHost: config.beyondTalkUdpHost,
-    talkUdpPort: config.beyondTalkUdpPort,
-    talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
-    talkTcpPassword: config.beyondTalkTcpPassword,
-    commandTimeoutMs: config.readbackTimeoutMs,
+    ...runScriptOptionsFromMcpConfig(config),
     send: deps.send,
     sendTcp: deps.sendTcp,
   });
+  const talkTarget = talkTargetFromMcpConfig(config, sendResult.transport);
 
   return ok({
     ok: sendResult.ok,
@@ -149,8 +142,7 @@ export async function runScript(
     warningCount,
     hintCount,
     transport: sendResult.transport,
-    talkHost: sendResult.transport === "tcp" ? config.beyondTalkTcpHost : config.beyondTalkUdpHost,
-    talkPort: sendResult.transport === "tcp" ? config.beyondTalkTcpPort : config.beyondTalkUdpPort,
+    ...talkTarget,
     talkStatus: sendResult.talkStatus,
     talkGreeting: sendResult.talkGreeting,
     talkReplies: sendResult.talkReplies ?? [],

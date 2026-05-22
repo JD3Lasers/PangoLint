@@ -232,5 +232,5 @@ export function formatUnsupportedTalkControlFlowError(findings: readonly TalkCon
     findings.length > 1
       ? ` (${findings.length - 1} more control-flow line${findings.length === 2 ? "" : "s"} found)`
       : "";
-  return `Talk UDP can only send straight-line command batches. This script contains ${first.construct} control flow at line ${first.lineNumber}: ${first.lineText}.${extra} Paste/run it directly in BEYOND's PangoScript editor to test full script control flow.`;
+  return `BEYOND Talk can only send straight-line command batches. This script contains ${first.construct} control flow at line ${first.lineNumber}: ${first.lineText}.${extra} Paste/run it directly in BEYOND's PangoScript editor to test full script control flow.`;
 }

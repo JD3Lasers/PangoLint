@@ -86,4 +86,11 @@ describe("package contributions", () => {
       expect(manifest.contributes.configuration?.properties?.[key]?.scope, key).toBe("machine");
     }
   });
+
+  it("describes live hover readback without implying UDP-only transport", () => {
+    const setting = manifest.contributes.configuration?.properties?.["pangolint.beyond.liveHoverValues"];
+
+    expect(setting?.description).toContain("BEYOND Talk / OSC readback");
+    expect(setting?.description).not.toContain("Talk UDP / OSC readback");
+  });
 });

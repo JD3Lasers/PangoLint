@@ -3,6 +3,7 @@ import { EXTENSION_CONFIG_SECTIONS, PANGOSCRIPT_LANGUAGE_ID } from "../extension
 import type { PropertyIndex } from "../knowledge/propertyIndex";
 import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
 import { getBeyondRuntimeConfig } from "./runtimeConfig";
+import { readbackOptionsFromRuntimeConfig } from "./runtimeOptions";
 import { applyReportToCache, runValidation, type ValidatedRootsCache } from "./validateObjects";
 
 export interface RuntimeCommandHooks {
@@ -45,7 +46,7 @@ export async function validateActiveDocumentAgainstBeyond(
       runValidation({
         documentText: editor.document.getText(),
         propertyIndex,
-        ...runtimeConfig,
+        ...readbackOptionsFromRuntimeConfig(runtimeConfig),
         logger: (msg) => output.appendLine(msg),
       }),
   );

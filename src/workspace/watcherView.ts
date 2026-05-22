@@ -11,6 +11,7 @@ import { EXTENSION_CONFIG_SECTIONS, EXTENSION_WORKSPACE_STATE_KEYS } from "../ex
 import { readBeyondProperty } from "../runtime/beyondReadback";
 import type { OscArg, OscMessage } from "../runtime/osc";
 import { getBeyondRuntimeConfig } from "../runtime/runtimeConfig";
+import { readbackOptionsFromRuntimeConfig } from "../runtime/runtimeOptions";
 
 export interface WatchEntry {
   kind?: "property" | "callback";
@@ -117,17 +118,13 @@ export class WatcherTreeProvider implements vscode.TreeDataProvider<WatchEntry> 
 
   private async refreshEntries(): Promise<void> {
     const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
-    const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
+    const readbackOptions = readbackOptionsFromRuntimeConfig(getBeyondRuntimeConfig(config));
 
     for (const entry of this.entries) {
       try {
         const result = await readBeyondProperty({
           propertyPath: entry.path,
-          talkHost,
-          talkPort,
-          listenHost,
-          listenPort,
-          timeoutMs,
+          ...readbackOptions,
         });
         if (result.ok) {
           entry.value = result.value;
