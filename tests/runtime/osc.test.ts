@@ -6,7 +6,7 @@ import {
   OscDecodeError,
   OscEncodeError,
   sourceMatchesExpectedHost,
-} from "../../src/runtime/osc";
+} from "../../src/runtime/osc/osc";
 
 describe("OSC helpers", () => {
   it("round-trips supported OSC argument types", () => {

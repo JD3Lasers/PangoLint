@@ -8,8 +8,8 @@
 
 import * as vscode from "vscode";
 import { EXTENSION_CONFIG_SECTIONS, EXTENSION_WORKSPACE_STATE_KEYS } from "../extensionHost/extensionIds";
-import { readBeyondProperty } from "../runtime/beyondReadback";
-import type { OscArg, OscMessage } from "../runtime/osc";
+import type { OscArg, OscMessage } from "../runtime/osc/osc";
+import { readBeyondProperty } from "../runtime/readback/beyondReadback";
 import { getBeyondRuntimeConfig } from "../runtime/runtimeConfig";
 import { readbackOptionsFromRuntimeConfig } from "../runtime/runtimeOptions";
 

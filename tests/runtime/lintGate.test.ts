@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { PangoDiagnostic } from "../../src/language/diagnostics/pangoDiagnostic";
-import { evaluateRuntimeLintGate } from "../../src/runtime/lintGate";
+import { evaluateRuntimeLintGate } from "../../src/runtime/commandBatch/lintGate";
 
 const diagnostic = (severity: PangoDiagnostic["severity"], code: string): PangoDiagnostic => ({
   line: 0,

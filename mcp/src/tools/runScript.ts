@@ -12,8 +12,12 @@ import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
 import { mcpTextLimitReason } from "../../../src/language/analysisLimits";
 import { lintPangoScript } from "../../../src/language/diagnostics";
 import type { PangoDiagnostic } from "../../../src/language/diagnostics/pangoDiagnostic";
-import { runScript as runtimeRunScript } from "../../../src/runtime/runScript";
-import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult, TalkTcpReply } from "../../../src/runtime/talkTcp";
+import { runScript as runtimeRunScript } from "../../../src/runtime/commandBatch/runScript";
+import type {
+  SendTalkTcpCommandsOptions,
+  SendTalkTcpCommandsResult,
+  TalkTcpReply,
+} from "../../../src/runtime/talk/talkTcp";
 import type { McpConfig } from "../config";
 import { runScriptOptionsFromMcpConfig, talkTargetFromMcpConfig } from "../runtimeToolOptions";
 import { fail, ok, type ToolResult } from "../toolResult";

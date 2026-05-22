@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildTalkPayloads } from "../../src/runtime/talkUdp";
+import { buildTalkPayloads } from "../../src/runtime/talk/talkUdp";
 
 describe("Talk UDP payloads", () => {
   it("renders ASCII command lines with CRLF terminators", () => {

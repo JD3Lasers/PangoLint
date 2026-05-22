@@ -49,8 +49,8 @@ import {
   type ValidationSeverity,
 } from "./language/validationReport";
 import { prepareRenameDispatch, provideRenameEditsDispatch, variableReferences } from "./language/variableProviders";
-import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "./runtime/runtimeCommands";
-import { buildRuntimeIndex, type ValidatedRootsCache } from "./runtime/validateObjects";
+import { buildRuntimeIndex, type ValidatedRootsCache } from "./runtime/readback/validateObjects";
+import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "./runtime/vscode/runtimeCommands";
 import { registerSidebar } from "./sidebar/view/treeview/register";
 import {
   addUserObject,

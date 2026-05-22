@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { runScript } from "../../src/runtime/runScript";
+import { runScript } from "../../src/runtime/commandBatch/runScript";
 
 describe("runScript", () => {
   it("strips blank lines and full-line comments before sending", async () => {

@@ -1,5 +1,5 @@
-import type { ReadbackOptions } from "../../src/runtime/beyondReadback";
-import type { RunScriptOptions } from "../../src/runtime/runScript";
+import type { RunScriptOptions } from "../../src/runtime/commandBatch/runScript";
+import type { ReadbackOptions } from "../../src/runtime/readback/beyondReadback";
 import type { McpConfig } from "./config";
 
 export interface RuntimeToolTalkTarget {

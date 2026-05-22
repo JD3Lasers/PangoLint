@@ -1,6 +1,6 @@
 import dgram from "node:dgram";
 import { describe, expect, it } from "vitest";
-import { nodeReadbackTransport } from "../../src/runtime/beyondReadback";
+import { nodeReadbackTransport } from "../../src/runtime/readback/beyondReadback";
 
 describe("nodeReadbackTransport (integration)", () => {
   it("message rejects with timeout error when no matching OSC arrives", async () => {

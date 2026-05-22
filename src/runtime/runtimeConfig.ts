@@ -1,5 +1,5 @@
 import { EXTENSION_SETTING_KEYS } from "../extensionHost/extensionIds";
-import type { BeyondTalkTransport } from "./runScript";
+import type { BeyondTalkTransport } from "./commandBatch/runScript";
 
 export interface BeyondRuntimeConfig {
   talkTransport: BeyondTalkTransport;

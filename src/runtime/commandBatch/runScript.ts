@@ -3,14 +3,14 @@
 // flow is refused before transport so skipped branches, loops, and exits are
 // not flattened into line-by-line execution.
 
-import { type ParsedLine, parseScript } from "../language/parser";
+import { type ParsedLine, parseScript } from "../../language/parser";
 import {
   type SendTalkTcpCommandsOptions,
   type SendTalkTcpCommandsResult,
   sendTalkTcpCommands,
   type TalkTcpReply,
-} from "./talkTcp";
-import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "./talkUdp";
+} from "../talk/talkTcp";
+import { buildTalkPayloads, sendTalkUdp, validateTalkCommandLines } from "../talk/talkUdp";
 
 export type BeyondTalkTransport = "auto" | "tcp" | "udp";
 

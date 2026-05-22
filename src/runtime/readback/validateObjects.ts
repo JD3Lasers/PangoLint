@@ -19,8 +19,8 @@ import {
   type KnownObjectSchema,
   type PropertyIndex,
   type PropertyIndexFile,
-} from "../knowledge/propertyIndex";
-import { splitCodeAndComment, stripStringLiterals } from "../language/parser";
+} from "../../knowledge/propertyIndex";
+import { splitCodeAndComment, stripStringLiterals } from "../../language/parser";
 import {
   createReadbackRequestId,
   type PropertyReadbackOptions,

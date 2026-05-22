@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.10] - 2026-05-22
+
+### Changed
+
+- Split runtime source files into Talk, OSC, readback, command batch, and VS
+  Code adapter folders so runtime protocol code and editor adapter code are
+  easier to review separately.
+- Update runtime architecture docs and source-layout policy tests for the new
+  folder shape.
+
 ## [0.7.9] - 2026-05-22
 
 ### Fixed
@@ -271,7 +281,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...HEAD
+[0.7.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...v0.7.10
 [0.7.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.8...v0.7.9
 [0.7.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...v0.7.8
 [0.7.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.7

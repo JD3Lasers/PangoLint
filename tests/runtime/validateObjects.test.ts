@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { buildPropertyIndex, type PropertyIndexFile } from "../../src/knowledge/propertyIndex";
-import type { PropertyReadbackResult } from "../../src/runtime/beyondReadback";
+import type { PropertyReadbackResult } from "../../src/runtime/readback/beyondReadback";
 import {
   applyReportToCache,
   buildRuntimeIndex,
@@ -10,7 +10,7 @@ import {
   type ReadbackReportEntry,
   runValidation,
   type ValidatedRootsCache,
-} from "../../src/runtime/validateObjects";
+} from "../../src/runtime/readback/validateObjects";
 
 const bundledFile: PropertyIndexFile = {
   schemaVersion: 1,

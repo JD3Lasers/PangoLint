@@ -49,13 +49,13 @@ For canonical Pangolin documentation, refer to
 PangoLint reference data and docs for tests and package builds.
 
 Implementation anchors:
-- `src/runtime/talkTcp.ts`
-- `src/runtime/beyondReadback.ts`
-- `src/runtime/talkUdp.ts`
-- `src/runtime/osc.ts`
-- `tests/beyondReadback.test.ts`
-- `tests/talkUdp.test.ts`
-- `tests/osc.test.ts`
+- `src/runtime/talk/talkTcp.ts`
+- `src/runtime/readback/beyondReadback.ts`
+- `src/runtime/talk/talkUdp.ts`
+- `src/runtime/osc/osc.ts`
+- `tests/runtime/beyondReadback.test.ts`
+- `tests/runtime/talkUdp.test.ts`
+- `tests/runtime/osc.test.ts`
 
 ## Endpoint Model
 
