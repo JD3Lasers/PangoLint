@@ -154,6 +154,21 @@ const expectedObjectPropertyIndexScriptModules = [
   "objectPropertyIndexValidation.ts",
 ];
 
+const expectedKnowledgeDataTestFiles = [
+  "commandKnowledgeData.test.ts",
+  "controlReferenceData.test.ts",
+  "knowledgeBase.test.ts",
+  "objectBehaviorMetadataData.test.ts",
+  "objectDataLayoutMigration.test.ts",
+  "objectPropertyClassificationData.test.ts",
+  "objectReadbackMetadataData.test.ts",
+  "objectValueMetadataCueAndZoneData.test.ts",
+  "objectValueMetadataDeviceData.test.ts",
+  "readKnowledgeTestData.ts",
+];
+
+const expectedKnowledgeFixtureFiles = ["objectMetadataPathGroups.ts"];
+
 describe("source layout", () => {
   it("keeps production modules grouped by responsibility under src", () => {
     const rootTypeScriptFiles = readdirSync(sourceRoot)
@@ -278,5 +293,18 @@ describe("test layout", () => {
         .map((entry) => entry.name)
         .sort(),
     ).toEqual(expectedTestFolders);
+  });
+
+  it("keeps large knowledge-data checks split by evidence area", () => {
+    const knowledgePath = path.join(testsRoot, "knowledge");
+    const fixturePath = path.join(testsRoot, "fixtures", "knowledge");
+
+    expect(
+      readdirSync(knowledgePath)
+        .filter((entry) => expectedKnowledgeDataTestFiles.includes(entry) || entry === "knowledgeBaseData.test.ts")
+        .sort(),
+    ).toEqual(expectedKnowledgeDataTestFiles);
+    expect(readdirSync(fixturePath).sort()).toEqual(expectedKnowledgeFixtureFiles);
+    expect(existsSync(path.join(knowledgePath, "knowledgeBaseData.test.ts"))).toBe(false);
   });
 });

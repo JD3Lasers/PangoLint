@@ -8,8 +8,9 @@ editor and `npm run compile` use the same Node, Vitest, and DOM typings.
 
 ## Folders
 
-- `knowledge/`: command catalog, object-property data, Object Tree metadata,
-  and generated knowledge checks.
+- `knowledge/`: command catalog, Object Tree value, readback, behavior, and
+  generated knowledge checks. Large checked-in data assertions are split by
+  evidence area, with shared JSON readers in `readKnowledgeTestData.ts`.
 - `language/`: parser, formatter, diagnostics, semantic tokens, grammar, and
   editor-language providers.
 - `reference/`: offline reference site and reference-bundle behavior.
@@ -20,7 +21,8 @@ editor and `npm run compile` use the same Node, Vitest, and DOM typings.
 - `sidebar/`: sidebar model, tree data, webview state, and sidebar accessibility.
 - `workspace/`: workspace roots, user objects, workspace scanning, symbols, and
   watcher view behavior.
-- `fixtures/`: shared fixture data.
+- `fixtures/`: shared fixture data. `fixtures/knowledge/` contains named
+  Object Tree path groups used by large metadata checks.
 
 ## Naming
 
