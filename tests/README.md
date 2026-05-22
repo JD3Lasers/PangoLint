@@ -19,7 +19,8 @@ editor and `npm run compile` use the same Node, Vitest, and DOM typings.
 - `repo/`: package policy, release workflow, source layout, public docs, and
   repository hygiene checks.
 - `runtime/`: Talk UDP, OSC, readback, runtime config, script sending, and
-  object validation.
+  object validation. BEYOND readback runtime tests live under
+  `runtime/readback/` and are split by public behavior.
 - `sidebar/`: sidebar model, tree data, webview state, and sidebar accessibility.
 - `workspace/`: workspace roots, user objects, workspace scanning, symbols, and
   watcher view behavior.

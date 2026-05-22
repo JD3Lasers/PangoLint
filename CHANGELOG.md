@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.22] - 2026-05-22
+
+### Changed
+
+- Split BEYOND readback runtime code into focused modules for request IDs,
+  property path validation, script line building, Talk send status, OSC
+  callback matching, node transport, and runtime workflows.
+- Move BEYOND readback runtime tests into `tests/runtime/readback/` and add
+  source-layout policy coverage so the old broad test filenames do not return.
+
 ## [0.7.21] - 2026-05-22
 
 ### Changed
@@ -277,7 +287,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.21...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...HEAD
+[0.7.22]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.21...v0.7.22
 [0.7.21]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.20...v0.7.21
 [0.7.20]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.20
 [0.7.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...v0.7.6

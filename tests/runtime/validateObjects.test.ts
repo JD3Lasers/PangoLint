@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { buildPropertyIndex, type PropertyIndexFile } from "../../src/knowledge/propertyIndex";
-import type { PropertyReadbackResult } from "../../src/runtime/readback/beyondReadback";
+import type { PropertyReadbackResult } from "../../src/runtime/readback/readbackTypes";
 import {
   applyReportToCache,
   buildRuntimeIndex,

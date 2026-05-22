@@ -4,7 +4,7 @@ import type { CommandKnowledgeEntry } from "../../src/knowledge/knowledgeBase";
 import { buildPropertyIndex } from "../../src/knowledge/propertyIndex";
 import { PANGO_ANALYSIS_LIMITS } from "../../src/language/analysisLimits";
 import type { OscMessage } from "../../src/runtime/osc/osc";
-import type { ReadbackOscListener, ReadbackTransport } from "../../src/runtime/readback/beyondReadback";
+import type { ReadbackOscListener, ReadbackTransport } from "../../src/runtime/readback/readbackTypes";
 import type { SendTalkTcpCommandsOptions, SendTalkTcpCommandsResult } from "../../src/runtime/talk/talkTcp";
 import type { McpConfig } from "../src/config";
 import { checkTalkConnection } from "../src/tools/checkTalkConnection";

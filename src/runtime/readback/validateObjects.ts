@@ -21,12 +21,9 @@ import {
   type PropertyIndexFile,
 } from "../../knowledge/propertyIndex";
 import { splitCodeAndComment, stripStringLiterals } from "../../language/parser";
-import {
-  createReadbackRequestId,
-  type PropertyReadbackOptions,
-  type PropertyReadbackResult,
-  readBeyondProperty,
-} from "./beyondReadback";
+import { readBeyondProperty } from "./beyondReadback";
+import { createReadbackRequestId } from "./readbackRequestId";
+import type { PropertyReadbackOptions, PropertyReadbackResult } from "./readbackTypes";
 
 /** A single (root, button) pair to read back. */
 export interface ValidationCandidate {
@@ -326,4 +323,3 @@ export async function runValidation(options: RunValidationOptions): Promise<{
 
 // Re-export a transport stub indirection so tests can substitute their own
 // without depending on checkBeyondConnection's transport surface.
-export type { PropertyReadbackResult };
