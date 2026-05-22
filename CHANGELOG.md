@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.29] - 2026-05-22
+
+### Fixed
+
+- Update the transitive `qs` dependency to the patched release for
+  GHSA-q8mj-m7cp-5q26 / CVE-2026-8723.
+
 ## [0.7.28] - 2026-05-22
 
 ### Changed
@@ -333,7 +340,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.28...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.29...HEAD
+[0.7.29]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.28...v0.7.29
 [0.7.28]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.27...v0.7.28
 [0.7.27]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.25...v0.7.27
 [0.7.25]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.24...v0.7.25
