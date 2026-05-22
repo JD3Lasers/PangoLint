@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.31] - 2026-05-22
+
+### Fixed
+
+- Run live BEYOND smoke workflow bench variable setup with Node so the Windows
+  self-hosted runner does not parse Bash syntax with PowerShell.
+
 ## [0.7.30] - 2026-05-22
 
 ### Added
