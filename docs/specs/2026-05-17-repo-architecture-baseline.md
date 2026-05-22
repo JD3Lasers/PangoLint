@@ -44,6 +44,7 @@ governing spec says otherwise.
 | `docs/runbooks/` | Operational procedures | Runtime probing, package checks, release steps, sidebar notes, and data layout policy | Runbooks explain how to operate or verify the repo. They should not override specs. |
 | `docs/references/` | Public-safe reference material | PangoScript docs, OSC references, diagnostics docs, syntax notes, examples, and generated command-reference markdown | Reference material can feed docs, sidebar, MCP resources, and the offline reference site. |
 | `scripts/` | Public-safe maintainer tools | Deterministic generators, package verifiers, release checks, corpus linting, and data reports | Scripts must be documented through package scripts or runbooks when they become part of normal workflows. |
+| `config/` | Script-addressed development tool configuration | Dependency-cruiser and Knip audit configuration used by package scripts | Put configs here when npm scripts pass the path explicitly and the tool does not require a root-level file. Keep runtime package inputs out of this folder. |
 | `tests/` | Vitest coverage | Pure module tests, data validation tests, package policy tests, docs policy tests, and regression coverage | Tests should validate source-backed data contracts and future architecture rules. |
 | `src/test/` | VS Code extension-host tests | `vscode-test` runner and extension-host suite | Keep extension-host tests here because they need VS Code integration. |
 | `media/` | VSIX static assets and generated reference output | Icons, sidebar assets, and generated offline reference HTML | Generated reference output must be rebuilt through `npm run build:reference`. |
@@ -68,9 +69,16 @@ governing spec says otherwise.
 | `.vscodeignore` | VSIX package exclusions | Must keep ignored maintainer input, full evidence trees, and unapproved data out of the VSIX. |
 | `.gitignore` | Local and generated artifact exclusions | Must keep package staging and local artifacts out of normal tracking. |
 | `.gitattributes` | Git file handling | Preserves BEYOND-facing line-ending rules. |
-| `.markdownlint.json`, `.markdownlint-cli2.jsonc` | Markdown lint policy | Keep docs lint behavior stable. |
+| `.markdownlint.json`, `.markdownlint-cli2.jsonc` | Markdown lint policy | Root-level editor and CLI discovery files. Keep docs lint behavior stable without adding markdownlint to the main check gate. |
 | `.vscode-test.mjs` | Extension-host test configuration | Used by `npm run test:extension-host`. |
 | `language-configuration.json` | VS Code language configuration | Extension package input for PangoScript language behavior. |
+
+## Config File Map
+
+| Path | Role | Notes |
+| --- | --- | --- |
+| `config/dependency-cruiser.cjs` | Import boundary audit policy | Used by `npm run audit:imports` and `npm run graph:imports`. |
+| `config/knip.json` | Unused file and export audit policy | Used by `npm run audit:unused`. Keep this separate from `npm run check` until the signal is stable across cleanup work. |
 
 ## VS Code Extension Source Map
 

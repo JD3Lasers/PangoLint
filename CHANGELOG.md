@@ -6,101 +6,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [0.7.19] - 2026-05-22
-
-### Changed
-
-- Make the unused-code audit fail on unused exports and exported types after
-  reducing the existing warning inventory.
-- Remove unnecessary public TypeScript export surface from MCP tools,
-  knowledge helpers, runtime modules, reference bundle modules, sidebar modules,
-  and test data helpers.
-
-## [0.7.18] - 2026-05-22
-
-### Changed
-
-- Add a knip unused-code audit command for files, exports, types, and package
-  dependencies.
-- Document the repo housekeeping audit commands and keep unused export findings
-  as warnings until the first cleanup pass is triaged.
-
-## [0.7.17] - 2026-05-22
-
-### Changed
-
-- Organize repository scripts into build, knowledge, Object Tree, package,
-  release, and workflow task-area folders.
-- Keep public npm script names stable while updating script paths and repo
-  layout policy coverage.
-
-## [0.7.16] - 2026-05-22
-
-### Changed
-
-- Add dependency-cruiser import graph checks for MCP and VSIX source
-  boundaries.
-- Add npm scripts for import boundary audits and Mermaid dependency graph
-  output.
-
-## [0.7.15] - 2026-05-22
-
-### Changed
-
-- Add MCP-facing knowledge, language, and runtime export files for VSIX source
-  APIs used by the MCP server.
-- Update MCP source imports to use the shared export files and add repo policy
-  coverage for the shared import boundary.
-
-## [0.7.14] - 2026-05-22
-
-### Changed
-
-- Split the reference site build script into named input file, catalog build,
-  renderer bundle, and HTML file modules.
-- Split MCP tool registration into command, Object Tree, property control,
-  script analysis, runtime read, and runtime write modules while preserving tool
-  IDs and schemas.
-
-## [0.7.13] - 2026-05-22
-
-### Changed
-
-- Split oversized checked-in knowledge data tests into command, Object Tree
-  value, readback, behavior, and layout files with named shared test data
-  readers.
-- Document knowledge test fixture folders and add source-layout coverage for
-  the split test files.
-
-## [0.7.12] - 2026-05-22
-
-### Changed
-
-- Add source constants for full VS Code setting IDs and BEYOND runtime setting
-  defaults so package manifest contributions can be checked for drift.
-- Expand repo policy tests to compare manifest command IDs, view IDs, setting
-  IDs, and runtime defaults against source constants.
-
-## [0.7.11] - 2026-05-22
-
-### Changed
-
-- Centralize VSIX and MCP package surface paths into named policy groups so
-  artifact copy and verification scripts share the same shipped path lists.
-- Add repo policy coverage that ties package surface groups to bundled data and
-  reference site path constants.
-
-## [0.7.10] - 2026-05-22
-
-### Changed
-
-- Split runtime source files into Talk, OSC, readback, command batch, and VS
-  Code adapter folders so runtime protocol code and editor adapter code are
-  easier to review separately.
-- Update runtime architecture docs and source-layout policy tests for the new
-  folder shape.
-
-## [0.7.9] - 2026-05-22
+## [0.7.20] - 2026-05-22
 
 ### Fixed
 
@@ -112,23 +18,21 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Share runtime option builders across VSIX and MCP runtime tools so Talk
-  target fields and result targets are not rebuilt at each call site.
-
-## [0.7.8] - 2026-05-22
-
-### Changed
-
+- Add GitHub Actions publishing workflows for the VS Code Marketplace and npm,
+  and document Marketplace plus npm as the primary install channels.
 - Organize VSIX and MCP source identifiers, bundled data paths, tool result
-  shapes, resource paths, and public package path policy into named modules
-  with repo-policy tests for persistence and package boundaries.
-
-## [0.7.7] - 2026-05-21
-
-### Changed
-
-- Document Marketplace and npm as the primary install channels and add the
-  GitHub Actions workflow for VS Code Marketplace publishing.
+  shapes, resource paths, runtime modules, MCP tool registration, reference-site
+  build scripts, repository scripts, checked-in tests, and package path policy
+  into named product areas.
+- Add source constants for package manifest IDs and BEYOND runtime defaults, then
+  cover those values with repository policy tests.
+- Add dependency-cruiser and Knip audit commands for import boundaries, graphs,
+  unused files, exports, types, and package dependencies.
+- Move script-addressed audit configuration into `config/` and add root file
+  policy coverage so new tracked root files require an explicit policy update.
+- Remove unnecessary public TypeScript exports from MCP tools, knowledge
+  helpers, runtime modules, reference bundle modules, sidebar modules, and test
+  data helpers.
 
 ## [0.7.6] - 2026-05-21
 
@@ -365,18 +269,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.17...HEAD
-[0.7.17]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.16...v0.7.17
-[0.7.16]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...v0.7.16
-[0.7.15]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...v0.7.15
-[0.7.14]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.13...v0.7.14
-[0.7.13]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...v0.7.13
-[0.7.12]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...v0.7.12
-[0.7.11]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...v0.7.11
-[0.7.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...v0.7.10
-[0.7.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.8...v0.7.9
-[0.7.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...v0.7.8
-[0.7.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.7
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.20...HEAD
+[0.7.20]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.6...v0.7.20
 [0.7.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.5...v0.7.6
 [0.7.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.4...v0.7.5
 [0.7.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.3...v0.7.4

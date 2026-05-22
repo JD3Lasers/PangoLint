@@ -7,25 +7,25 @@ const packageJson = require("../../package.json") as {
   devDependencies?: Record<string, string>;
 };
 
-const dependencyCruiserConfigPath = path.join(process.cwd(), ".dependency-cruiser.cjs");
+const dependencyCruiserConfigPath = path.join(process.cwd(), "config", "dependency-cruiser.cjs");
 
 describe("dependency graph policy", () => {
   it("provides a repeatable import boundary audit", () => {
     expect(packageJson.devDependencies).toHaveProperty("dependency-cruiser");
     expect(packageJson.scripts?.["audit:imports"]).toBe(
-      "dependency-cruise --config .dependency-cruiser.cjs src mcp/src tests scripts",
+      "dependency-cruise --config config/dependency-cruiser.cjs src mcp/src tests scripts",
     );
     expect(packageJson.scripts?.["graph:imports"]).toBe(
-      "dependency-cruise --config .dependency-cruiser.cjs --output-type mermaid src mcp/src tests scripts",
+      "dependency-cruise --config config/dependency-cruiser.cjs --output-type mermaid src mcp/src tests scripts",
     );
     expect(packageJson.scripts?.["check:public"]).toContain("npm run audit:imports");
     expect(packageJson.scripts?.check).toContain("npm run check:public");
-    expect(existsSync(dependencyCruiserConfigPath), ".dependency-cruiser.cjs").toBe(true);
-    expect(readFileSync(path.join(process.cwd(), ".vscodeignore"), "utf8")).toContain(".dependency-cruiser.cjs");
+    expect(existsSync(dependencyCruiserConfigPath), "config/dependency-cruiser.cjs").toBe(true);
+    expect(readFileSync(path.join(process.cwd(), ".vscodeignore"), "utf8")).toContain("config/**");
   });
 
   it("names the enforced source boundaries", () => {
-    const config = require("../../.dependency-cruiser.cjs") as {
+    const config = require("../../config/dependency-cruiser.cjs") as {
       forbidden?: Array<{ name?: string; to?: { path?: string; pathNot?: string[] } }>;
     };
     const ruleNames = (config.forbidden ?? []).map((rule) => rule.name).sort();

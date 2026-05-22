@@ -19,15 +19,15 @@ type KnipConfig = {
   workspaces?: Record<string, KnipWorkspaceConfig>;
 };
 
-const knipConfigPath = path.join(process.cwd(), "knip.json");
+const knipConfigPath = path.join(process.cwd(), "config", "knip.json");
 
 describe("unused code audit policy", () => {
   it("provides a repeatable unused-code audit without adding it to the full gate", () => {
     expect(packageJson.devDependencies).toHaveProperty("knip");
-    expect(packageJson.scripts?.["audit:unused"]).toBe("knip --config knip.json --reporter compact");
+    expect(packageJson.scripts?.["audit:unused"]).toBe("knip --config config/knip.json --reporter compact");
     expect(packageJson.scripts?.check ?? "").not.toContain("audit:unused");
-    expect(existsSync(knipConfigPath), "knip.json").toBe(true);
-    expect(readFileSync(path.join(process.cwd(), ".vscodeignore"), "utf8")).toContain("knip.json");
+    expect(existsSync(knipConfigPath), "config/knip.json").toBe(true);
+    expect(readFileSync(path.join(process.cwd(), ".vscodeignore"), "utf8")).toContain("config/**");
   });
 
   it("names the VSIX, MCP, test, script, and workflow audit surfaces", () => {
