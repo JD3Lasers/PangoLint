@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.30] - 2026-05-22
+
+### Added
+
+- Add an opt-in live BEYOND smoke script and manual self-hosted workflow for
+  operator-supervised Talk TCP, OSC readback, property readback, and Talk UDP
+  callback checks.
+
 ## [0.7.29] - 2026-05-22
 
 ### Fixed
@@ -340,7 +348,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.29...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.30...HEAD
+[0.7.30]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.29...v0.7.30
 [0.7.29]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.28...v0.7.29
 [0.7.28]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.27...v0.7.28
 [0.7.27]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.25...v0.7.27
