@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.25] - 2026-05-22
+
+### Added
+
+- Add repo policy coverage for TypeScript file-size drift across source,
+  script, MCP, and test folders, with documented exemptions for existing large
+  files.
+- Add repo policy coverage for readable folder names across source, script,
+  MCP, and test folders.
+
 ## [0.7.24] - 2026-05-22
 
 ### Changed
@@ -307,7 +317,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.24...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.25...HEAD
+[0.7.25]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.24...v0.7.25
 [0.7.24]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.23...v0.7.24
 [0.7.23]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.22...v0.7.23
 [0.7.22]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.21...v0.7.22
