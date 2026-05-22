@@ -454,6 +454,7 @@ export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string
     const result = await readBeyondProperty({
       propertyPath: path,
       ...readbackOptions,
+      commandTimeoutMs: timeoutMs,
       timeoutMs,
     });
     const entry: CachedLiveValue = result.ok

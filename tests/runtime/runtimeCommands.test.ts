@@ -49,6 +49,20 @@ const {
 });
 
 vi.mock("vscode", () => ({
+  Hover: class Hover {
+    constructor(
+      readonly contents: unknown[],
+      readonly range?: unknown,
+    ) {}
+  },
+  MarkdownString: class MarkdownString {
+    isTrusted = false;
+    value = "";
+
+    appendMarkdown(value: string): void {
+      this.value += value;
+    }
+  },
   StatusBarAlignment: { Right: 2 },
   commands: {
     registerCommand: registerCommandMock,
@@ -89,7 +103,7 @@ vi.mock("../../src/runtime/runScriptWithOscCapture", () => ({
 }));
 
 import { readBeyondProperty } from "../../src/runtime/beyondReadback";
-import { registerBeyondRuntimeCommands } from "../../src/runtime/runtimeCommands";
+import { augmentHoverWithLiveValue, registerBeyondRuntimeCommands } from "../../src/runtime/runtimeCommands";
 
 describe("registerBeyondRuntimeCommands", () => {
   beforeEach(() => {
@@ -322,6 +336,36 @@ describe("registerBeyondRuntimeCommands", () => {
         talkTcpPort: 16063,
         talkUdpHost: "127.0.0.1",
         talkUdpPort: 16062,
+      }),
+    );
+  });
+
+  it("caps both live hover readback and command timeouts", async () => {
+    vi.mocked(readBeyondProperty).mockResolvedValue({
+      ok: true,
+      requestId: "req-hover",
+      propertyPath: "Master.Brightness",
+      script: "",
+      value: 100,
+    });
+    vscodeState.config.set("talkTransport", "tcp");
+    vscodeState.config.set("talkTcpHost", "192.0.2.148");
+    vscodeState.config.set("talkTcpPort", 16063);
+    vscodeState.config.set("readbackTimeoutMs", 5000);
+
+    await augmentHoverWithLiveValue(
+      { contents: ["Master.Brightness"] } as unknown as vscode.Hover,
+      "Master.Brightness",
+    );
+
+    expect(readBeyondProperty).toHaveBeenCalledWith(
+      expect.objectContaining({
+        propertyPath: "Master.Brightness",
+        talkTransport: "tcp",
+        talkTcpHost: "192.0.2.148",
+        talkTcpPort: 16063,
+        commandTimeoutMs: 1500,
+        timeoutMs: 1500,
       }),
     );
   });
