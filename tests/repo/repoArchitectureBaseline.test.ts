@@ -14,6 +14,7 @@ describe("repo architecture baseline", () => {
     for (const text of [
       "Status: Governing source of truth",
       "Top-Level Folder Map",
+      "Config File Map",
       "VS Code Extension Source Map",
       "MCP Workspace Source Map",
       "PangoScript Data Map",
@@ -24,6 +25,7 @@ describe("repo architecture baseline", () => {
       "`data/pangoscript/`",
       "`docs/specs/`",
       "`docs/runbooks/`",
+      "`config/`",
       "`mcp/data/`",
       "`mcp/docs/`",
       "`mcp/LICENSE`",

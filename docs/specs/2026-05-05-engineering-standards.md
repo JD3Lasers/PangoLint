@@ -233,6 +233,8 @@ The repository has these durable top-level folders:
 - `src/test/`: VS Code extension-host tests only.
 - `scripts/`: public-safe maintainer tools only; no one-off live BEYOND
   investigation scripts.
+- `config/`: development tool configuration used by explicit npm scripts, such
+  as import-boundary and unused-code audits.
 - `data/pangoscript/`: command and property knowledge consumed by the
   extension.
 - `docs/references/`: public-safe reference analysis and diagnostic docs.

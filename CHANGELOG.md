@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.20] - 2026-05-22
+
+### Changed
+
+- Move dependency-cruiser and Knip configuration into `config/` and update the
+  npm audit scripts to use the moved config files.
+- Add root file policy coverage so new tracked root files require an explicit
+  repository policy update.
+
 ## [0.7.19] - 2026-05-22
 
 ### Changed
@@ -365,7 +374,10 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.17...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.20...HEAD
+[0.7.20]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.19...v0.7.20
+[0.7.19]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.18...v0.7.19
+[0.7.18]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.17...v0.7.18
 [0.7.17]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.16...v0.7.17
 [0.7.16]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...v0.7.16
 [0.7.15]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...v0.7.15
