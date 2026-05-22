@@ -10,7 +10,9 @@ editor and `npm run compile` use the same Node, Vitest, and DOM typings.
 
 - `knowledge/`: command catalog, Object Tree value, readback, behavior, and
   generated knowledge checks. Large checked-in data assertions are split by
-  evidence area, with shared JSON readers in `readKnowledgeTestData.ts`.
+  evidence area. Object Tree value metadata checks live under
+  `knowledge/object-value-metadata/`, with shared JSON readers in
+  `readKnowledgeTestData.ts`.
 - `language/`: parser, formatter, diagnostics, semantic tokens, grammar, and
   editor-language providers.
 - `reference/`: offline reference site and reference-bundle behavior.
