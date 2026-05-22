@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 interface TrackedTextFile {
@@ -28,7 +28,6 @@ function trackedTextFiles(): TrackedTextFile[] {
     .trim()
     .split(/\r?\n/)
     .filter(Boolean)
-    .filter((path) => existsSync(path))
     .filter((path) => MAINTAINED_TEXT_FILE.test(path));
   return trackedPaths.map((path) => ({
     path,
