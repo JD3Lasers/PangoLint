@@ -1,77 +1,105 @@
-const allowedMcpDataPaths = new Set([
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "data/pangoscript/control-reference/README.md",
-  "data/pangoscript/control-reference/package-policy.json",
-  "data/pangoscript/control-reference/mcp-control-reference/README.md",
-  "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
-  "data/pangoscript/control-reference/mcp-control-reference/summary.json",
-]);
+const PANGOSCRIPT_DATA_PATHS = {
+  beyondCategoryTree: "data/pangoscript/beyond-category-tree.json",
+  commandsMerged: "data/pangoscript/commands.merged.json",
+  commandPropertyCoverage: "data/pangoscript/command-property-coverage.json",
+  knownProperties: "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
+  objectPropertyIndex: "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
+  controlReferenceReadme: "data/pangoscript/control-reference/README.md",
+  controlReferencePackagePolicy: "data/pangoscript/control-reference/package-policy.json",
+  mcpControlReferenceReadme: "data/pangoscript/control-reference/mcp-control-reference/README.md",
+  mcpPropertyControls: "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
+  mcpControlReferenceSummary: "data/pangoscript/control-reference/mcp-control-reference/summary.json",
+};
 
-const allowedMcpDataDirectoryPrefixes = ["data/pangoscript/control-reference/mcp-control-reference/"];
+const REFERENCE_DOC_PATHS = {
+  diagnosticsReadme: "docs/references/diagnostics/README.md",
+  operators: "docs/references/operators.md",
+  syntax: "docs/references/syntax.md",
+  masterObjectTree: "docs/references/beyond/pangoscript/master-object-tree.md",
+  objectModel: "docs/references/beyond/pangoscript/object-model.md",
+};
 
-const mcpAssetFiles = [
-  "LICENSE",
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "data/pangoscript/control-reference/README.md",
-  "data/pangoscript/control-reference/package-policy.json",
-  "docs/references/diagnostics/README.md",
-  "docs/references/operators.md",
-  "docs/references/syntax.md",
-  "docs/references/beyond/pangoscript/master-object-tree.md",
-  "docs/references/beyond/pangoscript/object-model.md",
+const MCP_CONTROL_REFERENCE_DIRECTORY = "data/pangoscript/control-reference/mcp-control-reference";
+const COMMAND_REFERENCE_DIRECTORY = "docs/references/beyond/pangoscript/command-reference";
+
+const mcpRuntimeDataFiles = [
+  PANGOSCRIPT_DATA_PATHS.commandsMerged,
+  PANGOSCRIPT_DATA_PATHS.commandPropertyCoverage,
+  PANGOSCRIPT_DATA_PATHS.knownProperties,
+  PANGOSCRIPT_DATA_PATHS.objectPropertyIndex,
+  PANGOSCRIPT_DATA_PATHS.controlReferenceReadme,
+  PANGOSCRIPT_DATA_PATHS.controlReferencePackagePolicy,
 ];
 
-const mcpAssetDirectories = [
-  "data/pangoscript/control-reference/mcp-control-reference",
-  "docs/references/beyond/pangoscript/command-reference",
+const mcpControlReferenceDataFiles = [
+  PANGOSCRIPT_DATA_PATHS.mcpControlReferenceReadme,
+  PANGOSCRIPT_DATA_PATHS.mcpPropertyControls,
+  PANGOSCRIPT_DATA_PATHS.mcpControlReferenceSummary,
 ];
+
+const mcpReferenceDocFiles = [
+  REFERENCE_DOC_PATHS.diagnosticsReadme,
+  REFERENCE_DOC_PATHS.operators,
+  REFERENCE_DOC_PATHS.syntax,
+  REFERENCE_DOC_PATHS.masterObjectTree,
+  REFERENCE_DOC_PATHS.objectModel,
+];
+
+const packageSurfacePathGroups = {
+  mcpAllowedDataFiles: [...mcpRuntimeDataFiles, ...mcpControlReferenceDataFiles],
+  mcpAllowedDataDirectoryPrefixes: [`${MCP_CONTROL_REFERENCE_DIRECTORY}/`],
+  mcpAssetFiles: ["LICENSE", ...mcpRuntimeDataFiles, ...mcpReferenceDocFiles],
+  mcpAssetDirectories: [MCP_CONTROL_REFERENCE_DIRECTORY, COMMAND_REFERENCE_DIRECTORY],
+  requiredMcpPackageFiles: [
+    "LICENSE",
+    "README.md",
+    "bin/pangolint-mcp.js",
+    "dist/server.js",
+    "package.json",
+    ...mcpReferenceDocFiles,
+  ],
+  vsixPackageFiles: [
+    "dist/extension.js",
+    "dist/sidebar-commands-webview.js",
+    "dist/sidebar-objects-webview.js",
+    PANGOSCRIPT_DATA_PATHS.beyondCategoryTree,
+    PANGOSCRIPT_DATA_PATHS.commandsMerged,
+    PANGOSCRIPT_DATA_PATHS.commandPropertyCoverage,
+    PANGOSCRIPT_DATA_PATHS.knownProperties,
+    PANGOSCRIPT_DATA_PATHS.objectPropertyIndex,
+    "language-configuration.json",
+    "syntaxes/pangoscript.tmLanguage.json",
+    "snippets/pangoscript.json",
+    "media/icon.png",
+    "media/icon-activity-bar.svg",
+    "media/reference/pangoscript-reference.html",
+    "media/sidebar/commands.html",
+    "media/sidebar/commands.css",
+    "media/sidebar/objects.html",
+    "media/sidebar/objects.css",
+    REFERENCE_DOC_PATHS.diagnosticsReadme,
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "CHANGELOG.md",
+  ],
+};
+
+const allowedMcpDataPaths = new Set(packageSurfacePathGroups.mcpAllowedDataFiles);
+
+const allowedMcpDataDirectoryPrefixes = packageSurfacePathGroups.mcpAllowedDataDirectoryPrefixes;
+
+const mcpAssetFiles = packageSurfacePathGroups.mcpAssetFiles;
+
+const mcpAssetDirectories = packageSurfacePathGroups.mcpAssetDirectories;
 
 const requiredMcpPackagePaths = [
-  "LICENSE",
-  "README.md",
-  "bin/pangolint-mcp.js",
-  "dist/server.js",
-  "package.json",
-  ...allowedMcpDataPaths,
-  "docs/references/diagnostics/README.md",
-  "docs/references/operators.md",
-  "docs/references/syntax.md",
-  "docs/references/beyond/pangoscript/master-object-tree.md",
-  "docs/references/beyond/pangoscript/object-model.md",
+  ...packageSurfacePathGroups.requiredMcpPackageFiles,
+  ...packageSurfacePathGroups.mcpAllowedDataFiles,
 ];
 
-const expectedVsixPackagePaths = [
-  "dist/extension.js",
-  "dist/sidebar-commands-webview.js",
-  "dist/sidebar-objects-webview.js",
-  "data/pangoscript/beyond-category-tree.json",
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "language-configuration.json",
-  "syntaxes/pangoscript.tmLanguage.json",
-  "snippets/pangoscript.json",
-  "media/icon.png",
-  "media/icon-activity-bar.svg",
-  "media/reference/pangoscript-reference.html",
-  "media/sidebar/commands.html",
-  "media/sidebar/commands.css",
-  "media/sidebar/objects.html",
-  "media/sidebar/objects.css",
-  "docs/references/diagnostics/README.md",
-  "package.json",
-  "README.md",
-  "LICENSE",
-  "NOTICE.md",
-  "CHANGELOG.md",
-];
+const expectedVsixPackagePaths = packageSurfacePathGroups.vsixPackageFiles;
 
 const forbiddenVsixPackagePrefixes = [
   ".git/",
@@ -204,5 +232,6 @@ module.exports = {
   mcpAssetDirectories,
   mcpAssetFiles,
   mcpAssetPathError,
+  packageSurfacePathGroups,
   requiredMcpPackagePaths,
 };

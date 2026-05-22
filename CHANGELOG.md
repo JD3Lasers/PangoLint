@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.11] - 2026-05-22
+
+### Changed
+
+- Centralize VSIX and MCP package surface paths into named policy groups so
+  artifact copy and verification scripts share the same shipped path lists.
+- Add repo policy coverage that ties package surface groups to bundled data and
+  reference site path constants.
+
 ## [0.7.10] - 2026-05-22
 
 ### Changed
@@ -281,7 +290,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...HEAD
+[0.7.11]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...v0.7.11
 [0.7.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...v0.7.10
 [0.7.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.8...v0.7.9
 [0.7.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.7...v0.7.8
