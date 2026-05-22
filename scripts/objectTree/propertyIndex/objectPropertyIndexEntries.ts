@@ -1,4 +1,5 @@
-import { CUE_COMMON_PROPERTIES, CUE_TYPES } from "../../../src/knowledge/cueProperties";
+import { CUE_COMMON_PROPERTIES } from "../../../src/knowledge/cue-properties/cueCommonProperties";
+import { CUE_TYPES } from "../../../src/knowledge/cue-properties/cueTypes";
 import type {
   ObjectPropertyAddressMetadata,
   ObjectPropertyProbeContext,
