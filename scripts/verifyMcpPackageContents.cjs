@@ -2,43 +2,14 @@
 const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
+const {
+  allowedMcpDataPaths,
+  findForbiddenMcpPackagePathLabels,
+  requiredMcpPackagePaths,
+} = require("./packageSurfacePolicy.cjs");
 
 const repoRoot = path.resolve(__dirname, "..");
 const mcpRoot = path.join(repoRoot, "mcp");
-
-const allowedMcpDataPaths = new Set([
-  "data/pangoscript/commands.merged.json",
-  "data/pangoscript/command-property-coverage.json",
-  "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
-  "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-  "data/pangoscript/control-reference/README.md",
-  "data/pangoscript/control-reference/package-policy.json",
-  "data/pangoscript/control-reference/mcp-control-reference/README.md",
-  "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
-  "data/pangoscript/control-reference/mcp-control-reference/summary.json",
-]);
-
-const requiredMcpPackagePaths = [
-  "LICENSE",
-  "README.md",
-  "bin/pangolint-mcp.js",
-  "dist/server.js",
-  "package.json",
-  ...allowedMcpDataPaths,
-];
-
-const forbiddenMcpPackagePathPatterns = [
-  ["local probe directory", /(^|\/)probes?(?:\/|$)/i],
-  ["local probe file", /(^|\/)probe-[^/]*$/i],
-  ["maintainer-only evidence directory", /(^|\/)maintainer[-_]evidence(?:\/|$)/i],
-];
-
-const forbiddenMcpDataPrefixes = [
-  ["Object Tree source facts", "data/pangoscript/object-tree/source-facts/"],
-  ["Object Tree evidence", "data/pangoscript/object-tree/evidence/"],
-  ["Object Tree audit output", "data/pangoscript/object-tree/audits/"],
-  ["Object Tree package projection", "data/pangoscript/object-tree/package-projections/"],
-];
 
 const forbiddenPublicTextPatterns = [
   ["private doc cache label", /\bdoc[- ]cache\b/i],
@@ -191,18 +162,8 @@ for (const requiredPath of requiredMcpPackagePaths) {
 
 const forbidden = [];
 for (const packedPath of files) {
-  for (const [label, pattern] of forbiddenMcpPackagePathPatterns) {
-    const match = pattern.exec(packedPath);
-    if (match?.[0]) {
-      forbidden.push(`${packedPath}: ${label} (${match[0]})`);
-      break;
-    }
-  }
-  for (const [label, prefix] of forbiddenMcpDataPrefixes) {
-    if (packedPath === prefix.slice(0, -1) || packedPath.startsWith(prefix)) {
-      forbidden.push(`${packedPath}: ${label} (${prefix})`);
-      break;
-    }
+  for (const label of findForbiddenMcpPackagePathLabels(packedPath)) {
+    forbidden.push(`${packedPath}: ${label}`);
   }
 }
 if (forbidden.length > 0) {

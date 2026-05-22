@@ -7,11 +7,10 @@
 // survives reloads.
 
 import * as vscode from "vscode";
+import { EXTENSION_CONFIG_SECTIONS, EXTENSION_WORKSPACE_STATE_KEYS } from "../extensionHost/extensionIds";
 import { readBeyondProperty } from "../runtime/beyondReadback";
 import type { OscArg, OscMessage } from "../runtime/osc";
 import { getBeyondRuntimeConfig } from "../runtime/runtimeConfig";
-
-const STATE_KEY = "pangolint.watchedPaths";
 
 export interface WatchEntry {
   kind?: "property" | "callback";
@@ -32,7 +31,7 @@ export class WatcherTreeProvider implements vscode.TreeDataProvider<WatchEntry> 
   private refreshInFlight: Promise<void> | undefined;
 
   constructor(private readonly context: vscode.ExtensionContext) {
-    const persisted = context.workspaceState.get<string[]>(STATE_KEY, []);
+    const persisted = context.workspaceState.get<string[]>(EXTENSION_WORKSPACE_STATE_KEYS.watchedPaths, []);
     this.entries = persisted.map((path) => ({ path }));
   }
 
@@ -117,7 +116,7 @@ export class WatcherTreeProvider implements vscode.TreeDataProvider<WatchEntry> 
   }
 
   private async refreshEntries(): Promise<void> {
-    const config = vscode.workspace.getConfiguration("pangolint.beyond");
+    const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
     const { talkHost, talkPort, listenHost, listenPort, timeoutMs } = getBeyondRuntimeConfig(config);
 
     for (const entry of this.entries) {
@@ -146,7 +145,7 @@ export class WatcherTreeProvider implements vscode.TreeDataProvider<WatchEntry> 
 
   private async persist(): Promise<void> {
     await this.context.workspaceState.update(
-      STATE_KEY,
+      EXTENSION_WORKSPACE_STATE_KEYS.watchedPaths,
       this.entries.map((e) => e.path),
     );
   }

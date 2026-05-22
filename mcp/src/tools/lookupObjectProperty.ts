@@ -8,7 +8,7 @@ import {
 } from "../../../src/knowledge/objectPropertyCards";
 import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
 import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupObjectPropertyInput extends ObjectPropertyDetailInput {
   path: string;

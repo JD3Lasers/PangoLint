@@ -17,25 +17,18 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import {
+  COMMAND_REFERENCE_DIR,
+  COMMAND_REFERENCE_META_FILES,
+  MCP_BUNDLED_REFERENCE_PATHS,
+  MCP_RESOURCE_URIS,
+} from "../bundledResourcePaths";
 import type { McpKnowledgeBase } from "../knowledgeBase";
 import { resolveDataDir } from "../knowledgeBase";
 
 interface RegisterContext {
   knowledge: McpKnowledgeBase;
 }
-
-const URI_CATALOG = "pangoscript://catalog/commands";
-const URI_PROPERTY_COVERAGE = "pangoscript://catalog/property-coverage";
-const URI_SCHEMAS = "pangoscript://schemas/objects";
-const URI_DIAGNOSTICS = "pangoscript://diagnostics/codes";
-const URI_OPERATORS = "pangoscript://reference/operators";
-const URI_SYNTAX = "pangoscript://reference/syntax";
-const URI_COMMAND_REFERENCE = "pangoscript://reference/command-reference";
-const URI_MASTER_OBJECT_TREE = "pangoscript://reference/master-object-tree";
-const URI_OBJECT_MODEL = "pangoscript://reference/object-model";
-
-const COMMAND_REFERENCE_DIR = "docs/references/beyond/pangoscript/command-reference";
-const COMMAND_REFERENCE_META_FILES = new Set(["README.md"]);
 
 /**
  * Build the JSON payload served by `pangoscript://catalog/commands`.
@@ -145,7 +138,7 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
   const catalogText = buildCatalogPayload(ctx.knowledge);
   const catalogSize = Buffer.byteLength(catalogText, "utf8");
 
-  const propertyCoverageText = readBundledText("data/pangoscript/command-property-coverage.json");
+  const propertyCoverageText = readBundledText(MCP_BUNDLED_REFERENCE_PATHS.propertyCoverage);
   const propertyCoverageDoc =
     propertyCoverageText === undefined
       ? undefined
@@ -154,32 +147,32 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
   const schemasText = buildSchemasPayload(ctx.knowledge);
   const schemasSize = Buffer.byteLength(schemasText, "utf8");
 
-  const diagnosticsDoc = readBundledMarkdown("docs/references/diagnostics/README.md");
-  const operatorsDoc = readBundledMarkdown("docs/references/operators.md");
-  const syntaxDoc = readBundledMarkdown("docs/references/syntax.md");
+  const diagnosticsDoc = readBundledMarkdown(MCP_BUNDLED_REFERENCE_PATHS.diagnostics);
+  const operatorsDoc = readBundledMarkdown(MCP_BUNDLED_REFERENCE_PATHS.operators);
+  const syntaxDoc = readBundledMarkdown(MCP_BUNDLED_REFERENCE_PATHS.syntax);
   const commandReferenceText = buildCommandReferencePayload();
   const commandReferenceDoc =
     commandReferenceText === undefined
       ? undefined
       : { text: commandReferenceText, size: Buffer.byteLength(commandReferenceText, "utf8") };
-  const masterObjectTreeDoc = readBundledMarkdown("docs/references/beyond/pangoscript/master-object-tree.md");
-  const objectModelDoc = readBundledMarkdown("docs/references/beyond/pangoscript/object-model.md");
+  const masterObjectTreeDoc = readBundledMarkdown(MCP_BUNDLED_REFERENCE_PATHS.masterObjectTree);
+  const objectModelDoc = readBundledMarkdown(MCP_BUNDLED_REFERENCE_PATHS.objectModel);
 
   server.registerResource(
     "catalog/commands",
-    URI_CATALOG,
+    MCP_RESOURCE_URIS.catalog,
     {
       mimeType: "application/json",
       size: catalogSize,
       description:
         "Full curated PangoScript command catalog - canonical name, aliases, forms, parameters, safetyTier, evidenceLevel, and notes. Agents should browse this when generating PangoScript to verify command names and arity.",
     },
-    async () => asResourceContents(URI_CATALOG, "application/json", catalogText),
+    async () => asResourceContents(MCP_RESOURCE_URIS.catalog, "application/json", catalogText),
   );
 
   server.registerResource(
     "catalog/property-coverage",
-    URI_PROPERTY_COVERAGE,
+    MCP_RESOURCE_URIS.propertyCoverage,
     {
       mimeType: "application/json",
       ...(propertyCoverageDoc ? { size: propertyCoverageDoc.size } : {}),
@@ -188,25 +181,25 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!propertyCoverageDoc) throw new Error("command-property coverage ledger not found in bundled data");
-      return asResourceContents(URI_PROPERTY_COVERAGE, "application/json", propertyCoverageDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.propertyCoverage, "application/json", propertyCoverageDoc.text);
     },
   );
 
   server.registerResource(
     "schemas/objects",
-    URI_SCHEMAS,
+    MCP_RESOURCE_URIS.schemas,
     {
       mimeType: "application/json",
       size: schemasSize,
       description:
         "Every canonical BEYOND object schema bundled with the linter (Master, Zone, UniversePanel, ColorChannel, FX, …). Workspace-scoped identifiers (registered universes, zone aliases) are not included.",
     },
-    async () => asResourceContents(URI_SCHEMAS, "application/json", schemasText),
+    async () => asResourceContents(MCP_RESOURCE_URIS.schemas, "application/json", schemasText),
   );
 
   server.registerResource(
     "diagnostics/codes",
-    URI_DIAGNOSTICS,
+    MCP_RESOURCE_URIS.diagnostics,
     {
       mimeType: "text/markdown",
       ...(diagnosticsDoc ? { size: diagnosticsDoc.size } : {}),
@@ -215,13 +208,13 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!diagnosticsDoc) throw new Error("diagnostics doc not found in bundled data");
-      return asResourceContents(URI_DIAGNOSTICS, "text/markdown", diagnosticsDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.diagnostics, "text/markdown", diagnosticsDoc.text);
     },
   );
 
   server.registerResource(
     "reference/operators",
-    URI_OPERATORS,
+    MCP_RESOURCE_URIS.operators,
     {
       mimeType: "text/markdown",
       ...(operatorsDoc ? { size: operatorsDoc.size } : {}),
@@ -230,13 +223,13 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!operatorsDoc) throw new Error("operators reference not found in bundled data");
-      return asResourceContents(URI_OPERATORS, "text/markdown", operatorsDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.operators, "text/markdown", operatorsDoc.text);
     },
   );
 
   server.registerResource(
     "reference/syntax",
-    URI_SYNTAX,
+    MCP_RESOURCE_URIS.syntax,
     {
       mimeType: "text/markdown",
       ...(syntaxDoc ? { size: syntaxDoc.size } : {}),
@@ -245,13 +238,13 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!syntaxDoc) throw new Error("syntax reference not found in bundled data");
-      return asResourceContents(URI_SYNTAX, "text/markdown", syntaxDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.syntax, "text/markdown", syntaxDoc.text);
     },
   );
 
   server.registerResource(
     "reference/command-reference",
-    URI_COMMAND_REFERENCE,
+    MCP_RESOURCE_URIS.commandReference,
     {
       mimeType: "text/markdown",
       ...(commandReferenceDoc ? { size: commandReferenceDoc.size } : {}),
@@ -260,13 +253,13 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!commandReferenceDoc) throw new Error("command-reference docs not found in bundled data");
-      return asResourceContents(URI_COMMAND_REFERENCE, "text/markdown", commandReferenceDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.commandReference, "text/markdown", commandReferenceDoc.text);
     },
   );
 
   server.registerResource(
     "reference/master-object-tree",
-    URI_MASTER_OBJECT_TREE,
+    MCP_RESOURCE_URIS.masterObjectTree,
     {
       mimeType: "text/markdown",
       ...(masterObjectTreeDoc ? { size: masterObjectTreeDoc.size } : {}),
@@ -275,13 +268,13 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!masterObjectTreeDoc) throw new Error("master object tree reference not found in bundled data");
-      return asResourceContents(URI_MASTER_OBJECT_TREE, "text/markdown", masterObjectTreeDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.masterObjectTree, "text/markdown", masterObjectTreeDoc.text);
     },
   );
 
   server.registerResource(
     "reference/object-model",
-    URI_OBJECT_MODEL,
+    MCP_RESOURCE_URIS.objectModel,
     {
       mimeType: "text/markdown",
       ...(objectModelDoc ? { size: objectModelDoc.size } : {}),
@@ -290,7 +283,7 @@ export function registerResources(server: McpServer, ctx: RegisterContext): void
     },
     async () => {
       if (!objectModelDoc) throw new Error("object model reference not found in bundled data");
-      return asResourceContents(URI_OBJECT_MODEL, "text/markdown", objectModelDoc.text);
+      return asResourceContents(MCP_RESOURCE_URIS.objectModel, "text/markdown", objectModelDoc.text);
     },
   );
 }

@@ -59,17 +59,28 @@ describe("package contributions", () => {
     ]);
   });
 
-  it("keeps BEYOND runtime settings out of workspace-controlled scope", () => {
-    const runtimeSettings = [
-      "pangolint.beyond.talkHost",
-      "pangolint.beyond.talkPort",
-      "pangolint.beyond.oscListenHost",
-      "pangolint.beyond.oscListenPort",
-      "pangolint.beyond.readbackTimeoutMs",
+  it("keeps every BEYOND runtime setting out of workspace-controlled scope", () => {
+    const runtimeSettings = Object.keys(manifest.contributes.configuration?.properties ?? {})
+      .filter((key) => key.startsWith("pangolint.beyond."))
+      .sort();
+
+    expect(runtimeSettings).toEqual([
       "pangolint.beyond.allowScriptExecution",
       "pangolint.beyond.confirmRunEachSession",
       "pangolint.beyond.liveHoverValues",
-    ];
+      "pangolint.beyond.oscListenHost",
+      "pangolint.beyond.oscListenPort",
+      "pangolint.beyond.readbackTimeoutMs",
+      "pangolint.beyond.talkHost",
+      "pangolint.beyond.talkPort",
+      "pangolint.beyond.talkTcpHost",
+      "pangolint.beyond.talkTcpPassword",
+      "pangolint.beyond.talkTcpPort",
+      "pangolint.beyond.talkTransport",
+      "pangolint.beyond.talkUdpFallbackAllowed",
+      "pangolint.beyond.talkUdpHost",
+      "pangolint.beyond.talkUdpPort",
+    ]);
 
     for (const key of runtimeSettings) {
       expect(manifest.contributes.configuration?.properties?.[key]?.scope, key).toBe("machine");

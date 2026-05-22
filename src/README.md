@@ -8,6 +8,9 @@ modules under these folders:
   property-path helpers, and other editor language behavior.
 - `knowledge/`: command catalog, curated command knowledge, and known-property
   index loading/validation.
+- `extensionHost/`: VS Code command IDs, view IDs, settings keys, output
+  channel names, workspace-state keys, and packaged-file paths shared by host
+  modules.
 - `runtime/`: Talk UDP, OSC, BEYOND readback, script-send behavior, and
   runtime command registration.
 - `sidebar/`: command, object, and diagnostic sidebar models plus TreeView and

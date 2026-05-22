@@ -23,6 +23,14 @@ import { runScript } from "./runScript";
 import { searchCommands } from "./searchCommands";
 import { searchObjectProperties } from "./searchObjectProperties";
 import { searchPropertyControls } from "./searchPropertyControls";
+import {
+  KNOWLEDGE_TOOL_ANNOTATIONS,
+  MCP_TOOL_IDS,
+  RUNTIME_READ_TOOL_ANNOTATIONS,
+  RUNTIME_WRITE_TOOL_ANNOTATIONS,
+} from "./toolDefinitions";
+
+export { KNOWLEDGE_TOOL_ANNOTATIONS, RUNTIME_READ_TOOL_ANNOTATIONS, RUNTIME_WRITE_TOOL_ANNOTATIONS };
 
 const SAFETY_TIER_VALUES = ["T0", "T1", "T2", "T3", "T4", "unknown"] as const;
 
@@ -39,39 +47,11 @@ function asTextResult(payload: unknown) {
   };
 }
 
-// Annotation hints applied to the offline knowledge tools: pure reads
-// over bundled data. `idempotentHint` reflects that repeated calls with
-// the same args return the same result; `openWorldHint: false` because
-// nothing about the host environment changes between calls.
-export const KNOWLEDGE_TOOL_ANNOTATIONS = {
-  readOnlyHint: true,
-  idempotentHint: true,
-  openWorldHint: false,
-} as const;
-
-// Annotation hints for runtime read tools: they reach the configured
-// BEYOND host over UDP (so `openWorldHint: true`) but do not mutate
-// state. Not idempotent: BEYOND state can change between calls.
-export const RUNTIME_READ_TOOL_ANNOTATIONS = {
-  readOnlyHint: true,
-  idempotentHint: false,
-  openWorldHint: true,
-} as const;
-
-// Annotation hints for runScript: the only destructive tool. Sends
-// PangoScript over Talk UDP, mutating the running BEYOND show state.
-export const RUNTIME_WRITE_TOOL_ANNOTATIONS = {
-  readOnlyHint: false,
-  destructiveHint: true,
-  idempotentHint: false,
-  openWorldHint: true,
-} as const;
-
 export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext): void {
   const commandReferenceIndex = buildCommandReferenceSearchIndex();
 
   server.registerTool(
-    "lookupCommand",
+    MCP_TOOL_IDS.lookupCommand,
     {
       description:
         "Return the curated knowledge entry for a single PangoScript command name (canonical or alias). Use this to verify spelling, check arity, and read documented forms / safety tier before generating code.",
@@ -87,7 +67,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "searchCommands",
+    MCP_TOOL_IDS.searchCommands,
     {
       description:
         "Task-intent search over PangoScript command names, aliases, descriptions, categories, forms, parameters, notes, tags, and command-reference prose, with typo tolerance. Use this when you know a goal like 'popup message' or 'send osc string' but not the exact command. Optional safetyTier filter narrows to commands with that tier.",
@@ -103,7 +83,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "lookupObject",
+    MCP_TOOL_IDS.lookupObject,
     {
       description:
         "Return compact object knowledge for a BEYOND object root or exact Object Tree path. Root lookups return paged property summaries by default; set includePaths true only when a capped path page is needed. Exact Object Tree paths return a compact matched property card.",
@@ -180,7 +160,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "listObjects",
+    MCP_TOOL_IDS.listObjects,
     {
       description:
         "List every object family known to the MCP server, combining canonical schemas with Object Tree roots such as WS, FX, DmxOutput, and workspace-safe aliases. Use this before lookupObject when discovering available object roots.",
@@ -191,7 +171,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "searchObjectProperties",
+    MCP_TOOL_IDS.searchObjectProperties,
     {
       description:
         "Compact ranked search over BEYOND Object Tree property paths (Master.ShowSpeed, DmxOutput.N, WS.N.N.Caption, FX.N.N.N.Oscillator.Period, ...). Defaults omit full variants and probe contexts. Set includeDetails true with explicit limits only when deep detail is needed.",
@@ -237,7 +217,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "lookupObjectProperty",
+    MCP_TOOL_IDS.lookupObjectProperty,
     {
       description:
         "Exact lookup for a BEYOND Object Tree property path. Returns a compact property card by default. Concrete indexed paths resolve to the normalized entry and return the matched concrete variant when known. Set includeDetails true with explicit limits only when variants or probe contexts are needed.",
@@ -276,7 +256,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "lookupPropertyControls",
+    MCP_TOOL_IDS.lookupPropertyControls,
     {
       description:
         "Exact lookup for how to control a BEYOND Object Tree property. Returns compact PangoScript command links, OSC route links, Object Tree path examples, value range, readback, and behavior information. Set includeDetails true with explicit limits only when more examples are needed.",
@@ -330,7 +310,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "searchPropertyControls",
+    MCP_TOOL_IDS.searchPropertyControls,
     {
       description:
         "Compact search for property control methods by intent, property name, command name, OSC route, or Object Tree path. Use this before lookupPropertyControls when the exact property path is unknown.",
@@ -397,7 +377,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "lintScript",
+    MCP_TOOL_IDS.lintScript,
     {
       description:
         "Run PangoLint over the supplied script text and return the structured diagnostic list. Codes match the published diagnostic doc (use explainDiagnostic to look one up). The MCP linter has no workspace, so user-defined universes don't resolve; canonical bundled schemas plus the Object Tree index inform property-path hints.",
@@ -419,7 +399,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "explainDiagnostic",
+    MCP_TOOL_IDS.explainDiagnostic,
     {
       description:
         "Return the markdown documentation for a PangoLint diagnostic code. Useful when lintScript reports a code you want explained to the user.",
@@ -435,7 +415,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "getServerConfig",
+    MCP_TOOL_IDS.getServerConfig,
     {
       description:
         "Return the server's current configuration: read/write runtime tools enabled? talk host/port? Use this BEFORE calling runtime tools so you can tell the user what's actually available.",
@@ -452,7 +432,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   // "tool not found" error.
 
   server.registerTool(
-    "healthCheck",
+    MCP_TOOL_IDS.healthCheck,
     {
       description:
         "Check that the configured BEYOND UDP target host is resolvable and a UDP socket can address it. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled. Does NOT verify BEYOND accepts commands; for Talk TCP command status, use checkTalkConnection.",
@@ -463,7 +443,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "checkTalkConnection",
+    MCP_TOOL_IDS.checkTalkConnection,
     {
       description:
         "Open the configured BEYOND Talk TCP target and verify greeting, Echo 1, Hello, and Version replies. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled.",
@@ -474,7 +454,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "readBeyondProperty",
+    MCP_TOOL_IDS.readBeyondProperty,
     {
       description:
         "Send one T1 readback of a PangoScript property path (e.g. 'Master.Brightness', 'Zone.0.Red', 'WS.1.2.Caption' for page 1 cue 2) to the configured BEYOND host and return the value. READ RUNTIME ONLY. Use this to confirm an object exists or to read its current state before generating an assignment.",
@@ -491,7 +471,7 @@ export function registerKnowledgeTools(server: McpServer, ctx: RegisterContext):
   );
 
   server.registerTool(
-    "runScript",
+    MCP_TOOL_IDS.runScript,
     {
       description:
         "Lint the supplied PangoScript text; if any error-severity diagnostic fires, refuse to send and return the diagnostics. Otherwise transmit via configured BEYOND Talk transport. WRITE RUNTIME ONLY: returns blocked unless PANGOLINT_MCP_RUNTIME_WRITE is enabled. Hint and warning diagnostics are reported but do not block. Surface them to the user.",

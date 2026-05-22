@@ -13,7 +13,7 @@
 import dgram from "node:dgram";
 import { lookup } from "node:dns/promises";
 import type { McpConfig } from "../config";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface HealthCheckOutput {
   reachable: boolean;

@@ -1,4 +1,11 @@
 import * as vscode from "vscode";
+import {
+  EXTENSION_COMMAND_IDS,
+  EXTENSION_CONFIG_SECTIONS,
+  EXTENSION_OUTPUT_CHANNELS,
+  EXTENSION_SETTING_KEYS,
+  PANGOSCRIPT_LANGUAGE_ID,
+} from "../extensionHost/extensionIds";
 import type { PangoDiagnostic } from "../language/diagnostics/pangoDiagnostic";
 import { propertyPathAtPosition } from "../language/propertyPath";
 import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
@@ -25,14 +32,14 @@ interface RuntimeCommandsHooks extends RuntimeCommandHooks {
 }
 
 export function registerBeyondRuntimeCommands(context: vscode.ExtensionContext, hooks?: RuntimeCommandsHooks): void {
-  const output = vscode.window.createOutputChannel("PangoLint: Run");
+  const output = vscode.window.createOutputChannel(EXTENSION_OUTPUT_CHANNELS.run);
   const state: RunSessionState = { confirmed: false };
 
   context.subscriptions.push(
     output,
-    vscode.commands.registerCommand("pangolint.checkBeyondConnection", async () => {
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.checkBeyondConnection, async () => {
       if (!requireWorkspaceTrust("BEYOND runtime readback checks")) return;
-      const config = vscode.workspace.getConfiguration("pangolint.beyond");
+      const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
       const result = await vscode.window.withProgress(
         {
           location: vscode.ProgressLocation.Notification,
@@ -48,16 +55,18 @@ export function registerBeyondRuntimeCommands(context: vscode.ExtensionContext, 
         void vscode.window.showErrorMessage(`BEYOND readback failed: ${result.error ?? "unknown error"}`);
       }
     }),
-    vscode.commands.registerCommand("pangolint.runScript", () =>
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.runScript, () =>
       runActiveDocument(output, state, { selectionOnly: false }, hooks),
     ),
-    vscode.commands.registerCommand("pangolint.runSelection", () =>
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.runSelection, () =>
       runActiveDocument(output, state, { selectionOnly: true }, hooks),
     ),
-    vscode.commands.registerCommand("pangolint.fetchObjectValue", () => fetchObjectValueAtCursor(output)),
-    vscode.commands.registerCommand("pangolint.setObjectValue", () => setObjectValueAtCursor(output, state)),
-    vscode.commands.registerCommand("pangolint.replayLastScript", () => replayLastScript(output, state, hooks)),
-    vscode.commands.registerCommand("pangolint.validateObjectsAgainstBeyond", () =>
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.fetchObjectValue, () => fetchObjectValueAtCursor(output)),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.setObjectValue, () => setObjectValueAtCursor(output, state)),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.replayLastScript, () =>
+      replayLastScript(output, state, hooks),
+    ),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.validateObjectsAgainstBeyond, () =>
       validateActiveDocumentAgainstBeyond(output, hooks),
     ),
   );
@@ -76,13 +85,13 @@ async function runActiveDocument(
 ): Promise<void> {
   if (!requireWorkspaceTrust("BEYOND Talk batch execution")) return;
   const editor = vscode.window.activeTextEditor;
-  if (!editor || editor.document.languageId !== "pangoscript") {
+  if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
     void vscode.window.showErrorMessage("PangoLint: Open a .BeyondCode file before running.");
     return;
   }
 
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  if (!config.get<boolean>("allowScriptExecution", false)) {
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
+  if (!config.get<boolean>(EXTENSION_SETTING_KEYS.allowScriptExecution, false)) {
     void vscode.window.showErrorMessage(
       "PangoLint: Talk batch sending is disabled. Enable 'pangolint.beyond.allowScriptExecution' in settings to send straight-line commands to BEYOND.",
     );
@@ -112,7 +121,7 @@ async function runActiveDocument(
     return;
   }
 
-  if (!state.confirmed || config.get<boolean>("confirmRunEachSession", true)) {
+  if (!state.confirmed || config.get<boolean>(EXTENSION_SETTING_KEYS.confirmRunEachSession, true)) {
     const target = opts.selectionOnly ? "selection" : "document";
     const choice = await vscode.window.showWarningMessage(
       `Send ${lineCount} executable line${lineCount === 1 ? "" : "s"} from this ${target} as a BEYOND Talk command batch to ${describeConfiguredTalkTarget(runtimeConfig)}?\n\nBEYOND Talk command transport is not the editor runner. PangoLint blocks labels, goto, if, loops, waits, and exit; paste full control-flow scripts into BEYOND's PangoScript editor.`,
@@ -159,8 +168,8 @@ async function replayLastScript(
     void vscode.window.showWarningMessage("PangoLint: No previous script to re-run. Run a script first.");
     return;
   }
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  if (!config.get<boolean>("allowScriptExecution", false)) {
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
+  if (!config.get<boolean>(EXTENSION_SETTING_KEYS.allowScriptExecution, false)) {
     void vscode.window.showErrorMessage(
       "PangoLint: Talk batch sending is disabled. Enable 'pangolint.beyond.allowScriptExecution' to re-run.",
     );
@@ -170,7 +179,7 @@ async function replayLastScript(
   const { timeoutMs } = runtimeConfig;
   const lineCount = state.lastText.split(/\r?\n/).filter((line) => line.trim() && !/^\s*\/\//.test(line)).length;
 
-  if (config.get<boolean>("confirmRunEachSession", true)) {
+  if (config.get<boolean>(EXTENSION_SETTING_KEYS.confirmRunEachSession, true)) {
     const choice = await vscode.window.showWarningMessage(
       `Re-send the last BEYOND Talk command batch (${lineCount} executable line${lineCount === 1 ? "" : "s"}) to ${describeConfiguredTalkTarget(runtimeConfig)}?`,
       { modal: true },
@@ -285,7 +294,7 @@ function appendCallbackCaptureResult(
 function showReplayStatusItem(state: RunSessionState, lineCount: number): void {
   if (!state.replayStatusItem) {
     state.replayStatusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 50);
-    state.replayStatusItem.command = "pangolint.replayLastScript";
+    state.replayStatusItem.command = EXTENSION_COMMAND_IDS.replayLastScript;
   }
   state.replayStatusItem.text = `$(debug-restart) Re-run (${lineCount})`;
   state.replayStatusItem.tooltip = "PangoLint: Re-send the last Talk UDP command batch to BEYOND";
@@ -299,7 +308,7 @@ function showReplayStatusItem(state: RunSessionState, lineCount: number): void {
 async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<void> {
   if (!requireWorkspaceTrust("BEYOND live property fetches")) return;
   const editor = vscode.window.activeTextEditor;
-  if (!editor || editor.document.languageId !== "pangoscript") {
+  if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
     void vscode.window.showErrorMessage("PangoLint: Open a .BeyondCode file before fetching.");
     return;
   }
@@ -311,7 +320,7 @@ async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<v
     return;
   }
 
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
   const runtimeConfig = getBeyondRuntimeConfig(config);
 
   output.show(true);
@@ -338,7 +347,7 @@ async function fetchObjectValueAtCursor(output: vscode.OutputChannel): Promise<v
 async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSessionState): Promise<void> {
   if (!requireWorkspaceTrust("BEYOND live property writes")) return;
   const editor = vscode.window.activeTextEditor;
-  if (!editor || editor.document.languageId !== "pangoscript") {
+  if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
     void vscode.window.showErrorMessage("PangoLint: Open a .BeyondCode file before setting.");
     return;
   }
@@ -350,8 +359,8 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
     return;
   }
 
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
-  if (!config.get<boolean>("allowScriptExecution", false)) {
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
+  if (!config.get<boolean>(EXTENSION_SETTING_KEYS.allowScriptExecution, false)) {
     void vscode.window.showErrorMessage(
       "PangoLint: Script execution is disabled. Enable 'pangolint.beyond.allowScriptExecution' in settings to write values to BEYOND.",
     );
@@ -373,7 +382,7 @@ async function setObjectValueAtCursor(output: vscode.OutputChannel, state: RunSe
 
   const runtimeConfig = getBeyondRuntimeConfig(config);
 
-  if (!state.confirmed || config.get<boolean>("confirmRunEachSession", true)) {
+  if (!state.confirmed || config.get<boolean>(EXTENSION_SETTING_KEYS.confirmRunEachSession, true)) {
     const choice = await vscode.window.showWarningMessage(
       `Send '${command}' to BEYOND at ${describeConfiguredTalkTarget(runtimeConfig)} and verify via readback?\n\nThe write executes live on the BEYOND host.`,
       { modal: true },
@@ -430,7 +439,7 @@ const liveValueCache = new Map<string, CachedLiveValue>();
  */
 export async function augmentHoverWithLiveValue(base: vscode.Hover, path: string): Promise<vscode.Hover> {
   if (!vscode.workspace.isTrusted) return base;
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
   const runtimeConfig = getBeyondRuntimeConfig(config);
   const { timeoutMs: configuredTimeoutMs } = runtimeConfig;
   const cacheKey = `${runtimeConfig.talkTransport}:${runtimeConfig.talkTcpHost}:${runtimeConfig.talkTcpPort}:${runtimeConfig.talkUdpHost}:${runtimeConfig.talkUdpPort}|${path}`;

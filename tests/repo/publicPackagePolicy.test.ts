@@ -6,6 +6,11 @@ import { describe, expect, it } from "vitest";
 import { findPublicArtifactLeaks, findPublicArtifactPathLeaks } from "../../scripts/publicArtifactPolicy";
 
 const repoRoot = process.cwd();
+const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
+  allowedMcpDataPaths: Set<string>;
+  findForbiddenMcpPackagePathLabels: (relativePath: string) => string[];
+  forbiddenVsixDataPrefixes: string[];
+};
 
 describe("public package path policy", () => {
   it("flags maintainer-only paths before packaging", () => {
@@ -64,26 +69,26 @@ describe("public package path policy", () => {
 
   it("wires path policy into VSIX and MCP package verification paths", () => {
     expect(readFile("scripts/verifyPackageContents.ts")).toContain("findPublicArtifactPathLeaks");
+    expect(readFile("scripts/verifyPackageContents.ts")).toContain("packageSurfacePolicy.cjs");
 
     const copyMcpData = readFile("scripts/copyMcpData.cjs");
     expect(copyMcpData).toContain("assertApprovedMcpAssetPath");
-    expect(copyMcpData).toContain("forbiddenMcpAssetPathPatterns");
-    expect(copyMcpData).toContain("refused maintainer-only asset path");
+    expect(copyMcpData).toContain("packageSurfacePolicy.cjs");
   });
 
   it("pins VSIX data packaging to the approved runtime and reference surface", () => {
     const verifyPackageContents = readFile("scripts/verifyPackageContents.ts");
     const vscodeignore = readFile(".vscodeignore");
 
-    expect(verifyPackageContents).toContain("unapprovedVsixDataPrefixes");
-    expect(verifyPackageContents).toContain("data/pangoscript/control-reference/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-behavior-audits/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/source-facts/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/evidence/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/audits/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/package-projections/");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/runtime-indexes/known-properties.json");
-    expect(verifyPackageContents).toContain("data/pangoscript/object-tree/runtime-indexes/object-property-index.json");
+    expect(verifyPackageContents).toContain("findForbiddenVsixPackagePathLabels");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain("data/pangoscript/control-reference/");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain("data/pangoscript/object-behavior-audits/");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain("data/pangoscript/object-tree/source-facts/");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain("data/pangoscript/object-tree/evidence/");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain("data/pangoscript/object-tree/audits/");
+    expect(packageSurfacePolicy.forbiddenVsixDataPrefixes).toContain(
+      "data/pangoscript/object-tree/package-projections/",
+    );
     expect(verifyPackageContents).not.toContain("controlReferencePackagePaths");
     expect(verifyPackageContents).not.toContain("packageFiles(");
 
@@ -105,22 +110,34 @@ describe("public package path policy", () => {
 
     expect(packageJson).toContain("verifyMcpPackageContents.cjs");
     expect(copyMcpData).toContain("assertApprovedMcpAssetPath");
-    expect(copyMcpData).toContain("data/pangoscript/object-tree/source-facts/");
-    expect(copyMcpData).toContain("data/pangoscript/object-tree/evidence/");
-    expect(copyMcpData).toContain("data/pangoscript/object-tree/audits/");
-    expect(copyMcpData).toContain("data/pangoscript/object-tree/package-projections/");
+    expect(
+      packageSurfacePolicy.findForbiddenMcpPackagePathLabels("data/pangoscript/object-tree/source-facts/a.json"),
+    ).toContain("Object Tree source facts");
+    expect(
+      packageSurfacePolicy.findForbiddenMcpPackagePathLabels("data/pangoscript/object-tree/evidence/a.json"),
+    ).toContain("Object Tree evidence");
+    expect(
+      packageSurfacePolicy.findForbiddenMcpPackagePathLabels("data/pangoscript/object-tree/audits/a.json"),
+    ).toContain("Object Tree audit output");
+    expect(
+      packageSurfacePolicy.findForbiddenMcpPackagePathLabels("data/pangoscript/object-tree/package-projections/a.json"),
+    ).toContain("Object Tree package projection");
     expect(verifyMcpPackageContents).toContain("allowedMcpDataPaths");
-    expect(verifyMcpPackageContents).toContain("data/pangoscript/object-tree/runtime-indexes/known-properties.json");
-    expect(verifyMcpPackageContents).toContain(
-      "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-    );
-    expect(verifyMcpPackageContents).toContain(
-      "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
-    );
-    expect(verifyMcpPackageContents).toContain("data/pangoscript/object-tree/source-facts/");
-    expect(verifyMcpPackageContents).toContain("data/pangoscript/object-tree/evidence/");
-    expect(verifyMcpPackageContents).toContain("data/pangoscript/object-tree/audits/");
-    expect(verifyMcpPackageContents).toContain("data/pangoscript/object-tree/package-projections/");
+    expect(
+      packageSurfacePolicy.allowedMcpDataPaths.has(
+        "data/pangoscript/object-tree/runtime-indexes/known-properties.json",
+      ),
+    ).toBe(true);
+    expect(
+      packageSurfacePolicy.allowedMcpDataPaths.has(
+        "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
+      ),
+    ).toBe(true);
+    expect(
+      packageSurfacePolicy.allowedMcpDataPaths.has(
+        "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
+      ),
+    ).toBe(true);
   });
 
   it("keeps build:knowledge usable when optional maintainer command exports are absent", () => {

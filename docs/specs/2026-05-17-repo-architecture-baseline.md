@@ -37,7 +37,7 @@ governing spec says otherwise.
 
 | Path | Role | Contents | Naming and cleanup notes |
 | --- | --- | --- | --- |
-| `src/` | VS Code extension source | Extension composition root plus language, knowledge, runtime, sidebar, reference, workspace, and extension-host test modules | Production TypeScript belongs in responsibility folders. `src/extension.ts` remains the VS Code composition root. |
+| `src/` | VS Code extension source | Extension composition root plus extension-host IDs, language, knowledge, runtime, sidebar, reference, workspace, and extension-host test modules | Production TypeScript belongs in responsibility folders. `src/extension.ts` remains the VS Code composition root. |
 | `mcp/` | MCP npm workspace | MCP server source, tests, package metadata, executable entrypoint, and ignored tarball staging copies | Source lives under `mcp/src/`. `mcp/data/`, `mcp/docs/`, and `mcp/LICENSE` are generated package staging paths. |
 | `data/pangoscript/` | Tracked PangoScript knowledge data | Command catalog data, Object Tree indexes, control-reference data, value metadata, readback metadata, behavior metadata, evidence, and audits | This is the main cleanup target. Future work should separate source facts, generated runtime indexes, package projections, evidence, audit outputs, and optional maintainer input. |
 | `docs/specs/` | Governing specs | Architecture, engineering standards, behavior classification, and other source-of-truth decisions | Specs are binding for future PRs unless superseded by a later spec. |
@@ -77,6 +77,7 @@ governing spec says otherwise.
 | Path | Role | Contents | Rules |
 | --- | --- | --- | --- |
 | `src/extension.ts` | VS Code composition root | Provider registration, command registration, view setup, runtime wiring, and workspace setup | Keep behavior delegated to responsibility modules. |
+| `src/extensionHost/` | VS Code host identifiers and packaged-file paths | Command IDs, view IDs, configuration section names, settings keys, output channel names, workspace-state keys, and package-relative asset paths | Keep behavior out of this folder. Use it when values need to match `package.json`, VS Code contribution points, or package contents. |
 | `src/language/` | PangoScript editor language logic | Parser, diagnostics, formatter, semantic tokens, label and variable providers, property path parsing, color decorations, and validation reports | Keep pure language behavior free of runtime side effects. |
 | `src/knowledge/` | Source-backed knowledge readers | Command catalog loading, category resolution, Object Tree property index loading, MCP control-reference projection types, and metadata readers | Load tracked data and expose typed lookup surfaces for extension features. |
 | `src/runtime/` | BEYOND communication and runtime commands | Talk UDP, OSC, script send, readback, runtime configuration, object value assignment, and validation commands | Keep runtime safety explicit and readback-first by default. |
@@ -94,6 +95,9 @@ governing spec says otherwise.
 | `mcp/package.json` | MCP npm package manifest | Package scripts, package file list, and executable mapping | Package verification must use the manifest file list. |
 | `mcp/bin/` | MCP executable entrypoint | Published command-line shim for `pangolint-mcp` | Keep executable behavior minimal and delegate to built server output. |
 | `mcp/src/server.ts` | MCP server composition root | Server startup, tool registration, resource registration, and runtime config | Keep individual tool behavior in `mcp/src/tools/`. |
+| `mcp/src/configEnv.ts` | MCP environment variable parsing | Environment variable names, boolean parsing, port parsing, timeout parsing, and Talk transport validation | Keep startup configuration parsing separate from tool response types. |
+| `mcp/src/toolResult.ts` | MCP tool result shape | Shared `ok` and `fail` result wrappers used by tool implementations | Keep response shape independent from environment configuration. |
+| `mcp/src/bundledResourcePaths.ts` | MCP bundled resource paths | MCP resource URIs, command-reference doc directory, and markdown or JSON reference paths | Use approved package data and docs only. |
 | `mcp/src/tools/` | Agent-facing MCP tools | Command lookup, Object Tree lookup, property control lookup, linter diagnostics, readback, script run, and config tools | Tool responses must stay compact by default and expose explicit detail expansion. |
 | `mcp/src/resources/` | MCP resources | Documentation and reference resources exposed to clients | Resources should use approved package data and docs. |
 | `mcp/src/knowledgeBase.ts` | MCP data loading | Loads command, Object Tree, and control-reference package data | Must load approved package surfaces, not full maintainer-only trees. |
@@ -133,6 +137,7 @@ The long-term data model should keep these roles separate:
 | `scripts/generateObjectPropertyIndex.ts` | Object Tree property index generator | Reads source facts, range, readback, and behavior metadata to write `object-tree/runtime-indexes/object-property-index.json`. |
 | `scripts/generateMcpControlReference.ts` | MCP control-reference projection generator | Reads tracked control-reference source and writes compact MCP projection data. |
 | `scripts/buildReferenceSite.ts` | Offline reference-site builder | Writes packaged HTML under `media/reference/`. |
+| `scripts/packageSurfacePolicy.cjs` | Public package path policy | Shared VSIX and MCP package path lists plus maintainer-only path checks. |
 | `scripts/copyMcpData.cjs` | MCP asset copier | Copies approved root data and docs into ignored MCP package staging. |
 | `scripts/verifyPackageContents.ts` | VSIX package verifier | Fails when required package files are missing or unapproved data surfaces ship. |
 | `tests/knowledgeBaseData.test.ts` | Broad checked-in data contract | Protects many Object Tree metadata and evidence paths until a cleanup PR replaces them. |

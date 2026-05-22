@@ -1,4 +1,14 @@
 import * as vscode from "vscode";
+import {
+  EXTENSION_COMMAND_IDS,
+  EXTENSION_CONFIG_SECTIONS,
+  EXTENSION_OUTPUT_CHANNELS,
+  EXTENSION_SETTING_KEYS,
+  EXTENSION_VIEW_IDS,
+  PANGOLINT_DIAGNOSTIC_SOURCE,
+  PANGOSCRIPT_LANGUAGE_ID,
+} from "./extensionHost/extensionIds";
+import { REFERENCE_SITE_PATH } from "./extensionHost/packagePaths";
 import { loadBundledCatalog } from "./knowledge/catalogLoader";
 import { loadBundledObjectPropertyIndex } from "./knowledge/objectPropertyIndex";
 import { loadBundledPropertyIndex, mergedPropertyIndex, type PropertyIndex } from "./knowledge/propertyIndex";
@@ -57,8 +67,6 @@ import { createWorkspaceScanScheduler } from "./workspace/workspaceScanScheduler
 import { clearWorkspaceSymbolCacheForUri, provideWorkspaceLabelSymbols } from "./workspace/workspaceSymbols";
 import { requireWorkspaceTrust } from "./workspace/workspaceTrust";
 
-const LANGUAGE_ID = "pangoscript";
-
 const SEMANTIC_TOKENS_LEGEND = new vscode.SemanticTokensLegend([...TOKEN_TYPES], [...TOKEN_MODIFIERS]);
 
 export function activate(context: vscode.ExtensionContext): void {
@@ -96,12 +104,12 @@ export function activate(context: vscode.ExtensionContext): void {
   let propertyIndex: PropertyIndex = mergedPropertyIndex(runtimeIndex, workspaceIndex, bundledPropertyIndex);
   let workspaceScanGeneration = 0;
   let activeWorkspaceScan: { cancelled: boolean } | undefined;
-  const diagnosticCollection = vscode.languages.createDiagnosticCollection("PangoLint");
-  const validationOutput = vscode.window.createOutputChannel("PangoLint: Validation");
+  const diagnosticCollection = vscode.languages.createDiagnosticCollection(PANGOLINT_DIAGNOSTIC_SOURCE);
+  const validationOutput = vscode.window.createOutputChannel(EXTENSION_OUTPUT_CHANNELS.validation);
   const watcher = new WatcherTreeProvider(context);
 
   const refreshDiagnostics = (document: vscode.TextDocument): void => {
-    if (document.languageId !== LANGUAGE_ID) {
+    if (document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
       return;
     }
     diagnosticCollection.set(
@@ -133,8 +141,8 @@ export function activate(context: vscode.ExtensionContext): void {
     const scannedWorkspaceFolder = workspaceFolder;
     const nextRegistry = loadUserObjects(scannedWorkspaceFolder).registry;
     const folderScopedUniverses = vscode.workspace
-      .getConfiguration("pangolint")
-      .get<boolean>("folderScopedUniverses", true);
+      .getConfiguration(EXTENSION_CONFIG_SECTIONS.pangolint)
+      .get<boolean>(EXTENSION_SETTING_KEYS.folderScopedUniverses, true);
     let nextWorkspaceIndex: Awaited<ReturnType<typeof scanWorkspaceForUserObjects>>;
     try {
       nextWorkspaceIndex = await scanWorkspaceForUserObjects(
@@ -185,11 +193,15 @@ export function activate(context: vscode.ExtensionContext): void {
       void refreshUserObjects();
     }),
     vscode.workspace.onDidChangeConfiguration((event) => {
-      if (event.affectsConfiguration("pangolint.folderScopedUniverses")) {
+      if (
+        event.affectsConfiguration(
+          `${EXTENSION_CONFIG_SECTIONS.pangolint}.${EXTENSION_SETTING_KEYS.folderScopedUniverses}`,
+        )
+      ) {
         void refreshUserObjects();
       }
     }),
-    vscode.languages.registerDocumentFormattingEditProvider(LANGUAGE_ID, {
+    vscode.languages.registerDocumentFormattingEditProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
         const formatted = formatPangoScript(document.getText());
         if (formatted === document.getText()) {
@@ -198,21 +210,25 @@ export function activate(context: vscode.ExtensionContext): void {
         return [vscode.TextEdit.replace(fullDocumentRange(document), formatted)];
       },
     }),
-    vscode.languages.registerSelectionRangeProvider(LANGUAGE_ID, {
+    vscode.languages.registerSelectionRangeProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideSelectionRanges(document, positions): vscode.SelectionRange[] {
         return positions.map((pos) => buildSelectionRange(document, pos));
       },
     }),
-    vscode.languages.registerCodeLensProvider(LANGUAGE_ID, {
+    vscode.languages.registerCodeLensProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideCodeLenses(document, token): vscode.CodeLens[] {
         if (token.isCancellationRequested) return [];
-        if (!vscode.workspace.getConfiguration("pangolint").get<boolean>("codeLens.labelReferences", false)) {
+        if (
+          !vscode.workspace
+            .getConfiguration(EXTENSION_CONFIG_SECTIONS.pangolint)
+            .get<boolean>(EXTENSION_SETTING_KEYS.codeLensLabelReferences, false)
+        ) {
           return [];
         }
         return labelReferenceCodeLenses(document);
       },
     }),
-    vscode.languages.registerDocumentRangeFormattingEditProvider(LANGUAGE_ID, {
+    vscode.languages.registerDocumentRangeFormattingEditProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDocumentRangeFormattingEdits(document, range): vscode.TextEdit[] {
         // Expand the range to whole lines - partial-line formatting would
         // break the line-by-line conservative formatter's contract.
@@ -228,13 +244,13 @@ export function activate(context: vscode.ExtensionContext): void {
         return [vscode.TextEdit.replace(wholeLines, formatted)];
       },
     }),
-    vscode.languages.registerCompletionItemProvider(LANGUAGE_ID, {
+    vscode.languages.registerCompletionItemProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideCompletionItems(): vscode.CompletionItem[] {
         return commandCompletionItems(catalog, knowledgeByName);
       },
     }),
     vscode.languages.registerCompletionItemProvider(
-      LANGUAGE_ID,
+      PANGOSCRIPT_LANGUAGE_ID,
       {
         provideCompletionItems(document, position): vscode.CompletionItem[] | undefined {
           return gotoLabelCompletionItems(document, position);
@@ -242,13 +258,13 @@ export function activate(context: vscode.ExtensionContext): void {
       },
       " ",
     ),
-    vscode.languages.registerHoverProvider(LANGUAGE_ID, {
+    vscode.languages.registerHoverProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideHover(document, position): vscode.Hover | undefined {
         return commandHoverForPosition(document, position, knowledgeByName);
       },
     }),
     vscode.languages.registerCompletionItemProvider(
-      LANGUAGE_ID,
+      PANGOSCRIPT_LANGUAGE_ID,
       {
         provideCompletionItems(document, position): vscode.CompletionItem[] | undefined {
           const linePrefix = document.lineAt(position.line).text.slice(0, position.character);
@@ -258,34 +274,34 @@ export function activate(context: vscode.ExtensionContext): void {
       },
       ".",
     ),
-    vscode.languages.registerHoverProvider(LANGUAGE_ID, {
+    vscode.languages.registerHoverProvider(PANGOSCRIPT_LANGUAGE_ID, {
       async provideHover(document, position): Promise<vscode.Hover | undefined> {
         const line = document.lineAt(position.line).text;
         const base = hoverForPropertyPath(line, position.character, propertyIndex, position.line);
         if (!base) return base;
-        const config = vscode.workspace.getConfiguration("pangolint.beyond");
-        if (!config.get<boolean>("liveHoverValues", false)) return base;
+        const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
+        if (!config.get<boolean>(EXTENSION_SETTING_KEYS.liveHoverValues, false)) return base;
         const path = propertyPathAtPosition(document, position);
         if (!path) return base;
         return await augmentHoverWithLiveValue(base, path);
       },
     }),
-    vscode.languages.registerDocumentSymbolProvider(LANGUAGE_ID, {
+    vscode.languages.registerDocumentSymbolProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDocumentSymbols(document): vscode.DocumentSymbol[] {
         return documentSymbolsForScript(document);
       },
     }),
-    vscode.languages.registerDefinitionProvider(LANGUAGE_ID, {
+    vscode.languages.registerDefinitionProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDefinition(document, position): vscode.Definition | undefined {
         return definitionForGotoTarget(document, position);
       },
     }),
-    vscode.languages.registerDocumentHighlightProvider(LANGUAGE_ID, {
+    vscode.languages.registerDocumentHighlightProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDocumentHighlights(document, position): vscode.DocumentHighlight[] | undefined {
         return labelHighlights(document, position);
       },
     }),
-    vscode.languages.registerReferenceProvider(LANGUAGE_ID, {
+    vscode.languages.registerReferenceProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideReferences(document, position, context): vscode.Location[] | undefined {
         return (
           labelReferences(document, position, context.includeDeclaration) ??
@@ -293,7 +309,7 @@ export function activate(context: vscode.ExtensionContext): void {
         );
       },
     }),
-    vscode.languages.registerRenameProvider(LANGUAGE_ID, {
+    vscode.languages.registerRenameProvider(PANGOSCRIPT_LANGUAGE_ID, {
       prepareRename(document, position): vscode.Range | undefined {
         return prepareRenameDispatch(document, position);
       },
@@ -305,7 +321,7 @@ export function activate(context: vscode.ExtensionContext): void {
       provideWorkspaceSymbols: (query, token) => provideWorkspaceLabelSymbols(query, token),
     }),
     vscode.languages.registerDocumentSemanticTokensProvider(
-      LANGUAGE_ID,
+      PANGOSCRIPT_LANGUAGE_ID,
       {
         provideDocumentSemanticTokens(document, token): vscode.SemanticTokens {
           const builder = new vscode.SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
@@ -319,13 +335,13 @@ export function activate(context: vscode.ExtensionContext): void {
       },
       SEMANTIC_TOKENS_LEGEND,
     ),
-    vscode.languages.registerInlayHintsProvider(LANGUAGE_ID, {
+    vscode.languages.registerInlayHintsProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideInlayHints(document, range, token): vscode.InlayHint[] {
         if (token.isCancellationRequested) return [];
         return inlayHintsForRange(document, range, knowledgeByName);
       },
     }),
-    vscode.languages.registerColorProvider(LANGUAGE_ID, {
+    vscode.languages.registerColorProvider(PANGOSCRIPT_LANGUAGE_ID, {
       provideDocumentColors(document): vscode.ColorInformation[] {
         if (documentAnalysisLimitReason(document.getText())) return [];
         const out: vscode.ColorInformation[] = [];
@@ -370,7 +386,7 @@ export function activate(context: vscode.ExtensionContext): void {
       },
     }),
     vscode.languages.registerCodeActionsProvider(
-      LANGUAGE_ID,
+      PANGOSCRIPT_LANGUAGE_ID,
       {
         provideCodeActions(document, range, context, token): vscode.CodeAction[] | undefined {
           if (token.isCancellationRequested) return undefined;
@@ -388,7 +404,7 @@ export function activate(context: vscode.ExtensionContext): void {
       { providedCodeActionKinds: [vscode.CodeActionKind.QuickFix, vscode.CodeActionKind.SourceFixAll] },
     ),
     vscode.languages.registerSignatureHelpProvider(
-      LANGUAGE_ID,
+      PANGOSCRIPT_LANGUAGE_ID,
       {
         provideSignatureHelp(document, position): vscode.SignatureHelp | undefined {
           const linePrefix = document.lineAt(position.line).text.slice(0, position.character);
@@ -399,9 +415,9 @@ export function activate(context: vscode.ExtensionContext): void {
       ",",
     ),
     validationOutput,
-    vscode.commands.registerCommand("pangolint.validateCurrentScript", async () => {
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.validateCurrentScript, async () => {
       const document = vscode.window.activeTextEditor?.document;
-      if (!document || document.languageId !== LANGUAGE_ID) {
+      if (!document || document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
         void vscode.window.showWarningMessage("Open a PangoScript document before validating.");
         return;
       }
@@ -425,14 +441,14 @@ export function activate(context: vscode.ExtensionContext): void {
         "Open Problems",
       );
       if (picked === "Show Diagnostics") {
-        await vscode.commands.executeCommand("pangolint.diagnosticsView.focus");
+        await vscode.commands.executeCommand(`${EXTENSION_VIEW_IDS.diagnostics}.focus`);
       } else if (picked === "Show Output") {
         validationOutput.show(true);
       } else if (picked === "Open Problems") {
         await vscode.commands.executeCommand("workbench.panel.markers.view.focus");
       }
     }),
-    vscode.commands.registerCommand("pangolint.addUserObject", async (name: string, kind: UserObjectKind) => {
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.addUserObject, async (name: string, kind: UserObjectKind) => {
       if (!requireWorkspaceTrust("user-object registry writes")) return;
       if (!workspaceFolder) {
         void vscode.window.showWarningMessage("PangoLint: open a workspace folder first.");
@@ -448,7 +464,7 @@ export function activate(context: vscode.ExtensionContext): void {
       await refreshUserObjects();
       void vscode.window.showInformationMessage(`PangoLint: added '${name}' as ${kind}.`);
     }),
-    vscode.commands.registerCommand("pangolint.removeUserObject", async () => {
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.removeUserObject, async () => {
       if (!requireWorkspaceTrust("user-object registry writes")) return;
       if (!workspaceFolder) {
         void vscode.window.showWarningMessage("PangoLint: open a workspace folder first.");
@@ -473,7 +489,7 @@ export function activate(context: vscode.ExtensionContext): void {
       await refreshUserObjects();
       void vscode.window.showInformationMessage(`PangoLint: removed '${picked}' from user objects.`);
     }),
-    vscode.commands.registerCommand("pangolint.showUserObjects", () => {
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.showUserObjects, () => {
       const lines: string[] = [`PangoLint user objects (${userObjectsRegistry.size()} entries):`, ""];
       for (const name of userObjectsRegistry.names()) {
         const entry = userObjectsRegistry.get(name);
@@ -489,7 +505,7 @@ export function activate(context: vscode.ExtensionContext): void {
     onCapturedOscMessages: (messages) => watcher.recordOscCallbacks(messages),
     lintScriptText: (text) => lintPangoScript(text, catalog, knowledgeByName, propertyIndex, objectPropertyLoad.index),
   });
-  registerDiagnosticDecorations(context, { source: "PangoLint" });
+  registerDiagnosticDecorations(context, { source: PANGOLINT_DIAGNOSTIC_SOURCE });
 
   // Auto-rescan workspace when .BeyondCode files change so the universe
   // scanner picks up new button names without requiring the user to
@@ -520,10 +536,10 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // BEYOND Watcher panel - pinned property paths with manual refresh.
   context.subscriptions.push(
-    vscode.window.registerTreeDataProvider("pangolintWatcher", watcher),
-    vscode.commands.registerCommand("pangolint.pinToWatcher", () => {
+    vscode.window.registerTreeDataProvider(EXTENSION_VIEW_IDS.watcher, watcher),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.pinToWatcher, () => {
       const editor = vscode.window.activeTextEditor;
-      if (!editor || editor.document.languageId !== LANGUAGE_ID) {
+      if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
         void vscode.window.showErrorMessage("PangoLint: Open a .BeyondCode file before pinning.");
         return;
       }
@@ -535,15 +551,17 @@ export function activate(context: vscode.ExtensionContext): void {
         return;
       }
       watcher.pin(path);
-      void vscode.commands.executeCommand("pangolintWatcher.focus");
+      void vscode.commands.executeCommand(`${EXTENSION_VIEW_IDS.watcher}.focus`);
     }),
-    vscode.commands.registerCommand("pangolint.unpinFromWatcher", (entry: WatchEntry) => watcher.unpin(entry)),
-    vscode.commands.registerCommand("pangolint.refreshWatcher", () =>
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.unpinFromWatcher, (entry: WatchEntry) =>
+      watcher.unpin(entry),
+    ),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.refreshWatcher, () =>
       requireWorkspaceTrust("BEYOND Watcher refreshes")
-        ? vscode.window.withProgress({ location: { viewId: "pangolintWatcher" } }, () => watcher.refresh())
+        ? vscode.window.withProgress({ location: { viewId: EXTENSION_VIEW_IDS.watcher } }, () => watcher.refresh())
         : undefined,
     ),
-    vscode.commands.registerCommand("pangolint.clearWatcher", () => watcher.unpinAll()),
+    vscode.commands.registerCommand(EXTENSION_COMMAND_IDS.clearWatcher, () => watcher.unpinAll()),
   );
 
   // Open the standalone PangoScript reference site in the user's
@@ -552,17 +570,20 @@ export function activate(context: vscode.ExtensionContext): void {
   // the runtime reads, so the reference page never drifts from the
   // catalog the extension itself enforces.
   context.subscriptions.push(
-    vscode.commands.registerCommand("pangolint.openReferenceSite", async (arg?: string | { canonical?: string }) => {
-      const canonical = typeof arg === "string" ? arg : typeof arg === "object" ? arg?.canonical : undefined;
-      const baseUri = vscode.Uri.joinPath(context.extensionUri, "media", "reference", "pangoscript-reference.html");
-      const target = canonical ? baseUri.with({ fragment: `cmd=${encodeURIComponent(canonical)}` }) : baseUri;
-      try {
-        await vscode.env.openExternal(target);
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        void vscode.window.showErrorMessage(`PangoLint: could not open reference site (${message}).`);
-      }
-    }),
+    vscode.commands.registerCommand(
+      EXTENSION_COMMAND_IDS.openReferenceSite,
+      async (arg?: string | { canonical?: string }) => {
+        const canonical = typeof arg === "string" ? arg : typeof arg === "object" ? arg?.canonical : undefined;
+        const baseUri = vscode.Uri.joinPath(context.extensionUri, ...REFERENCE_SITE_PATH);
+        const target = canonical ? baseUri.with({ fragment: `cmd=${encodeURIComponent(canonical)}` }) : baseUri;
+        try {
+          await vscode.env.openExternal(target);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          void vscode.window.showErrorMessage(`PangoLint: could not open reference site (${message}).`);
+        }
+      },
+    ),
   );
 }
 

@@ -8,7 +8,7 @@ import {
 } from "../../../src/knowledge/objectPropertyCards";
 import type { ObjectPropertyIndex, ObjectPropertyKind } from "../../../src/knowledge/objectPropertyIndex";
 import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface SearchObjectPropertiesInput extends ObjectPropertyDetailInput {
   query: string;

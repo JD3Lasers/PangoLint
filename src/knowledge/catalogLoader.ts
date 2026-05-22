@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundledDataPaths";
 import type { CommandCatalog } from "./catalog";
 import { parseCommandCatalog } from "./catalog";
 import { commandCatalogFromKnowledgeBase, type PangoKnowledgeBase } from "./knowledgeBase";
@@ -21,7 +21,10 @@ export interface CatalogLoadResult {
  * command data and curated overlay from the public repository.
  */
 export function loadBundledCatalog(extensionPath: string): CatalogLoadResult {
-  const knowledgePath = path.join(extensionPath, "data", "pangoscript", "commands.merged.json");
+  const knowledgePath = path.join(
+    extensionPath,
+    ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.commandsMerged),
+  );
   if (!existsSync(knowledgePath)) {
     return {
       catalog: parseCommandCatalog(""),

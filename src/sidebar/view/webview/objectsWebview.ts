@@ -3,6 +3,12 @@
 // `ready`, and dispatches insertAtCursor / jumpToCommand actions.
 
 import * as vscode from "vscode";
+import {
+  DIST_PATH,
+  SIDEBAR_MEDIA_ROOT_PATH,
+  SIDEBAR_OBJECTS_CSS_PATH,
+  SIDEBAR_OBJECTS_SCRIPT_PATH,
+} from "../../../extensionHost/packagePaths";
 import type { PangoKnowledgeBase } from "../../../knowledge/knowledgeBase";
 import { buildObjectPropertyCard, type ObjectPropertyCard } from "../../../knowledge/objectPropertyCards";
 import type { ObjectPropertyEntry, ObjectPropertyIndex } from "../../../knowledge/objectPropertyIndex";
@@ -171,8 +177,8 @@ export class ObjectsWebviewProvider implements vscode.WebviewViewProvider {
     view.webview.options = {
       enableScripts: true,
       localResourceRoots: [
-        vscode.Uri.joinPath(this.extensionUri, "media", "sidebar"),
-        vscode.Uri.joinPath(this.extensionUri, "dist"),
+        vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_MEDIA_ROOT_PATH),
+        vscode.Uri.joinPath(this.extensionUri, ...DIST_PATH),
       ],
     };
     view.webview.html = this.buildHtml(view.webview);
@@ -248,10 +254,8 @@ export class ObjectsWebviewProvider implements vscode.WebviewViewProvider {
   }
 
   private buildHtml(webview: vscode.Webview): string {
-    const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, "media", "sidebar", "objects.css"));
-    const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, "dist", "sidebar-objects-webview.js"),
-    );
+    const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_OBJECTS_CSS_PATH));
+    const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, ...SIDEBAR_OBJECTS_SCRIPT_PATH));
     const nonce = generateNonce();
     return /* html */ `<!doctype html>
 <html lang="en">

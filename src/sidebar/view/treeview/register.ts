@@ -4,6 +4,8 @@
 // diagnostics-change subscriptions that keep the Diagnostics view fresh.
 
 import * as vscode from "vscode";
+import { EXTENSION_VIEW_IDS, PANGOSCRIPT_LANGUAGE_ID } from "../../../extensionHost/extensionIds";
+import { DIAGNOSTIC_DOCS_PATH } from "../../../extensionHost/packagePaths";
 import { EXPRESSION_FUNCTIONS } from "../../../knowledge/expressionFunctions";
 import type { PangoKnowledgeBase } from "../../../knowledge/knowledgeBase";
 import type { ObjectPropertyIndex } from "../../../knowledge/objectPropertyIndex";
@@ -48,13 +50,13 @@ export function registerSidebar(context: vscode.ExtensionContext, options: Regis
   const diagnosticsProvider = new DiagnosticsTreeProvider();
 
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider("pangolint.commandsView", commandsWebviewProvider, {
+    vscode.window.registerWebviewViewProvider(EXTENSION_VIEW_IDS.commands, commandsWebviewProvider, {
       webviewOptions: { retainContextWhenHidden: true },
     }),
-    vscode.window.registerWebviewViewProvider("pangolint.objectsView", objectsWebviewProvider, {
+    vscode.window.registerWebviewViewProvider(EXTENSION_VIEW_IDS.objects, objectsWebviewProvider, {
       webviewOptions: { retainContextWhenHidden: true },
     }),
-    vscode.window.registerTreeDataProvider("pangolint.diagnosticsView", diagnosticsProvider),
+    vscode.window.registerTreeDataProvider(EXTENSION_VIEW_IDS.diagnostics, diagnosticsProvider),
     vscode.languages.onDidChangeDiagnostics(() => diagnosticsProvider.refresh()),
     vscode.window.onDidChangeActiveTextEditor(() => diagnosticsProvider.refresh()),
     vscode.commands.registerCommand(SIDEBAR_COMMAND_IDS.refresh, () => {
@@ -64,7 +66,7 @@ export function registerSidebar(context: vscode.ExtensionContext, options: Regis
     }),
     vscode.commands.registerCommand(SIDEBAR_COMMAND_IDS.insertAtCursor, async (payload: InsertAtCursorPayload) => {
       const editor = vscode.window.activeTextEditor;
-      if (!editor || editor.document.languageId !== "pangoscript") {
+      if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
         void vscode.window.showWarningMessage("PangoLint: open a .BeyondCode file before inserting.");
         return;
       }
@@ -91,7 +93,7 @@ export function registerSidebar(context: vscode.ExtensionContext, options: Regis
     vscode.commands.registerCommand(
       SIDEBAR_COMMAND_IDS.openDiagnosticDocs,
       async (payload: OpenDiagnosticDocsPayload) => {
-        const docUri = vscode.Uri.joinPath(context.extensionUri, "docs", "references", "diagnostics", "README.md");
+        const docUri = vscode.Uri.joinPath(context.extensionUri, ...DIAGNOSTIC_DOCS_PATH);
         try {
           const document = await vscode.workspace.openTextDocument(docUri);
           const editor = await vscode.window.showTextDocument(document, { preview: true });

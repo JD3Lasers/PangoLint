@@ -8,8 +8,8 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
 import { resolveDataDir } from "../knowledgeBase";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface ExplainDiagnosticInput {
   code: string;

@@ -8,6 +8,7 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundledDataPaths";
 
 export interface KnownObjectSchema {
   /** Canonical object name (e.g. "Master", "Zone", "Projector"). */
@@ -157,14 +158,7 @@ export function perIndexSchemaName(schema: KnownObjectSchema, indexName: string)
 }
 
 export function loadBundledPropertyIndex(extensionPath: string): PropertyIndexLoadResult {
-  const filePath = path.join(
-    extensionPath,
-    "data",
-    "pangoscript",
-    "object-tree",
-    "runtime-indexes",
-    "known-properties.json",
-  );
+  const filePath = path.join(extensionPath, ...bundledDataPathSegments(BUNDLED_PANGOSCRIPT_DATA_PATHS.knownProperties));
   if (!existsSync(filePath)) {
     return {
       index: buildPropertyIndex(EMPTY),

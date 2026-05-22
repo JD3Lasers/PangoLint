@@ -17,7 +17,7 @@ import type {
 } from "../../../src/knowledge/objectPropertyIndex";
 import type { KnownObjectSchema, PropertyIndex } from "../../../src/knowledge/propertyIndex";
 import { mcpNameLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 
 export interface LookupObjectInput extends ObjectPropertyDetailInput {
   name: string;

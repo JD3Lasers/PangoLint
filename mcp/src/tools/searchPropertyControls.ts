@@ -1,7 +1,7 @@
 import type { McpPropertyControlIndex } from "../../../src/knowledge/mcpControlReference";
 import type { ObjectPropertyKind } from "../../../src/knowledge/objectPropertyIndex";
 import { mcpNameLimitReason, mcpQueryLimitReason } from "../../../src/language/analysisLimits";
-import { fail, ok, type ToolResult } from "../config";
+import { fail, ok, type ToolResult } from "../toolResult";
 import {
   buildPropertyControlCard,
   type PropertyControlCard,

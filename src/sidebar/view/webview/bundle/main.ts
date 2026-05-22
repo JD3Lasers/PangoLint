@@ -14,8 +14,6 @@ import { formatCatalogStatus } from "./status";
 
 interface VsCodeApi {
   postMessage: (message: WebviewToHostMessage) => void;
-  getState: () => unknown;
-  setState: (state: unknown) => void;
 }
 
 declare const acquireVsCodeApi: () => VsCodeApi;

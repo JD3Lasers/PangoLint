@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { EXTENSION_CONFIG_SECTIONS, PANGOSCRIPT_LANGUAGE_ID } from "../extensionHost/extensionIds";
 import type { PropertyIndex } from "../knowledge/propertyIndex";
 import { requireWorkspaceTrust } from "../workspace/workspaceTrust";
 import { getBeyondRuntimeConfig } from "./runtimeConfig";
@@ -22,12 +23,12 @@ export async function validateActiveDocumentAgainstBeyond(
   }
   if (!requireWorkspaceTrust("BEYOND object validation")) return;
   const editor = vscode.window.activeTextEditor;
-  if (!editor || editor.document.languageId !== "pangoscript") {
+  if (!editor || editor.document.languageId !== PANGOSCRIPT_LANGUAGE_ID) {
     void vscode.window.showErrorMessage("PangoLint: Open a .BeyondCode file before validating.");
     return;
   }
 
-  const config = vscode.workspace.getConfiguration("pangolint.beyond");
+  const config = vscode.workspace.getConfiguration(EXTENSION_CONFIG_SECTIONS.beyond);
   const runtimeConfig = getBeyondRuntimeConfig(config);
   const propertyIndex = hooks.getPropertyIndex();
 

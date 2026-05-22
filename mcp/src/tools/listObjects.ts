@@ -4,7 +4,7 @@
 
 import type { ObjectPropertyIndex } from "../../../src/knowledge/objectPropertyIndex";
 import type { PropertyIndex } from "../../../src/knowledge/propertyIndex";
-import { ok, type ToolResult } from "../config";
+import { ok, type ToolResult } from "../toolResult";
 import type { LookupObjectSource } from "./lookupObject";
 
 export interface ObjectDiscoverySummary {

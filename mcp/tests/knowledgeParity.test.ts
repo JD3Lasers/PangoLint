@@ -8,6 +8,7 @@ import { buildObjectPropertyIndex } from "../../src/knowledge/objectPropertyInde
 import { buildPropertyIndex, type PropertyIndexFile } from "../../src/knowledge/propertyIndex";
 import type { McpKnowledgeBase } from "../src/knowledgeBase";
 import { registerResources } from "../src/resources/index";
+import { MCP_TOOL_DEFINITIONS } from "../src/tools/toolDefinitions";
 
 type McpExposureStatus = "mcp-exposed" | "vs-code-only" | "private";
 
@@ -32,6 +33,10 @@ interface ParityManifest {
 
 const repoRoot = path.resolve(__dirname, "..", "..");
 const manifestPath = path.join(repoRoot, "docs", "references", "mcp-knowledge-parity.json");
+const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
+  mcpAssetDirectories: string[];
+  mcpAssetFiles: string[];
+};
 
 const expectedExtensionVisibleIds = [
   "command-catalog",
@@ -134,8 +139,7 @@ describe("MCP knowledge parity manifest", () => {
   it("keeps MCP-exposed sources wired into resources, tools, or the MCP package asset copier", () => {
     const manifest = loadManifest();
     const resourceUris = registeredResourceUris();
-    const toolsSource = readFileSync(path.join(repoRoot, "mcp", "src", "tools", "index.ts"), "utf8");
-    const copyScript = readFileSync(path.join(repoRoot, "scripts", "copyMcpData.cjs"), "utf8");
+    const toolIds = new Set<string>(MCP_TOOL_DEFINITIONS.map((tool) => tool.id));
 
     for (const source of manifest.sources.filter((entry) => entry.mcpExposure.status === "mcp-exposed")) {
       const { packagePath, resourceUri, tools } = source.mcpExposure;
@@ -145,19 +149,22 @@ describe("MCP knowledge parity manifest", () => {
         expect(resourceUris.has(resourceUri), source.id).toBe(true);
       }
       for (const tool of tools ?? []) {
-        expect(toolsSource, source.id).toContain(`"${tool}"`);
+        expect(toolIds.has(tool), source.id).toBe(true);
       }
       if (packagePath) {
-        expect(isCopiedByMcpAssetScript(packagePath, copyScript), source.id).toBe(true);
+        expect(isCopiedByMcpAssetPolicy(packagePath), source.id).toBe(true);
       }
     }
   });
 });
 
-function isCopiedByMcpAssetScript(packagePath: string, copyScript: string): boolean {
-  if (copyScript.includes(`"${packagePath}"`)) return true;
+function isCopiedByMcpAssetPolicy(packagePath: string): boolean {
+  if (packageSurfacePolicy.mcpAssetFiles.includes(packagePath)) return true;
+  if (packageSurfacePolicy.mcpAssetDirectories.includes(packagePath)) return true;
   const fullPath = path.join(repoRoot, packagePath);
-  if (existsSync(fullPath) && statSync(fullPath).isFile()) return copyScript.includes(`"${path.dirname(packagePath)}"`);
+  if (existsSync(fullPath) && statSync(fullPath).isFile()) {
+    return packageSurfacePolicy.mcpAssetDirectories.includes(path.dirname(packagePath));
+  }
   return false;
 }
 

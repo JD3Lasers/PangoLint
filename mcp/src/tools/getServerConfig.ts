@@ -4,7 +4,8 @@
 // returned (the env vars themselves don't carry any).
 
 import type { McpConfig } from "../config";
-import { ok, type ToolResult } from "../config";
+import { ok, type ToolResult } from "../toolResult";
+import { availableToolIdsForConfig } from "./toolDefinitions";
 
 export interface ServerConfigSnapshot {
   version: string;
@@ -32,29 +33,7 @@ export interface ServerConfigSnapshot {
 
 export type GetServerConfigResult = ToolResult<ServerConfigSnapshot>;
 
-const ALWAYS_ON_TOOLS = [
-  "lookupCommand",
-  "searchCommands",
-  "lookupObject",
-  "listObjects",
-  "searchObjectProperties",
-  "lookupObjectProperty",
-  "lookupPropertyControls",
-  "searchPropertyControls",
-  "lintScript",
-  "explainDiagnostic",
-  "getServerConfig",
-];
-
-const RUNTIME_READ_TOOLS = ["healthCheck", "checkTalkConnection", "readBeyondProperty"];
-const RUNTIME_WRITE_TOOLS = ["runScript"];
-
 export function getServerConfig(version: string, config: McpConfig): GetServerConfigResult {
-  const availableTools = [
-    ...ALWAYS_ON_TOOLS,
-    ...(config.runtimeReadEnabled ? RUNTIME_READ_TOOLS : []),
-    ...(config.runtimeWriteEnabled ? RUNTIME_WRITE_TOOLS : []),
-  ];
   return ok({
     version,
     runtimeEnabled: config.runtimeReadEnabled || config.runtimeWriteEnabled,
@@ -71,7 +50,7 @@ export function getServerConfig(version: string, config: McpConfig): GetServerCo
     oscListenHost: config.oscListenHost,
     oscListenPort: config.oscListenPort,
     readbackTimeoutMs: config.readbackTimeoutMs,
-    availableTools,
+    availableTools: availableToolIdsForConfig(config),
     responseGuidance: {
       objectLookups:
         "searchObjectProperties, lookupObjectProperty, lookupObject, lookupPropertyControls, and searchPropertyControls return compact results by default. Use includeDetails, includePaths, and explicit limits only for follow-up detail pages.",
