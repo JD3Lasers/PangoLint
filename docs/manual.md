@@ -69,8 +69,9 @@ coding agents.
 3. Open the **PangoLint** view container (laser-warning icon in the
    activity bar) to browse commands and objects.
 4. To enable BEYOND runtime features, configure
-   `pangolint.beyond.talkHost` to point at your dev BEYOND machine and
-   run `PangoLint: Test BEYOND Connection` from the Command Palette.
+   `pangolint.beyond.talkTcpHost` to point at your dev BEYOND machine
+   (and `pangolint.beyond.talkTcpPort` if needed), then run
+   `PangoLint: Test BEYOND Connection` from the Command Palette.
 
 That's it for the extension. For the MCP server, see
 [The PangoLint MCP server](#the-pangolint-mcp-server) below.
@@ -94,13 +95,14 @@ PangoLint registers `.BeyondCode` as the `pangoscript` language. You get:
 
 ### Diagnostics
 
-PangoLint ships **21 diagnostic codes**. The full reference with cause
+PangoLint ships **22 diagnostic codes**. The full reference with cause
 and how-to-fix lives in
 [docs/references/diagnostics/README.md](references/diagnostics/README.md);
 this is the summary.
 
 | Code | Severity | What it catches |
 |---|---|---|
+| `analysis-limited` | warning | PangoLint skipped a full-file pass or unusually long line because the input exceeds bounded-analysis limits. Runtime sends are blocked until the file can be fully checked. |
 | `unclosed-string` | error | A line opens `"` with no closing quote. |
 | `unbalanced-parentheses` | warning | Unequal `(` / `)`, or `)(` order. |
 | `unknown-command` | warning | Identifier isn't in the curated catalog and isn't a recognized control-flow keyword. |
@@ -140,9 +142,8 @@ and the Problems panel.
 ### Completions, hover, signature help
 
 - **Command completions** - type a command name and PangoLint suggests
-  matches from the bundled catalog (529 commands: build 2044 plus
-  curated documented additions). Each suggestion carries a description,
-  syntax form, and safety tier.
+  matches from the bundled catalog (529 command entries). Each
+  suggestion carries a description, syntax form, and safety tier.
 - **Property completions** - type `Master.` (or `Zone.0.`, `FX.0.`,
   etc.) and PangoLint suggests properties from the schemas.
 - **Goto label completions** - after `Goto ` or `If ... Goto `,
@@ -380,6 +381,11 @@ After a successful send, **PangoLint: Re-send last Talk Batch** replays
 the same batch (skips the lint, keeps the gates) - useful for tight
 iteration when nothing's changed.
 
+Talk TCP can show BEYOND command replies and parser errors in the
+**PangoLint: Run** Output channel. Talk UDP is a valid primary transport,
+but it is send-only from PangoLint's side, so the Output channel reports
+datagram send status instead of BEYOND parser replies.
+
 > **CRLF reminder.** BEYOND's PangoScript editor paste path treats
 > LF-only clipboard text as one logical line. `.BeyondCode` files
 > intentionally check out with CRLF endings. Confirm CRLF before
@@ -468,7 +474,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.7.tgz
+npm install -g ./pangolint-mcp-0.7.28.tgz
 which pangolint-mcp
 ```
 
@@ -476,7 +482,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.7.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.28.tgz
 which pangolint-mcp
 ```
 
@@ -580,7 +586,7 @@ Eleven offline tools the agent can call without any opt-in:
 
 ### Runtime tools (opt-in)
 
-Three tools that talk to the configured BEYOND host. Read runtime and
+Four tools that talk to the configured BEYOND host. Read runtime and
 write runtime are separate opt-ins. Each tool returns
 `{ ok: false, blocked: true }` unless the matching runtime tier was
 enabled at server startup.
@@ -630,12 +636,12 @@ them in user or machine settings, not workspace settings.
 | `pangolint.beyond.talkTransport` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and uses UDP only when fallback is explicitly allowed. |
 | `pangolint.beyond.talkTcpHost` | `127.0.0.1` | BEYOND Talk TCP host. |
 | `pangolint.beyond.talkTcpPort` | `16063` | BEYOND Talk TCP port. |
-| `pangolint.beyond.talkUdpHost` | `127.0.0.1` | BEYOND Talk UDP fallback host. |
-| `pangolint.beyond.talkUdpPort` | `16062` | BEYOND Talk UDP fallback port. |
+| `pangolint.beyond.talkUdpHost` | `127.0.0.1` | BEYOND Talk UDP host. |
+| `pangolint.beyond.talkUdpPort` | `16062` | BEYOND Talk UDP port. |
 | `pangolint.beyond.talkUdpFallbackAllowed` | `false` | Allow unauthenticated UDP fallback when TCP is unavailable before authentication or command send begins. |
 | `pangolint.beyond.talkTcpPassword` | `""` | Optional BEYOND TCP Talk Server password. Redacted from runtime output. |
-| `pangolint.beyond.talkHost` | `127.0.0.1` | Legacy UDP host alias. |
-| `pangolint.beyond.talkPort` | `16062` | Legacy UDP port alias. |
+| `pangolint.beyond.talkHost` | `127.0.0.1` | UDP host alias. |
+| `pangolint.beyond.talkPort` | `16062` | UDP port alias. |
 | `pangolint.beyond.oscListenHost` | `0.0.0.0` | Local interface used for OSC callbacks from BEYOND. |
 | `pangolint.beyond.oscListenPort` | `7000` | Local UDP port used for OSC callbacks from BEYOND. |
 | `pangolint.beyond.readbackTimeoutMs` | `3000` | Timeout for OSC readback callbacks (ms). |
@@ -644,6 +650,8 @@ them in user or machine settings, not workspace settings.
 | `pangolint.beyond.liveHoverValues` | `false` | Augment hover tooltips with live BEYOND values. Generates network traffic per hover. |
 | `pangolint.codeLens.labelReferences` | `false` | Show `N references` code lens above each label declaration. |
 | `pangolint.folderScopedUniverses` | `true` | Auto-discover universe panels by scanning sibling `.BeyondCode` files. |
+| `pangolint.diagnostics.highlightStyle` | `lineBackground` | Controls extra editor emphasis for diagnostics: squiggle only, diagnostic-range background, or whole-line background. |
+| `pangolint.diagnostics.inlineMessages` | `off` | Appends diagnostic messages after source lines when set to `warningsAndAbove` or `all`. |
 
 ---
 
@@ -739,9 +747,12 @@ PangoLint biases conservative on three axes:
 ## Troubleshooting
 
 **Test BEYOND Connection times out.**
-Confirm `pangolint.beyond.talkHost` matches the BEYOND machine's IP
-(not `127.0.0.1` if BEYOND is on a separate box). Confirm BEYOND is
-configured to send OSC Out callbacks back to your laptop's IP on
+Confirm `pangolint.beyond.talkTcpHost` matches the BEYOND machine's IP
+(not `127.0.0.1` if BEYOND is on a separate box), and confirm
+`pangolint.beyond.talkTcpPort` matches the Talk TCP server port.
+If you explicitly use UDP, check `pangolint.beyond.talkUdpHost` and
+`pangolint.beyond.talkUdpPort` instead. Confirm BEYOND is configured
+to send OSC Out callbacks back to your laptop's IP on
 `pangolint.beyond.oscListenPort`. macOS / Windows firewall must allow
 the listener port.
 

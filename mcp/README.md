@@ -31,7 +31,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.27.tgz
+npm install -g ./pangolint-mcp-0.7.28.tgz
 which pangolint-mcp
 ```
 
@@ -40,7 +40,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.27.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.28.tgz
 which pangolint-mcp
 ```
 
@@ -124,12 +124,12 @@ calling individual tools.
 | `PANGOLINT_MCP_BEYOND_TALK_TRANSPORT` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and only uses UDP when fallback is explicitly allowed. |
 | `PANGOLINT_MCP_BEYOND_TALK_TCP_HOST` | `127.0.0.1` | BEYOND Talk TCP host. |
 | `PANGOLINT_MCP_BEYOND_TALK_TCP_PORT` | `16063` | BEYOND Talk TCP port. |
-| `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` | legacy host or `127.0.0.1` | BEYOND Talk UDP fallback host. |
-| `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` | legacy port or `16062` | BEYOND Talk UDP fallback port. |
+| `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` | Talk host alias or `127.0.0.1` | BEYOND Talk UDP host. |
+| `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` | Talk port alias or `16062` | BEYOND Talk UDP port. |
 | `PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED` | (off) | Set to `enabled` (or `1` / `true`) to allow auto mode to use unauthenticated UDP when TCP is unavailable before authentication or command send begins. |
 | `PANGOLINT_MCP_BEYOND_TALK_TCP_PASSWORD` | (empty) | Optional BEYOND TCP Talk Server password. This value is redacted from runtime output. |
-| `PANGOLINT_MCP_BEYOND_TALK_HOST` | `127.0.0.1` | Legacy alias used as the UDP fallback host when `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` is unset. |
-| `PANGOLINT_MCP_BEYOND_TALK_PORT` | `16062` | Legacy alias used as the UDP fallback port when `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` is unset. |
+| `PANGOLINT_MCP_BEYOND_TALK_HOST` | `127.0.0.1` | UDP host alias used when `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` is unset. |
+| `PANGOLINT_MCP_BEYOND_TALK_PORT` | `16062` | UDP port alias used when `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` is unset. |
 | `PANGOLINT_MCP_BEYOND_OSC_LISTEN_HOST` | `0.0.0.0` | Local interface for OSC callbacks. |
 | `PANGOLINT_MCP_BEYOND_OSC_LISTEN_PORT` | `7000` | Local UDP port for OSC callbacks. |
 | `PANGOLINT_MCP_READBACK_TIMEOUT_MS` | `3000` | Readback timeout (ms). |

@@ -93,7 +93,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 360px);
     gap: clamp(2rem, 5vw, 5rem);
-    align-items: end;
+    align-items: center;
   }
 
   @media (max-width: 880px) {
@@ -759,7 +759,7 @@
 <body>
 
 <header class="cover">
-  <div class="cover-eyebrow">PangoLint v0.6.0</div>
+  <div class="cover-eyebrow">PangoLint v0.7.28</div>
   <div class="cover-grid">
     <div>
       <h1 class="cover-title">PangoLint <em>User Manual</em></h1>
@@ -773,12 +773,8 @@
     <dl class="cover-meta">
       <dt>Document</dt>
       <dd>User manual, end-user reference</dd>
-      <dt>Prepared for</dt>
-      <dd>Pangolin Laser Systems, Inc.</dd>
-      <dt>Purpose</dt>
-      <dd>Naming &amp; reference-data review</dd>
       <dt>Date</dt>
-      <dd>2026-05-08</dd>
+      <dd>2026-05-22</dd>
     </dl>
   </div>
 
@@ -901,8 +897,9 @@
       (laser-warning icon in the activity bar) to browse commands and
       objects.</li>
       <li>To enable BEYOND runtime features, configure
-      <code>pangolint.beyond.talkHost</code> to point at your dev BEYOND
-      machine and run <code>PangoLint: Test BEYOND Connection</code>
+      <code>pangolint.beyond.talkTcpHost</code> to point at your dev
+      BEYOND machine (and <code>pangolint.beyond.talkTcpPort</code> if
+      needed), then run <code>PangoLint: Test BEYOND Connection</code>
       from the Command Palette.</li>
     </ol>
 
@@ -936,7 +933,7 @@
     </figure>
 
     <h3 id="diagnostics">Diagnostics</h3>
-    <p>PangoLint ships <strong>21 diagnostic codes</strong>. The full
+    <p>PangoLint ships <strong>22 diagnostic codes</strong>. The full
     reference with cause and how-to-fix lives in
     <code>docs/references/diagnostics/README.md</code>; this is the
     summary.</p>
@@ -945,6 +942,7 @@
     <table>
       <thead><tr><th>Code</th><th>Severity</th><th>What it catches</th></tr></thead>
       <tbody>
+        <tr><td><code>analysis-limited</code></td><td>warning</td><td>PangoLint skipped a full-file pass or unusually long line because the input exceeds bounded-analysis limits. Runtime sends are blocked until the file can be fully checked.</td></tr>
         <tr><td><code>unclosed-string</code></td><td>error</td><td>A line opens <code>"</code> with no closing quote.</td></tr>
         <tr><td><code>unbalanced-parentheses</code></td><td>warning</td><td>Unequal <code>(</code> / <code>)</code>, or <code>)(</code> order.</td></tr>
         <tr><td><code>unknown-command</code></td><td>warning</td><td>Identifier isn't in the curated catalog and isn't a recognized control-flow keyword.</td></tr>
@@ -1000,8 +998,8 @@
     <ul>
       <li><strong>Command completions</strong> - type a command name
       and PangoLint suggests matches from the bundled catalog (529
-      commands: build 2044 plus curated documented additions). Each suggestion carries a
-      description, syntax form, and safety tier.</li>
+      command entries). Each suggestion carries a description, syntax
+      form, and safety tier.</li>
       <li><strong>Property completions</strong> - type
       <code>Master.</code> (or <code>Zone.0.</code>,
       <code>FX.0.</code>, etc.) and PangoLint suggests properties
@@ -1370,6 +1368,12 @@
     Batch</strong> replays the same batch (skips the lint, keeps the
     gates) - useful for tight iteration when nothing's changed.</p>
 
+    <p>Talk TCP can show BEYOND command replies and parser errors in
+    the <strong>PangoLint: Run</strong> Output channel. Talk UDP is a
+    valid primary transport, but it is send-only from PangoLint's side,
+    so the Output channel reports datagram send status instead of
+    BEYOND parser replies.</p>
+
     <figure class="figure figure--inline">
       <img src="assets/manual/talk-batch-confirm.png" alt="A modal warning dialog with a yellow caution triangle, a BEYOND Talk command-batch confirmation message, and Cancel and Run buttons.">
       <figcaption><span class="fig-num">Fig 04.3a</span>The Talk-batch confirmation modal. The header carries the line count and exact host:port; the body re-states the control-flow restriction so it's impossible to miss before clicking <strong>Run</strong>.</figcaption>
@@ -1491,13 +1495,13 @@
 which pangolint-mcp</code></pre>
     <p>Or install the <code>pangolint-mcp</code> tarball attached to a
       GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.7.tgz
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.28.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.7.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.28.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
@@ -1586,7 +1590,7 @@ codex mcp get PangoLint</code></pre>
     </div>
 
     <h3 id="runtime-tools">Runtime tools (opt-in)</h3>
-    <p>Three tools that talk to the configured BEYOND host. Read
+    <p>Four tools that talk to the configured BEYOND host. Read
     runtime and write runtime are separate opt-ins. Each tool returns
     <code>{ ok: false, blocked: true }</code> unless the matching
     runtime tier was enabled at server startup.</p>
@@ -1654,12 +1658,12 @@ codex mcp get PangoLint</code></pre>
         <tr><td><code>pangolint.beyond.talkTransport</code></td><td><code>auto</code></td><td><code>auto</code>, <code>tcp</code>, or <code>udp</code>. Auto tries Talk TCP first and uses UDP only when fallback is explicitly allowed.</td></tr>
         <tr><td><code>pangolint.beyond.talkTcpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk TCP host.</td></tr>
         <tr><td><code>pangolint.beyond.talkTcpPort</code></td><td><code>16063</code></td><td>BEYOND Talk TCP port.</td></tr>
-        <tr><td><code>pangolint.beyond.talkUdpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk UDP fallback host.</td></tr>
-        <tr><td><code>pangolint.beyond.talkUdpPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP fallback port.</td></tr>
+        <tr><td><code>pangolint.beyond.talkUdpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk UDP host.</td></tr>
+        <tr><td><code>pangolint.beyond.talkUdpPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP port.</td></tr>
         <tr><td><code>pangolint.beyond.talkUdpFallbackAllowed</code></td><td><code>false</code></td><td>Allow unauthenticated UDP fallback when TCP is unavailable before authentication or command send begins.</td></tr>
         <tr><td><code>pangolint.beyond.talkTcpPassword</code></td><td><code>""</code></td><td>Optional BEYOND TCP Talk Server password. Redacted from runtime output.</td></tr>
-        <tr><td><code>pangolint.beyond.talkHost</code></td><td><code>127.0.0.1</code></td><td>Legacy UDP host alias.</td></tr>
-        <tr><td><code>pangolint.beyond.talkPort</code></td><td><code>16062</code></td><td>Legacy UDP port alias.</td></tr>
+        <tr><td><code>pangolint.beyond.talkHost</code></td><td><code>127.0.0.1</code></td><td>UDP host alias.</td></tr>
+        <tr><td><code>pangolint.beyond.talkPort</code></td><td><code>16062</code></td><td>UDP port alias.</td></tr>
         <tr><td><code>pangolint.beyond.oscListenHost</code></td><td><code>0.0.0.0</code></td><td>Local interface used for OSC callbacks from BEYOND.</td></tr>
         <tr><td><code>pangolint.beyond.oscListenPort</code></td><td><code>7000</code></td><td>Local UDP port used for OSC callbacks from BEYOND.</td></tr>
         <tr><td><code>pangolint.beyond.readbackTimeoutMs</code></td><td><code>3000</code></td><td>Timeout for OSC readback callbacks (ms).</td></tr>
@@ -1668,6 +1672,8 @@ codex mcp get PangoLint</code></pre>
         <tr><td><code>pangolint.beyond.liveHoverValues</code></td><td><code>false</code></td><td>Augment hover tooltips with live BEYOND values. Generates network traffic per hover.</td></tr>
         <tr><td><code>pangolint.codeLens.labelReferences</code></td><td><code>false</code></td><td>Show <code>N references</code> code lens above each label declaration.</td></tr>
         <tr><td><code>pangolint.folderScopedUniverses</code></td><td><code>true</code></td><td>Auto-discover universe panels by scanning sibling <code>.BeyondCode</code> files.</td></tr>
+        <tr><td><code>pangolint.diagnostics.highlightStyle</code></td><td><code>lineBackground</code></td><td>Controls extra editor emphasis for diagnostics: squiggle only, diagnostic-range background, or whole-line background.</td></tr>
+        <tr><td><code>pangolint.diagnostics.inlineMessages</code></td><td><code>off</code></td><td>Appends diagnostic messages after source lines when set to <code>warningsAndAbove</code> or <code>all</code>.</td></tr>
       </tbody>
     </table>
     </div>
@@ -1806,11 +1812,14 @@ codex mcp get PangoLint</code></pre>
     <h2><span class="h2-num">§ 10</span>Troubleshooting</h2>
 
     <h4>Test BEYOND Connection times out.</h4>
-    <p>Confirm <code>pangolint.beyond.talkHost</code> matches the
+    <p>Confirm <code>pangolint.beyond.talkTcpHost</code> matches the
     BEYOND machine's IP (not <code>127.0.0.1</code> if BEYOND is on a
-    separate box). Confirm BEYOND is configured to send OSC Out
-    callbacks back to your laptop's IP on
-    <code>pangolint.beyond.oscListenPort</code>. macOS / Windows
+    separate box), and confirm <code>pangolint.beyond.talkTcpPort</code>
+    matches the Talk TCP server port. If you explicitly use UDP, check
+    <code>pangolint.beyond.talkUdpHost</code> and
+    <code>pangolint.beyond.talkUdpPort</code> instead. Confirm BEYOND
+    is configured to send OSC Out callbacks back to your laptop's IP
+    on <code>pangolint.beyond.oscListenPort</code>. macOS / Windows
     firewall must allow the listener port.</p>
 
     <h4>Talk batch sent, BEYOND unchanged.</h4>
@@ -1869,9 +1878,9 @@ codex mcp get PangoLint</code></pre>
     </p>
   </div>
   <div class="doc-footer-meta">
-    PangoLint &nbsp;·&nbsp; v0.6.0<br>
-    Catalog build 2044<br>
-    Document revised 2026-05-18
+    PangoLint &nbsp;·&nbsp; v0.7.28<br>
+    Command catalog 529 entries<br>
+    Document revised 2026-05-22
   </div>
 </footer>
 
