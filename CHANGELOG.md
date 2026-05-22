@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.16] - 2026-05-22
+
+### Changed
+
+- Add dependency-cruiser import graph checks for MCP and VSIX source
+  boundaries.
+- Add npm scripts for import boundary audits and Mermaid dependency graph
+  output.
+
 ## [0.7.15] - 2026-05-22
 
 ### Changed
@@ -328,7 +337,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.16...HEAD
+[0.7.16]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.15...v0.7.16
 [0.7.15]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.14...v0.7.15
 [0.7.14]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.13...v0.7.14
 [0.7.13]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...v0.7.13
