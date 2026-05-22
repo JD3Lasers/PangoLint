@@ -27,7 +27,7 @@ export interface RunScriptInput {
   text: string;
 }
 
-export interface RunScriptOutput {
+interface RunScriptOutput {
   /** True when BEYOND Talk transmission completed without error. */
   ok: boolean;
   /** Lint summary returned regardless of whether send was attempted. */

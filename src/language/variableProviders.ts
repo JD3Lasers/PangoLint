@@ -71,7 +71,7 @@ export function provideRenameEditsDispatch(
   return undefined;
 }
 
-export function variableRenameEdits(
+function variableRenameEdits(
   document: vscode.TextDocument,
   position: vscode.Position,
   newName: string,

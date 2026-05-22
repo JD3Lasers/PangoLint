@@ -130,14 +130,14 @@ export interface McpControlReferenceFile {
   entries: McpPropertyControlEntry[];
 }
 
-export interface PropertyControlSearchInput {
+interface PropertyControlSearchInput {
   query: string;
   root?: string;
   kind?: "object" | "fx";
   limit?: number;
 }
 
-export interface PropertyControlSearchHit {
+interface PropertyControlSearchHit {
   entry: McpPropertyControlEntry;
   score: number;
   matchedTerms: string[];
@@ -234,7 +234,7 @@ export function loadBundledMcpControlReference(extensionPath: string): McpContro
   }
 }
 
-export function normalizeControlLookupPath(rawPath: string): string {
+function normalizeControlLookupPath(rawPath: string): string {
   const bracketAsDot = rawPath
     .trim()
     .replace(/\[(#?\d+|#?N)\]/gi, (_match, indexValue: string) => `.${indexValue.toUpperCase()}`)

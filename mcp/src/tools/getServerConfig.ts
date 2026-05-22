@@ -7,7 +7,7 @@ import type { McpConfig } from "../config";
 import { ok, type ToolResult } from "../toolResult";
 import { availableToolIdsForConfig } from "./toolDefinitions";
 
-export interface ServerConfigSnapshot {
+interface ServerConfigSnapshot {
   version: string;
   /** True when either read or write runtime is enabled. Kept as a coarse summary for older agents. */
   runtimeEnabled: boolean;

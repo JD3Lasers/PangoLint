@@ -6,7 +6,7 @@ import type { ObjectPropertyIndex, PropertyIndex } from "../../../src/knowledge/
 import { ok, type ToolResult } from "../toolResult";
 import type { LookupObjectSource } from "./lookupObject";
 
-export interface ObjectDiscoverySummary {
+interface ObjectDiscoverySummary {
   name: string;
   sources: LookupObjectSource[];
   schemaPropertyCount?: number;

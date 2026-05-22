@@ -15,7 +15,7 @@ export interface ExplainDiagnosticInput {
   code: string;
 }
 
-export interface ExplainDiagnosticOutput {
+interface ExplainDiagnosticOutput {
   code: string;
   markdown: string;
 }

@@ -27,7 +27,7 @@ export interface RawForm {
   parameters?: RawParameter[];
 }
 
-export interface RawParameter {
+interface RawParameter {
   name?: string;
   type?: string;
   required?: boolean;
@@ -37,7 +37,7 @@ export interface RawParameter {
   description?: string;
 }
 
-export interface RawValueRange {
+interface RawValueRange {
   min?: number;
   max?: number;
   dynamicMax?: RawDynamicBound;
@@ -49,13 +49,13 @@ export interface RawValueRange {
   notes?: string;
 }
 
-export interface RawDynamicBound {
+interface RawDynamicBound {
   expression: string;
   sourcePaths?: string[];
   notes?: string;
 }
 
-export interface RawAcceptedValue {
+interface RawAcceptedValue {
   value: string | number | boolean;
   label?: string;
   description?: string;
@@ -112,7 +112,7 @@ export interface RawUniverseComponent {
   properties: RawUniverseComponentProperty[];
 }
 
-export interface RawUniverseComponentProperty {
+interface RawUniverseComponentProperty {
   path: string;
   leafName: string;
   objectPaths: string[];
@@ -217,7 +217,7 @@ export interface RawObjectPropertyOscRoute {
   valueTransform?: RawOscValueTransform;
 }
 
-export interface RawOscRoute {
+interface RawOscRoute {
   routeId?: string;
   id?: string;
   addressSpace?: string;

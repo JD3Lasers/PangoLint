@@ -2,7 +2,7 @@
 // (ObjectsWebviewProvider). Minimal: the webview renders a pre-built
 // tree and only sends bounded insert / navigation actions back to the host.
 
-export interface ObjectsValueSummary {
+interface ObjectsValueSummary {
   valueType?: string;
   range?: {
     min?: number;
@@ -22,7 +22,7 @@ export interface ObjectsValueSummary {
   contextValueMetadataCount?: number;
 }
 
-export interface ObjectsReadbackSummary {
+interface ObjectsReadbackSummary {
   status: string;
   probePath?: string;
   valueType?: string;
@@ -32,7 +32,7 @@ export interface ObjectsReadbackSummary {
   locationKind?: string;
 }
 
-export interface ObjectsBehaviorClassification {
+interface ObjectsBehaviorClassification {
   accessMode: string;
   behaviorKind: string;
   writeTestStatus: string;
@@ -40,7 +40,7 @@ export interface ObjectsBehaviorClassification {
   evidenceLevel: string;
 }
 
-export interface ObjectsPropertyCard {
+interface ObjectsPropertyCard {
   path: string;
   normalizedPath: string;
   root: string;

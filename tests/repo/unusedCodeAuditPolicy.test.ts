@@ -13,6 +13,7 @@ type KnipWorkspaceConfig = {
 };
 
 type KnipConfig = {
+  ignoreIssues?: Record<string, string[]>;
   rules?: Record<string, string>;
   treatConfigHintsAsErrors?: boolean;
   workspaces?: Record<string, KnipWorkspaceConfig>;
@@ -47,7 +48,8 @@ describe("unused code audit policy", () => {
     expect(config.workspaces?.mcp).toBeDefined();
     expect(config.workspaces?.mcp?.project).toEqual(expect.arrayContaining(["src/**/*.ts", "tests/**/*.ts"]));
     expect(config.treatConfigHintsAsErrors).toBe(true);
-    expect(config.rules?.exports).toBe("warn");
-    expect(config.rules?.types).toBe("warn");
+    expect(config.rules?.exports ?? "error").toBe("error");
+    expect(config.rules?.types ?? "error").toBe("error");
+    expect(config.ignoreIssues?.["scripts/package/packageSurfacePolicy.cjs"]).toEqual(["exports"]);
   });
 });

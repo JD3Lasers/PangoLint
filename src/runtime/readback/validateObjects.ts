@@ -25,7 +25,6 @@ import {
   createReadbackRequestId,
   type PropertyReadbackOptions,
   type PropertyReadbackResult,
-  type ReadbackTransport,
   readBeyondProperty,
 } from "./beyondReadback";
 
@@ -36,7 +35,7 @@ export interface ValidationCandidate {
 }
 
 /** Per-root validated state held in the session cache. */
-export interface ValidatedRoot {
+interface ValidatedRoot {
   /** First-observed casing of the root identifier. */
   displayName: string;
   /** Buttons whose `Caption` returned a non-empty string. */
@@ -327,4 +326,4 @@ export async function runValidation(options: RunValidationOptions): Promise<{
 
 // Re-export a transport stub indirection so tests can substitute their own
 // without depending on checkBeyondConnection's transport surface.
-export type { PropertyReadbackResult, ReadbackTransport };
+export type { PropertyReadbackResult };

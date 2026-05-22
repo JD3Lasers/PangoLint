@@ -16,7 +16,7 @@ export interface SearchCommandsInput {
   limit?: number;
 }
 
-export interface SearchHit {
+interface SearchHit {
   canonical: string;
   aliases: string[];
   description: string;

@@ -31,7 +31,7 @@ export interface LookupObjectInput extends ObjectPropertyDetailInput {
 
 export type LookupObjectSource = "canonical-schema" | "object-property-index";
 
-export interface ObjectTreeRootSummary {
+interface ObjectTreeRootSummary {
   root: string;
   propertyCount: number;
   properties: string[];
@@ -47,7 +47,7 @@ export interface ObjectTreeRootSummary {
   lookupHint: string;
 }
 
-export interface LookupObjectData extends KnownObjectSchema {
+interface LookupObjectData extends KnownObjectSchema {
   sources: LookupObjectSource[];
   objectTree?: ObjectTreeRootSummary;
 }

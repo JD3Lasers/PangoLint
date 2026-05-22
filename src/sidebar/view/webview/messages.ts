@@ -9,17 +9,6 @@
 import type { CommandDetail, CommandSummary } from "../../model/types";
 
 /**
- * Filter state the webview owns and reports back so the host doesn't
- * have to mirror it. The host never instantiates this directly; it just
- * receives one in the requestDetail / requestList messages.
- */
-export interface WebviewFilterState {
-  query: string;
-  categories: string[];
-  groupByCategory: boolean;
-}
-
-/**
  * Group rendered when groupByCategory = true. The host returns these
  * pre-grouped so the webview doesn't re-implement the grouping.
  */

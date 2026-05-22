@@ -1,4 +1,4 @@
-export type ParsedLineKind =
+type ParsedLineKind =
   | "blank"
   | "comment"
   | "label"
@@ -10,17 +10,17 @@ export type ParsedLineKind =
   | "if"
   | "blockBoundary";
 
-export interface DeclarationInfo {
+interface DeclarationInfo {
   scope: "var" | "globalvar";
   names: string[];
 }
 
-export interface AssignmentInfo {
+interface AssignmentInfo {
   target: string;
   expression: string;
 }
 
-export interface CommandInfo {
+interface CommandInfo {
   name: string;
   args: string;
 }
@@ -260,10 +260,6 @@ export function parenthesesStatus(code: string): ParenthesesStatus {
   return { balance, prematureClose };
 }
 
-export function parenthesesBalance(code: string): number {
-  return parenthesesStatus(code).balance;
-}
-
 export function splitLeadingLabel(code: string): { label: string; statement: string } | undefined {
   const match = code.match(LABEL_PREFIX_RE);
   if (!match) {
@@ -305,7 +301,7 @@ export function extractBareIdentifiers(code: string): string[] {
   return identifiers;
 }
 
-export function stripTrailingSemicolon(value: string): string {
+function stripTrailingSemicolon(value: string): string {
   return value.replace(/\s*;\s*$/, "").trim();
 }
 

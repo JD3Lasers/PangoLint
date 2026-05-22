@@ -8,11 +8,11 @@
 // evidence) before serialising so the renderer can assume what it sees
 // is end-user-safe.
 
-export type Kind = "command" | "function";
+type Kind = "command" | "function";
 
 export type SidebarSafetyTier = "T0" | "T1" | "T2" | "T3" | "T4" | "unknown";
-export type PublicEvidenceLevel = "documented" | "observed";
-export type CoverageStatus = "mapped" | "no-direct-property" | "deferred" | "unknown";
+type PublicEvidenceLevel = "documented" | "observed";
+type CoverageStatus = "mapped" | "no-direct-property" | "deferred" | "unknown";
 
 export interface ReferenceParameter {
   name: string;
@@ -24,9 +24,9 @@ export interface ReferenceParameter {
   description?: string;
 }
 
-export type ReferenceBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ReferenceBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
 
-export interface ReferenceValueRange {
+interface ReferenceValueRange {
   min?: number;
   max?: number;
   dynamicMax?: ReferenceDynamicBound;
@@ -38,26 +38,26 @@ export interface ReferenceValueRange {
   notes?: string;
 }
 
-export interface ReferenceDynamicBound {
+interface ReferenceDynamicBound {
   expression: string;
   sourcePaths?: string[];
   notes?: string;
 }
 
-export interface ReferenceAcceptedValue {
+interface ReferenceAcceptedValue {
   value: string | number | boolean;
   label?: string;
   description?: string;
 }
 
-export interface ReferenceObjectLocationContext {
+interface ReferenceObjectLocationContext {
   kind?: string;
   populationDependent?: boolean;
   indexBasis?: string;
   notes?: string;
 }
 
-export interface ReferenceObjectValueMetadata {
+interface ReferenceObjectValueMetadata {
   valueType?: string;
   valueRange?: ReferenceValueRange;
   acceptedValues?: ReferenceAcceptedValue[];
@@ -68,7 +68,7 @@ export interface ReferenceObjectValueMetadata {
   locationContext?: ReferenceObjectLocationContext;
 }
 
-export interface ReferenceObjectReadbackMetadata {
+interface ReferenceObjectReadbackMetadata {
   readable: true;
   valueType?: string;
   probePath: string;
@@ -81,7 +81,7 @@ export interface ReferenceObjectReadbackMetadata {
   locationContext?: ReferenceObjectLocationContext;
 }
 
-export interface ReferenceObjectBehaviorClassification {
+interface ReferenceObjectBehaviorClassification {
   accessMode: string;
   behaviorKind: string;
   writeTestStatus: string;
@@ -89,7 +89,7 @@ export interface ReferenceObjectBehaviorClassification {
   evidenceLevel?: PublicEvidenceLevel;
 }
 
-export interface ReferenceObjectProbeContext {
+interface ReferenceObjectProbeContext {
   id: string;
   kind: string;
   label: string;
@@ -105,13 +105,13 @@ export interface ReferenceForm {
   parameters: ReferenceParameter[];
 }
 
-export interface ReferenceCoverage {
+interface ReferenceCoverage {
   status: CoverageStatus;
   setsProperty?: string[];
   notes?: string;
 }
 
-export interface ReferenceOscValueTransform {
+interface ReferenceOscValueTransform {
   kind: string;
   factor?: number;
   amount?: number;
@@ -144,14 +144,14 @@ export interface ReferenceCommand {
   oscRoutes?: ReferenceOscRoute[];
 }
 
-export interface ReferenceCategory {
+interface ReferenceCategory {
   name: string;
   count: number;
   /** Tree order from BEYOND's category tree; lower sorts earlier. */
   order: number;
 }
 
-export interface ReferenceCoverageSummary {
+interface ReferenceCoverageSummary {
   total: number;
   mapped: number;
   noDirectProperty: number;
@@ -159,7 +159,7 @@ export interface ReferenceCoverageSummary {
   unknown: number;
 }
 
-export interface ReferenceMeta {
+interface ReferenceMeta {
   /** ISO timestamp written at build time. */
   generatedAt: string;
   /** Extension version that produced the page. */
@@ -192,7 +192,7 @@ export interface ReferenceObjectProperty {
   propertyCard?: ReferenceObjectPropertyCard;
 }
 
-export interface ReferenceObjectPropertyCard {
+interface ReferenceObjectPropertyCard {
   path: string;
   normalizedPath: string;
   root: string;
@@ -211,7 +211,7 @@ export interface ReferenceObjectPropertyCard {
   };
 }
 
-export interface ReferenceObjectValueSummary {
+interface ReferenceObjectValueSummary {
   valueType?: string;
   range?: {
     min?: number;
@@ -231,7 +231,7 @@ export interface ReferenceObjectValueSummary {
   contextValueMetadataCount?: number;
 }
 
-export interface ReferenceObjectReadbackSummary {
+interface ReferenceObjectReadbackSummary {
   status: string;
   probePath?: string;
   valueType?: string;
@@ -251,7 +251,7 @@ export interface ReferenceObject {
   properties: ReferenceObjectProperty[];
 }
 
-export interface ReferenceUniverseComponentProperty {
+interface ReferenceUniverseComponentProperty {
   path: string;
   leafName: string;
   objectPaths: string[];

@@ -45,7 +45,7 @@ export function renderObjectRouteSummary(routes: ReferenceOscRoute[]): HTMLEleme
   return wrap;
 }
 
-export function formatOscRouteSignature(route: ReferenceOscRoute): string {
+function formatOscRouteSignature(route: ReferenceOscRoute): string {
   const args = route.args.length ? route.args.join(", ") : "no args";
   return `${route.pathPattern} (${args})`;
 }

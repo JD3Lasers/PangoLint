@@ -6,7 +6,7 @@ import type {
   McpPropertyControlParameterRange,
 } from "../../../src/knowledge/mcpKnowledgeExports";
 
-export const PROPERTY_CONTROL_RESPONSE_LIMITS = {
+const PROPERTY_CONTROL_RESPONSE_LIMITS = {
   defaultExampleLimit: 3,
   maxExampleLimit: 8,
 } as const;

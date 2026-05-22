@@ -1,7 +1,7 @@
 import type { ObjectPropertyEntry, ObjectPropertyFxMetadata } from "../../knowledge/objectPropertyIndex";
 import type { FxPropertyGroup } from "./fxMenuData";
 
-export type { FxPropertyGroup, FxSubcategoryEntry, FxTypeEntry } from "./fxMenuData";
+export type { FxPropertyGroup } from "./fxMenuData";
 export { FX_MENU } from "./fxMenuData";
 
 // Strip the location-specific FX.N[.N]* prefix, leaving the relative
@@ -9,28 +9,6 @@ export { FX_MENU } from "./fxMenuData";
 // etc., so the prefix is not meaningful in the effect browser.
 export function fxPathToRelative(path: string): string {
   return `.${path.replace(/^FX(?:\.N)+\./, "")}`;
-}
-
-export function filterFxProperties(group: FxPropertyGroup, allFxPaths: string[]): string[] {
-  switch (group) {
-    case "oscillator":
-      return allFxPaths.filter((p) => p.includes(".Oscillator."));
-    case "keys":
-      return allFxPaths.filter((p) => p.includes(".Keys."));
-    case "router":
-      return allFxPaths.filter(
-        (p) => p.includes("Router") || p.endsWith(".Zone") || p.endsWith(".ZoneMode") || p.endsWith(".Name"),
-      );
-    case "other":
-      return allFxPaths.filter(
-        (p) =>
-          !p.includes(".Keys.") &&
-          !p.includes(".Oscillator.") &&
-          !p.includes("Router") &&
-          !p.endsWith(".Zone") &&
-          !p.endsWith(".ZoneMode"),
-      );
-  }
 }
 
 const FX_TYPE_LAYER: Record<string, number> = {

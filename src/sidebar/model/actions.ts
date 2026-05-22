@@ -41,14 +41,6 @@ export interface RefreshAction {
   payload: Record<string, never>;
 }
 
-export type SidebarAction =
-  | InsertAtCursorAction
-  | CopySignatureAction
-  | OpenReferenceAction
-  | RevealDiagnosticAction
-  | OpenDiagnosticDocsAction
-  | RefreshAction;
-
 export function insertAtCursor(snippet: string): InsertAtCursorAction {
   return { id: SIDEBAR_COMMAND_IDS.insertAtCursor, payload: { snippet } };
 }

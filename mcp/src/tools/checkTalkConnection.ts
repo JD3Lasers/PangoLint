@@ -7,7 +7,7 @@ import {
 import type { McpConfig } from "../config";
 import { fail, ok, type ToolResult } from "../toolResult";
 
-export interface CheckTalkConnectionOutput {
+interface CheckTalkConnectionOutput {
   ok: boolean;
   transport: "tcp";
   talkHost: string;

@@ -3,26 +3,21 @@ import { countArgs } from "../language/parser";
 import type { CommandCatalog, CommandEntry } from "./catalog";
 
 export type EvidenceLevel = "exported" | "documented" | "observed" | "inferred" | "unverified";
-export type Confidence = "high" | "medium" | "low";
+type Confidence = "high" | "medium" | "low";
 export type SafetyTier = "T0" | "T1" | "T2" | "T3" | "T4" | "unknown";
-export type VerificationStatus = "unverified" | "planned" | "observed" | "blocked";
-export type VerificationMethod = "oscOutTTS" | "registerOscFeedback" | "controlledWriteReadback" | "operatorSupervised";
-export type VerificationCleanup =
-  | "none"
-  | "restoreScript"
-  | "prefixRetire"
-  | "beyondRestartOrPrefixRetire"
-  | "operatorReset";
+type VerificationStatus = "unverified" | "planned" | "observed" | "blocked";
+type VerificationMethod = "oscOutTTS" | "registerOscFeedback" | "controlledWriteReadback" | "operatorSupervised";
+type VerificationCleanup = "none" | "restoreScript" | "prefixRetire" | "beyondRestartOrPrefixRetire" | "operatorReset";
 export type PropertyMappingCoverageStatus = "mapped" | "no-direct-property" | "deferred" | "unknown";
-export type ValueBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ValueBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
 
-export interface KnowledgeAcceptedValue {
+interface KnowledgeAcceptedValue {
   value: string | number | boolean;
   label?: string;
   description?: string;
 }
 
-export interface KnowledgeValueRange {
+interface KnowledgeValueRange {
   min?: number;
   max?: number;
   minInclusive?: boolean;
@@ -33,7 +28,7 @@ export interface KnowledgeValueRange {
   notes?: string;
 }
 
-export interface KnowledgeParameter {
+interface KnowledgeParameter {
   name: string;
   type: "number" | "integer" | "float" | "string" | "boolean" | "variadic" | "unknown";
   required: boolean;
@@ -53,7 +48,7 @@ export interface KnowledgeNote {
   text: string;
 }
 
-export interface KnowledgeVerification {
+interface KnowledgeVerification {
   status: VerificationStatus;
   method: VerificationMethod;
   safetyTier: SafetyTier;
@@ -76,7 +71,7 @@ export interface PropertyMappingProbe {
   notes?: string;
 }
 
-export interface PropertyMappingCoverage {
+interface PropertyMappingCoverage {
   status: PropertyMappingCoverageStatus;
   evidenceLevel?: EvidenceLevel;
   safetyTier?: SafetyTier;

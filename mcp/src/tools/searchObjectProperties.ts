@@ -17,7 +17,7 @@ export interface SearchObjectPropertiesInput extends ObjectPropertyDetailInput {
   limit?: number;
 }
 
-export interface ObjectPropertyHit extends ObjectPropertyCard {
+interface ObjectPropertyHit extends ObjectPropertyCard {
   score: number;
   matchedTerms: string[];
 }

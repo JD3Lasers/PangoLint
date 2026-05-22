@@ -37,7 +37,7 @@ export function el<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
-export function applyAttrs(node: HTMLElement, attrs: Attrs): void {
+function applyAttrs(node: HTMLElement, attrs: Attrs): void {
   for (const [key, value] of Object.entries(attrs)) {
     if (value === undefined || value === null || value === false) continue;
     if (key === "className") {
@@ -58,7 +58,7 @@ export function applyAttrs(node: HTMLElement, attrs: Attrs): void {
   }
 }
 
-export function appendChildren(node: HTMLElement, children: Child[]): void {
+function appendChildren(node: HTMLElement, children: Child[]): void {
   for (const child of children) {
     if (child === null || child === undefined || child === false) continue;
     if (Array.isArray(child)) {

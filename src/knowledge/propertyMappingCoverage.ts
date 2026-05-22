@@ -5,7 +5,7 @@ import type {
   PropertyMappingProbe,
 } from "./knowledgeBase";
 
-export interface CommandPropertyCoverageEntry {
+interface CommandPropertyCoverageEntry {
   canonical: string;
   category: string;
   status: PropertyMappingCoverageStatus;

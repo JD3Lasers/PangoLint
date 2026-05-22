@@ -21,6 +21,8 @@ Repo housekeeping commands:
   dependency-cruiser.
 - `npm run graph:imports`: emit a Mermaid import graph from dependency-cruiser.
 - `npm run audit:unused`: report unused files, exports, and package
-  dependencies with knip. Unused export and type findings are warnings while
-  the first cleanup issues are triaged. This audit is intentionally separate
-  from `npm run check` until its signal stays stable across cleanup work.
+  dependencies with knip. The package surface policy CJS module has a narrow
+  export exception because its named policy groups are consumed through dynamic
+  package verification scripts and repo policy tests. This audit is
+  intentionally separate from `npm run check` until its signal stays stable
+  across cleanup work.

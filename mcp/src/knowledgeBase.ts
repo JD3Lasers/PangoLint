@@ -76,7 +76,7 @@ export function resolveDataDir(env: NodeJS.ProcessEnv = process.env): string {
   return candidates[candidates.length - 1];
 }
 
-export function buildKnowledgeByName(kb: PangoKnowledgeBase): Map<string, CommandKnowledgeEntry> {
+function buildKnowledgeByName(kb: PangoKnowledgeBase): Map<string, CommandKnowledgeEntry> {
   const map = new Map<string, CommandKnowledgeEntry>();
   for (const entry of Object.values(kb.commands)) {
     map.set(entry.canonical.toLowerCase(), entry);

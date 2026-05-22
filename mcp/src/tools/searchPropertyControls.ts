@@ -14,7 +14,7 @@ export interface SearchPropertyControlsInput extends PropertyControlDetailInput 
   limit?: number;
 }
 
-export interface PropertyControlSearchHit extends PropertyControlCard {
+interface PropertyControlSearchHit extends PropertyControlCard {
   score: number;
   matchedTerms: string[];
 }

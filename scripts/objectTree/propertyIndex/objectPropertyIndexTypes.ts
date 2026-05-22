@@ -31,7 +31,7 @@ export interface CacheObjectTree {
   fxLabels?: FxEffectLabelFile;
 }
 
-export interface FxEffectLabelFile {
+interface FxEffectLabelFile {
   cells?: Record<
     string,
     {
@@ -153,7 +153,7 @@ export interface CommandRangeCommand {
   setsProperty?: string[];
 }
 
-export interface CommandRangeForm {
+interface CommandRangeForm {
   parameters?: CommandRangeParameter[];
 }
 

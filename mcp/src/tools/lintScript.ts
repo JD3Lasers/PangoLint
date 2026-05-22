@@ -20,7 +20,7 @@ export interface LintScriptInput {
   text: string;
 }
 
-export interface LintScriptOutput {
+interface LintScriptOutput {
   diagnostics: PangoDiagnostic[];
   errorCount: number;
   warningCount: number;
