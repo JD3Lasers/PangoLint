@@ -137,7 +137,17 @@ const expectedReferenceSubfolders: Record<string, string[]> = {
 const expectedRuntimeSubfolders: Record<string, string[]> = {
   commandBatch: ["lintGate.ts", "objectValueAssignment.ts", "runScript.ts", "runScriptWithOscCapture.ts"],
   osc: ["osc.ts", "oscCapture.ts", "oscPortLock.ts"],
-  readback: ["beyondReadback.ts", "validateObjects.ts"],
+  readback: [
+    "beyondReadback.ts",
+    "nodeReadbackTransport.ts",
+    "readbackOscCallbacks.ts",
+    "readbackPropertyPath.ts",
+    "readbackRequestId.ts",
+    "readbackScriptLines.ts",
+    "readbackTalk.ts",
+    "readbackTypes.ts",
+    "validateObjects.ts",
+  ],
   talk: ["talkTcp.ts", "talkUdp.ts"],
   vscode: ["runtimeCommands.ts", "validationCommands.ts"],
 };
@@ -230,6 +240,14 @@ const expectedKnowledgeDataTestFiles = [
 ];
 
 const expectedObjectValueMetadataTestFiles = ["cue-and-zone.test.ts", "device.test.ts"];
+
+const expectedRuntimeReadbackTestFiles = [
+  "beyondConnection.test.ts",
+  "nodeReadbackTransport.test.ts",
+  "readBeyondProperty.test.ts",
+  "readbackRequest.test.ts",
+  "verifyCommandWrite.test.ts",
+];
 
 const expectedKnowledgeFixtureFiles = ["objectMetadataPathGroups.ts"];
 
@@ -421,5 +439,14 @@ describe("test layout", () => {
     expect(existsSync(path.join(knowledgePath, "objectValueMetadataDeviceData.test.ts"))).toBe(false);
     expect(readdirSync(fixturePath).sort()).toEqual(expectedKnowledgeFixtureFiles);
     expect(existsSync(path.join(knowledgePath, "knowledgeBaseData.test.ts"))).toBe(false);
+  });
+
+  it("keeps runtime readback tests split by public behavior", () => {
+    const runtimePath = path.join(testsRoot, "runtime");
+    const readbackPath = path.join(runtimePath, "readback");
+
+    expect(readdirSync(readbackPath).sort()).toEqual(expectedRuntimeReadbackTestFiles);
+    expect(existsSync(path.join(runtimePath, "beyondReadback.test.ts"))).toBe(false);
+    expect(existsSync(path.join(runtimePath, "beyondReadbackTransport.test.ts"))).toBe(false);
   });
 });
