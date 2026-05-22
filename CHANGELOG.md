@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.19] - 2026-05-22
+
+### Changed
+
+- Make the unused-code audit fail on unused exports and exported types after
+  reducing the existing warning inventory.
+- Remove unnecessary public TypeScript export surface from MCP tools,
+  knowledge helpers, runtime modules, reference bundle modules, sidebar modules,
+  and test data helpers.
+
 ## [0.7.18] - 2026-05-22
 
 ### Changed

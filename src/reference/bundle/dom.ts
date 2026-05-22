@@ -1,7 +1,7 @@
 // Tiny DOM helpers - keeps the bundle dependency-free while still
 // letting render code stay declarative.
 
-export type AttrValue = string | number | boolean | null | undefined;
+type AttrValue = string | number | boolean | null | undefined;
 
 export interface ElOptions {
   className?: string;

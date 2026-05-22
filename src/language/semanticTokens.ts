@@ -24,7 +24,7 @@ export const TOKEN_TYPES = [
   "class", // registered object roots (Master, Zone, registered universes …)
 ] as const;
 
-export type TokenType = (typeof TOKEN_TYPES)[number];
+type TokenType = (typeof TOKEN_TYPES)[number];
 
 /**
  * Token modifiers contributed by PangoLint.
@@ -34,7 +34,7 @@ export type TokenType = (typeof TOKEN_TYPES)[number];
  */
 export const TOKEN_MODIFIERS = ["declaration", "defaultLibrary", "modification"] as const;
 
-export type TokenModifier = (typeof TOKEN_MODIFIERS)[number];
+type TokenModifier = (typeof TOKEN_MODIFIERS)[number];
 
 const TYPE_INDEX = new Map<TokenType, number>(TOKEN_TYPES.map((name, idx) => [name, idx]));
 const MODIFIER_BIT = new Map<TokenModifier, number>(TOKEN_MODIFIERS.map((name, idx) => [name, 1 << idx]));

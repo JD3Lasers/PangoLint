@@ -4,7 +4,7 @@ export const repoRoot =
   path.basename(__dirname) === "propertyIndex"
     ? path.resolve(__dirname, "..", "..", "..")
     : path.resolve(__dirname, "..");
-export const objectPathSourceFactsRelativePath = "data/pangoscript/object-tree/source-facts/object-paths.json";
+const objectPathSourceFactsRelativePath = "data/pangoscript/object-tree/source-facts/object-paths.json";
 
 export function objectPropertyIndexPaths(root = repoRoot) {
   const objectTreeSourceFactsPath = path.join(root, "data", "pangoscript", "object-tree", "source-facts");

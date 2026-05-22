@@ -7,14 +7,14 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-export interface BeyondCategoryTreeItem {
+interface BeyondCategoryTreeItem {
   label: string;
   canonical?: string;
   primary?: boolean;
   crossref?: boolean;
 }
 
-export interface BeyondCategoryTreeNode {
+interface BeyondCategoryTreeNode {
   name: string;
   order: number;
   items: BeyondCategoryTreeItem[];
@@ -83,7 +83,7 @@ export function loadCategoryTree(jsonPath: string): BeyondCategoryTree {
  * The set of legal category names (string-equal to a tree category name).
  * Used by overlay/doc validation to reject misspelled categories.
  */
-export function categoryNames(tree: BeyondCategoryTree): Set<string> {
+function categoryNames(tree: BeyondCategoryTree): Set<string> {
   return new Set(tree.categories.map((c) => c.name));
 }
 

@@ -5,14 +5,14 @@
 
 export type FxPropertyGroup = "oscillator" | "keys" | "router" | "other";
 
-export interface FxTypeEntry {
+interface FxTypeEntry {
   readonly label: string;
   readonly group: FxPropertyGroup;
   readonly subcategories?: readonly FxSubcategoryEntry[];
   readonly effects?: readonly string[];
 }
 
-export interface FxSubcategoryEntry {
+interface FxSubcategoryEntry {
   readonly label: string;
   readonly effects: readonly string[];
 }

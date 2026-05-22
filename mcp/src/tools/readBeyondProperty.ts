@@ -22,7 +22,7 @@ export interface ReadBeyondPropertyInput {
   typeTag?: "f" | "i" | "s";
 }
 
-export interface ReadBeyondPropertyOutput {
+interface ReadBeyondPropertyOutput {
   ok: boolean;
   path: string;
   requestId: string;

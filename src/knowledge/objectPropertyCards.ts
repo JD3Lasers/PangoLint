@@ -32,7 +32,7 @@ export interface ResolvedObjectPropertyDetailOptions {
   contextValueLimit: number;
 }
 
-export interface ObjectPropertyValueSummary {
+interface ObjectPropertyValueSummary {
   valueType?: string;
   range?: {
     min?: number;
@@ -52,7 +52,7 @@ export interface ObjectPropertyValueSummary {
   contextValueMetadataCount?: number;
 }
 
-export interface ObjectPropertyReadbackSummary {
+interface ObjectPropertyReadbackSummary {
   status: string;
   probePath?: string;
   valueType?: string;

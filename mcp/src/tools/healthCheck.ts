@@ -15,7 +15,7 @@ import { lookup } from "node:dns/promises";
 import type { McpConfig } from "../config";
 import { fail, ok, type ToolResult } from "../toolResult";
 
-export interface HealthCheckOutput {
+interface HealthCheckOutput {
   reachable: boolean;
   host: string;
   port: number;

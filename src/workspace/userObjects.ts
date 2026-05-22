@@ -23,7 +23,7 @@ import path from "node:path";
 
 export type UserObjectKind = "universe" | "zoneAlias" | "masterAlias";
 
-export interface UserObjectEntry {
+interface UserObjectEntry {
   /** Categorization chosen by the user when adding via code action. */
   kind: UserObjectKind;
   /** ISO timestamp of when this entry was added. */

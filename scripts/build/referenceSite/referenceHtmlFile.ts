@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import type { OutCatalog } from "./referenceCatalogTypes";
 import { REFERENCE_SITE_ROOT } from "./referenceInputFiles";
 
-export const REFERENCE_HTML_PATH = resolve(REFERENCE_SITE_ROOT, "media/reference/pangoscript-reference.html");
+const REFERENCE_HTML_PATH = resolve(REFERENCE_SITE_ROOT, "media/reference/pangoscript-reference.html");
 
 function escapeForScriptTag(json: string): string {
   return json.replace(/<\//g, "<\\/");

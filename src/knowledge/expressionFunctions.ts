@@ -183,7 +183,7 @@ export const EXPRESSION_FUNCTIONS: ExpressionFunctionEntry[] = [
   },
 ];
 
-export function buildExpressionFunctionMap(
+function buildExpressionFunctionMap(
   functions: readonly ExpressionFunctionEntry[] = EXPRESSION_FUNCTIONS,
 ): Map<string, ExpressionFunctionEntry> {
   const map = new Map<string, ExpressionFunctionEntry>();

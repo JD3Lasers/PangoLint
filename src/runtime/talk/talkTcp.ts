@@ -1,7 +1,7 @@
 import net from "node:net";
 
-export type TalkTcpReplyStatus = "ok" | "error" | "output" | "echo" | "timeout" | "closed";
-export type TalkTcpStatus = "ok" | "error" | "timeout" | "closed";
+type TalkTcpReplyStatus = "ok" | "error" | "output" | "echo" | "timeout" | "closed";
+type TalkTcpStatus = "ok" | "error" | "timeout" | "closed";
 
 export interface TalkTcpReply {
   lineNumber?: number;
@@ -11,7 +11,7 @@ export interface TalkTcpReply {
   redacted: boolean;
 }
 
-export interface BeyondTalkError {
+interface BeyondTalkError {
   lineNumber?: number;
   message: string;
   replyLine: string;
@@ -30,7 +30,7 @@ export interface ParseTalkTcpReplyResult {
   beyondError?: BeyondTalkError;
 }
 
-export interface TalkTcpConnection {
+interface TalkTcpConnection {
   greeting?: string;
   sendLine(line: string, timeoutMs: number, onLineWritten?: () => void): Promise<string[]>;
   close(): void;
@@ -201,7 +201,7 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
   }
 }
 
-export async function openTalkTcpConnection(options: {
+async function openTalkTcpConnection(options: {
   host: string;
   port: number;
   timeoutMs: number;

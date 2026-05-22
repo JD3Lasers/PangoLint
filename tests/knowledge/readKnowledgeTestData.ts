@@ -8,14 +8,14 @@ export function readJson<T>(fileName: string): T {
   return JSON.parse(readFileSync(path.join(dataDir, runtimeIndexPath(fileName)), "utf8")) as T;
 }
 
-export function runtimeIndexPath(fileName: string): string {
+function runtimeIndexPath(fileName: string): string {
   if (fileName === "known-properties.json" || fileName === "object-property-index.json") {
     return path.join("object-tree", "runtime-indexes", fileName);
   }
   return objectTreeSourceFactPath(fileName);
 }
 
-export function objectTreeSourceFactPath(fileName: string): string {
+function objectTreeSourceFactPath(fileName: string): string {
   if (fileName === "object-range-evidence.schema.json") {
     return path.join("object-tree", "evidence", "value.schema.json");
   }
@@ -100,7 +100,7 @@ export function readObjectPropertyRangeOverlayFiles(): Array<{
   }));
 }
 
-export function objectPropertyRangeOverlayPaths(directoryPath: string): string[] {
+function objectPropertyRangeOverlayPaths(directoryPath: string): string[] {
   if (!existsSync(directoryPath)) return [];
   return readdirSync(directoryPath, { withFileTypes: true })
     .flatMap((entry) => {
@@ -128,7 +128,7 @@ export function readObjectPropertyReadbackOverlayFiles(): Array<{
   }));
 }
 
-export function objectPropertyReadbackOverlayPaths(directoryPath: string): string[] {
+function objectPropertyReadbackOverlayPaths(directoryPath: string): string[] {
   if (!existsSync(directoryPath)) return [];
   return readdirSync(directoryPath, { withFileTypes: true })
     .flatMap((entry) => {
@@ -156,7 +156,7 @@ export function readObjectPropertyClassificationOverlayFiles(): Array<{
   }));
 }
 
-export function objectPropertyClassificationOverlayPaths(directoryPath: string): string[] {
+function objectPropertyClassificationOverlayPaths(directoryPath: string): string[] {
   if (!existsSync(directoryPath)) return [];
   return readdirSync(directoryPath, { withFileTypes: true })
     .flatMap((entry) => {
@@ -178,7 +178,7 @@ export function readObjectReadbackEvidenceFiles(): Array<{
   }));
 }
 
-export function objectReadbackEvidencePaths(directoryPath: string): string[] {
+function objectReadbackEvidencePaths(directoryPath: string): string[] {
   if (!existsSync(directoryPath)) return [];
   return readdirSync(directoryPath, { withFileTypes: true })
     .flatMap((entry) => {
@@ -264,7 +264,7 @@ export interface ObjectReadbackEvidenceReport {
   entries: ObjectReadbackEvidenceEntry[];
 }
 
-export interface ObjectReadbackEvidenceEntry {
+interface ObjectReadbackEvidenceEntry {
   objectPath: string;
   probePath: string;
   probeMode: "readback-only";
@@ -507,7 +507,7 @@ export function findForbiddenDescriptionClaims(value: unknown, prefix = "$", key
   );
 }
 
-export function stripNegativeVerificationWording(value: string): string {
+function stripNegativeVerificationWording(value: string): string {
   return value
     .replace(/\bunverified\b/gi, "")
     .replace(/\bnot verified\b/gi, "")

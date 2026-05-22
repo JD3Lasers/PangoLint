@@ -10,8 +10,8 @@
 
 import { EXTENSION_COMMAND_IDS } from "../../extensionHost/extensionIds";
 
-export type SidebarSafetyTier = "T0" | "T1" | "T2" | "T3" | "T4" | "unknown";
-export type SidebarEvidenceLevel = "exported" | "documented" | "observed" | "inferred" | "unverified";
+type SidebarSafetyTier = "T0" | "T1" | "T2" | "T3" | "T4" | "unknown";
+type SidebarEvidenceLevel = "exported" | "documented" | "observed" | "inferred" | "unverified";
 
 export interface CommandSummary {
   canonical: string;
@@ -52,9 +52,9 @@ export interface ParameterDetail {
   description?: string;
 }
 
-export type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
 
-export interface ParameterValueRange {
+interface ParameterValueRange {
   min?: number;
   max?: number;
   minInclusive?: boolean;
@@ -65,7 +65,7 @@ export interface ParameterValueRange {
   notes?: string;
 }
 
-export interface ParameterAcceptedValue {
+interface ParameterAcceptedValue {
   value: string | number | boolean;
   label?: string;
   description?: string;

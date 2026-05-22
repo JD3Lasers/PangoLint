@@ -4,7 +4,7 @@ import type { OscMessage } from "./osc";
 import { decodeOscPacket, sourceMatchesExpectedHost } from "./osc";
 import { acquireOscPortLock } from "./oscPortLock";
 
-export interface OscCaptureOptions {
+interface OscCaptureOptions {
   listenHost: string;
   listenPort: number;
   timeoutMs: number;

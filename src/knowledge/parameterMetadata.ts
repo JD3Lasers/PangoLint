@@ -1,12 +1,12 @@
-export type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
 
-export interface ParameterAcceptedValue {
+interface ParameterAcceptedValue {
   value: string | number | boolean;
   label?: string;
   description?: string;
 }
 
-export interface ParameterValueRange {
+interface ParameterValueRange {
   min?: number;
   max?: number;
   minInclusive?: boolean;

@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-
 export interface CommandEntry {
   canonical: string;
   aliases: string[];
@@ -49,10 +47,6 @@ export function parseCommandCatalog(text: string): CommandCatalog {
   }
 
   return { commands, byName };
-}
-
-export function loadCommandCatalog(path: string): CommandCatalog {
-  return parseCommandCatalog(readFileSync(path, "utf8"));
 }
 
 export function lookupCommand(catalog: CommandCatalog, name: string): CommandEntry | undefined {

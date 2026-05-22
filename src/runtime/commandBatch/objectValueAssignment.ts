@@ -1,4 +1,4 @@
-export type ObjectValueTypeTag = "f" | "s";
+type ObjectValueTypeTag = "f" | "s";
 
 export interface ObjectValueAssignment {
   command: string;

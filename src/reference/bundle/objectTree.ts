@@ -602,10 +602,6 @@ export function filterObjectPropertySections(
   return filtered;
 }
 
-export function countObjectPropertyRows(sections: ObjectPropertySection[]): number {
-  return sections.reduce((total, section) => total + section.properties.length, 0);
-}
-
 export function filterObjectTree(nodes: ObjectTreeNode[], query: string): ObjectTreeNode[] {
   const normalizedQuery = query.trim().toLowerCase();
   if (!normalizedQuery) return nodes;

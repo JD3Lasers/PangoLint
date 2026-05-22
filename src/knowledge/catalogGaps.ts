@@ -20,7 +20,7 @@ export interface CommandUsage {
   arities: Map<number, number>;
 }
 
-export interface CommandGap {
+interface CommandGap {
   canonical: string;
   description: string;
   signature: string;
@@ -44,14 +44,14 @@ export interface GapInput {
   corpusFileCount: number;
 }
 
-export interface GapSummary {
+interface GapSummary {
   missingParameters: GapBucket;
   emptyDescriptions: GapBucket;
   terseDescriptions: GapBucket;
   unknownSafety: GapBucket;
 }
 
-export interface GapBucket {
+interface GapBucket {
   total: number;
   withCorpusUses: number;
 }

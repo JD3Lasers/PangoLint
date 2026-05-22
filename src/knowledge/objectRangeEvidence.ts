@@ -1,32 +1,12 @@
-export const objectRangeEvidenceBoundaryBehaviors = [
-  "clamp",
-  "reject",
-  "no-op",
-  "wrap",
-  "pass-through",
-  "unknown",
-] as const;
-export const objectRangeEvidenceLevels = ["documented", "observed", "inferred", "unverified"] as const;
-export const objectRangeEvidenceProbeModes = [
+const objectRangeEvidenceBoundaryBehaviors = ["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"] as const;
+const objectRangeEvidenceLevels = ["documented", "observed", "inferred", "unverified"] as const;
+const objectRangeEvidenceProbeModes = [
   "readback-only",
   "write-readback",
   "command-readback",
   "command-write-readback",
 ] as const;
-export const objectRangeEvidenceValueTypes = [
-  "number",
-  "integer",
-  "float",
-  "string",
-  "boolean",
-  "enum",
-  "unknown",
-] as const;
-
-type BoundaryBehavior = (typeof objectRangeEvidenceBoundaryBehaviors)[number];
-type EvidenceLevel = (typeof objectRangeEvidenceLevels)[number];
-type ProbeMode = (typeof objectRangeEvidenceProbeModes)[number];
-type ValueType = (typeof objectRangeEvidenceValueTypes)[number];
+const objectRangeEvidenceValueTypes = ["number", "integer", "float", "string", "boolean", "enum", "unknown"] as const;
 
 const objectRangeEvidenceReportKeys = ["schemaVersion", "runtime", "parentIssue", "batchIssue", "entries"] as const;
 const objectRangeEvidenceRuntimeKeys = [
@@ -61,71 +41,6 @@ const objectRangeEvidenceAcceptedValueKeys = ["value", "label", "description"] a
 const objectRangeEvidenceTestedValueKeys = ["input", "command", "readback", "behavior"] as const;
 const objectRangeEvidenceRestoreKeys = ["strategy", "restoredValue", "notes"] as const;
 const objectRangeEvidenceLocationContextKeys = ["kind", "populationDependent", "concreteContext", "notes"] as const;
-
-export interface ObjectRangeEvidenceReport {
-  schemaVersion: 1;
-  runtime: {
-    observedAt: string;
-    beyondVersion?: string;
-    operatorSupervised: boolean;
-    noLaserConnected?: boolean;
-    notes?: string;
-  };
-  parentIssue?: number;
-  batchIssue?: number;
-  entries: ObjectRangeEvidenceEntry[];
-}
-
-export interface ObjectRangeEvidenceEntry {
-  objectPath: string;
-  probePath: string;
-  probeMode: ProbeMode;
-  shipsMetadata: boolean;
-  valueType: ValueType;
-  evidenceLevel: EvidenceLevel;
-  boundaryBehavior?: BoundaryBehavior;
-  baseline: {
-    value: string | number | boolean | null;
-    typeTag?: "f" | "i" | "s";
-  };
-  valueRange?: {
-    min?: number;
-    max?: number;
-    dynamicMax?: {
-      expression: string;
-      sourcePaths?: string[];
-      notes?: string;
-    };
-    unit?: string;
-    minInclusive?: boolean;
-    maxInclusive?: boolean;
-  };
-  acceptedValues?: Array<{
-    value: string | number | boolean;
-    label?: string;
-    description?: string;
-  }>;
-  testedValues: Array<{
-    input?: string | number | boolean;
-    command?: string;
-    readback: string | number | boolean | null;
-    behavior: BoundaryBehavior;
-  }>;
-  restore: {
-    strategy: "not-needed" | "restored-baseline" | "command-restore" | "manual-restore" | "prefix-retired";
-    restoredValue?: string | number | boolean | null;
-    notes: string;
-  };
-  evidenceNote: string;
-  deferReason?: string;
-  locationAware: boolean;
-  locationContext?: {
-    kind: "indexed-root" | "workspace-slot" | "quickfx-slot" | "showfile-alias" | "hardware-instance";
-    populationDependent?: boolean;
-    concreteContext?: string;
-    notes?: string;
-  };
-}
 
 export function validateObjectRangeEvidenceReport(report: unknown): string[] {
   const errors: string[] = [];

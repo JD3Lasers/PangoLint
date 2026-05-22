@@ -7,19 +7,19 @@ import path from "node:path";
 import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundledDataPaths";
 
 export type ObjectPropertyKind = "object" | "fx";
-export type ObjectPropertyConfidence = "observed" | "inferred" | "unverified";
-export type ObjectPropertyValueType = "number" | "integer" | "float" | "string" | "boolean" | "enum" | "unknown";
-export type ObjectPropertyBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ObjectPropertyConfidence = "observed" | "inferred" | "unverified";
+type ObjectPropertyValueType = "number" | "integer" | "float" | "string" | "boolean" | "enum" | "unknown";
+type ObjectPropertyBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
 export type ObjectPropertyValueEvidence = "documented" | "observed" | "inferred" | "unverified";
-export type ObjectPropertyProbeContextKind = "cue-type" | "cue-shape" | "quickfx-cell" | "quickfx-effect";
-export type ObjectPropertyLocationKind =
+type ObjectPropertyProbeContextKind = "cue-type" | "cue-shape" | "quickfx-cell" | "quickfx-effect";
+type ObjectPropertyLocationKind =
   | "indexed-root"
   | "workspace-slot"
   | "quickfx-slot"
   | "showfile-alias"
   | "hardware-instance";
-export type ObjectPropertyAccessMode = "read-write" | "read-only" | "write-only" | "read-mostly" | "unknown";
-export type ObjectPropertyBehaviorKind =
+type ObjectPropertyAccessMode = "read-write" | "read-only" | "write-only" | "read-mostly" | "unknown";
+type ObjectPropertyBehaviorKind =
   | "state-value"
   | "flag-state"
   | "momentary-action"
@@ -29,7 +29,7 @@ export type ObjectPropertyBehaviorKind =
   | "alias-status"
   | "fixture-dependent"
   | "unknown";
-export type ObjectPropertyWriteTestStatus =
+type ObjectPropertyWriteTestStatus =
   | "not-tested"
   | "write-readback-tested"
   | "command-readback-tested"
@@ -38,13 +38,13 @@ export type ObjectPropertyWriteTestStatus =
   | "documented-writable"
   | "documented-read-only"
   | "not-applicable";
-export type ObjectPropertyReadbackStatus =
+type ObjectPropertyReadbackStatus =
   | "not-tested"
   | "readback-tested"
   | "readback-not-available"
   | "documented-readable"
   | "not-applicable";
-export type ObjectPropertyBehaviorEvidence = "documented" | "observed" | "inferred" | "unverified";
+type ObjectPropertyBehaviorEvidence = "documented" | "observed" | "inferred" | "unverified";
 
 export interface ObjectPropertyValueRange {
   min?: number;
@@ -58,7 +58,7 @@ export interface ObjectPropertyValueRange {
   notes?: string;
 }
 
-export interface ObjectPropertyDynamicBound {
+interface ObjectPropertyDynamicBound {
   expression: string;
   sourcePaths?: string[];
   notes?: string;
@@ -70,7 +70,7 @@ export interface ObjectPropertyAcceptedValue {
   description?: string;
 }
 
-export interface ObjectPropertyLocationContext {
+interface ObjectPropertyLocationContext {
   kind: ObjectPropertyLocationKind;
   populationDependent?: boolean;
   indexBasis?: string;
@@ -141,7 +141,7 @@ export interface ObjectPropertyFxMetadata {
   channel?: string;
 }
 
-export type ObjectPropertyAddressMode = "user-configured-name";
+type ObjectPropertyAddressMode = "user-configured-name";
 
 export interface ObjectPropertyAddressMetadata {
   mode: ObjectPropertyAddressMode;
@@ -195,14 +195,14 @@ export interface ObjectPropertyIndexFile {
   entries: ObjectPropertyEntry[];
 }
 
-export interface ObjectPropertySearchInput {
+interface ObjectPropertySearchInput {
   query: string;
   root?: string;
   kind?: ObjectPropertyKind;
   limit?: number;
 }
 
-export interface ObjectPropertySearchHit {
+interface ObjectPropertySearchHit {
   entry: ObjectPropertyEntry;
   score: number;
   matchedTerms: string[];
