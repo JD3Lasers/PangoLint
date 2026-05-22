@@ -1,9 +1,34 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { DEFAULT_BEYOND_RUNTIME_CONFIG, getBeyondRuntimeConfig } from "../../src/runtime/runtimeConfig";
+import * as runtimeConfig from "../../src/runtime/runtimeConfig";
+
+const { DEFAULT_BEYOND_RUNTIME_CONFIG, DEFAULT_BEYOND_SETTING_VALUES, getBeyondRuntimeConfig } = runtimeConfig;
 
 describe("BEYOND runtime configuration defaults", () => {
+  it("keeps all BEYOND setting defaults in source constants", () => {
+    const packageJson = JSON.parse(readFileSync(path.join(process.cwd(), "package.json"), "utf8"));
+    const properties = packageJson.contributes.configuration.properties;
+
+    expect(DEFAULT_BEYOND_SETTING_VALUES).toEqual({
+      talkTransport: properties["pangolint.beyond.talkTransport"].default,
+      talkHost: properties["pangolint.beyond.talkHost"].default,
+      talkPort: properties["pangolint.beyond.talkPort"].default,
+      talkTcpHost: properties["pangolint.beyond.talkTcpHost"].default,
+      talkTcpPort: properties["pangolint.beyond.talkTcpPort"].default,
+      talkUdpHost: properties["pangolint.beyond.talkUdpHost"].default,
+      talkUdpPort: properties["pangolint.beyond.talkUdpPort"].default,
+      talkUdpFallbackAllowed: properties["pangolint.beyond.talkUdpFallbackAllowed"].default,
+      talkTcpPassword: properties["pangolint.beyond.talkTcpPassword"].default,
+      oscListenHost: properties["pangolint.beyond.oscListenHost"].default,
+      oscListenPort: properties["pangolint.beyond.oscListenPort"].default,
+      readbackTimeoutMs: properties["pangolint.beyond.readbackTimeoutMs"].default,
+      allowScriptExecution: properties["pangolint.beyond.allowScriptExecution"].default,
+      confirmRunEachSession: properties["pangolint.beyond.confirmRunEachSession"].default,
+      liveHoverValues: properties["pangolint.beyond.liveHoverValues"].default,
+    });
+  });
+
   it("matches the VS Code manifest defaults", () => {
     const packageJson = JSON.parse(readFileSync(path.join(process.cwd(), "package.json"), "utf8"));
     const properties = packageJson.contributes.configuration.properties;

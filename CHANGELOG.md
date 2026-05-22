@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.12] - 2026-05-22
+
+### Changed
+
+- Add source constants for full VS Code setting IDs and BEYOND runtime setting
+  defaults so package manifest contributions can be checked for drift.
+- Expand repo policy tests to compare manifest command IDs, view IDs, setting
+  IDs, and runtime defaults against source constants.
+
 ## [0.7.11] - 2026-05-22
 
 ### Changed
@@ -290,7 +299,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.12...HEAD
+[0.7.12]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.11...v0.7.12
 [0.7.11]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.10...v0.7.11
 [0.7.10]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.9...v0.7.10
 [0.7.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.8...v0.7.9

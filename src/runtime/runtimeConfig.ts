@@ -35,6 +35,24 @@ export const DEFAULT_BEYOND_RUNTIME_CONFIG: BeyondRuntimeConfig = {
   timeoutMs: 3000,
 };
 
+export const DEFAULT_BEYOND_SETTING_VALUES = {
+  talkTransport: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTransport,
+  talkHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkHost,
+  talkPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkPort,
+  talkTcpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpHost,
+  talkTcpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPort,
+  talkUdpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpHost,
+  talkUdpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpPort,
+  talkUdpFallbackAllowed: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
+  talkTcpPassword: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPassword,
+  oscListenHost: DEFAULT_BEYOND_RUNTIME_CONFIG.listenHost,
+  oscListenPort: DEFAULT_BEYOND_RUNTIME_CONFIG.listenPort,
+  readbackTimeoutMs: DEFAULT_BEYOND_RUNTIME_CONFIG.timeoutMs,
+  allowScriptExecution: false,
+  confirmRunEachSession: true,
+  liveHoverValues: false,
+} as const;
+
 export function getBeyondRuntimeConfig(config: RuntimeWorkspaceConfiguration): BeyondRuntimeConfig {
   const legacyTalkHost = config.get(EXTENSION_SETTING_KEYS.talkHost, DEFAULT_BEYOND_RUNTIME_CONFIG.talkHost);
   const legacyTalkPort = config.get(EXTENSION_SETTING_KEYS.talkPort, DEFAULT_BEYOND_RUNTIME_CONFIG.talkPort);
