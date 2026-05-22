@@ -4,15 +4,49 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 import { findPublicArtifactLeaks, findPublicArtifactPathLeaks } from "../../scripts/publicArtifactPolicy";
+import { REFERENCE_SITE_PATH } from "../../src/extensionHost/packagePaths";
+import { BUNDLED_PANGOSCRIPT_DATA_PATHS } from "../../src/knowledge/bundledDataPaths";
 
 const repoRoot = process.cwd();
 const packageSurfacePolicy = require("../../scripts/packageSurfacePolicy.cjs") as {
   allowedMcpDataPaths: Set<string>;
+  allowedMcpDataDirectoryPrefixes: string[];
+  expectedVsixPackagePaths: string[];
   findForbiddenMcpPackagePathLabels: (relativePath: string) => string[];
   forbiddenVsixDataPrefixes: string[];
+  mcpAssetDirectories: string[];
+  mcpAssetFiles: string[];
+  packageSurfacePathGroups: {
+    mcpAllowedDataFiles: string[];
+    mcpAllowedDataDirectoryPrefixes: string[];
+    mcpAssetDirectories: string[];
+    mcpAssetFiles: string[];
+    requiredMcpPackageFiles: string[];
+    vsixPackageFiles: string[];
+  };
+  requiredMcpPackagePaths: string[];
 };
 
 describe("public package path policy", () => {
+  it("derives shipped package paths from named package surface groups", () => {
+    const groups = packageSurfacePolicy.packageSurfacePathGroups;
+
+    expect(packageSurfacePolicy.allowedMcpDataPaths).toEqual(new Set(groups.mcpAllowedDataFiles));
+    expect(packageSurfacePolicy.allowedMcpDataDirectoryPrefixes).toEqual(groups.mcpAllowedDataDirectoryPrefixes);
+    expect(packageSurfacePolicy.mcpAssetDirectories).toBe(groups.mcpAssetDirectories);
+    expect(packageSurfacePolicy.mcpAssetFiles).toBe(groups.mcpAssetFiles);
+    expect(packageSurfacePolicy.requiredMcpPackagePaths).toEqual([
+      ...groups.requiredMcpPackageFiles,
+      ...groups.mcpAllowedDataFiles,
+    ]);
+    expect(packageSurfacePolicy.expectedVsixPackagePaths).toBe(groups.vsixPackageFiles);
+
+    expect(groups.vsixPackageFiles).toContain(BUNDLED_PANGOSCRIPT_DATA_PATHS.commandsMerged);
+    expect(groups.vsixPackageFiles).toContain(BUNDLED_PANGOSCRIPT_DATA_PATHS.objectPropertyIndex);
+    expect(groups.vsixPackageFiles).toContain(REFERENCE_SITE_PATH.join("/"));
+    expect(groups.mcpAllowedDataFiles).toContain(BUNDLED_PANGOSCRIPT_DATA_PATHS.mcpPropertyControls);
+  });
+
   it("flags maintainer-only paths before packaging", () => {
     expect(
       findPublicArtifactPathLeaks([
