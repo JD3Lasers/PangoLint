@@ -119,10 +119,20 @@ describe("release workflow", () => {
     const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "npm-publish.yml"), "utf8");
     const buildJob = workflowJobSection(workflow, "build-mcp-package");
     const publishJob = workflowJobSection(workflow, "publish-mcp");
+    const dispatchJob = workflowJobSection(workflow, "dispatch-main-publish");
 
     expect(workflow).toContain("permissions:\n  contents: read");
     expect(workflow).not.toContain("permissions:\n  contents: read\n  id-token: write");
 
+    expect(dispatchJob).toContain("if: github.event_name == 'release'");
+    expect(dispatchJob).toContain("permissions:\n      contents: read\n      actions: write");
+    expect(dispatchJob).toContain(githubRepoEnv);
+    expect(dispatchJob).toContain(githubTokenEnv);
+    expect(dispatchJob).toContain('gh workflow run npm-publish.yml --ref main -f tag="$RELEASE_TAG"');
+    expect(dispatchJob).not.toContain("environment:");
+    expect(dispatchJob).not.toContain("actions/checkout");
+
+    expect(buildJob).toContain("if: github.event_name == 'workflow_dispatch'");
     expect(buildJob).toContain("uses: actions/checkout@v6");
     expect(buildJob).toContain("persist-credentials: false");
     expect(buildJob).toContain("npm ci --ignore-scripts");
@@ -143,8 +153,18 @@ describe("release workflow", () => {
   it("publishes Marketplace VSIX assets from a clean pinned tool context", () => {
     const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "marketplace-publish.yml"), "utf8");
     const publishJob = workflowJobSection(workflow, "publish-vsix");
+    const dispatchJob = workflowJobSection(workflow, "dispatch-main-publish");
     const vscePatEnv = ["VSCE_PAT: $", "{{ secrets.VSCE_PAT }}"].join("");
 
+    expect(dispatchJob).toContain("if: github.event_name == 'release'");
+    expect(dispatchJob).toContain("permissions:\n      contents: read\n      actions: write");
+    expect(dispatchJob).toContain(githubRepoEnv);
+    expect(dispatchJob).toContain(githubTokenEnv);
+    expect(dispatchJob).toContain('gh workflow run marketplace-publish.yml --ref main -f tag="$RELEASE_TAG"');
+    expect(dispatchJob).not.toContain("environment:");
+    expect(dispatchJob).not.toContain("actions/checkout");
+
+    expect(publishJob).toContain("if: github.event_name == 'workflow_dispatch'");
     expect(publishJob).toContain("environment:\n      name: marketplace-publish");
     expect(publishJob).toContain("gh release download");
     expect(publishJob).toContain(githubRepoEnv);

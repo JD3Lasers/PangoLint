@@ -19,8 +19,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  dispatch-main-publish:
+    name: Queue npm publish from main
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Dispatch main publish workflow
+        shell: bash
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          tag="$RELEASE_TAG"
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z][0-9A-Za-z.-]*)?(\+[0-9A-Za-z][0-9A-Za-z.-]*)?$ ]]; then
+            echo "Release tag must match vMAJOR.MINOR.PATCH with optional semver suffix: $tag" >&2
+            exit 1
+          fi
+          gh workflow run npm-publish.yml --ref main -f tag="$RELEASE_TAG"
+
   build-mcp-package:
     name: Verify pangolint-mcp package
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -109,6 +132,7 @@ jobs:
 
   publish-mcp:
     name: Publish pangolint-mcp
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     needs: build-mcp-package
     permissions:
