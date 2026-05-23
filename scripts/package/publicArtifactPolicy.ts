@@ -19,7 +19,8 @@ const escapedDot = String.raw`\\{1,2}\.`;
 const ephemeralPort = String.raw`(?:4915[2-9]|491[6-9]\d|49[2-9]\d{2}|5\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])`;
 const pairingPort = String.raw`8\d{3}(?![\d.])\b`;
 const endpointHost = String.raw`(?:localhost|(?:\d{1,3}\.){3}\d{1,3}|[A-Za-z0-9][A-Za-z0-9.-]*\.[A-Za-z]{2,})`;
-const singleLabelEndpoint = String.raw`(?![A-Za-z0-9_-]*Value\b)[A-Za-z][A-Za-z0-9_-]{1,}`;
+const objectValueField = String.raw`(?:observedValue|readValue|defaultValue|value|minValue|maxValue)\b`;
+const singleLabelEndpoint = `(?!${objectValueField})[A-Za-z][A-Za-z0-9_-]*`;
 
 const forbiddenPatterns: PublicArtifactPattern[] = [
   {
