@@ -69,8 +69,8 @@ describe("release workflow", () => {
     expect(workflow).toContain("npm --workspace mcp run verify:tarball");
     expect(workflow).toContain("npm pack --workspace mcp --dry-run --json > release-mcp-tarball.json");
     expect(workflow).toContain("SHA256SUMS");
-    expect(workflow).toContain("uses: actions/upload-artifact@v4");
-    expect(workflow).toContain("uses: actions/download-artifact@v4");
+    expect(workflow).toContain("uses: actions/upload-artifact@v6");
+    expect(workflow).toContain("uses: actions/download-artifact@v7");
     expect(workflow).toContain("gh release create");
     expect(workflow).toContain('gh release view "$RELEASE_TAG"');
     expect(workflow).toContain('gh release upload "$RELEASE_TAG" release-artifacts/* --clobber');
@@ -92,20 +92,27 @@ describe("release workflow", () => {
     expect(buildJob).toContain("npm ci");
     expect(buildJob).toContain("npm run release:preflight");
     expect(buildJob).toContain("npm run check:public && npm run check:mcp");
-    expect(buildJob).toContain("uses: actions/upload-artifact@v4");
+    expect(buildJob).toContain("uses: actions/upload-artifact@v6");
     expect(buildJob).not.toContain("contents: write");
     expect(buildJob).not.toContain("GH_REPO");
     expect(buildJob).not.toContain("gh release");
 
     expect(publishJob).toContain("needs: build-release-artifacts");
     expect(publishJob).toContain("permissions:\n      contents: write");
-    expect(publishJob).toContain("uses: actions/download-artifact@v4");
+    expect(publishJob).toContain("uses: actions/download-artifact@v7");
     expect(publishJob).toContain(githubRepoEnv);
     expect(publishJob).toContain(githubTokenEnv);
     expect(publishJob).toContain("gh release create");
     expect(publishJob).not.toContain("actions/checkout");
     expect(publishJob).not.toContain("npm ci");
     expect(publishJob).not.toContain("npm run");
+  });
+
+  it("keeps release artifact actions on Node 24 runtime majors", () => {
+    const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "release.yml"), "utf8");
+
+    expect(workflow).not.toMatch(/uses:\s*actions\/upload-artifact@v[1-5]\b/);
+    expect(workflow).not.toMatch(/uses:\s*actions\/download-artifact@v[1-6]\b/);
   });
 
   it("exposes a real MCP tarball packaging script for releases", () => {
