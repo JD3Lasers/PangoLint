@@ -53,6 +53,22 @@ describe("live BEYOND smoke script", () => {
     expect(JSON.stringify(redactedLiveBeyondSmokeConfig(config))).not.toContain("secret");
   });
 
+  it("allows Talk TCP and Talk UDP hosts to differ", () => {
+    const config = liveBeyondSmokeConfigFromEnv({
+      PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST: "192.0.2.147",
+      PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT: "16063",
+      PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST: "localhost",
+      PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT: "16062",
+    });
+
+    expect(config).toMatchObject({
+      talkTcpHost: "192.0.2.147",
+      talkTcpPort: 16063,
+      talkUdpHost: "localhost",
+      talkUdpPort: 16062,
+    });
+  });
+
   it("runs the all-mode checks in TCP, readback, then UDP order", async () => {
     const calls: string[] = [];
     const runtime: LiveBeyondSmokeRuntime = {
