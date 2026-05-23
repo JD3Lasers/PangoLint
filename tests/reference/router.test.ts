@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { applyHashToState, installRouter } from "../../src/reference/bundle/router";
-import { ReferenceState } from "../../src/reference/bundle/state";
+import { getVisibleDetailSelection, ReferenceState } from "../../src/reference/bundle/state";
 import type { ReferenceCatalog } from "../../src/reference/bundle/types";
 
 function emptyCatalog(): ReferenceCatalog {
@@ -138,6 +138,22 @@ describe("applyHashToState", () => {
     expect(state.selectedObjectReference).toEqual({ section: "cue-types", id: "Text" });
   });
 
+  it("keeps object hashes visible when a reference selector is also present", () => {
+    const state = new ReferenceState(emptyCatalog());
+
+    applyHashToState(state, "#obj=Master&cue=Text");
+
+    expect(state.viewMode).toBe("objects");
+    expect(state.objectSection).toBe("schemas");
+    expect(state.selectedObject).toBe("Master");
+    expect(state.selectedObjectReference).toBeNull();
+    expect(getVisibleDetailSelection(state)).toEqual({
+      kind: "object",
+      name: "Master",
+      propertyPath: null,
+    });
+  });
+
   it("applies selected FX Effect reference rows from the hash", () => {
     const state = new ReferenceState(emptyCatalog());
 
@@ -199,6 +215,27 @@ describe("applyHashToState", () => {
 
     expect(state.viewMode).toBe("commands");
     expect(state.selectedCanonical).toBe("WaitForBeat");
+  });
+
+  it("preserves hash filters when an object hash switches from command mode", () => {
+    const state = new ReferenceState(emptyCatalog());
+
+    applyHashToState(state, "#obj=Master&q=brightness");
+
+    expect(state.viewMode).toBe("objects");
+    expect(state.selectedObject).toBe("Master");
+    expect(state.filter).toEqual({ query: "brightness", category: null });
+  });
+
+  it("preserves hash filters when a command hash switches from object mode", () => {
+    const state = new ReferenceState(commandCatalog());
+    state.setViewMode("objects");
+
+    applyHashToState(state, "#cmd=WaitForBeat&q=beat&cat=General");
+
+    expect(state.viewMode).toBe("commands");
+    expect(state.selectedCanonical).toBe("WaitForBeat");
+    expect(state.filter).toEqual({ query: "beat", category: "General" });
   });
 
   it("resolves case-insensitive command and alias hashes to the browsable command", () => {
