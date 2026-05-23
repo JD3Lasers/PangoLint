@@ -147,6 +147,7 @@ describe("release workflow", () => {
 
     expect(publishJob).toContain("environment:\n      name: marketplace-publish");
     expect(publishJob).toContain("gh release download");
+    expect(publishJob).toContain(githubRepoEnv);
     expect(publishJob).toContain('grep "pangolint-$RELEASE_VERSION.vsix$" SHA256SUMS');
     expect(publishJob).toContain('npm_config_ignore_scripts: "true"');
     expect(publishJob).toContain("npx --yes @vscode/vsce@3.9.1 show");

@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.37] - 2026-05-23
+
+### Fixed
+
+- Fix Marketplace publish workflow release asset downloads from the clean
+  publish job.
+
 ## [0.7.36] - 2026-05-23
 
 ### Fixed
@@ -393,7 +400,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.36...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...HEAD
+[0.7.37]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.36...v0.7.37
 [0.7.36]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.35...v0.7.36
 [0.7.35]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.34...v0.7.35
 [0.7.34]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.33...v0.7.34
