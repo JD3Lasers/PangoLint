@@ -13,16 +13,20 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.event.release.tag_name }}
   cancel-in-progress: false
 
 jobs:
-  publish-mcp:
-    name: Publish pangolint-mcp
+  build-mcp-package:
+    name: Verify pangolint-mcp package
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      version: ${{ steps.release.outputs.version }}
     steps:
       - name: Resolve release tag
         id: release
@@ -53,7 +57,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Verify release tag matches package version
         shell: bash
@@ -71,6 +75,9 @@ jobs:
             exit 1
           fi
 
+      - name: Build MCP package tarball
+        run: npm run package:mcp
+
       - name: Verify MCP package tarball
         run: npm run check:mcp
 
@@ -84,5 +91,55 @@ jobs:
             exit 1
           fi
 
+      - name: Stage MCP tarball
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          mkdir -p release-assets
+          cp "mcp/pangolint-mcp-$RELEASE_VERSION.tgz" release-assets/
+
+      - name: Upload MCP tarball
+        uses: actions/upload-artifact@v6
+        with:
+          name: pangolint-mcp-tarball
+          path: release-assets/pangolint-mcp-${{ steps.release.outputs.version }}.tgz
+          if-no-files-found: error
+          retention-days: 7
+
+  publish-mcp:
+    name: Publish pangolint-mcp
+    runs-on: ubuntu-latest
+    needs: build-mcp-package
+    permissions:
+      contents: read
+      id-token: write
+    environment:
+      name: npm-publish
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Download MCP tarball
+        uses: actions/download-artifact@v7
+        with:
+          name: pangolint-mcp-tarball
+          path: release-assets
+
+      - name: Verify package version is not already published
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ needs.build-mcp-package.outputs.version }}
+        run: |
+          if npm view "pangolint-mcp@$RELEASE_VERSION" version >/dev/null 2>&1; then
+            echo "pangolint-mcp@$RELEASE_VERSION is already published." >&2
+            exit 1
+          fi
+
       - name: Publish MCP package
-        run: npm publish --workspace mcp --provenance
+        env:
+          RELEASE_VERSION: ${{ needs.build-mcp-package.outputs.version }}
+        run: npm publish "./release-assets/pangolint-mcp-$RELEASE_VERSION.tgz" --provenance

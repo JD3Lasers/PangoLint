@@ -141,6 +141,12 @@ operator-supervised BEYOND bench. The workflow is `workflow_dispatch` only and
 targets a self-hosted runner with the `pangolint-live-beyond` label. It is not
 part of normal public PR CI and should not be added to branch protection.
 
+The hosted workflow only runs from `main`, checks out the repository default
+branch, and references the `live-beyond-smoke` GitHub Environment. Configure
+that environment with required reviewers and a deployment branch policy before
+storing live bench secrets there. The Talk TCP password is scoped to the smoke
+command step instead of being written to the job-wide environment.
+
 The workflow runs:
 - Talk TCP `Hello` and `Version` to verify parser/status readback.
 - A readback-only `OscOutTTS` ping sent over Talk TCP.
