@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.32] - 2026-05-22
+
+### Added
+
+- Add regression tests for the live BEYOND smoke workflow guardrails, split
+  Talk TCP and Talk UDP host settings, and `localhost` UDP callback matching.
+
 ## [0.7.31] - 2026-05-22
 
 ### Fixed
@@ -355,7 +362,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.31...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.32...HEAD
+[0.7.32]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.31...v0.7.32
 [0.7.31]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.30...v0.7.31
 [0.7.30]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.29...v0.7.30
 [0.7.29]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.28...v0.7.29

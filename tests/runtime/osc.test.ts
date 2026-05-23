@@ -90,4 +90,10 @@ describe("OSC helpers", () => {
     ).toBe(true);
     expect(sourceMatchesExpectedHost({ address: "/x", typeTags: "", args: [] }, "192.0.2.147")).toBe(true);
   });
+
+  it("accepts an IP source address when the expected BEYOND host is localhost", () => {
+    expect(
+      sourceMatchesExpectedHost({ address: "/x", typeTags: "", args: [], sourceAddress: "192.0.2.147" }, "localhost"),
+    ).toBe(true);
+  });
 });
