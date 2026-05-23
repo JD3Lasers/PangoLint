@@ -166,6 +166,8 @@ describe("checked-in Object Tree data layout migration", () => {
     const commandBuildExportLabel = `${["build", "2044"].join("-")} export`;
     const sparseEntryLabel = ["bare", "entry"].join(" ");
     const pairingPort = [8, 1, 2, 3].join("");
+    const shortHost = ["x"].join("");
+    const endpointValueKey = ["endpoint", "Value"].join("");
     const appPairingPort = [9, 8, 7, 6].join("");
     const appVersion = [1, 2, 3, 4].join(".");
     const leakSamples = [
@@ -188,7 +190,12 @@ describe("checked-in Object Tree data layout migration", () => {
       `example.com:${pairingPort}`,
       `laserbox:${pairingPort}`,
       `"laserbox:${pairingPort}"`,
+      `${shortHost}:${pairingPort}`,
+      `"${shortHost}:${pairingPort}"`,
+      `"${shortHost}":${pairingPort}`,
+      `http://${shortHost}:${pairingPort}`,
       `"endpoint":${pairingPort}`,
+      `${endpointValueKey}:${pairingPort}`,
       `"laserbox":${pairingPort}`,
       `port-${pairingPort}`,
       `mobile app version ${appVersion}`,
