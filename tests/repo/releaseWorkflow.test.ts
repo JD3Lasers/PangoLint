@@ -115,6 +115,47 @@ describe("release workflow", () => {
     expect(workflow).not.toMatch(/uses:\s*actions\/download-artifact@v[1-6]\b/);
   });
 
+  it("keeps npm OIDC publishing isolated from release-tag verification scripts", () => {
+    const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "npm-publish.yml"), "utf8");
+    const buildJob = workflowJobSection(workflow, "build-mcp-package");
+    const publishJob = workflowJobSection(workflow, "publish-mcp");
+
+    expect(workflow).toContain("permissions:\n  contents: read");
+    expect(workflow).not.toContain("permissions:\n  contents: read\n  id-token: write");
+
+    expect(buildJob).toContain("uses: actions/checkout@v6");
+    expect(buildJob).toContain("persist-credentials: false");
+    expect(buildJob).toContain("npm ci --ignore-scripts");
+    expect(buildJob).toContain("npm run check:mcp");
+    expect(buildJob).toContain("uses: actions/upload-artifact@v6");
+    expect(buildJob).not.toContain("id-token: write");
+
+    expect(publishJob).toContain("needs: build-mcp-package");
+    expect(publishJob).toContain("permissions:\n      contents: read\n      id-token: write");
+    expect(publishJob).toContain("environment:\n      name: npm-publish");
+    expect(publishJob).toContain("uses: actions/download-artifact@v7");
+    expect(publishJob).toContain('npm publish "./release-assets/pangolint-mcp-$RELEASE_VERSION.tgz" --provenance');
+    expect(publishJob).not.toContain("actions/checkout");
+    expect(publishJob).not.toContain("npm ci");
+    expect(publishJob).not.toContain("npm run");
+  });
+
+  it("publishes Marketplace VSIX assets from a clean pinned tool context", () => {
+    const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "marketplace-publish.yml"), "utf8");
+    const publishJob = workflowJobSection(workflow, "publish-vsix");
+    const vscePatEnv = ["VSCE_PAT: $", "{{ secrets.VSCE_PAT }}"].join("");
+
+    expect(publishJob).toContain("environment:\n      name: marketplace-publish");
+    expect(publishJob).toContain("gh release download");
+    expect(publishJob).toContain('grep "pangolint-$RELEASE_VERSION.vsix$" SHA256SUMS');
+    expect(publishJob).toContain('npm_config_ignore_scripts: "true"');
+    expect(publishJob).toContain("npx --yes @vscode/vsce@3.9.1 show");
+    expect(publishJob).toContain("npx --yes @vscode/vsce@3.9.1 publish");
+    expect(publishJob).toContain(vscePatEnv);
+    expect(publishJob).not.toContain("actions/checkout");
+    expect(publishJob).not.toContain("npm ci");
+  });
+
   it("exposes a real MCP tarball packaging script for releases", () => {
     const packageJson = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "utf8")) as {
       scripts?: Record<string, string>;

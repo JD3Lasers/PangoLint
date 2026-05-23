@@ -10,15 +10,25 @@ function workflowText(): string {
 describe("Live BEYOND Smoke workflow policy", () => {
   it("keeps live BEYOND smoke manually confirmed and self-hosted", () => {
     const workflow = workflowText();
-    const confirmCondition = ["if: $", "{{ inputs.confirm_live_beyond }}"].join("");
+    const confirmCondition = ["if: $", "{{ inputs.confirm_live_beyond && github.ref == 'refs/heads/main' }}"].join("");
 
     expect(workflow).toContain("workflow_dispatch:");
     expect(workflow).toContain("confirm_live_beyond:");
     expect(workflow).toContain("required: true");
     expect(workflow).toContain("type: boolean");
     expect(workflow).toContain(confirmCondition);
+    expect(workflow).toContain("environment:\n      name: live-beyond-smoke");
     expect(workflow).toContain("- self-hosted");
     expect(workflow).toContain("- pangolint-live-beyond");
+  });
+
+  it("checks out reviewed default-branch code before touching the live bench", () => {
+    const workflow = workflowText();
+    const defaultBranchRef = ["ref: $", "{{ github.event.repository.default_branch }}"].join("");
+
+    expect(workflow).toContain("persist-credentials: false");
+    expect(workflow).toContain(defaultBranchRef);
+    expect(workflow).toContain("npm ci --ignore-scripts");
   });
 
   it("keeps supported smoke modes visible in the manual workflow input", () => {
@@ -31,14 +41,24 @@ describe("Live BEYOND Smoke workflow policy", () => {
     expect(workflow).toContain("- udp");
   });
 
-  it("uses Node for cross-platform bench variable setup", () => {
+  it("passes bench variables to the smoke command", () => {
     const workflow = workflowText();
 
-    expect(workflow).toContain("name: Apply optional bench variables");
-    expect(workflow).toContain("shell: node {0}");
-    expect(workflow).toContain('const fs = require("node:fs");');
     expect(workflow).toContain("PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST");
     expect(workflow).toContain("PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST");
+  });
+
+  it("keeps the Talk TCP password scoped to the smoke command step", () => {
+    const workflow = workflowText();
+    const tcpPasswordEnv = [
+      "PANGOLINT_LIVE_BEYOND_TCP_PASSWORD: $",
+      "{{ secrets.PANGOLINT_LIVE_BEYOND_TCP_PASSWORD }}",
+    ].join("");
+
+    expect(workflow).toContain(tcpPasswordEnv);
+    expect(workflow).not.toContain('["PANGOLINT_LIVE_BEYOND_TCP_PASSWORD", "TCP_PASSWORD"]');
+    expect(workflow).not.toMatch(/\n\s+TCP_PASSWORD: \$\{\{ secrets\.PANGOLINT_LIVE_BEYOND_TCP_PASSWORD \}\}/);
+    expect(workflow).not.toContain("GITHUB_ENV");
   });
 
   it("does not check lab bench endpoint values into the workflow", () => {

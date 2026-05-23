@@ -29,14 +29,19 @@ concurrency:
 jobs:
   live-beyond-smoke:
     name: Live BEYOND smoke
-    if: ${{ inputs.confirm_live_beyond }}
+    if: ${{ inputs.confirm_live_beyond && github.ref == 'refs/heads/main' }}
     runs-on:
       - self-hosted
       - pangolint-live-beyond
+    environment:
+      name: live-beyond-smoke
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -45,59 +50,19 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Apply optional bench variables
-        env:
-          BENCH_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_HOST }}
-          TALK_TCP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST }}
-          TALK_TCP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT }}
-          TALK_UDP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST }}
-          TALK_UDP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT }}
-          TCP_PASSWORD: ${{ secrets.PANGOLINT_LIVE_BEYOND_TCP_PASSWORD }}
-          OSC_LISTEN_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST }}
-          OSC_LISTEN_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT }}
-          READBACK_TIMEOUT_MS: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS }}
-          READBACK_PATH: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_PATH }}
-          READBACK_TYPE: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TYPE }}
-        shell: node {0}
-        run: |
-          const fs = require("node:fs");
-          const os = require("node:os");
-          const { randomUUID } = require("node:crypto");
-
-          const entries = [
-            ["PANGOLINT_LIVE_BEYOND_HOST", "BENCH_HOST"],
-            ["PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST", "TALK_TCP_HOST"],
-            ["PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT", "TALK_TCP_PORT"],
-            ["PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST", "TALK_UDP_HOST"],
-            ["PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT", "TALK_UDP_PORT"],
-            ["PANGOLINT_LIVE_BEYOND_TCP_PASSWORD", "TCP_PASSWORD"],
-            ["PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST", "OSC_LISTEN_HOST"],
-            ["PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT", "OSC_LISTEN_PORT"],
-            ["PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS", "READBACK_TIMEOUT_MS"],
-            ["PANGOLINT_LIVE_BEYOND_READBACK_PATH", "READBACK_PATH"],
-            ["PANGOLINT_LIVE_BEYOND_READBACK_TYPE", "READBACK_TYPE"],
-          ];
-
-          const lines = [];
-          for (const [target, source] of entries) {
-            const value = process.env[source];
-            if (!value) {
-              continue;
-            }
-
-            if (value.includes("\n") || value.includes("\r")) {
-              const delimiter = `pangolint_${randomUUID()}`;
-              lines.push(`${target}<<${delimiter}`, value, delimiter);
-            } else {
-              lines.push(`${target}=${value}`);
-            }
-          }
-
-          if (lines.length > 0) {
-            fs.appendFileSync(process.env.GITHUB_ENV, `${lines.join(os.EOL)}${os.EOL}`);
-          }
+        run: npm ci --ignore-scripts
 
       - name: Run live BEYOND smoke
+        env:
+          PANGOLINT_LIVE_BEYOND_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_HOST }}
+          PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_HOST }}
+          PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT }}
+          PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST }}
+          PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT }}
+          PANGOLINT_LIVE_BEYOND_TCP_PASSWORD: ${{ secrets.PANGOLINT_LIVE_BEYOND_TCP_PASSWORD }}
+          PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST }}
+          PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT: ${{ vars.PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT }}
+          PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS }}
+          PANGOLINT_LIVE_BEYOND_READBACK_PATH: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_PATH }}
+          PANGOLINT_LIVE_BEYOND_READBACK_TYPE: ${{ vars.PANGOLINT_LIVE_BEYOND_READBACK_TYPE }}
         run: npm run smoke:live-beyond -- --mode "${{ inputs.smoke_mode }}"

@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.34] - 2026-05-23
+
+### Security
+
+- Harden live BEYOND smoke, npm publish, and Marketplace publish workflows so
+  credential-bearing jobs run reviewed code or clean release assets instead of
+  release-tag install scripts.
+
 ## [0.7.33] - 2026-05-22
 
 ### Fixed
@@ -370,7 +378,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.33...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.34...HEAD
+[0.7.34]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.33...v0.7.34
 [0.7.33]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.32...v0.7.33
 [0.7.32]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.31...v0.7.32
 [0.7.31]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.30...v0.7.31

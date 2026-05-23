@@ -166,6 +166,9 @@ smoke checks.
 - [ ] Confirm the `Publish MCP to npm` workflow succeeded after the GitHub
   Release was published. The npm package trusted publisher must reference
   `JD3Lasers/PangoLint` and `.github/workflows/npm-publish.yml`.
+  Release-tag verification runs in a non-OIDC job. The publish job downloads
+  the verified tarball artifact, references the `npm-publish` GitHub
+  Environment, and is the only npm workflow job with `id-token: write`.
 
   ```bash
   gh run list --workflow npm-publish.yml --event release --limit 20 \
@@ -182,6 +185,9 @@ smoke checks.
 - [ ] Confirm the `Publish VSIX to Marketplace` workflow succeeded after the
   GitHub Release was published. GitHub Actions secret `VSCE_PAT` must contain a
   Marketplace `Manage` PAT for publisher `jd3lasersllc`.
+  The Marketplace workflow downloads the GitHub Release VSIX from a clean
+  workspace, verifies `SHA256SUMS`, and uses a pinned `@vscode/vsce` command
+  under the `marketplace-publish` GitHub Environment.
 
   ```bash
   gh run list --workflow marketplace-publish.yml --event release --limit 20 \
