@@ -118,16 +118,13 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
         ? "universe-components"
         : null;
   // Resolve mode first so subsequent filter/selection writes land in
-  // the right vocabulary. selectObject/select also flip mode if
-  // needed; this just handles the "no selection, view=objects" case.
-  if (parsed.view && parsed.view !== state.viewMode) state.setViewMode(parsed.view);
-  if (objectReferenceSection && state.viewMode !== "objects") state.setViewMode("objects");
-  if (state.viewMode === "objects") state.setObjectSection(objectReferenceSection ?? parsedObjectSection(parsed.sec));
-  state.setQuery(parsed.q ?? "");
-  state.setCategory(parsed.cat ?? null);
+  // the right vocabulary. Apply filters last so a selection-driven
+  // mode switch cannot clear filter values restored from the hash.
   // Object selection wins over command selection if both appear in
   // the hash (shouldn't happen in practice, but defensive).
   if (parsed.obj) {
+    if (state.viewMode !== "objects") state.setViewMode("objects");
+    if (state.objectSection !== "schemas") state.setObjectSection("schemas");
     state.selectObject(parsed.obj, parsed.prop ?? null);
   } else if (parsed.cue) {
     state.selectObjectReference("cue-types", parsed.cue);
@@ -139,8 +136,12 @@ export function applyHashToState(state: ReferenceState, hash: string): void {
     if (state.viewMode !== "commands") state.setViewMode("commands");
     state.select(commandHashTarget(state, parsed.cmd));
   } else {
+    if (parsed.view && parsed.view !== state.viewMode) state.setViewMode(parsed.view);
+    if (state.viewMode === "objects") state.setObjectSection(objectReferenceSection ?? parsedObjectSection(parsed.sec));
     state.select(null);
   }
+  state.setQuery(parsed.q ?? "");
+  state.setCategory(parsed.cat ?? null);
 }
 
 /**
