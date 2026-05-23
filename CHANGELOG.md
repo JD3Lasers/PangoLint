@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.38] - 2026-05-23
+
+### Fixed
+
+- Queue npm and Marketplace release-event publish runs from `main` so protected
+  publish environments do not reject release-tag jobs before runner steps.
+
 ## [0.7.37] - 2026-05-23
 
 ### Fixed
@@ -400,7 +407,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...HEAD
+[0.7.38]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...v0.7.38
 [0.7.37]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.36...v0.7.37
 [0.7.36]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.35...v0.7.36
 [0.7.35]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.34...v0.7.35
