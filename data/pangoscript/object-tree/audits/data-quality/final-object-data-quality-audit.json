@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 139,
+    "unknownBoundaryBehaviorRows": 91,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 139,
+      "count": 91,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,12 +265,8 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 139,
+      "count": 91,
       "roots": [
-        {
-          "root": "Universe",
-          "count": 48
-        },
         {
           "root": "WS",
           "count": 30
@@ -828,21 +824,6 @@
     }
   ],
   "boundaryProbePlan": [
-    {
-      "root": "Universe",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 48,
-      "examples": [
-        "Universe.N.DropEff1.Selected",
-        "Universe.N.DropEff1.Visible",
-        "Universe.N.GunEff1.Selected",
-        "Universe.N.GunEff1.Visible",
-        "Universe.N.Image1.Selected"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
     {
       "root": "WS",
       "accessMode": "read-write",

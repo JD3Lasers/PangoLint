@@ -2021,27 +2021,30 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to Universe.0.Image1.Selected with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+        "notes": "Talk TCP Echo 2 SetProp and WriteLn probes on 2026-05-25 confirmed 0->0, 1->1, true->1, false->0, -1->1, and 2->1. Quoted \"0\" and \"1\" were no-ops from prepared opposite states, so boundary behavior is mixed.",
+        "unit": "boolean"
       },
       "acceptedValues": [
         {
           "value": 0,
-          "label": "OFF"
+          "label": "OFF",
+          "description": "Set Universe.N.Image1.Selected to OFF."
         },
         {
           "value": 1,
-          "label": "ON"
+          "label": "ON",
+          "description": "Set Universe.N.Image1.Selected to ON."
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-12 confirmed baseline restore on concrete Universe.0.Image1.",
+      "notes": "Runtime SetProp and WriteLn readback on 2026-05-25 issue #122 confirmed Universe.N.Image1.Selected at Universe.0.Image1.Selected uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "indexed-root",
         "populationDependent": true,
         "indexBasis": "Universe.N uses the zero-based Object Tree Universe page index.",
-        "notes": "The runtime probe used Universe.0.Image1. Universe pages and controls are show-dependent; an unpopulated concrete path is not evidence that this normalized property family is invalid."
+        "notes": "The runtime probe used Universe.0.Image1.Selected, the loaded control path for Universe.N.Image1."
       }
     },
     {
@@ -2070,27 +2073,30 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to Universe.0.Image1.Visible with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+        "notes": "Talk TCP Echo 2 SetProp and WriteLn probes on 2026-05-25 confirmed 0->0, 1->1, true->1, false->0, -1->1, and 2->1. Quoted \"0\" and \"1\" were no-ops from prepared opposite states, so boundary behavior is mixed.",
+        "unit": "boolean"
       },
       "acceptedValues": [
         {
           "value": 0,
-          "label": "OFF"
+          "label": "OFF",
+          "description": "Set Universe.N.Image1.Visible to OFF."
         },
         {
           "value": 1,
-          "label": "ON"
+          "label": "ON",
+          "description": "Set Universe.N.Image1.Visible to ON."
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-12 confirmed baseline restore on concrete Universe.0.Image1.",
+      "notes": "Runtime SetProp and WriteLn readback on 2026-05-25 issue #122 confirmed Universe.N.Image1.Visible at Universe.0.Image1.Visible uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "indexed-root",
         "populationDependent": true,
         "indexBasis": "Universe.N uses the zero-based Object Tree Universe page index.",
-        "notes": "The runtime probe used Universe.0.Image1. Universe pages and controls are show-dependent; an unpopulated concrete path is not evidence that this normalized property family is invalid."
+        "notes": "The runtime probe used Universe.0.Image1.Visible, the loaded control path for Universe.N.Image1."
       }
     },
     {

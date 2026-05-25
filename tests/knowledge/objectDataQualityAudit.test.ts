@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(139);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(91);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 139],
+      ["unknown-boundary-behavior", "warning", "warn", 91],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,8 +52,8 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(139);
-    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "Universe", count: 48 });
+    expect(unknownBoundary?.count).toBe(91);
+    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "WS", count: 30 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
@@ -80,22 +80,6 @@ describe("final Object Tree data quality audit", () => {
     );
 
     expect(report.boundaryProbePlan.slice(0, 4)).toEqual([
-      {
-        root: "Universe",
-        accessMode: "read-write",
-        behaviorKind: "flag-state",
-        valueType: "boolean",
-        count: 48,
-        examples: [
-          "Universe.N.DropEff1.Selected",
-          "Universe.N.DropEff1.Visible",
-          "Universe.N.GunEff1.Selected",
-          "Universe.N.GunEff1.Visible",
-          "Universe.N.Image1.Selected",
-        ],
-        nextProbe:
-          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
-      },
       {
         root: "WS",
         accessMode: "read-write",
@@ -140,6 +124,22 @@ describe("final Object Tree data quality audit", () => {
           "Master.FXSpeed",
           "Master.LCSpeed",
           "Master.MasterEffectClockShift",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+      {
+        root: "FB3_XXXXX",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 6,
+        examples: [
+          "FB3_XXXXX.PositionX",
+          "FB3_XXXXX.PositionY",
+          "FB3_XXXXX.PostRotation",
+          "FB3_XXXXX.PreRotation",
+          "FB3_XXXXX.SizeX",
         ],
         nextProbe:
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",

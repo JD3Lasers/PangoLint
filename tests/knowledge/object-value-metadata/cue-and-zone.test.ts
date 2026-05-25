@@ -4189,6 +4189,83 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
     }
   });
 
+  it("ships issue 122 Universe boolean boundary probes with Talk TCP string cross-checks", () => {
+    const objectPropertyIndex = readJson<{
+      entries: Array<{
+        path: string;
+        property: string;
+        root: string;
+        valueMetadata?: ObjectPropertyValueMetadata;
+      }>;
+    }>("object-property-index.json");
+    const evidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        boundaryBehavior?: string;
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+      }>;
+    }>("object-range-evidence/issue-122-universe-boolean-boundary-behavior.json");
+    const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const issue122 = objectPropertyIndex.entries.filter((entry) =>
+      entry.valueMetadata?.notes?.includes(" issue #122 confirmed "),
+    );
+    const actualCounts = new Map<string, number>();
+    for (const entry of issue122) {
+      const leaf = entry.property.split(".").at(-1) ?? entry.property;
+      actualCounts.set(leaf, (actualCounts.get(leaf) ?? 0) + 1);
+    }
+
+    expect(evidence.entries).toHaveLength(48);
+    expect(issue122).toHaveLength(48);
+    expect(actualCounts).toEqual(
+      new Map([
+        ["Selected", 24],
+        ["Visible", 24],
+      ]),
+    );
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(
+      new Set(issue122.map((entry) => entry.path)),
+    );
+    expect(evidence.entries.every((entry) => entry.shipsMetadata)).toBe(true);
+    expect(evidence.entries.every((entry) => entry.boundaryBehavior === "mixed")).toBe(true);
+
+    for (const entry of issue122) {
+      const metadata = byPath.get(entry.path)?.valueMetadata as ObjectPropertyValueMetadata;
+      assertObjectPropertyValueMetadata(metadata);
+      expect(hasManualReadyValueMetadata(metadata), entry.path).toBe(true);
+      expect(metadata.evidenceLevel).toBe("observed");
+      expect(metadata.valueType).toBe("boolean");
+      expect(metadata.valueRange).toMatchObject({
+        min: 0,
+        max: 1,
+        unit: "boolean",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "observed",
+      });
+      expect(metadata.acceptedValues).toEqual([
+        expect.objectContaining({ value: 0, label: "OFF" }),
+        expect.objectContaining({ value: 1, label: "ON" }),
+      ]);
+    }
+
+    for (const path of ["Universe.N.DropEff1.Selected", "Universe.N.Image1.Visible", "Universe.N.ZonePad2.Selected"]) {
+      const row = evidence.entries.find((entry) => entry.objectPath === path);
+      expect(row?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: -1, readback: 1, behavior: "wrap" }),
+          expect.objectContaining({ input: 2, readback: 1, behavior: "clamp" }),
+          expect.objectContaining({ input: "0", readback: 1, behavior: "no-op" }),
+          expect.objectContaining({ input: "1", readback: 0, behavior: "no-op" }),
+        ]),
+      );
+    }
+  });
+
   it("ships directly observed Universe Image1 ranges without control propagation", () => {
     const objectPropertyIndex = readJson<{
       entries: Array<{
@@ -4206,7 +4283,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         ),
     );
 
-    expect(directUniverse).toHaveLength(3);
+    expect(directUniverse).toHaveLength(1);
     for (const entry of directUniverse) {
       assertObjectPropertyValueMetadata(entry.valueMetadata as ObjectPropertyValueMetadata);
       expect(entry.valueMetadata?.evidenceLevel).toBe("observed");
@@ -4236,11 +4313,18 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        unit: "boolean",
+        boundaryBehavior: "mixed",
       },
     });
     expect(byPath.get("Universe.N.Image1.Selected")?.valueMetadata).toMatchObject({
       valueType: "boolean",
+      valueRange: {
+        min: 0,
+        max: 1,
+        unit: "boolean",
+        boundaryBehavior: "mixed",
+      },
       acceptedValues: [
         { value: 0, label: "OFF" },
         { value: 1, label: "ON" },
@@ -4319,12 +4403,10 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       actualCounts.set(leaf, (actualCounts.get(leaf) ?? 0) + 1);
     }
 
-    expect(issue296).toHaveLength(120);
+    expect(issue296).toHaveLength(74);
     expect(actualCounts).toEqual(
       new Map([
-        ["Selected", 23],
         ["Value", 24],
-        ["Visible", 23],
         ["X", 25],
         ["Y", 25],
       ]),
@@ -4393,7 +4475,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
       },
       acceptedValues: [
         { value: 0, label: "OFF" },

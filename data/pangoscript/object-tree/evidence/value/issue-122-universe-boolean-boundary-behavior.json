@@ -1,0 +1,4574 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 122,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetProp writes and WriteLn readbacks. Runtime endpoint details are intentionally omitted."
+  },
+  "entries": [
+    {
+      "objectPath": "Universe.N.DropEff1.Selected",
+      "probePath": "Universe.0.DropEff1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.DropEff1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.DropEff1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", 1; SetProp \"Universe.0.DropEff1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.DropEff1.Selected\", 0; SetProp \"Universe.0.DropEff1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.DropEff1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.DropEff1.Selected",
+        "notes": "The probe used the concrete Universe.0.DropEff1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.DropEff1.Visible",
+      "probePath": "Universe.0.DropEff1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.DropEff1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.DropEff1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", 1; SetProp \"Universe.0.DropEff1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.DropEff1.Visible\", 0; SetProp \"Universe.0.DropEff1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.DropEff1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.DropEff1.Visible",
+        "notes": "The probe used the concrete Universe.0.DropEff1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.GunEff1.Selected",
+      "probePath": "Universe.0.GunEff1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.GunEff1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.GunEff1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", 1; SetProp \"Universe.0.GunEff1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.GunEff1.Selected\", 0; SetProp \"Universe.0.GunEff1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.GunEff1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.GunEff1.Selected",
+        "notes": "The probe used the concrete Universe.0.GunEff1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.GunEff1.Visible",
+      "probePath": "Universe.0.GunEff1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.GunEff1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.GunEff1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", 1; SetProp \"Universe.0.GunEff1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.GunEff1.Visible\", 0; SetProp \"Universe.0.GunEff1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.GunEff1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.GunEff1.Visible",
+        "notes": "The probe used the concrete Universe.0.GunEff1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Image1.Selected",
+      "probePath": "Universe.0.Image1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Image1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Image1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Image1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Image1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Image1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Image1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Image1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Image1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Image1.Selected\", 1; SetProp \"Universe.0.Image1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Image1.Selected\", 0; SetProp \"Universe.0.Image1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Image1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Image1.Selected",
+        "notes": "The probe used the concrete Universe.0.Image1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Image1.Visible",
+      "probePath": "Universe.0.Image1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Image1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Image1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Image1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Image1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Image1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Image1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Image1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Image1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Image1.Visible\", 1; SetProp \"Universe.0.Image1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Image1.Visible\", 0; SetProp \"Universe.0.Image1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Image1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Image1.Visible",
+        "notes": "The probe used the concrete Universe.0.Image1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.KinectVideo1.Selected",
+      "probePath": "Universe.0.KinectVideo1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.KinectVideo1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.KinectVideo1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", 1; SetProp \"Universe.0.KinectVideo1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.KinectVideo1.Selected\", 0; SetProp \"Universe.0.KinectVideo1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.KinectVideo1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.KinectVideo1.Selected",
+        "notes": "The probe used the concrete Universe.0.KinectVideo1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.KinectVideo1.Visible",
+      "probePath": "Universe.0.KinectVideo1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.KinectVideo1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.KinectVideo1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", 1; SetProp \"Universe.0.KinectVideo1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.KinectVideo1.Visible\", 0; SetProp \"Universe.0.KinectVideo1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.KinectVideo1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.KinectVideo1.Visible",
+        "notes": "The probe used the concrete Universe.0.KinectVideo1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Label1.Selected",
+      "probePath": "Universe.0.Label1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Label1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Label1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Label1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Label1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Label1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Label1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Label1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Label1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Label1.Selected\", 1; SetProp \"Universe.0.Label1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Label1.Selected\", 0; SetProp \"Universe.0.Label1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Label1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Label1.Selected",
+        "notes": "The probe used the concrete Universe.0.Label1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Label1.Visible",
+      "probePath": "Universe.0.Label1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Label1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Label1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Label1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Label1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Label1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Label1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Label1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Label1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Label1.Visible\", 1; SetProp \"Universe.0.Label1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Label1.Visible\", 0; SetProp \"Universe.0.Label1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Label1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Label1.Visible",
+        "notes": "The probe used the concrete Universe.0.Label1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MasterEff1.Selected",
+      "probePath": "Universe.0.MasterEff1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MasterEff1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MasterEff1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", 1; SetProp \"Universe.0.MasterEff1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MasterEff1.Selected\", 0; SetProp \"Universe.0.MasterEff1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MasterEff1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MasterEff1.Selected",
+        "notes": "The probe used the concrete Universe.0.MasterEff1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MasterEff1.Visible",
+      "probePath": "Universe.0.MasterEff1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MasterEff1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MasterEff1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", 1; SetProp \"Universe.0.MasterEff1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MasterEff1.Visible\", 0; SetProp \"Universe.0.MasterEff1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MasterEff1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MasterEff1.Visible",
+        "notes": "The probe used the concrete Universe.0.MasterEff1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MasterSlideEff1.Selected",
+      "probePath": "Universe.0.MasterSlideEff1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MasterSlideEff1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MasterSlideEff1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", 1; SetProp \"Universe.0.MasterSlideEff1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Selected\", 0; SetProp \"Universe.0.MasterSlideEff1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MasterSlideEff1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MasterSlideEff1.Selected",
+        "notes": "The probe used the concrete Universe.0.MasterSlideEff1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MasterSlideEff1.Visible",
+      "probePath": "Universe.0.MasterSlideEff1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MasterSlideEff1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MasterSlideEff1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", 1; SetProp \"Universe.0.MasterSlideEff1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MasterSlideEff1.Visible\", 0; SetProp \"Universe.0.MasterSlideEff1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MasterSlideEff1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MasterSlideEff1.Visible",
+        "notes": "The probe used the concrete Universe.0.MasterSlideEff1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MSE1.Selected",
+      "probePath": "Universe.0.MSE1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MSE1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MSE1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MSE1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MSE1.Selected\", 1; SetProp \"Universe.0.MSE1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MSE1.Selected\", 0; SetProp \"Universe.0.MSE1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MSE1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MSE1.Selected",
+        "notes": "The probe used the concrete Universe.0.MSE1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.MSE1.Visible",
+      "probePath": "Universe.0.MSE1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.MSE1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.MSE1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.MSE1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.MSE1.Visible\", 1; SetProp \"Universe.0.MSE1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.MSE1.Visible\", 0; SetProp \"Universe.0.MSE1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.MSE1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.MSE1.Visible",
+        "notes": "The probe used the concrete Universe.0.MSE1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.N.Selected",
+      "probePath": "Universe.0.0.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.N.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.N.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.0.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.0.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.0.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.0.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.0.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.0.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.0.Selected\", 1; SetProp \"Universe.0.0.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.0.Selected\", 0; SetProp \"Universe.0.0.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.N.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.0.Selected",
+        "notes": "The probe used the concrete Universe.0.0.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.N.Visible",
+      "probePath": "Universe.0.0.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.N.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.N.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.0.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.0.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.0.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.0.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.0.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.0.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.0.Visible\", 1; SetProp \"Universe.0.0.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.0.Visible\", 0; SetProp \"Universe.0.0.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.N.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.0.Visible",
+        "notes": "The probe used the concrete Universe.0.0.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Pad1.Selected",
+      "probePath": "Universe.0.Pad1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Pad1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Pad1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Pad1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Pad1.Selected\", 1; SetProp \"Universe.0.Pad1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Pad1.Selected\", 0; SetProp \"Universe.0.Pad1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Pad1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Pad1.Selected",
+        "notes": "The probe used the concrete Universe.0.Pad1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Pad1.Visible",
+      "probePath": "Universe.0.Pad1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Pad1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Pad1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Pad1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Pad1.Visible\", 1; SetProp \"Universe.0.Pad1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Pad1.Visible\", 0; SetProp \"Universe.0.Pad1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Pad1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Pad1.Visible",
+        "notes": "The probe used the concrete Universe.0.Pad1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.PlayTimelineFromButton1.Selected",
+      "probePath": "Universe.0.PlayTimelineFromButton1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.PlayTimelineFromButton1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.PlayTimelineFromButton1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", 1; SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", 0; SetProp \"Universe.0.PlayTimelineFromButton1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.PlayTimelineFromButton1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.PlayTimelineFromButton1.Selected",
+        "notes": "The probe used the concrete Universe.0.PlayTimelineFromButton1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.PlayTimelineFromButton1.Visible",
+      "probePath": "Universe.0.PlayTimelineFromButton1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.PlayTimelineFromButton1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.PlayTimelineFromButton1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", 1; SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", 0; SetProp \"Universe.0.PlayTimelineFromButton1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.PlayTimelineFromButton1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.PlayTimelineFromButton1.Visible",
+        "notes": "The probe used the concrete Universe.0.PlayTimelineFromButton1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.PLTime1.Selected",
+      "probePath": "Universe.0.PLTime1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.PLTime1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.PLTime1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", 1; SetProp \"Universe.0.PLTime1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.PLTime1.Selected\", 0; SetProp \"Universe.0.PLTime1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.PLTime1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.PLTime1.Selected",
+        "notes": "The probe used the concrete Universe.0.PLTime1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.PLTime1.Visible",
+      "probePath": "Universe.0.PLTime1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.PLTime1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.PLTime1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", 1; SetProp \"Universe.0.PLTime1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.PLTime1.Visible\", 0; SetProp \"Universe.0.PLTime1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.PLTime1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.PLTime1.Visible",
+        "notes": "The probe used the concrete Universe.0.PLTime1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Preview1.Selected",
+      "probePath": "Universe.0.Preview1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Preview1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Preview1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Preview1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Preview1.Selected\", 1; SetProp \"Universe.0.Preview1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Preview1.Selected\", 0; SetProp \"Universe.0.Preview1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Preview1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Preview1.Selected",
+        "notes": "The probe used the concrete Universe.0.Preview1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Preview1.Visible",
+      "probePath": "Universe.0.Preview1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Preview1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Preview1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Preview1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Preview1.Visible\", 1; SetProp \"Universe.0.Preview1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Preview1.Visible\", 0; SetProp \"Universe.0.Preview1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Preview1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Preview1.Visible",
+        "notes": "The probe used the concrete Universe.0.Preview1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Projector1.Selected",
+      "probePath": "Universe.0.Projector1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Projector1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Projector1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Projector1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Projector1.Selected\", 1; SetProp \"Universe.0.Projector1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Projector1.Selected\", 0; SetProp \"Universe.0.Projector1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Projector1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Projector1.Selected",
+        "notes": "The probe used the concrete Universe.0.Projector1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Projector1.Visible",
+      "probePath": "Universe.0.Projector1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Projector1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Projector1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Projector1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Projector1.Visible\", 1; SetProp \"Universe.0.Projector1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Projector1.Visible\", 0; SetProp \"Universe.0.Projector1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Projector1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Projector1.Visible",
+        "notes": "The probe used the concrete Universe.0.Projector1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Select1.Selected",
+      "probePath": "Universe.0.Select1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Select1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Select1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Select1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Select1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Select1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Select1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Select1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Select1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Select1.Selected\", 1; SetProp \"Universe.0.Select1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Select1.Selected\", 0; SetProp \"Universe.0.Select1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Select1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Select1.Selected",
+        "notes": "The probe used the concrete Universe.0.Select1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Select1.Visible",
+      "probePath": "Universe.0.Select1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Select1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Select1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Select1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Select1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Select1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Select1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Select1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Select1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Select1.Visible\", 1; SetProp \"Universe.0.Select1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Select1.Visible\", 0; SetProp \"Universe.0.Select1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Select1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Select1.Visible",
+        "notes": "The probe used the concrete Universe.0.Select1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Slider1.Selected",
+      "probePath": "Universe.0.Slider1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Slider1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Slider1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Slider1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Slider1.Selected\", 1; SetProp \"Universe.0.Slider1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Slider1.Selected\", 0; SetProp \"Universe.0.Slider1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Slider1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Slider1.Selected",
+        "notes": "The probe used the concrete Universe.0.Slider1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Slider1.Visible",
+      "probePath": "Universe.0.Slider1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Slider1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Slider1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Slider1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Slider1.Visible\", 1; SetProp \"Universe.0.Slider1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Slider1.Visible\", 0; SetProp \"Universe.0.Slider1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Slider1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Slider1.Visible",
+        "notes": "The probe used the concrete Universe.0.Slider1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.SpatEff1.Selected",
+      "probePath": "Universe.0.SpatEff1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.SpatEff1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.SpatEff1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", 1; SetProp \"Universe.0.SpatEff1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.SpatEff1.Selected\", 0; SetProp \"Universe.0.SpatEff1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.SpatEff1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.SpatEff1.Selected",
+        "notes": "The probe used the concrete Universe.0.SpatEff1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.SpatEff1.Visible",
+      "probePath": "Universe.0.SpatEff1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.SpatEff1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.SpatEff1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", 1; SetProp \"Universe.0.SpatEff1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.SpatEff1.Visible\", 0; SetProp \"Universe.0.SpatEff1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.SpatEff1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.SpatEff1.Visible",
+        "notes": "The probe used the concrete Universe.0.SpatEff1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TCLabel1.Selected",
+      "probePath": "Universe.0.TCLabel1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TCLabel1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TCLabel1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", 1; SetProp \"Universe.0.TCLabel1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TCLabel1.Selected\", 0; SetProp \"Universe.0.TCLabel1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TCLabel1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TCLabel1.Selected",
+        "notes": "The probe used the concrete Universe.0.TCLabel1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TCLabel1.Visible",
+      "probePath": "Universe.0.TCLabel1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TCLabel1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TCLabel1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", 1; SetProp \"Universe.0.TCLabel1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TCLabel1.Visible\", 0; SetProp \"Universe.0.TCLabel1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TCLabel1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TCLabel1.Visible",
+        "notes": "The probe used the concrete Universe.0.TCLabel1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TlVideo1.Selected",
+      "probePath": "Universe.0.TlVideo1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TlVideo1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TlVideo1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", 1; SetProp \"Universe.0.TlVideo1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TlVideo1.Selected\", 0; SetProp \"Universe.0.TlVideo1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TlVideo1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TlVideo1.Selected",
+        "notes": "The probe used the concrete Universe.0.TlVideo1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TlVideo1.Visible",
+      "probePath": "Universe.0.TlVideo1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TlVideo1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TlVideo1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", 1; SetProp \"Universe.0.TlVideo1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TlVideo1.Visible\", 0; SetProp \"Universe.0.TlVideo1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TlVideo1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TlVideo1.Visible",
+        "notes": "The probe used the concrete Universe.0.TlVideo1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TSE1.Selected",
+      "probePath": "Universe.0.TSE1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TSE1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TSE1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TSE1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TSE1.Selected\", 1; SetProp \"Universe.0.TSE1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TSE1.Selected\", 0; SetProp \"Universe.0.TSE1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TSE1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TSE1.Selected",
+        "notes": "The probe used the concrete Universe.0.TSE1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.TSE1.Visible",
+      "probePath": "Universe.0.TSE1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.TSE1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.TSE1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.TSE1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.TSE1.Visible\", 1; SetProp \"Universe.0.TSE1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.TSE1.Visible\", 0; SetProp \"Universe.0.TSE1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.TSE1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.TSE1.Visible",
+        "notes": "The probe used the concrete Universe.0.TSE1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Webcam1.Selected",
+      "probePath": "Universe.0.Webcam1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Webcam1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Webcam1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", 1; SetProp \"Universe.0.Webcam1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Webcam1.Selected\", 0; SetProp \"Universe.0.Webcam1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Webcam1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Webcam1.Selected",
+        "notes": "The probe used the concrete Universe.0.Webcam1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Webcam1.Visible",
+      "probePath": "Universe.0.Webcam1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Webcam1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Webcam1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", 1; SetProp \"Universe.0.Webcam1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Webcam1.Visible\", 0; SetProp \"Universe.0.Webcam1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Webcam1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Webcam1.Visible",
+        "notes": "The probe used the concrete Universe.0.Webcam1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Wheel1.Selected",
+      "probePath": "Universe.0.Wheel1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Wheel1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Wheel1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", 1; SetProp \"Universe.0.Wheel1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Wheel1.Selected\", 0; SetProp \"Universe.0.Wheel1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Wheel1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Wheel1.Selected",
+        "notes": "The probe used the concrete Universe.0.Wheel1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Wheel1.Visible",
+      "probePath": "Universe.0.Wheel1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Wheel1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Wheel1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", 1; SetProp \"Universe.0.Wheel1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Wheel1.Visible\", 0; SetProp \"Universe.0.Wheel1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.Wheel1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.Wheel1.Visible",
+        "notes": "The probe used the concrete Universe.0.Wheel1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad1.Selected",
+      "probePath": "Universe.0.ZonePad1.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", 1; SetProp \"Universe.0.ZonePad1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.ZonePad1.Selected\", 0; SetProp \"Universe.0.ZonePad1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.ZonePad1.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.ZonePad1.Selected",
+        "notes": "The probe used the concrete Universe.0.ZonePad1.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad1.Visible",
+      "probePath": "Universe.0.ZonePad1.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", 1; SetProp \"Universe.0.ZonePad1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.ZonePad1.Visible\", 0; SetProp \"Universe.0.ZonePad1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.ZonePad1.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.ZonePad1.Visible",
+        "notes": "The probe used the concrete Universe.0.ZonePad1.Visible Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Selected",
+      "probePath": "Universe.0.ZonePad2.Selected",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad2.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad2.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", 1; SetProp \"Universe.0.ZonePad2.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.ZonePad2.Selected\", 0; SetProp \"Universe.0.ZonePad2.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.ZonePad2.Selected: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.ZonePad2.Selected",
+        "notes": "The probe used the concrete Universe.0.ZonePad2.Selected Universe control path."
+      }
+    },
+    {
+      "objectPath": "Universe.N.ZonePad2.Visible",
+      "probePath": "Universe.0.ZonePad2.Visible",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.ZonePad2.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.ZonePad2.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", 1; SetProp \"Universe.0.ZonePad2.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.ZonePad2.Visible\", 0; SetProp \"Universe.0.ZonePad2.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe sent a baseline restore after every tested write and verified the final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #122 confirmed Universe.N.ZonePad2.Visible: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" are no-ops from prepared opposite states.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.0.ZonePad2.Visible",
+        "notes": "The probe used the concrete Universe.0.ZonePad2.Visible Universe control path."
+      }
+    }
+  ]
+}
