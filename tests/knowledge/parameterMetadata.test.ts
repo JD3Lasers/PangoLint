@@ -45,4 +45,16 @@ describe("parameter metadata formatting", () => {
       }),
     ).toBe(">= 0 and < 1 · 0=OFF, 1=ON");
   });
+
+  it("renders mixed boundary behavior explicitly", () => {
+    expect(
+      formatParameterRangeMetadata({
+        valueRange: {
+          min: 0,
+          max: 1,
+          boundaryBehavior: "mixed",
+        },
+      }),
+    ).toBe("0..1; has mixed behavior outside range");
+  });
 });
