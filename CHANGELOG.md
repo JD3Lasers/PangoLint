@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.39] - 2026-05-25
+
+### Security
+
+- Require npm and Marketplace registry publish workflows to reject release tags
+  that are not in `origin/main` history, and build the Marketplace VSIX from
+  the validated tag before entering the publish environment.
+
 ## [0.7.38] - 2026-05-23
 
 ### Fixed
@@ -407,7 +415,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...HEAD
+[0.7.39]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...v0.7.39
 [0.7.38]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...v0.7.38
 [0.7.37]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.36...v0.7.37
 [0.7.36]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.35...v0.7.36
