@@ -15,7 +15,7 @@
       "probeMode": "command-write-readback",
       "shipsMetadata": true,
       "valueType": "integer",
-      "evidenceLevel": "observed",
+      "evidenceLevel": "inferred",
       "boundaryBehavior": "mixed",
       "baseline": {
         "value": 60,
@@ -356,7 +356,7 @@
         "restoredValue": 60,
         "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
       },
-      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid2.Count has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid2.Count has mixed SetGridSize boundary behavior and an observed upper sample of 256. The lower bound remains inferred because low-size writes read back the unchanged 60 baseline.",
       "locationAware": true,
       "locationContext": {
         "kind": "workspace-slot",
