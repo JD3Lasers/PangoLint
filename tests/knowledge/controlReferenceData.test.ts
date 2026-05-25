@@ -361,7 +361,7 @@ describe("tracked BEYOND control reference data", () => {
       ["Grid.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
-      ["Grid2.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid2.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "inferred" }],
       ["Grid2.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid2.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
     ]);

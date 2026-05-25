@@ -2192,13 +2192,13 @@ describe("checked-in Object Tree device value metadata data", () => {
 
     expect(byPath.get("Grid2.Count")?.valueMetadata).toMatchObject({
       valueType: "integer",
-      evidenceLevel: "observed",
+      evidenceLevel: "inferred",
       valueRange: {
         min: 1,
         max: 256,
         unit: "cue slots",
         boundaryBehavior: "mixed",
-        evidenceLevel: "observed",
+        evidenceLevel: "inferred",
       },
       locationContext: {
         kind: "workspace-slot",
@@ -2840,13 +2840,13 @@ describe("checked-in Object Tree device value metadata data", () => {
 
     expect(byPath.get("Grid2.Count")?.valueMetadata).toMatchObject({
       valueType: "integer",
-      evidenceLevel: "observed",
+      evidenceLevel: "inferred",
       valueRange: {
         min: 1,
         max: 256,
         unit: "cue slots",
         boundaryBehavior: "mixed",
-        evidenceLevel: "observed",
+        evidenceLevel: "inferred",
       },
     });
 
