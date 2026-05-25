@@ -20,9 +20,10 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.classifiedEntries).toBe(index.entries.filter((entry) => entry.classification).length);
     expect(report.summary.unclassifiedEntries).toBe(0);
     expect(report.summary.hardViolationCount).toBe(0);
-    expect(report.summary.warningCount).toBe(1);
+    expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(279);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -39,16 +40,21 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
+      ["unknown-boundary-behavior", "warning", "warn", 279],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
     const readOnlyDomain = report.reviewBuckets.find((bucket) => bucket.id === "read-only-domain-metadata-review");
+    const unknownBoundary = report.reviewBuckets.find((bucket) => bucket.id === "unknown-boundary-behavior");
     expect(unverifiedFx?.count).toBe(0);
     expect(unverifiedFx?.roots).toEqual([]);
     expect(unverifiedFx?.examples).toEqual([]);
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
+    expect(unknownBoundary?.count).toBe(279);
+    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "Skeleton1", count: 60 });
+    expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
     expect(report.spotCheckPlan.map((row) => row.path)).toEqual(
@@ -72,6 +78,73 @@ describe("final Object Tree data quality audit", () => {
         reason: "representative FX row promoted by write/readback retest",
       }),
     );
+
+    expect(report.boundaryProbePlan.slice(0, 4)).toEqual([
+      {
+        root: "Skeleton1",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 60,
+        examples: [
+          "Skeleton1.HeadX",
+          "Skeleton1.HeadY",
+          "Skeleton1.HeadZ",
+          "Skeleton1.HipCenterX",
+          "Skeleton1.HipCenterY",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+      {
+        root: "Skeleton2",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 60,
+        examples: [
+          "Skeleton2.HeadX",
+          "Skeleton2.HeadY",
+          "Skeleton2.HeadZ",
+          "Skeleton2.HipCenterX",
+          "Skeleton2.HipCenterY",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+      {
+        root: "Universe",
+        accessMode: "read-write",
+        behaviorKind: "flag-state",
+        valueType: "boolean",
+        count: 48,
+        examples: [
+          "Universe.N.DropEff1.Selected",
+          "Universe.N.DropEff1.Visible",
+          "Universe.N.GunEff1.Selected",
+          "Universe.N.GunEff1.Visible",
+          "Universe.N.Image1.Selected",
+        ],
+        nextProbe:
+          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
+      },
+      {
+        root: "MobSensor",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 16,
+        examples: [
+          "MobSensor.AccelX",
+          "MobSensor.AccelY",
+          "MobSensor.AccelZ",
+          "MobSensor.BarPressure",
+          "MobSensor.GravityX",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+    ]);
   });
 });
 
@@ -86,6 +159,7 @@ interface DataQualityReport {
     warningCount: number;
     unverifiedUnknownRows: number;
     readOnlyRowsWithDomainMetadata: number;
+    unknownBoundaryBehaviorRows: number;
     crosswalkPropertiesWithBehaviorClassification: number;
     crosswalkPropertiesMissingBehaviorClassification: number;
   };
@@ -109,6 +183,15 @@ interface DataQualityReport {
     behaviorKind: string;
     evidenceLevel: string;
     reason: string;
+  }>;
+  boundaryProbePlan: Array<{
+    root: string;
+    accessMode: string;
+    behaviorKind: string;
+    valueType: string;
+    count: number;
+    examples: string[];
+    nextProbe: string;
   }>;
 }
 

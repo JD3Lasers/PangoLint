@@ -13,9 +13,10 @@
     "entriesWithReadbackMetadata": 1691,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "hardViolationCount": 0,
-    "warningCount": 1,
+    "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
+    "unknownBoundaryBehaviorRows": 279,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -177,6 +178,27 @@
         "TouchPoints.Count"
       ],
       "message": "Read-only rows with domain metadata need careful public wording so computed domains are not read as writable ranges."
+    },
+    {
+      "id": "unknown-boundary-behavior",
+      "severity": "warning",
+      "status": "warn",
+      "count": 279,
+      "examples": [
+        "Beam.N.ColorPalette",
+        "Beam.N.RotoZ",
+        "ColorChannel.Count",
+        "FB3_XXXXX.Connected",
+        "FB3_XXXXX.InvertX",
+        "FB3_XXXXX.InvertY",
+        "FB3_XXXXX.PositionX",
+        "FB3_XXXXX.PositionY",
+        "FB3_XXXXX.PostRotation",
+        "FB3_XXXXX.PreRotation",
+        "FB3_XXXXX.SizeX",
+        "FB3_XXXXX.SizeY"
+      ],
+      "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
   ],
   "reviewBuckets": [
@@ -240,6 +262,107 @@
         "TouchPoints.Count"
       ],
       "nextAction": "Keep these as computed-status rows, but review wording so domain metadata is not mistaken for writable range metadata."
+    },
+    {
+      "id": "unknown-boundary-behavior",
+      "count": 279,
+      "roots": [
+        {
+          "root": "Skeleton1",
+          "count": 60
+        },
+        {
+          "root": "Skeleton2",
+          "count": 60
+        },
+        {
+          "root": "Universe",
+          "count": 48
+        },
+        {
+          "root": "WS",
+          "count": 30
+        },
+        {
+          "root": "MobSensor",
+          "count": 20
+        },
+        {
+          "root": "FB3_XXXXX",
+          "count": 10
+        },
+        {
+          "root": "FB4_XXXXX",
+          "count": 10
+        },
+        {
+          "root": "Projector",
+          "count": 10
+        },
+        {
+          "root": "Master",
+          "count": 8
+        },
+        {
+          "root": "Grid",
+          "count": 4
+        },
+        {
+          "root": "Grid2",
+          "count": 4
+        },
+        {
+          "root": "Beam",
+          "count": 2
+        },
+        {
+          "root": "Gamepad",
+          "count": 2
+        },
+        {
+          "root": "Status",
+          "count": 2
+        },
+        {
+          "root": "TouchPoints",
+          "count": 2
+        },
+        {
+          "root": "Zone",
+          "count": 2
+        },
+        {
+          "root": "ZoneAlias",
+          "count": 2
+        },
+        {
+          "root": "ColorChannel",
+          "count": 1
+        },
+        {
+          "root": "Location",
+          "count": 1
+        },
+        {
+          "root": "PlayListState",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "Beam.N.ColorPalette",
+        "Beam.N.RotoZ",
+        "ColorChannel.Count",
+        "FB3_XXXXX.Connected",
+        "FB3_XXXXX.InvertX",
+        "FB3_XXXXX.InvertY",
+        "FB3_XXXXX.PositionX",
+        "FB3_XXXXX.PositionY",
+        "FB3_XXXXX.PostRotation",
+        "FB3_XXXXX.PreRotation",
+        "FB3_XXXXX.SizeX",
+        "FB3_XXXXX.SizeY"
+      ],
+      "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
   ],
   "spotCheckPlan": [
@@ -714,6 +837,431 @@
       "behaviorKind": "flag-state",
       "evidenceLevel": "observed",
       "reason": "first row for root coverage"
+    }
+  ],
+  "boundaryProbePlan": [
+    {
+      "root": "Skeleton1",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 60,
+      "examples": [
+        "Skeleton1.HeadX",
+        "Skeleton1.HeadY",
+        "Skeleton1.HeadZ",
+        "Skeleton1.HipCenterX",
+        "Skeleton1.HipCenterY"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Skeleton2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 60,
+      "examples": [
+        "Skeleton2.HeadX",
+        "Skeleton2.HeadY",
+        "Skeleton2.HeadZ",
+        "Skeleton2.HipCenterX",
+        "Skeleton2.HipCenterY"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Universe",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 48,
+      "examples": [
+        "Universe.N.DropEff1.Selected",
+        "Universe.N.DropEff1.Visible",
+        "Universe.N.GunEff1.Selected",
+        "Universe.N.GunEff1.Visible",
+        "Universe.N.Image1.Selected"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "MobSensor",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 16,
+      "examples": [
+        "MobSensor.AccelX",
+        "MobSensor.AccelY",
+        "MobSensor.AccelZ",
+        "MobSensor.BarPressure",
+        "MobSensor.GravityX"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "WS",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 14,
+      "examples": [
+        "WS.N.N.Image.0.SizeMOD1",
+        "WS.N.N.Image.0.SizeMOD2",
+        "WS.N.N.Image.LIST.0.AngleX",
+        "WS.N.N.Image.LIST.0.AngleY",
+        "WS.N.N.Image.LIST.0.AngleZ"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "WS",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 12,
+      "examples": [
+        "WS.N.N.Ani.0.Muted",
+        "WS.N.N.Ani.0.PreventReroute",
+        "WS.N.N.Ani.0.Solo",
+        "WS.N.N.Ani.0.tsStretchGrouping",
+        "WS.N.N.Image.AutoRecord"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "Master",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 8,
+      "examples": [
+        "Master.CueLcSpeed",
+        "Master.CueSpeed",
+        "Master.FXSpeed",
+        "Master.LCSpeed",
+        "Master.MasterEffectClockShift"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "FB3_XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 6,
+      "examples": [
+        "FB3_XXXXX.PositionX",
+        "FB3_XXXXX.PositionY",
+        "FB3_XXXXX.PostRotation",
+        "FB3_XXXXX.PreRotation",
+        "FB3_XXXXX.SizeX"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "FB4_XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 6,
+      "examples": [
+        "FB4_XXXXX.PositionX",
+        "FB4_XXXXX.PositionY",
+        "FB4_XXXXX.PostRotation",
+        "FB4_XXXXX.PreRotation",
+        "FB4_XXXXX.SizeX"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Projector",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 6,
+      "examples": [
+        "Projector.N.PositionX",
+        "Projector.N.PositionY",
+        "Projector.N.PostRotation",
+        "Projector.N.PreRotation",
+        "Projector.N.SizeX"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "MobSensor",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 4,
+      "examples": [
+        "MobSensor.ButtonA",
+        "MobSensor.ButtonB",
+        "MobSensor.ButtonC",
+        "MobSensor.ButtonD"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "WS",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "integer",
+      "count": 4,
+      "examples": [
+        "WS.N.N.CaptionColor",
+        "WS.N.N.Image.BeamRepeat",
+        "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+        "WS.N.N.Image.LIST.0.Image.Color"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "FB3_XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 3,
+      "examples": [
+        "FB3_XXXXX.InvertX",
+        "FB3_XXXXX.InvertY",
+        "FB3_XXXXX.SwapXY"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "FB4_XXXXX",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 3,
+      "examples": [
+        "FB4_XXXXX.InvertX",
+        "FB4_XXXXX.InvertY",
+        "FB4_XXXXX.SwapXY"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "Grid",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "integer",
+      "count": 3,
+      "examples": [
+        "Grid.Count",
+        "Grid.GetColCount",
+        "Grid.GetRowCount"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Grid2",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "integer",
+      "count": 3,
+      "examples": [
+        "Grid2.Count",
+        "Grid2.GetColCount",
+        "Grid2.GetRowCount"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Projector",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 3,
+      "examples": [
+        "Projector.N.InvertX",
+        "Projector.N.InvertY",
+        "Projector.N.SwapXY"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "Gamepad",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "integer",
+      "count": 2,
+      "examples": [
+        "Gamepad.Buttons",
+        "Gamepad.POV"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "Status",
+      "accessMode": "read-mostly",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 2,
+      "examples": [
+        "Status.LaserEnabled",
+        "Status.Locked"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "Zone",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 2,
+      "examples": [
+        "Zone.N.Active",
+        "Zone.N.BlockZone"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "ZoneAlias",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 2,
+      "examples": [
+        "ZoneAlias.Active",
+        "ZoneAlias.BlockZone"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
+    },
+    {
+      "root": "Beam",
+      "accessMode": "read-write",
+      "behaviorKind": "enum-state",
+      "valueType": "enum",
+      "count": 1,
+      "examples": [
+        "Beam.N.ColorPalette"
+      ],
+      "nextProbe": "Test each accepted value plus one lower and one higher value, then restore the baseline enum value."
+    },
+    {
+      "root": "Beam",
+      "accessMode": "read-write",
+      "behaviorKind": "state-value",
+      "valueType": "number",
+      "count": 1,
+      "examples": [
+        "Beam.N.RotoZ"
+      ],
+      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
+    },
+    {
+      "root": "ColorChannel",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "integer",
+      "count": 1,
+      "examples": [
+        "ColorChannel.Count"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "FB3_XXXXX",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "boolean",
+      "count": 1,
+      "examples": [
+        "FB3_XXXXX.Connected"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "FB4_XXXXX",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "boolean",
+      "count": 1,
+      "examples": [
+        "FB4_XXXXX.Connected"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "Grid",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "integer",
+      "count": 1,
+      "examples": [
+        "Grid.ClickMode"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "Grid2",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "integer",
+      "count": 1,
+      "examples": [
+        "Grid2.ClickMode"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "Location",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "integer",
+      "count": 1,
+      "examples": [
+        "Location.Count"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "PlayListState",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "number",
+      "count": 1,
+      "examples": [
+        "PlayListState.Position"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "Projector",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "boolean",
+      "count": 1,
+      "examples": [
+        "Projector.N.Connected"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "TouchPoints",
+      "accessMode": "read-only",
+      "behaviorKind": "computed-status",
+      "valueType": "integer",
+      "count": 1,
+      "examples": [
+        "TouchPoints.Count"
+      ],
+      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
+    },
+    {
+      "root": "TouchPoints",
+      "accessMode": "read-write",
+      "behaviorKind": "flag-state",
+      "valueType": "boolean",
+      "count": 1,
+      "examples": [
+        "TouchPoints.N.Active"
+      ],
+      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     }
   ]
 }
