@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 259,
+    "unknownBoundaryBehaviorRows": 139,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 259,
+      "count": 139,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,16 +265,8 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 259,
+      "count": 139,
       "roots": [
-        {
-          "root": "Skeleton1",
-          "count": 60
-        },
-        {
-          "root": "Skeleton2",
-          "count": 60
-        },
         {
           "root": "Universe",
           "count": 48
@@ -836,36 +828,6 @@
     }
   ],
   "boundaryProbePlan": [
-    {
-      "root": "Skeleton1",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 60,
-      "examples": [
-        "Skeleton1.HeadX",
-        "Skeleton1.HeadY",
-        "Skeleton1.HeadZ",
-        "Skeleton1.HipCenterX",
-        "Skeleton1.HipCenterY"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "Skeleton2",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 60,
-      "examples": [
-        "Skeleton2.HeadX",
-        "Skeleton2.HeadY",
-        "Skeleton2.HeadZ",
-        "Skeleton2.HipCenterX",
-        "Skeleton2.HipCenterY"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
     {
       "root": "Universe",
       "accessMode": "read-write",

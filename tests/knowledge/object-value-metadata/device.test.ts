@@ -3021,7 +3021,7 @@ describe("checked-in Object Tree device value metadata data", () => {
     }
   });
 
-  it("ships observed Skeleton coordinate ranges from issue 299 follow-up", () => {
+  it("ships observed Skeleton coordinate boundary behavior from issue 120 follow-up", () => {
     const objectPropertyIndex = readJson<{
       entries: Array<{
         path: string;
@@ -3029,13 +3029,29 @@ describe("checked-in Object Tree device value metadata data", () => {
         valueMetadata?: ObjectPropertyValueMetadata;
       }>;
     }>("object-property-index.json");
+    const boundaryEvidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        valueType: string;
+        boundaryBehavior: string;
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+      }>;
+    }>("object-range-evidence/issue-120-skeleton-coordinate-boundary-behavior.json");
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const boundaryEvidenceByPath = new Map(boundaryEvidence.entries.map((entry) => [entry.objectPath, entry]));
     const skeletonCoordinates = objectPropertyIndex.entries.filter(
       (entry) =>
         (entry.root === "Skeleton1" || entry.root === "Skeleton2") &&
-        entry.valueMetadata?.notes?.startsWith("Runtime object write/readback on 2026-05-16 issue #299 confirmed "),
+        entry.valueMetadata?.notes?.startsWith("Runtime object write/readback on 2026-05-25 issue #120 confirmed "),
     );
     const countsByRoot = new Map<string, number>();
+
+    expect(boundaryEvidence.entries).toHaveLength(120);
 
     for (const entry of skeletonCoordinates) {
       countsByRoot.set(entry.root, (countsByRoot.get(entry.root) ?? 0) + 1);
@@ -3047,7 +3063,7 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: -999,
           max: 10000000,
           unit: "skeleton coordinate value",
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "mixed",
           evidenceLevel: "observed",
         },
         evidenceLevel: "observed",
@@ -3068,7 +3084,22 @@ describe("checked-in Object Tree device value metadata data", () => {
 
     for (const path of ["Skeleton1.HeadX", "Skeleton1.SpineZ", "Skeleton2.HeadX", "Skeleton2.SpineZ"]) {
       const metadata = byPath.get(path)?.valueMetadata as ObjectPropertyValueMetadata | undefined;
-      expect(metadata?.valueRange?.notes, path).toContain("Samples below -999 read back 0 instead of clamping");
+      const evidenceRow = boundaryEvidenceByPath.get(path);
+
+      expect(metadata?.valueRange?.notes, path).toContain("Below-min samples -1000 and -999.5 made WriteLn report");
+      expect(evidenceRow, path).toMatchObject({
+        shipsMetadata: true,
+        valueType: "number",
+        boundaryBehavior: "mixed",
+      });
+      expect(evidenceRow?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: -1000, readback: null, behavior: "reject" }),
+          expect.objectContaining({ input: -999.5, readback: null, behavior: "reject" }),
+          expect.objectContaining({ input: -999, readback: -999, behavior: "pass-through" }),
+          expect.objectContaining({ input: 20000000, readback: 20000000, behavior: "pass-through" }),
+        ]),
+      );
     }
   });
 
