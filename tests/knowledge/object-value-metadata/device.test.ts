@@ -3498,6 +3498,99 @@ describe("checked-in Object Tree device value metadata data", () => {
     });
   });
 
+  it("ships observed Master numeric boundary behavior from issue 128", () => {
+    const objectPropertyIndex = readJson<{
+      entries: Array<{
+        path: string;
+        valueMetadata?: ObjectPropertyValueMetadata;
+      }>;
+    }>("object-property-index.json");
+    const evidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        probeMode: string;
+        shipsMetadata: boolean;
+        valueType: string;
+        evidenceLevel: string;
+        boundaryBehavior: string;
+        valueRange: {
+          min: number;
+          max: number;
+          unit: string;
+        };
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+        restore: {
+          strategy: string;
+          restoredValue: number;
+        };
+      }>;
+    }>("object-range-evidence/issue-128-master-numeric-boundary-behavior.json");
+    const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const evidenceByPath = new Map(evidence.entries.map((entry) => [entry.objectPath, entry]));
+    const expectedPaths = [
+      "Master.CueLcSpeed",
+      "Master.CueSpeed",
+      "Master.FXSpeed",
+      "Master.LCSpeed",
+      "Master.MasterEffectClockShift",
+      "Master.MasterEffectMetroShift",
+      "Master.ShowShift",
+      "Master.ZoneFxSpeed",
+    ];
+
+    expect(evidence.entries).toHaveLength(expectedPaths.length);
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(new Set(expectedPaths));
+
+    for (const path of expectedPaths) {
+      const metadata = byPath.get(path)?.valueMetadata as ObjectPropertyValueMetadata | undefined;
+      const evidenceRow = evidenceByPath.get(path);
+
+      expect(metadata, path).toBeDefined();
+      assertObjectPropertyValueMetadata(metadata as ObjectPropertyValueMetadata);
+      expect(hasManualReadyValueMetadata(metadata as ObjectPropertyValueMetadata), path).toBe(true);
+      expect(metadata).toMatchObject({
+        valueType: "number",
+        evidenceLevel: "observed",
+        valueRange: {
+          min: -2147483648,
+          max: 2147483648,
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      });
+      expect(metadata?.valueRange?.notes, path).toContain("issue #128");
+      expect(evidenceRow, path).toMatchObject({
+        probeMode: "write-readback",
+        shipsMetadata: true,
+        valueType: "number",
+        evidenceLevel: "observed",
+        boundaryBehavior: "mixed",
+        valueRange: {
+          min: -2147483648,
+          max: 2147483648,
+          unit: metadata?.valueRange?.unit,
+        },
+        restore: {
+          strategy: "restored-baseline",
+        },
+      });
+      expect(evidenceRow?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
+          expect.objectContaining({ input: -2147483647, readback: -2147483648, behavior: "unknown" }),
+          expect.objectContaining({ input: -120000, readback: -120000, behavior: "pass-through" }),
+          expect.objectContaining({ input: 1.5, readback: 1.5, behavior: "pass-through" }),
+          expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "unknown" }),
+          expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
+        ]),
+      );
+    }
+  });
+
   it("ships directly observed issue 291 Master and MasterLC range metadata", () => {
     const objectPropertyIndex = readJson<{
       entries: Array<{

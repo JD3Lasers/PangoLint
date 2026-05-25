@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 65,
+    "unknownBoundaryBehaviorRows": 57,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 65,
+      "count": 57,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 65,
+      "count": 57,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -278,10 +278,6 @@
         {
           "root": "Projector",
           "count": 10
-        },
-        {
-          "root": "Master",
-          "count": 8
         },
         {
           "root": "Grid",
@@ -824,21 +820,6 @@
     }
   ],
   "boundaryProbePlan": [
-    {
-      "root": "Master",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 8,
-      "examples": [
-        "Master.CueLcSpeed",
-        "Master.CueSpeed",
-        "Master.FXSpeed",
-        "Master.LCSpeed",
-        "Master.MasterEffectClockShift"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
     {
       "root": "FB3_XXXXX",
       "accessMode": "read-write",
