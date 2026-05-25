@@ -361,6 +361,9 @@ describe("tracked BEYOND control reference data", () => {
       ["Grid.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid2.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid2.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid2.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
     ]);
     const setGridSize = commands.find((command) => command.commandName === "SetGridSize");
     const setGridSizeForm = setGridSize?.forms.find((form) => form.signature === "SetGridSize <columns>, <rows>");
@@ -381,10 +384,15 @@ describe("tracked BEYOND control reference data", () => {
 
       expect(seedRow?.commandParameterRanges).toEqual(expectedRanges);
       expect(crosswalkRow?.rangeSeeds?.commandParameterRanges).toEqual(expectedRanges);
-      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(
-        expectedObjectValueRanges.get(propertyPath) ?? {},
-      );
       expect(mcpRow?.pangoScript.parameterRanges).toEqual(expectedRanges);
+    }
+
+    for (const [propertyPath, expectedValueRange] of expectedObjectValueRanges) {
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+
+      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(expectedValueRange);
+      expect(mcpRow?.value?.range).toMatchObject(expectedValueRange);
     }
   });
 });
@@ -445,6 +453,9 @@ interface McpControlReferenceFile {
       range?: {
         min?: number;
         max?: number;
+        unit?: string;
+        boundaryBehavior?: string;
+        evidenceLevel?: string;
       };
     };
     behavior?: {
