@@ -76956,10 +76956,16 @@
             "min": 1,
             "max": 256,
             "unit": "cue slots",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "inferred"
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed"
           },
-          "evidenceLevel": "inferred"
+          "evidenceLevel": "observed",
+          "locationContext": {
+            "kind": "workspace-slot",
+            "populationDependent": true,
+            "indexBasis": "Grid.Count reflects the loaded workspace grid layout.",
+            "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+          }
         },
         "classification": {
           "accessMode": "read-write",
@@ -76994,7 +77000,7 @@
             "min": 1,
             "max": 16,
             "unit": "columns",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         },
@@ -77008,7 +77014,7 @@
             "min": 1,
             "max": 16,
             "unit": "rows",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         }
@@ -77045,10 +77051,16 @@
             "min": 1,
             "max": 16,
             "unit": "columns",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           },
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "locationContext": {
+            "kind": "workspace-slot",
+            "populationDependent": true,
+            "indexBasis": "Grid.GetColCount reflects the loaded workspace grid layout.",
+            "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+          }
         },
         "classification": {
           "accessMode": "read-write",
@@ -77083,7 +77095,7 @@
             "min": 1,
             "max": 16,
             "unit": "columns",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         },
@@ -77097,7 +77109,7 @@
             "min": 1,
             "max": 16,
             "unit": "rows",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         }
@@ -77134,10 +77146,16 @@
             "min": 1,
             "max": 16,
             "unit": "rows",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           },
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "locationContext": {
+            "kind": "workspace-slot",
+            "populationDependent": true,
+            "indexBasis": "Grid.GetRowCount reflects the loaded workspace grid layout.",
+            "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+          }
         },
         "classification": {
           "accessMode": "read-write",
@@ -77172,7 +77190,7 @@
             "min": 1,
             "max": 16,
             "unit": "columns",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         },
@@ -77186,7 +77204,7 @@
             "min": 1,
             "max": 16,
             "unit": "rows",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed"
           }
         }

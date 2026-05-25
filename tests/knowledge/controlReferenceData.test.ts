@@ -321,6 +321,72 @@ describe("tracked BEYOND control reference data", () => {
     expect(masterBrightness?.behavior?.accessMode).toBe("read-write");
     expect(masterBrightness?.value?.role).toBeUndefined();
   });
+
+  it("keeps SetGridSize parameter boundary behavior synchronized across control-reference surfaces", () => {
+    const commands = readJson<CommandControlReferenceCommand[]>("command-control-reference/commands.json");
+    const rangeSeeds = readJson<CommandRangeSeedRow[]>("command-control-reference/range-seeds.json");
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+    const expectedRanges = [
+      {
+        commandName: "SetGridSize",
+        formSignature: "SetGridSize <columns>, <rows>",
+        parameterName: "columns",
+        parameterType: "integer",
+        range: "1..16",
+        valueRange: {
+          min: 1,
+          max: 16,
+          unit: "columns",
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      },
+      {
+        commandName: "SetGridSize",
+        formSignature: "SetGridSize <columns>, <rows>",
+        parameterName: "rows",
+        parameterType: "integer",
+        range: "1..16",
+        valueRange: {
+          min: 1,
+          max: 16,
+          unit: "rows",
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      },
+    ];
+    const expectedObjectValueRanges = new Map([
+      ["Grid.Count", { min: 1, max: 256, unit: "cue slots", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+      ["Grid.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
+    ]);
+    const setGridSize = commands.find((command) => command.commandName === "SetGridSize");
+    const setGridSizeForm = setGridSize?.forms.find((form) => form.signature === "SetGridSize <columns>, <rows>");
+
+    expect(
+      (setGridSizeForm?.parameters ?? []).map((parameter) => ({
+        parameterName: parameter.name,
+        parameterType: parameter.type,
+        range: parameter.range,
+        valueRange: parameter.valueRange,
+      })),
+    ).toEqual(expectedRanges.map(({ commandName, formSignature, ...range }) => range));
+
+    for (const propertyPath of ["Grid.Count", "Grid.GetColCount", "Grid.GetRowCount"]) {
+      const seedRow = rangeSeeds.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+
+      expect(seedRow?.commandParameterRanges).toEqual(expectedRanges);
+      expect(crosswalkRow?.rangeSeeds?.commandParameterRanges).toEqual(expectedRanges);
+      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(
+        expectedObjectValueRanges.get(propertyPath) ?? {},
+      );
+      expect(mcpRow?.pangoScript.parameterRanges).toEqual(expectedRanges);
+    }
+  });
 });
 
 interface SummaryFile {
@@ -348,6 +414,15 @@ interface PropertyControlRow {
   normalizedPropertyPattern: string;
   objectIndexEntries: Array<{
     path: string;
+    valueMetadata?: {
+      valueRange?: {
+        min?: number;
+        max?: number;
+        unit?: string;
+        boundaryBehavior?: string;
+        evidenceLevel?: string;
+      };
+    };
     classification?: {
       accessMode: string;
       behaviorKind: string;
@@ -356,6 +431,9 @@ interface PropertyControlRow {
       evidenceLevel: string;
     };
   }>;
+  rangeSeeds?: {
+    commandParameterRanges?: CommandParameterRange[];
+  };
 }
 
 interface McpControlReferenceFile {
@@ -373,7 +451,43 @@ interface McpControlReferenceFile {
       accessMode: string;
       behaviorKind: string;
     };
+    pangoScript: {
+      parameterRanges: CommandParameterRange[];
+    };
   }>;
+}
+
+interface CommandControlReferenceCommand {
+  commandName: string;
+  forms: Array<{
+    signature: string;
+    parameters?: Array<{
+      name: string;
+      type: string;
+      range?: string;
+      valueRange?: CommandParameterRange["valueRange"];
+    }>;
+  }>;
+}
+
+interface CommandRangeSeedRow {
+  normalizedPropertyPattern: string;
+  commandParameterRanges: CommandParameterRange[];
+}
+
+interface CommandParameterRange {
+  commandName: string;
+  formSignature: string;
+  parameterName: string;
+  parameterType: string;
+  range: string;
+  valueRange: {
+    min: number;
+    max: number;
+    unit: string;
+    boundaryBehavior: string;
+    evidenceLevel: string;
+  };
 }
 
 function datasetGroups(): string[] {
