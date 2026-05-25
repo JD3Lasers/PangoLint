@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(259);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(139);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 259],
+      ["unknown-boundary-behavior", "warning", "warn", 139],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,8 +52,8 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(259);
-    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "Skeleton1", count: 60 });
+    expect(unknownBoundary?.count).toBe(139);
+    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "Universe", count: 48 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
@@ -80,38 +80,6 @@ describe("final Object Tree data quality audit", () => {
     );
 
     expect(report.boundaryProbePlan.slice(0, 4)).toEqual([
-      {
-        root: "Skeleton1",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 60,
-        examples: [
-          "Skeleton1.HeadX",
-          "Skeleton1.HeadY",
-          "Skeleton1.HeadZ",
-          "Skeleton1.HipCenterX",
-          "Skeleton1.HipCenterY",
-        ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
-      {
-        root: "Skeleton2",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 60,
-        examples: [
-          "Skeleton2.HeadX",
-          "Skeleton2.HeadY",
-          "Skeleton2.HeadZ",
-          "Skeleton2.HipCenterX",
-          "Skeleton2.HipCenterY",
-        ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
       {
         root: "Universe",
         accessMode: "read-write",
@@ -140,6 +108,38 @@ describe("final Object Tree data quality audit", () => {
           "WS.N.N.Image.LIST.0.AngleX",
           "WS.N.N.Image.LIST.0.AngleY",
           "WS.N.N.Image.LIST.0.AngleZ",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+      {
+        root: "WS",
+        accessMode: "read-write",
+        behaviorKind: "flag-state",
+        valueType: "boolean",
+        count: 12,
+        examples: [
+          "WS.N.N.Ani.0.Muted",
+          "WS.N.N.Ani.0.PreventReroute",
+          "WS.N.N.Ani.0.Solo",
+          "WS.N.N.Ani.0.tsStretchGrouping",
+          "WS.N.N.Image.AutoRecord",
+        ],
+        nextProbe:
+          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
+      },
+      {
+        root: "Master",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 8,
+        examples: [
+          "Master.CueLcSpeed",
+          "Master.CueSpeed",
+          "Master.FXSpeed",
+          "Master.LCSpeed",
+          "Master.MasterEffectClockShift",
         ],
         nextProbe:
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
