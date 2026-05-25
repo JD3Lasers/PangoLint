@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.44] - 2026-05-25
+
+### Added
+
+- Add MobSensor boundary evidence from Talk TCP Echo 2 `WriteLn` probes,
+  including mobile app accelerometer, orientation, sensor, and button rows.
+
 ## [0.7.43] - 2026-05-25
 
 ### Added
@@ -444,7 +451,9 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.42...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.44...HEAD
+[0.7.44]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.43...v0.7.44
+[0.7.43]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.42...v0.7.43
 [0.7.42]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.41...v0.7.42
 [0.7.41]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.40...v0.7.41
 [0.7.40]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...v0.7.40

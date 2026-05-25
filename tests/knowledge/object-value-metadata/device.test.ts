@@ -2952,14 +2952,13 @@ describe("checked-in Object Tree device value metadata data", () => {
       });
     }
 
-    expect(issue299).toHaveLength(117);
+    expect(issue299).toHaveLength(113);
     expect(countsByRoot).toEqual(
       new Map([
         ["Gamepad", 32],
         ["MIDI2", 13],
         ["MIDI3", 13],
         ["MIDI4", 13],
-        ["MobSensor", 4],
         ["Skeleton1", 21],
         ["Skeleton2", 21],
       ]),
@@ -2994,10 +2993,11 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        unit: "mobile sensor button state",
-        boundaryBehavior: "unknown",
+        unit: "mobile app button state",
+        boundaryBehavior: "mixed",
       },
     });
+    expect(byPath.get("MobSensor.ButtonA")?.valueMetadata?.notes).toContain("2026-05-25 issue #118");
     for (const path of ["Skeleton1.HeadActive", "Skeleton2.SpineActive"]) {
       expect(byPath.get(path)?.valueMetadata, path).toMatchObject({
         valueType: "boolean",
@@ -3200,7 +3200,7 @@ describe("checked-in Object Tree device value metadata data", () => {
     expect(gamepadGaps).toHaveLength(0);
   });
 
-  it("completes MobSensor coverage from issue 299 write/readback evidence", () => {
+  it("completes MobSensor coverage from issue 299 and issue 118 write/readback evidence", () => {
     const objectPropertyIndex = readJson<{
       entries: Array<{
         path: string;
@@ -3226,11 +3226,26 @@ describe("checked-in Object Tree device value metadata data", () => {
         }>;
       }>;
     }>("object-range-evidence/issue-299-mobsensor-leftovers.json");
+    const boundaryEvidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        valueType: string;
+        boundaryBehavior: string;
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+      }>;
+    }>("object-range-evidence/issue-118-mobsensor-boundary-behavior.json");
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const evidenceByPath = new Map(evidence.entries.map((entry) => [entry.objectPath, entry]));
+    const boundaryEvidenceByPath = new Map(boundaryEvidence.entries.map((entry) => [entry.objectPath, entry]));
 
     expect(rangeOverlay.entries).toHaveLength(18);
     expect(evidence.entries).toHaveLength(18);
+    expect(boundaryEvidence.entries).toHaveLength(20);
     expect(new Set(rangeOverlay.entries.map((entry) => entry.path))).toEqual(
       new Set(evidence.entries.map((entry) => entry.objectPath)),
     );
@@ -3258,16 +3273,53 @@ describe("checked-in Object Tree device value metadata data", () => {
       expect(byPath.get(path)?.valueMetadata).toMatchObject({
         valueType: "number",
         valueRange: {
-          min: -2147483648,
-          max: 2147483648,
-          boundaryBehavior: "unknown",
+          min: -4294967296,
+          max: 4294967296,
+          boundaryBehavior: "pass-through",
           evidenceLevel: "observed",
         },
       });
-      expect(evidenceByPath.get(path)?.testedValues).toEqual(
+      expect(boundaryEvidenceByPath.get(path)?.testedValues).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ input: 1000000, readback: 1000000, behavior: "pass-through" }),
-          expect.objectContaining({ input: 2147483648, readback: 2147483648, behavior: "pass-through" }),
+          expect.objectContaining({ input: -4294967296, readback: -4294967296, behavior: "pass-through" }),
+          expect.objectContaining({ input: 4294967296, readback: 4294967296, behavior: "pass-through" }),
+        ]),
+      );
+    }
+
+    for (const path of ["MobSensor.Pitch", "MobSensor.Roll", "MobSensor.Yaw"]) {
+      expect(byPath.get(path)?.valueMetadata).toMatchObject({
+        valueType: "number",
+        valueRange: {
+          min: -4294967296,
+          max: 4294967296,
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      });
+      expect(boundaryEvidenceByPath.get(path)?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "unknown" }),
+          expect.objectContaining({ input: 4294967296, readback: 4294967296, behavior: "pass-through" }),
+        ]),
+      );
+    }
+
+    for (const path of ["MobSensor.ButtonA", "MobSensor.ButtonB", "MobSensor.ButtonC", "MobSensor.ButtonD"]) {
+      expect(byPath.get(path)?.valueMetadata).toMatchObject({
+        valueType: "boolean",
+        valueRange: {
+          min: 0,
+          max: 1,
+          unit: "mobile app button state",
+          boundaryBehavior: "mixed",
+        },
+      });
+      expect(boundaryEvidenceByPath.get(path)?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: 0, readback: 0, behavior: "pass-through" }),
+          expect.objectContaining({ input: 1, readback: 1, behavior: "pass-through" }),
+          expect.objectContaining({ input: 2, readback: 1, behavior: "unknown" }),
         ]),
       );
     }
@@ -3277,7 +3329,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: -2147483648,
         max: 2147483647,
-        unit: "signed mobile sensor button bitmask",
+        unit: "signed mobile app button bitmask",
         boundaryBehavior: "wrap",
       },
     });
@@ -3293,7 +3345,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: -2147483648,
         max: 2147483647,
-        unit: "signed mobile sensor timestamp value",
+        unit: "signed mobile app timestamp value",
         boundaryBehavior: "wrap",
       },
     });

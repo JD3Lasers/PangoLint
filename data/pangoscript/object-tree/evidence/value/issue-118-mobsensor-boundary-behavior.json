@@ -1,0 +1,1674 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 118,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "BEYOND 5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "MobSensor boundary behavior was probed with Talk TCP Echo 2 SetProp writes and WriteLn readbacks. The batch compared edge-adjacent values around the previous signed 32-bit samples, restored each path to baseline, and used WriteLn when OSC f callbacks rounded numeric payloads."
+  },
+  "entries": [
+    {
+      "objectPath": "MobSensor.AccelX",
+      "probePath": "MobSensor.AccelX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app accelerometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.AccelX\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.AccelX\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelX\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.AccelX\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.AccelX\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.AccelX accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelX",
+        "notes": "The probe used the concrete MobSensor.AccelX mobile app accelerometer path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.AccelY",
+      "probePath": "MobSensor.AccelY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app accelerometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.AccelY\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.AccelY\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelY\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.AccelY\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.AccelY\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.AccelY accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelY",
+        "notes": "The probe used the concrete MobSensor.AccelY mobile app accelerometer path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.AccelZ",
+      "probePath": "MobSensor.AccelZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app accelerometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.AccelZ\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.AccelZ\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.AccelZ\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.AccelZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.AccelZ\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.AccelZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.AccelZ\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.AccelZ\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.AccelZ accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.AccelZ",
+        "notes": "The probe used the concrete MobSensor.AccelZ mobile app accelerometer path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.BarPressure",
+      "probePath": "MobSensor.BarPressure",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app barometric pressure value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.BarPressure\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.BarPressure\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.BarPressure\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.BarPressure\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.BarPressure\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.BarPressure\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.BarPressure\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.BarPressure\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.BarPressure accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.BarPressure",
+        "notes": "The probe used the concrete MobSensor.BarPressure mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityX",
+      "probePath": "MobSensor.GravityX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gravity vector value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GravityX\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GravityX\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityX\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GravityX\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GravityX\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GravityX accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityX",
+        "notes": "The probe used the concrete MobSensor.GravityX mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityY",
+      "probePath": "MobSensor.GravityY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gravity vector value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GravityY\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GravityY\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityY\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GravityY\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GravityY\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GravityY accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityY",
+        "notes": "The probe used the concrete MobSensor.GravityY mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GravityZ",
+      "probePath": "MobSensor.GravityZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gravity vector value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GravityZ\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GravityZ\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GravityZ\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GravityZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GravityZ\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GravityZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GravityZ\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GravityZ\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GravityZ accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GravityZ",
+        "notes": "The probe used the concrete MobSensor.GravityZ mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroX",
+      "probePath": "MobSensor.GyroX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GyroX\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GyroX\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroX\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GyroX\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GyroX\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GyroX accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroX",
+        "notes": "The probe used the concrete MobSensor.GyroX mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroY",
+      "probePath": "MobSensor.GyroY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GyroY\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GyroY\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroY\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GyroY\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GyroY\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GyroY accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroY",
+        "notes": "The probe used the concrete MobSensor.GyroY mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.GyroZ",
+      "probePath": "MobSensor.GyroZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app gyroscope value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.GyroZ\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.GyroZ\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.GyroZ\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.GyroZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.GyroZ\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.GyroZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.GyroZ\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.GyroZ\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.GyroZ accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.GyroZ",
+        "notes": "The probe used the concrete MobSensor.GyroZ mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerX",
+      "probePath": "MobSensor.MagnetometerX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerX\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.MagnetometerX accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerX",
+        "notes": "The probe used the concrete MobSensor.MagnetometerX mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerY",
+      "probePath": "MobSensor.MagnetometerY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerY\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.MagnetometerY accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerY",
+        "notes": "The probe used the concrete MobSensor.MagnetometerY mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.MagnetometerZ",
+      "probePath": "MobSensor.MagnetometerZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app magnetometer value"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -2147483649",
+          "readback": -2147483649,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 2147483647",
+          "readback": 2147483647,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.MagnetometerZ\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.MagnetometerZ accepts sampled values from -4294967296 through 4294967296 with pass-through readback and baseline restore. The prior OSC f callback rounded some edge-adjacent samples, so WriteLn readback is used as the Object Tree value check. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.MagnetometerZ",
+        "notes": "The probe used the concrete MobSensor.MagnetometerZ mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Pitch",
+      "probePath": "MobSensor.Pitch",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.Pitch\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.Pitch\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Pitch\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Pitch\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Pitch\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Pitch\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.Pitch\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.Pitch\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.Pitch accepts sampled values from -4294967296 through 4294967296 with baseline restore. Edge-adjacent integer samples -2147483649 and 2147483647 rounded to -2147483648 and 2147483648, while representable lower and higher samples passed through. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Pitch",
+        "notes": "The probe used the concrete MobSensor.Pitch mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Roll",
+      "probePath": "MobSensor.Roll",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.Roll\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.Roll\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Roll\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Roll\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Roll\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Roll\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.Roll\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.Roll\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.Roll accepts sampled values from -4294967296 through 4294967296 with baseline restore. Edge-adjacent integer samples -2147483649 and 2147483647 rounded to -2147483648 and 2147483648, while representable lower and higher samples passed through. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Roll",
+        "notes": "The probe used the concrete MobSensor.Roll mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.Yaw",
+      "probePath": "MobSensor.Yaw",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -4294967296,
+        "max": 4294967296,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app orientation degrees"
+      },
+      "testedValues": [
+        {
+          "input": -4294967296,
+          "command": "SetProp \"MobSensor.Yaw\", -4294967296",
+          "readback": -4294967296,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483904,
+          "command": "SetProp \"MobSensor.Yaw\", -2147483904",
+          "readback": -2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"MobSensor.Yaw\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"MobSensor.Yaw\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"MobSensor.Yaw\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"MobSensor.Yaw\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483904,
+          "command": "SetProp \"MobSensor.Yaw\", 2147483904",
+          "readback": 2147483904,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"MobSensor.Yaw\", 4294967296",
+          "readback": 4294967296,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.Yaw accepts sampled values from -4294967296 through 4294967296 with baseline restore. Edge-adjacent integer samples -2147483649 and 2147483647 rounded to -2147483648 and 2147483648, while representable lower and higher samples passed through. This is the tested span, not a documented BEYOND limit.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.Yaw",
+        "notes": "The probe used the concrete MobSensor.Yaw mobile app sensor path."
+      }
+    },
+    {
+      "objectPath": "MobSensor.ButtonA",
+      "probePath": "MobSensor.ButtonA",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app button state"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"MobSensor.ButtonA\", -2",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.ButtonA\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.ButtonA\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.ButtonA\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.ButtonA\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"MobSensor.ButtonA\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.ButtonA persists 0 and 1 as OFF and ON, coerces negative and values above 1 to ON, truncates 0.5 to OFF, and restores baseline state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.ButtonA",
+        "notes": "The probe used the concrete MobSensor.ButtonA mobile app sensor path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set MobSensor.ButtonA to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set MobSensor.ButtonA to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "MobSensor.ButtonB",
+      "probePath": "MobSensor.ButtonB",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app button state"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"MobSensor.ButtonB\", -2",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.ButtonB\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.ButtonB\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.ButtonB\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.ButtonB\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"MobSensor.ButtonB\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.ButtonB persists 0 and 1 as OFF and ON, coerces negative and values above 1 to ON, truncates 0.5 to OFF, and restores baseline state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.ButtonB",
+        "notes": "The probe used the concrete MobSensor.ButtonB mobile app sensor path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set MobSensor.ButtonB to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set MobSensor.ButtonB to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "MobSensor.ButtonC",
+      "probePath": "MobSensor.ButtonC",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app button state"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"MobSensor.ButtonC\", -2",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.ButtonC\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.ButtonC\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.ButtonC\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.ButtonC\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"MobSensor.ButtonC\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.ButtonC persists 0 and 1 as OFF and ON, coerces negative and values above 1 to ON, truncates 0.5 to OFF, and restores baseline state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.ButtonC",
+        "notes": "The probe used the concrete MobSensor.ButtonC mobile app sensor path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set MobSensor.ButtonC to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set MobSensor.ButtonC to ON."
+        }
+      ]
+    },
+    {
+      "objectPath": "MobSensor.ButtonD",
+      "probePath": "MobSensor.ButtonD",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "mobile app button state"
+      },
+      "testedValues": [
+        {
+          "input": -2,
+          "command": "SetProp \"MobSensor.ButtonD\", -2",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"MobSensor.ButtonD\", -1",
+          "readback": 1,
+          "behavior": "unknown"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"MobSensor.ButtonD\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"MobSensor.ButtonD\", 0.5",
+          "readback": 0,
+          "behavior": "unknown"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"MobSensor.ButtonD\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"MobSensor.ButtonD\", 2",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe captured the baseline before writes, sent a baseline restore after the sampled writes, and verified final WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Fresh Talk TCP Echo 2 WriteLn probe on 2026-05-25 issue #118 confirmed MobSensor.ButtonD persists 0 and 1 as OFF and ON, coerces negative and values above 1 to ON, truncates 0.5 to OFF, and restores baseline state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "MobSensor.ButtonD",
+        "notes": "The probe used the concrete MobSensor.ButtonD mobile app sensor path."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set MobSensor.ButtonD to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set MobSensor.ButtonD to ON."
+        }
+      ]
+    }
+  ]
+}
