@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "BEYOND 5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Talk TCP Echo 2 command replies and OSC readbacks confirmed representative WS image numeric boundary behavior. Runtime endpoint details are intentionally omitted from public evidence. No playback, output, projector, mute, zoning, or geometry commands were sent. Every changed property was restored to baseline 0 and verified by readback."
+  },
+  "parentIssue": 216,
+  "batchIssue": 124,
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Image.0.SizeMOD1",
+      "probePath": "WS.0.5.Image.0.SizeMOD1",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -200,
+        "max": 199,
+        "unit": "size modulation",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": 200,
+          "command": "SetProp \"WS.0.5.Image.0.SizeMOD1\", 200",
+          "readback": -200,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.5.Image.0.SizeMOD1 to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.0.SizeMOD1 upper out-of-range writes wrap to -200, matching checked-in issue #449 evidence.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.5 Classic LD2000 Abstract cue, Image.0 branch",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleX",
+      "probePath": "WS.0.8.Image.LIST.0.AngleX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", -10001",
+          "readback": -100.01000213623048,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleX\", 10001",
+          "readback": 100.01000213623048,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleX to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.AngleX reads beyond the prior -100..100 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionX",
+      "probePath": "WS.0.8.Image.LIST.0.PositionX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", -10001",
+          "readback": -1073783680,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionX\", 10001",
+          "readback": 1073783680,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionX to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.PositionX reads beyond the prior sampled coordinate edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeX",
+      "probePath": "WS.0.8.Image.LIST.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", -10001",
+          "readback": -1.000100016593933,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeX\", 10001",
+          "readback": 1.000100016593933,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeX to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.SizeX reads beyond the prior -1..1 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleY",
+      "probePath": "WS.0.8.Image.LIST.0.AngleY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", -10001",
+          "readback": -100.01000213623048,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleY\", 10001",
+          "readback": 100.01000213623048,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleY to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.AngleY reads beyond the prior -100..100 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionY",
+      "probePath": "WS.0.8.Image.LIST.0.PositionY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", -10001",
+          "readback": -1073783680,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionY\", 10001",
+          "readback": 1073783680,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionY to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.PositionY reads beyond the prior sampled coordinate edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeY",
+      "probePath": "WS.0.8.Image.LIST.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", -10001",
+          "readback": -1.000100016593933,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeY\", 10001",
+          "readback": 1.000100016593933,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeY to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.SizeY reads beyond the prior -1..1 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.AngleZ",
+      "probePath": "WS.0.8.Image.LIST.0.AngleZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -100,
+        "max": 100,
+        "unit": "scaled angle readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", -10001",
+          "readback": -100.01000213623048,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.AngleZ\", 10001",
+          "readback": 100.01000213623048,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.AngleZ to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.AngleZ reads beyond the prior -100..100 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.PositionZ",
+      "probePath": "WS.0.8.Image.LIST.0.PositionZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1073676288,
+        "max": 1073676288,
+        "unit": "internal position coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", -10001",
+          "readback": -1073783680,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.PositionZ\", 10001",
+          "readback": 1073783680,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.PositionZ to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.PositionZ reads beyond the prior sampled coordinate edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.SizeZ",
+      "probePath": "WS.0.8.Image.LIST.0.SizeZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "internal size scale",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", -10001",
+          "readback": -1.000100016593933,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.8.Image.LIST.0.SizeZ\", 10001",
+          "readback": 1.000100016593933,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.SizeZ to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.LIST.0.SizeZ reads beyond the prior -1..1 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.RotoDeceleration",
+      "probePath": "WS.0.10.Image.RotoDeceleration",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "pass-through",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1,
+        "max": 1,
+        "unit": "scaled deceleration readback",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -10001,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", -10001",
+          "readback": -1.000100016593933,
+          "behavior": "unknown"
+        },
+        {
+          "input": 10001,
+          "command": "SetProp \"WS.0.10.Image.RotoDeceleration\", 10001",
+          "readback": 1.000100016593933,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored WS.0.10.Image.RotoDeceleration to baseline 0 and verified final readback 0."
+      },
+      "evidenceNote": "Issue #124 Talk TCP Echo 2 spot check confirmed WS.N.N.Image.RotoDeceleration reads beyond the prior -1..1 sampled edge when written beyond the prior edge.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10 Particles cue",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

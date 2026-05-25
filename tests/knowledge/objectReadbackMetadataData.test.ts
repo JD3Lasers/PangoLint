@@ -894,15 +894,15 @@ describe("checked-in Object Tree readback metadata data", () => {
     const expectedWritable = new Map([
       [
         "WS.N.N.Image.LIST.0.AngleX",
-        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.LIST.0.AngleY",
-        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.LIST.0.AngleZ",
-        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -100, max: 100, unit: "scaled angle readback", boundaryBehavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.LIST.0.Image.AudioMode",
@@ -914,7 +914,7 @@ describe("checked-in Object Tree readback metadata data", () => {
       ],
       [
         "WS.N.N.Image.LIST.0.Image.Radius",
-        { valueType: "number", min: 0, max: 6553400, unit: "radius readback", boundaryBehavior: "unknown" },
+        { valueType: "number", min: 0, max: 6553400, unit: "radius readback", boundaryBehavior: "clamp" },
       ],
       [
         "WS.N.N.Image.LIST.0.PositionX",
@@ -923,7 +923,7 @@ describe("checked-in Object Tree readback metadata data", () => {
           min: -1073676288,
           max: 1073676288,
           unit: "internal position coordinate",
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "pass-through",
         },
       ],
       [
@@ -933,7 +933,7 @@ describe("checked-in Object Tree readback metadata data", () => {
           min: -1073676288,
           max: 1073676288,
           unit: "internal position coordinate",
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "pass-through",
         },
       ],
       [
@@ -943,20 +943,20 @@ describe("checked-in Object Tree readback metadata data", () => {
           min: -1073676288,
           max: 1073676288,
           unit: "internal position coordinate",
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "pass-through",
         },
       ],
       [
         "WS.N.N.Image.LIST.0.SizeX",
-        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.LIST.0.SizeY",
-        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.LIST.0.SizeZ",
-        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "unknown" },
+        { valueType: "number", min: -1, max: 1, unit: "internal size scale", boundaryBehavior: "pass-through" },
       ],
     ]);
     const expectedReadbackOnly = new Set([
@@ -1276,8 +1276,8 @@ describe("checked-in Object Tree readback metadata data", () => {
     }>("object-range-evidence/issue-449-ws-image0-write-remediation.json");
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const expectedWritable = new Map([
-      ["WS.N.N.Image.0.SizeMOD1", { min: -200, max: 199, unit: "size modulation", boundaryBehavior: "unknown" }],
-      ["WS.N.N.Image.0.SizeMOD2", { min: -200, max: 199, unit: "size modulation", boundaryBehavior: "unknown" }],
+      ["WS.N.N.Image.0.SizeMOD1", { min: -200, max: 199, unit: "size modulation", boundaryBehavior: "mixed" }],
+      ["WS.N.N.Image.0.SizeMOD2", { min: -200, max: 199, unit: "size modulation", boundaryBehavior: "mixed" }],
       ["WS.N.N.Image.0.WaveMOD1", { min: -1000, max: 1000, unit: "wave modulation", boundaryBehavior: "pass-through" }],
       ["WS.N.N.Image.0.WaveMOD2", { min: -1000, max: 1000, unit: "wave modulation", boundaryBehavior: "pass-through" }],
     ]);
@@ -1850,11 +1850,11 @@ describe("checked-in Object Tree readback metadata data", () => {
       ],
       [
         "WS.N.N.Image.Radius",
-        { contextId: "cue-type:shape", valueType: "number", min: 0, max: 6553400, behavior: "unknown" },
+        { contextId: "cue-type:shape", valueType: "number", min: 0, max: 6553400, behavior: "clamp" },
       ],
       [
         "WS.N.N.Image.RotoDeceleration",
-        { contextId: "cue-type:particles", valueType: "number", min: -1, max: 1, behavior: "unknown" },
+        { contextId: "cue-type:particles", valueType: "number", min: -1, max: 1, behavior: "pass-through" },
       ],
       [
         "WS.N.N.Image.StaticDisplayTime",
@@ -2393,5 +2393,85 @@ describe("checked-in Object Tree readback metadata data", () => {
         !entry.readbackMetadata,
     );
     expect(qshiftGaps).toHaveLength(0);
+  });
+
+  it("ships issue 124 WS image numeric boundary spot checks", () => {
+    const rangeEvidence = readJson<{
+      parentIssue: number;
+      batchIssue: number;
+      runtime: {
+        observedAt: string;
+        notes: string;
+      };
+      entries: Array<{
+        objectPath: string;
+        probePath: string;
+        boundaryBehavior: string;
+        testedValues: Array<{
+          input: number;
+          readback: number;
+          behavior: string;
+        }>;
+        restore: {
+          strategy: string;
+          restoredValue?: number;
+          notes: string;
+        };
+      }>;
+    }>("object-range-evidence/issue-124-ws-image-numeric-boundary-spot-checks.json");
+    const byPath = new Map(rangeEvidence.entries.map((entry) => [entry.objectPath, entry]));
+
+    expect(rangeEvidence).toMatchObject({
+      parentIssue: 216,
+      batchIssue: 124,
+      runtime: {
+        observedAt: "2026-05-25",
+        notes: expect.stringContaining("Talk TCP Echo 2"),
+      },
+    });
+    expect(rangeEvidence.entries).toHaveLength(11);
+    expect(byPath.get("WS.N.N.Image.0.SizeMOD1")).toMatchObject({
+      boundaryBehavior: "mixed",
+      testedValues: [expect.objectContaining({ input: 200, readback: -200, behavior: "wrap" })],
+    });
+
+    for (const axis of ["X", "Y", "Z"]) {
+      expect(byPath.get(`WS.N.N.Image.LIST.0.Angle${axis}`)).toMatchObject({
+        boundaryBehavior: "pass-through",
+        testedValues: [
+          expect.objectContaining({ input: -10001, readback: -100.01000213623048 }),
+          expect.objectContaining({ input: 10001, readback: 100.01000213623048 }),
+        ],
+      });
+      expect(byPath.get(`WS.N.N.Image.LIST.0.Position${axis}`)).toMatchObject({
+        boundaryBehavior: "pass-through",
+        testedValues: [
+          expect.objectContaining({ input: -10001, readback: -1073783680 }),
+          expect.objectContaining({ input: 10001, readback: 1073783680 }),
+        ],
+      });
+      expect(byPath.get(`WS.N.N.Image.LIST.0.Size${axis}`)).toMatchObject({
+        boundaryBehavior: "pass-through",
+        testedValues: [
+          expect.objectContaining({ input: -10001, readback: -1.000100016593933 }),
+          expect.objectContaining({ input: 10001, readback: 1.000100016593933 }),
+        ],
+      });
+    }
+
+    expect(byPath.get("WS.N.N.Image.RotoDeceleration")).toMatchObject({
+      boundaryBehavior: "pass-through",
+      testedValues: [
+        expect.objectContaining({ input: -10001, readback: -1.000100016593933 }),
+        expect.objectContaining({ input: 10001, readback: 1.000100016593933 }),
+      ],
+    });
+    for (const entry of rangeEvidence.entries) {
+      expect(entry.restore).toMatchObject({
+        strategy: "command-restore",
+        restoredValue: 0,
+      });
+      expect(entry.restore.notes).toContain("verified final readback 0");
+    }
   });
 });

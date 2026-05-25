@@ -364714,7 +364714,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/5/Image/0/SizeMOD1",
-      "searchText": "ws n image 0 sizemod1 size mod1 workspace cue grid page index type classic ld2000 abstract 5 b sample slot for this population dependent probe location number modulation unknown setprop write readback confirmed writable behavior values from 200 through 199 read back at the requested value with float quantization lower out of range samples and upper starting observed runtime on 2026 05 16 issue #449 accepts baseline restore uses then used loaded row applies only to that context populated aware classification access mode state tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image 0 sizemod1 size mod1 workspace cue grid page index type classic ld2000 abstract 5 b sample slot for this population dependent probe location number modulation mixed setprop write readback confirmed writable behavior values from 200 through 199 read back at the requested value with float quantization lower out of range samples clamp to while upper starting wrap issue #124 talk tcp echo 2 spot check observed runtime on 2026 05 16 #449 uses boundary and baseline restore rechecked representative edge then used loaded row applies only that context populated aware classification access mode state tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -364741,18 +364741,19 @@
             "min": -200,
             "max": 199,
             "unit": "size modulation",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples read back -200, and upper samples starting at 200 read back -200."
+            "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples clamp to -200, while upper out-of-range samples starting at 200 wrap to -200. Issue #124 Talk TCP Echo 2 spot check confirmed 200->-200."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD1 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD1 accepts writable values with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD1 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD1 uses -200..199 with mixed boundary behavior and baseline restore. Issue #124 rechecked the representative SizeMOD1 upper edge with Talk TCP Echo 2 readback.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
           },
+          "boundaryBehavior": "mixed",
           "contextId": "cue-type:classic-ld2000-abstract"
         }
       ],
@@ -364773,7 +364774,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/5/Image/0/SizeMOD2",
-      "searchText": "ws n image 0 sizemod2 size mod2 workspace cue grid page index type classic ld2000 abstract 5 b sample slot for this population dependent probe location number modulation unknown setprop write readback confirmed writable behavior values from 200 through 199 read back at the requested value with float quantization lower out of range samples and upper starting observed runtime on 2026 05 16 issue #449 accepts baseline restore uses then used loaded row applies only to that context populated aware classification access mode state tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image 0 sizemod2 size mod2 workspace cue grid page index type classic ld2000 abstract 5 b sample slot for this population dependent probe location number modulation mixed setprop write readback confirmed writable behavior values from 200 through 199 read back at the requested value with float quantization lower out of range samples clamp to while upper starting wrap observed runtime on 2026 05 16 issue #449 uses boundary and baseline restore #124 rechecked representative sizemod1 edge talk tcp echo 2 then used loaded row applies only that context populated aware classification access mode state tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -364800,18 +364801,19 @@
             "min": -200,
             "max": 199,
             "unit": "size modulation",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples read back -200, and upper samples starting at 200 read back -200."
+            "notes": "SetProp write/readback confirmed writable behavior. Values from -200 through 199 read back at the requested value with float quantization. Lower out-of-range samples clamp to -200, while upper out-of-range samples starting at 200 wrap to -200."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD2 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD2 accepts writable values with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #449 confirmed WS.N.N.Image.0.SizeMOD2 for Classic LD2000 Abstract at WS.0.5.Image.0.SizeMOD2 uses -200..199 with mixed boundary behavior and baseline restore. Issue #124 rechecked the representative SizeMOD1 upper edge with Talk TCP Echo 2 readback.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.5, the loaded Classic LD2000 Abstract cue sample. This row applies only to that cue context."
           },
+          "boundaryBehavior": "mixed",
           "contextId": "cue-type:classic-ld2000-abstract"
         }
       ],
@@ -381969,7 +381971,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/AngleX",
-      "searchText": "ws n image list 0 anglex angle x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback unknown setprop and direct assignment writes are by beyond before tested from 10000 through produced readbacks 100 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 anglex angle x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback pass through setprop writes are by beyond before tested from 10000 produced readbacks 100 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 010002 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -381996,18 +381998,19 @@
             "min": -100,
             "max": 100,
             "unit": "scaled angle readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -100.010002 and 100.010002, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleX for Synthesized Image at WS.0.8.Image.LIST.0.AngleX is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.AngleX for Synthesized Image at WS.0.8.Image.LIST.0.AngleX uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -382028,7 +382031,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/AngleY",
-      "searchText": "ws n image list 0 angley angle y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback unknown setprop writes are by beyond before tested from 10000 through produced readbacks 100 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 angley angle y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback pass through setprop writes are by beyond before tested from 10000 produced readbacks 100 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 010002 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -382055,18 +382058,19 @@
             "min": -100,
             "max": 100,
             "unit": "scaled angle readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -100.010002 and 100.010002, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleY for Synthesized Image at WS.0.8.Image.LIST.0.AngleY is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.AngleY for Synthesized Image at WS.0.8.Image.LIST.0.AngleY uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -382087,7 +382091,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/AngleZ",
-      "searchText": "ws n image list 0 anglez angle z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback unknown setprop writes are by beyond before tested from 10000 through produced readbacks 100 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 anglez angle z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number scaled readback pass through setprop writes are by beyond before tested from 10000 produced readbacks 100 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 010002 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -382114,18 +382118,19 @@
             "min": -100,
             "max": 100,
             "unit": "scaled angle readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -100 through 100; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -100.010002 and 100.010002, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.AngleZ for Synthesized Image at WS.0.8.Image.LIST.0.AngleZ is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.AngleZ for Synthesized Image at WS.0.8.Image.LIST.0.AngleZ uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -383744,7 +383749,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/Image/Radius",
-      "searchText": "ws n image list 0 radius workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number readback unknown setprop write confirmed readbacks from through 6553400 positive inputs are scaled by beyond before and high samples read back observed runtime on 2026 05 16 issue #451 at is writable with baseline restore uses then the used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 radius workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number readback clamp setprop write confirmed readbacks from through 6553400 negative samples to positive inputs are scaled by beyond before and high observed runtime on 2026 05 16 issue #451 at uses with boundary behavior baseline restore then the used loaded nested paths depend that content apply only context populated aware classification access mode read state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -383771,18 +383776,19 @@
             "min": 0,
             "max": 6553400,
             "unit": "radius readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "clamp",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback confirmed radius readbacks from 0 through 6553400. Positive inputs are scaled by BEYOND before readback, and high samples read back 6553400."
+            "notes": "SetProp write/readback confirmed radius readbacks from 0 through 6553400. Negative samples clamp to 0. Positive inputs are scaled by BEYOND before readback, and high samples clamp to 6553400."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Radius for Synthesized Image at WS.0.8.Image.LIST.0.Image.Radius is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Radius for Synthesized Image at WS.0.8.Image.LIST.0.Image.Radius uses 0..6553400 with clamp boundary behavior and baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "clamp",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384240,7 +384246,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/PositionX",
-      "searchText": "ws n image list 0 positionx position x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate unknown setprop and direct assignment writes are scaled by beyond before readback tested from 10000 through produced readbacks 1073676288 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 positionx position x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1073676288 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back the prior sampled edge restored baseline observed runtime write on 2026 05 16 #451 25 confirmed at uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384267,18 +384273,19 @@
             "min": -1073676288,
             "max": 1073676288,
             "unit": "internal position coordinate",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back beyond the prior sampled edge, and restored baseline 0."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionX for Synthesized Image at WS.0.8.Image.LIST.0.PositionX is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.PositionX for Synthesized Image at WS.0.8.Image.LIST.0.PositionX uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384299,7 +384306,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/PositionY",
-      "searchText": "ws n image list 0 positiony position y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate unknown setprop writes are scaled by beyond before readback tested from 10000 through produced readbacks 1073676288 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 positiony position y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1073676288 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back the prior sampled edge restored baseline observed runtime write on 2026 05 16 #451 25 confirmed at uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384326,18 +384333,19 @@
             "min": -1073676288,
             "max": 1073676288,
             "unit": "internal position coordinate",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back beyond the prior sampled edge, and restored baseline 0."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionY for Synthesized Image at WS.0.8.Image.LIST.0.PositionY is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.PositionY for Synthesized Image at WS.0.8.Image.LIST.0.PositionY uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384358,7 +384366,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/PositionZ",
-      "searchText": "ws n image list 0 positionz position z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate unknown setprop writes are scaled by beyond before readback tested from 10000 through produced readbacks 1073676288 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 positionz position z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal coordinate pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1073676288 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back the prior sampled edge restored baseline observed runtime write on 2026 05 16 #451 25 confirmed at uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384385,18 +384393,19 @@
             "min": -1073676288,
             "max": 1073676288,
             "unit": "internal position coordinate",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1073676288 through 1073676288; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back beyond the prior sampled edge, and restored baseline 0."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.PositionZ for Synthesized Image at WS.0.8.Image.LIST.0.PositionZ is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.PositionZ for Synthesized Image at WS.0.8.Image.LIST.0.PositionZ uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384417,7 +384426,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/SizeX",
-      "searchText": "ws n image list 0 sizex size x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale unknown setprop and direct assignment writes are scaled by beyond before readback tested from 10000 through produced readbacks 1 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 sizex size x workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 000100 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384444,18 +384453,19 @@
             "min": -1,
             "max": 1,
             "unit": "internal size scale",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp and direct assignment writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -1.000100 and 1.000100, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeX for Synthesized Image at WS.0.8.Image.LIST.0.SizeX is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.SizeX for Synthesized Image at WS.0.8.Image.LIST.0.SizeX uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384476,7 +384486,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/SizeY",
-      "searchText": "ws n image list 0 sizey size y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale unknown setprop writes are scaled by beyond before readback tested from 10000 through produced readbacks 1 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 sizey size y workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 000100 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384503,18 +384513,19 @@
             "min": -1,
             "max": 1,
             "unit": "internal size scale",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -1.000100 and 1.000100, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeY for Synthesized Image at WS.0.8.Image.LIST.0.SizeY is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.SizeY for Synthesized Image at WS.0.8.Image.LIST.0.SizeY uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -384535,7 +384546,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/SizeZ",
-      "searchText": "ws n image list 0 sizez size z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale unknown setprop writes are scaled by beyond before readback tested from 10000 through produced readbacks 1 with baseline restore observed runtime write on 2026 05 16 issue #451 confirmed at is writable uses then the used loaded nested paths depend that content and apply only to context populated aware behavior classification access mode read state value metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 sizez size z workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location number internal scale pass through setprop writes are scaled by beyond before readback tested from 10000 produced readbacks 1 issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 000100 restored baseline so no clamp was observed at the prior sampled edge runtime write on 2026 05 16 #451 25 confirmed uses with restore then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -384562,18 +384573,19 @@
             "min": -1,
             "max": 1,
             "unit": "internal size scale",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1 with baseline restore."
+            "notes": "SetProp writes are scaled by BEYOND before readback. Tested writes from -10000 through 10000 produced readbacks from -1 through 1; issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -1.000100 and 1.000100, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.SizeZ for Synthesized Image at WS.0.8.Image.LIST.0.SizeZ is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.LIST.0.SizeZ for Synthesized Image at WS.0.8.Image.LIST.0.SizeZ uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.8, the loaded Synthesized Image cue sample. Nested LIST.0 paths depend on that cue content and apply only to that cue context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:synthesized-image"
         }
       ],
@@ -386471,7 +386483,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/3/Image/Radius",
-      "searchText": "ws n image radius workspace cue grid page index type shape parametric slice centered spiral center cone 0 3 b sample slot for this population dependent probe location 1 12 13 19 number readback unknown setprop write to confirmed readbacks from through 6553400 positive inputs are scaled by beyond before and high samples read back observed runtime on 2026 05 16 issue #459 at is writable with baseline restore uses then the used loaded row applies only that context populated aware behavior classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image radius workspace cue grid page index type shape parametric slice centered spiral center cone 0 3 b sample slot for this population dependent probe location 1 12 13 19 number readback clamp setprop write to confirmed readbacks from through 6553400 negative samples positive inputs are scaled by beyond before and high observed runtime on 2026 05 16 issue #459 at uses with boundary behavior baseline restore then the used loaded row applies only that context populated aware classification access mode read state value tested metadata records proof domain evidence remains in",
       "variantCount": 4,
       "variants": [
         {
@@ -386543,18 +386555,19 @@
             "min": 0,
             "max": 6553400,
             "unit": "radius readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "clamp",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback to WS.0.3.Image.Radius confirmed radius readbacks from 0 through 6553400. Positive inputs are scaled by BEYOND before readback, and high samples read back 6553400."
+            "notes": "SetProp write/readback to WS.0.3.Image.Radius confirmed radius readbacks from 0 through 6553400. Negative samples clamp to 0. Positive inputs are scaled by BEYOND before readback, and high samples clamp to 6553400."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Radius for WS.0.3 Shape at WS.0.3.Image.Radius is writable with 0..6553400 radius readback readbacks and baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Radius for WS.0.3 Shape at WS.0.3.Image.Radius uses 0..6553400 with clamp boundary behavior and baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
           },
+          "boundaryBehavior": "clamp",
           "contextId": "cue-type:shape"
         }
       ],
@@ -387007,7 +387020,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/10/Image/RotoDeceleration",
-      "searchText": "ws n image rotodeceleration roto deceleration workspace cue grid page index type particles 0 10 b sample slot for this population dependent probe location number scaled readback unknown setprop write to confirmed readbacks from 1 through inputs 10000 read back at a 0001 scale observed runtime on 2026 05 16 issue #459 is writable with and baseline restore uses then the used loaded row applies only that context populated aware behavior classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image rotodeceleration roto deceleration workspace cue grid page index type particles 0 10 b sample slot for this population dependent probe location number scaled readback pass through setprop write to confirmed readbacks issue #124 talk tcp echo 2 spot checks wrote 10001 and read back 1 000100 restored baseline so no clamp was observed at the prior sampled edge runtime on 2026 05 16 #459 25 uses with restore then used loaded row applies only that context populated aware behavior classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -387034,18 +387047,19 @@
             "min": -1,
             "max": 1,
             "unit": "scaled deceleration readback",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "pass-through",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback to WS.0.10.Image.RotoDeceleration confirmed scaled deceleration readbacks from -1 through 1. SetProp inputs from -10000 through 10000 read back at a 0.0001 scale."
+            "notes": "SetProp write/readback to WS.0.10.Image.RotoDeceleration confirmed scaled deceleration readbacks. Issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -1.000100 and 1.000100, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotoDeceleration for WS.0.10 Particles at WS.0.10.Image.RotoDeceleration is writable with -1..1 scaled deceleration readback readbacks and baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.RotoDeceleration for WS.0.10 Particles at WS.0.10.Image.RotoDeceleration uses scaled pass-through readbacks with baseline restore.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
             "indexBasis": "WS.N.N uses page index then cue slot index.",
             "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
           },
+          "boundaryBehavior": "pass-through",
           "contextId": "cue-type:particles"
         }
       ],

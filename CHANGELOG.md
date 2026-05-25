@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.47] - 2026-05-25
+
+### Added
+
+- Resolve WS image numeric boundary behavior for SizeMOD, Synthesized Image
+  LIST transforms, radius, and RotoDeceleration rows using checked-in evidence
+  plus Talk TCP Echo 2 spot checks.
+
 ## [0.7.46] - 2026-05-25
 
 ### Added
@@ -465,7 +473,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.46...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.47...HEAD
+[0.7.47]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.46...v0.7.47
 [0.7.46]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.45...v0.7.46
 [0.7.45]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.44...v0.7.45
 [0.7.44]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.43...v0.7.44
