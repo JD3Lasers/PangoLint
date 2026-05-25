@@ -94,6 +94,13 @@ describe("package contributions", () => {
     expect(setting?.default).toBe("off");
   });
 
+  it("declares Talk TCP Echo mode as an integer setting", () => {
+    const setting = manifest.contributes.configuration?.properties?.["pangolint.beyond.talkTcpEchoMode"];
+
+    expect(setting?.type).toBe("integer");
+    expect(setting?.default).toBe(1);
+  });
+
   it("contributes the offline reference site command to command and object views", () => {
     const command = manifest.contributes.commands?.find(
       (candidate) => candidate.command === "pangolint.openReferenceSite",
