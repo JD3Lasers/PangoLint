@@ -16,6 +16,7 @@ export function readbackOptionsFromRuntimeConfig(
     talkUdpPort: config.talkUdpPort,
     talkUdpFallbackAllowed: config.talkUdpFallbackAllowed,
     talkTcpPassword: config.talkTcpPassword,
+    talkTcpEchoMode: config.talkTcpEchoMode,
     commandTimeoutMs: config.timeoutMs,
     listenHost: config.listenHost,
     listenPort: config.listenPort,
@@ -34,6 +35,7 @@ function runScriptOptionsFromRuntimeConfig(config: BeyondRuntimeConfig): RunScri
     talkUdpPort: config.talkUdpPort,
     talkUdpFallbackAllowed: config.talkUdpFallbackAllowed,
     talkTcpPassword: config.talkTcpPassword,
+    talkTcpEchoMode: config.talkTcpEchoMode,
     commandTimeoutMs: config.timeoutMs,
   };
 }

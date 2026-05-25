@@ -20,6 +20,7 @@ const readEnabledConfig: McpConfig = {
   beyondTalkPort: 16062,
   beyondTalkTcpHost: "127.0.0.1",
   beyondTalkTcpPort: 16063,
+  beyondTalkTcpEchoMode: 2,
   beyondTalkUdpHost: "127.0.0.1",
   beyondTalkUdpPort: 16062,
   beyondTalkUdpFallbackAllowed: false,
@@ -102,14 +103,16 @@ describe("checkTalkConnection", () => {
       sendTcp: async (options) => {
         expect(options.host).toBe("127.0.0.1");
         expect(options.port).toBe(16063);
+        expect(options.echoMode).toBe(2);
         expect(options.commands).toEqual(["Hello", "Version"]);
         return {
           ok: true,
           transport: "tcp",
+          talkTcpEchoMode: options.echoMode,
           talkStatus: "ok",
           talkGreeting: "Welcome to BEYOND!",
           talkReplies: [
-            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            { commandText: "Echo 2", status: "ok", replyLines: ["OK"], redacted: false },
             { lineNumber: 1, commandText: "Hello", status: "ok", replyLines: ["Hello!", "OK"], redacted: false },
             { lineNumber: 2, commandText: "Version", status: "ok", replyLines: ["5.5.0.2030", "OK"], redacted: false },
           ],
@@ -123,8 +126,9 @@ describe("checkTalkConnection", () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.data.ok).toBe(true);
+      expect(result.data.talkTcpEchoMode).toBe(2);
       expect(result.data.talkGreeting).toBe("Welcome to BEYOND!");
-      expect(result.data.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 1", "Hello", "Version"]);
+      expect(result.data.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 2", "Hello", "Version"]);
     }
   });
 });
@@ -173,6 +177,7 @@ function fakeTcpReadbackTransport(value: string | number, tcpSends: SendTalkTcpC
       const result: SendTalkTcpCommandsResult = {
         ok: true,
         transport: "tcp",
+        talkTcpEchoMode: options.echoMode,
         talkStatus: "ok",
         talkReplies: [
           { lineNumber: 1, commandText: options.commands[0], status: "ok", replyLines: ["OK"], redacted: false },
@@ -240,12 +245,14 @@ describe("readBeyondProperty", () => {
       expect(result.data.transport).toBe("tcp");
       expect(result.data.talkHost).toBe("192.0.2.148");
       expect(result.data.talkPort).toBe(16063);
+      expect(result.data.talkTcpEchoMode).toBe(2);
     }
     expect(tcpSends).toHaveLength(1);
     expect(tcpSends[0]).toEqual(
       expect.objectContaining({
         host: "192.0.2.148",
         port: 16063,
+        echoMode: 2,
         commands: [expect.stringContaining('OscOutTTS "/pangolint/readback/')],
       }),
     );
@@ -429,9 +436,10 @@ describe("runScript", () => {
         sendTcp: async () => ({
           ok: false,
           transport: "tcp",
+          talkTcpEchoMode: 2,
           talkStatus: "error",
           talkReplies: [
-            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            { commandText: "Echo 2", status: "ok", replyLines: ["OK"], redacted: false },
             {
               lineNumber: 1,
               commandText: "badcommand 123",
@@ -458,6 +466,7 @@ describe("runScript", () => {
     if (result.ok) {
       expect(result.data.ok).toBe(false);
       expect(result.data.transport).toBe("tcp");
+      expect(result.data.talkTcpEchoMode).toBe(2);
       expect(result.data.talkStatus).toBe("error");
       expect(result.data.beyondError?.message).toBe("Unknown command: badcommand");
     }

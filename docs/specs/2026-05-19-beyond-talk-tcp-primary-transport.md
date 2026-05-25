@@ -89,14 +89,16 @@ Talk TCP is a line-oriented ASCII command stream:
 - Connect to `<beyond-host>:16063`.
 - Expect a greeting such as `Welcome to BEYOND!`.
 - Send one PangoScript command line at a time, terminated with CRLF.
-- Prefer `Echo 1` for normal command status.
+- Use the configured Echo mode for command status. Extension runtime defaults
+  to `Echo 1`; MCP runtime defaults to `Echo 2` for agent readbacks.
 - Read response lines until the command has a terminal status:
   - `OK`
   - `ERROR Line: <n>, Error: <message>`
   - connection close or timeout
 
-`Echo 2` is useful for debugging protocol framing, but it should not be the
-default because it repeats command text and can expose sensitive values.
+`Echo 2` is useful for debugging protocol framing and parser feedback because
+it repeats command text before status output. MCP runtime returns sanitized
+reply lines and exposes the selected mode as `talkTcpEchoMode`.
 
 Talk TCP should still be treated as command-line transport. It is not
 equivalent to running a `.BeyondCode` script in BEYOND's PangoScript editor.
@@ -193,8 +195,8 @@ The stronger proof shape is:
 
 ## Safety Rules
 
-- Default to T0/T1 probes for connection checks: `Echo 1`, `Hello`, `Version`,
-  and `OscOutTTS` ping.
+- Default to T0/T1 probes for connection checks: configured Echo mode, `Hello`,
+  `Version`, and `OscOutTTS` ping.
 - Do not send output, playback, projector, mute, zoning, or geometry commands
   without the existing runtime safety approval path.
 - Never use `Echo 2` for commands containing credentials or operator-private

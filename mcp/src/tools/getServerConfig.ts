@@ -18,6 +18,7 @@ interface ServerConfigSnapshot {
   beyondTalkPort: number;
   beyondTalkTcpHost: string;
   beyondTalkTcpPort: number;
+  beyondTalkTcpEchoMode: number;
   beyondTalkUdpHost: string;
   beyondTalkUdpPort: number;
   beyondTalkUdpFallbackAllowed: boolean;
@@ -44,6 +45,7 @@ export function getServerConfig(version: string, config: McpConfig): GetServerCo
     beyondTalkPort: config.beyondTalkPort,
     beyondTalkTcpHost: config.beyondTalkTcpHost,
     beyondTalkTcpPort: config.beyondTalkTcpPort,
+    beyondTalkTcpEchoMode: config.beyondTalkTcpEchoMode,
     beyondTalkUdpHost: config.beyondTalkUdpHost,
     beyondTalkUdpPort: config.beyondTalkUdpPort,
     beyondTalkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,

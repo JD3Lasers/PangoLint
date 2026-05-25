@@ -232,6 +232,7 @@ describe("registerBeyondRuntimeCommands", () => {
       talkUdpPort: 16062,
       talkUdpFallbackAllowed: false,
       talkTcpPassword: "",
+      talkTcpEchoMode: 1,
       commandTimeoutMs: 3000,
       listenHost: "0.0.0.0",
       listenPort: 7000,

@@ -229,8 +229,8 @@ Use this fixed tool split:
 
 - `healthCheck`: fast MCP server and configured socket reachability. It must not
   claim BEYOND accepted PangoScript commands.
-- `checkTalkConnection`: Talk TCP greeting, `Echo 1`, `Hello`, and `Version`
-  status.
+- `checkTalkConnection`: Talk TCP greeting, configured Echo mode, `Hello`, and
+  `Version` status.
 - `readBeyondProperty`: OSC readback path.
 - `runScript`: gated command send plus Talk status and optional OSC capture.
 
@@ -248,8 +248,8 @@ Redact:
 
 Safe default:
 
-- use `Echo 1`,
-- do not use `Echo 2` in normal operation,
+- extension runtime defaults to `Echo 1`,
+- MCP runtime defaults to `Echo 2` for agent readbacks,
 - record command line numbers and command names,
 - record full command text only when it does not contain a known sensitive
   command.
@@ -331,8 +331,8 @@ Sanitized output:
   text.
 - Watcher still shows captured OSC callbacks from runtime runs.
 - MCP `runScript` returns structured Talk TCP status and BEYOND error fields.
-- MCP `checkTalkConnection` reports Talk TCP greeting, `Echo 1`, `Hello`, and
-  `Version` without changing show state.
+- MCP `checkTalkConnection` reports Talk TCP greeting, configured Echo mode,
+  `Hello`, and `Version` without changing show state.
 - MCP `healthCheck` stays a reachability check and does not claim BEYOND command
   acceptance.
 - UDP fallback responses clearly say command status is unavailable.

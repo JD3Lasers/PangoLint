@@ -134,15 +134,18 @@ describe("runScript", () => {
       talkTransport: "tcp",
       talkTcpHost: "127.0.0.1",
       talkTcpPort: 16063,
+      talkTcpEchoMode: 2,
       sendTcp: async (options) => {
         expect(options.commands).toEqual(["Hello"]);
+        expect(options.echoMode).toBe(2);
         return {
           ok: true,
           transport: "tcp",
+          talkTcpEchoMode: options.echoMode,
           talkStatus: "ok",
           talkGreeting: "Welcome to BEYOND!",
           talkReplies: [
-            { commandText: "Echo 1", status: "ok", replyLines: ["OK"], redacted: false },
+            { commandText: "Echo 2", status: "ok", replyLines: ["OK"], redacted: false },
             { lineNumber: 1, commandText: "Hello", status: "ok", replyLines: ["Hello!", "OK"], redacted: false },
           ],
           linesSent: 1,
@@ -158,6 +161,7 @@ describe("runScript", () => {
     expect(result).toMatchObject({
       ok: true,
       transport: "tcp",
+      talkTcpEchoMode: 2,
       talkStatus: "ok",
       talkGreeting: "Welcome to BEYOND!",
       linesSent: 1,

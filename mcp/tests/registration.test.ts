@@ -111,6 +111,7 @@ const fixtureConfig: McpConfig = {
   beyondTalkPort: 16062,
   beyondTalkTcpHost: "127.0.0.1",
   beyondTalkTcpPort: 16063,
+  beyondTalkTcpEchoMode: 2,
   beyondTalkUdpHost: "127.0.0.1",
   beyondTalkUdpPort: 16062,
   beyondTalkUdpFallbackAllowed: false,

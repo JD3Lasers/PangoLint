@@ -33,7 +33,7 @@ which pangolint-mcp   # confirm the binary is on PATH
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.41.tgz
+npm install -g ./pangolint-mcp-0.7.42.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -43,7 +43,7 @@ checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.41.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.42.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -92,6 +92,7 @@ Only after the knowledge-only configuration works.
    PANGOLINT_MCP_BEYOND_TALK_TRANSPORT=tcp
    PANGOLINT_MCP_BEYOND_TALK_TCP_HOST="<beyond-host>"
    PANGOLINT_MCP_BEYOND_TALK_TCP_PORT=16063
+   PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE=2
    ```
 
 2. In BEYOND: enable OSC input (Configuration > Network > OSC) so it
@@ -109,9 +110,10 @@ Only after the knowledge-only configuration works.
          "command": "pangolint-mcp",
          "env": {
            "PANGOLINT_MCP_RUNTIME_READ": "enabled",
-          "PANGOLINT_MCP_BEYOND_TALK_TRANSPORT": "tcp",
-          "PANGOLINT_MCP_BEYOND_TALK_TCP_HOST": "<beyond-host>",
-          "PANGOLINT_MCP_BEYOND_TALK_TCP_PORT": "16063"
+           "PANGOLINT_MCP_BEYOND_TALK_TRANSPORT": "tcp",
+           "PANGOLINT_MCP_BEYOND_TALK_TCP_HOST": "<beyond-host>",
+           "PANGOLINT_MCP_BEYOND_TALK_TCP_PORT": "16063",
+           "PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE": "2"
          }
        }
      }
@@ -131,9 +133,9 @@ Only after the knowledge-only configuration works.
    the launch machine.
 
 6. `checkTalkConnection` next. Expected `ok: true`, a BEYOND greeting,
-   and `Hello` / `Version` replies. If this fails while `healthCheck`
-   passes, inspect BEYOND TCP Talk Server settings, password, firewall,
-   and port `16063`.
+   `talkTcpEchoMode: 2`, and `Hello` / `Version` replies. If this fails while
+   `healthCheck` passes, inspect BEYOND TCP Talk Server settings, password,
+   firewall, and port `16063`.
 
 7. `readBeyondProperty` with `path: "Master.Brightness"`. Expected `ok:
    true` with the current value. A timeout means BEYOND is reachable
@@ -150,6 +152,12 @@ Only after the knowledge-only configuration works.
    Expected lint-clean, `transport: "tcp"`, `talkStatus: "ok"`, and
    `linesSent: 1`, with the callback visible in the configured OSC
    monitor.
+
+Talk TCP `Echo 2` gives agents more useful `WriteLn` readbacks because
+BEYOND echoes the command text before the status output. Use
+`PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE=1` if you want brief status-only
+replies. `RegisterOscFeedback` is still the push-feedback path for values
+changed live outside the MCP tool.
 
 ## Recovery / common failures
 

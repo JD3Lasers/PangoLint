@@ -17,6 +17,7 @@ export async function sendReadbackTalk(
     talkUdpPort: options.talkUdpPort ?? options.talkPort,
     talkUdpFallbackAllowed: options.talkUdpFallbackAllowed,
     talkTcpPassword: options.talkTcpPassword,
+    talkTcpEchoMode: options.talkTcpEchoMode,
     commandTimeoutMs: options.commandTimeoutMs ?? options.timeoutMs,
     send: transport.sendTalk,
     sendTcp: transport.sendTalkTcp,
@@ -26,6 +27,7 @@ export async function sendReadbackTalk(
 export function readbackTalkStatus(result: RunScriptResult): ReadbackTalkStatus {
   return {
     transport: result.transport,
+    talkTcpEchoMode: result.talkTcpEchoMode,
     talkStatus: result.talkStatus,
     talkGreeting: result.talkGreeting,
     talkReplies: result.talkReplies,

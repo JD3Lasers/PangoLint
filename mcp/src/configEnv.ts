@@ -14,6 +14,7 @@ export const MCP_ENV_VARS = {
   talkUdpPort: "PANGOLINT_MCP_BEYOND_TALK_UDP_PORT",
   talkUdpFallbackAllowed: "PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED",
   talkTcpPassword: "PANGOLINT_MCP_BEYOND_TALK_TCP_PASSWORD",
+  talkTcpEchoMode: "PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE",
   oscListenHost: "PANGOLINT_MCP_BEYOND_OSC_LISTEN_HOST",
   oscListenPort: "PANGOLINT_MCP_BEYOND_OSC_LISTEN_PORT",
   readbackTimeoutMs: "PANGOLINT_MCP_READBACK_TIMEOUT_MS",
@@ -39,6 +40,15 @@ export function parseMcpPositiveInt(raw: string | undefined, fallback: number, n
   const n = Number(raw);
   if (!Number.isFinite(n) || n <= 0) {
     throw new Error(`${name}=${raw} must be a positive number`);
+  }
+  return n;
+}
+
+export function parseMcpTalkTcpEchoMode(raw: string | undefined, fallback: number, name: string): number {
+  if (raw === undefined || raw === "") return fallback;
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n < 1 || n > 2) {
+    throw new Error(`${name}=${raw} is not a valid Talk TCP echo mode (1-2)`);
   }
   return n;
 }

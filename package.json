@@ -2,7 +2,7 @@
   "name": "pangolint",
   "displayName": "PangoLint",
   "description": "Conservative linting, formatting, and BEYOND runtime readback checks for Pangolin BEYOND PangoScript.",
-  "version": "0.7.41",
+  "version": "0.7.42",
   "publisher": "jd3lasersllc",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -489,6 +489,14 @@
           "scope": "machine",
           "default": 16063,
           "description": "BEYOND Talk TCP port."
+        },
+        "pangolint.beyond.talkTcpEchoMode": {
+          "type": "integer",
+          "scope": "machine",
+          "default": 1,
+          "minimum": 1,
+          "maximum": 2,
+          "description": "BEYOND Talk TCP Echo mode used after optional password authentication. Echo 1 returns brief status replies. Echo 2 adds input echoes that are useful for parser feedback."
         },
         "pangolint.beyond.talkUdpHost": {
           "type": "string",

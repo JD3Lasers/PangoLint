@@ -38,6 +38,7 @@ interface RunScriptOutput {
   transport?: "tcp" | "udp";
   talkHost?: string;
   talkPort?: number;
+  talkTcpEchoMode?: number;
   talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
   talkGreeting?: string;
   talkReplies: TalkTcpReply[];
@@ -148,6 +149,7 @@ export async function runScript(
     hintCount,
     transport: sendResult.transport,
     ...talkTarget,
+    talkTcpEchoMode: sendResult.talkTcpEchoMode,
     talkStatus: sendResult.talkStatus,
     talkGreeting: sendResult.talkGreeting,
     talkReplies: sendResult.talkReplies ?? [],

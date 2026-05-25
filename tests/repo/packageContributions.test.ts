@@ -15,7 +15,7 @@ const manifest = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "u
     configuration?: {
       properties?: Record<
         string,
-        { type?: string; default?: unknown; enum?: string[]; description?: string; scope?: string }
+        { type?: string; default?: unknown; enum?: string[]; description?: string; scope?: string; maximum?: number }
       >;
     };
   };
@@ -52,6 +52,7 @@ describe("package contributions", () => {
       "talkUdpPort",
       "talkUdpFallbackAllowed",
       "talkTcpPassword",
+      "talkTcpEchoMode",
       "oscListenHost",
       "oscListenPort",
       "readbackTimeoutMs",
@@ -93,6 +94,14 @@ describe("package contributions", () => {
     expect(setting?.default).toBe("off");
   });
 
+  it("declares Talk TCP Echo mode as an integer setting", () => {
+    const setting = manifest.contributes.configuration?.properties?.["pangolint.beyond.talkTcpEchoMode"];
+
+    expect(setting?.type).toBe("integer");
+    expect(setting?.default).toBe(1);
+    expect(setting?.maximum).toBe(2);
+  });
+
   it("contributes the offline reference site command to command and object views", () => {
     const command = manifest.contributes.commands?.find(
       (candidate) => candidate.command === "pangolint.openReferenceSite",
@@ -122,6 +131,7 @@ describe("package contributions", () => {
       "pangolint.beyond.readbackTimeoutMs",
       "pangolint.beyond.talkHost",
       "pangolint.beyond.talkPort",
+      "pangolint.beyond.talkTcpEchoMode",
       "pangolint.beyond.talkTcpHost",
       "pangolint.beyond.talkTcpPassword",
       "pangolint.beyond.talkTcpPort",
