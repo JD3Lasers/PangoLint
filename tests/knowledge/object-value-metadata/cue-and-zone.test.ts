@@ -694,7 +694,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       expect(entry.metadata.evidenceLevel).toBe("observed");
       expect(entry.metadata.valueRange?.evidenceLevel).toBe("observed");
       if (entry.path.endsWith("BeamRepeat")) {
-        expect(entry.metadata.valueRange?.boundaryBehavior).toBe("unknown");
+        expect(entry.metadata.valueRange?.boundaryBehavior).toBe("mixed");
       } else {
         expect(entry.metadata.valueRange?.boundaryBehavior).toBe("clamp");
       }
@@ -750,7 +750,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         min: 2,
         max: 200,
         unit: "beam repeat count",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
       },
     });
     expect(
@@ -763,7 +763,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         min: 2,
         max: 200,
         unit: "beam repeat count",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
       },
     });
     expect(
@@ -790,6 +790,147 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         path,
       ).not.toBe(true);
     }
+  });
+
+  it("ships observed WS integer boundary behavior from issue 131", () => {
+    const objectPropertyIndex = readJson<{
+      entries: Array<{
+        path: string;
+        valueMetadata?: ObjectPropertyValueMetadata;
+        contextValueMetadata?: Array<ObjectPropertyValueMetadata & { contextId: string }>;
+      }>;
+    }>("object-property-index.json");
+    const evidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        probePath: string;
+        probeMode: string;
+        shipsMetadata: boolean;
+        valueType: string;
+        evidenceLevel: string;
+        boundaryBehavior: string;
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+        restore: {
+          strategy: string;
+          restoredValue: number;
+        };
+      }>;
+    }>("object-range-evidence/issue-131-ws-integer-boundary-behavior.json");
+    const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const evidenceByPath = new Map(evidence.entries.map((entry) => [entry.objectPath, entry]));
+
+    expect(evidence.entries).toHaveLength(4);
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(
+      new Set([
+        "WS.N.N.CaptionColor",
+        "WS.N.N.Image.BeamRepeat",
+        "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+        "WS.N.N.Image.LIST.0.Image.Color",
+      ]),
+    );
+
+    const captionColor = byPath.get("WS.N.N.CaptionColor")?.valueMetadata;
+    assertObjectPropertyValueMetadata(captionColor as ObjectPropertyValueMetadata);
+    expect(hasManualReadyValueMetadata(captionColor as ObjectPropertyValueMetadata)).toBe(true);
+    expect(captionColor).toMatchObject({
+      valueType: "integer",
+      valueRange: {
+        min: 0,
+        max: 16777215,
+        unit: "GDI RGB packed color",
+        boundaryBehavior: "clamp",
+        evidenceLevel: "observed",
+      },
+      locationContext: {
+        kind: "workspace-slot",
+        populationDependent: true,
+      },
+    });
+    expect(evidenceByPath.get("WS.N.N.CaptionColor")).toMatchObject({
+      probePath: "WS.0.0.CaptionColor",
+      probeMode: "write-readback",
+      shipsMetadata: true,
+      valueType: "integer",
+      evidenceLevel: "observed",
+      boundaryBehavior: "clamp",
+      restore: {
+        strategy: "command-restore",
+        restoredValue: 16743699,
+      },
+    });
+    expect(evidenceByPath.get("WS.N.N.CaptionColor")?.testedValues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ input: -1, readback: 0, behavior: "clamp" }),
+        expect.objectContaining({ input: 16777215, readback: 16777215, behavior: "pass-through" }),
+        expect.objectContaining({ input: 4294967296, readback: 16777215, behavior: "clamp" }),
+      ]),
+    );
+
+    for (const [path, contextId, probePath] of [
+      ["WS.N.N.Image.BeamRepeat", "cue-type:shape", "WS.0.3.Image.BeamRepeat"],
+      ["WS.N.N.Image.LIST.0.Image.BeamRepeat", "cue-type:synthesized-image", "WS.0.8.Image.LIST.0.Image.BeamRepeat"],
+    ] as const) {
+      const metadata = byPath.get(path)?.contextValueMetadata?.find((entry) => entry.contextId === contextId);
+      assertObjectPropertyValueMetadata(metadata as ObjectPropertyValueMetadata);
+      expect(hasManualReadyValueMetadata(metadata as ObjectPropertyValueMetadata), path).toBe(true);
+      expect(metadata).toMatchObject({
+        valueType: "integer",
+        valueRange: {
+          min: 2,
+          max: 200,
+          unit: "beam repeat count",
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      });
+      expect(evidenceByPath.get(path)).toMatchObject({
+        probePath,
+        probeMode: "write-readback",
+        shipsMetadata: true,
+        valueType: "integer",
+        evidenceLevel: "observed",
+        boundaryBehavior: "mixed",
+        restore: {
+          strategy: "command-restore",
+          restoredValue: 10,
+        },
+      });
+      expect(evidenceByPath.get(path)?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: 1, readback: 2, behavior: "clamp" }),
+          expect.objectContaining({ input: 200, readback: 200, behavior: "pass-through" }),
+          expect.objectContaining({ input: 201, readback: 200, behavior: "clamp" }),
+          expect.objectContaining({ input: 2147483648, readback: 2, behavior: "unknown" }),
+        ]),
+      );
+    }
+
+    const listColor = byPath
+      .get("WS.N.N.Image.LIST.0.Image.Color")
+      ?.contextValueMetadata?.find((metadata) => metadata.contextId === "cue-type:synthesized-image");
+    assertObjectPropertyValueMetadata(listColor as ObjectPropertyValueMetadata);
+    expect(hasManualReadyValueMetadata(listColor as ObjectPropertyValueMetadata)).toBe(true);
+    expect(listColor).toMatchObject({
+      valueType: "integer",
+      valueRange: {
+        min: 0,
+        max: 16777215,
+        unit: "RGB color integer",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "observed",
+      },
+    });
+    expect(evidenceByPath.get("WS.N.N.Image.LIST.0.Image.Color")?.testedValues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ input: -1, readback: 16777215, behavior: "wrap" }),
+        expect.objectContaining({ input: 16777216, readback: 16777215, behavior: "clamp" }),
+        expect.objectContaining({ input: 4294967296, readback: 0, behavior: "wrap" }),
+      ]),
+    );
   });
 
   it("ships issue 294 WS image leftover ranges only for direct clamp evidence", () => {

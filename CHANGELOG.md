@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.50] - 2026-05-25
+
+### Added
+
+- Resolve WS integer boundary behavior for caption color, Shape beam repeat,
+  and Synthesized Image LIST color and beam repeat rows using Talk TCP Echo 2
+  `SetProp` and `WriteLn` readbacks with per-sample baseline restore.
+
 ## [0.7.49] - 2026-05-25
 
 ### Added
@@ -488,7 +496,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.49...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.50...HEAD
+[0.7.50]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.49...v0.7.50
 [0.7.49]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.48...v0.7.49
 [0.7.48]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.47...v0.7.48
 [0.7.47]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.46...v0.7.47

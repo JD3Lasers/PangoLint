@@ -42,12 +42,12 @@
         "min": 2,
         "max": 200,
         "unit": "beam repeat count",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to WS.0.3.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.3.Image.BeamRepeat read back 2..200 directly, clamp -1, 0, and 1 to 2, clamp 201, 254, and 1000 to 200, and coerce signed-edge high samples 2147483647 and 2147483648 to 2. The overall boundary behavior is mixed."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
@@ -345,12 +345,12 @@
         "min": 2,
         "max": 200,
         "unit": "beam repeat count",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.8.Image.LIST.0.Image.BeamRepeat read back 2..200 directly, clamp -1, 0, and 1 to 2, clamp 201, 254, and 1000 to 200, and coerce signed-edge high samples 2147483647 and 2147483648 to 2. The overall boundary behavior is mixed."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+      "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,

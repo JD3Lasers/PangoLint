@@ -332463,10 +332463,11 @@
           "min": 0,
           "max": 16777215,
           "unit": "GDI RGB packed color",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "clamp",
           "evidenceLevel": "observed"
         },
-        "evidenceLevel": "observed"
+        "evidenceLevel": "observed",
+        "locationKind": "workspace-slot"
       },
       "readback": {
         "status": "readback-tested",
@@ -332475,7 +332476,7 @@
       "behavior": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "command-readback-tested",
+        "writeTestStatus": "write-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed"
       },

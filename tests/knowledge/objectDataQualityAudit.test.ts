@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(57);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(53);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 57],
+      ["unknown-boundary-behavior", "warning", "warn", 53],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,7 +52,7 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(57);
+    expect(unknownBoundary?.count).toBe(53);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 10 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
@@ -129,19 +129,14 @@ describe("final Object Tree data quality audit", () => {
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
       },
       {
-        root: "WS",
+        root: "FB3_XXXXX",
         accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "integer",
-        count: 4,
-        examples: [
-          "WS.N.N.CaptionColor",
-          "WS.N.N.Image.BeamRepeat",
-          "WS.N.N.Image.LIST.0.Image.BeamRepeat",
-          "WS.N.N.Image.LIST.0.Image.Color",
-        ],
+        behaviorKind: "flag-state",
+        valueType: "boolean",
+        count: 3,
+        examples: ["FB3_XXXXX.InvertX", "FB3_XXXXX.InvertY", "FB3_XXXXX.SwapXY"],
         nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
       },
     ]);
   });
