@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 133,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetProp writes and WriteLn readbacks. Runtime endpoint details are intentionally omitted. Every changed projector property was restored to its observed baseline after each write and verified before moving to the next sample."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.N.PositionX",
+      "probePath": "Projector.0.PositionX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "projector coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.PositionX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.PositionX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.PositionX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.PositionX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.PositionX\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.PositionX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.PositionX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.PositionX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.PositionX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PositionX to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.PositionX accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionX",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PositionY",
+      "probePath": "Projector.0.PositionY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "projector coordinate"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.PositionY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.PositionY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.PositionY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.PositionY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.PositionY\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.PositionY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.PositionY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.PositionY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.PositionY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PositionY to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.PositionY accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PositionY",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PostRotation",
+      "probePath": "Projector.0.PostRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "degrees"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.PostRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.PostRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.PostRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.PostRotation\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.PostRotation\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.PostRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.PostRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.PostRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.PostRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PostRotation to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.PostRotation accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PostRotation",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    },
+    {
+      "objectPath": "Projector.N.PreRotation",
+      "probePath": "Projector.0.PreRotation",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "degrees"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.PreRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.PreRotation\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.PreRotation\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.PreRotation\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.PreRotation\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.PreRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.PreRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.PreRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.PreRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored Projector.0.PreRotation to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.PreRotation accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.PreRotation",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeX",
+      "probePath": "Projector.0.SizeX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.SizeX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.SizeX\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.SizeX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.SizeX\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.SizeX\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.SizeX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.SizeX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.SizeX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.SizeX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored Projector.0.SizeX to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.SizeX accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeX",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    },
+    {
+      "objectPath": "Projector.N.SizeY",
+      "probePath": "Projector.0.SizeY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "percent"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Projector.N.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Projector.N.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000001,
+          "command": "SetProp \"Projector.N.SizeY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Projector.N.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Projector.N.SizeY\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Projector.N.SizeY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0.5,
+          "command": "SetProp \"Projector.N.SizeY\", 0.5",
+          "readback": 0.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.25,
+          "command": "SetProp \"Projector.N.SizeY\", 1.25",
+          "readback": 1.25,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Projector.N.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Projector.N.SizeY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Projector.N.SizeY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Projector.N.SizeY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Projector.N.SizeY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored Projector.0.SizeY to its observed baseline after each write and verified the final Talk TCP WriteLn readback."
+      },
+      "evidenceNote": "Issue #133 Talk TCP Echo 2 WriteLn probes confirmed Projector.N.SizeY accepts the sampled -2147483648..2147483648 numeric span with mixed boundary behavior: out-of-span values clamp at the sampled ends while the positive signed 32-bit value reads back at single-precision storage resolution.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Projector.0.SizeY",
+        "notes": "The runtime probe used the concrete Projector.0 hardware-instance path. Hardware roots can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
+      }
+    }
+  ]
+}

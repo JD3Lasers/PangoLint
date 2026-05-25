@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 53,
+    "unknownBoundaryBehaviorRows": 47,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 53,
+      "count": 47,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 53,
+      "count": 47,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -276,15 +276,15 @@
           "count": 10
         },
         {
-          "root": "Projector",
-          "count": 10
-        },
-        {
           "root": "Grid",
           "count": 4
         },
         {
           "root": "Grid2",
+          "count": 4
+        },
+        {
+          "root": "Projector",
           "count": 4
         },
         {
@@ -843,21 +843,6 @@
         "FB4_XXXXX.PostRotation",
         "FB4_XXXXX.PreRotation",
         "FB4_XXXXX.SizeX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "Projector",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 6,
-      "examples": [
-        "Projector.N.PositionX",
-        "Projector.N.PositionY",
-        "Projector.N.PostRotation",
-        "Projector.N.PreRotation",
-        "Projector.N.SizeX"
       ],
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },

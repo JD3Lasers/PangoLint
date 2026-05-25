@@ -45,120 +45,120 @@
       "path": "Projector.N.PositionX",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "projector coordinate",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.PositionX accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PositionX at Projector.0.PositionX accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.PositionX at Projector.0.PositionX accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.PositionX, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.PositionX, the populated Projector.N hardware instance available in the test bench."
       }
     },
     {
       "path": "Projector.N.PositionY",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "projector coordinate",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.PositionY accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PositionY at Projector.0.PositionY accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.PositionY at Projector.0.PositionY accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.PositionY, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.PositionY, the populated Projector.N hardware instance available in the test bench."
       }
     },
     {
       "path": "Projector.N.PostRotation",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "degrees",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.PostRotation accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PostRotation at Projector.0.PostRotation accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.PostRotation at Projector.0.PostRotation accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.PostRotation, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.PostRotation, the populated Projector.N hardware instance available in the test bench."
       }
     },
     {
       "path": "Projector.N.PreRotation",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "degrees",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.PreRotation accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.PreRotation at Projector.0.PreRotation accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.PreRotation at Projector.0.PreRotation accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.PreRotation, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.PreRotation, the populated Projector.N hardware instance available in the test bench."
       }
     },
     {
       "path": "Projector.N.SizeX",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "percent",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.SizeX accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.SizeX at Projector.0.SizeX accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.SizeX at Projector.0.SizeX accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.SizeX, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.SizeX, the populated Projector.N hardware instance available in the test bench."
       }
     },
     {
       "path": "Projector.N.SizeY",
       "valueType": "number",
       "valueRange": {
-        "min": -1000000,
-        "max": 1000000,
+        "min": -2147483648,
+        "max": 2147483648,
         "unit": "percent",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to Projector.0.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #133 confirmed SetProp write/readback to Projector.0.SizeY accepts the sampled -2147483648..2147483648 numeric span. In-domain fractional and large numeric samples passed through, -2147483649 and 2147483649 clamped to the sampled endpoints, and 2147483647 read back as 2147483648 at storage precision."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Projector.N.SizeY at Projector.0.SizeY accepts the shipped -1000000..1000000 range with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #133 confirmed Projector.N.SizeY at Projector.0.SizeY accepts the sampled -2147483648..2147483648 range with baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
         "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
-        "notes": "The runtime probe used Projector.0.SizeY, the populated Projector.N instance available in the loaded show."
+        "notes": "The runtime probe used Projector.0.SizeY, the populated Projector.N hardware instance available in the test bench."
       }
     }
   ]
