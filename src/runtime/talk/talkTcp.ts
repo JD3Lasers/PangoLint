@@ -66,7 +66,7 @@ const TERMINAL_OK_RE = /^OK$/i;
 export const DEFAULT_TALK_TCP_ECHO_MODE = 1;
 
 export function isValidTalkTcpEchoMode(value: number): boolean {
-  return Number.isInteger(value) && value >= 1 && value <= 9;
+  return Number.isInteger(value) && value >= 1 && value <= 2;
 }
 
 export function redactTalkText(value: string, secrets: readonly string[] = []): { text: string; redacted: boolean } {

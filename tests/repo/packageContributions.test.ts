@@ -15,7 +15,7 @@ const manifest = JSON.parse(readFileSync(path.join(repoRoot, "package.json"), "u
     configuration?: {
       properties?: Record<
         string,
-        { type?: string; default?: unknown; enum?: string[]; description?: string; scope?: string }
+        { type?: string; default?: unknown; enum?: string[]; description?: string; scope?: string; maximum?: number }
       >;
     };
   };
@@ -99,6 +99,7 @@ describe("package contributions", () => {
 
     expect(setting?.type).toBe("integer");
     expect(setting?.default).toBe(1);
+    expect(setting?.maximum).toBe(2);
   });
 
   it("contributes the offline reference site command to command and object views", () => {
