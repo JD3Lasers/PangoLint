@@ -1026,7 +1026,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         min: 0,
         max: 1,
         unit: "boolean",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       });
       expect(metadata?.acceptedValues).toEqual([
@@ -1376,7 +1376,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         min: 0,
         max: 1,
         unit: "boolean",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       });
       expect(metadata?.acceptedValues).toEqual([
@@ -1387,6 +1387,81 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         kind: "workspace-slot",
         populationDependent: true,
       });
+    }
+  });
+
+  it("ships issue 126 WS boolean boundary probes with Talk TCP readbacks", () => {
+    const objectPropertyIndex = readJson<{
+      entries: Array<{
+        path: string;
+        contextValueMetadata?: Array<ObjectPropertyValueMetadata & { contextId: string }>;
+      }>;
+    }>("object-property-index.json");
+    const evidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        boundaryBehavior?: string;
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+        restore: {
+          strategy: string;
+          restoredValue?: number;
+        };
+      }>;
+    }>("object-range-evidence/issue-126-ws-boolean-boundary-behavior.json");
+    const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const expectedContexts = new Map([
+      ["WS.N.N.Ani.0.Muted", "cue-type:object-animator"],
+      ["WS.N.N.Ani.0.PreventReroute", "cue-type:object-animator"],
+      ["WS.N.N.Ani.0.Solo", "cue-type:object-animator"],
+      ["WS.N.N.Ani.0.tsStretchGrouping", "cue-type:object-animator"],
+      ["WS.N.N.Image.AutoRecord", "cue-type:fifo-image"],
+      ["WS.N.N.Image.EnableRecord", "cue-type:fifo-image"],
+      ["WS.N.N.Image.BounceMaxX", "cue-type:particles"],
+      ["WS.N.N.Image.BounceMaxY", "cue-type:particles"],
+      ["WS.N.N.Image.BounceMaxZ", "cue-type:particles"],
+      ["WS.N.N.Image.BounceMinX", "cue-type:particles"],
+      ["WS.N.N.Image.BounceMinY", "cue-type:particles"],
+      ["WS.N.N.Image.BounceMinZ", "cue-type:particles"],
+    ]);
+
+    expect(evidence.entries).toHaveLength(expectedContexts.size);
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(new Set(expectedContexts.keys()));
+    expect(evidence.entries.every((entry) => entry.shipsMetadata)).toBe(true);
+    expect(evidence.entries.every((entry) => entry.boundaryBehavior === "mixed")).toBe(true);
+    expect(evidence.entries.every((entry) => entry.restore.strategy === "restored-baseline")).toBe(true);
+
+    for (const [path, contextId] of expectedContexts) {
+      const metadata = byPath.get(path)?.contextValueMetadata?.find((candidate) => candidate.contextId === contextId);
+      expect(metadata, path).toBeDefined();
+      assertObjectPropertyValueMetadata(metadata as ObjectPropertyValueMetadata);
+      expect(hasManualReadyValueMetadata(metadata as ObjectPropertyValueMetadata), path).toBe(true);
+      expect(metadata?.valueRange).toMatchObject({
+        min: 0,
+        max: 1,
+        unit: "boolean",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "observed",
+      });
+      expect(metadata?.valueRange?.notes).toContain("issue #126");
+      expect(metadata?.acceptedValues).toEqual([
+        expect.objectContaining({ value: 0, label: "OFF" }),
+        expect.objectContaining({ value: 1, label: "ON" }),
+      ]);
+
+      const row = evidence.entries.find((entry) => entry.objectPath === path);
+      expect(row?.testedValues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ input: -1, readback: 1, behavior: "wrap" }),
+          expect.objectContaining({ input: 2, readback: 1, behavior: "clamp" }),
+          expect.objectContaining({ input: "0", readback: 0, behavior: "pass-through" }),
+          expect.objectContaining({ input: "1", readback: 1, behavior: "pass-through" }),
+        ]),
+      );
     }
   });
 

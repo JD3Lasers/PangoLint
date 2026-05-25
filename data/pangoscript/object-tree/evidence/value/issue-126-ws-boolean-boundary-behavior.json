@@ -1,0 +1,1153 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 126,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetProp writes and OscOutTTS readbacks. Runtime endpoint details are intentionally omitted."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.Ani.0.Muted",
+      "probePath": "WS.0.13.Ani.0.Muted",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.Muted."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.Muted."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", 1; SetProp \"WS.0.13.Ani.0.Muted\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.13.Ani.0.Muted\", 0; SetProp \"WS.0.13.Ani.0.Muted\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Ani.0.Muted: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13.Ani.0.Muted",
+        "notes": "The probe used the loaded Object Animator workspace cue sample at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.PreventReroute",
+      "probePath": "WS.0.13.Ani.0.PreventReroute",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.PreventReroute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.PreventReroute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", 1; SetProp \"WS.0.13.Ani.0.PreventReroute\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.13.Ani.0.PreventReroute\", 0; SetProp \"WS.0.13.Ani.0.PreventReroute\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Ani.0.PreventReroute: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13.Ani.0.PreventReroute",
+        "notes": "The probe used the loaded Object Animator workspace cue sample at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.Solo",
+      "probePath": "WS.0.13.Ani.0.Solo",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.Solo."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.Solo."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", 1; SetProp \"WS.0.13.Ani.0.Solo\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.13.Ani.0.Solo\", 0; SetProp \"WS.0.13.Ani.0.Solo\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Ani.0.Solo: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13.Ani.0.Solo",
+        "notes": "The probe used the loaded Object Animator workspace cue sample at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Ani.0.tsStretchGrouping",
+      "probePath": "WS.0.13.Ani.0.tsStretchGrouping",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Ani.0.tsStretchGrouping."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Ani.0.tsStretchGrouping."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", 1; SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", 0; SetProp \"WS.0.13.Ani.0.tsStretchGrouping\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Ani.0.tsStretchGrouping: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.13.Ani.0.tsStretchGrouping",
+        "notes": "The probe used the loaded Object Animator workspace cue sample at WS.0.13."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.AutoRecord",
+      "probePath": "WS.0.11.Image.AutoRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.AutoRecord."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.AutoRecord."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", 1; SetProp \"WS.0.11.Image.AutoRecord\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.11.Image.AutoRecord\", 0; SetProp \"WS.0.11.Image.AutoRecord\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.AutoRecord: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11.Image.AutoRecord",
+        "notes": "The probe used the loaded FIFO Image workspace cue sample at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.EnableRecord",
+      "probePath": "WS.0.11.Image.EnableRecord",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.EnableRecord."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.EnableRecord."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", 1; SetProp \"WS.0.11.Image.EnableRecord\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.11.Image.EnableRecord\", 0; SetProp \"WS.0.11.Image.EnableRecord\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.EnableRecord: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.11.Image.EnableRecord",
+        "notes": "The probe used the loaded FIFO Image workspace cue sample at WS.0.11."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMaxX",
+      "probePath": "WS.0.10.Image.BounceMaxX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMaxX."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMaxX."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", 1; SetProp \"WS.0.10.Image.BounceMaxX\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxX\", 0; SetProp \"WS.0.10.Image.BounceMaxX\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMaxX: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMaxX",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMaxY",
+      "probePath": "WS.0.10.Image.BounceMaxY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMaxY."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMaxY."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", 1; SetProp \"WS.0.10.Image.BounceMaxY\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxY\", 0; SetProp \"WS.0.10.Image.BounceMaxY\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMaxY: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMaxY",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMaxZ",
+      "probePath": "WS.0.10.Image.BounceMaxZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMaxZ."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMaxZ."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", 1; SetProp \"WS.0.10.Image.BounceMaxZ\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMaxZ\", 0; SetProp \"WS.0.10.Image.BounceMaxZ\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMaxZ: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMaxZ",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMinX",
+      "probePath": "WS.0.10.Image.BounceMinX",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMinX."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMinX."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", 1; SetProp \"WS.0.10.Image.BounceMinX\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMinX\", 0; SetProp \"WS.0.10.Image.BounceMinX\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMinX: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMinX",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMinY",
+      "probePath": "WS.0.10.Image.BounceMinY",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMinY."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMinY."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", 1; SetProp \"WS.0.10.Image.BounceMinY\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMinY\", 0; SetProp \"WS.0.10.Image.BounceMinY\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMinY: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMinY",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BounceMinZ",
+      "probePath": "WS.0.10.Image.BounceMinZ",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "boolean"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear WS.N.N.Image.BounceMinZ."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set WS.N.N.Image.BounceMinZ."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", 1; SetProp \"WS.0.10.Image.BounceMinZ\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"WS.0.10.Image.BounceMinZ\", 0; SetProp \"WS.0.10.Image.BounceMinZ\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each row and verified the final Talk TCP readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 SetProp and OscOutTTS on 2026-05-25 issue #126 confirmed WS.N.N.Image.BounceMinZ: 0 and 1 persist, -1 reads back 1, 2 reads back 1, true and false persist as 1 and 0, and quoted \"0\"/\"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.10.Image.BounceMinZ",
+        "notes": "The probe used the loaded Particles workspace cue sample at WS.0.10."
+      }
+    }
+  ]
+}

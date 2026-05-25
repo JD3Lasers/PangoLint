@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.48] - 2026-05-25
+
+### Added
+
+- Resolve WS boolean flag-state boundary behavior for Object Animator, FIFO
+  Image, and Particles rows using Talk TCP Echo 2 `SetProp` and `OscOutTTS`
+  readbacks with baseline restore.
+
 ## [0.7.47] - 2026-05-25
 
 ### Added
@@ -473,7 +481,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.47...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.48...HEAD
+[0.7.48]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.47...v0.7.48
 [0.7.47]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.46...v0.7.47
 [0.7.46]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.45...v0.7.46
 [0.7.45]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.44...v0.7.45

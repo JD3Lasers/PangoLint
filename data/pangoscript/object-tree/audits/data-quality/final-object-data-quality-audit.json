@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 77,
+    "unknownBoundaryBehaviorRows": 65,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 77,
+      "count": 65,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,12 +265,8 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 77,
+      "count": 65,
       "roots": [
-        {
-          "root": "WS",
-          "count": 16
-        },
         {
           "root": "FB3_XXXXX",
           "count": 10
@@ -293,6 +289,10 @@
         },
         {
           "root": "Grid2",
+          "count": 4
+        },
+        {
+          "root": "WS",
           "count": 4
         },
         {
@@ -824,21 +824,6 @@
     }
   ],
   "boundaryProbePlan": [
-    {
-      "root": "WS",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 12,
-      "examples": [
-        "WS.N.N.Ani.0.Muted",
-        "WS.N.N.Ani.0.PreventReroute",
-        "WS.N.N.Ani.0.Solo",
-        "WS.N.N.Ani.0.tsStretchGrouping",
-        "WS.N.N.Image.AutoRecord"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
     {
       "root": "Master",
       "accessMode": "read-write",
