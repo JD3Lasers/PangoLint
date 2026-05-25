@@ -138884,7 +138884,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/CueLcSpeed",
-      "searchText": "master cuelcspeed cue lc speed b command derived exact setsproperty target mastercuelcspeed percent pass through input stores 100 at least 1 9999 seed from parameter for this is not same name propagation integer fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed number raw live control unknown setprop direct assignment object tree writes 17 showed sampled values 2147483648 120000 100000 plus fractional 5 read back directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior rather than scaling classification access mode state value tested beyond runtime proved writable path baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master cuelcspeed cue lc speed b command derived exact setsproperty target mastercuelcspeed percent pass through input stores 100 at least 1 9999 seed from parameter for this is not same name propagation integer fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed number raw live control mixed talk tcp echo 2 writeln probes 25 issue #128 broad readbacks lower out of range clamp 2147483648 upper edge adjacent signed samples 2147483647 read back to the endpoints so boundary behavior object tree property write readback evidence #487 records direct rather than scaling resolved with classification access mode state value tested beyond runtime writes proved writable path baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -138896,14 +138896,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw cue live control speed",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, plus fractional 1.5,, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -139015,7 +139015,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/CueSpeed",
-      "searchText": "master cuespeed cue speed b command derived exact setsproperty target mastercuespeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw unknown setprop direct assignment object tree writes 17 showed sampled values 2147483648 120000 100000 plus fractional 5 read back directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior rather than scaling classification access mode state tested beyond runtime proved writable path baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master cuespeed cue speed b command derived exact setsproperty target mastercuespeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw mixed talk tcp echo 2 writeln probes 25 issue #128 broad readbacks lower out of range clamp 2147483648 upper edge adjacent signed samples 2147483647 read back to the endpoints so boundary behavior object tree property write readback evidence #487 records direct rather than scaling resolved with classification access mode state tested beyond runtime writes proved writable path baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -139027,14 +139027,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw cue speed",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, plus fractional 1.5,, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -142857,7 +142857,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/FXSpeed",
-      "searchText": "master fxspeed fx speed b command derived exact setsproperty target masterfxspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw unknown setprop direct assignment object tree writes 17 showed sampled values 2147483648 120000 100000 read back directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior rather than scaling classification access mode state tested beyond runtime proved writable path baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master fxspeed fx speed b command derived exact setsproperty target masterfxspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw mixed talk tcp echo 2 writeln probes 25 issue #128 broad readbacks lower out of range clamp 2147483648 upper edge adjacent signed samples 2147483647 read back to the endpoints so boundary behavior object tree property write readback evidence #487 records direct rather than scaling resolved with classification access mode state tested beyond runtime writes proved writable path baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -142869,14 +142869,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw FX speed",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -143104,7 +143104,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/LCSpeed",
-      "searchText": "master lcspeed lc speed b command derived exact setsproperty target masterlcspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw live control unknown setprop direct assignment object tree writes 17 showed sampled values 2147483648 120000 100000 read back directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior rather than scaling classification access mode state tested beyond runtime proved writable path baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master lcspeed lc speed b command derived exact setsproperty target masterlcspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw live control mixed talk tcp echo 2 writeln probes 25 issue #128 broad readbacks lower out of range clamp 2147483648 upper edge adjacent signed samples 2147483647 read back to the endpoints so boundary behavior object tree property write readback evidence #487 records direct rather than scaling resolved with classification access mode state tested beyond runtime writes proved writable path baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -143116,14 +143116,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw live control speed",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -143178,7 +143178,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/MasterEffectClockShift",
-      "searchText": "master mastereffectclockshift effect clock shift b command derived exact setsproperty target seconds pass through absolute setter observed 3 5 10000 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed the sets an value a relative delta 7 then 2 read back values and stored verbatim 0 clears raw unknown setprop direct assignment object tree writes 17 showed sampled 2147483648 120000 100000 1 directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior path classification access mode state tested beyond runtime proved writable baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master mastereffectclockshift effect clock shift b command derived exact setsproperty target seconds pass through absolute setter observed 3 5 10000 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed the sets an value a relative delta 7 then 2 read back values and stored verbatim 0 clears raw mixed talk tcp echo writeln probes 25 issue #128 broad readbacks lower out of range clamp at 2147483648 upper edge adjacent signed samples 2147483647 to endpoints so boundary behavior object tree property write readback evidence #487 records direct path resolved with classification access mode state tested beyond runtime writes proved writable baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -143190,14 +143190,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw master effect clock shift",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -143216,7 +143216,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/MasterEffectMetroShift",
-      "searchText": "master mastereffectmetroshift effect metro shift b command derived exact setsproperty target beats pass through absolute setter observed 2 5 10000 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed the sets an value a relative delta then read back values and stored verbatim 0 clears raw unknown setprop direct assignment object tree writes 17 showed sampled 2147483648 120000 100000 1 directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior path classification access mode state tested beyond runtime proved writable baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master mastereffectmetroshift effect metro shift b command derived exact setsproperty target beats pass through absolute setter observed 2 5 10000 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed the sets an value a relative delta then read back values and stored verbatim 0 clears raw mixed talk tcp echo writeln probes 25 issue #128 broad readbacks lower out of range clamp at 2147483648 upper edge adjacent signed samples 2147483647 to endpoints so boundary behavior object tree property write readback evidence #487 records direct path resolved with classification access mode state tested beyond runtime writes proved writable baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -143228,14 +143228,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw master effect metro shift",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior for this property path. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -144386,7 +144386,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/ShowShift",
-      "searchText": "master show shift timing milliseconds seconds readback mastershowshift command derived exact setsproperty target ms pass through absolute setter observed 250 100000 seed from parameter for this is not same name propagation number input fresh mcp probe on 2026 05 11 confirmed the sets an value after converting to stored 1000 then 500 read back 0 5 values and as 25 100 clears raw unknown setprop direct assignment object tree writes 17 showed sampled 2147483648 120000 1 directly positive signed edge samples near 2147483647 did verify exactly osc f rounded i returned property behavior does apply s millisecond conversion write evidence issue #487 records rather than scaling classification access mode state tested beyond runtime proved writable path showshift baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master show shift timing milliseconds seconds readback mastershowshift command derived exact setsproperty target ms pass through absolute setter observed 250 100000 seed from parameter for this is not same name propagation number input fresh mcp probe on 2026 05 11 confirmed the sets an value after converting to stored 1000 then 500 read back 0 5 values and as 25 100 clears raw mixed talk tcp echo 2 writeln probes issue #128 broad readbacks lower out of range clamp at 2147483648 upper edge adjacent signed samples 2147483647 endpoints so boundary behavior object tree property write evidence #487 records direct rather than millisecond scaling resolved with classification access mode state tested beyond runtime writes proved writable path showshift baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -144398,14 +144398,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw show shift",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648. This direct property behavior does not apply the MasterShowShift command's millisecond input conversion."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command millisecond input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command millisecond input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",
@@ -145056,7 +145056,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Master/ZoneFxSpeed",
-      "searchText": "master zonefxspeed zone fx speed b command derived exact setsproperty target masterzonefxspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw unknown setprop direct assignment object tree writes 17 showed sampled values 2147483648 120000 100000 read back directly positive signed edge samples near 2147483647 did verify exactly osc f readback rounded to i returned property write evidence issue #487 records behavior rather than scaling classification access mode state tested beyond runtime proved writable path baseline are recorded in data pangoscript 487 probes json existing metadata was used only choose",
+      "searchText": "master zonefxspeed zone fx speed b command derived exact setsproperty target masterzonefxspeed value pass through input percent stores 100 at least 1 9999 seed from parameter for this is not same name propagation number fresh mcp probe on 2026 05 11 confirmed 0 accepted 99 98999786376952 009999999776482582 and restores normal observed raw mixed talk tcp echo 2 writeln probes 25 issue #128 broad readbacks lower out of range clamp 2147483648 upper edge adjacent signed samples 2147483647 read back to the endpoints so boundary behavior object tree property write readback evidence #487 records direct rather than scaling resolved with classification access mode state tested beyond runtime writes proved writable path baseline setprop assignment are recorded in data pangoscript 487 json existing metadata was used only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -145068,14 +145068,14 @@
         "valueType": "number",
         "valueRange": {
           "min": -2147483648,
-          "max": 2147483647,
+          "max": 2147483648,
           "unit": "raw zone FX speed",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh SetProp and direct-assignment Object Tree writes on 2026-05-17 showed sampled values -2147483648, -120000, -100000, -1, 0, 1, 100000, and 120000 read back directly. Positive signed-edge samples near 2147483647 did not verify exactly: OSC f readback rounded to 2147483648 and OSC i readback returned -2147483648."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #128 confirmed broad pass-through readbacks, lower out-of-range clamp at -2147483648, and upper out-of-range clamp at 2147483648. Edge-adjacent signed samples -2147483647 and 2147483647 read back to the endpoints, so boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling."
+        "notes": "Fresh Object Tree property write/readback evidence from issue #487 records direct property behavior rather than command percent input scaling. Issue #128 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes."
       },
       "classification": {
         "accessMode": "read-write",

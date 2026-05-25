@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(65);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(57);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 65],
+      ["unknown-boundary-behavior", "warning", "warn", 57],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,7 +52,7 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(65);
+    expect(unknownBoundary?.count).toBe(57);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 10 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
@@ -80,22 +80,6 @@ describe("final Object Tree data quality audit", () => {
     );
 
     expect(report.boundaryProbePlan.slice(0, 4)).toEqual([
-      {
-        root: "Master",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 8,
-        examples: [
-          "Master.CueLcSpeed",
-          "Master.CueSpeed",
-          "Master.FXSpeed",
-          "Master.LCSpeed",
-          "Master.MasterEffectClockShift",
-        ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
       {
         root: "FB3_XXXXX",
         accessMode: "read-write",
@@ -140,6 +124,21 @@ describe("final Object Tree data quality audit", () => {
           "Projector.N.PostRotation",
           "Projector.N.PreRotation",
           "Projector.N.SizeX",
+        ],
+        nextProbe:
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
+      },
+      {
+        root: "WS",
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        valueType: "integer",
+        count: 4,
+        examples: [
+          "WS.N.N.CaptionColor",
+          "WS.N.N.Image.BeamRepeat",
+          "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+          "WS.N.N.Image.LIST.0.Image.Color",
         ],
         nextProbe:
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",

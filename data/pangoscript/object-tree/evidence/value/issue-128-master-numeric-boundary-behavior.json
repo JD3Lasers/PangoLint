@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 128,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetProp writes and WriteLn readbacks. Runtime endpoint details are intentionally omitted."
+  },
+  "entries": [
+    {
+      "objectPath": "Master.CueLcSpeed",
+      "probePath": "Master.CueLcSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw cue live control speed"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.CueLcSpeed\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.CueLcSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.CueLcSpeed\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.CueLcSpeed\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.CueLcSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.CueLcSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.CueLcSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.CueLcSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.CueLcSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.CueLcSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.CueLcSpeed\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.CueLcSpeed\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Master.CueLcSpeed to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.CueLcSpeed uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.CueSpeed",
+      "probePath": "Master.CueSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw cue speed"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.CueSpeed\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.CueSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.CueSpeed\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.CueSpeed\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.CueSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.CueSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.CueSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.CueSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.CueSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.CueSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.CueSpeed\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.CueSpeed\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Master.CueSpeed to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.CueSpeed uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.FXSpeed",
+      "probePath": "Master.FXSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw FX speed"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.FXSpeed\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.FXSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.FXSpeed\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.FXSpeed\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.FXSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.FXSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.FXSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.FXSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.FXSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.FXSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.FXSpeed\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.FXSpeed\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Master.FXSpeed to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.FXSpeed uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.LCSpeed",
+      "probePath": "Master.LCSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw live control speed"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.LCSpeed\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.LCSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.LCSpeed\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.LCSpeed\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.LCSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.LCSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.LCSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.LCSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.LCSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.LCSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.LCSpeed\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.LCSpeed\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Master.LCSpeed to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.LCSpeed uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.MasterEffectClockShift",
+      "probePath": "Master.MasterEffectClockShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw master effect clock shift"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.MasterEffectClockShift\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.MasterEffectClockShift\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.MasterEffectClockShift\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.MasterEffectClockShift\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.MasterEffectClockShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.MasterEffectClockShift\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.MasterEffectClockShift to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.MasterEffectClockShift uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.MasterEffectMetroShift",
+      "probePath": "Master.MasterEffectMetroShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw master effect metro shift"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.MasterEffectMetroShift\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.MasterEffectMetroShift to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.MasterEffectMetroShift uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.ShowShift",
+      "probePath": "Master.ShowShift",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw show shift"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.ShowShift\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.ShowShift\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.ShowShift\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.ShowShift\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.ShowShift\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.ShowShift\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.ShowShift\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.ShowShift\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.ShowShift\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.ShowShift\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.ShowShift\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.ShowShift\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Master.ShowShift to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.ShowShift uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    },
+    {
+      "objectPath": "Master.ZoneFxSpeed",
+      "probePath": "Master.ZoneFxSpeed",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -2147483648,
+        "max": 2147483648,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "raw zone FX speed"
+      },
+      "testedValues": [
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Master.ZoneFxSpeed\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Master.ZoneFxSpeed\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483647,
+          "command": "SetProp \"Master.ZoneFxSpeed\", -2147483647",
+          "readback": -2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": -120000,
+          "command": "SetProp \"Master.ZoneFxSpeed\", -120000",
+          "readback": -120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1,
+          "command": "SetProp \"Master.ZoneFxSpeed\", -1",
+          "readback": -1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1.5,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 1.5",
+          "readback": 1.5,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 120000,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 120000",
+          "readback": 120000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Master.ZoneFxSpeed\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Master.ZoneFxSpeed to its observed baseline and verified the final Talk TCP WriteLn readback before moving to the next path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 WriteLn on 2026-05-25 issue #128 confirmed Master.ZoneFxSpeed uses mixed boundary behavior across the observed -2147483648..2147483648 readback range with baseline restore.",
+      "locationAware": false
+    }
+  ]
+}
