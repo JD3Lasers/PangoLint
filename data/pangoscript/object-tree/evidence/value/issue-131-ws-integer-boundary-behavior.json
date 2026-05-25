@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 131,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetProp writes and WriteLn readbacks. Runtime endpoint details are intentionally omitted. Every changed workspace property was restored to its observed baseline after each write and verified before moving to the next sample."
+  },
+  "entries": [
+    {
+      "objectPath": "WS.N.N.CaptionColor",
+      "probePath": "WS.0.0.CaptionColor",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "clamp",
+      "baseline": {
+        "value": 16743699,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "GDI RGB packed color"
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "Black"
+        },
+        {
+          "value": 255,
+          "label": "Red, documented GDI RGB low byte"
+        },
+        {
+          "value": 65280,
+          "label": "Green"
+        },
+        {
+          "value": 16711680,
+          "label": "Blue, documented GDI RGB high byte"
+        },
+        {
+          "value": 16777215,
+          "label": "White"
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.N.N.CaptionColor\", -1",
+          "readback": 0,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65280,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 65280",
+          "readback": 65280,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16711680,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 16711680",
+          "readback": 16711680,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 2147483647",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 2147483648",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4294967295,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 4294967295",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"WS.N.N.CaptionColor\", 4294967296",
+          "readback": 16777215,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 16743699,
+        "notes": "The probe restored WS.0.0.CaptionColor to its observed baseline after each write and verified final Talk TCP WriteLn readback 16743699."
+      },
+      "evidenceNote": "Issue #131 Talk TCP Echo 2 WriteLn probes confirmed WS.N.N.CaptionColor clamps below 0 and above 16777215 when written directly through SetProp.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.0 populated cue slot sample",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.BeamRepeat",
+      "probePath": "WS.0.3.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam repeat count"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", -1",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 0",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 1",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 199",
+          "readback": 199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 254",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 1000",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 2147483647",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"WS.N.N.Image.BeamRepeat\", 2147483648",
+          "readback": 2,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored WS.0.3.Image.BeamRepeat to its observed baseline after each write and verified final Talk TCP WriteLn readback 10."
+      },
+      "evidenceNote": "Issue #131 Talk TCP Echo 2 WriteLn probes confirmed WS.N.N.Image.BeamRepeat clamps nearby out-of-range values and coerces signed-edge high values to the lower bound, so the overall boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.3 Shape cue slot sample",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.BeamRepeat",
+      "probePath": "WS.0.8.Image.LIST.0.Image.BeamRepeat",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 2,
+        "max": 200,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "beam repeat count"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", -1",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 0",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 1",
+          "readback": 2,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 2",
+          "readback": 2,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 10",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 199,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 199",
+          "readback": 199,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 200,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 200",
+          "readback": 200,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 201,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 201",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 254,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 254",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1000,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 1000",
+          "readback": 200,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 2147483647",
+          "readback": 2,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.BeamRepeat\", 2147483648",
+          "readback": 2,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.Image.BeamRepeat to its observed baseline after each write and verified final Talk TCP WriteLn readback 10."
+      },
+      "evidenceNote": "Issue #131 Talk TCP Echo 2 WriteLn probes confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat clamps nearby out-of-range values and coerces signed-edge high values to the lower bound, so the overall boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue slot sample, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    },
+    {
+      "objectPath": "WS.N.N.Image.LIST.0.Image.Color",
+      "probePath": "WS.0.8.Image.LIST.0.Image.Color",
+      "probeMode": "write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 16777215,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "RGB color integer"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", -1",
+          "readback": 16777215,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 255,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 255",
+          "readback": 255,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 65280,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 65280",
+          "readback": 65280,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16711680,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 16711680",
+          "readback": 16711680,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777215,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 16777215",
+          "readback": 16777215,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16777216,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 16777216",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 2147483647",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 2147483648",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4294967295,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 4294967295",
+          "readback": 16777215,
+          "behavior": "clamp"
+        },
+        {
+          "input": 4294967296,
+          "command": "SetProp \"WS.N.N.Image.LIST.0.Image.Color\", 4294967296",
+          "readback": 0,
+          "behavior": "wrap"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 16777215,
+        "notes": "The probe restored WS.0.8.Image.LIST.0.Image.Color to its observed baseline after each write and verified final Talk TCP WriteLn readback 16777215."
+      },
+      "evidenceNote": "Issue #131 Talk TCP Echo 2 WriteLn probes confirmed WS.N.N.Image.LIST.0.Image.Color passes through the RGB color domain, clamps several high out-of-range samples to white, and wraps selected edge samples, so the overall boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "WS.0.8 Synthesized Image cue slot sample, nested Image.LIST.0 item",
+        "notes": "The runtime probe used this populated workspace cue path from the loaded show. Normalized metadata keeps WS.N.N placeholders."
+      }
+    }
+  ]
+}

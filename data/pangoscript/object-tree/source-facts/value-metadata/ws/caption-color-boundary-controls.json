@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "WS.N.N.CaptionColor",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 0,
+        "max": 16777215,
+        "unit": "GDI RGB packed color",
+        "boundaryBehavior": "clamp",
+        "evidenceLevel": "observed",
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.0.CaptionColor clamp below 0 to 0 and above 16777215 to 16777215. In-domain samples 0, 1, 255, 65280, 16711680, and 16777215 read back directly."
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "Black"
+        },
+        {
+          "value": 255,
+          "label": "Red, documented GDI RGB low byte"
+        },
+        {
+          "value": 65280,
+          "label": "Green"
+        },
+        {
+          "value": 16711680,
+          "label": "Blue, documented GDI RGB high byte"
+        },
+        {
+          "value": 16777215,
+          "label": "White"
+        }
+      ],
+      "evidenceLevel": "observed",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #131 confirmed WS.N.N.CaptionColor direct Object Tree boundary behavior with baseline restore. Command-level SetCueCaptionColor behavior is recorded separately in command metadata.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "WS.N.N uses page index then cue slot index.",
+        "notes": "The runtime probe used WS.0.0, a populated cue slot sample. Caption-color direct Object Tree write behavior is stored on the normalized WS.N.N.CaptionColor path."
+      }
+    }
+  ]
+}

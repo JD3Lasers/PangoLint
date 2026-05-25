@@ -304666,7 +304666,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/0/CaptionColor",
-      "searchText": "ws n captioncolor caption color workspace cue grid page index common property type frames simple 0 b sample slot for this population dependent probe location advanced 1 text 2 shape 3 abstraction 4 classic ld2000 abstract 5 parametric image 6 clock 7 synthesized 8 node 9 particles 10 fifo 11 write out path following 12 object animator 13 real time video tracer 14 dmx 15 multi effect 16 destination 17 command derived exact setsproperty target setcuecaptioncolor packedcolor 0x000000 0xffffff documented gdi rgb 0xffffffff stores as signed visual alpha reset behavior unverified seed from parameter is not same name propagation integer packed unknown beyond docs describe the format where 0x0000ff red runtime readback stored 255 0x00ff00 65280 0xff0000 16711680 16777215 and confirms values channel rendering observed black low byte green blue high white 4294967295 or classification access mode read state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n captioncolor caption color workspace cue grid page index common property type frames simple 0 b sample slot for this population dependent probe location advanced 1 text 2 shape 3 abstraction 4 classic ld2000 abstract 5 parametric image 6 clock 7 synthesized 8 node 9 particles 10 fifo 11 write out path following 12 object animator 13 real time video tracer 14 dmx 15 multi effect 16 destination 17 command derived exact setsproperty target setcuecaptioncolor packedcolor 0x000000 0xffffff documented gdi rgb 0xffffffff stores as signed visual alpha reset behavior unverified seed from parameter is not same name propagation integer packed unknown beyond docs describe the format where 0x0000ff red runtime readback stored 255 0x00ff00 65280 0xff0000 16711680 16777215 and confirms values channel rendering observed black low byte green blue high white 4294967295 or clamp talk tcp echo writeln probes on 2026 05 25 issue #131 confirmed direct setprop writes to below above in domain samples read back directly tree boundary with baseline restore level recorded separately metadata uses then used a populated normalized aware classification access mode state value tested records proof evidence remains",
       "variantCount": 18,
       "variants": [
         {
@@ -304930,9 +304930,9 @@
           "min": 0,
           "max": 16777215,
           "unit": "GDI RGB packed color",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "clamp",
           "evidenceLevel": "observed",
-          "notes": "BEYOND docs describe the parameter as GDI format where 0x0000FF is red. Runtime readback stored 0x000000 as 0, 0x0000FF as 255, 0x00FF00 as 65280, 0xFF0000 as 16711680, 0xFFFFFF as 16777215, and 0xFFFFFFFF as signed -1. Readback confirms stored integer values, not visual channel rendering."
+          "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.0.CaptionColor clamp below 0 to 0 and above 16777215 to 16777215. In-domain samples 0, 1, 255, 65280, 16711680, and 16777215 read back directly."
         },
         "acceptedValues": [
           {
@@ -304954,22 +304954,24 @@
           {
             "value": 16777215,
             "label": "White"
-          },
-          {
-            "value": 4294967295,
-            "label": "Observed readback as signed -1; visual alpha or reset behavior unverified"
           }
         ],
         "evidenceLevel": "observed",
-        "notes": "Command-derived seed from SetCueCaptionColor packedColor parameter for exact setsProperty target. This is not same-name propagation."
+        "notes": "Runtime SetProp write/readback on 2026-05-25 issue #131 confirmed WS.N.N.CaptionColor direct Object Tree boundary behavior with baseline restore. Command-level SetCueCaptionColor behavior is recorded separately in command metadata.",
+        "locationContext": {
+          "kind": "workspace-slot",
+          "populationDependent": true,
+          "indexBasis": "WS.N.N uses page index then cue slot index.",
+          "notes": "The runtime probe used WS.0.0, a populated cue slot sample. Caption-color direct Object Tree write behavior is stored on the normalized WS.N.N.CaptionColor path."
+        }
       },
       "classification": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "command-readback-tested",
+        "writeTestStatus": "write-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed",
-        "notes": "Observed value metadata for WS.N.N.CaptionColor records runtime command/readback proof. Value domain evidence remains in value metadata."
+        "notes": "Observed value metadata for WS.N.N.CaptionColor records runtime write/readback proof. Value domain evidence remains in value metadata."
       }
     },
     {
@@ -366908,7 +366910,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/3/Image/BeamRepeat",
-      "searchText": "ws n image beamrepeat beam repeat workspace cue grid page index type shape 0 3 b sample slot for this population dependent probe location integer count unknown direct object writes to confirmed accepted readbacks from 2 through 200 low values read back as 254 1000 and very large had mixed coercion observed runtime write readback on 2026 05 14 issue #294 at uses with out of range behavior baseline restore then the used loaded row applies only that context populated aware classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image beamrepeat beam repeat workspace cue grid page index type shape 0 3 b sample slot for this population dependent probe location integer count mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #131 confirmed direct setprop writes to read back 200 directly clamp 1 and 201 254 1000 coerce signed edge high samples 2147483647 2147483648 the overall boundary behavior is observed runtime object write readback 14 #294 at uses accepted values with out of range baseline restore resolved then used loaded row applies only that context populated aware classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -366935,12 +366937,12 @@
             "min": 2,
             "max": 200,
             "unit": "beam repeat count",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
-            "notes": "Direct object writes to WS.0.3.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+            "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.3.Image.BeamRepeat read back 2..200 directly, clamp -1, 0, and 1 to 2, clamp 201, 254, and 1000 to 200, and coerce signed-edge high samples 2147483647 and 2147483648 to 2. The overall boundary behavior is mixed."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+          "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.BeamRepeat for Shape at WS.0.3.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
@@ -382958,7 +382960,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/Image/BeamRepeat",
-      "searchText": "ws n image list 0 beamrepeat beam repeat workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location integer count unknown direct object writes to confirmed accepted readbacks from 2 through 200 low values read back as 254 1000 and very large had mixed coercion observed runtime write readback on 2026 05 14 issue #294 at uses with out of range behavior baseline restore then the used loaded row applies only that context populated aware classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 beamrepeat beam repeat workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location integer count mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #131 confirmed direct setprop writes to read back 200 directly clamp 1 and 201 254 1000 coerce signed edge high samples 2147483647 2147483648 the overall boundary behavior is observed runtime object write readback 14 #294 at uses accepted values with out of range baseline restore resolved then used loaded row applies only that context populated aware classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -382985,12 +382987,12 @@
             "min": 2,
             "max": 200,
             "unit": "beam repeat count",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
-            "notes": "Direct object writes to WS.0.8.Image.LIST.0.Image.BeamRepeat confirmed accepted integer readbacks from 2 through 200. Low values read back as 2, 254 through 1000 read back as 200, and very large values had mixed coercion."
+            "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.8.Image.LIST.0.Image.BeamRepeat read back 2..200 directly, clamp -1, 0, and 1 to 2, clamp 201, 254, and 1000 to 200, and coerce signed-edge high samples 2147483647 and 2147483648 to 2. The overall boundary behavior is mixed."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore.",
+          "notes": "Runtime object write/readback on 2026-05-14 issue #294 confirmed WS.N.N.Image.LIST.0.Image.BeamRepeat for Synthesized Image at WS.0.8.Image.LIST.0.Image.BeamRepeat uses accepted values 2..200 with mixed out-of-range behavior and baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,
@@ -383076,7 +383078,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/WS/0/8/Image/LIST/0/Image/Color",
-      "searchText": "ws n image list 0 color workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location integer rgb unknown setprop write readback confirmed through 16777215 as accepted readbacks the 1 read back and samples above observed runtime on 2026 05 16 issue #451 at is writable with baseline restore uses then used loaded nested paths depend that content apply only to context populated aware behavior classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "ws n image list 0 color workspace cue grid page index type synthesized 8 b sample slot for this population dependent probe location integer rgb mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #131 confirmed direct setprop writes to read back 16777215 directly 1 as clamp 16777216 2147483647 2147483648 and 4294967295 wrap 4294967296 the overall boundary behavior is observed runtime write readback 16 #451 at writable with baseline restore resolved uses then used loaded nested paths depend that content apply only context populated aware classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -383103,12 +383105,12 @@
             "min": 0,
             "max": 16777215,
             "unit": "RGB color integer",
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
-            "notes": "SetProp write/readback confirmed 0 through 16777215 as accepted color readbacks. The -1 sample read back 16777215, and samples above 16777215 read back 16777215."
+            "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.8.Image.LIST.0.Image.Color read back 0..16777215 directly, read -1 as 16777215, clamp 16777216, 2147483647, 2147483648, and 4294967295 to 16777215, and wrap 4294967296 to 0. The overall boundary behavior is mixed."
           },
           "evidenceLevel": "observed",
-          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color for Synthesized Image at WS.0.8.Image.LIST.0.Image.Color is writable with baseline restore.",
+          "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color for Synthesized Image at WS.0.8.Image.LIST.0.Image.Color is writable with baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
           "locationContext": {
             "kind": "workspace-slot",
             "populationDependent": true,

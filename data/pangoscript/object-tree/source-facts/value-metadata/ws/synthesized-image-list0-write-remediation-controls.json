@@ -96,12 +96,12 @@
         "min": 0,
         "max": 16777215,
         "unit": "RGB color integer",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback confirmed 0 through 16777215 as accepted color readbacks. The -1 sample read back 16777215, and samples above 16777215 read back 16777215."
+        "notes": "Talk TCP Echo 2 WriteLn probes on 2026-05-25 issue #131 confirmed direct SetProp writes to WS.0.8.Image.LIST.0.Image.Color read back 0..16777215 directly, read -1 as 16777215, clamp 16777216, 2147483647, 2147483648, and 4294967295 to 16777215, and wrap 4294967296 to 0. The overall boundary behavior is mixed."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color for Synthesized Image at WS.0.8.Image.LIST.0.Image.Color is writable with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #451 confirmed WS.N.N.Image.LIST.0.Image.Color for Synthesized Image at WS.0.8.Image.LIST.0.Image.Color is writable with baseline restore. Issue #131 resolved the boundary behavior with Talk TCP Echo 2 WriteLn probes.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,

@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 57,
+    "unknownBoundaryBehaviorRows": 53,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -60,7 +60,7 @@
     "writeTestStatus": [
       {
         "value": "command-readback-tested",
-        "count": 388
+        "count": 387
       },
       {
         "value": "not-applicable",
@@ -72,7 +72,7 @@
       },
       {
         "value": "write-readback-tested",
-        "count": 3317
+        "count": 3318
       }
     ],
     "readbackStatus": [
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 57,
+      "count": 53,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 57,
+      "count": 53,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -285,10 +285,6 @@
         },
         {
           "root": "Grid2",
-          "count": 4
-        },
-        {
-          "root": "WS",
           "count": 4
         },
         {
@@ -862,20 +858,6 @@
         "Projector.N.PostRotation",
         "Projector.N.PreRotation",
         "Projector.N.SizeX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "WS",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "integer",
-      "count": 4,
-      "examples": [
-        "WS.N.N.CaptionColor",
-        "WS.N.N.Image.BeamRepeat",
-        "WS.N.N.Image.LIST.0.Image.BeamRepeat",
-        "WS.N.N.Image.LIST.0.Image.Color"
       ],
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },

@@ -113,7 +113,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       entry.valueMetadata?.notes?.startsWith("Command-derived seed"),
     );
 
-    expect(commandDerived).toHaveLength(58);
+    expect(commandDerived).toHaveLength(57);
     for (const entry of commandDerived) {
       expect(byPath.has(entry.path), entry.path).toBe(true);
       assertObjectPropertyValueMetadata(entry.valueMetadata as ObjectPropertyValueMetadata);
@@ -124,6 +124,7 @@ describe("checked-in Object Tree device value metadata data", () => {
     expect(byPath.get("Master.AudioVolumeMute")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("Master.CueBeatShift")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("Master.ShowShift")?.valueMetadata?.notes).not.toContain("Command-derived seed");
+    expect(byPath.get("WS.N.N.CaptionColor")?.valueMetadata?.notes).not.toContain("Command-derived seed");
 
     expect(byPath.get("Master.Brightness")?.valueMetadata).toMatchObject({
       valueType: "number",
@@ -141,6 +142,7 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: 0,
         max: 16777215,
         unit: "GDI RGB packed color",
+        boundaryBehavior: "clamp",
       },
     });
     expect(byPath.get("WS.N.N.CaptionColor")?.valueMetadata?.acceptedValues).toContainEqual(

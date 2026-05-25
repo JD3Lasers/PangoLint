@@ -910,7 +910,14 @@ describe("checked-in Object Tree readback metadata data", () => {
       ],
       [
         "WS.N.N.Image.LIST.0.Image.Color",
-        { valueType: "integer", min: 0, max: 16777215, unit: "RGB color integer", boundaryBehavior: "unknown" },
+        {
+          valueType: "integer",
+          min: 0,
+          max: 16777215,
+          unit: "RGB color integer",
+          boundaryBehavior: "mixed",
+          evidenceBoundaryBehavior: "unknown",
+        },
       ],
       [
         "WS.N.N.Image.LIST.0.Image.Radius",
@@ -1010,7 +1017,7 @@ describe("checked-in Object Tree readback metadata data", () => {
         shipsMetadata: true,
         valueType: expectedRange?.valueType,
         evidenceLevel: "observed",
-        boundaryBehavior: expectedRange?.boundaryBehavior,
+        boundaryBehavior: expectedRange?.evidenceBoundaryBehavior ?? expectedRange?.boundaryBehavior,
         valueRange: {
           min: expectedRange?.min,
           max: expectedRange?.max,
