@@ -2195,10 +2195,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       evidenceLevel: "observed",
       valueRange: {
         min: 1,
-        dynamicMax: {
-          expression: "Grid2.GetColCount * Grid2.GetRowCount",
-          sourcePaths: ["Grid2.GetColCount", "Grid2.GetRowCount"],
-        },
+        max: 256,
         unit: "cue slots",
         boundaryBehavior: "mixed",
         evidenceLevel: "observed",
@@ -2846,7 +2843,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       evidenceLevel: "observed",
       valueRange: {
         min: 1,
-        dynamicMax: { expression: "Grid2.GetColCount * Grid2.GetRowCount" },
+        max: 256,
         unit: "cue slots",
         boundaryBehavior: "mixed",
         evidenceLevel: "observed",

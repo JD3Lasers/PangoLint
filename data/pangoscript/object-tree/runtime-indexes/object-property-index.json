@@ -131784,7 +131784,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid2/Count",
-      "searchText": "grid2 count b integer cue slots getcolcount getrowcount runtime readback confirmed 60 with 10 and 6 in the loaded workspace grid mixed talk tcp echo 2 setgridsize writeln probes on 2026 05 25 issue #135 has boundary behavior it read 256 for 16x16 192 20x20 but 1x1 2147483648x2147483648 left at baseline while dimension readbacks changed to observed command write through restore slot reflects layout probe used restored size by after each sample population dependent populated location aware classification access mode state value tested fresh beyond writes proved writable path setprop direct assignment samples are recorded data pangoscript object tree evidence 487 json existing metadata was only choose",
+      "searchText": "grid2 count b integer cue slots mixed talk tcp echo 2 setgridsize writeln probes on 2026 05 25 issue #135 confirmed has boundary behavior across the observed 1 256 grid cell span it read for 16x16 and 192 20x20 but 1x1 2147483648x2147483648 left at 60 baseline while dimension readbacks changed to runtime command write readback through with restore workspace slot reflects loaded layout probe used restored size 10 by 6 after each sample population dependent populated location aware classification access mode state value tested fresh beyond writes proved writable path setprop direct assignment samples are recorded in data pangoscript object tree evidence 487 json existing metadata was only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -131796,18 +131796,11 @@
         "valueType": "integer",
         "valueRange": {
           "min": 1,
-          "dynamicMax": {
-            "expression": "Grid2.GetColCount * Grid2.GetRowCount",
-            "sourcePaths": [
-              "Grid2.GetColCount",
-              "Grid2.GetRowCount"
-            ],
-            "notes": "Runtime readback confirmed Grid2.Count 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6 in the loaded workspace grid."
-          },
           "unit": "cue slots",
           "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior. It read 256 for 16x16 and 192 for 20x20, but 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1."
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior across the observed 1..256 grid cell span. It read 256 for 16x16 and 192 for 20x20, but 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1.",
+          "max": 256
         },
         "evidenceLevel": "observed",
         "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.Count behavior through SetGridSize with baseline restore.",

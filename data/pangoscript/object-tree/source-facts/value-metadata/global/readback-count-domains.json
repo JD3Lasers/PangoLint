@@ -6,18 +6,11 @@
       "valueType": "integer",
       "valueRange": {
         "min": 1,
-        "dynamicMax": {
-          "expression": "Grid2.GetColCount * Grid2.GetRowCount",
-          "sourcePaths": [
-            "Grid2.GetColCount",
-            "Grid2.GetRowCount"
-          ],
-          "notes": "Runtime readback confirmed Grid2.Count 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6 in the loaded workspace grid."
-        },
         "unit": "cue slots",
         "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior. It read 256 for 16x16 and 192 for 20x20, but 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1."
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior across the observed 1..256 grid cell span. It read 256 for 16x16 and 192 for 20x20, but 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1.",
+        "max": 256
       },
       "evidenceLevel": "observed",
       "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.Count behavior through SetGridSize with baseline restore.",
