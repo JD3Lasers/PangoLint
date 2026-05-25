@@ -1710,9 +1710,10 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to Zone.0.Mute with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+        "notes": "SetProp writes to Zone.0.Mute read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state."
       },
       "acceptedValues": [
         {
@@ -1727,12 +1728,12 @@
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-12 confirmed baseline restore on concrete Zone.0.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Zone.N.Mute at Zone.0.Mute uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "indexed-root",
         "populationDependent": true,
         "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
-        "notes": "The runtime probe used Zone.0. Only zones present in the loaded show are valid concrete paths."
+        "notes": "The runtime probe used Zone.0.Mute in the loaded show."
       }
     },
     {
@@ -1950,9 +1951,10 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to Zone.0.Visible with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+        "notes": "SetProp writes to Zone.0.Visible read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state."
       },
       "acceptedValues": [
         {
@@ -1965,12 +1967,12 @@
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-12 confirmed baseline restore on concrete Zone.0.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Zone.N.Visible at Zone.0.Visible uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "indexed-root",
         "populationDependent": true,
         "indexBasis": "Zone.N uses the zero-based Object Tree zone index.",
-        "notes": "The runtime probe used Zone.0. Only zones present in the loaded show are valid concrete paths."
+        "notes": "The runtime probe used Zone.0.Visible in the loaded show."
       }
     },
     {
@@ -2097,9 +2099,10 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to a loaded Universe panel alias color-button Visible property with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+        "notes": "SetProp writes to Untitled.Button1.Visible read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" were no-ops from prepared opposite states."
       },
       "acceptedValues": [
         {
@@ -2112,12 +2115,12 @@
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-12 confirmed baseline restore on one loaded Universe panel alias color-button control.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed UniversePanelAlias.Control.Visible at Untitled.Button1.Visible uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,
         "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
-        "notes": "The runtime probe used one loaded Universe panel color-button alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+        "notes": "The runtime probe used the loaded Untitled Universe alias. Universe alias roots and control names depend on the loaded show."
       }
     },
     {

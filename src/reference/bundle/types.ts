@@ -24,7 +24,7 @@ export interface ReferenceParameter {
   description?: string;
 }
 
-type ReferenceBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ReferenceBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 
 interface ReferenceValueRange {
   min?: number;

@@ -111,6 +111,13 @@ When testing a write, prefer one Talk batch that writes the value and then emits
 an `OscOutTTS` readback. This avoids timing artifacts from separate write and
 readback calls.
 
+When OSC readback gives surprising results, cross-check with Talk TCP
+`WriteLn` under a more verbose echo mode such as `Echo 2`. The echoed
+`WriteLn` command can show the evaluated Object Tree value without depending
+on the OSC callback route. Use `RegisterOscFeedback` when the test needs
+push-style feedback after an operator changes a value through BEYOND or an
+external control surface.
+
 For each tested value, record:
 
 - input text sent to BEYOND

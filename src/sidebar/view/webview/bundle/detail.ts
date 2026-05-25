@@ -252,7 +252,9 @@ function formatAcceptedValue(value: NonNullable<ParameterDetail["acceptedValues"
   return value.label ? `${value.value}=${value.label}` : String(value.value);
 }
 
-function describeBoundaryBehavior(behavior: NonNullable<ParameterDetail["valueRange"]>["boundaryBehavior"]): string {
+export function describeBoundaryBehavior(
+  behavior: NonNullable<ParameterDetail["valueRange"]>["boundaryBehavior"],
+): string {
   switch (behavior) {
     case "clamp":
       return "clamps";
@@ -260,6 +262,8 @@ function describeBoundaryBehavior(behavior: NonNullable<ParameterDetail["valueRa
       return "no-ops";
     case "pass-through":
       return "passes through";
+    case "mixed":
+      return "has mixed behavior";
     case "reject":
       return "rejects";
     case "wrap":

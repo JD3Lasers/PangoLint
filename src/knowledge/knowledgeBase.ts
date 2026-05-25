@@ -9,7 +9,7 @@ type VerificationStatus = "unverified" | "planned" | "observed" | "blocked";
 type VerificationMethod = "oscOutTTS" | "registerOscFeedback" | "controlledWriteReadback" | "operatorSupervised";
 type VerificationCleanup = "none" | "restoreScript" | "prefixRetire" | "beyondRestartOrPrefixRetire" | "operatorReset";
 export type PropertyMappingCoverageStatus = "mapped" | "no-direct-property" | "deferred" | "unknown";
-type ValueBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ValueBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 
 interface KnowledgeAcceptedValue {
   value: string | number | boolean;
@@ -234,7 +234,15 @@ const VALID_EVIDENCE_LEVELS = new Set<string>(["exported", "documented", "observ
 const VALID_CONFIDENCES = new Set<string>(["high", "medium", "low"]);
 const VALID_SAFETY_TIERS = new Set<string>(["T0", "T1", "T2", "T3", "T4", "unknown"]);
 const VALID_PARAM_TYPES = new Set<string>(["number", "integer", "float", "string", "boolean", "variadic", "unknown"]);
-const VALID_VALUE_BOUNDARY_BEHAVIORS = new Set<string>(["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"]);
+const VALID_VALUE_BOUNDARY_BEHAVIORS = new Set<string>([
+  "clamp",
+  "reject",
+  "no-op",
+  "wrap",
+  "pass-through",
+  "mixed",
+  "unknown",
+]);
 const VALID_VERIFICATION_STATUSES = new Set<string>(["unverified", "planned", "observed", "blocked"]);
 const VALID_VERIFICATION_METHODS = new Set<string>([
   "oscOutTTS",

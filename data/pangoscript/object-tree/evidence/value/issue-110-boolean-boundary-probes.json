@@ -1,0 +1,774 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 110,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Operator-supervised BEYOND runtime with Talk TCP sends and OSC readback callbacks. A Talk TCP Echo 2 WriteLn matrix cross-checked quoted-string results. The probe restored each observed baseline before moving to the next Object Tree path."
+  },
+  "entries": [
+    {
+      "objectPath": "Zone.N.Mute",
+      "probePath": "Zone.0.Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Unmute the zone."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Mute the zone."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Mute\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Zone.0.Mute\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Zone.0.Mute\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Zone.0.Mute\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Zone.0.Mute\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Zone.0.Mute to 0 and verified readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Zone.N.Mute at Zone.0.Mute uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used Zone.0.Mute in the loaded show."
+      }
+    },
+    {
+      "objectPath": "Zone.N.Visible",
+      "probePath": "Zone.0.Visible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Hide the zone."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Show the zone."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Zone.0.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Zone.0.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Zone.0.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Zone.0.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Zone.0.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Zone.0.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Zone.0.Visible\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Zone.0.Visible\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Zone.0.Visible to 1 and verified readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Zone.N.Visible at Zone.0.Visible uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Zone.0",
+        "notes": "The runtime probe used Zone.0.Visible in the loaded show."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Mute",
+      "probePath": "ZoneAlias.Mute",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Mute."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Mute."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Mute\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Mute\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Mute\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Mute\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"ZoneAlias.Mute\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"ZoneAlias.Mute\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"ZoneAlias.Mute\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"ZoneAlias.Mute\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored ZoneAlias.Mute to 0 and verified readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed ZoneAlias.Mute uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Mute."
+      }
+    },
+    {
+      "objectPath": "ZoneAlias.Visible",
+      "probePath": "ZoneAlias.Visible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Clear ZoneAlias.Visible."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set ZoneAlias.Visible."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"ZoneAlias.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"ZoneAlias.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"ZoneAlias.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"ZoneAlias.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"ZoneAlias.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"ZoneAlias.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"ZoneAlias.Visible\", \"0\"",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"ZoneAlias.Visible\", \"1\"",
+          "readback": 1,
+          "behavior": "pass-through"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored ZoneAlias.Visible to 1 and verified readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed ZoneAlias.Visible uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "ZoneAlias",
+        "notes": "The runtime probe used literal ZoneAlias.Visible."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Button1.Selected",
+      "probePath": "Universe.0.Button1.Selected",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Button1.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Button1.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Button1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Button1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Button1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Button1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Button1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Button1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Button1.Selected\", 1; SetProp \"Universe.0.Button1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Button1.Selected\", 0; SetProp \"Universe.0.Button1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Universe.0.Button1.Selected to 0 and verified readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Universe.N.Button1.Selected at Universe.0.Button1.Selected uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" are no-ops for this row.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.N.Button1",
+        "notes": "The runtime probe used Universe.0.Button1.Selected, the loaded control path for Universe.N.Button1."
+      }
+    },
+    {
+      "objectPath": "Universe.N.Button1.Visible",
+      "probePath": "Universe.0.Button1.Visible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set Universe.N.Button1.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set Universe.N.Button1.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Universe.0.Button1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Universe.0.Button1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Universe.0.Button1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Universe.0.Button1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Universe.0.Button1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Universe.0.Button1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Universe.0.Button1.Visible\", 1; SetProp \"Universe.0.Button1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Universe.0.Button1.Visible\", 0; SetProp \"Universe.0.Button1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Universe.0.Button1.Visible to 1 and verified readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Universe.N.Button1.Visible at Universe.0.Button1.Visible uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" are no-ops for this row.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.N.Button1",
+        "notes": "The runtime probe used Universe.0.Button1.Visible, the loaded control path for Universe.N.Button1."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.Selected",
+      "probePath": "Untitled.Button1.Selected",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.Selected to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.Selected to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Untitled.Button1.Selected\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Untitled.Button1.Selected\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Untitled.Button1.Selected\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Untitled.Button1.Selected\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Untitled.Button1.Selected\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Untitled.Button1.Selected\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Untitled.Button1.Selected\", 1; SetProp \"Untitled.Button1.Selected\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Untitled.Button1.Selected\", 0; SetProp \"Untitled.Button1.Selected\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 0,
+        "notes": "The probe restored Untitled.Button1.Selected to 0 and verified readback 0."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed UniversePanelAlias.Control.Selected at Untitled.Button1.Selected uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" are no-ops for this row.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UniversePanelAlias.Control",
+        "notes": "The runtime probe used the loaded Untitled Universe alias. Universe alias roots and control names depend on the loaded show."
+      }
+    },
+    {
+      "objectPath": "UniversePanelAlias.Control.Visible",
+      "probePath": "Untitled.Button1.Visible",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "boolean",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 0,
+        "max": 1,
+        "unit": "boolean",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "acceptedValues": [
+        {
+          "value": 0,
+          "label": "OFF",
+          "description": "Set UniversePanelAlias.Control.Visible to OFF."
+        },
+        {
+          "value": 1,
+          "label": "ON",
+          "description": "Set UniversePanelAlias.Control.Visible to ON."
+        }
+      ],
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetProp \"Untitled.Button1.Visible\", -1",
+          "readback": 1,
+          "behavior": "wrap"
+        },
+        {
+          "input": 0,
+          "command": "SetProp \"Untitled.Button1.Visible\", 0",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1,
+          "command": "SetProp \"Untitled.Button1.Visible\", 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2,
+          "command": "SetProp \"Untitled.Button1.Visible\", 2",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": true,
+          "command": "SetProp \"Untitled.Button1.Visible\", true",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": false,
+          "command": "SetProp \"Untitled.Button1.Visible\", false",
+          "readback": 0,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "0",
+          "command": "SetProp \"Untitled.Button1.Visible\", 1; SetProp \"Untitled.Button1.Visible\", \"0\"",
+          "readback": 1,
+          "behavior": "no-op"
+        },
+        {
+          "input": "1",
+          "command": "SetProp \"Untitled.Button1.Visible\", 0; SetProp \"Untitled.Button1.Visible\", \"1\"",
+          "readback": 0,
+          "behavior": "no-op"
+        }
+      ],
+      "restore": {
+        "strategy": "restored-baseline",
+        "restoredValue": 1,
+        "notes": "The probe restored Untitled.Button1.Visible to 1 and verified readback 1."
+      },
+      "evidenceNote": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed UniversePanelAlias.Control.Visible at Untitled.Button1.Visible uses 0..1 with mixed boundary behavior. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" are no-ops for this row.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "UniversePanelAlias.Control",
+        "notes": "The runtime probe used the loaded Untitled Universe alias. Universe alias roots and control names depend on the loaded show."
+      }
+    }
+  ]
+}

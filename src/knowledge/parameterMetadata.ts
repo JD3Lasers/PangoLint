@@ -1,4 +1,4 @@
-type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 
 interface ParameterAcceptedValue {
   value: string | number | boolean;
@@ -66,6 +66,8 @@ function describeBoundaryBehavior(behavior: ParameterBoundaryBehavior): string {
       return "no-ops";
     case "pass-through":
       return "passes through";
+    case "mixed":
+      return "has mixed behavior";
     case "reject":
       return "rejects";
     case "wrap":

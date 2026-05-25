@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.40] - 2026-05-25
+
+### Added
+
+- Add observed Object Tree boolean boundary evidence for Zone, ZoneAlias,
+  Universe button, and Universe panel alias paths, including Talk TCP `Echo 2`
+  `WriteLn` cross-check notes for quoted-string behavior.
+
 ## [0.7.39] - 2026-05-25
 
 ### Security
@@ -415,7 +423,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.40...HEAD
+[0.7.40]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...v0.7.40
 [0.7.39]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...v0.7.39
 [0.7.38]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...v0.7.38
 [0.7.37]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.36...v0.7.37

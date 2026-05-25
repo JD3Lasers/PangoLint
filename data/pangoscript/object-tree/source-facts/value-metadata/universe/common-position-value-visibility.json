@@ -7,12 +7,13 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to Universe.0.Button1.Selected confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to Universe.0.Button1.Selected read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" were no-ops from prepared opposite states."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #296 confirmed Universe.N.Button1.Selected at Universe.0.Button1.Selected uses 0..1 with unknown boundary behavior and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Universe.N.Button1.Selected at Universe.0.Button1.Selected uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,
@@ -57,12 +58,13 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to Universe.0.Button1.Visible confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to Universe.0.Button1.Visible read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" were no-ops from prepared opposite states."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #296 confirmed Universe.N.Button1.Visible at Universe.0.Button1.Visible uses 0..1 with unknown boundary behavior and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed Universe.N.Button1.Visible at Universe.0.Button1.Visible uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,

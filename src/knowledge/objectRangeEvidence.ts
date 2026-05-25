@@ -1,4 +1,20 @@
-const objectRangeEvidenceBoundaryBehaviors = ["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"] as const;
+const objectRangeEvidenceBoundaryBehaviors = [
+  "clamp",
+  "reject",
+  "no-op",
+  "wrap",
+  "pass-through",
+  "mixed",
+  "unknown",
+] as const;
+const objectRangeEvidenceTestedValueBehaviors = [
+  "clamp",
+  "reject",
+  "no-op",
+  "wrap",
+  "pass-through",
+  "unknown",
+] as const;
 const objectRangeEvidenceLevels = ["documented", "observed", "inferred", "unverified"] as const;
 const objectRangeEvidenceProbeModes = [
   "readback-only",
@@ -251,7 +267,7 @@ function validateTestedValues(testedValues: unknown, path: string, errors: strin
     if (!isJsonScalarOrNull(tested.readback)) {
       errors.push(`${testedPath}.readback must be string, number, boolean, or null`);
     }
-    requireOneOf(tested.behavior, objectRangeEvidenceBoundaryBehaviors, `${testedPath}.behavior`, errors);
+    requireOneOf(tested.behavior, objectRangeEvidenceTestedValueBehaviors, `${testedPath}.behavior`, errors);
   });
 }
 

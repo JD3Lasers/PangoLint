@@ -9,7 +9,7 @@ import { BUNDLED_PANGOSCRIPT_DATA_PATHS, bundledDataPathSegments } from "./bundl
 export type ObjectPropertyKind = "object" | "fx";
 type ObjectPropertyConfidence = "observed" | "inferred" | "unverified";
 type ObjectPropertyValueType = "number" | "integer" | "float" | "string" | "boolean" | "enum" | "unknown";
-type ObjectPropertyBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ObjectPropertyBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 export type ObjectPropertyValueEvidence = "documented" | "observed" | "inferred" | "unverified";
 type ObjectPropertyProbeContextKind = "cue-type" | "cue-shape" | "quickfx-cell" | "quickfx-effect";
 type ObjectPropertyLocationKind =

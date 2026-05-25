@@ -113,7 +113,7 @@ export function validateValueMetadata(pathValue: string, metadata: ObjectPropert
     validateDynamicBound(pathValue, dynamicMax);
     if (
       boundaryBehavior !== undefined &&
-      !["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"].includes(boundaryBehavior)
+      !["clamp", "reject", "no-op", "wrap", "pass-through", "mixed", "unknown"].includes(boundaryBehavior)
     ) {
       throw new Error(`${pathValue} has invalid valueRange boundaryBehavior`);
     }

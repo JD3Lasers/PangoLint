@@ -179,6 +179,17 @@ describe("object range evidence validation", () => {
     );
   });
 
+  it("allows mixed boundary behavior only on the aggregate entry", () => {
+    const report = validReport();
+    report.entries[0].boundaryBehavior = "mixed";
+    expect(validateObjectRangeEvidenceReport(report)).toEqual([]);
+
+    report.entries[0].testedValues[0].behavior = "mixed";
+    expect(validateObjectRangeEvidenceReport(report)).toContain(
+      "entries[0].testedValues[0].behavior must be one of clamp, reject, no-op, wrap, pass-through, unknown",
+    );
+  });
+
   it("requires concrete probe paths for location-aware entries", () => {
     const report = validReport();
     report.entries[0].objectPath = "WS.N.N.PositionX";
