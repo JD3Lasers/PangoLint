@@ -24,7 +24,7 @@ export function registerRuntimeReadTools(server: McpServer, ctx: RegisterToolsCo
     MCP_TOOL_IDS.checkTalkConnection,
     {
       description:
-        "Open the configured BEYOND Talk TCP target and verify greeting, Echo 1, Hello, and Version replies. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled.",
+        "Open the configured BEYOND Talk TCP target and verify greeting, configured Echo mode, Hello, and Version replies. READ RUNTIME ONLY: returns blocked when PANGOLINT_MCP_RUNTIME_READ is not enabled.",
       inputSchema: {},
       annotations: RUNTIME_READ_TOOL_ANNOTATIONS,
     },

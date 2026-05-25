@@ -14,6 +14,7 @@ describe("loadConfig", () => {
       beyondTalkPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkPort,
       beyondTalkTcpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpHost,
       beyondTalkTcpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPort,
+      beyondTalkTcpEchoMode: 2,
       beyondTalkUdpHost: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpHost,
       beyondTalkUdpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpPort,
       beyondTalkUdpFallbackAllowed: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
@@ -54,6 +55,7 @@ describe("loadConfig", () => {
       PANGOLINT_MCP_BEYOND_TALK_TRANSPORT: "tcp",
       PANGOLINT_MCP_BEYOND_TALK_TCP_HOST: "192.0.2.148",
       PANGOLINT_MCP_BEYOND_TALK_TCP_PORT: "16063",
+      PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE: "3",
       PANGOLINT_MCP_BEYOND_TALK_UDP_HOST: "192.0.2.149",
       PANGOLINT_MCP_BEYOND_TALK_UDP_PORT: "16064",
       PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED: "true",
@@ -64,6 +66,7 @@ describe("loadConfig", () => {
     expect(cfg.beyondTalkPort).toBe(16064);
     expect(cfg.beyondTalkTcpHost).toBe("192.0.2.148");
     expect(cfg.beyondTalkTcpPort).toBe(16063);
+    expect(cfg.beyondTalkTcpEchoMode).toBe(3);
     expect(cfg.beyondTalkUdpHost).toBe("192.0.2.149");
     expect(cfg.beyondTalkUdpPort).toBe(16064);
     expect(cfg.beyondTalkUdpFallbackAllowed).toBe(true);
@@ -89,6 +92,11 @@ describe("loadConfig", () => {
 
   it("rejects invalid talk transport values", () => {
     expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_TRANSPORT: "http" })).toThrow(/transport/);
+  });
+
+  it("rejects invalid Talk TCP echo modes", () => {
+    expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE: "0" })).toThrow(/echo mode/);
+    expect(() => loadConfig({ PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE: "2.5" })).toThrow(/echo mode/);
   });
 
   it("rejects non-positive readback timeouts", () => {

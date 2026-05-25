@@ -5,6 +5,7 @@
 
 import { type ParsedLine, parseScript } from "../../language/parser";
 import {
+  DEFAULT_TALK_TCP_ECHO_MODE,
   type SendTalkTcpCommandsOptions,
   type SendTalkTcpCommandsResult,
   sendTalkTcpCommands,
@@ -24,6 +25,7 @@ export interface RunScriptOptions {
   talkUdpPort?: number;
   talkUdpFallbackAllowed?: boolean;
   talkTcpPassword?: string;
+  talkTcpEchoMode?: number;
   commandTimeoutMs?: number;
   /** Max bytes per UDP datagram. Defaults to 1200 to stay below typical MTU. */
   maxPayloadBytes?: number;
@@ -36,6 +38,7 @@ export interface RunScriptOptions {
 export interface RunScriptResult {
   ok: boolean;
   transport?: "tcp" | "udp";
+  talkTcpEchoMode?: number;
   talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
   talkGreeting?: string;
   talkReplies?: TalkTcpReply[];
@@ -104,6 +107,7 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
   const transport = options.talkTransport ?? "udp";
   if (transport === "tcp" || transport === "auto") {
     const sendTcp = options.sendTcp ?? sendTalkTcpCommands;
+    const talkTcpEchoMode = options.talkTcpEchoMode ?? DEFAULT_TALK_TCP_ECHO_MODE;
     let tcpResult: SendTalkTcpCommandsResult;
     try {
       tcpResult = await sendTcp({
@@ -111,6 +115,7 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
         port: options.talkTcpPort ?? options.talkPort,
         commands: lines,
         password: options.talkTcpPassword,
+        echoMode: talkTcpEchoMode,
         timeoutMs: options.commandTimeoutMs,
       });
     } catch (error) {
@@ -118,6 +123,7 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
       tcpResult = {
         ok: false,
         transport: "tcp",
+        talkTcpEchoMode,
         talkStatus: "closed",
         talkReplies: [],
         linesSent: 0,
@@ -130,6 +136,7 @@ export async function runScript(text: string, options: RunScriptOptions): Promis
       return {
         ok: tcpResult.ok,
         transport: "tcp",
+        talkTcpEchoMode: tcpResult.talkTcpEchoMode,
         talkStatus: tcpResult.talkStatus,
         talkGreeting: tcpResult.talkGreeting,
         talkReplies: tcpResult.talkReplies,

@@ -30,6 +30,7 @@ interface ReadBeyondPropertyOutput {
   transport?: "tcp" | "udp";
   talkHost?: string;
   talkPort?: number;
+  talkTcpEchoMode?: number;
   talkStatus?: "ok" | "error" | "timeout" | "closed" | "send-only";
   talkGreeting?: string;
   talkReplies?: TalkTcpReply[];
@@ -80,6 +81,7 @@ export async function readBeyondProperty(
     value: result.value,
     transport: result.transport,
     ...talkTargetFromMcpConfig(config, result.transport),
+    talkTcpEchoMode: result.talkTcpEchoMode,
     talkStatus: result.talkStatus,
     talkGreeting: result.talkGreeting,
     talkReplies: result.talkReplies,

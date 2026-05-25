@@ -10,6 +10,7 @@ const baseConfig: McpConfig = {
   beyondTalkPort: 16062,
   beyondTalkTcpHost: "127.0.0.1",
   beyondTalkTcpPort: 16063,
+  beyondTalkTcpEchoMode: 2,
   beyondTalkUdpHost: "127.0.0.1",
   beyondTalkUdpPort: 16062,
   beyondTalkUdpFallbackAllowed: false,
@@ -75,6 +76,7 @@ describe("getServerConfig", () => {
       expect(result.data.beyondTalkPort).toBe(16062);
       expect(result.data.beyondTalkTcpHost).toBe("127.0.0.1");
       expect(result.data.beyondTalkTcpPort).toBe(16063);
+      expect(result.data.beyondTalkTcpEchoMode).toBe(2);
       expect(result.data.beyondTalkUdpHost).toBe("127.0.0.1");
       expect(result.data.beyondTalkUdpPort).toBe(16062);
       expect(result.data.beyondTalkUdpFallbackAllowed).toBe(false);

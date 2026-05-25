@@ -17,6 +17,7 @@ export function readbackOptionsFromMcpConfig(config: McpConfig): Omit<ReadbackOp
     talkUdpPort: config.beyondTalkUdpPort,
     talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
     talkTcpPassword: config.beyondTalkTcpPassword,
+    talkTcpEchoMode: config.beyondTalkTcpEchoMode,
     commandTimeoutMs: config.readbackTimeoutMs,
     listenHost: config.oscListenHost,
     listenPort: config.oscListenPort,
@@ -35,6 +36,7 @@ export function runScriptOptionsFromMcpConfig(config: McpConfig): RunScriptOptio
     talkUdpPort: config.beyondTalkUdpPort,
     talkUdpFallbackAllowed: config.beyondTalkUdpFallbackAllowed,
     talkTcpPassword: config.beyondTalkTcpPassword,
+    talkTcpEchoMode: config.beyondTalkTcpEchoMode,
     commandTimeoutMs: config.readbackTimeoutMs,
   };
 }

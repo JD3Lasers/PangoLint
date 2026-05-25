@@ -594,9 +594,9 @@ enabled at server startup.
 | Tool | Tier | What it does |
 |---|---|---|
 | `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND UDP target. Doesn't verify BEYOND accepts commands. |
-| `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, `Echo 1`, `Hello`, and `Version` replies. |
-| `readBeyondProperty` | T1 (read) | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (`Master.Brightness`, `Zone.0.Red`, …) and returns the value. |
-| `runScript` | T2+ (write) | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. |
+| `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, configured `Echo` mode, `Hello`, and `Version` replies. |
+| `readBeyondProperty` | T1 (read) | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (`Master.Brightness`, `Zone.0.Red`, …) and returns the value. Talk TCP readbacks use the configured `Echo` mode. |
+| `runScript` | T2+ (write) | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. Talk TCP reports the selected `Echo` mode. |
 
 `runScript`'s lint-before-send gate is the **load-bearing developer
 behavior**: `runScript` blocks script text that produces an
@@ -636,6 +636,7 @@ them in user or machine settings, not workspace settings.
 | `pangolint.beyond.talkTransport` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and uses UDP only when fallback is explicitly allowed. |
 | `pangolint.beyond.talkTcpHost` | `127.0.0.1` | BEYOND Talk TCP host. |
 | `pangolint.beyond.talkTcpPort` | `16063` | BEYOND Talk TCP port. |
+| `pangolint.beyond.talkTcpEchoMode` | `1` | Talk TCP `Echo` mode used after optional password authentication. `1` returns brief status replies. `2` adds input echoes that are useful for parser feedback. |
 | `pangolint.beyond.talkUdpHost` | `127.0.0.1` | BEYOND Talk UDP host. |
 | `pangolint.beyond.talkUdpPort` | `16062` | BEYOND Talk UDP port. |
 | `pangolint.beyond.talkUdpFallbackAllowed` | `false` | Allow unauthenticated UDP fallback when TCP is unavailable before authentication or command send begins. |

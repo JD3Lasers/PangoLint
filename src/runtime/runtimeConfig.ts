@@ -11,6 +11,7 @@ export interface BeyondRuntimeConfig {
   talkUdpPort: number;
   talkUdpFallbackAllowed: boolean;
   talkTcpPassword: string;
+  talkTcpEchoMode: number;
   listenHost: string;
   listenPort: number;
   timeoutMs: number;
@@ -30,6 +31,7 @@ export const DEFAULT_BEYOND_RUNTIME_CONFIG: BeyondRuntimeConfig = {
   talkUdpPort: 16062,
   talkUdpFallbackAllowed: false,
   talkTcpPassword: "",
+  talkTcpEchoMode: 1,
   listenHost: "0.0.0.0",
   listenPort: 7000,
   timeoutMs: 3000,
@@ -45,6 +47,7 @@ export const DEFAULT_BEYOND_SETTING_VALUES = {
   talkUdpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpPort,
   talkUdpFallbackAllowed: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
   talkTcpPassword: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPassword,
+  talkTcpEchoMode: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpEchoMode,
   oscListenHost: DEFAULT_BEYOND_RUNTIME_CONFIG.listenHost,
   oscListenPort: DEFAULT_BEYOND_RUNTIME_CONFIG.listenPort,
   readbackTimeoutMs: DEFAULT_BEYOND_RUNTIME_CONFIG.timeoutMs,
@@ -71,6 +74,7 @@ export function getBeyondRuntimeConfig(config: RuntimeWorkspaceConfiguration): B
       DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
     ),
     talkTcpPassword: config.get(EXTENSION_SETTING_KEYS.talkTcpPassword, DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPassword),
+    talkTcpEchoMode: config.get(EXTENSION_SETTING_KEYS.talkTcpEchoMode, DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpEchoMode),
     listenHost: config.get(EXTENSION_SETTING_KEYS.oscListenHost, DEFAULT_BEYOND_RUNTIME_CONFIG.listenHost),
     listenPort: config.get(EXTENSION_SETTING_KEYS.oscListenPort, DEFAULT_BEYOND_RUNTIME_CONFIG.listenPort),
     timeoutMs: config.get(EXTENSION_SETTING_KEYS.readbackTimeoutMs, DEFAULT_BEYOND_RUNTIME_CONFIG.timeoutMs),

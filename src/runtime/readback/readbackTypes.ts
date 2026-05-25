@@ -12,6 +12,7 @@ export interface ReadbackOptions {
   talkUdpPort?: number;
   talkUdpFallbackAllowed?: boolean;
   talkTcpPassword?: string;
+  talkTcpEchoMode?: number;
   commandTimeoutMs?: number;
   listenHost: string;
   listenPort: number;
@@ -22,6 +23,7 @@ export interface ReadbackOptions {
 
 export interface ReadbackTalkStatus {
   transport?: "tcp" | "udp";
+  talkTcpEchoMode?: number;
   talkStatus?: RunScriptResult["talkStatus"];
   talkGreeting?: string;
   talkReplies?: TalkTcpReply[];

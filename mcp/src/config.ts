@@ -13,7 +13,16 @@
 // redirect runtime calls. This is the primary network-safety boundary.
 
 import { DEFAULT_BEYOND_RUNTIME_CONFIG } from "../../src/runtime/mcpRuntimeExports";
-import { MCP_ENV_VARS, parseMcpBoolean, parseMcpPort, parseMcpPositiveInt, parseMcpTalkTransport } from "./configEnv";
+import {
+  MCP_ENV_VARS,
+  parseMcpBoolean,
+  parseMcpPort,
+  parseMcpPositiveInt,
+  parseMcpTalkTcpEchoMode,
+  parseMcpTalkTransport,
+} from "./configEnv";
+
+const DEFAULT_MCP_TALK_TCP_ECHO_MODE = 2;
 
 export interface McpConfig {
   /** Whether read-only runtime tools (healthCheck, readBeyondProperty) are enabled. */
@@ -38,6 +47,8 @@ export interface McpConfig {
   beyondTalkUdpFallbackAllowed: boolean;
   /** Optional BEYOND TCP Talk Server password. Never return this from getServerConfig. */
   beyondTalkTcpPassword: string;
+  /** BEYOND Talk TCP Echo mode used after optional password authentication. */
+  beyondTalkTcpEchoMode: number;
   /** Local interface for OSC callbacks. */
   oscListenHost: string;
   /** Local UDP port for OSC callbacks. */
@@ -58,6 +69,7 @@ const DEFAULT_CONFIG: McpConfig = {
   beyondTalkUdpPort: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpPort,
   beyondTalkUdpFallbackAllowed: DEFAULT_BEYOND_RUNTIME_CONFIG.talkUdpFallbackAllowed,
   beyondTalkTcpPassword: DEFAULT_BEYOND_RUNTIME_CONFIG.talkTcpPassword,
+  beyondTalkTcpEchoMode: DEFAULT_MCP_TALK_TCP_ECHO_MODE,
   oscListenHost: DEFAULT_BEYOND_RUNTIME_CONFIG.listenHost,
   oscListenPort: DEFAULT_BEYOND_RUNTIME_CONFIG.listenPort,
   readbackTimeoutMs: DEFAULT_BEYOND_RUNTIME_CONFIG.timeoutMs,
@@ -90,6 +102,11 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): McpConfig {
     beyondTalkUdpPort,
     beyondTalkUdpFallbackAllowed: parseMcpBoolean(env[MCP_ENV_VARS.talkUdpFallbackAllowed]),
     beyondTalkTcpPassword: env[MCP_ENV_VARS.talkTcpPassword] ?? DEFAULT_CONFIG.beyondTalkTcpPassword,
+    beyondTalkTcpEchoMode: parseMcpTalkTcpEchoMode(
+      env[MCP_ENV_VARS.talkTcpEchoMode],
+      DEFAULT_CONFIG.beyondTalkTcpEchoMode,
+      MCP_ENV_VARS.talkTcpEchoMode,
+    ),
     oscListenHost: env[MCP_ENV_VARS.oscListenHost]?.trim() || DEFAULT_CONFIG.oscListenHost,
     oscListenPort: parseMcpPort(
       env[MCP_ENV_VARS.oscListenPort],

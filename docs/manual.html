@@ -1599,9 +1599,9 @@ codex mcp get PangoLint</code></pre>
       <thead><tr><th>Tool</th><th>Tier</th><th>What it does</th></tr></thead>
       <tbody>
         <tr><td><code>healthCheck</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. DNS + UDP-socket reachability of the configured BEYOND UDP target. Doesn't verify BEYOND accepts commands.</td></tr>
-        <tr><td><code>checkTalkConnection</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Opens Talk TCP and checks greeting, <code>Echo 1</code>, <code>Hello</code>, and <code>Version</code> replies.</td></tr>
-        <tr><td><code>readBeyondProperty</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Single readback of a property path (<code>Master.Brightness</code>, <code>Zone.0.Red</code>, …) and returns the value.</td></tr>
-        <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport.</td></tr>
+        <tr><td><code>checkTalkConnection</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Opens Talk TCP and checks greeting, configured <code>Echo</code> mode, <code>Hello</code>, and <code>Version</code> replies.</td></tr>
+        <tr><td><code>readBeyondProperty</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Single readback of a property path (<code>Master.Brightness</code>, <code>Zone.0.Red</code>, …) and returns the value. Talk TCP readbacks use the configured <code>Echo</code> mode.</td></tr>
+        <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. Talk TCP reports the selected <code>Echo</code> mode.</td></tr>
       </tbody>
     </table>
     </div>
@@ -1658,6 +1658,7 @@ codex mcp get PangoLint</code></pre>
         <tr><td><code>pangolint.beyond.talkTransport</code></td><td><code>auto</code></td><td><code>auto</code>, <code>tcp</code>, or <code>udp</code>. Auto tries Talk TCP first and uses UDP only when fallback is explicitly allowed.</td></tr>
         <tr><td><code>pangolint.beyond.talkTcpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk TCP host.</td></tr>
         <tr><td><code>pangolint.beyond.talkTcpPort</code></td><td><code>16063</code></td><td>BEYOND Talk TCP port.</td></tr>
+        <tr><td><code>pangolint.beyond.talkTcpEchoMode</code></td><td><code>1</code></td><td>Talk TCP <code>Echo</code> mode used after optional password authentication. <code>1</code> returns brief status replies. <code>2</code> adds input echoes that are useful for parser feedback.</td></tr>
         <tr><td><code>pangolint.beyond.talkUdpHost</code></td><td><code>127.0.0.1</code></td><td>BEYOND Talk UDP host.</td></tr>
         <tr><td><code>pangolint.beyond.talkUdpPort</code></td><td><code>16062</code></td><td>BEYOND Talk UDP port.</td></tr>
         <tr><td><code>pangolint.beyond.talkUdpFallbackAllowed</code></td><td><code>false</code></td><td>Allow unauthenticated UDP fallback when TCP is unavailable before authentication or command send begins.</td></tr>

@@ -41,6 +41,7 @@ export interface SendTalkTcpCommandsOptions {
   port: number;
   commands: readonly string[];
   password?: string;
+  echoMode?: number;
   timeoutMs?: number;
   openConnection?: (options: { host: string; port: number; timeoutMs: number }) => Promise<TalkTcpConnection>;
 }
@@ -48,6 +49,7 @@ export interface SendTalkTcpCommandsOptions {
 export interface SendTalkTcpCommandsResult {
   ok: boolean;
   transport: "tcp";
+  talkTcpEchoMode?: number;
   talkStatus: TalkTcpStatus;
   talkGreeting?: string;
   talkReplies: TalkTcpReply[];
@@ -61,6 +63,11 @@ export interface SendTalkTcpCommandsResult {
 const ERROR_LINE_RE = /^ERROR Line:\s*(\d+),\s*Error:\s*(.*)$/i;
 const PASSWORD_VALUE_RE = /\bPassword\s+"(?:\\.|[^"\\])*"/gi;
 const TERMINAL_OK_RE = /^OK$/i;
+export const DEFAULT_TALK_TCP_ECHO_MODE = 1;
+
+export function isValidTalkTcpEchoMode(value: number): boolean {
+  return Number.isInteger(value) && value >= 1 && value <= 9;
+}
 
 export function redactTalkText(value: string, secrets: readonly string[] = []): { text: string; redacted: boolean } {
   let text = value;
@@ -127,13 +134,17 @@ export function parseTalkTcpReply(input: ParseTalkTcpReplyInput): ParseTalkTcpRe
 
 export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): Promise<SendTalkTcpCommandsResult> {
   const timeoutMs = options.timeoutMs ?? 3000;
+  const echoMode = options.echoMode ?? DEFAULT_TALK_TCP_ECHO_MODE;
+  if (!isValidTalkTcpEchoMode(echoMode)) {
+    return failedTcpResult("closed", `Talk TCP echo mode ${echoMode} is not valid`, echoMode);
+  }
   const openConnection = options.openConnection ?? openTalkTcpConnection;
   const secrets = options.password ? [options.password] : [];
   let connection: TalkTcpConnection;
   try {
     connection = await openConnection({ host: options.host, port: options.port, timeoutMs });
   } catch (error) {
-    return failedTcpResult(talkTcpStatusForError(error), errorMessage(error));
+    return failedTcpResult(talkTcpStatusForError(error), errorMessage(error), echoMode);
   }
 
   const talkReplies: TalkTcpReply[] = [];
@@ -163,17 +174,44 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
     if (options.password) {
       const echoOff = await sendOneLine("Echo 0");
       if (echoOff.beyondError) {
-        return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, echoOff.beyondError);
+        return finishTcpResult(
+          false,
+          "error",
+          connection,
+          talkReplies,
+          linesSent,
+          bytesSent,
+          echoMode,
+          echoOff.beyondError,
+        );
       }
       const password = await sendOneLine(`Password "${options.password}"`);
       if (password.beyondError) {
-        return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, password.beyondError);
+        return finishTcpResult(
+          false,
+          "error",
+          connection,
+          talkReplies,
+          linesSent,
+          bytesSent,
+          echoMode,
+          password.beyondError,
+        );
       }
     }
 
-    const echoOn = await sendOneLine("Echo 1");
+    const echoOn = await sendOneLine(`Echo ${echoMode}`);
     if (echoOn.beyondError) {
-      return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, echoOn.beyondError);
+      return finishTcpResult(
+        false,
+        "error",
+        connection,
+        talkReplies,
+        linesSent,
+        bytesSent,
+        echoMode,
+        echoOn.beyondError,
+      );
     }
 
     for (let index = 0; index < options.commands.length; index += 1) {
@@ -181,11 +219,20 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
       const command = options.commands[index];
       const parsed = await sendOneLine(command, lineNumber, true);
       if (parsed.beyondError) {
-        return finishTcpResult(false, "error", connection, talkReplies, linesSent, bytesSent, parsed.beyondError);
+        return finishTcpResult(
+          false,
+          "error",
+          connection,
+          talkReplies,
+          linesSent,
+          bytesSent,
+          echoMode,
+          parsed.beyondError,
+        );
       }
     }
 
-    return finishTcpResult(true, "ok", connection, talkReplies, linesSent, bytesSent);
+    return finishTcpResult(true, "ok", connection, talkReplies, linesSent, bytesSent, echoMode);
   } catch (error) {
     const status = error instanceof TalkTcpTimeoutError ? "timeout" : "closed";
     return finishTcpResult(
@@ -195,6 +242,7 @@ export async function sendTalkTcpCommands(options: SendTalkTcpCommandsOptions): 
       talkReplies,
       linesSent,
       bytesSent,
+      echoMode,
       undefined,
       errorMessage(error),
     );
@@ -325,6 +373,7 @@ function finishTcpResult(
   talkReplies: TalkTcpReply[],
   linesSent: number,
   bytesSent: number,
+  echoMode: number,
   beyondError?: BeyondTalkError,
   error?: string,
 ): SendTalkTcpCommandsResult {
@@ -332,6 +381,7 @@ function finishTcpResult(
   return {
     ok,
     transport: "tcp",
+    talkTcpEchoMode: echoMode,
     talkStatus,
     talkGreeting: connection.greeting,
     talkReplies,
@@ -343,10 +393,11 @@ function finishTcpResult(
   };
 }
 
-function failedTcpResult(talkStatus: TalkTcpStatus, error: string): SendTalkTcpCommandsResult {
+function failedTcpResult(talkStatus: TalkTcpStatus, error: string, echoMode: number): SendTalkTcpCommandsResult {
   return {
     ok: false,
     transport: "tcp",
+    talkTcpEchoMode: echoMode,
     talkStatus,
     talkReplies: [],
     linesSent: 0,

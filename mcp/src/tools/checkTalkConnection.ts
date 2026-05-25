@@ -12,6 +12,7 @@ interface CheckTalkConnectionOutput {
   transport: "tcp";
   talkHost: string;
   talkPort: number;
+  talkTcpEchoMode: number;
   talkStatus: SendTalkTcpCommandsResult["talkStatus"];
   talkGreeting?: string;
   talkReplies: TalkTcpReply[];
@@ -38,6 +39,7 @@ export async function checkTalkConnection(
     port: config.beyondTalkTcpPort,
     commands: ["Hello", "Version"],
     password: config.beyondTalkTcpPassword,
+    echoMode: config.beyondTalkTcpEchoMode,
     timeoutMs: config.readbackTimeoutMs,
   });
 
@@ -46,6 +48,7 @@ export async function checkTalkConnection(
     transport: "tcp",
     talkHost: config.beyondTalkTcpHost,
     talkPort: config.beyondTalkTcpPort,
+    talkTcpEchoMode: result.talkTcpEchoMode ?? config.beyondTalkTcpEchoMode,
     talkStatus: result.talkStatus,
     talkGreeting: result.talkGreeting,
     talkReplies: result.talkReplies,

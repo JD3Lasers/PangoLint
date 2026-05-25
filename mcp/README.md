@@ -31,7 +31,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.41.tgz
+npm install -g ./pangolint-mcp-0.7.42.tgz
 which pangolint-mcp
 ```
 
@@ -40,7 +40,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.41.tgz
+npm install -g ./mcp/pangolint-mcp-0.7.42.tgz
 which pangolint-mcp
 ```
 
@@ -74,9 +74,9 @@ script-send capability.
 | Tool | Tier | What it does |
 |---|---|---|
 | `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND UDP target. Does not verify BEYOND accepts commands. |
-| `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, `Echo 1`, `Hello`, and `Version` replies. |
-| `readBeyondProperty` | T1 read | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (e.g. `Master.Brightness`). |
-| `runScript` | T2+ | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints; refuses on any error-severity diagnostic; otherwise sends via configured Talk transport. Talk TCP reports BEYOND replies; UDP fallback is send-only. |
+| `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, configured `Echo` mode, `Hello`, and `Version` replies. |
+| `readBeyondProperty` | T1 read | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (e.g. `Master.Brightness`). Talk TCP readbacks use the configured `Echo` mode. |
+| `runScript` | T2+ | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints; refuses on any error-severity diagnostic; otherwise sends via configured Talk transport. Talk TCP reports BEYOND replies with the configured `Echo` mode; UDP fallback is send-only. |
 
 `runScript`'s lint-before-run gate is the load-bearing developer
 guarantee: nothing reaches BEYOND that PangoLint already knows is
@@ -124,6 +124,7 @@ calling individual tools.
 | `PANGOLINT_MCP_BEYOND_TALK_TRANSPORT` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and only uses UDP when fallback is explicitly allowed. |
 | `PANGOLINT_MCP_BEYOND_TALK_TCP_HOST` | `127.0.0.1` | BEYOND Talk TCP host. |
 | `PANGOLINT_MCP_BEYOND_TALK_TCP_PORT` | `16063` | BEYOND Talk TCP port. |
+| `PANGOLINT_MCP_BEYOND_TALK_TCP_ECHO_MODE` | `2` | Talk TCP `Echo` mode used after optional password authentication. `2` returns input echoes plus status replies for richer parser feedback. Use `1` for brief status-only replies. |
 | `PANGOLINT_MCP_BEYOND_TALK_UDP_HOST` | Talk host alias or `127.0.0.1` | BEYOND Talk UDP host. |
 | `PANGOLINT_MCP_BEYOND_TALK_UDP_PORT` | Talk port alias or `16062` | BEYOND Talk UDP port. |
 | `PANGOLINT_MCP_BEYOND_TALK_UDP_FALLBACK_ALLOWED` | (off) | Set to `enabled` (or `1` / `true`) to allow auto mode to use unauthenticated UDP when TCP is unavailable before authentication or command send begins. |
@@ -137,6 +138,10 @@ calling individual tools.
 
 The network target is fixed at startup. The agent cannot redirect a
 runtime call to a different host.
+
+`Echo 2` improves Talk TCP `WriteLn` cross-checks because BEYOND echoes
+the command text before status output. `RegisterOscFeedback` remains the
+push-feedback path for observing values changed live outside the MCP tool.
 
 ## MCP client configuration
 

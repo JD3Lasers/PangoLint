@@ -71,17 +71,18 @@ describe("Talk TCP redaction", () => {
 });
 
 describe("sendTalkTcpCommands", () => {
-  it("opens Talk TCP, enables Echo 1, and records command replies", async () => {
+  it("opens Talk TCP, enables the configured echo mode, and records command replies", async () => {
     const sent: string[] = [];
     const result = await sendTalkTcpCommands({
       host: "127.0.0.1",
       port: 16063,
+      echoMode: 2,
       commands: ["Hello", "Version"],
       openConnection: async () => ({
         greeting: "Welcome to BEYOND!",
         sendLine: async (line) => {
           sent.push(line);
-          if (line === "Echo 1") return ["OK"];
+          if (line === "Echo 2") return ["OK"];
           if (line === "Hello") return ["Hello!", "OK"];
           if (line === "Version") return ["5.5.0.2030", "OK"];
           throw new Error(`unexpected line ${line}`);
@@ -90,15 +91,16 @@ describe("sendTalkTcpCommands", () => {
       }),
     });
 
-    expect(sent).toEqual(["Echo 1", "Hello", "Version"]);
+    expect(sent).toEqual(["Echo 2", "Hello", "Version"]);
     expect(result).toMatchObject({
       ok: true,
       transport: "tcp",
+      talkTcpEchoMode: 2,
       talkStatus: "ok",
       talkGreeting: "Welcome to BEYOND!",
       linesSent: 2,
     });
-    expect(result.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 1", "Hello", "Version"]);
+    expect(result.talkReplies.map((reply) => reply.commandText)).toEqual(["Echo 2", "Hello", "Version"]);
     expect(result.talkReplies[1].replyLines).toEqual(["Hello!", "OK"]);
   });
 

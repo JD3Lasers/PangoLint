@@ -267,6 +267,7 @@ export async function runValidation(options: RunValidationOptions): Promise<{
         talkUdpPort: options.talkUdpPort,
         talkUdpFallbackAllowed: options.talkUdpFallbackAllowed,
         talkTcpPassword: options.talkTcpPassword,
+        talkTcpEchoMode: options.talkTcpEchoMode,
         commandTimeoutMs: options.commandTimeoutMs,
         listenHost: options.listenHost,
         listenPort: options.listenPort,

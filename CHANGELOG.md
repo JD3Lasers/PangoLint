@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.42] - 2026-05-25
+
+### Added
+
+- Add configurable Talk TCP Echo mode for MCP runtime tools, default MCP
+  readbacks to Echo 2, and report the selected mode in runtime results.
+
 ## [0.7.41] - 2026-05-25
 
 ### Added
@@ -430,7 +437,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.41...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.42...HEAD
+[0.7.42]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.41...v0.7.42
 [0.7.41]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.40...v0.7.41
 [0.7.40]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...v0.7.40
 [0.7.39]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...v0.7.39
