@@ -161,6 +161,30 @@ describe("object value summary text", () => {
       formatParts: [],
     });
   });
+
+  it("labels read-only computed-status domains as status domains", () => {
+    expect(
+      buildObjectValueSummaryParts(
+        {
+          valueType: "boolean",
+          valueRange: {
+            min: 0,
+            max: 1,
+            unit: "boolean",
+            boundaryBehavior: "unknown",
+          },
+          acceptedValues: [
+            { value: 0, label: "DISCONNECTED" },
+            { value: 1, label: "CONNECTED" },
+          ],
+        },
+        { hideUnknownBoundaryBehavior: true, showStatusDomainLabel: true },
+      ),
+    ).toEqual({
+      valueParts: ["status domain", "boolean", "0..1", "0=DISCONNECTED, 1=CONNECTED"],
+      formatParts: [],
+    });
+  });
 });
 
 describe("object behavior summary text", () => {

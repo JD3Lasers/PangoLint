@@ -76,6 +76,7 @@ export interface McpPropertyControlEntry {
     objectBusPaths: string[];
   };
   value?: {
+    role?: "status-domain";
     valueType?: string;
     range?: {
       min?: number;
@@ -306,6 +307,7 @@ function buildSearchText(entry: McpPropertyControlEntry): string {
     entry.kind,
     entry.confidence,
     entry.value?.valueType,
+    entry.value?.role,
     entry.value?.range?.unit,
     entry.value?.range?.boundaryBehavior,
     entry.readback?.status,

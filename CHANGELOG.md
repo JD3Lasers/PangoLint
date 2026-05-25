@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.41] - 2026-05-25
+
+### Added
+
+- Mark read-only Object Tree computed-status domains as status domains in the
+  reference display and MCP control-reference data.
+
 ## [0.7.40] - 2026-05-25
 
 ### Added
@@ -423,7 +430,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.40...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.41...HEAD
+[0.7.41]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.40...v0.7.41
 [0.7.40]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.39...v0.7.40
 [0.7.39]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.38...v0.7.39
 [0.7.38]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.37...v0.7.38
