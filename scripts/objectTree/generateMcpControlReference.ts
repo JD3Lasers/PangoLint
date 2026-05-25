@@ -115,6 +115,7 @@ interface McpPropertyControlEntry {
     objectBusPaths: string[];
   };
   value?: {
+    role?: "status-domain";
     valueType?: string;
     range?: {
       min?: number;
@@ -219,10 +220,14 @@ function compactClassification(
 
 function compactValueMetadata(
   metadata: ObjectPropertyValueMetadata | CrosswalkObjectPropertyRange | undefined,
+  classification: ObjectPropertyBehaviorClassification | undefined,
 ): McpPropertyControlEntry["value"] {
   if (!metadata) return undefined;
   const range = metadata.valueRange;
+  const isStatusDomain =
+    classification?.accessMode === "read-only" && classification.behaviorKind === "computed-status";
   return {
+    ...(isStatusDomain ? { role: "status-domain" as const } : {}),
     valueType: metadata.valueType,
     ...(range
       ? {
@@ -353,8 +358,8 @@ function buildEntry(row: CrosswalkRow, maps: ReturnType<typeof buildObjectProper
   }));
   const behavior = compactClassification(objectPropertyEntry?.classification ?? objectIndexEntry?.classification);
   const value =
-    compactValueMetadata(objectPropertyEntry?.valueMetadata ?? objectIndexEntry?.valueMetadata) ??
-    compactValueMetadata(row.rangeSeeds?.objectPropertyRanges?.[0]);
+    compactValueMetadata(objectPropertyEntry?.valueMetadata ?? objectIndexEntry?.valueMetadata, behavior) ??
+    compactValueMetadata(row.rangeSeeds?.objectPropertyRanges?.[0], behavior);
   const root = objectIndexEntry?.root ?? objectPropertyEntry?.root ?? entryRootFromPath(row.normalizedPropertyPattern);
   const property =
     objectIndexEntry?.property ?? objectPropertyEntry?.property ?? entryPropertyFromPath(row.normalizedPropertyPattern);

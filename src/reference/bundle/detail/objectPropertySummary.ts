@@ -7,6 +7,7 @@ export interface ObjectValueDisplayParts {
 
 export interface ObjectValueDisplayOptions {
   hideUnknownBoundaryBehavior?: boolean;
+  showStatusDomainLabel?: boolean;
 }
 
 export function buildObjectValueSummaryText(metadata: ReferenceObjectProperty["valueMetadata"]): string | null {
@@ -20,6 +21,7 @@ export function buildObjectValueSummaryParts(
   if (!metadata) return null;
   const valueParts: string[] = [];
   const formatParts: string[] = [];
+  if (options.showStatusDomainLabel) appendDistinctSummaryPart(valueParts, "status domain");
   appendDistinctSummaryPart(valueParts, metadata.valueType);
   appendValueFormatPart(formatParts, metadata.valueRange?.unit, metadata.valueType);
   appendValueFormatPart(formatParts, metadata.unit, metadata.valueType);
@@ -55,6 +57,7 @@ export function buildObjectValueCardSummaryParts(
   if (!summary) return null;
   const valueParts: string[] = [];
   const formatParts: string[] = [];
+  if (options.showStatusDomainLabel) appendDistinctSummaryPart(valueParts, "status domain");
   appendDistinctSummaryPart(valueParts, summary.valueType);
   appendValueFormatPart(formatParts, summary.range?.unit, summary.valueType);
   appendValueFormatPart(formatParts, summary.unit, summary.valueType);

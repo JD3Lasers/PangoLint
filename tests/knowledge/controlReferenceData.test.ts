@@ -303,6 +303,24 @@ describe("tracked BEYOND control reference data", () => {
       expect(findPublicArtifactLeaks(contents), path.relative(dataRoot, filePath)).toEqual([]);
     }
   });
+
+  it("marks read-only computed-status domains as status domains in MCP control data", () => {
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+    const fb4Connected = controls.entries.find((entry) => entry.path === "FB4_XXXXX.Connected");
+    const masterBrightness = controls.entries.find((entry) => entry.path === "Master.Brightness");
+
+    expect(fb4Connected?.behavior).toMatchObject({
+      accessMode: "read-only",
+      behaviorKind: "computed-status",
+    });
+    expect(fb4Connected?.value).toMatchObject({
+      role: "status-domain",
+      valueType: "boolean",
+      range: expect.objectContaining({ min: 0, max: 1 }),
+    });
+    expect(masterBrightness?.behavior?.accessMode).toBe("read-write");
+    expect(masterBrightness?.value?.role).toBeUndefined();
+  });
 });
 
 interface SummaryFile {
@@ -336,6 +354,24 @@ interface PropertyControlRow {
       writeTestStatus: string;
       readbackStatus: string;
       evidenceLevel: string;
+    };
+  }>;
+}
+
+interface McpControlReferenceFile {
+  entries: Array<{
+    path: string;
+    value?: {
+      role?: string;
+      valueType?: string;
+      range?: {
+        min?: number;
+        max?: number;
+      };
+    };
+    behavior?: {
+      accessMode: string;
+      behaviorKind: string;
     };
   }>;
 }
