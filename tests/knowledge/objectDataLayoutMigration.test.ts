@@ -69,6 +69,7 @@ describe("checked-in Object Tree data layout migration", () => {
       "data/pangoscript/object-tree/evidence/value/issue-216-touchpoints-leftovers.json",
       "data/pangoscript/object-tree/evidence/value/issue-118-mobsensor-boundary-behavior.json",
       "data/pangoscript/object-tree/evidence/value/issue-120-skeleton-coordinate-boundary-behavior.json",
+      "data/pangoscript/object-tree/evidence/value/issue-122-universe-boolean-boundary-behavior.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-beam-leftovers.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-fb-hardware-controls.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-status-memory-and-readbacks.json",

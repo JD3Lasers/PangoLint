@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.46] - 2026-05-25
+
+### Added
+
+- Resolve Universe `Selected` and `Visible` boolean boundary behavior from
+  Talk TCP Echo 2 `SetProp` and `WriteLn` probes.
+
 ## [0.7.45] - 2026-05-25
 
 ### Added
@@ -458,7 +465,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.45...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.46...HEAD
+[0.7.46]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.45...v0.7.46
 [0.7.45]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.44...v0.7.45
 [0.7.44]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.43...v0.7.44
 [0.7.43]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.42...v0.7.43
