@@ -135,6 +135,11 @@ describe("release workflow", () => {
     expect(buildJob).toContain("if: github.event_name == 'workflow_dispatch'");
     expect(buildJob).toContain("uses: actions/checkout@v6");
     expect(buildJob).toContain("persist-credentials: false");
+    expect(buildJob).toContain("Validate release tag is on main history");
+    expect(buildJob).toContain('git fetch --no-tags --prune origin "+refs/heads/main:refs/remotes/origin/main"');
+    expect(buildJob).toContain('git rev-list -n 1 "$RELEASE_TAG"');
+    expect(buildJob).toContain('git merge-base --is-ancestor "$tag_commit" "origin/main"');
+    expect(buildJob).toContain("Release tag must resolve to a commit in origin/main history");
     expect(buildJob).toContain("npm ci --ignore-scripts");
     expect(buildJob).toContain("npm run check:mcp");
     expect(buildJob).toContain("uses: actions/upload-artifact@v6");
@@ -150,8 +155,9 @@ describe("release workflow", () => {
     expect(publishJob).not.toContain("npm run");
   });
 
-  it("publishes Marketplace VSIX assets from a clean pinned tool context", () => {
+  it("publishes Marketplace VSIX assets built from a trusted release tag", () => {
     const workflow = readFileSync(path.join(repoRoot, ".github", "workflows", "marketplace-publish.yml"), "utf8");
+    const buildJob = workflowJobSection(workflow, "build-vsix-package");
     const publishJob = workflowJobSection(workflow, "publish-vsix");
     const dispatchJob = workflowJobSection(workflow, "dispatch-main-publish");
     const vscePatEnv = ["VSCE_PAT: $", "{{ secrets.VSCE_PAT }}"].join("");
@@ -164,15 +170,29 @@ describe("release workflow", () => {
     expect(dispatchJob).not.toContain("environment:");
     expect(dispatchJob).not.toContain("actions/checkout");
 
+    expect(buildJob).toContain("if: github.event_name == 'workflow_dispatch'");
+    expect(buildJob).toContain("uses: actions/checkout@v6");
+    expect(buildJob).toContain("persist-credentials: false");
+    expect(buildJob).toContain("Validate release tag is on main history");
+    expect(buildJob).toContain('git fetch --no-tags --prune origin "+refs/heads/main:refs/remotes/origin/main"');
+    expect(buildJob).toContain('git rev-list -n 1 "$RELEASE_TAG"');
+    expect(buildJob).toContain('git merge-base --is-ancestor "$tag_commit" "origin/main"');
+    expect(buildJob).toContain("Release tag must resolve to a commit in origin/main history");
+    expect(buildJob).toContain("npm ci --ignore-scripts");
+    expect(buildJob).toContain("npm run package:vsix");
+    expect(buildJob).toContain("uses: actions/upload-artifact@v6");
+    expect(buildJob).not.toContain("environment:");
+    expect(buildJob).not.toContain("VSCE_PAT");
+
     expect(publishJob).toContain("if: github.event_name == 'workflow_dispatch'");
+    expect(publishJob).toContain("needs: build-vsix-package");
     expect(publishJob).toContain("environment:\n      name: marketplace-publish");
-    expect(publishJob).toContain("gh release download");
-    expect(publishJob).toContain(githubRepoEnv);
-    expect(publishJob).toContain('grep "pangolint-$RELEASE_VERSION.vsix$" SHA256SUMS');
+    expect(publishJob).toContain("uses: actions/download-artifact@v7");
     expect(publishJob).toContain('npm_config_ignore_scripts: "true"');
     expect(publishJob).toContain("npx --yes @vscode/vsce@3.9.1 show");
     expect(publishJob).toContain("npx --yes @vscode/vsce@3.9.1 publish");
     expect(publishJob).toContain(vscePatEnv);
+    expect(publishJob).not.toContain("gh release download");
     expect(publishJob).not.toContain("actions/checkout");
     expect(publishJob).not.toContain("npm ci");
   });
