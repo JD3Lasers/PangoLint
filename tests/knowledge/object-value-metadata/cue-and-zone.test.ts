@@ -2907,7 +2907,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         entry.valueMetadata?.notes?.startsWith("Runtime object write/readback on 2026-05-12"),
     );
 
-    expect(directZone).toHaveLength(22);
+    expect(directZone).toHaveLength(20);
     expect(zoneAliasWithMetadata).toHaveLength(0);
     for (const entry of directZone) {
       assertObjectPropertyValueMetadata(entry.valueMetadata as ObjectPropertyValueMetadata);
@@ -2953,7 +2953,17 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        unit: "boolean",
+        boundaryBehavior: "mixed",
+      },
+    });
+    expect(byPath.get("Zone.N.Visible")?.valueMetadata).toMatchObject({
+      valueType: "boolean",
+      valueRange: {
+        min: 0,
+        max: 1,
+        unit: "boolean",
+        boundaryBehavior: "mixed",
       },
     });
     expect(
@@ -4072,12 +4082,14 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
     }>("object-range-evidence/issue-360-zonealias-boolean-controls.json");
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const issuePrefix = "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ";
-    const expectedPaths = new Set(["ZoneAlias.Active", "ZoneAlias.BlockZone", "ZoneAlias.Mute", "ZoneAlias.Visible"]);
+    const expectedPaths = new Set(["ZoneAlias.Active", "ZoneAlias.BlockZone"]);
+    const evidencePaths = new Set(["ZoneAlias.Active", "ZoneAlias.BlockZone", "ZoneAlias.Mute", "ZoneAlias.Visible"]);
     const issue360 = objectPropertyIndex.entries.filter((entry) => entry.valueMetadata?.notes?.startsWith(issuePrefix));
 
-    expect(issue360).toHaveLength(4);
+    expect(issue360).toHaveLength(2);
     expect(new Set(issue360.map((entry) => entry.path))).toEqual(expectedPaths);
     expect(evidence.entries).toHaveLength(4);
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(evidencePaths);
     expect(evidence.entries.every((entry) => entry.shipsMetadata)).toBe(true);
     expect(evidence.entries.every((entry) => entry.boundaryBehavior === "unknown")).toBe(true);
     expect(
@@ -4107,6 +4119,73 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         kind: "showfile-alias",
         populationDependent: true,
       });
+    }
+  });
+
+  it("ships issue 110 boolean boundary probes with Talk TCP string cross-checks", () => {
+    const objectPropertyIndex = readJson<{
+      entries: Array<{
+        path: string;
+        valueMetadata?: ObjectPropertyValueMetadata;
+      }>;
+    }>("object-property-index.json");
+    const evidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        boundaryBehavior?: string;
+        testedValues: Array<{ input?: string | number | boolean; behavior: string }>;
+      }>;
+    }>("object-range-evidence/issue-110-boolean-boundary-probes.json");
+    const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
+    const expectedPaths = new Set([
+      "Zone.N.Mute",
+      "Zone.N.Visible",
+      "ZoneAlias.Mute",
+      "ZoneAlias.Visible",
+      "Universe.N.Button1.Selected",
+      "Universe.N.Button1.Visible",
+      "UniversePanelAlias.Control.Selected",
+      "UniversePanelAlias.Control.Visible",
+    ]);
+
+    expect(evidence.entries).toHaveLength(8);
+    expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(expectedPaths);
+    expect(evidence.entries.every((entry) => entry.shipsMetadata)).toBe(true);
+    expect(evidence.entries.every((entry) => entry.boundaryBehavior === "mixed")).toBe(true);
+    expect(evidence.entries.every((entry) => entry.testedValues.some((value) => value.behavior === "clamp"))).toBe(
+      true,
+    );
+    expect(evidence.entries.every((entry) => entry.testedValues.some((value) => value.behavior === "wrap"))).toBe(true);
+
+    for (const path of expectedPaths) {
+      const metadata = byPath.get(path)?.valueMetadata as ObjectPropertyValueMetadata;
+      assertObjectPropertyValueMetadata(metadata);
+      expect(hasManualReadyValueMetadata(metadata), path).toBe(true);
+      expect(metadata.evidenceLevel).toBe("observed");
+      expect(metadata.valueType).toBe("boolean");
+      expect(metadata.valueRange).toMatchObject({
+        min: 0,
+        max: 1,
+        unit: "boolean",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "observed",
+      });
+      expect(metadata.valueRange?.notes).toContain("Talk TCP Echo 2 WriteLn cross-check");
+      expect(metadata.acceptedValues).toEqual([
+        expect.objectContaining({ value: 0, label: "OFF" }),
+        expect.objectContaining({ value: 1, label: "ON" }),
+      ]);
+    }
+
+    for (const path of [
+      "Universe.N.Button1.Selected",
+      "Universe.N.Button1.Visible",
+      "UniversePanelAlias.Control.Selected",
+      "UniversePanelAlias.Control.Visible",
+    ]) {
+      const row = evidence.entries.find((entry) => entry.objectPath === path);
+      expect(row?.testedValues.filter((value) => value.behavior === "no-op")).toHaveLength(2);
     }
   });
 
@@ -4240,12 +4319,12 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       actualCounts.set(leaf, (actualCounts.get(leaf) ?? 0) + 1);
     }
 
-    expect(issue296).toHaveLength(122);
+    expect(issue296).toHaveLength(120);
     expect(actualCounts).toEqual(
       new Map([
-        ["Selected", 24],
+        ["Selected", 23],
         ["Value", 24],
-        ["Visible", 24],
+        ["Visible", 23],
         ["X", 25],
         ["Y", 25],
       ]),
@@ -4284,7 +4363,8 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        unit: "boolean",
+        boundaryBehavior: "mixed",
       },
       acceptedValues: [
         { value: 0, label: "OFF" },
@@ -4743,7 +4823,8 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        unit: "boolean",
+        boundaryBehavior: "mixed",
       },
     });
     expect(byPath.get("UniversePanelAlias.Control.Value")?.valueMetadata).toMatchObject({
@@ -4763,7 +4844,8 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        unit: "boolean",
+        boundaryBehavior: "mixed",
       },
     });
     for (const path of ["UniversePanelAlias.Control.X", "UniversePanelAlias.Control.Y"]) {

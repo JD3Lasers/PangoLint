@@ -126,6 +126,7 @@ describe("object value summary text", () => {
   });
 
   it("uses compact wording for unknown range behavior", () => {
+    expect(describeBoundaryBehavior("mixed")).toBe("has mixed behavior");
     expect(describeBoundaryBehavior("unknown")).toBe("unknown");
     expect(
       buildObjectValueCardSummaryParts({

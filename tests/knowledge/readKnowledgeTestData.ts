@@ -377,7 +377,7 @@ export function assertObjectPropertyValueMetadata(metadata: ObjectPropertyValueM
       }
     }
     if (boundaryBehavior !== undefined) {
-      expect(["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"]).toContain(boundaryBehavior);
+      expect(["clamp", "reject", "no-op", "wrap", "pass-through", "mixed", "unknown"]).toContain(boundaryBehavior);
     }
     if (evidenceLevel !== undefined) {
       expect(["documented", "observed", "inferred", "unverified"]).toContain(evidenceLevel);

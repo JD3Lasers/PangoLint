@@ -211,17 +211,18 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "unit": "boolean",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "UniversePanelAlias.Control.Selected confirmed 0..1 write/readback behavior on a loaded Universe panel alias control."
+        "notes": "SetProp writes to Untitled.Button1.Selected read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" were no-ops from prepared opposite states."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #297 confirmed UniversePanelAlias.Control.Selected on a loaded Universe panel alias control with baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed UniversePanelAlias.Control.Selected at Untitled.Button1.Selected uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,
         "indexBasis": "UniversePanelAlias.Control collapses show-defined Universe panel alias and control names.",
-        "notes": "The runtime probe used a concrete loaded Universe panel alias control. Alias roots and control names are show-dependent; an unpopulated alias path is not evidence that this normalized property family is invalid."
+        "notes": "The runtime probe used the loaded Untitled Universe alias. Universe alias roots and control names depend on the loaded show."
       },
       "acceptedValues": [
         {

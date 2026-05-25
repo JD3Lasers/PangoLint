@@ -1,4 +1,12 @@
-const objectRangeEvidenceBoundaryBehaviors = ["clamp", "reject", "no-op", "wrap", "pass-through", "unknown"] as const;
+const objectRangeEvidenceBoundaryBehaviors = [
+  "clamp",
+  "reject",
+  "no-op",
+  "wrap",
+  "pass-through",
+  "mixed",
+  "unknown",
+] as const;
 const objectRangeEvidenceLevels = ["documented", "observed", "inferred", "unverified"] as const;
 const objectRangeEvidenceProbeModes = [
   "readback-only",

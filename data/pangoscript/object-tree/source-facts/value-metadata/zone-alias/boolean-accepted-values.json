@@ -72,9 +72,9 @@
         "min": 0,
         "max": 1,
         "unit": "boolean",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to ZoneAlias.Mute accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to ZoneAlias.Mute read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state."
       },
       "acceptedValues": [
         {
@@ -89,7 +89,7 @@
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Mute accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed ZoneAlias.Mute uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,
@@ -104,9 +104,9 @@
         "min": 0,
         "max": 1,
         "unit": "boolean",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to ZoneAlias.Visible accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to ZoneAlias.Visible read back -1->1, 0->0, 1->1, 2->1, true->1, and false->0. Talk TCP Echo 2 WriteLn cross-check confirmed quoted \"0\" and \"1\" set the boolean state."
       },
       "acceptedValues": [
         {
@@ -121,7 +121,7 @@
         }
       ],
       "evidenceLevel": "observed",
-      "notes": "Runtime command-write/readback on 2026-05-14 issue #360 confirmed ZoneAlias.Visible accepts 0 and 1 values with mixed out-of-range behavior and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-25 issue #110 confirmed ZoneAlias.Visible uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,

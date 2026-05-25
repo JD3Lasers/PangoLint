@@ -1,4 +1,4 @@
-type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 
 interface ParameterAcceptedValue {
   value: string | number | boolean;

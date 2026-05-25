@@ -52,7 +52,7 @@ export interface ParameterDetail {
   description?: string;
 }
 
-type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+type ParameterBoundaryBehavior = "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
 
 interface ParameterValueRange {
   min?: number;

@@ -44,7 +44,7 @@ interface RawValueRange {
   minInclusive?: boolean;
   maxInclusive?: boolean;
   unit?: string;
-  boundaryBehavior?: "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "unknown";
+  boundaryBehavior?: "clamp" | "reject" | "no-op" | "wrap" | "pass-through" | "mixed" | "unknown";
   evidenceLevel?: "documented" | "observed";
   notes?: string;
 }
