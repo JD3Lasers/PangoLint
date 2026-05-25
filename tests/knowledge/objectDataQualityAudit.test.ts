@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(279);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(259);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 279],
+      ["unknown-boundary-behavior", "warning", "warn", 259],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,7 +52,7 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(279);
+    expect(unknownBoundary?.count).toBe(259);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "Skeleton1", count: 60 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 
@@ -129,17 +129,17 @@ describe("final Object Tree data quality audit", () => {
           "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
       },
       {
-        root: "MobSensor",
+        root: "WS",
         accessMode: "read-write",
         behaviorKind: "state-value",
         valueType: "number",
-        count: 16,
+        count: 14,
         examples: [
-          "MobSensor.AccelX",
-          "MobSensor.AccelY",
-          "MobSensor.AccelZ",
-          "MobSensor.BarPressure",
-          "MobSensor.GravityX",
+          "WS.N.N.Image.0.SizeMOD1",
+          "WS.N.N.Image.0.SizeMOD2",
+          "WS.N.N.Image.LIST.0.AngleX",
+          "WS.N.N.Image.LIST.0.AngleY",
+          "WS.N.N.Image.LIST.0.AngleZ",
         ],
         nextProbe:
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",

@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 279,
+    "unknownBoundaryBehaviorRows": 259,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 279,
+      "count": 259,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 279,
+      "count": 259,
       "roots": [
         {
           "root": "Skeleton1",
@@ -282,10 +282,6 @@
         {
           "root": "WS",
           "count": 30
-        },
-        {
-          "root": "MobSensor",
-          "count": 20
         },
         {
           "root": "FB3_XXXXX",
@@ -886,21 +882,6 @@
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     },
     {
-      "root": "MobSensor",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 16,
-      "examples": [
-        "MobSensor.AccelX",
-        "MobSensor.AccelY",
-        "MobSensor.AccelZ",
-        "MobSensor.BarPressure",
-        "MobSensor.GravityX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
       "root": "WS",
       "accessMode": "read-write",
       "behaviorKind": "state-value",
@@ -989,20 +970,6 @@
         "Projector.N.SizeX"
       ],
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "MobSensor",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 4,
-      "examples": [
-        "MobSensor.ButtonA",
-        "MobSensor.ButtonB",
-        "MobSensor.ButtonC",
-        "MobSensor.ButtonD"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     },
     {
       "root": "WS",
