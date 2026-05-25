@@ -1524,6 +1524,26 @@ describe("checked-in Object Tree device value metadata data", () => {
         deferReason?: string;
       }>;
     }>("object-range-evidence/issue-298-projector-pass-through-and-optimisation.json");
+    const projectorBoundaryEvidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        probePath: string;
+        shipsMetadata: boolean;
+        boundaryBehavior: string;
+        valueType: string;
+        valueRange?: {
+          min: number;
+          max: number;
+          unit: string;
+        };
+        testedValues: Array<{
+          input?: string | number | boolean;
+          readback: string | number | boolean | null;
+          behavior: string;
+        }>;
+        deferReason?: string;
+      }>;
+    }>("object-range-evidence/issue-133-projector-numeric-boundary-behavior.json");
     const serialEvidence = readJson<{
       entries: Array<{
         objectPath: string;
@@ -1568,27 +1588,39 @@ describe("checked-in Object Tree device value metadata data", () => {
       ],
       [
         "Projector.N.PositionX",
-        { valueType: "number", unit: "projector coordinate", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        {
+          valueType: "number",
+          unit: "projector coordinate",
+          min: -2147483648,
+          max: 2147483648,
+          boundaryBehavior: "mixed",
+        },
       ],
       [
         "Projector.N.PositionY",
-        { valueType: "number", unit: "projector coordinate", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        {
+          valueType: "number",
+          unit: "projector coordinate",
+          min: -2147483648,
+          max: 2147483648,
+          boundaryBehavior: "mixed",
+        },
       ],
       [
         "Projector.N.PostRotation",
-        { valueType: "number", unit: "degrees", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        { valueType: "number", unit: "degrees", min: -2147483648, max: 2147483648, boundaryBehavior: "mixed" },
       ],
       [
         "Projector.N.PreRotation",
-        { valueType: "number", unit: "degrees", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        { valueType: "number", unit: "degrees", min: -2147483648, max: 2147483648, boundaryBehavior: "mixed" },
       ],
       [
         "Projector.N.SizeX",
-        { valueType: "number", unit: "percent", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        { valueType: "number", unit: "percent", min: -2147483648, max: 2147483648, boundaryBehavior: "mixed" },
       ],
       [
         "Projector.N.SizeY",
-        { valueType: "number", unit: "percent", min: -1000000, max: 1000000, boundaryBehavior: "unknown" },
+        { valueType: "number", unit: "percent", min: -2147483648, max: 2147483648, boundaryBehavior: "mixed" },
       ],
     ]);
     const expectedReadbackOnly = new Set([
@@ -1617,7 +1649,10 @@ describe("checked-in Object Tree device value metadata data", () => {
       "Projector.N.Serial",
     ]);
     const evidenceByPath = new Map(
-      [...projectorEvidence.entries, ...serialEvidence.entries].map((entry) => [entry.objectPath, entry]),
+      [...projectorEvidence.entries, ...serialEvidence.entries, ...projectorBoundaryEvidence.entries].map((entry) => [
+        entry.objectPath,
+        entry,
+      ]),
     );
 
     expect(new Set(rangeOverlay.entries.map((entry) => entry.path))).toEqual(new Set(expectedPassThrough.keys()));
@@ -1662,10 +1697,10 @@ describe("checked-in Object Tree device value metadata data", () => {
           unit: expected?.unit,
         },
       });
-      expect(evidence?.testedValues).toContainEqual(
-        expect.objectContaining({ input: 120000, readback: 120000, behavior: "pass-through" }),
-      );
       if (expected?.boundaryBehavior === "wrap") {
+        expect(evidence?.testedValues).toContainEqual(
+          expect.objectContaining({ input: 120000, readback: 120000, behavior: "pass-through" }),
+        );
         expect(metadata.valueRange?.notes, metadata.path).toContain("not hardware-specific UI limits");
         expect(evidence?.testedValues).toEqual(
           expect.arrayContaining([
@@ -1676,11 +1711,14 @@ describe("checked-in Object Tree device value metadata data", () => {
           ]),
         );
       } else {
+        expect(metadata.valueRange?.notes, metadata.path).toContain("issue #133");
         expect(evidence?.testedValues).toEqual(
           expect.arrayContaining([
-            expect.objectContaining({ input: -1000000, readback: -1000000, behavior: "pass-through" }),
-            expect.objectContaining({ input: 1000000, readback: 1000000, behavior: "pass-through" }),
-            expect.objectContaining({ input: 2147483647, readback: -2147483648, behavior: "unknown" }),
+            expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
+            expect.objectContaining({ input: -1000001, readback: -1000001, behavior: "pass-through" }),
+            expect.objectContaining({ input: 0.5, readback: 0.5, behavior: "pass-through" }),
+            expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "unknown" }),
+            expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
           ]),
         );
       }
