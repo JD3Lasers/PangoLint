@@ -1269,18 +1269,19 @@
         "min": 0,
         "max": 6553400,
         "unit": "radius readback",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "clamp",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to WS.0.3.Image.Radius confirmed radius readbacks from 0 through 6553400. Positive inputs are scaled by BEYOND before readback, and high samples read back 6553400."
+        "notes": "SetProp write/readback to WS.0.3.Image.Radius confirmed radius readbacks from 0 through 6553400. Negative samples clamp to 0. Positive inputs are scaled by BEYOND before readback, and high samples clamp to 6553400."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Radius for WS.0.3 Shape at WS.0.3.Image.Radius is writable with 0..6553400 radius readback readbacks and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.Radius for WS.0.3 Shape at WS.0.3.Image.Radius uses 0..6553400 with clamp boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
         "indexBasis": "WS.N.N uses page index then cue slot index.",
         "notes": "The runtime probe used WS.0.3, the loaded Shape sample. This row applies only to that context."
-      }
+      },
+      "boundaryBehavior": "clamp"
     },
     {
       "path": "WS.N.N.Image.RadiusX",
@@ -1395,18 +1396,19 @@
         "min": -1,
         "max": 1,
         "unit": "scaled deceleration readback",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "pass-through",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to WS.0.10.Image.RotoDeceleration confirmed scaled deceleration readbacks from -1 through 1. SetProp inputs from -10000 through 10000 read back at a 0.0001 scale."
+        "notes": "SetProp write/readback to WS.0.10.Image.RotoDeceleration confirmed scaled deceleration readbacks. Issue #124 Talk TCP Echo 2 spot checks wrote -10001 and 10001, read back -1.000100 and 1.000100, and restored baseline 0, so no clamp was observed at the prior sampled readback edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 confirmed WS.N.N.Image.RotoDeceleration for WS.0.10 Particles at WS.0.10.Image.RotoDeceleration is writable with -1..1 scaled deceleration readback readbacks and baseline restore.",
+      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #459 and Talk TCP Echo 2 spot checks on 2026-05-25 issue #124 confirmed WS.N.N.Image.RotoDeceleration for WS.0.10 Particles at WS.0.10.Image.RotoDeceleration uses scaled pass-through readbacks with baseline restore.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
         "indexBasis": "WS.N.N uses page index then cue slot index.",
         "notes": "The runtime probe used WS.0.10, the loaded Particles sample. This row applies only to that context."
-      }
+      },
+      "boundaryBehavior": "pass-through"
     },
     {
       "path": "WS.N.N.Image.RotoSpeed",
