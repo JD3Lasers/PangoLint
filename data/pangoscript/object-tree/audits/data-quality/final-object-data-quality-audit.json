@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 47,
+    "unknownBoundaryBehaviorRows": 41,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -60,7 +60,7 @@
     "writeTestStatus": [
       {
         "value": "command-readback-tested",
-        "count": 387
+        "count": 389
       },
       {
         "value": "not-applicable",
@@ -72,7 +72,7 @@
       },
       {
         "value": "write-readback-tested",
-        "count": 3318
+        "count": 3316
       }
     ],
     "readbackStatus": [
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 47,
+      "count": 41,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 47,
+      "count": 41,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -274,14 +274,6 @@
         {
           "root": "FB4_XXXXX",
           "count": 10
-        },
-        {
-          "root": "Grid",
-          "count": 4
-        },
-        {
-          "root": "Grid2",
-          "count": 4
         },
         {
           "root": "Projector",
@@ -313,6 +305,14 @@
         },
         {
           "root": "ColorChannel",
+          "count": 1
+        },
+        {
+          "root": "Grid",
+          "count": 1
+        },
+        {
+          "root": "Grid2",
           "count": 1
         },
         {
@@ -871,32 +871,6 @@
         "FB4_XXXXX.SwapXY"
       ],
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "Grid",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "integer",
-      "count": 3,
-      "examples": [
-        "Grid.Count",
-        "Grid.GetColCount",
-        "Grid.GetRowCount"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "Grid2",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "integer",
-      "count": 3,
-      "examples": [
-        "Grid2.Count",
-        "Grid2.GetColCount",
-        "Grid2.GetRowCount"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },
     {
       "root": "Projector",

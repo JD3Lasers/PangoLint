@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 135,
+  "runtime": {
+    "observedAt": "2026-05-25",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "notes": "BEYOND was probed with Talk TCP Echo 2 using SetGridSize writes and WriteLn readbacks. Runtime endpoint details are intentionally omitted. The grid was restored to the observed 10 by 6 baseline after each sample and verified before moving to the next sample."
+  },
+  "entries": [
+    {
+      "objectPath": "Grid.Count",
+      "probePath": "Grid.Count",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 60,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 256,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue slots"
+      },
+      "testedValues": [
+        {
+          "input": "-1 by -1",
+          "command": "SetGridSize -1, -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": "0 by 0",
+          "command": "SetGridSize 0, 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": "1 by 1",
+          "command": "SetGridSize 1, 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "10 by 6",
+          "command": "SetGridSize 10, 6",
+          "readback": 60,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "16 by 16",
+          "command": "SetGridSize 16, 16",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "17 by 17",
+          "command": "SetGridSize 17, 17",
+          "readback": 240,
+          "behavior": "unknown"
+        },
+        {
+          "input": "20 by 20",
+          "command": "SetGridSize 20, 20",
+          "readback": 192,
+          "behavior": "unknown"
+        },
+        {
+          "input": "2147483647 by 2147483647",
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 80,
+          "behavior": "unknown"
+        },
+        {
+          "input": "2147483648 by 2147483648",
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 60,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid.Count has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    },
+    {
+      "objectPath": "Grid.GetColCount",
+      "probePath": "Grid.GetColCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "columns"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGridSize -1, -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGridSize 0, 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGridSize 1, 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetGridSize 10, 6",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetGridSize 16, 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetGridSize 17, 17",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 20,
+          "command": "SetGridSize 20, 20",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid.GetColCount has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    },
+    {
+      "objectPath": "Grid.GetRowCount",
+      "probePath": "Grid.GetRowCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 6,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "rows"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGridSize -1, -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGridSize 0, 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGridSize 1, 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "SetGridSize 10, 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetGridSize 16, 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetGridSize 17, 17",
+          "readback": 15,
+          "behavior": "unknown"
+        },
+        {
+          "input": 20,
+          "command": "SetGridSize 20, 20",
+          "readback": 12,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 5,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 6,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid.GetRowCount has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    },
+    {
+      "objectPath": "Grid2.Count",
+      "probePath": "Grid2.Count",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 60,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 256,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "cue slots"
+      },
+      "testedValues": [
+        {
+          "input": "-1 by -1",
+          "command": "SetGridSize -1, -1",
+          "readback": 60,
+          "behavior": "unknown"
+        },
+        {
+          "input": "0 by 0",
+          "command": "SetGridSize 0, 0",
+          "readback": 60,
+          "behavior": "unknown"
+        },
+        {
+          "input": "1 by 1",
+          "command": "SetGridSize 1, 1",
+          "readback": 60,
+          "behavior": "unknown"
+        },
+        {
+          "input": "10 by 6",
+          "command": "SetGridSize 10, 6",
+          "readback": 60,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "16 by 16",
+          "command": "SetGridSize 16, 16",
+          "readback": 256,
+          "behavior": "pass-through"
+        },
+        {
+          "input": "17 by 17",
+          "command": "SetGridSize 17, 17",
+          "readback": 240,
+          "behavior": "unknown"
+        },
+        {
+          "input": "20 by 20",
+          "command": "SetGridSize 20, 20",
+          "readback": 192,
+          "behavior": "unknown"
+        },
+        {
+          "input": "2147483647 by 2147483647",
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 80,
+          "behavior": "unknown"
+        },
+        {
+          "input": "2147483648 by 2147483648",
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 60,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 60,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid2.Count has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    },
+    {
+      "objectPath": "Grid2.GetColCount",
+      "probePath": "Grid2.GetColCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 10,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "columns"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGridSize -1, -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGridSize 0, 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGridSize 1, 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 10,
+          "command": "SetGridSize 10, 6",
+          "readback": 10,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetGridSize 16, 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetGridSize 17, 17",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 20,
+          "command": "SetGridSize 20, 20",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 16,
+          "behavior": "clamp"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 10,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid2.GetColCount has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    },
+    {
+      "objectPath": "Grid2.GetRowCount",
+      "probePath": "Grid2.GetRowCount",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 6,
+        "typeTag": "i"
+      },
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "minInclusive": true,
+        "maxInclusive": true,
+        "unit": "rows"
+      },
+      "testedValues": [
+        {
+          "input": -1,
+          "command": "SetGridSize -1, -1",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 0,
+          "command": "SetGridSize 0, 0",
+          "readback": 1,
+          "behavior": "clamp"
+        },
+        {
+          "input": 1,
+          "command": "SetGridSize 1, 1",
+          "readback": 1,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 6,
+          "command": "SetGridSize 10, 6",
+          "readback": 6,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 16,
+          "command": "SetGridSize 16, 16",
+          "readback": 16,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 17,
+          "command": "SetGridSize 17, 17",
+          "readback": 15,
+          "behavior": "unknown"
+        },
+        {
+          "input": 20,
+          "command": "SetGridSize 20, 20",
+          "readback": 12,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetGridSize 2147483647, 2147483647",
+          "readback": 5,
+          "behavior": "unknown"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetGridSize 2147483648, 2147483648",
+          "readback": 1,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 6,
+        "notes": "The probe restored SetGridSize to 10, 6 after each write and verified Grid/Grid2 count and dimension readbacks returned to the observed baseline."
+      },
+      "evidenceNote": "Issue #135 Talk TCP Echo 2 WriteLn probes confirmed Grid2.GetRowCount has mixed SetGridSize boundary behavior across low, high, and overflow paired column and row samples.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "concreteContext": "loaded workspace grid",
+        "notes": "The runtime probe used the loaded workspace grid and restored the observed 10 by 6 grid size after each sample."
+      }
+    }
+  ]
+}

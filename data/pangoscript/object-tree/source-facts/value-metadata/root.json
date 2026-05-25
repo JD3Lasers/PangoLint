@@ -583,17 +583,17 @@
         "min": 1,
         "max": 16,
         "unit": "columns",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetGridSize 1, 1 and 16, 16 read back Grid2.GetColCount 1 and 16. SetGridSize 0, 0 read back 1. SetGridSize 20, 20 read back 16 for columns while rows read back 12, so paired upper out-of-range behavior is not recorded as a clean clamp."
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed column samples -1 and 0 read back 1, 1 and 16 pass through, 17 and 20 read back 16, and 2147483648 reads back 1. Boundary behavior is mixed because high overflow samples do not behave as a single clamp rule."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime command write/readback on 2026-05-12 confirmed baseline Grid2.GetColCount 10 and restored the grid to 10 columns by 6 rows.",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.GetColCount behavior through SetGridSize with baseline restore.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
         "indexBasis": "Grid2.GetColCount reflects the loaded workspace grid layout.",
-        "notes": "The runtime probe used SetGridSize and then restored the loaded workspace grid size to 10 by 6."
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
       }
     },
     {
@@ -603,17 +603,17 @@
         "min": 1,
         "max": 16,
         "unit": "rows",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetGridSize 1, 1 and 16, 16 read back Grid2.GetRowCount 1 and 16. SetGridSize 0, 0 read back 1. SetGridSize 20, 20 read back 12 for rows despite 16, 16 accepting 16, so paired upper out-of-range behavior is unknown."
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed row samples -1 and 0 read back 1, 1 and 16 pass through, 17 read back 15, 20 read back 12, 2147483647 read back 5, and 2147483648 read back 1. Boundary behavior is mixed."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime command write/readback on 2026-05-12 confirmed baseline Grid2.GetRowCount 6 and restored the grid to 10 columns by 6 rows.",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.GetRowCount behavior through SetGridSize with baseline restore.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
         "indexBasis": "Grid2.GetRowCount reflects the loaded workspace grid layout.",
-        "notes": "The runtime probe used SetGridSize and then restored the loaded workspace grid size to 10 by 6."
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
       }
     },
     {

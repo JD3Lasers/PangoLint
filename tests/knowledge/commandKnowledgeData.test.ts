@@ -2689,7 +2689,7 @@ describe("checked-in PangoScript command knowledge data", () => {
         min: 1,
         max: 16,
         unit: "columns",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
     });
@@ -2699,7 +2699,7 @@ describe("checked-in PangoScript command knowledge data", () => {
         min: 1,
         max: 16,
         unit: "rows",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
     });

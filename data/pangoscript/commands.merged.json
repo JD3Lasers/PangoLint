@@ -19847,9 +19847,9 @@
                 "min": 1,
                 "max": 16,
                 "unit": "columns",
-                "boundaryBehavior": "unknown",
+                "boundaryBehavior": "mixed",
                 "evidenceLevel": "observed",
-                "notes": "Fresh MCP probe on 2026-05-11 confirmed 1, 10, 11, and 16 pass through. Inputs 0 and -1 clamp to 1; 20 clamps to 16. Very large paired inputs are not a clean clamp, so upper out-of-range behavior is left unknown."
+                "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed column samples -1 and 0 read back 1, 1 and 16 pass through, 17 and 20 read back 16, and 2147483648 reads back 1. Boundary behavior is mixed because high overflow samples do not behave as a single clamp rule."
               },
               "description": "Number of grid columns."
             },
@@ -19862,9 +19862,9 @@
                 "min": 1,
                 "max": 16,
                 "unit": "rows",
-                "boundaryBehavior": "unknown",
+                "boundaryBehavior": "mixed",
                 "evidenceLevel": "observed",
-                "notes": "Fresh MCP probe on 2026-05-11 confirmed 1, 10, 11, 13, and 16 pass through. Inputs 0 and -1 clamp to 1; 20 clamps to 16. Very large paired inputs are not a clean clamp, so upper out-of-range behavior is left unknown."
+                "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed row samples -1 and 0 read back 1, 1 and 16 pass through, 17 read back 15, 20 read back 12, 2147483647 read back 5, and 2147483648 read back 1. Boundary behavior is mixed."
               },
               "description": "Number of grid rows."
             }
@@ -19879,7 +19879,7 @@
         "status": "mapped",
         "evidenceLevel": "observed",
         "safetyTier": "T2",
-        "notes": "Runtime readback confirmed SetGridSize writes Grid.GetColCount, Grid.GetRowCount, and Grid.Count. Fresh probe on 2026-05-11 observed 1x1, 10x10, 16x16, and restored the starting 10x6 grid shape afterward."
+        "notes": "Runtime readback confirmed SetGridSize writes Grid.GetColCount, Grid.GetRowCount, and Grid.Count. Talk TCP Echo 2 probes on 2026-05-25 issue #135 observed low clamps, high mixed behavior, and restored the starting 10x6 grid shape afterward."
       },
       "setsProperty": [
         "Grid.GetColCount",
