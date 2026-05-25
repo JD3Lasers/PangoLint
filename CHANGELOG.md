@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.43] - 2026-05-25
+
+### Added
+
+- Add Object Tree data-quality audit tracking for value metadata rows whose
+  boundary behavior still needs focused runtime probes.
+
 ## [0.7.42] - 2026-05-25
 
 ### Added

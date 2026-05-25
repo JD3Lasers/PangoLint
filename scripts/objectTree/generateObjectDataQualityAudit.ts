@@ -21,6 +21,7 @@ interface ValueMetadata {
     min?: number;
     max?: number;
     dynamicMax?: unknown;
+    boundaryBehavior?: string;
   };
   acceptedValues?: Array<{
     value: string | number | boolean;
@@ -70,6 +71,16 @@ interface SpotCheckRow {
   behaviorKind: string;
   evidenceLevel: string;
   reason: string;
+}
+
+interface BoundaryProbeBatch {
+  root: string;
+  accessMode: string;
+  behaviorKind: string;
+  valueType: string;
+  count: number;
+  examples: string[];
+  nextProbe: string;
 }
 
 const repoRoot = process.cwd();
@@ -138,6 +149,7 @@ const entries = [...index.entries].sort(compareEntries);
 const checks = buildChecks(entries, crosswalkSummary);
 const unverifiedRows = entries.filter(isUnverifiedUnknownReadbackOnly);
 const readOnlyDomainRows = entries.filter(isReadOnlyWithDomainMetadata);
+const unknownBoundaryRows = entries.filter(hasUnknownBoundaryBehavior);
 
 const hardViolationCount = checks
   .filter((check) => check.severity === "error")
@@ -164,6 +176,7 @@ const report = {
     warningCount,
     unverifiedUnknownRows: unverifiedRows.length,
     readOnlyRowsWithDomainMetadata: readOnlyDomainRows.length,
+    unknownBoundaryBehaviorRows: unknownBoundaryRows.length,
     crosswalkPropertiesWithBehaviorClassification: crosswalkSummary.propertiesWithBehaviorClassification,
     crosswalkPropertiesMissingBehaviorClassification: crosswalkSummary.propertiesMissingBehaviorClassification,
   },
@@ -188,8 +201,14 @@ const report = {
       readOnlyDomainRows,
       "Keep these as computed-status rows, but review wording so domain metadata is not mistaken for writable range metadata.",
     ),
+    buildReviewBucket(
+      "unknown-boundary-behavior",
+      unknownBoundaryRows,
+      "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior.",
+    ),
   ],
   spotCheckPlan: buildSpotCheckPlan(entries),
+  boundaryProbePlan: buildBoundaryProbePlan(unknownBoundaryRows),
 };
 
 mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -278,6 +297,12 @@ function buildChecks(currentEntries: ObjectIndexEntry[], summary: ControlCrosswa
       currentEntries.filter(isReadOnlyWithDomainMetadata),
       "Read-only rows with domain metadata need careful public wording so computed domains are not read as writable ranges.",
     ),
+    buildCheck(
+      "unknown-boundary-behavior",
+      "warning",
+      currentEntries.filter(hasUnknownBoundaryBehavior),
+      "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger.",
+    ),
   ];
 }
 
@@ -341,6 +366,10 @@ function isUnverifiedUnknownReadbackOnly(entry: ObjectIndexEntry): boolean {
 
 function isReadOnlyWithDomainMetadata(entry: ObjectIndexEntry): boolean {
   return entry.classification?.accessMode === "read-only" && hasValueMetadata(entry);
+}
+
+function hasUnknownBoundaryBehavior(entry: ObjectIndexEntry): boolean {
+  return valueRowsForEntry(entry).some((metadata) => metadata.valueRange?.boundaryBehavior === "unknown");
 }
 
 function countClassificationField(
@@ -414,6 +443,57 @@ function buildSpotCheckPlan(currentEntries: ObjectIndexEntry[]): SpotCheckRow[] 
   }
 
   return [...selected.values()].sort((left, right) => left.path.localeCompare(right.path));
+}
+
+function buildBoundaryProbePlan(rows: ObjectIndexEntry[]): BoundaryProbeBatch[] {
+  const batches = new Map<string, BoundaryProbeBatch>();
+  for (const entry of rows) {
+    const metadata = firstUnknownBoundaryMetadata(entry);
+    const valueType = metadata?.valueType ?? "unknown";
+    const accessMode = entry.classification?.accessMode ?? "missing";
+    const behaviorKind = entry.classification?.behaviorKind ?? "missing";
+    const key = [entry.root, accessMode, behaviorKind, valueType].join("\u0000");
+    const existing = batches.get(key);
+    if (existing) {
+      existing.count += 1;
+      if (existing.examples.length < 5) existing.examples.push(entry.path);
+      continue;
+    }
+    batches.set(key, {
+      root: entry.root,
+      accessMode,
+      behaviorKind,
+      valueType,
+      count: 1,
+      examples: [entry.path],
+      nextProbe: boundaryProbeText(accessMode, behaviorKind, valueType),
+    });
+  }
+  return [...batches.values()].sort(
+    (left, right) =>
+      right.count - left.count ||
+      left.root.localeCompare(right.root) ||
+      left.accessMode.localeCompare(right.accessMode) ||
+      left.behaviorKind.localeCompare(right.behaviorKind) ||
+      left.valueType.localeCompare(right.valueType),
+  );
+}
+
+function firstUnknownBoundaryMetadata(entry: ObjectIndexEntry): ValueMetadata | undefined {
+  return valueRowsForEntry(entry).find((metadata) => metadata.valueRange?.boundaryBehavior === "unknown");
+}
+
+function boundaryProbeText(accessMode: string, behaviorKind: string, valueType: string): string {
+  if (accessMode === "read-only" || behaviorKind === "computed-status") {
+    return "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence.";
+  }
+  if (behaviorKind === "flag-state" || valueType === "boolean") {
+    return "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.";
+  }
+  if (valueType === "enum") {
+    return "Test each accepted value plus one lower and one higher value, then restore the baseline enum value.";
+  }
+  return "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.";
 }
 
 function addNamedSpotCheck(
