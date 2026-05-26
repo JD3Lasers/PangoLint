@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Grid.Count",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 256,
+        "unit": "cue slots",
+        "boundaryBehavior": "mixed",
+        "evidenceLevel": "observed",
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid.Count follows the resulting grid cell count for common samples: 1x1->1, 10x6->60, 16x16->256, 17x17->240, 20x20->192, and 2147483648x2147483648->1. High out-of-range rows are not a clean clamp, so boundary behavior is mixed."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.Count behavior through SetGridSize with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "Grid.Count reflects the loaded workspace grid layout.",
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+      }
+    },
+    {
+      "path": "Grid.GetColCount",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "columns",
+        "boundaryBehavior": "mixed",
+        "evidenceLevel": "observed",
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed column samples -1 and 0 read back 1, 1 and 16 pass through, 17 and 20 read back 16, and 2147483648 reads back 1. Boundary behavior is mixed because high overflow samples do not behave as a single clamp rule."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.GetColCount behavior through SetGridSize with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "Grid.GetColCount reflects the loaded workspace grid layout.",
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+      }
+    },
+    {
+      "path": "Grid.GetRowCount",
+      "valueType": "integer",
+      "valueRange": {
+        "min": 1,
+        "max": 16,
+        "unit": "rows",
+        "boundaryBehavior": "mixed",
+        "evidenceLevel": "observed",
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed row samples -1 and 0 read back 1, 1 and 16 pass through, 17 read back 15, 20 read back 12, 2147483647 read back 5, and 2147483648 read back 1. Boundary behavior is mixed."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.GetRowCount behavior through SetGridSize with baseline restore.",
+      "locationContext": {
+        "kind": "workspace-slot",
+        "populationDependent": true,
+        "indexBasis": "Grid.GetRowCount reflects the loaded workspace grid layout.",
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+      }
+    }
+  ]
+}

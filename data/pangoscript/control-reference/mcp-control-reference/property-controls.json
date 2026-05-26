@@ -45524,10 +45524,11 @@
           "min": 1,
           "max": 256,
           "unit": "cue slots",
-          "boundaryBehavior": "unknown",
-          "evidenceLevel": "inferred"
+          "boundaryBehavior": "mixed",
+          "evidenceLevel": "observed"
         },
-        "evidenceLevel": "inferred"
+        "evidenceLevel": "observed",
+        "locationKind": "workspace-slot"
       },
       "readback": {
         "status": "readback-tested",
@@ -45564,7 +45565,7 @@
               "min": 1,
               "max": 16,
               "unit": "columns",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           },
@@ -45578,7 +45579,7 @@
               "min": 1,
               "max": 16,
               "unit": "rows",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           }
@@ -45628,10 +45629,11 @@
           "min": 1,
           "max": 16,
           "unit": "columns",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
-        "evidenceLevel": "observed"
+        "evidenceLevel": "observed",
+        "locationKind": "workspace-slot"
       },
       "readback": {
         "status": "readback-tested",
@@ -45668,7 +45670,7 @@
               "min": 1,
               "max": 16,
               "unit": "columns",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           },
@@ -45682,7 +45684,7 @@
               "min": 1,
               "max": 16,
               "unit": "rows",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           }
@@ -45732,10 +45734,11 @@
           "min": 1,
           "max": 16,
           "unit": "rows",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
-        "evidenceLevel": "observed"
+        "evidenceLevel": "observed",
+        "locationKind": "workspace-slot"
       },
       "readback": {
         "status": "readback-tested",
@@ -45772,7 +45775,7 @@
               "min": 1,
               "max": 16,
               "unit": "columns",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           },
@@ -45786,7 +45789,7 @@
               "min": 1,
               "max": 16,
               "unit": "rows",
-              "boundaryBehavior": "unknown",
+              "boundaryBehavior": "mixed",
               "evidenceLevel": "observed"
             }
           }
@@ -54907,12 +54910,12 @@
         "valueType": "integer",
         "range": {
           "min": 1,
-          "dynamicMaxExpression": "Grid2.GetColCount * Grid2.GetRowCount",
+          "max": 256,
           "unit": "cue slots",
-          "boundaryBehavior": "unknown",
-          "evidenceLevel": "observed"
+          "boundaryBehavior": "mixed",
+          "evidenceLevel": "inferred"
         },
-        "evidenceLevel": "observed",
+        "evidenceLevel": "inferred",
         "locationKind": "workspace-slot"
       },
       "readback": {
@@ -54976,7 +54979,7 @@
           "min": 1,
           "max": 16,
           "unit": "columns",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
         "evidenceLevel": "observed",
@@ -54989,7 +54992,7 @@
       "behavior": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "write-readback-tested",
+        "writeTestStatus": "command-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed"
       },
@@ -55043,7 +55046,7 @@
           "min": 1,
           "max": 16,
           "unit": "rows",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
         "evidenceLevel": "observed",
@@ -55056,7 +55059,7 @@
       "behavior": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "write-readback-tested",
+        "writeTestStatus": "command-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed"
       },

@@ -113,7 +113,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       entry.valueMetadata?.notes?.startsWith("Command-derived seed"),
     );
 
-    expect(commandDerived).toHaveLength(57);
+    expect(commandDerived).toHaveLength(54);
     for (const entry of commandDerived) {
       expect(byPath.has(entry.path), entry.path).toBe(true);
       assertObjectPropertyValueMetadata(entry.valueMetadata as ObjectPropertyValueMetadata);
@@ -125,6 +125,9 @@ describe("checked-in Object Tree device value metadata data", () => {
     expect(byPath.get("Master.CueBeatShift")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("Master.ShowShift")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("WS.N.N.CaptionColor")?.valueMetadata?.notes).not.toContain("Command-derived seed");
+    expect(byPath.get("Grid.Count")?.valueMetadata?.notes).not.toContain("Command-derived seed");
+    expect(byPath.get("Grid.GetColCount")?.valueMetadata?.notes).not.toContain("Command-derived seed");
+    expect(byPath.get("Grid.GetRowCount")?.valueMetadata?.notes).not.toContain("Command-derived seed");
 
     expect(byPath.get("Master.Brightness")?.valueMetadata).toMatchObject({
       valueType: "number",
@@ -150,12 +153,13 @@ describe("checked-in Object Tree device value metadata data", () => {
     );
     expect(byPath.get("Grid.Count")?.valueMetadata).toMatchObject({
       valueType: "integer",
-      evidenceLevel: "inferred",
+      evidenceLevel: "observed",
       valueRange: {
         min: 1,
         max: 256,
         unit: "cue slots",
-        evidenceLevel: "inferred",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "observed",
       },
     });
     expect(byPath.get("Master.Red")?.valueMetadata?.notes).toContain("RGBA r parameter");
@@ -2188,16 +2192,13 @@ describe("checked-in Object Tree device value metadata data", () => {
 
     expect(byPath.get("Grid2.Count")?.valueMetadata).toMatchObject({
       valueType: "integer",
-      evidenceLevel: "observed",
+      evidenceLevel: "inferred",
       valueRange: {
         min: 1,
-        dynamicMax: {
-          expression: "Grid2.GetColCount * Grid2.GetRowCount",
-          sourcePaths: ["Grid2.GetColCount", "Grid2.GetRowCount"],
-        },
+        max: 256,
         unit: "cue slots",
-        boundaryBehavior: "unknown",
-        evidenceLevel: "observed",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "inferred",
       },
       locationContext: {
         kind: "workspace-slot",
@@ -2821,7 +2822,7 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: 1,
         max: 16,
         unit: "columns",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
     });
@@ -2832,20 +2833,20 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: 1,
         max: 16,
         unit: "rows",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
     });
 
     expect(byPath.get("Grid2.Count")?.valueMetadata).toMatchObject({
       valueType: "integer",
-      evidenceLevel: "observed",
+      evidenceLevel: "inferred",
       valueRange: {
         min: 1,
-        dynamicMax: { expression: "Grid2.GetColCount * Grid2.GetRowCount" },
+        max: 256,
         unit: "cue slots",
-        boundaryBehavior: "unknown",
-        evidenceLevel: "observed",
+        boundaryBehavior: "mixed",
+        evidenceLevel: "inferred",
       },
     });
 

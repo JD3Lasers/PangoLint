@@ -125698,7 +125698,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid/Count",
-      "searchText": "grid count b command derived exact setsproperty target setgridsize columnsrows seed from parameter for this is not same name propagation integer cue slots unknown columns and rows each observed as 1 16 the resulting cell so range inferred metadata rather than independently probed a direct setprop behavior classification access mode read write state value readback tested fresh beyond runtime writes proved writable probe path baseline 60 assignment samples are recorded in data pangoscript object tree evidence issue 487 probes json existing was used only to choose",
+      "searchText": "grid count b command derived exact setsproperty target setgridsize columnsrows seed from parameter for this is not same name propagation integer cue slots unknown columns and rows each observed as 1 16 the resulting cell so range inferred metadata rather than independently probed a direct setprop mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #135 confirmed follows common samples 1x1 10x6 60 16x16 256 17x17 240 20x20 192 2147483648x2147483648 high out of are clean clamp boundary behavior runtime write readback through with baseline restore workspace slot reflects loaded layout probe used restored size to 10 by 6 after sample population dependent populated location aware classification access mode read state value tested fresh beyond writes proved writable path assignment recorded in data pangoscript object tree evidence 487 json existing was only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -125712,12 +125712,18 @@
           "min": 1,
           "max": 256,
           "unit": "cue slots",
-          "boundaryBehavior": "unknown",
-          "evidenceLevel": "inferred",
-          "notes": "Derived from SetGridSize columns and rows, each observed as 1..16. Grid.Count is the resulting cell count, so this range is inferred from exact command metadata rather than independently probed as a direct SetProp range."
+          "boundaryBehavior": "mixed",
+          "evidenceLevel": "observed",
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid.Count follows the resulting grid cell count for common samples: 1x1->1, 10x6->60, 16x16->256, 17x17->240, 20x20->192, and 2147483648x2147483648->1. High out-of-range rows are not a clean clamp, so boundary behavior is mixed."
         },
-        "evidenceLevel": "inferred",
-        "notes": "Command-derived seed from SetGridSize columnsRows parameter for exact setsProperty target. This is not same-name propagation."
+        "evidenceLevel": "observed",
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.Count behavior through SetGridSize with baseline restore.",
+        "locationContext": {
+          "kind": "workspace-slot",
+          "populationDependent": true,
+          "indexBasis": "Grid.Count reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+        }
       },
       "classification": {
         "accessMode": "read-write",
@@ -125736,7 +125742,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid/GetColCount",
-      "searchText": "grid getcolcount get col count b command derived exact setsproperty target setgridsize columns 1 16 seed from parameter for this is not same name propagation integer unknown fresh mcp probe on 2026 05 11 confirmed 10 and pass through inputs 0 clamp to 20 clamps very large paired are a clean so upper out of range behavior left observed classification access mode read write state value readback tested metadata records runtime proof domain evidence remains in",
+      "searchText": "grid getcolcount get col count b command derived exact setsproperty target setgridsize columns 1 16 seed from parameter for this is not same name propagation integer mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #135 confirmed column samples and 0 read back pass through 17 20 2147483648 reads boundary behavior because high overflow do behave as a single clamp rule observed runtime write readback with baseline restore workspace slot reflects the loaded layout probe used restored size to 10 by 6 after each sample population dependent populated location aware classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -125750,12 +125756,18 @@
           "min": 1,
           "max": 16,
           "unit": "columns",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh MCP probe on 2026-05-11 confirmed 1, 10, 11, and 16 pass through. Inputs 0 and -1 clamp to 1; 20 clamps to 16. Very large paired inputs are not a clean clamp, so upper out-of-range behavior is left unknown."
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed column samples -1 and 0 read back 1, 1 and 16 pass through, 17 and 20 read back 16, and 2147483648 reads back 1. Boundary behavior is mixed because high overflow samples do not behave as a single clamp rule."
         },
         "evidenceLevel": "observed",
-        "notes": "Command-derived seed from SetGridSize columns parameter for exact setsProperty target. This is not same-name propagation."
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.GetColCount behavior through SetGridSize with baseline restore.",
+        "locationContext": {
+          "kind": "workspace-slot",
+          "populationDependent": true,
+          "indexBasis": "Grid.GetColCount reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+        }
       },
       "classification": {
         "accessMode": "read-write",
@@ -125774,7 +125786,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid/GetRowCount",
-      "searchText": "grid getrowcount get row count b command derived exact setsproperty target setgridsize rows 1 16 seed from parameter for this is not same name propagation integer unknown fresh mcp probe on 2026 05 11 confirmed 10 13 and pass through inputs 0 clamp to 20 clamps very large paired are a clean so upper out of range behavior left observed classification access mode read write state value readback tested metadata records runtime proof domain evidence remains in",
+      "searchText": "grid getrowcount get row count b command derived exact setsproperty target setgridsize rows 1 16 seed from parameter for this is not same name propagation integer mixed talk tcp echo 2 writeln probes on 2026 05 25 issue #135 confirmed samples and 0 read back pass through 17 15 20 12 2147483647 5 2147483648 boundary behavior observed runtime write readback with baseline restore workspace slot reflects the loaded layout probe used restored size to 10 by 6 after each sample population dependent populated location aware classification access mode state value tested metadata records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -125788,12 +125800,18 @@
           "min": 1,
           "max": 16,
           "unit": "rows",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Fresh MCP probe on 2026-05-11 confirmed 1, 10, 11, 13, and 16 pass through. Inputs 0 and -1 clamp to 1; 20 clamps to 16. Very large paired inputs are not a clean clamp, so upper out-of-range behavior is left unknown."
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed row samples -1 and 0 read back 1, 1 and 16 pass through, 17 read back 15, 20 read back 12, 2147483647 read back 5, and 2147483648 read back 1. Boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Command-derived seed from SetGridSize rows parameter for exact setsProperty target. This is not same-name propagation."
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid.GetRowCount behavior through SetGridSize with baseline restore.",
+        "locationContext": {
+          "kind": "workspace-slot",
+          "populationDependent": true,
+          "indexBasis": "Grid.GetRowCount reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
+        }
       },
       "classification": {
         "accessMode": "read-write",
@@ -131766,7 +131784,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid2/Count",
-      "searchText": "grid2 count b integer cue slots getcolcount getrowcount runtime readback confirmed 60 with 10 and 6 in the loaded workspace grid unknown read back by dynamic upper bound uses existing observed metadata only evidence on 2026 05 15 issue #399 at current geometry slot reflects layout population dependent populated location aware behavior classification access mode write state value tested fresh beyond writes proved writable probe path baseline setprop direct assignment samples are recorded data pangoscript object tree 487 probes json was used to choose",
+      "searchText": "grid2 count b integer cue slots mixed talk tcp echo 2 setgridsize writeln probes on 2026 05 25 issue #135 confirmed has boundary behavior and observed an upper sample of 256 the 1 lower bound is inferred from grid cell span because 1x1 2147483648x2147483648 left at 60 baseline while dimension readbacks changed to runtime command write readback through with restore but range remains low size retained previous workspace slot reflects loaded layout probe used restored 10 by 6 after each population dependent populated location aware classification access mode read state value tested fresh beyond writes proved writable path setprop direct assignment samples are recorded in data pangoscript object tree evidence 487 json existing metadata was only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -131778,25 +131796,19 @@
         "valueType": "integer",
         "valueRange": {
           "min": 1,
-          "dynamicMax": {
-            "expression": "Grid2.GetColCount * Grid2.GetRowCount",
-            "sourcePaths": [
-              "Grid2.GetColCount",
-              "Grid2.GetRowCount"
-            ],
-            "notes": "Runtime readback confirmed Grid2.Count 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6 in the loaded workspace grid."
-          },
           "unit": "cue slots",
-          "boundaryBehavior": "unknown",
-          "evidenceLevel": "observed",
-          "notes": "Grid2.Count read back 60 in the loaded 10 by 6 workspace grid. The dynamic upper bound uses the existing observed Grid2.GetColCount and Grid2.GetRowCount metadata."
+          "boundaryBehavior": "mixed",
+          "evidenceLevel": "inferred",
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior and observed an upper sample of 256. The 1 lower bound is inferred from the grid cell span because 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1.",
+          "max": 256
         },
-        "evidenceLevel": "observed",
-        "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Grid2.Count at Grid2.Count with current grid geometry readback.",
+        "evidenceLevel": "inferred",
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed mixed Grid2.Count behavior through SetGridSize with baseline restore, but the lower range bound remains inferred because low-size probes retained the previous 60 count.",
         "locationContext": {
           "kind": "workspace-slot",
           "populationDependent": true,
-          "indexBasis": "Grid2.Count reflects the loaded workspace grid layout."
+          "indexBasis": "Grid2.Count reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
         }
       },
       "classification": {
@@ -131816,7 +131828,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid2/GetColCount",
-      "searchText": "grid2 getcolcount get col count b integer columns unknown setgridsize 1 and 16 read back 0 20 for while rows 12 so paired upper out of range behavior is not recorded as a clean clamp observed runtime command write readback on 2026 05 confirmed baseline 10 restored the grid to by 6 workspace slot reflects loaded layout probe used then size population dependent populated location aware classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "grid2 getcolcount get col count b integer columns mixed talk tcp echo 2 setgridsize writeln probes on 2026 05 25 issue #135 confirmed column samples 1 and 0 read back 16 pass through 17 20 2147483648 reads boundary behavior is because high overflow do not behave as a single clamp rule observed runtime command write readback with baseline restore workspace slot reflects the loaded grid layout probe used restored size to 10 by 6 after each sample population dependent populated location aware classification access mode state value tested metadata for records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -131830,26 +131842,26 @@
           "min": 1,
           "max": 16,
           "unit": "columns",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetGridSize 1, 1 and 16, 16 read back Grid2.GetColCount 1 and 16. SetGridSize 0, 0 read back 1. SetGridSize 20, 20 read back 16 for columns while rows read back 12, so paired upper out-of-range behavior is not recorded as a clean clamp."
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed column samples -1 and 0 read back 1, 1 and 16 pass through, 17 and 20 read back 16, and 2147483648 reads back 1. Boundary behavior is mixed because high overflow samples do not behave as a single clamp rule."
         },
         "evidenceLevel": "observed",
-        "notes": "Runtime command write/readback on 2026-05-12 confirmed baseline Grid2.GetColCount 10 and restored the grid to 10 columns by 6 rows.",
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.GetColCount behavior through SetGridSize with baseline restore.",
         "locationContext": {
           "kind": "workspace-slot",
           "populationDependent": true,
           "indexBasis": "Grid2.GetColCount reflects the loaded workspace grid layout.",
-          "notes": "The runtime probe used SetGridSize and then restored the loaded workspace grid size to 10 by 6."
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
         }
       },
       "classification": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "write-readback-tested",
+        "writeTestStatus": "command-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed",
-        "notes": "Observed value metadata for Grid2.GetColCount records runtime write/readback proof. Value domain evidence remains in value metadata."
+        "notes": "Observed value metadata for Grid2.GetColCount records runtime command/readback proof. Value domain evidence remains in value metadata."
       }
     },
     {
@@ -131860,7 +131872,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid2/GetRowCount",
-      "searchText": "grid2 getrowcount get row count b integer rows unknown setgridsize 1 and 16 read back 0 20 12 for despite accepting so paired upper out of range behavior is observed runtime command write readback on 2026 05 confirmed baseline 6 restored the grid to 10 columns by workspace slot reflects loaded layout probe used then size population dependent populated location aware classification access mode state value tested metadata records proof domain evidence remains in",
+      "searchText": "grid2 getrowcount get row count b integer rows mixed talk tcp echo 2 setgridsize writeln probes on 2026 05 25 issue #135 confirmed samples 1 and 0 read back 16 pass through 17 15 20 12 2147483647 5 2147483648 boundary behavior is observed runtime command write readback with baseline restore workspace slot reflects the loaded grid layout probe used restored size to 10 by 6 after each sample population dependent populated location aware classification access mode state value tested metadata for records proof domain evidence remains in",
       "variantCount": 1,
       "variants": [
         {
@@ -131874,26 +131886,26 @@
           "min": 1,
           "max": 16,
           "unit": "rows",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetGridSize 1, 1 and 16, 16 read back Grid2.GetRowCount 1 and 16. SetGridSize 0, 0 read back 1. SetGridSize 20, 20 read back 12 for rows despite 16, 16 accepting 16, so paired upper out-of-range behavior is unknown."
+          "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed row samples -1 and 0 read back 1, 1 and 16 pass through, 17 read back 15, 20 read back 12, 2147483647 read back 5, and 2147483648 read back 1. Boundary behavior is mixed."
         },
         "evidenceLevel": "observed",
-        "notes": "Runtime command write/readback on 2026-05-12 confirmed baseline Grid2.GetRowCount 6 and restored the grid to 10 columns by 6 rows.",
+        "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed Grid2.GetRowCount behavior through SetGridSize with baseline restore.",
         "locationContext": {
           "kind": "workspace-slot",
           "populationDependent": true,
           "indexBasis": "Grid2.GetRowCount reflects the loaded workspace grid layout.",
-          "notes": "The runtime probe used SetGridSize and then restored the loaded workspace grid size to 10 by 6."
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
         }
       },
       "classification": {
         "accessMode": "read-write",
         "behaviorKind": "state-value",
-        "writeTestStatus": "write-readback-tested",
+        "writeTestStatus": "command-readback-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed",
-        "notes": "Observed value metadata for Grid2.GetRowCount records runtime write/readback proof. Value domain evidence remains in value metadata."
+        "notes": "Observed value metadata for Grid2.GetRowCount records runtime command/readback proof. Value domain evidence remains in value metadata."
       }
     },
     {

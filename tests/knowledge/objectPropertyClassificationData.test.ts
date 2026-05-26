@@ -31,6 +31,9 @@ const issue503SmallBehaviorRowsOverlayPath = dataPath(
   "object-property-classifications/issue-503-small-behavior-rows.json",
 );
 const issue487FxFlagStateOverlayPath = dataPath("object-property-classifications/issue-487-fx-flag-state.json");
+const issue487FreshBehaviorOverlayPath = dataPath(
+  "object-property-classifications/issue-487-fresh-behavior-probes.json",
+);
 const issue487WsBehaviorRowsOverlayPath = dataPath("object-property-classifications/issue-487-ws-behavior-rows.json");
 const issue487UniverseBehaviorRowsOverlayPath = dataPath(
   "object-property-classifications/issue-487-universe-behavior-rows.json",
@@ -78,12 +81,16 @@ describe("Object Tree behavior classification data", () => {
     const issue513FxReadbackRetestOverlay = JSON.parse(
       readFileSync(issue513FxReadbackRetestOverlayPath, "utf8"),
     ) as ClassificationOverlayFile;
+    const issue487FreshBehaviorOverlay = JSON.parse(
+      readFileSync(issue487FreshBehaviorOverlayPath, "utf8"),
+    ) as ClassificationOverlayFile;
     const previouslyClassified = new Set(existingRootOverlay.entries.map((entry) => entry.path));
     const laterClassified = new Set(
       issue486DirectOverlay.entries
         .concat(issue486UniverseCommonOverlay.entries)
         .concat(issue486UniversePanelAliasOverlay.entries)
         .concat(issue486ZoneZoneAliasOverlay.entries)
+        .concat(issue487FreshBehaviorOverlay.entries)
         .concat(issue513FxReadbackRetestOverlay.entries)
         .map((entry) => entry.path),
     );

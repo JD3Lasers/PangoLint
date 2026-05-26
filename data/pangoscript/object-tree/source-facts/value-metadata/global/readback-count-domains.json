@@ -6,22 +6,19 @@
       "valueType": "integer",
       "valueRange": {
         "min": 1,
-        "dynamicMax": {
-          "expression": "Grid2.GetColCount * Grid2.GetRowCount",
-          "sourcePaths": ["Grid2.GetColCount", "Grid2.GetRowCount"],
-          "notes": "Runtime readback confirmed Grid2.Count 60 with Grid2.GetColCount 10 and Grid2.GetRowCount 6 in the loaded workspace grid."
-        },
         "unit": "cue slots",
-        "boundaryBehavior": "unknown",
-        "evidenceLevel": "observed",
-        "notes": "Grid2.Count read back 60 in the loaded 10 by 6 workspace grid. The dynamic upper bound uses the existing observed Grid2.GetColCount and Grid2.GetRowCount metadata."
+        "boundaryBehavior": "mixed",
+        "evidenceLevel": "inferred",
+        "notes": "Talk TCP Echo 2 SetGridSize/WriteLn probes on 2026-05-25 issue #135 confirmed Grid2.Count has mixed boundary behavior and observed an upper sample of 256. The 1 lower bound is inferred from the grid cell span because 1x1 and 2147483648x2147483648 left Grid2.Count at the 60 baseline while Grid2 dimension readbacks changed to 1x1.",
+        "max": 256
       },
-      "evidenceLevel": "observed",
-      "notes": "Runtime readback-only evidence on 2026-05-15 issue #399 confirmed Grid2.Count at Grid2.Count with current grid geometry readback.",
+      "evidenceLevel": "inferred",
+      "notes": "Runtime command-write/readback on 2026-05-25 issue #135 confirmed mixed Grid2.Count behavior through SetGridSize with baseline restore, but the lower range bound remains inferred because low-size probes retained the previous 60 count.",
       "locationContext": {
         "kind": "workspace-slot",
         "populationDependent": true,
-        "indexBasis": "Grid2.Count reflects the loaded workspace grid layout."
+        "indexBasis": "Grid2.Count reflects the loaded workspace grid layout.",
+        "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
       }
     },
     {
