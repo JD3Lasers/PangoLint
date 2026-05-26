@@ -4301,13 +4301,14 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
     const expectedPaths = new Set(["ZoneAlias.Active", "ZoneAlias.BlockZone"]);
     const evidencePaths = new Set(["ZoneAlias.Active", "ZoneAlias.BlockZone", "ZoneAlias.Mute", "ZoneAlias.Visible"]);
     const issue360 = objectPropertyIndex.entries.filter((entry) => entry.valueMetadata?.notes?.startsWith(issuePrefix));
+    const activeAndBlockZoneEvidence = evidence.entries.filter((entry) => expectedPaths.has(entry.objectPath));
 
     expect(issue360).toHaveLength(2);
     expect(new Set(issue360.map((entry) => entry.path))).toEqual(expectedPaths);
     expect(evidence.entries).toHaveLength(4);
     expect(new Set(evidence.entries.map((entry) => entry.objectPath))).toEqual(evidencePaths);
     expect(evidence.entries.every((entry) => entry.shipsMetadata)).toBe(true);
-    expect(evidence.entries.every((entry) => entry.boundaryBehavior === "unknown")).toBe(true);
+    expect(activeAndBlockZoneEvidence.every((entry) => entry.boundaryBehavior === "mixed")).toBe(true);
     expect(
       evidence.entries.every((entry) =>
         [0, 1].every((value) => entry.acceptedValues?.some((acceptedValue) => acceptedValue.value === value)),
@@ -4324,7 +4325,7 @@ describe("checked-in Object Tree cue and zone value metadata data", () => {
         min: 0,
         max: 1,
         unit: "boolean",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       });
       expect(metadata.acceptedValues).toEqual([

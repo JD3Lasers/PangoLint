@@ -222426,7 +222426,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/TouchPoints/0/Active",
-      "searchText": "touchpoints n active touch points 0 b boolean unknown direct object writes to read back 1 2 observed runtime write readback on 2026 05 13 confirmed baseline restore indexed root uses the zero based tree point index probe used with count 10 population dependent populated slot location aware off behavior classification access mode flag state tested evidence from shows persists and as value domain remains in metadata",
+      "searchText": "touchpoints n active touch points 0 b boolean mixed direct object writes to read back 1 and 2 so out of domain nonzero values set on observed runtime write readback 2026 05 13 confirmed baseline restore indexed root uses the zero based tree point index probe used with count 10 population dependent populated slot location aware off behavior classification access mode flag state tested evidence from shows persists as value remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -222440,9 +222440,9 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Direct object writes to TouchPoints.0.Active read back -1->1, 0->0, 1->1, 2->1."
+          "notes": "Direct object writes to TouchPoints.0.Active read back -1->1, 0->0, 1->1, and 2->1, so out-of-domain nonzero values set ON."
         },
         "acceptedValues": [
           {
@@ -408973,7 +408973,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Zone/0/Active",
-      "searchText": "zone n active 0 b boolean unknown direct object writes to with 1 and 2 read back observed runtime write readback on 2026 05 12 confirmed baseline restore concrete indexed root uses the zero based tree index probe used only zones present in loaded show are valid paths population dependent populated slot location aware off behavior classification access mode flag state tested fresh beyond proved persistent readbacks path setprop assignment samples recorded data pangoscript evidence issue 487 probes json existing value metadata was choose",
+      "searchText": "zone n active 0 b boolean mixed direct object writes to with 1 and 2 read back so out of domain nonzero values set on observed runtime write readback 2026 05 12 confirmed baseline restore concrete indexed root uses the zero based tree index probe used only zones present in loaded show are valid paths population dependent populated slot location aware off behavior classification access mode flag state tested fresh beyond proved persistent readbacks path setprop assignment samples recorded data pangoscript evidence issue 487 probes json existing value metadata was choose",
       "variantCount": 1,
       "variants": [
         {
@@ -408986,9 +408986,9 @@
         "valueRange": {
           "min": 0,
           "max": 1,
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Direct object writes to Zone.0.Active with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+          "notes": "Direct object writes to Zone.0.Active with -1, 0, 1, and 2 read back 1, 0, 1, and 1, so out-of-domain nonzero values set ON."
         },
         "acceptedValues": [
           {
@@ -409158,7 +409158,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Zone/0/BlockZone",
-      "searchText": "zone n blockzone block 0 b boolean unknown direct object writes to with 1 and 2 read back observed runtime write readback on 2026 05 12 confirmed baseline restore concrete indexed root uses the zero based tree index probe used only zones present in loaded show are valid paths population dependent populated slot location aware off behavior classification access mode flag state tested fresh beyond proved persistent readbacks path setprop assignment samples recorded data pangoscript evidence issue 487 probes json existing value metadata was choose",
+      "searchText": "zone n blockzone block 0 b boolean mixed direct object writes to with 1 and 2 read back so out of domain nonzero values set on observed runtime write readback 2026 05 12 confirmed baseline restore concrete indexed root uses the zero based tree index probe used only zones present in loaded show are valid paths population dependent populated slot location aware off behavior classification access mode flag state tested fresh beyond proved persistent readbacks path setprop assignment samples recorded data pangoscript evidence issue 487 probes json existing value metadata was choose",
       "variantCount": 1,
       "variants": [
         {
@@ -409171,9 +409171,9 @@
         "valueRange": {
           "min": 0,
           "max": 1,
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Direct object writes to Zone.0.BlockZone with -1, 0, 1, and 2 read back 1, 0, 1, and 1."
+          "notes": "Direct object writes to Zone.0.BlockZone with -1, 0, 1, and 2 read back 1, 0, 1, and 1, so out-of-domain nonzero values set ON."
         },
         "acceptedValues": [
           {
@@ -418249,7 +418249,7 @@
       "property": "Active",
       "kind": "object",
       "confidence": "observed",
-      "searchText": "zonealias active zone alias user configured name n defined placeholder replace variable projection boolean unknown setprop writes to accepted 0 and 1 out of range probes read back 2 observed runtime command write readback on 2026 05 14 issue #360 confirmed accepts values with mixed behavior baseline restore showfile resolves through the loaded show target evidence used literal population dependent populated slot location aware off clear set classification access mode flag state tested fresh beyond proved persistent readbacks probe path direct assignment samples are recorded in data pangoscript object tree 487 json existing value metadata was only choose",
+      "searchText": "zonealias active zone alias user configured name n defined placeholder replace variable projection boolean mixed setprop writes to accepted 0 and 1 out of range probes read back 2 so domain nonzero values set on observed runtime command write readback 2026 05 14 issue #360 confirmed accepts with behavior baseline restore showfile resolves through the loaded show target evidence used literal population dependent populated slot location aware off clear classification access mode flag state tested fresh beyond proved persistent readbacks probe path direct assignment samples are recorded in data pangoscript object tree 487 json existing value metadata was only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -418268,9 +418268,9 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetProp writes to ZoneAlias.Active accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+          "notes": "SetProp writes to ZoneAlias.Active accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, and 2->1, so out-of-domain nonzero values set ON."
         },
         "acceptedValues": [
           {
@@ -418453,7 +418453,7 @@
       "property": "BlockZone",
       "kind": "object",
       "confidence": "observed",
-      "searchText": "zonealias blockzone zone alias block user configured name n defined placeholder replace variable projection boolean unknown setprop writes to accepted 0 and 1 out of range probes read back 2 observed runtime command write readback on 2026 05 14 issue #360 confirmed accepts values with mixed behavior baseline restore showfile resolves through the loaded show target evidence used literal population dependent populated slot location aware off clear set classification access mode flag state tested fresh beyond proved persistent readbacks probe path direct assignment samples are recorded in data pangoscript object tree 487 json existing value metadata was only choose",
+      "searchText": "zonealias blockzone zone alias block user configured name n defined placeholder replace variable projection boolean mixed setprop writes to accepted 0 and 1 out of range probes read back 2 so domain nonzero values set on observed runtime command write readback 2026 05 14 issue #360 confirmed accepts with behavior baseline restore showfile resolves through the loaded show target evidence used literal population dependent populated slot location aware off clear classification access mode flag state tested fresh beyond proved persistent readbacks probe path direct assignment samples are recorded in data pangoscript object tree 487 json existing value metadata was only choose",
       "variantCount": 1,
       "variants": [
         {
@@ -418472,9 +418472,9 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetProp writes to ZoneAlias.BlockZone accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, 2->1."
+          "notes": "SetProp writes to ZoneAlias.BlockZone accepted 0 and 1. Out-of-range probes read back -1->1, 0->0, 1->1, and 2->1, so out-of-domain nonzero values set ON."
         },
         "acceptedValues": [
           {
