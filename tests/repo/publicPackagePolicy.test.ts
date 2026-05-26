@@ -196,6 +196,40 @@ describe("public package path policy", () => {
 
     expect(issues).toEqual([]);
   });
+
+  it("keeps manual install examples aligned with the package version", () => {
+    const currentVersion = JSON.parse(readFile("package.json")) as { version: string };
+    const manualMarkdown = readFile("docs/manual.md");
+    const manualHtml = readFile("docs/manual.html");
+    const mcpTarballExample = `pangolint-mcp-${currentVersion.version}.tgz`;
+
+    expect(manualHtml).toContain(`PangoLint v${currentVersion.version}`);
+    expect(manualHtml).toContain(`PangoLint &nbsp;·&nbsp; v${currentVersion.version}`);
+    expect(manualMarkdown).toContain(mcpTarballExample);
+    expect(manualHtml).toContain(mcpTarballExample);
+
+    const docsWithMcpTarballExamples = [
+      "docs/manual.md",
+      "docs/manual.html",
+      "docs/runbooks/agent-integration.md",
+      "mcp/README.md",
+    ];
+    const staleMcpTarballExamples = docsWithMcpTarballExamples.flatMap((relativePath) =>
+      (readFile(relativePath).match(/pangolint-mcp-\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?\.tgz/g) ?? [])
+        .filter((match) => match !== mcpTarballExample)
+        .map((match) => `${relativePath}: ${match}`),
+    );
+    expect(staleMcpTarballExamples).toEqual([]);
+
+    const smokeTestDocs = ["docs/runbooks/vsix-smoke-test.md", "docs/runbooks/vsix-smoke-test.BeyondCode"];
+    const fixedVsixExamples = smokeTestDocs.flatMap((relativePath) =>
+      (readFile(relativePath).match(/pangolint-\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?\.vsix/g) ?? []).map(
+        (match) => `${relativePath}: ${match}`,
+      ),
+    );
+    expect(fixedVsixExamples).toEqual([]);
+    expect(readFile("docs/runbooks/vsix-smoke-test.md")).not.toMatch(/\bPangoLint \d+\.\d+\.\d+\b/);
+  });
 });
 
 function readFile(relativePath: string): string {
