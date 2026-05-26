@@ -365,6 +365,14 @@ describe("tracked BEYOND control reference data", () => {
       ["Grid2.GetColCount", { min: 1, max: 16, unit: "columns", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
       ["Grid2.GetRowCount", { min: 1, max: 16, unit: "rows", boundaryBehavior: "mixed", evidenceLevel: "observed" }],
     ]);
+    const expectedBehavior = new Map([
+      ["Grid.Count", { writeTestStatus: "write-readback-tested" }],
+      ["Grid.GetColCount", { writeTestStatus: "command-readback-tested" }],
+      ["Grid.GetRowCount", { writeTestStatus: "command-readback-tested" }],
+      ["Grid2.Count", { writeTestStatus: "write-readback-tested" }],
+      ["Grid2.GetColCount", { writeTestStatus: "command-readback-tested" }],
+      ["Grid2.GetRowCount", { writeTestStatus: "command-readback-tested" }],
+    ]);
     const setGridSize = commands.find((command) => command.commandName === "SetGridSize");
     const setGridSizeForm = setGridSize?.forms.find((form) => form.signature === "SetGridSize <columns>, <rows>");
 
@@ -393,6 +401,28 @@ describe("tracked BEYOND control reference data", () => {
 
       expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(expectedValueRange);
       expect(mcpRow?.value?.range).toMatchObject(expectedValueRange);
+      expect(crosswalkRow?.objectIndexEntries[0]?.classification).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+        ...expectedBehavior.get(propertyPath),
+      });
+      expect(mcpRow?.behavior).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "state-value",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+        ...expectedBehavior.get(propertyPath),
+      });
+    }
+
+    for (const propertyPath of ["Grid2.GetColCount", "Grid2.GetRowCount"]) {
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+
+      expect(crosswalkRow?.rangeSeeds?.objectPropertyRanges?.[0]?.valueRange).toMatchObject(
+        expectedObjectValueRanges.get(propertyPath) ?? {},
+      );
     }
   });
 });
@@ -440,6 +470,15 @@ interface PropertyControlRow {
     };
   }>;
   rangeSeeds?: {
+    objectPropertyRanges?: Array<{
+      valueRange?: {
+        min?: number;
+        max?: number;
+        unit?: string;
+        boundaryBehavior?: string;
+        evidenceLevel?: string;
+      };
+    }>;
     commandParameterRanges?: CommandParameterRange[];
   };
 }
@@ -461,6 +500,9 @@ interface McpControlReferenceFile {
     behavior?: {
       accessMode: string;
       behaviorKind: string;
+      writeTestStatus?: string;
+      readbackStatus?: string;
+      evidenceLevel?: string;
     };
     pangoScript: {
       parameterRanges: CommandParameterRange[];
