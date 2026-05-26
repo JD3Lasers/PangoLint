@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(21);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(13);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 21],
+      ["unknown-boundary-behavior", "warning", "warn", 13],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,9 +52,9 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(21);
-    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 10 });
-    expect(unknownBoundary?.roots.at(1)).toEqual({ root: "FB4_XXXXX", count: 10 });
+    expect(unknownBoundary?.count).toBe(13);
+    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 6 });
+    expect(unknownBoundary?.roots.at(1)).toEqual({ root: "FB4_XXXXX", count: 6 });
     expect(unknownBoundary?.roots.at(2)).toEqual({ root: "Beam", count: 1 });
     expect(unknownBoundary?.roots).toHaveLength(3);
     expect(unknownBoundary?.roots.some((row) => row.root === "Gamepad")).toBe(false);
@@ -70,7 +70,8 @@ describe("final Object Tree data quality audit", () => {
     expect(unknownBoundary?.roots.some((row) => row.root === "ZoneAlias")).toBe(false);
     expect(unknownBoundary?.examples).not.toContain("Beam.N.ColorPalette");
     expect(unknownBoundary?.examples).toContain("Beam.N.RotoZ");
-    expect(unknownBoundary?.examples).toContain("FB3_XXXXX.Connected");
+    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.Connected");
+    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.InvertX");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
     expect(report.spotCheckPlan.map((row) => row.path)).toEqual(
@@ -95,7 +96,7 @@ describe("final Object Tree data quality audit", () => {
       }),
     );
 
-    expect(report.boundaryProbePlan.slice(0, 4)).toEqual([
+    expect(report.boundaryProbePlan).toEqual([
       {
         root: "FB3_XXXXX",
         accessMode: "read-write",
@@ -129,24 +130,14 @@ describe("final Object Tree data quality audit", () => {
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
       },
       {
-        root: "FB3_XXXXX",
+        root: "Beam",
         accessMode: "read-write",
-        behaviorKind: "flag-state",
-        valueType: "boolean",
-        count: 3,
-        examples: ["FB3_XXXXX.InvertX", "FB3_XXXXX.InvertY", "FB3_XXXXX.SwapXY"],
+        behaviorKind: "state-value",
+        valueType: "number",
+        count: 1,
+        examples: ["Beam.N.RotoZ"],
         nextProbe:
-          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
-      },
-      {
-        root: "FB4_XXXXX",
-        accessMode: "read-write",
-        behaviorKind: "flag-state",
-        valueType: "boolean",
-        count: 3,
-        examples: ["FB4_XXXXX.InvertX", "FB4_XXXXX.InvertY", "FB4_XXXXX.SwapXY"],
-        nextProbe:
-          "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state.",
+          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
       },
     ]);
   });

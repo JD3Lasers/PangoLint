@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 21,
+    "unknownBoundaryBehaviorRows": 13,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,20 +183,20 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 21,
+      "count": 13,
       "examples": [
         "Beam.N.RotoZ",
-        "FB3_XXXXX.Connected",
-        "FB3_XXXXX.InvertX",
-        "FB3_XXXXX.InvertY",
         "FB3_XXXXX.PositionX",
         "FB3_XXXXX.PositionY",
         "FB3_XXXXX.PostRotation",
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
         "FB3_XXXXX.SizeY",
-        "FB3_XXXXX.SwapXY",
-        "FB4_XXXXX.Connected"
+        "FB4_XXXXX.PositionX",
+        "FB4_XXXXX.PositionY",
+        "FB4_XXXXX.PostRotation",
+        "FB4_XXXXX.PreRotation",
+        "FB4_XXXXX.SizeX"
       ],
       "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
@@ -265,15 +265,15 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 21,
+      "count": 13,
       "roots": [
         {
           "root": "FB3_XXXXX",
-          "count": 10
+          "count": 6
         },
         {
           "root": "FB4_XXXXX",
-          "count": 10
+          "count": 6
         },
         {
           "root": "Beam",
@@ -282,17 +282,17 @@
       ],
       "examples": [
         "Beam.N.RotoZ",
-        "FB3_XXXXX.Connected",
-        "FB3_XXXXX.InvertX",
-        "FB3_XXXXX.InvertY",
         "FB3_XXXXX.PositionX",
         "FB3_XXXXX.PositionY",
         "FB3_XXXXX.PostRotation",
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
         "FB3_XXXXX.SizeY",
-        "FB3_XXXXX.SwapXY",
-        "FB4_XXXXX.Connected"
+        "FB4_XXXXX.PositionX",
+        "FB4_XXXXX.PositionY",
+        "FB4_XXXXX.PostRotation",
+        "FB4_XXXXX.PreRotation",
+        "FB4_XXXXX.SizeX"
       ],
       "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
@@ -803,32 +803,6 @@
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },
     {
-      "root": "FB3_XXXXX",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 3,
-      "examples": [
-        "FB3_XXXXX.InvertX",
-        "FB3_XXXXX.InvertY",
-        "FB3_XXXXX.SwapXY"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "FB4_XXXXX",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 3,
-      "examples": [
-        "FB4_XXXXX.InvertX",
-        "FB4_XXXXX.InvertY",
-        "FB4_XXXXX.SwapXY"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
       "root": "Beam",
       "accessMode": "read-write",
       "behaviorKind": "state-value",
@@ -838,28 +812,6 @@
         "Beam.N.RotoZ"
       ],
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "FB3_XXXXX",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "boolean",
-      "count": 1,
-      "examples": [
-        "FB3_XXXXX.Connected"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "FB4_XXXXX",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "boolean",
-      "count": 1,
-      "examples": [
-        "FB4_XXXXX.Connected"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
     }
   ]
 }
