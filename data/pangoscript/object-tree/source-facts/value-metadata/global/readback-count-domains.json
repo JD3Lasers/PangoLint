@@ -28,9 +28,9 @@
         "min": 256,
         "max": 256,
         "unit": "color channels",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "no-op",
         "evidenceLevel": "observed",
-        "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0."
+        "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0. Direct SetProp and assignment writes left ColorChannel.Count at the readback baseline."
       },
       "acceptedValues": [
         {
@@ -54,9 +54,8 @@
         "min": 1024,
         "max": 1024,
         "unit": "locations",
-        "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0."
+        "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0. Direct Object Tree boundary writes are not applicable to this count status domain."
       },
       "acceptedValues": [
         {
@@ -80,9 +79,8 @@
         "min": 10,
         "max": 10,
         "unit": "touch points",
-        "boundaryBehavior": "unknown",
         "evidenceLevel": "observed",
-        "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass."
+        "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass. Direct Object Tree boundary writes are not applicable to this count status domain."
       },
       "acceptedValues": [
         {

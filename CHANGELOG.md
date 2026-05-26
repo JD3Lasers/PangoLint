@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.56] - 2026-05-26
+
+### Added
+
+- Resolve non-writable status and count boundary metadata using checked-in
+  no-op write evidence and status-domain readback evidence.
+
 ## [0.7.55] - 2026-05-26
 
 ### Added

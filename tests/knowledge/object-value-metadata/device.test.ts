@@ -113,7 +113,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       entry.valueMetadata?.notes?.startsWith("Command-derived seed"),
     );
 
-    expect(commandDerived).toHaveLength(54);
+    expect(commandDerived).toHaveLength(53);
     for (const entry of commandDerived) {
       expect(byPath.has(entry.path), entry.path).toBe(true);
       assertObjectPropertyValueMetadata(entry.valueMetadata as ObjectPropertyValueMetadata);
@@ -128,6 +128,7 @@ describe("checked-in Object Tree device value metadata data", () => {
     expect(byPath.get("Grid.Count")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("Grid.GetColCount")?.valueMetadata?.notes).not.toContain("Command-derived seed");
     expect(byPath.get("Grid.GetRowCount")?.valueMetadata?.notes).not.toContain("Command-derived seed");
+    expect(byPath.get("PlayListState.Position")?.valueMetadata?.notes).not.toContain("Command-derived seed");
 
     expect(byPath.get("Master.Brightness")?.valueMetadata).toMatchObject({
       valueType: "number",
@@ -1433,9 +1434,9 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: 0,
           max: 1,
           unit: "boolean",
-          boundaryBehavior: "unknown",
         },
       });
+      expect(entry?.valueMetadata?.valueRange).not.toHaveProperty("boundaryBehavior");
     }
 
     expect(String(byPath.get("Status.LaserEnabled")?.valueMetadata?.notes)).toContain("DisableLaserOutput");
@@ -1477,7 +1478,6 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: 0,
         max: 1,
         unit: "boolean",
-        boundaryBehavior: "unknown",
         evidenceLevel: "observed",
       },
       evidenceLevel: "observed",
@@ -1486,6 +1486,7 @@ describe("checked-in Object Tree device value metadata data", () => {
         populationDependent: true,
       },
     });
+    expect(metadata?.valueRange).not.toHaveProperty("boundaryBehavior");
     expect(metadata?.notes).toContain("2026-05-14 issue #298");
 
     for (const path of ["Projector.N.Serial"]) {
@@ -2210,10 +2211,10 @@ describe("checked-in Object Tree device value metadata data", () => {
       },
     });
 
-    for (const [path, fixedCount, unit] of [
-      ["ColorChannel.Count", 256, "color channels"],
-      ["Location.Count", 1024, "locations"],
-      ["TouchPoints.Count", 10, "touch points"],
+    for (const [path, fixedCount, unit, boundaryBehavior] of [
+      ["ColorChannel.Count", 256, "color channels", "no-op"],
+      ["Location.Count", 1024, "locations", undefined],
+      ["TouchPoints.Count", 10, "touch points", undefined],
     ] as const) {
       const metadata = byPath.get(path)?.valueMetadata;
       assertObjectPropertyValueMetadata(metadata as ObjectPropertyValueMetadata);
@@ -2224,10 +2225,14 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: fixedCount,
           max: fixedCount,
           unit,
-          boundaryBehavior: "unknown",
           evidenceLevel: "observed",
         },
       });
+      if (boundaryBehavior) {
+        expect(metadata?.valueRange?.boundaryBehavior).toBe(boundaryBehavior);
+      } else {
+        expect(metadata?.valueRange).not.toHaveProperty("boundaryBehavior");
+      }
       expect(hasManualReadyValueMetadata(metadata as ObjectPropertyValueMetadata)).toBe(true);
     }
 
@@ -2766,7 +2771,20 @@ describe("checked-in Object Tree device value metadata data", () => {
 
     const position = byPath.get("PlayListState.Position")?.valueMetadata;
     assertObjectPropertyValueMetadata(position as ObjectPropertyValueMetadata);
-    expect(hasManualReadyValueMetadata(position as ObjectPropertyValueMetadata)).toBe(false);
+    expect(position).toMatchObject({
+      valueType: "number",
+      valueRange: {
+        min: 0,
+        dynamicMax: {
+          expression: "observed command-settable playlist position",
+          sourcePaths: ["PlayListState.Duration"],
+        },
+        unit: "seconds",
+        boundaryBehavior: "no-op",
+        evidenceLevel: "observed",
+      },
+    });
+    expect(hasManualReadyValueMetadata(position as ObjectPropertyValueMetadata)).toBe(true);
 
     for (const path of ["DmxIO.DoBeep", "DmxIO.MuteInput", "DmxIO.MuteOutput", "PlayListState.Duration"]) {
       expect(byPath.get(path)?.valueMetadata, path).toBeUndefined();
@@ -2793,7 +2811,7 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: 1,
           max: 6,
           unit: "click mode",
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "no-op",
           evidenceLevel: "observed",
         },
         acceptedValues: [
