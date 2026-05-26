@@ -28,9 +28,9 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "degrees",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback accepted fractional values from -1000000 through 1000000, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed values just outside -1000000..1000000 pass through, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
       "locationContext": {
@@ -39,7 +39,7 @@
         "indexBasis": "Beam.N uses the Beam index. The probe used Beam.0.",
         "notes": "Runtime evidence used Beam.0 and restored the observed baseline after each sampled write."
       },
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed Beam.N.RotoZ accepts the shipped fractional span on Beam.0."
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed Beam.N.RotoZ accepts the shipped fractional span with mixed boundary behavior on Beam.0."
     }
   ]
 }

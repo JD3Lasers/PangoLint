@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 13,
+    "unknownBoundaryBehaviorRows": 6,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,20 +183,14 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 13,
+      "count": 6,
       "examples": [
-        "Beam.N.RotoZ",
-        "FB3_XXXXX.PositionX",
-        "FB3_XXXXX.PositionY",
-        "FB3_XXXXX.PostRotation",
-        "FB3_XXXXX.PreRotation",
-        "FB3_XXXXX.SizeX",
-        "FB3_XXXXX.SizeY",
         "FB4_XXXXX.PositionX",
         "FB4_XXXXX.PositionY",
         "FB4_XXXXX.PostRotation",
         "FB4_XXXXX.PreRotation",
-        "FB4_XXXXX.SizeX"
+        "FB4_XXXXX.SizeX",
+        "FB4_XXXXX.SizeY"
       ],
       "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
@@ -265,34 +259,20 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 13,
+      "count": 6,
       "roots": [
-        {
-          "root": "FB3_XXXXX",
-          "count": 6
-        },
         {
           "root": "FB4_XXXXX",
           "count": 6
-        },
-        {
-          "root": "Beam",
-          "count": 1
         }
       ],
       "examples": [
-        "Beam.N.RotoZ",
-        "FB3_XXXXX.PositionX",
-        "FB3_XXXXX.PositionY",
-        "FB3_XXXXX.PostRotation",
-        "FB3_XXXXX.PreRotation",
-        "FB3_XXXXX.SizeX",
-        "FB3_XXXXX.SizeY",
         "FB4_XXXXX.PositionX",
         "FB4_XXXXX.PositionY",
         "FB4_XXXXX.PostRotation",
         "FB4_XXXXX.PreRotation",
-        "FB4_XXXXX.SizeX"
+        "FB4_XXXXX.SizeX",
+        "FB4_XXXXX.SizeY"
       ],
       "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
@@ -773,21 +753,6 @@
   ],
   "boundaryProbePlan": [
     {
-      "root": "FB3_XXXXX",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 6,
-      "examples": [
-        "FB3_XXXXX.PositionX",
-        "FB3_XXXXX.PositionY",
-        "FB3_XXXXX.PostRotation",
-        "FB3_XXXXX.PreRotation",
-        "FB3_XXXXX.SizeX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
       "root": "FB4_XXXXX",
       "accessMode": "read-write",
       "behaviorKind": "state-value",
@@ -799,17 +764,6 @@
         "FB4_XXXXX.PostRotation",
         "FB4_XXXXX.PreRotation",
         "FB4_XXXXX.SizeX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    },
-    {
-      "root": "Beam",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 1,
-      "examples": [
-        "Beam.N.RotoZ"
       ],
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     }

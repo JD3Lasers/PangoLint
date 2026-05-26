@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.59] - 2026-05-26
+
+### Added
+
+- Resolve Beam and FB3 geometry boundary behavior using Talk TCP Echo 2
+  `SetProp`, `OscOutTTS`, and `WriteLn` readbacks, with FB4 rows deferred
+  until an FB4 Object Tree root is available.
+
 ## [0.7.58] - 2026-05-26
 
 ### Added
@@ -554,7 +562,14 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.52...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.59...HEAD
+[0.7.59]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.58...v0.7.59
+[0.7.58]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.57...v0.7.58
+[0.7.57]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.56...v0.7.57
+[0.7.56]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.55...v0.7.56
+[0.7.55]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.54...v0.7.55
+[0.7.54]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.53...v0.7.54
+[0.7.53]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.52...v0.7.53
 [0.7.52]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.51...v0.7.52
 [0.7.51]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.50...v0.7.51
 [0.7.50]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.49...v0.7.50

@@ -11,6 +11,38 @@ import {
   readObjectPropertyRangeOverlayFiles,
 } from "../readKnowledgeTestData";
 
+interface ObjectRangeEvidenceFile {
+  runtime: {
+    notes: string;
+  };
+  entries: ObjectRangeEvidenceEntry[];
+}
+
+interface ObjectRangeEvidenceEntry {
+  objectPath: string;
+  probePath: string;
+  shipsMetadata: boolean;
+  boundaryBehavior: string | null;
+  evidenceLevel?: string;
+  valueType?: string;
+  baseline?: {
+    value: string | number | boolean | null;
+    typeTag: string;
+  };
+  valueRange?: {
+    min: number;
+    max: number;
+    unit: string;
+  };
+  testedValues: Array<{
+    input?: string | number | boolean;
+    command?: string;
+    readback: string | number | boolean | null;
+    behavior: string;
+  }>;
+  deferReason?: string;
+}
+
 describe("checked-in Object Tree device value metadata data", () => {
   it("keeps object-property range overlay entries structurally valid", () => {
     const overlayFiles = readObjectPropertyRangeOverlayFiles();
@@ -819,37 +851,16 @@ describe("checked-in Object Tree device value metadata data", () => {
     const readbackOverlay = readJson<{
       entries: Array<ObjectPropertyReadbackMetadata & { path: string }>;
     }>("object-property-readbacks/hardware/fb-projector-equivalent-readbacks.json");
-    const fbEvidence = readJson<{
-      runtime: {
-        notes: string;
-      };
-      entries: Array<{
-        objectPath: string;
-        probePath: string;
-        shipsMetadata: boolean;
-        boundaryBehavior: string;
-        valueType: string;
-        baseline: {
-          value: string | number | boolean | null;
-          typeTag: string;
-        };
-        valueRange?: {
-          min: number;
-          max: number;
-          unit: string;
-        };
-        testedValues: Array<{
-          input?: string | number | boolean;
-          command?: string;
-          readback: string | number | boolean | null;
-          behavior: string;
-        }>;
-        deferReason?: string;
-      }>;
-    }>("object-range-evidence/issue-298-fb-projector-equivalent-controls.json");
+    const fbEvidence = readJson<ObjectRangeEvidenceFile>(
+      "object-range-evidence/issue-298-fb-projector-equivalent-controls.json",
+    );
+    const issue149GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
+      "object-range-evidence/issue-149-geometry-boundary-probes.json",
+    );
 
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const roots = ["FB3_XXXXX", "FB4_XXXXX"];
+    const fbGeometryProperties = new Set(["PositionX", "PositionY", "PostRotation", "PreRotation", "SizeX", "SizeY"]);
     const expectedValueEntries = new Map<
       string,
       { valueType: string; unit: string; min: number; max: number; boundaryBehavior: string }
@@ -908,7 +919,11 @@ describe("checked-in Object Tree device value metadata data", () => {
         ["SizeX", { valueType: "number", unit: "percent", min: -1000000, max: 1000000, boundaryBehavior: "unknown" }],
         ["SizeY", { valueType: "number", unit: "percent", min: -1000000, max: 1000000, boundaryBehavior: "unknown" }],
       ] as const) {
-        expectedValueEntries.set(`${root}.${property}`, expected);
+        expectedValueEntries.set(`${root}.${property}`, {
+          ...expected,
+          boundaryBehavior:
+            root === "FB3_XXXXX" && fbGeometryProperties.has(property) ? "mixed" : expected.boundaryBehavior,
+        });
       }
       for (const property of [
         "Optimisation.AngleRepeats",
@@ -938,7 +953,15 @@ describe("checked-in Object Tree device value metadata data", () => {
         expectedReadbackOnly.add(`${root}.${property}`);
       }
     }
-    const evidenceByPath = new Map(fbEvidence.entries.map((entry) => [entry.objectPath, entry]));
+    const evidenceByPath = new Map<string, ObjectRangeEvidenceEntry>(
+      fbEvidence.entries.map((entry) => [entry.objectPath, entry]),
+    );
+    for (const entry of issue149GeometryEvidence.entries) {
+      const propertyName = entry.objectPath.slice(entry.objectPath.lastIndexOf(".") + 1);
+      if (entry.objectPath.startsWith("FB3_XXXXX.") && fbGeometryProperties.has(propertyName)) {
+        evidenceByPath.set(entry.objectPath, entry);
+      }
+    }
 
     expect(fbEvidence.runtime.notes).toContain("Object Tree surfaces match Projector.N property-for-property");
     expect(new Set(rangeOverlay.entries.map((entry) => entry.path))).toEqual(new Set(expectedValueEntries.keys()));
@@ -983,10 +1006,10 @@ describe("checked-in Object Tree device value metadata data", () => {
           unit: expected?.unit,
         },
       });
-      expect(evidence?.testedValues).toContainEqual(
-        expect.objectContaining({ input: 120000, readback: 120000, behavior: "pass-through" }),
-      );
       if (expected?.boundaryBehavior === "wrap") {
+        expect(evidence?.testedValues).toContainEqual(
+          expect.objectContaining({ input: 120000, readback: 120000, behavior: "pass-through" }),
+        );
         expect(metadata.valueRange?.notes, metadata.path).toContain("UI maximum");
         expect(evidence?.testedValues).toEqual(
           expect.arrayContaining([
@@ -996,7 +1019,21 @@ describe("checked-in Object Tree device value metadata data", () => {
             expect.objectContaining({ input: 2147483648, readback: -2147483648, behavior: "wrap" }),
           ]),
         );
+      } else if (expected?.boundaryBehavior === "mixed") {
+        expect(metadata.valueRange?.notes, metadata.path).toContain("Talk TCP Echo 2");
+        expect(evidence?.testedValues).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({ input: -1000001, readback: -1000001, behavior: "pass-through" }),
+            expect.objectContaining({ input: 1000001, readback: 1000001, behavior: "pass-through" }),
+            expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
+            expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "pass-through" }),
+            expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
+          ]),
+        );
       } else {
+        expect(evidence?.testedValues).toContainEqual(
+          expect.objectContaining({ input: 120000, readback: 120000, behavior: "pass-through" }),
+        );
         expect(evidence?.testedValues).toEqual(
           expect.arrayContaining([
             expect.objectContaining({ input: -1000000, readback: -1000000, behavior: "pass-through" }),
@@ -1297,24 +1334,19 @@ describe("checked-in Object Tree device value metadata data", () => {
     const readbackOverlay = readJson<{
       entries: Array<ObjectPropertyReadbackMetadata & { path: string }>;
     }>("object-property-readbacks/hardware/beam-leftover-readbacks.json");
-    const evidence = readJson<{
-      entries: Array<{
-        objectPath: string;
-        probePath: string;
-        shipsMetadata: boolean;
-        boundaryBehavior: string;
-        valueType: string;
-        testedValues: Array<{
-          input?: string | number | boolean;
-          readback: string | number | boolean | null;
-          behavior: string;
-        }>;
-        deferReason?: string;
-      }>;
-    }>("object-range-evidence/issue-298-beam-leftovers.json");
+    const evidence = readJson<ObjectRangeEvidenceFile>("object-range-evidence/issue-298-beam-leftovers.json");
+    const issue149GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
+      "object-range-evidence/issue-149-geometry-boundary-probes.json",
+    );
 
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
-    const evidenceByPath = new Map(evidence.entries.map((entry) => [entry.objectPath, entry]));
+    const evidenceByPath = new Map<string, ObjectRangeEvidenceEntry>(
+      evidence.entries.map((entry) => [entry.objectPath, entry]),
+    );
+    const rotoZEvidence = issue149GeometryEvidence.entries.find((entry) => entry.objectPath === "Beam.N.RotoZ");
+    if (rotoZEvidence) {
+      evidenceByPath.set(rotoZEvidence.objectPath, rotoZEvidence);
+    }
     const expectedReadbackRows = new Set(["Beam.N.IsGroup", "Beam.N.Name"]);
 
     expect(new Set(rangeOverlay.entries.map((entry) => entry.path))).toEqual(new Set(["Beam.N.Power", "Beam.N.RotoZ"]));
@@ -1350,19 +1382,25 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: -1000000,
         max: 1000000,
         unit: "degrees",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
       },
       locationContext: {
         kind: "indexed-root",
         populationDependent: true,
       },
     });
+    expect(evidenceByPath.get("Beam.N.RotoZ")).toMatchObject({
+      shipsMetadata: true,
+      boundaryBehavior: "mixed",
+      valueType: "number",
+    });
     expect(evidenceByPath.get("Beam.N.RotoZ")?.testedValues).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ input: -1.5, readback: -1.5, behavior: "pass-through" }),
-        expect.objectContaining({ input: 1.5, readback: 1.5, behavior: "pass-through" }),
-        expect.objectContaining({ input: 1000000, readback: 1000000, behavior: "pass-through" }),
-        expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "unknown" }),
+        expect.objectContaining({ input: -1000001, readback: -1000001, behavior: "pass-through" }),
+        expect.objectContaining({ input: 1000001, readback: 1000001, behavior: "pass-through" }),
+        expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
+        expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "pass-through" }),
+        expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
       ]),
     );
 

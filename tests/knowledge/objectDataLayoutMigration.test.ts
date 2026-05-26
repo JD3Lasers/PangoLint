@@ -77,6 +77,7 @@ describe("checked-in Object Tree data layout migration", () => {
       "data/pangoscript/object-tree/evidence/value/issue-131-ws-integer-boundary-behavior.json",
       "data/pangoscript/object-tree/evidence/value/issue-133-projector-numeric-boundary-behavior.json",
       "data/pangoscript/object-tree/evidence/value/issue-135-grid-integer-boundary-behavior.json",
+      "data/pangoscript/object-tree/evidence/value/issue-149-geometry-boundary-probes.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-beam-leftovers.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-fb-hardware-controls.json",
       "data/pangoscript/object-tree/evidence/value/issue-298-status-memory-and-readbacks.json",
