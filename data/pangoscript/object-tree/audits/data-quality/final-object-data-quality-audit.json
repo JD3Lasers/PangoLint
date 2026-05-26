@@ -3,7 +3,9 @@
   "generatedAt": "2026-05-17T00:00:00.000Z",
   "sourceFiles": {
     "objectPropertyIndex": "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
-    "controlCrosswalkSummary": "data/pangoscript/control-reference/control-crosswalk/summary.json"
+    "controlCrosswalkSummary": "data/pangoscript/control-reference/control-crosswalk/summary.json",
+    "mcpControlReference": "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
+    "behaviorMetadata": "data/pangoscript/object-tree/source-facts/behavior-metadata/"
   },
   "summary": {
     "totalEntries": 5375,
@@ -19,7 +21,14 @@
     "readMostlyRowsWithoutValueMetadata": 30,
     "unknownBoundaryBehaviorRows": 6,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
-    "crosswalkPropertiesMissingBehaviorClassification": 0
+    "crosswalkPropertiesMissingBehaviorClassification": 0,
+    "behaviorSourceFactEntries": 5375,
+    "behaviorSourceFactDuplicateRows": 0,
+    "behaviorSourceFactsMissingIndexRows": 0,
+    "sharedControlReferenceObjectRows": 5030,
+    "controlReferenceBehaviorMismatches": 0,
+    "metadataMutualExclusionViolations": 0,
+    "writeTestedRowsMissingOutputMetadata": 0
   },
   "behaviorCounts": {
     "accessMode": [
@@ -153,6 +162,46 @@
       "count": 0,
       "examples": [],
       "message": "Control-reference crosswalk behavior classification counts must match the Object Tree index."
+    },
+    {
+      "id": "behavior-source-fact-duplicates",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Behavior source facts must not define the same Object Tree path more than once."
+    },
+    {
+      "id": "behavior-source-facts-reach-index",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Behavior source facts must reach the generated Object Tree index with matching classification fields."
+    },
+    {
+      "id": "mcp-control-behavior-parity",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Shared Object Tree rows in the MCP control reference must carry the same behavior classification as the runtime index."
+    },
+    {
+      "id": "metadata-kind-exclusive",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Current Object Tree entries must not mix value metadata and readback metadata on the same row."
+    },
+    {
+      "id": "write-tested-has-output-metadata",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Rows with write or command readback evidence must expose value metadata or readback metadata."
     },
     {
       "id": "unverified-unknown-readback-only",
