@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 38,
+    "unknownBoundaryBehaviorRows": 36,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 38,
+      "count": 36,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 38,
+      "count": 36,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -277,10 +277,6 @@
         },
         {
           "root": "Beam",
-          "count": 2
-        },
-        {
-          "root": "Gamepad",
           "count": 2
         },
         {
@@ -871,18 +867,6 @@
         "FB4_XXXXX.SwapXY"
       ],
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "Gamepad",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "integer",
-      "count": 2,
-      "examples": [
-        "Gamepad.Buttons",
-        "Gamepad.POV"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },
     {
       "root": "Status",

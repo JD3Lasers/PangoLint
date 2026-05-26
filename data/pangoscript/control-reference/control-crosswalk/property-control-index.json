@@ -76420,14 +76420,17 @@
             "min": -2147483648,
             "max": 2147483647,
             "unit": "signed button bitmask",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "SetProp writes to Gamepad.Buttons confirmed signed 32-bit accepted readbacks. Out-of-range samples below -2147483648 and above 2147483647 read back 0, so the reset behavior is mixed rather than clamp, reject, wrap, or no-op."
           },
           "evidenceLevel": "observed",
+          "notes": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.Buttons at Gamepad.Buttons uses a signed 32-bit button bitmask range with baseline restore.",
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Gamepad is a BEYOND input-device object root."
+            "indexBasis": "Gamepad is a BEYOND input-device object root.",
+            "notes": "The runtime probe used Gamepad.Buttons in a local BEYOND setup with no laser connected."
           }
         },
         "classification": {
@@ -76435,7 +76438,8 @@
           "behaviorKind": "state-value",
           "writeTestStatus": "write-readback-tested",
           "readbackStatus": "readback-tested",
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "notes": "Observed value metadata for Gamepad.Buttons records runtime write/readback proof. Value domain evidence remains in value metadata."
         }
       }
     ],
@@ -76476,14 +76480,17 @@
             "min": -2147483648,
             "max": 2147483647,
             "unit": "signed POV value",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "SetProp writes to Gamepad.POV confirmed signed 32-bit accepted readbacks. Out-of-range samples below -2147483648 and above 2147483647 read back 0, so the reset behavior is mixed rather than clamp, reject, wrap, or no-op."
           },
           "evidenceLevel": "observed",
+          "notes": "Runtime object write/readback on 2026-05-14 issue #299 confirmed Gamepad.POV at Gamepad.POV uses a signed 32-bit POV range with baseline restore.",
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Gamepad is a BEYOND input-device object root."
+            "indexBasis": "Gamepad is a BEYOND input-device object root.",
+            "notes": "The runtime probe used Gamepad.POV in a local BEYOND setup with no laser connected."
           }
         },
         "classification": {
@@ -76491,7 +76498,8 @@
           "behaviorKind": "state-value",
           "writeTestStatus": "write-readback-tested",
           "readbackStatus": "readback-tested",
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "notes": "Observed value metadata for Gamepad.POV records runtime write/readback proof. Value domain evidence remains in value metadata."
         }
       }
     ],
