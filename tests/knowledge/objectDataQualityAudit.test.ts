@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(22);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(21);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 22],
+      ["unknown-boundary-behavior", "warning", "warn", 21],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,8 +52,11 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(22);
+    expect(unknownBoundary?.count).toBe(21);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 10 });
+    expect(unknownBoundary?.roots.at(1)).toEqual({ root: "FB4_XXXXX", count: 10 });
+    expect(unknownBoundary?.roots.at(2)).toEqual({ root: "Beam", count: 1 });
+    expect(unknownBoundary?.roots).toHaveLength(3);
     expect(unknownBoundary?.roots.some((row) => row.root === "Gamepad")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "ColorChannel")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "Grid")).toBe(false);
@@ -65,8 +68,9 @@ describe("final Object Tree data quality audit", () => {
     expect(unknownBoundary?.roots.some((row) => row.root === "TouchPoints")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "Zone")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "ZoneAlias")).toBe(false);
-    expect(unknownBoundary?.roots).toContainEqual({ root: "Beam", count: 2 });
-    expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
+    expect(unknownBoundary?.examples).not.toContain("Beam.N.ColorPalette");
+    expect(unknownBoundary?.examples).toContain("Beam.N.RotoZ");
+    expect(unknownBoundary?.examples).toContain("FB3_XXXXX.Connected");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
     expect(report.spotCheckPlan.map((row) => row.path)).toEqual(

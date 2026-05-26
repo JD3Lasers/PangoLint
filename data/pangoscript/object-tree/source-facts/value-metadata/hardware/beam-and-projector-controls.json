@@ -129,13 +129,13 @@
       "valueRange": {
         "min": 0,
         "max": 4,
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to Beam.0.ColorPalette confirmed 0..4 readbacks: -1->4, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 255->4, 256->4.",
+        "notes": "SetProp writes to Beam.0.ColorPalette confirmed mixed enum boundary behavior: -1->4, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 255->4, 256->4.",
         "unit": "beam color palette"
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with unknown boundary behavior and baseline restore.",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "indexed-root",
         "populationDependent": true,

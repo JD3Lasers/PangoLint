@@ -9456,8 +9456,9 @@
           "valueRange": {
             "min": 0,
             "max": 4,
-            "boundaryBehavior": "unknown",
+            "boundaryBehavior": "mixed",
             "evidenceLevel": "observed",
+            "notes": "SetProp writes to Beam.0.ColorPalette confirmed mixed enum boundary behavior: -1->4, 0->0, 1->1, 2->2, 3->3, 4->4, 5->4, 255->4, 256->4.",
             "unit": "beam color palette"
           },
           "evidenceLevel": "observed",
@@ -9913,7 +9914,8 @@
             "max": 1000000,
             "unit": "degrees",
             "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "SetProp write/readback accepted fractional values from -1000000 through 1000000, including values above 100000. Signed 32-bit boundary samples did not prove a complete finite boundary."
           },
           "evidenceLevel": "observed",
           "locationContext": {

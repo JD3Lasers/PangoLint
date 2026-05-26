@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 22,
+    "unknownBoundaryBehaviorRows": 21,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,9 +183,8 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 22,
+      "count": 21,
       "examples": [
-        "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
         "FB3_XXXXX.Connected",
         "FB3_XXXXX.InvertX",
@@ -196,7 +195,8 @@
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
         "FB3_XXXXX.SizeY",
-        "FB3_XXXXX.SwapXY"
+        "FB3_XXXXX.SwapXY",
+        "FB4_XXXXX.Connected"
       ],
       "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 22,
+      "count": 21,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -277,11 +277,10 @@
         },
         {
           "root": "Beam",
-          "count": 2
+          "count": 1
         }
       ],
       "examples": [
-        "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
         "FB3_XXXXX.Connected",
         "FB3_XXXXX.InvertX",
@@ -292,7 +291,8 @@
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
         "FB3_XXXXX.SizeY",
-        "FB3_XXXXX.SwapXY"
+        "FB3_XXXXX.SwapXY",
+        "FB4_XXXXX.Connected"
       ],
       "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
@@ -827,17 +827,6 @@
         "FB4_XXXXX.SwapXY"
       ],
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "Beam",
-      "accessMode": "read-write",
-      "behaviorKind": "enum-state",
-      "valueType": "enum",
-      "count": 1,
-      "examples": [
-        "Beam.N.ColorPalette"
-      ],
-      "nextProbe": "Test each accepted value plus one lower and one higher value, then restore the baseline enum value."
     },
     {
       "root": "Beam",

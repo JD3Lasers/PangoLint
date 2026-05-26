@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.57] - 2026-05-26
+
+### Added
+
+- Resolve Beam color palette boundary behavior using checked-in mixed
+  write/readback evidence.
+
 ## [0.7.56] - 2026-05-26
 
 ### Added

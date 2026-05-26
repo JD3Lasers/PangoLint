@@ -589,7 +589,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: 0,
         max: 4,
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
       },
       acceptedValues: [
         { value: 0, label: "PALETTE_0" },
