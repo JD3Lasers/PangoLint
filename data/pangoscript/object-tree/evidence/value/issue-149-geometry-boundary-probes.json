@@ -1,0 +1,829 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "observedAt": "2026-05-26",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Operator-approved geometry boundary probe on a BEYOND test bench with no lasers connected. Talk TCP Echo 2 SetProp writes were cross-checked with OscOutTTS and WriteLn readbacks. Concrete hardware identifiers are redacted in public evidence."
+  },
+  "parentIssue": 216,
+  "batchIssue": 149,
+  "entries": [
+    {
+      "objectPath": "Beam.N.RotoZ",
+      "probePath": "Beam.0.RotoZ",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"Beam.0.RotoZ\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"Beam.0.RotoZ\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"Beam.0.RotoZ\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"Beam.0.RotoZ\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"Beam.0.RotoZ\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"Beam.0.RotoZ\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"Beam.0.RotoZ\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"Beam.0.RotoZ\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"Beam.0.RotoZ\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed Beam.N.RotoZ passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Beam.0",
+        "notes": "Concrete writes and readbacks used Beam.0 paths and normalized metadata keeps Beam.N placeholders."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.PositionX",
+      "probePath": "FB3_XXXXX.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.PositionX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.PositionX passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.PositionY",
+      "probePath": "FB3_XXXXX.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.PositionY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.PositionY passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.PostRotation",
+      "probePath": "FB3_XXXXX.PostRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.PostRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.PostRotation passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.PreRotation",
+      "probePath": "FB3_XXXXX.PreRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.PreRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.PreRotation passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.SizeX",
+      "probePath": "FB3_XXXXX.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.SizeX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 50."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.SizeX passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB3_XXXXX.SizeY",
+      "probePath": "FB3_XXXXX.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50,
+        "typeTag": "f"
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB3_XXXXX.SizeY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored the observed baseline after each sampled write and verified final readback 50."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks on 2026-05-26 issue #149 confirmed FB3_XXXXX.SizeY passes through just outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB3_XXXXX",
+        "notes": "The concrete FB3 hardware root was redacted in public evidence. The probe used a connected FB3 root and normalized metadata keeps the FB3_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PositionX",
+      "probePath": "FB4_XXXXX.PositionX",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.PositionX",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.PositionX path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.PositionX on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PositionY",
+      "probePath": "FB4_XXXXX.PositionY",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.PositionY",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.PositionY path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.PositionY on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PostRotation",
+      "probePath": "FB4_XXXXX.PostRotation",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.PostRotation",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.PostRotation path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.PostRotation on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PreRotation",
+      "probePath": "FB4_XXXXX.PreRotation",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.PreRotation",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.PreRotation path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.PreRotation on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.SizeX",
+      "probePath": "FB4_XXXXX.SizeX",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.SizeX",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.SizeX path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.SizeX on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.SizeY",
+      "probePath": "FB4_XXXXX.SizeY",
+      "probeMode": "readback-only",
+      "shipsMetadata": false,
+      "valueType": "unknown",
+      "evidenceLevel": "unverified",
+      "baseline": {
+        "value": null,
+        "typeTag": "f"
+      },
+      "testedValues": [
+        {
+          "command": "OscOutTTS \"/pangolint/readback/<request>\", \"f\", FB4_XXXXX.SizeY",
+          "readback": null,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "No write was sent because the current bench did not expose an evaluable FB4_XXXXX.SizeY path."
+      },
+      "evidenceNote": "Talk TCP Echo 2 readback on 2026-05-26 issue #149 returned BEYOND unknown-variable feedback for FB4_XXXXX.SizeY on the current bench, so boundary behavior remains deferred until an FB4 root is available.",
+      "deferReason": "Current bench does not expose an evaluable FB4 Object Tree root.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "FB4_XXXXX",
+        "notes": "The public placeholder did not evaluate on the current bench. Probe again on a bench with an FB4 root before changing boundary metadata."
+      }
+    }
+  ]
+}

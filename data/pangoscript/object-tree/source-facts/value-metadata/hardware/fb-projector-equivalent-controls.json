@@ -48,12 +48,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "projector coordinate",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.PositionX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.PositionX passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PositionX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.PositionX accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -68,12 +68,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "projector coordinate",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.PositionY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.PositionY passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PositionY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.PositionY accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -88,12 +88,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "degrees",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.PostRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.PostRotation passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PostRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.PostRotation accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -108,12 +108,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "degrees",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.PreRotation confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.PreRotation passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.PreRotation accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.PreRotation accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -128,12 +128,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "percent",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.SizeX confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.SizeX passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.SizeX accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.SizeX accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -148,12 +148,12 @@
         "min": -1000000,
         "max": 1000000,
         "unit": "percent",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp write/readback to FB3_XXXXX.SizeY confirmed pass-through inside the shipped tested span: -1000000->-1000000, -120000->-120000, -100000->-100000, -1->-1, 0->0, 1->1, 100000->100000, 120000->120000, 1000000->1000000. Signed 32-bit boundary samples are retained in evidence, but the positive signed 32-bit boundary did not verify, so the boundary behavior remains unknown."
+        "notes": "Talk TCP Echo 2 SetProp, OscOutTTS, and WriteLn readbacks confirmed FB3_XXXXX.SizeY passes through just outside -1000000..1000000, while samples beyond the signed 32-bit float edge read back at the nearest edge."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime SetProp write/readback on 2026-05-16 issue #298 confirmed FB3_XXXXX.SizeY accepts the shipped -1000000..1000000 range with baseline restore on connected FB3 hardware.",
+      "notes": "Runtime SetProp write/readback on 2026-05-26 issue #149 confirmed FB3_XXXXX.SizeY accepts the shipped -1000000..1000000 range with mixed boundary behavior and baseline restore on connected FB3 hardware.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,

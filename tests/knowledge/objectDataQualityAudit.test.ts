@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(13);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(6);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 13],
+      ["unknown-boundary-behavior", "warning", "warn", 6],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,11 +52,9 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(13);
-    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 6 });
-    expect(unknownBoundary?.roots.at(1)).toEqual({ root: "FB4_XXXXX", count: 6 });
-    expect(unknownBoundary?.roots.at(2)).toEqual({ root: "Beam", count: 1 });
-    expect(unknownBoundary?.roots).toHaveLength(3);
+    expect(unknownBoundary?.count).toBe(6);
+    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB4_XXXXX", count: 6 });
+    expect(unknownBoundary?.roots).toHaveLength(1);
     expect(unknownBoundary?.roots.some((row) => row.root === "Gamepad")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "ColorChannel")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "Grid")).toBe(false);
@@ -69,9 +67,11 @@ describe("final Object Tree data quality audit", () => {
     expect(unknownBoundary?.roots.some((row) => row.root === "Zone")).toBe(false);
     expect(unknownBoundary?.roots.some((row) => row.root === "ZoneAlias")).toBe(false);
     expect(unknownBoundary?.examples).not.toContain("Beam.N.ColorPalette");
-    expect(unknownBoundary?.examples).toContain("Beam.N.RotoZ");
+    expect(unknownBoundary?.examples).not.toContain("Beam.N.RotoZ");
     expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.Connected");
     expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.InvertX");
+    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.PositionX");
+    expect(unknownBoundary?.examples).toContain("FB4_XXXXX.PositionX");
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
     expect(report.spotCheckPlan.map((row) => row.path)).toEqual(
@@ -98,22 +98,6 @@ describe("final Object Tree data quality audit", () => {
 
     expect(report.boundaryProbePlan).toEqual([
       {
-        root: "FB3_XXXXX",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 6,
-        examples: [
-          "FB3_XXXXX.PositionX",
-          "FB3_XXXXX.PositionY",
-          "FB3_XXXXX.PostRotation",
-          "FB3_XXXXX.PreRotation",
-          "FB3_XXXXX.SizeX",
-        ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
-      {
         root: "FB4_XXXXX",
         accessMode: "read-write",
         behaviorKind: "state-value",
@@ -126,16 +110,6 @@ describe("final Object Tree data quality audit", () => {
           "FB4_XXXXX.PreRotation",
           "FB4_XXXXX.SizeX",
         ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
-      {
-        root: "Beam",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 1,
-        examples: ["Beam.N.RotoZ"],
         nextProbe:
           "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
       },
