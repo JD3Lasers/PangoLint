@@ -20926,8 +20926,11 @@
         "normalizedPropertyPattern": "Projector.N.InvertX",
         "valueType": "boolean",
         "valueRange": {
-          "boundaryBehavior": "unknown",
-          "evidenceLevel": "observed"
+          "min": 0,
+          "max": 1,
+          "boundaryBehavior": "mixed",
+          "evidenceLevel": "observed",
+          "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span, so the boundary behavior is mixed rather than clamp."
         },
         "acceptedValues": [
           {
@@ -20943,7 +20946,8 @@
         "locationContext": {
           "kind": "hardware-instance",
           "populationDependent": true,
-          "indexBasis": "Projector.N uses the zero-based Object Tree projector index."
+          "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+          "notes": "The runtime probe used Projector.0 in a no-output setup. Hardware roots and projector entries can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
         }
       }
     ],

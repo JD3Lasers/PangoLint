@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.53] - 2026-05-26
+
+### Added
+
+- Resolve Projector boolean boundary behavior for invert and axis-swap flags
+  using observed write/readback evidence where nonzero writes read back ON.
+
 ## [0.7.52] - 2026-05-25
 
 ### Added

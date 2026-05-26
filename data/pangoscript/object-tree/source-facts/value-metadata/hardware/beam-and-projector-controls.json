@@ -356,12 +356,12 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,
@@ -387,12 +387,12 @@
       "valueRange": {
         "min": 0,
         "max": 1,
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+        "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
       },
       "evidenceLevel": "observed",
-      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with unknown boundary behavior and baseline restore.",
+      "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with mixed boundary behavior and baseline restore.",
       "locationContext": {
         "kind": "hardware-instance",
         "populationDependent": true,

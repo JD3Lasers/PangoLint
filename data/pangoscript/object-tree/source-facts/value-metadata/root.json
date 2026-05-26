@@ -105,9 +105,11 @@
       "path": "Projector.N.InvertX",
       "valueType": "boolean",
       "valueRange": {
-        "boundaryBehavior": "unknown",
+        "min": 0,
+        "max": 1,
+        "boundaryBehavior": "mixed",
         "evidenceLevel": "observed",
-        "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span."
+        "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span, so the boundary behavior is mixed rather than clamp."
       },
       "acceptedValues": [
         {

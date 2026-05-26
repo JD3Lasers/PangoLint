@@ -322,6 +322,46 @@ describe("tracked BEYOND control reference data", () => {
     expect(masterBrightness?.value?.role).toBeUndefined();
   });
 
+  it("keeps Projector boolean boundary behavior synchronized across control-reference surfaces", () => {
+    const rangeSeeds = readJson<CommandRangeSeedRow[]>("command-control-reference/range-seeds.json");
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+    const expectedRange = {
+      min: 0,
+      max: 1,
+      boundaryBehavior: "mixed",
+      evidenceLevel: "observed",
+    };
+
+    for (const propertyPath of ["Projector.N.InvertX", "Projector.N.InvertY", "Projector.N.SwapXY"]) {
+      const seedRow = rangeSeeds.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+
+      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(expectedRange);
+      expect(mcpRow?.value?.range).toMatchObject(expectedRange);
+      expect(crosswalkRow?.objectIndexEntries[0]?.classification).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "flag-state",
+        writeTestStatus: "write-readback-tested",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+      });
+      expect(mcpRow?.behavior).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "flag-state",
+        writeTestStatus: "write-readback-tested",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+      });
+
+      if (seedRow?.objectPropertyRanges?.length) {
+        expect(seedRow.objectPropertyRanges[0]?.valueRange).toMatchObject(expectedRange);
+        expect(crosswalkRow?.rangeSeeds?.objectPropertyRanges?.[0]?.valueRange).toMatchObject(expectedRange);
+      }
+    }
+  });
+
   it("keeps SetGridSize parameter boundary behavior synchronized across control-reference surfaces", () => {
     const commands = readJson<CommandControlReferenceCommand[]>("command-control-reference/commands.json");
     const rangeSeeds = readJson<CommandRangeSeedRow[]>("command-control-reference/range-seeds.json");
