@@ -486,6 +486,45 @@ describe("tracked BEYOND control reference data", () => {
     }
   });
 
+  it("keeps Beam color palette boundary behavior synchronized across control-reference surfaces", () => {
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+    const expectedRanges = new Map([
+      [
+        "Beam.N.ColorPalette",
+        {
+          min: 0,
+          max: 4,
+          unit: "beam color palette",
+          boundaryBehavior: "mixed",
+          evidenceLevel: "observed",
+        },
+      ],
+    ]);
+
+    for (const [propertyPath, expectedRange] of expectedRanges) {
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+
+      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange).toMatchObject(expectedRange);
+      expect(mcpRow?.value?.range).toMatchObject(expectedRange);
+      expect(crosswalkRow?.objectIndexEntries[0]?.classification).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "enum-state",
+        writeTestStatus: "write-readback-tested",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+      });
+      expect(mcpRow?.behavior).toMatchObject({
+        accessMode: "read-write",
+        behaviorKind: "enum-state",
+        writeTestStatus: "write-readback-tested",
+        readbackStatus: "readback-tested",
+        evidenceLevel: "observed",
+      });
+    }
+  });
+
   it("keeps SetGridSize parameter boundary behavior synchronized across control-reference surfaces", () => {
     const commands = readJson<CommandControlReferenceCommand[]>("command-control-reference/commands.json");
     const rangeSeeds = readJson<CommandRangeSeedRow[]>("command-control-reference/range-seeds.json");

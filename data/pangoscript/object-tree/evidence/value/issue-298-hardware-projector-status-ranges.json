@@ -387,7 +387,7 @@
       "shipsMetadata": true,
       "valueType": "enum",
       "evidenceLevel": "observed",
-      "boundaryBehavior": "unknown",
+      "boundaryBehavior": "mixed",
       "baseline": {
         "value": 2,
         "typeTag": "f"
@@ -404,7 +404,7 @@
           "input": -1,
           "command": "SetProp \"Beam.0.ColorPalette\", -1",
           "readback": 4,
-          "behavior": "unknown"
+          "behavior": "wrap"
         },
         {
           "input": 0,
@@ -460,7 +460,7 @@
         "restoredValue": 2,
         "notes": "The probe restored the observed baseline after every tested write and verified the final readback before moving to the next value."
       },
-      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with unknown boundary behavior and baseline restore.",
+      "evidenceNote": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Beam.N.ColorPalette at Beam.0.ColorPalette uses 0..4 with mixed boundary behavior and baseline restore.",
       "locationAware": true,
       "locationContext": {
         "kind": "indexed-root",
