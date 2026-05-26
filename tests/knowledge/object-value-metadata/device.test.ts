@@ -522,7 +522,9 @@ describe("checked-in Object Tree device value metadata data", () => {
         { value: 1, label: "ON" },
       ],
       valueRange: {
-        boundaryBehavior: "unknown",
+        min: 0,
+        max: 1,
+        boundaryBehavior: "mixed",
       },
       locationContext: {
         kind: "hardware-instance",
@@ -618,18 +620,20 @@ describe("checked-in Object Tree device value metadata data", () => {
         populationDependent: true,
       },
     });
-    expect(byPath.get("Projector.N.InvertY")?.valueMetadata).toMatchObject({
-      valueType: "boolean",
-      valueRange: {
-        min: 0,
-        max: 1,
-        boundaryBehavior: "unknown",
-      },
-      acceptedValues: [
-        { value: 0, label: "OFF" },
-        { value: 1, label: "ON" },
-      ],
-    });
+    for (const path of ["Projector.N.InvertY", "Projector.N.SwapXY"]) {
+      expect(byPath.get(path)?.valueMetadata).toMatchObject({
+        valueType: "boolean",
+        valueRange: {
+          min: 0,
+          max: 1,
+          boundaryBehavior: "mixed",
+        },
+        acceptedValues: [
+          { value: 0, label: "OFF" },
+          { value: 1, label: "ON" },
+        ],
+      });
+    }
     for (const path of [
       "Projector.N.ColorShift",
       "Projector.N.MaxBlue",

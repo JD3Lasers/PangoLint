@@ -153739,7 +153739,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Projector/0/InvertX",
-      "searchText": "projector n invertx invert x 0 b boolean unknown direct object writes to with 1 and 2 read back nonzero behaved as on in this tested span observed runtime write readback 2026 05 12 restored the baseline hardware instance uses zero based tree index probe used a no output setup roots entries can be device dependent do not copy behavior fb3 or fb4 placeholder without evidence population populated slot location aware off classification access mode flag state from shows persists value domain remains metadata",
+      "searchText": "projector n invertx invert x 0 b boolean mixed direct object writes to with 1 and 2 read back nonzero behaved as on in this tested span so the boundary behavior is rather than clamp observed runtime write readback 2026 05 12 restored baseline hardware instance uses zero based tree index probe used a no output setup roots entries can be device dependent do not copy fb3 or fb4 placeholder without evidence population populated slot location aware off classification access mode flag state from shows persists value domain remains metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -153750,9 +153750,11 @@
       "valueMetadata": {
         "valueType": "boolean",
         "valueRange": {
-          "boundaryBehavior": "unknown",
+          "min": 0,
+          "max": 1,
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span."
+          "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span, so the boundary behavior is mixed rather than clamp."
         },
         "acceptedValues": [
           {
@@ -153790,7 +153792,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Projector/0/InvertY",
-      "searchText": "projector n inverty invert y 0 b boolean unknown setprop writes to confirmed 1 readbacks 2 observed runtime object write readback on 2026 05 13 issue #298 at uses with boundary behavior and baseline restore hardware instance the zero based tree index probe used in a no output setup laser connected population dependent populated slot location aware off set classification access mode read flag state tested evidence from shows persists as value domain remains metadata",
+      "searchText": "projector n inverty invert y 0 b boolean mixed setprop writes to confirmed 1 readbacks 2 negative and above range both behaved as on instead of normal clamp observed runtime object write readback 2026 05 13 issue #298 at uses with boundary behavior baseline restore hardware instance the zero based tree index probe used in a no output setup laser connected population dependent populated slot location aware off set classification access mode read flag state tested evidence from shows persists value domain remains metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -153803,12 +153805,12 @@
         "valueRange": {
           "min": 0,
           "max": 1,
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+          "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
         },
         "evidenceLevel": "observed",
-        "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with unknown boundary behavior and baseline restore.",
+        "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with mixed boundary behavior and baseline restore.",
         "locationContext": {
           "kind": "hardware-instance",
           "populationDependent": true,
@@ -155470,7 +155472,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Projector/0/SwapXY",
-      "searchText": "projector n swapxy swap xy 0 b boolean unknown setprop writes to confirmed 1 readbacks 2 observed runtime object write readback on 2026 05 13 issue #298 at uses with boundary behavior and baseline restore hardware instance the zero based tree index probe used in a no output setup laser connected population dependent populated slot location aware off set classification access mode read flag state tested evidence from shows persists as axis value domain remains metadata",
+      "searchText": "projector n swapxy swap xy 0 b boolean mixed setprop writes to confirmed 1 readbacks 2 negative and above range both behaved as on instead of normal clamp observed runtime object write readback 2026 05 13 issue #298 at uses with boundary behavior baseline restore hardware instance the zero based tree index probe used in a no output setup laser connected population dependent populated slot location aware off set classification access mode read flag state tested evidence from shows persists axis value domain remains metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -155483,12 +155485,12 @@
         "valueRange": {
           "min": 0,
           "max": 1,
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed",
-          "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1."
+          "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
         },
         "evidenceLevel": "observed",
-        "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with unknown boundary behavior and baseline restore.",
+        "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with mixed boundary behavior and baseline restore.",
         "locationContext": {
           "kind": "hardware-instance",
           "populationDependent": true,

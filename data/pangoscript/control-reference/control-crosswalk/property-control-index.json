@@ -131381,8 +131381,11 @@
         "valueMetadata": {
           "valueType": "boolean",
           "valueRange": {
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "min": 0,
+            "max": 1,
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span, so the boundary behavior is mixed rather than clamp."
           },
           "acceptedValues": [
             {
@@ -131395,10 +131398,12 @@
             }
           ],
           "evidenceLevel": "observed",
+          "notes": "Runtime object write/readback on 2026-05-12 restored Projector.0.InvertX to the observed baseline.",
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Projector.N uses the zero-based Object Tree projector index."
+            "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+            "notes": "The runtime probe used Projector.0 in a no-output setup. Hardware roots and projector entries can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
           }
         },
         "classification": {
@@ -131406,7 +131411,8 @@
           "behaviorKind": "flag-state",
           "writeTestStatus": "write-readback-tested",
           "readbackStatus": "readback-tested",
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "notes": "Observed direct object write/readback evidence from 2026-05-12 shows Projector.N.InvertX persists 0 and 1 as projector invert state. Value domain evidence remains in value metadata."
         }
       }
     ],
@@ -131419,8 +131425,11 @@
           "normalizedPropertyPattern": "Projector.N.InvertX",
           "valueType": "boolean",
           "valueRange": {
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "min": 0,
+            "max": 1,
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "Direct object writes to Projector.0.InvertX with -1, 0, 1, and 2 read back 1, 0, 1, and 1. Nonzero writes behaved as ON in this tested span, so the boundary behavior is mixed rather than clamp."
           },
           "acceptedValues": [
             {
@@ -131436,7 +131445,8 @@
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Projector.N uses the zero-based Object Tree projector index."
+            "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+            "notes": "The runtime probe used Projector.0 in a no-output setup. Hardware roots and projector entries can be device-dependent; do not copy this behavior to FB3 or FB4 placeholder roots without direct evidence."
           }
         }
       ],
@@ -131472,23 +131482,28 @@
           "valueRange": {
             "min": 0,
             "max": 1,
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "SetProp writes to Projector.0.InvertY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
           },
           "evidenceLevel": "observed",
+          "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.InvertY at Projector.0.InvertY uses 0..1 with mixed boundary behavior and baseline restore.",
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Projector.N uses the zero-based Object Tree projector index."
+            "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+            "notes": "The runtime probe used Projector.0.InvertY in a no-output setup with no laser connected."
           },
           "acceptedValues": [
             {
               "value": 0,
-              "label": "OFF"
+              "label": "OFF",
+              "description": "Set Projector.N.InvertY to OFF."
             },
             {
               "value": 1,
-              "label": "ON"
+              "label": "ON",
+              "description": "Set Projector.N.InvertY to ON."
             }
           ]
         },
@@ -131497,7 +131512,8 @@
           "behaviorKind": "flag-state",
           "writeTestStatus": "write-readback-tested",
           "readbackStatus": "readback-tested",
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "notes": "Observed SetProp write/readback evidence from issue #298 shows Projector.N.InvertY persists 0 and 1 as projector invert state. Value domain evidence remains in value metadata."
         }
       }
     ],
@@ -133513,23 +133529,28 @@
           "valueRange": {
             "min": 0,
             "max": 1,
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "mixed",
+            "evidenceLevel": "observed",
+            "notes": "SetProp writes to Projector.0.SwapXY confirmed 0..1 readbacks: -1->1, 0->0, 1->1, 2->1. Negative and above-range writes both behaved as ON instead of normal boolean clamp."
           },
           "evidenceLevel": "observed",
+          "notes": "Runtime object write/readback on 2026-05-13 issue #298 confirmed Projector.N.SwapXY at Projector.0.SwapXY uses 0..1 with mixed boundary behavior and baseline restore.",
           "locationContext": {
             "kind": "hardware-instance",
             "populationDependent": true,
-            "indexBasis": "Projector.N uses the zero-based Object Tree projector index."
+            "indexBasis": "Projector.N uses the zero-based Object Tree projector index.",
+            "notes": "The runtime probe used Projector.0.SwapXY in a no-output setup with no laser connected."
           },
           "acceptedValues": [
             {
               "value": 0,
-              "label": "OFF"
+              "label": "OFF",
+              "description": "Set Projector.N.SwapXY to OFF."
             },
             {
               "value": 1,
-              "label": "ON"
+              "label": "ON",
+              "description": "Set Projector.N.SwapXY to ON."
             }
           ]
         },
@@ -133538,7 +133559,8 @@
           "behaviorKind": "flag-state",
           "writeTestStatus": "write-readback-tested",
           "readbackStatus": "readback-tested",
-          "evidenceLevel": "observed"
+          "evidenceLevel": "observed",
+          "notes": "Observed SetProp write/readback evidence from issue #298 shows Projector.N.SwapXY persists 0 and 1 as projector axis swap state. Value domain evidence remains in value metadata."
         }
       }
     ],

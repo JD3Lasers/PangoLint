@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 41,
+    "unknownBoundaryBehaviorRows": 38,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 41,
+      "count": 38,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 41,
+      "count": 38,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -274,10 +274,6 @@
         {
           "root": "FB4_XXXXX",
           "count": 10
-        },
-        {
-          "root": "Projector",
-          "count": 4
         },
         {
           "root": "Beam",
@@ -321,6 +317,10 @@
         },
         {
           "root": "PlayListState",
+          "count": 1
+        },
+        {
+          "root": "Projector",
           "count": 1
         }
       ],
@@ -869,19 +869,6 @@
         "FB4_XXXXX.InvertX",
         "FB4_XXXXX.InvertY",
         "FB4_XXXXX.SwapXY"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "Projector",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 3,
-      "examples": [
-        "Projector.N.InvertX",
-        "Projector.N.InvertY",
-        "Projector.N.SwapXY"
       ],
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     },
