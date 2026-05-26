@@ -219,6 +219,7 @@ const expectedScriptFolders: Record<string, string[]> = {
     "generateObjectBehaviorAudit.ts",
     "generateObjectDataQualityAudit.ts",
     "generateObjectPropertyIndex.ts",
+    "objectDataQualityConsistency.ts",
     "propertyIndex",
     "validateObjectRangeEvidence.ts",
   ],

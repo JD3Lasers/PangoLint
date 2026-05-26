@@ -13,6 +13,13 @@ describe("final Object Tree data quality audit", () => {
     const report = readJson<DataQualityReport>("object-tree/audits/data-quality/final-object-data-quality-audit.json");
     const index = readJson<ObjectPropertyIndexFile>("object-property-index.json");
     const crosswalkSummary = readJson<ControlCrosswalkSummary>("control-reference/control-crosswalk/summary.json");
+    const controlReference = readJson<ControlReferenceFile>(
+      "control-reference/mcp-control-reference/property-controls.json",
+    );
+    const indexPaths = new Set(index.entries.map((entry) => entry.path));
+    const sharedControlReferenceObjectRows = controlReference.entries.filter(
+      (entry) => entry.kind === "object" && indexPaths.has(entry.path),
+    ).length;
 
     expect(report.schemaVersion).toBe(1);
     expect(report.generatedAt).toBe("2026-05-17T00:00:00.000Z");
@@ -29,6 +36,13 @@ describe("final Object Tree data quality audit", () => {
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
     expect(report.summary.crosswalkPropertiesMissingBehaviorClassification).toBe(0);
+    expect(report.summary.behaviorSourceFactEntries).toBe(index.entries.length);
+    expect(report.summary.behaviorSourceFactDuplicateRows).toBe(0);
+    expect(report.summary.behaviorSourceFactsMissingIndexRows).toBe(0);
+    expect(report.summary.sharedControlReferenceObjectRows).toBe(sharedControlReferenceObjectRows);
+    expect(report.summary.controlReferenceBehaviorMismatches).toBe(0);
+    expect(report.summary.metadataMutualExclusionViolations).toBe(0);
+    expect(report.summary.writeTestedRowsMissingOutputMetadata).toBe(0);
 
     expect(report.checks.map((check) => [check.id, check.severity, check.status, check.count])).toEqual([
       ["classification-complete", "error", "pass", 0],
@@ -39,6 +53,11 @@ describe("final Object Tree data quality audit", () => {
       ["computed-status-access", "error", "pass", 0],
       ["observed-classifications-prove-known-behavior", "error", "pass", 0],
       ["control-crosswalk-classification-parity", "error", "pass", 0],
+      ["behavior-source-fact-duplicates", "error", "pass", 0],
+      ["behavior-source-facts-reach-index", "error", "pass", 0],
+      ["mcp-control-behavior-parity", "error", "pass", 0],
+      ["metadata-kind-exclusive", "error", "pass", 0],
+      ["write-tested-has-output-metadata", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
       ["read-mostly-value-metadata-review", "warning", "warn", 30],
@@ -148,6 +167,13 @@ interface DataQualityReport {
     unknownBoundaryBehaviorRows: number;
     crosswalkPropertiesWithBehaviorClassification: number;
     crosswalkPropertiesMissingBehaviorClassification: number;
+    behaviorSourceFactEntries: number;
+    behaviorSourceFactDuplicateRows: number;
+    behaviorSourceFactsMissingIndexRows: number;
+    sharedControlReferenceObjectRows: number;
+    controlReferenceBehaviorMismatches: number;
+    metadataMutualExclusionViolations: number;
+    writeTestedRowsMissingOutputMetadata: number;
   };
   checks: Array<{
     id: string;
@@ -183,12 +209,20 @@ interface DataQualityReport {
 
 interface ObjectPropertyIndexFile {
   entries: Array<{
+    path: string;
     classification?: unknown;
   }>;
 }
 
 interface ControlCrosswalkSummary {
   propertiesWithBehaviorClassification: number;
+}
+
+interface ControlReferenceFile {
+  entries: Array<{
+    path: string;
+    kind: string;
+  }>;
 }
 
 function readJson<T>(relativePath: string): T {

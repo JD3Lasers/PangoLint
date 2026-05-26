@@ -1,6 +1,12 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
+import {
+  type AuditIssue,
+  buildObjectDataQualityConsistency,
+  type ObjectDataQualityConsistency,
+} from "./objectDataQualityConsistency";
+
 interface ObjectIndexFile {
   schemaVersion: 1;
   entries: ObjectIndexEntry[];
@@ -146,7 +152,8 @@ const allowedEvidenceLevels = new Set(["documented", "observed", "inferred", "un
 const index = readJson<ObjectIndexFile>(indexPath);
 const crosswalkSummary = readJson<ControlCrosswalkSummary>(crosswalkSummaryPath);
 const entries = [...index.entries].sort(compareEntries);
-const checks = buildChecks(entries, crosswalkSummary);
+const consistency = buildObjectDataQualityConsistency(repoRoot, entries);
+const checks = buildChecks(entries, crosswalkSummary, consistency);
 const unverifiedRows = entries.filter(isUnverifiedUnknownReadbackOnly);
 const readOnlyDomainRows = entries.filter(isReadOnlyWithDomainMetadata);
 const readMostlyRowsWithoutValueMetadata = entries.filter(isReadMostlyWithoutValueMetadata);
@@ -163,6 +170,8 @@ const report = {
   sourceFiles: {
     objectPropertyIndex: "data/pangoscript/object-tree/runtime-indexes/object-property-index.json",
     controlCrosswalkSummary: "data/pangoscript/control-reference/control-crosswalk/summary.json",
+    mcpControlReference: "data/pangoscript/control-reference/mcp-control-reference/property-controls.json",
+    behaviorMetadata: "data/pangoscript/object-tree/source-facts/behavior-metadata/",
   },
   summary: {
     totalEntries: entries.length,
@@ -181,6 +190,13 @@ const report = {
     unknownBoundaryBehaviorRows: unknownBoundaryRows.length,
     crosswalkPropertiesWithBehaviorClassification: crosswalkSummary.propertiesWithBehaviorClassification,
     crosswalkPropertiesMissingBehaviorClassification: crosswalkSummary.propertiesMissingBehaviorClassification,
+    behaviorSourceFactEntries: consistency.behaviorSourceFactEntries,
+    behaviorSourceFactDuplicateRows: consistency.behaviorSourceFactDuplicateRows.length,
+    behaviorSourceFactsMissingIndexRows: consistency.behaviorSourceFactIndexIssues.length,
+    sharedControlReferenceObjectRows: consistency.sharedControlReferenceObjectRows,
+    controlReferenceBehaviorMismatches: consistency.controlReferenceBehaviorMismatches.length,
+    metadataMutualExclusionViolations: consistency.metadataMutualExclusionRows.length,
+    writeTestedRowsMissingOutputMetadata: consistency.writeTestedRowsMissingOutputMetadata.length,
   },
   behaviorCounts: {
     accessMode: countClassificationField(entries, "accessMode"),
@@ -226,7 +242,11 @@ function readJson<T>(filePath: string): T {
   return JSON.parse(readFileSync(filePath, "utf8")) as T;
 }
 
-function buildChecks(currentEntries: ObjectIndexEntry[], summary: ControlCrosswalkSummary): QualityCheck[] {
+function buildChecks(
+  currentEntries: ObjectIndexEntry[],
+  summary: ControlCrosswalkSummary,
+  consistency: ObjectDataQualityConsistency,
+): QualityCheck[] {
   return [
     buildCheck(
       "classification-complete",
@@ -293,6 +313,36 @@ function buildChecks(currentEntries: ObjectIndexEntry[], summary: ControlCrosswa
       "Control-reference crosswalk behavior classification counts must match the Object Tree index.",
     ),
     buildCheck(
+      "behavior-source-fact-duplicates",
+      "error",
+      consistency.behaviorSourceFactDuplicateRows,
+      "Behavior source facts must not define the same Object Tree path more than once.",
+    ),
+    buildCheck(
+      "behavior-source-facts-reach-index",
+      "error",
+      consistency.behaviorSourceFactIndexIssues,
+      "Behavior source facts must reach the generated Object Tree index with matching classification fields.",
+    ),
+    buildCheck(
+      "mcp-control-behavior-parity",
+      "error",
+      consistency.controlReferenceBehaviorMismatches,
+      "Shared Object Tree rows in the MCP control reference must carry the same behavior classification as the runtime index.",
+    ),
+    buildCheck(
+      "metadata-kind-exclusive",
+      "error",
+      consistency.metadataMutualExclusionRows,
+      "Current Object Tree entries must not mix value metadata and readback metadata on the same row.",
+    ),
+    buildCheck(
+      "write-tested-has-output-metadata",
+      "error",
+      consistency.writeTestedRowsMissingOutputMetadata,
+      "Rows with write or command readback evidence must expose value metadata or readback metadata.",
+    ),
+    buildCheck(
       "unverified-unknown-readback-only",
       "warning",
       currentEntries.filter(isUnverifiedUnknownReadbackOnly),
@@ -319,12 +369,7 @@ function buildChecks(currentEntries: ObjectIndexEntry[], summary: ControlCrosswa
   ];
 }
 
-function buildCheck(
-  id: string,
-  severity: "error" | "warning",
-  rows: ObjectIndexEntry[],
-  message: string,
-): QualityCheck {
+function buildCheck(id: string, severity: "error" | "warning", rows: AuditIssue[], message: string): QualityCheck {
   const count = rows.length;
   return {
     id,
