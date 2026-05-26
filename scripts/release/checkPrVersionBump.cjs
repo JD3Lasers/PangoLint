@@ -132,6 +132,14 @@ function main() {
   if (!changelog.includes(`## [${versions.root}] - `)) {
     fail(`CHANGELOG.md must include a heading for ${versions.root}.`);
   }
+  const unreleasedLink = `[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v${versions.root}...HEAD`;
+  if (!changelog.includes(unreleasedLink)) {
+    fail(`CHANGELOG.md Unreleased comparison link must start at v${versions.root}.`);
+  }
+  const releaseLink = `[${versions.root}]: https://github.com/JD3Lasers/PangoLint/compare/v${baseVersion}...v${versions.root}`;
+  if (!changelog.includes(releaseLink)) {
+    fail(`CHANGELOG.md must include a compare link from v${baseVersion} to v${versions.root}.`);
+  }
   if (gitHasTag(`v${versions.root}`)) {
     fail(`Version ${versions.root} already has a local tag. Choose a new version.`);
   }
