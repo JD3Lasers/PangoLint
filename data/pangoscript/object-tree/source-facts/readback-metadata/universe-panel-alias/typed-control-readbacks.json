@@ -11,7 +11,7 @@
       "typeTag": "i",
       "evidenceLevel": "observed",
       "observedAt": "2026-05-17",
-      "notes": "Runtime write/readback evidence on 2026-05-17 issue #486 confirmed Untitled.Button1.ColorOff read with OSC type tag i. SetProp and direct assignment color samples, including 16711680, did not change readback from 8421504; prior operator UI checks observed the equivalent Universe.0.Button1.ColorOff color changing visually. Readback-only after write attempts; writable color range metadata is deferred. The normalized path uses a user-configured Universe alias and control placeholder.",
+      "notes": "Runtime write/readback evidence on 2026-05-17 issue #486 confirmed Untitled.Button1.ColorOff read with OSC type tag i. SetProp and direct assignment color samples, including 16711680, did not change readback from 8421504; prior operator UI checks observed the equivalent Universe.0.Button1.ColorOff color changing visually. Issue #151 Talk TCP Echo 2, WriteLn, OscOutTTS, and RegisterOscFeedback plus ResetOscFeedback probes confirmed Delphi TColor writes can change ColorOff visually while Object Tree readback remains stale. This remains readback-only metadata because the readable value is not the visual write state.",
       "locationContext": {
         "kind": "showfile-alias",
         "populationDependent": true,

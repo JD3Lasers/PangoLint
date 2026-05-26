@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.60] - 2026-05-26
+
+### Added
+
+- Add a read-mostly value metadata review bucket and record Universe
+  `ColorOff` visual-write evidence where Delphi `TColor` writes change the UI
+  state but Object Tree readback stays stale.
+
 ## [0.7.59] - 2026-05-26
 
 ### Added
@@ -562,7 +570,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.59...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.60...HEAD
+[0.7.60]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.59...v0.7.60
 [0.7.59]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.58...v0.7.59
 [0.7.58]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.57...v0.7.58
 [0.7.57]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.56...v0.7.57
