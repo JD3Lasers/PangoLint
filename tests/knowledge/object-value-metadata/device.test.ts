@@ -3171,7 +3171,7 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: -2147483648,
           max: 2147483647,
           unit,
-          boundaryBehavior: "unknown",
+          boundaryBehavior: "mixed",
           evidenceLevel: "observed",
         },
         evidenceLevel: "observed",

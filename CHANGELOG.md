@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.54] - 2026-05-26
+
+### Added
+
+- Resolve Gamepad aggregate boundary behavior for signed button bitmask and
+  POV rows using observed mixed reset-at-out-of-range evidence.
+
 ## [0.7.53] - 2026-05-26
 
 ### Added
