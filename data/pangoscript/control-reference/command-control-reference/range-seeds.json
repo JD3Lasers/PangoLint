@@ -6331,14 +6331,15 @@
           "min": 1,
           "max": 16,
           "unit": "columns",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
         "evidenceLevel": "observed",
         "locationContext": {
           "kind": "workspace-slot",
           "populationDependent": true,
-          "indexBasis": "Grid2.GetColCount reflects the loaded workspace grid layout."
+          "indexBasis": "Grid2.GetColCount reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
         }
       }
     ],
@@ -6356,14 +6357,15 @@
           "min": 1,
           "max": 16,
           "unit": "rows",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "mixed",
           "evidenceLevel": "observed"
         },
         "evidenceLevel": "observed",
         "locationContext": {
           "kind": "workspace-slot",
           "populationDependent": true,
-          "indexBasis": "Grid2.GetRowCount reflects the loaded workspace grid layout."
+          "indexBasis": "Grid2.GetRowCount reflects the loaded workspace grid layout.",
+          "notes": "The runtime probe used SetGridSize and restored the loaded workspace grid size to 10 by 6 after each sample."
         }
       }
     ],

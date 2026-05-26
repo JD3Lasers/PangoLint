@@ -418,11 +418,12 @@ describe("tracked BEYOND control reference data", () => {
     }
 
     for (const propertyPath of ["Grid2.GetColCount", "Grid2.GetRowCount"]) {
+      const seedRow = rangeSeeds.find((row) => row.normalizedPropertyPattern === propertyPath);
       const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const expectedValueRange = expectedObjectValueRanges.get(propertyPath) ?? {};
 
-      expect(crosswalkRow?.rangeSeeds?.objectPropertyRanges?.[0]?.valueRange).toMatchObject(
-        expectedObjectValueRanges.get(propertyPath) ?? {},
-      );
+      expect(seedRow?.objectPropertyRanges?.[0]?.valueRange).toMatchObject(expectedValueRange);
+      expect(crosswalkRow?.rangeSeeds?.objectPropertyRanges?.[0]?.valueRange).toMatchObject(expectedValueRange);
     }
   });
 });
@@ -525,6 +526,15 @@ interface CommandControlReferenceCommand {
 
 interface CommandRangeSeedRow {
   normalizedPropertyPattern: string;
+  objectPropertyRanges: Array<{
+    valueRange?: {
+      min?: number;
+      max?: number;
+      unit?: string;
+      boundaryBehavior?: string;
+      evidenceLevel?: string;
+    };
+  }>;
   commandParameterRanges: CommandParameterRange[];
 }
 
