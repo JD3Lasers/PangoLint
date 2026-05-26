@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.55] - 2026-05-26
+
+### Added
+
+- Resolve nonzero boolean boundary behavior for TouchPoints, Zone, and
+  ZoneAlias flag rows using observed mixed write/readback evidence.
+
 ## [0.7.54] - 2026-05-26
 
 ### Added

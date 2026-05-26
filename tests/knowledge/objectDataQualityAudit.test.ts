@@ -23,7 +23,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.warningCount).toBe(2);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(36);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(31);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -40,7 +40,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
-      ["unknown-boundary-behavior", "warning", "warn", 36],
+      ["unknown-boundary-behavior", "warning", "warn", 31],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -52,9 +52,12 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
-    expect(unknownBoundary?.count).toBe(36);
+    expect(unknownBoundary?.count).toBe(31);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB3_XXXXX", count: 10 });
     expect(unknownBoundary?.roots.some((row) => row.root === "Gamepad")).toBe(false);
+    expect(unknownBoundary?.roots.some((row) => row.root === "Zone")).toBe(false);
+    expect(unknownBoundary?.roots.some((row) => row.root === "ZoneAlias")).toBe(false);
+    expect(unknownBoundary?.roots).toContainEqual({ root: "TouchPoints", count: 1 });
     expect(unknownBoundary?.roots).toContainEqual({ root: "Projector", count: 1 });
     expect(unknownBoundary?.examples).toContain("Beam.N.ColorPalette");
 

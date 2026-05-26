@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 36,
+    "unknownBoundaryBehaviorRows": 31,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,7 +183,7 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 36,
+      "count": 31,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 36,
+      "count": 31,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -281,18 +281,6 @@
         },
         {
           "root": "Status",
-          "count": 2
-        },
-        {
-          "root": "TouchPoints",
-          "count": 2
-        },
-        {
-          "root": "Zone",
-          "count": 2
-        },
-        {
-          "root": "ZoneAlias",
           "count": 2
         },
         {
@@ -317,6 +305,10 @@
         },
         {
           "root": "Projector",
+          "count": 1
+        },
+        {
+          "root": "TouchPoints",
           "count": 1
         }
       ],
@@ -881,30 +873,6 @@
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     },
     {
-      "root": "Zone",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 2,
-      "examples": [
-        "Zone.N.Active",
-        "Zone.N.BlockZone"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
-      "root": "ZoneAlias",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 2,
-      "examples": [
-        "ZoneAlias.Active",
-        "ZoneAlias.BlockZone"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
       "root": "Beam",
       "accessMode": "read-write",
       "behaviorKind": "enum-state",
@@ -1024,17 +992,6 @@
         "TouchPoints.Count"
       ],
       "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "TouchPoints",
-      "accessMode": "read-write",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 1,
-      "examples": [
-        "TouchPoints.N.Active"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     }
   ]
 }

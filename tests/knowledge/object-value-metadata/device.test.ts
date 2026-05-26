@@ -2154,7 +2154,7 @@ describe("checked-in Object Tree device value metadata data", () => {
         min: 0,
         max: 1,
         unit: "boolean",
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
       locationContext: {
