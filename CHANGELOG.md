@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.58] - 2026-05-26
+
+### Added
+
+- Resolve FB hardware boolean and connection boundary behavior using checked-in
+  mixed flag readback evidence and computed status readback evidence.
+
 ## [0.7.57] - 2026-05-26
 
 ### Added

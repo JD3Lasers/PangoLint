@@ -734,7 +734,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
       acceptedValues: [
@@ -747,7 +747,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       valueRange: {
         min: 0,
         max: 1,
-        boundaryBehavior: "unknown",
+        boundaryBehavior: "mixed",
         evidenceLevel: "observed",
       },
       acceptedValues: [
@@ -778,7 +778,6 @@ describe("checked-in Object Tree device value metadata data", () => {
           min: 0,
           max: 1,
           unit: "boolean",
-          boundaryBehavior: "unknown",
           evidenceLevel: "observed",
         },
         acceptedValues: [
