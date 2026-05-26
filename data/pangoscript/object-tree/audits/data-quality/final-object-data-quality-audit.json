@@ -13,9 +13,10 @@
     "entriesWithReadbackMetadata": 1691,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "hardViolationCount": 0,
-    "warningCount": 2,
+    "warningCount": 3,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
+    "readMostlyRowsWithoutValueMetadata": 30,
     "unknownBoundaryBehaviorRows": 6,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
@@ -180,6 +181,27 @@
       "message": "Read-only rows with domain metadata need careful public wording so computed domains are not read as writable ranges."
     },
     {
+      "id": "read-mostly-value-metadata-review",
+      "severity": "warning",
+      "status": "warn",
+      "count": 30,
+      "examples": [
+        "FX.N.N.N.Chase.Manual",
+        "FX.N.N.N.Oscillator.Channel",
+        "Universe.N.Button1.ColorOff",
+        "Universe.N.DropEff1.ColorOff",
+        "Universe.N.GunEff1.ColorOff",
+        "Universe.N.Image1.ColorOff",
+        "Universe.N.KinectVideo1.ColorOff",
+        "Universe.N.Label1.ColorOff",
+        "Universe.N.MasterEff1.ColorOff",
+        "Universe.N.MasterSlideEff1.ColorOff",
+        "Universe.N.MSE1.ColorOff",
+        "Universe.N.N.ColorOff"
+      ],
+      "message": "Read-mostly rows without writable value metadata need retest or explicit readback-only wording."
+    },
+    {
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
@@ -256,6 +278,47 @@
         "TouchPoints.Count"
       ],
       "nextAction": "Keep these as computed-status rows, but review wording so domain metadata is not mistaken for writable range metadata."
+    },
+    {
+      "id": "read-mostly-value-metadata-review",
+      "count": 30,
+      "roots": [
+        {
+          "root": "Universe",
+          "count": 25
+        },
+        {
+          "root": "FX",
+          "count": 2
+        },
+        {
+          "root": "UniversePanelAlias",
+          "count": 1
+        },
+        {
+          "root": "Zone",
+          "count": 1
+        },
+        {
+          "root": "ZoneAlias",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "FX.N.N.N.Chase.Manual",
+        "FX.N.N.N.Oscillator.Channel",
+        "Universe.N.Button1.ColorOff",
+        "Universe.N.DropEff1.ColorOff",
+        "Universe.N.GunEff1.ColorOff",
+        "Universe.N.Image1.ColorOff",
+        "Universe.N.KinectVideo1.ColorOff",
+        "Universe.N.Label1.ColorOff",
+        "Universe.N.MasterEff1.ColorOff",
+        "Universe.N.MasterSlideEff1.ColorOff",
+        "Universe.N.MSE1.ColorOff",
+        "Universe.N.N.ColorOff"
+      ],
+      "nextAction": "Retest these read-mostly rows before shipping writable value metadata, or keep explicit readback-only wording when writes cannot be represented as reliable Object Tree ranges."
     },
     {
       "id": "unknown-boundary-behavior",

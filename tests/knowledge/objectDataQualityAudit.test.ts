@@ -20,9 +20,10 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.classifiedEntries).toBe(index.entries.filter((entry) => entry.classification).length);
     expect(report.summary.unclassifiedEntries).toBe(0);
     expect(report.summary.hardViolationCount).toBe(0);
-    expect(report.summary.warningCount).toBe(2);
+    expect(report.summary.warningCount).toBe(3);
     expect(report.summary.unverifiedUnknownRows).toBe(0);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
+    expect(report.summary.readMostlyRowsWithoutValueMetadata).toBe(30);
     expect(report.summary.unknownBoundaryBehaviorRows).toBe(6);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
@@ -40,11 +41,15 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["unverified-unknown-readback-only", "warning", "pass", 0],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
+      ["read-mostly-value-metadata-review", "warning", "warn", 30],
       ["unknown-boundary-behavior", "warning", "warn", 6],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
     const readOnlyDomain = report.reviewBuckets.find((bucket) => bucket.id === "read-only-domain-metadata-review");
+    const readMostlyValueMetadata = report.reviewBuckets.find(
+      (bucket) => bucket.id === "read-mostly-value-metadata-review",
+    );
     const unknownBoundary = report.reviewBuckets.find((bucket) => bucket.id === "unknown-boundary-behavior");
     expect(unverifiedFx?.count).toBe(0);
     expect(unverifiedFx?.roots).toEqual([]);
@@ -52,6 +57,17 @@ describe("final Object Tree data quality audit", () => {
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
+    expect(readMostlyValueMetadata?.count).toBe(30);
+    expect(readMostlyValueMetadata?.roots).toEqual([
+      { root: "Universe", count: 25 },
+      { root: "FX", count: 2 },
+      { root: "UniversePanelAlias", count: 1 },
+      { root: "Zone", count: 1 },
+      { root: "ZoneAlias", count: 1 },
+    ]);
+    expect(readMostlyValueMetadata?.examples).toContain("Universe.N.Button1.ColorOff");
+    expect(readMostlyValueMetadata?.examples).toContain("FX.N.N.N.Chase.Manual");
+    expect(readMostlyValueMetadata?.examples).not.toContain("PlayListState.Playing");
     expect(unknownBoundary?.count).toBe(6);
     expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB4_XXXXX", count: 6 });
     expect(unknownBoundary?.roots).toHaveLength(1);
@@ -128,6 +144,7 @@ interface DataQualityReport {
     warningCount: number;
     unverifiedUnknownRows: number;
     readOnlyRowsWithDomainMetadata: number;
+    readMostlyRowsWithoutValueMetadata: number;
     unknownBoundaryBehaviorRows: number;
     crosswalkPropertiesWithBehaviorClassification: number;
     crosswalkPropertiesMissingBehaviorClassification: number;

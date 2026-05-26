@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "observedAt": "2026-05-26",
+    "beyondVersion": "5.5.0.2030",
+    "operatorSupervised": true,
+    "noLaserConnected": true,
+    "notes": "Talk TCP Echo 2 probes ran against an operator-supervised BEYOND test bench with no laser output hardware connected. The RegisterOscFeedback callback prefix is retired after this run."
+  },
+  "parentIssue": 151,
+  "entries": [
+    {
+      "objectPath": "Universe.N.Button1.ColorOff",
+      "probePath": "Universe.0.Button1.ColorOff",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": false,
+      "valueType": "integer",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "unknown",
+      "baseline": {
+        "value": 8421504,
+        "typeTag": "i"
+      },
+      "testedValues": [
+        {
+          "input": 16711680,
+          "command": "SetProp \"Universe.0.Button1.ColorOff\", 16711680",
+          "readback": 8421504,
+          "behavior": "unknown"
+        },
+        {
+          "command": "WriteLn Universe.0.Button1.ColorOff",
+          "readback": 8421504,
+          "behavior": "unknown"
+        },
+        {
+          "command": "RegisterOscFeedback \"/pangolint/issue151/button1_coloroff_after_sample\", \"Universe.0.Button1.ColorOff\"",
+          "readback": 8421504,
+          "behavior": "unknown"
+        },
+        {
+          "command": "ResetOscFeedback after ColorOff sample",
+          "readback": 8421504,
+          "behavior": "unknown"
+        },
+        {
+          "input": 8421504,
+          "command": "SetProp \"Universe.0.Button1.ColorOff\", 8421504",
+          "readback": 8421504,
+          "behavior": "unknown"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 8421504,
+        "notes": "Restored the ColorOff baseline with SetProp and verified final readback 8421504."
+      },
+      "evidenceNote": "Issue #151 Talk TCP Echo 2 probes and operator clarification confirmed ColorOff accepts Delphi TColor writes that change the component off color visually, while WriteLn, OscOutTTS, and RegisterOscFeedback plus ResetOscFeedback keep reporting the same Object Tree readback value. ColorOn and ColorActive comparison probes reported sample values through the same feedback path, confirming the stale readback is specific to ColorOff writes.",
+      "deferReason": "ColorOff has visual-write behavior but stale Object Tree readback, so PangoLint keeps readback-only metadata instead of shipping writable value range metadata.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "showfile-alias",
+        "populationDependent": true,
+        "concreteContext": "Universe.N.Button1",
+        "notes": "The runtime probe used Universe.0.Button1.ColorOff, the loaded control path for Universe.N.Button1. Universe.N uses the zero-based Universe page index, while control names depend on the loaded show."
+      }
+    }
+  ]
+}

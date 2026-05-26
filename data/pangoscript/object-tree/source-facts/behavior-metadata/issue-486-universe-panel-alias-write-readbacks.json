@@ -35,7 +35,7 @@
       "writeTestStatus": "write-readback-tested",
       "readbackStatus": "readback-tested",
       "evidenceLevel": "observed",
-      "notes": "Runtime Talk/OSC write/readback on 2026-05-17 issue #486 captured UniversePanelAlias.Control.ColorOff readback staying at baseline, while prior operator checks observed decimal color writes changing the equivalent Button1 off color visually. Readback evidence remains in readback metadata and writable color range metadata is deferred."
+      "notes": "Runtime Talk/OSC write/readback on 2026-05-17 issue #486 captured UniversePanelAlias.Control.ColorOff readback staying at baseline, while prior operator checks observed decimal color writes changing the equivalent Button1 off color visually. Issue #151 Talk TCP Echo 2 feedback probes confirmed Delphi TColor writes can change ColorOff visually while WriteLn, OscOutTTS, and RegisterOscFeedback plus ResetOscFeedback keep reporting stale readback values. Readback evidence remains in readback metadata and writable color range metadata is withheld."
     },
     {
       "path": "UniversePanelAlias.Control.ColorOn",

@@ -149,6 +149,7 @@ const entries = [...index.entries].sort(compareEntries);
 const checks = buildChecks(entries, crosswalkSummary);
 const unverifiedRows = entries.filter(isUnverifiedUnknownReadbackOnly);
 const readOnlyDomainRows = entries.filter(isReadOnlyWithDomainMetadata);
+const readMostlyRowsWithoutValueMetadata = entries.filter(isReadMostlyWithoutValueMetadata);
 const unknownBoundaryRows = entries.filter(hasUnknownBoundaryBehavior);
 
 const hardViolationCount = checks
@@ -176,6 +177,7 @@ const report = {
     warningCount,
     unverifiedUnknownRows: unverifiedRows.length,
     readOnlyRowsWithDomainMetadata: readOnlyDomainRows.length,
+    readMostlyRowsWithoutValueMetadata: readMostlyRowsWithoutValueMetadata.length,
     unknownBoundaryBehaviorRows: unknownBoundaryRows.length,
     crosswalkPropertiesWithBehaviorClassification: crosswalkSummary.propertiesWithBehaviorClassification,
     crosswalkPropertiesMissingBehaviorClassification: crosswalkSummary.propertiesMissingBehaviorClassification,
@@ -200,6 +202,11 @@ const report = {
       "read-only-domain-metadata-review",
       readOnlyDomainRows,
       "Keep these as computed-status rows, but review wording so domain metadata is not mistaken for writable range metadata.",
+    ),
+    buildReviewBucket(
+      "read-mostly-value-metadata-review",
+      readMostlyRowsWithoutValueMetadata,
+      "Retest these read-mostly rows before shipping writable value metadata, or keep explicit readback-only wording when writes cannot be represented as reliable Object Tree ranges.",
     ),
     buildReviewBucket(
       "unknown-boundary-behavior",
@@ -298,6 +305,12 @@ function buildChecks(currentEntries: ObjectIndexEntry[], summary: ControlCrosswa
       "Read-only rows with domain metadata need careful public wording so computed domains are not read as writable ranges.",
     ),
     buildCheck(
+      "read-mostly-value-metadata-review",
+      "warning",
+      currentEntries.filter(isReadMostlyWithoutValueMetadata),
+      "Read-mostly rows without writable value metadata need retest or explicit readback-only wording.",
+    ),
+    buildCheck(
       "unknown-boundary-behavior",
       "warning",
       currentEntries.filter(hasUnknownBoundaryBehavior),
@@ -366,6 +379,10 @@ function isUnverifiedUnknownReadbackOnly(entry: ObjectIndexEntry): boolean {
 
 function isReadOnlyWithDomainMetadata(entry: ObjectIndexEntry): boolean {
   return entry.classification?.accessMode === "read-only" && hasValueMetadata(entry);
+}
+
+function isReadMostlyWithoutValueMetadata(entry: ObjectIndexEntry): boolean {
+  return entry.classification?.accessMode === "read-mostly" && !hasValueMetadata(entry);
 }
 
 function hasUnknownBoundaryBehavior(entry: ObjectIndexEntry): boolean {

@@ -359,7 +359,7 @@ describe("checked-in Object Tree readback metadata data", () => {
     }
   });
 
-  it("ships Universe common write/readback results with ColorOff retained as no-op readback metadata", () => {
+  it("ships Universe common write/readback results with ColorOff retained as stale readback metadata", () => {
     const objectPropertyIndex = readJson<{
       entries: Array<{
         path: string;
@@ -384,6 +384,16 @@ describe("checked-in Object Tree readback metadata data", () => {
         testedValues: Array<{ input: string | number; behavior: string }>;
       }>;
     }>("object-range-evidence/issue-486-universe-common-write-readbacks.json");
+    const visualWriteEvidence = readJson<{
+      entries: Array<{
+        objectPath: string;
+        shipsMetadata: boolean;
+        boundaryBehavior?: string;
+        evidenceNote: string;
+        deferReason?: string;
+        testedValues: Array<{ command?: string; readback: string | number | boolean | null; behavior: string }>;
+      }>;
+    }>("object-range-evidence/issue-151-universe-coloroff-visual-write.json");
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const issuePrefix = "Runtime SetProp and direct assignment write/readback on 2026-05-17 issue #486 confirmed ";
 
@@ -397,6 +407,8 @@ describe("checked-in Object Tree readback metadata data", () => {
         evidenceLevel: "observed",
       });
       expect(entry?.readbackMetadata?.notes?.startsWith(issuePrefix) ?? false, metadata.path).toBe(true);
+      expect(entry?.readbackMetadata?.notes, metadata.path).toContain("Delphi TColor writes");
+      expect(entry?.readbackMetadata?.notes, metadata.path).toContain("readback remains stale");
       expect(entry?.valueMetadata, metadata.path).toBeUndefined();
       expect(entry?.contextValueMetadata, metadata.path).toBeUndefined();
       expect(entry?.classification, metadata.path).toMatchObject({
@@ -470,6 +482,23 @@ describe("checked-in Object Tree readback metadata data", () => {
       boundaryBehavior: "unknown",
     });
     expect(colorOffEvidence?.testedValues.some((value) => value.behavior === "no-op")).toBe(true);
+
+    const visualColorOffEvidence = visualWriteEvidence.entries.find(
+      (entry) => entry.objectPath === "Universe.N.Button1.ColorOff",
+    );
+    expect(visualColorOffEvidence).toMatchObject({
+      shipsMetadata: false,
+      boundaryBehavior: "unknown",
+      deferReason:
+        "ColorOff has visual-write behavior but stale Object Tree readback, so PangoLint keeps readback-only metadata instead of shipping writable value range metadata.",
+    });
+    expect(visualColorOffEvidence?.evidenceNote).toContain("Delphi TColor writes");
+    expect(visualColorOffEvidence?.evidenceNote).toContain("same Object Tree readback value");
+    expect(
+      visualColorOffEvidence?.testedValues.some(
+        (value) => value.command === "ResetOscFeedback after ColorOff sample" && value.readback === 8421504,
+      ),
+    ).toBe(true);
   });
 
   it("ships Universe nested Zone write/readback no-op results without value coverage", () => {

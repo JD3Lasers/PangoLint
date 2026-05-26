@@ -783,6 +783,8 @@ describe("Object Tree behavior classification data", () => {
         expect(entry.accessMode, entry.path).toBe("read-mostly");
         expect(entry.behaviorKind, entry.path).toBe("state-value");
         expect(entry.writeTestStatus, entry.path).toBe("write-readback-tested");
+        expect(entry.notes, entry.path).toContain("Delphi TColor writes");
+        expect(entry.notes, entry.path).toContain("stale readback values");
       } else {
         expect(indexEntry?.valueMetadata, entry.path).toBeDefined();
         expect(indexEntry?.readbackMetadata, entry.path).toBeUndefined();
