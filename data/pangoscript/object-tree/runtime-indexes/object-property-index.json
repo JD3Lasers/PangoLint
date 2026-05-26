@@ -6933,7 +6933,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/ColorChannel/Count",
-      "searchText": "colorchannel count color channel b integer channels unknown read back 256 boundary readbacks confirmed 255 name as color256 and the invalid path fallback 0 observed runtime readback only evidence on 2026 05 15 issue #399 reads with last zero based index present indexed root n uses indices number of available behavior classification access mode computed status write no op tested fresh setprop direct assignment writes left at baseline probe samples are recorded in data pangoscript object tree 487 probes json existing value metadata was used to choose",
+      "searchText": "colorchannel count color channel b integer channels no op read back 256 boundary readbacks confirmed 255 name as color256 and the invalid path fallback 0 direct setprop assignment writes left at readback baseline observed runtime only evidence on 2026 05 15 issue #399 reads with last zero based index present indexed root n uses indices number of available behavior classification access mode computed status write tested fresh probe samples are recorded in data pangoscript object tree 487 probes json existing value metadata was used to choose",
       "variantCount": 1,
       "variants": [
         {
@@ -6947,9 +6947,9 @@
           "min": 256,
           "max": 256,
           "unit": "color channels",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "no-op",
           "evidenceLevel": "observed",
-          "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0."
+          "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0. Direct SetProp and assignment writes left ColorChannel.Count at the readback baseline."
         },
         "acceptedValues": [
           {
@@ -125634,7 +125634,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid/ClickMode",
-      "searchText": "grid clickmode click mode b integer unknown readbacks were 1 2 3 4 5 and 6 after command writes clickselect clickflash clicksoloflash clicktoggle clickrestart clicktrack observed runtime write readback on 2026 05 12 confirmed baseline restored to with select flash soloflash toggle restart track behavior classification access read only computed status no op tested fresh setprop direct assignment left at probe path samples are recorded in data pangoscript object tree evidence issue 487 probes json existing value metadata was used choose",
+      "searchText": "grid clickmode click mode b integer no op readbacks were 1 2 3 4 5 and 6 after command writes clickselect clickflash clicksoloflash clicktoggle clickrestart clicktrack direct setprop assignment left the readback at baseline observed runtime write on 2026 05 12 confirmed restored to with select flash soloflash toggle restart track behavior classification access read only computed status tested fresh probe path samples are recorded in data pangoscript object tree evidence issue 487 probes json existing value metadata was used choose",
       "variantCount": 1,
       "variants": [
         {
@@ -125648,9 +125648,9 @@
           "min": 1,
           "max": 6,
           "unit": "click mode",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "no-op",
           "evidenceLevel": "observed",
-          "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1."
+          "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1. Direct SetProp and assignment writes left the readback at baseline."
         },
         "acceptedValues": [
           {
@@ -131720,7 +131720,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Grid2/ClickMode",
-      "searchText": "grid2 clickmode click mode b integer unknown readbacks were 1 2 3 4 5 and 6 after command writes clickselect clickflash clicksoloflash clicktoggle clickrestart clicktrack observed runtime write readback on 2026 05 12 confirmed baseline restored to with select flash soloflash toggle restart track behavior classification access read only computed status no op tested fresh setprop direct assignment left at probe path samples are recorded in data pangoscript object tree evidence issue 487 probes json existing value metadata was used choose",
+      "searchText": "grid2 clickmode click mode b integer no op readbacks were 1 2 3 4 5 and 6 after command writes clickselect clickflash clicksoloflash clicktoggle clickrestart clicktrack direct setprop assignment left the readback at baseline observed runtime write on 2026 05 12 confirmed restored to with select flash soloflash toggle restart track behavior classification access read only computed status tested fresh probe path samples are recorded in data pangoscript object tree evidence issue 487 probes json existing value metadata was used choose",
       "variantCount": 1,
       "variants": [
         {
@@ -131734,9 +131734,9 @@
           "min": 1,
           "max": 6,
           "unit": "click mode",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "no-op",
           "evidenceLevel": "observed",
-          "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2."
+          "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2. Direct SetProp and assignment writes left the readback at baseline."
         },
         "acceptedValues": [
           {
@@ -137756,7 +137756,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Location/Count",
-      "searchText": "location count b integer locations unknown read back 1024 boundary readbacks confirmed 1023 name as and the invalid path fallback 0 observed runtime readback only evidence on 2026 05 15 issue #399 reads with last zero based index present indexed root n uses indices number of available slots behavior classification access mode computed status not applicable tested from shows reports slot writes do apply to object tree value domain remains in metadata",
+      "searchText": "location count b integer locations read back 1024 boundary readbacks confirmed 1023 name as and the invalid path fallback 0 direct object tree writes are not applicable to this status domain observed runtime readback only evidence on 2026 05 15 issue #399 reads with last zero based index present indexed root n uses indices number of available slots behavior classification access mode computed tested from shows reports slot do apply value remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -137770,9 +137770,8 @@
           "min": 1024,
           "max": 1024,
           "unit": "locations",
-          "boundaryBehavior": "unknown",
           "evidenceLevel": "observed",
-          "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0."
+          "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0. Direct Object Tree boundary writes are not applicable to this count status domain."
         },
         "acceptedValues": [
           {
@@ -153470,7 +153469,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/PlayListState/Position",
-      "searchText": "playliststate position play list state b command derived exact setsproperty target playlistsettime seconds 0 observed negative clamps to upper pass through 5000 with duration 3000 seed from parameter for this is not same name propagation number unknown requires playlist playback values above the loaded were accepted input behavior classification access mode read only computed status write no op tested readback fresh setprop and direct assignment writes left at baseline probe path samples are recorded in data pangoscript object tree evidence issue 487 probes json existing value metadata was used choose",
+      "searchText": "playliststate position play list state b command derived exact setsproperty target playlistsettime seconds 0 observed negative clamps to upper pass through 5000 with duration 3000 seed from parameter for this is not same name propagation number unknown requires playlist playback values above the loaded were accepted input settable runtime evidence so context a hard bound no op direct setprop and assignment writes left at readback baseline remains specific setter fresh write issue #487 confirmed object tree on separate behavior classification access mode read only computed status tested probe path samples are recorded in data pangoscript 487 probes json existing value metadata was used choose",
       "variantCount": 1,
       "variants": [
         {
@@ -153482,13 +153481,20 @@
         "valueType": "number",
         "valueRange": {
           "min": 0,
+          "dynamicMax": {
+            "expression": "observed command-settable playlist position",
+            "sourcePaths": [
+              "PlayListState.Duration"
+            ],
+            "notes": "Runtime command evidence accepted position values above PlayListState.Duration, so the loaded duration is context, not a hard upper bound."
+          },
           "unit": "seconds",
-          "boundaryBehavior": "unknown",
+          "boundaryBehavior": "no-op",
           "evidenceLevel": "observed",
-          "notes": "Requires playlist playback. Values above the loaded duration were accepted; negative input clamps to 0."
+          "notes": "Direct SetProp and assignment writes left PlayListState.Position at the readback baseline. PlayListSetTime remains the command-specific setter for playlist position."
         },
         "evidenceLevel": "observed",
-        "notes": "Command-derived seed from PlayListSetTime seconds parameter for exact setsProperty target. This is not same-name propagation."
+        "notes": "Fresh write/readback evidence from issue #487 confirmed direct Object Tree writes no-op on PlayListState.Position. Command evidence for PlayListSetTime remains separate."
       },
       "classification": {
         "accessMode": "read-only",
@@ -153551,7 +153557,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Projector/0/Connected",
-      "searchText": "projector n connected 0 b boolean unknown readbacks confirmed returns or 1 across populated and unpopulated slots out of domain writes were not tested because this is hardware connection state observed runtime readback only evidence on 2026 05 14 issue #298 as a concrete paths read while 2 instance uses the zero based object tree index probe used plus in loaded setup population dependent slot location aware disconnected reads behavior classification access mode computed status applicable from show reports do apply to value remains metadata",
+      "searchText": "projector n connected 0 b boolean readbacks confirmed returns or 1 across populated and unpopulated slots direct object tree boundary writes are not applicable to this hardware connection state observed runtime readback only evidence on 2026 05 14 issue #298 as a domain concrete paths read while 2 instance uses the zero based index probe used plus in loaded setup population dependent slot location aware disconnected reads behavior classification access mode computed status tested from show reports do apply value remains metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -153565,9 +153571,8 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
           "evidenceLevel": "observed",
-          "notes": "Readbacks confirmed Projector.N.Connected returns 0 or 1 across populated and unpopulated projector slots. Out-of-domain writes were not tested because this is hardware connection state."
+          "notes": "Readbacks confirmed Projector.N.Connected returns 0 or 1 across populated and unpopulated projector slots. Direct Object Tree boundary writes are not applicable to this hardware connection state."
         },
         "acceptedValues": [
           {
@@ -221610,7 +221615,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Status/LaserEnabled",
-      "searchText": "status laserenabled laser enabled b boolean unknown disablelaseroutput read back 0 and enablelaseroutput 1 after a short settle wait out of domain assignments were not tested because this is command driven state observed runtime readback on 2026 05 13 issue #298 confirmed as with no connected final restore off reads behavior classification access mode mostly flag evidence from shows reports persistent output direct object value remains in metadata",
+      "searchText": "status laserenabled laser enabled b boolean disablelaseroutput read back 0 and enablelaseroutput 1 after a short settle wait direct object tree boundary writes are not applicable to this command driven state observed runtime readback on 2026 05 13 issue #298 confirmed as domain with no connected final restore off reads behavior classification access mode mostly flag tested evidence from shows reports persistent output assignments were because is value remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -221624,9 +221629,8 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
           "evidenceLevel": "observed",
-          "notes": "DisableLaserOutput read back 0 and EnableLaserOutput read back 1 after a short settle wait. Out-of-domain assignments were not tested because this is command-driven state."
+          "notes": "DisableLaserOutput read back 0 and EnableLaserOutput read back 1 after a short settle wait. Direct Object Tree boundary writes are not applicable to this command-driven state."
         },
         "acceptedValues": [
           {
@@ -221660,7 +221664,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Status/Locked",
-      "searchText": "status locked b boolean unknown lockscreen read back 1 when a ui side lock password was configured and unlockscreen 0 out of domain assignments were not tested because this is command driven state observed runtime readback evidence from 2026 05 06 confirmed as the 13 issue #298 pass baseline did re run to avoid disrupting beyond off reads on behavior classification access mode mostly flag shows reports persistent after direct object value remains in metadata",
+      "searchText": "status locked b boolean lockscreen read back 1 when a ui side lock password was configured and unlockscreen 0 direct object tree boundary writes are not applicable to this command driven state observed runtime readback evidence from 2026 05 06 confirmed as domain the 13 issue #298 pass baseline did re run avoid disrupting beyond off reads on behavior classification access mode mostly flag tested shows reports persistent after assignments were because is value remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -221674,9 +221678,8 @@
           "min": 0,
           "max": 1,
           "unit": "boolean",
-          "boundaryBehavior": "unknown",
           "evidenceLevel": "observed",
-          "notes": "LockScreen read back 1 when a UI-side lock password was configured, and UnLockScreen read back 0. Out-of-domain assignments were not tested because this is command-driven state."
+          "notes": "LockScreen read back 1 when a UI-side lock password was configured, and UnLockScreen read back 0. Direct Object Tree boundary writes are not applicable to this command-driven state."
         },
         "acceptedValues": [
           {
@@ -222376,7 +222379,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/TouchPoints/Count",
-      "searchText": "touchpoints count touch points b integer unknown read back 10 9 active 0 during the same runtime pass observed readback only evidence on 2026 05 15 issue #399 confirmed reads indexed root n uses zero based point indices number of slots behavior classification access mode computed status not applicable tested from shows reports available slot writes do apply to object tree value domain remains in metadata",
+      "searchText": "touchpoints count touch points b integer read back 10 9 active 0 during the same runtime pass direct object tree boundary writes are not applicable to this status domain observed readback only evidence on 2026 05 15 issue #399 confirmed reads indexed root n uses zero based point indices number of slots behavior classification access mode computed tested from shows reports available slot do apply value remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -222390,9 +222393,8 @@
           "min": 10,
           "max": 10,
           "unit": "touch points",
-          "boundaryBehavior": "unknown",
           "evidenceLevel": "observed",
-          "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass."
+          "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass. Direct Object Tree boundary writes are not applicable to this count status domain."
         },
         "acceptedValues": [
           {

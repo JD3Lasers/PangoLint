@@ -450,6 +450,42 @@ describe("tracked BEYOND control reference data", () => {
     }
   });
 
+  it("keeps non-writable status boundary metadata synchronized across control-reference surfaces", () => {
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+    const expectedNoOpRows = new Set([
+      "ColorChannel.Count",
+      "Grid.ClickMode",
+      "Grid2.ClickMode",
+      "PlayListState.Position",
+    ]);
+    const expectedNoBoundaryRows = new Set([
+      "Location.Count",
+      "Projector.N.Connected",
+      "Status.LaserEnabled",
+      "Status.Locked",
+      "TouchPoints.Count",
+    ]);
+
+    for (const propertyPath of [...expectedNoOpRows, ...expectedNoBoundaryRows]) {
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+      const crosswalkRange = crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange;
+      const mcpRange = mcpRow?.value?.range;
+
+      expect(crosswalkRow?.objectIndexEntries[0]?.classification?.accessMode, propertyPath).toMatch(/read-/);
+      expect(mcpRow?.behavior?.accessMode, propertyPath).toMatch(/read-/);
+
+      if (expectedNoOpRows.has(propertyPath)) {
+        expect(crosswalkRange?.boundaryBehavior, propertyPath).toBe("no-op");
+        expect(mcpRange?.boundaryBehavior, propertyPath).toBe("no-op");
+      } else {
+        expect(crosswalkRange, propertyPath).not.toHaveProperty("boundaryBehavior");
+        expect(mcpRange, propertyPath).not.toHaveProperty("boundaryBehavior");
+      }
+    }
+  });
+
   it("keeps SetGridSize parameter boundary behavior synchronized across control-reference surfaces", () => {
     const commands = readJson<CommandControlReferenceCommand[]>("command-control-reference/commands.json");
     const rangeSeeds = readJson<CommandRangeSeedRow[]>("command-control-reference/range-seeds.json");

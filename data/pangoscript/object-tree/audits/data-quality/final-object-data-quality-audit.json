@@ -16,7 +16,7 @@
     "warningCount": 2,
     "unverifiedUnknownRows": 0,
     "readOnlyRowsWithDomainMetadata": 9,
-    "unknownBoundaryBehaviorRows": 31,
+    "unknownBoundaryBehaviorRows": 22,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0
   },
@@ -183,11 +183,10 @@
       "id": "unknown-boundary-behavior",
       "severity": "warning",
       "status": "warn",
-      "count": 31,
+      "count": 22,
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
-        "ColorChannel.Count",
         "FB3_XXXXX.Connected",
         "FB3_XXXXX.InvertX",
         "FB3_XXXXX.InvertY",
@@ -196,7 +195,8 @@
         "FB3_XXXXX.PostRotation",
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
-        "FB3_XXXXX.SizeY"
+        "FB3_XXXXX.SizeY",
+        "FB3_XXXXX.SwapXY"
       ],
       "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
@@ -265,7 +265,7 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 31,
+      "count": 22,
       "roots": [
         {
           "root": "FB3_XXXXX",
@@ -278,44 +278,11 @@
         {
           "root": "Beam",
           "count": 2
-        },
-        {
-          "root": "Status",
-          "count": 2
-        },
-        {
-          "root": "ColorChannel",
-          "count": 1
-        },
-        {
-          "root": "Grid",
-          "count": 1
-        },
-        {
-          "root": "Grid2",
-          "count": 1
-        },
-        {
-          "root": "Location",
-          "count": 1
-        },
-        {
-          "root": "PlayListState",
-          "count": 1
-        },
-        {
-          "root": "Projector",
-          "count": 1
-        },
-        {
-          "root": "TouchPoints",
-          "count": 1
         }
       ],
       "examples": [
         "Beam.N.ColorPalette",
         "Beam.N.RotoZ",
-        "ColorChannel.Count",
         "FB3_XXXXX.Connected",
         "FB3_XXXXX.InvertX",
         "FB3_XXXXX.InvertY",
@@ -324,7 +291,8 @@
         "FB3_XXXXX.PostRotation",
         "FB3_XXXXX.PreRotation",
         "FB3_XXXXX.SizeX",
-        "FB3_XXXXX.SizeY"
+        "FB3_XXXXX.SizeY",
+        "FB3_XXXXX.SwapXY"
       ],
       "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
@@ -861,18 +829,6 @@
       "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
     },
     {
-      "root": "Status",
-      "accessMode": "read-mostly",
-      "behaviorKind": "flag-state",
-      "valueType": "boolean",
-      "count": 2,
-      "examples": [
-        "Status.LaserEnabled",
-        "Status.Locked"
-      ],
-      "nextProbe": "Test 0, 1, and one out-of-domain value, then confirm whether nonzero writes act as persistent ON state."
-    },
-    {
       "root": "Beam",
       "accessMode": "read-write",
       "behaviorKind": "enum-state",
@@ -895,17 +851,6 @@
       "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
     },
     {
-      "root": "ColorChannel",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "integer",
-      "count": 1,
-      "examples": [
-        "ColorChannel.Count"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
       "root": "FB3_XXXXX",
       "accessMode": "read-only",
       "behaviorKind": "computed-status",
@@ -924,72 +869,6 @@
       "count": 1,
       "examples": [
         "FB4_XXXXX.Connected"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "Grid",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "integer",
-      "count": 1,
-      "examples": [
-        "Grid.ClickMode"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "Grid2",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "integer",
-      "count": 1,
-      "examples": [
-        "Grid2.ClickMode"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "Location",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "integer",
-      "count": 1,
-      "examples": [
-        "Location.Count"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "PlayListState",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "number",
-      "count": 1,
-      "examples": [
-        "PlayListState.Position"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "Projector",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "boolean",
-      "count": 1,
-      "examples": [
-        "Projector.N.Connected"
-      ],
-      "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
-    },
-    {
-      "root": "TouchPoints",
-      "accessMode": "read-only",
-      "behaviorKind": "computed-status",
-      "valueType": "integer",
-      "count": 1,
-      "examples": [
-        "TouchPoints.Count"
       ],
       "nextProbe": "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence."
     }

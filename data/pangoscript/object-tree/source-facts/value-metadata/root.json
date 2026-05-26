@@ -505,9 +505,9 @@
         "min": 1,
         "max": 6,
         "unit": "click mode",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "no-op",
         "evidenceLevel": "observed",
-        "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1."
+        "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1. Direct SetProp and assignment writes left the readback at baseline."
       },
       "acceptedValues": [
         {
@@ -545,9 +545,9 @@
         "min": 1,
         "max": 6,
         "unit": "click mode",
-        "boundaryBehavior": "unknown",
+        "boundaryBehavior": "no-op",
         "evidenceLevel": "observed",
-        "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2."
+        "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2. Direct SetProp and assignment writes left the readback at baseline."
       },
       "acceptedValues": [
         {
@@ -663,6 +663,24 @@
       ],
       "evidenceLevel": "observed",
       "notes": "Runtime command/readback on 2026-05-13 used the active playlist supplied by the operator. Baseline PlayListState.Playing read 1, PlayListStop read back 0, and PlayListPlay read back 1 to restore active playback. Loaded PlayListState.Duration read 166.875 seconds. This is global playlist player state, not a location-aware Object Tree path."
+    },
+    {
+      "path": "PlayListState.Position",
+      "valueType": "number",
+      "valueRange": {
+        "min": 0,
+        "dynamicMax": {
+          "expression": "observed command-settable playlist position",
+          "sourcePaths": ["PlayListState.Duration"],
+          "notes": "Runtime command evidence accepted position values above PlayListState.Duration, so the loaded duration is context, not a hard upper bound."
+        },
+        "unit": "seconds",
+        "boundaryBehavior": "no-op",
+        "evidenceLevel": "observed",
+        "notes": "Direct SetProp and assignment writes left PlayListState.Position at the readback baseline. PlayListSetTime remains the command-specific setter for playlist position."
+      },
+      "evidenceLevel": "observed",
+      "notes": "Fresh write/readback evidence from issue #487 confirmed direct Object Tree writes no-op on PlayListState.Position. Command evidence for PlayListSetTime remains separate."
     },
     {
       "path": "UserInterface.FrontView",

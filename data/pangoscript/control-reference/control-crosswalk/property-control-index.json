@@ -10719,8 +10719,9 @@
             "min": 256,
             "max": 256,
             "unit": "color channels",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "ColorChannel.Count read back 256. Boundary readbacks confirmed ColorChannel.255.Name as Color256 and ColorChannel.256.Name as the invalid-path fallback 0. Direct SetProp and assignment writes left ColorChannel.Count at the readback baseline."
           },
           "acceptedValues": [
             {
@@ -76755,8 +76756,9 @@
             "min": 1,
             "max": 6,
             "unit": "click mode",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1. Direct SetProp and assignment writes left the readback at baseline."
           },
           "acceptedValues": [
             {
@@ -76856,8 +76858,9 @@
             "min": 1,
             "max": 6,
             "unit": "click mode",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "Grid.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 1, ClickFlash 1, ClickSoloFlash 1, ClickToggle 1, ClickRestart 1, and ClickTrack 1. Direct SetProp and assignment writes left the readback at baseline."
           },
           "acceptedValues": [
             {
@@ -86695,8 +86698,9 @@
             "min": 1,
             "max": 6,
             "unit": "click mode",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2. Direct SetProp and assignment writes left the readback at baseline."
           },
           "acceptedValues": [
             {
@@ -86796,8 +86800,9 @@
             "min": 1,
             "max": 6,
             "unit": "click mode",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "Grid2.ClickMode readbacks were 1, 2, 3, 4, 5, and 6 after command writes ClickSelect 2, ClickFlash 2, ClickSoloFlash 2, ClickToggle 2, ClickRestart 2, and ClickTrack 2. Direct SetProp and assignment writes left the readback at baseline."
           },
           "acceptedValues": [
             {
@@ -96296,8 +96301,8 @@
             "min": 1024,
             "max": 1024,
             "unit": "locations",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "Location.Count read back 1024. Boundary readbacks confirmed Location.1023.Name as 1024 and Location.1024.Name as the invalid-path fallback 0. Direct Object Tree boundary writes are not applicable to this count status domain."
           },
           "acceptedValues": [
             {
@@ -130996,9 +131001,17 @@
           "valueType": "number",
           "valueRange": {
             "min": 0,
+            "dynamicMax": {
+              "expression": "observed command-settable playlist position",
+              "sourcePaths": [
+                "PlayListState.Duration"
+              ],
+              "notes": "Runtime command evidence accepted position values above PlayListState.Duration, so the loaded duration is context, not a hard upper bound."
+            },
             "unit": "seconds",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "boundaryBehavior": "no-op",
+            "evidenceLevel": "observed",
+            "notes": "Direct SetProp and assignment writes left PlayListState.Position at the readback baseline. PlayListSetTime remains the command-specific setter for playlist position."
           },
           "evidenceLevel": "observed"
         },
@@ -131158,8 +131171,8 @@
             "min": 0,
             "max": 1,
             "unit": "boolean",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "Readbacks confirmed Projector.N.Connected returns 0 or 1 across populated and unpopulated projector slots. Direct Object Tree boundary writes are not applicable to this hardware connection state."
           },
           "acceptedValues": [
             {
@@ -232518,8 +232531,8 @@
             "min": 0,
             "max": 1,
             "unit": "boolean",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "DisableLaserOutput read back 0 and EnableLaserOutput read back 1 after a short settle wait. Direct Object Tree boundary writes are not applicable to this command-driven state."
           },
           "acceptedValues": [
             {
@@ -232596,8 +232609,8 @@
             "min": 0,
             "max": 1,
             "unit": "boolean",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "LockScreen read back 1 when a UI-side lock password was configured, and UnLockScreen read back 0. Direct Object Tree boundary writes are not applicable to this command-driven state."
           },
           "acceptedValues": [
             {
@@ -233477,8 +233490,8 @@
             "min": 10,
             "max": 10,
             "unit": "touch points",
-            "boundaryBehavior": "unknown",
-            "evidenceLevel": "observed"
+            "evidenceLevel": "observed",
+            "notes": "TouchPoints.Count read back 10. TouchPoints.9.Active read back 0 during the same runtime pass. Direct Object Tree boundary writes are not applicable to this count status domain."
           },
           "acceptedValues": [
             {
