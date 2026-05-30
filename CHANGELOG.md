@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.63] - 2026-05-30
+
+### Fixed
+
+- Bump the locked transitive `tmp` dev dependency used by `@vscode/vsce` to
+  `0.2.7`, resolving GHSA-ph9p-34f9-6g65 / CVE-2026-44705 in dependency
+  audits.
+
 ## [0.7.62] - 2026-05-26
 
 ### Added
@@ -585,7 +593,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.62...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.63...HEAD
+[0.7.63]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.62...v0.7.63
 [0.7.62]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.61...v0.7.62
 [0.7.61]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.60...v0.7.61
 [0.7.60]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.59...v0.7.60
