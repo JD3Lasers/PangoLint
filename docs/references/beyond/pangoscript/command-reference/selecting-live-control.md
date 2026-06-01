@@ -322,53 +322,49 @@ property, and `Zone.N.Selected` plus `Zone.N.Mute` stayed unchanged.
 
 Signature: `GetFxControl`
 
-Read the current FX control state. Per BEYOND export: zero
-arguments, no comment. **Verified to NOT modify the routing
-register and NOT populate a PangoScript-readable built-in
-variable** - most likely emits a Talk-bus reply (see section
-overview).
+**Deprecated.** Despite the `Get` prefix, BEYOND documents this
+command as equivalent to `ControlFromFxTab`. It binds Live Control
+routing to the QuickFX tab's current destination. New scripts
+should use `ControlFromFxTab` directly.
 
 Example:
 
-    GetFxControl // observe FX control state
+    GetFxControl // deprecated; use ControlFromFxTab instead
 
-Safety: T0 - read operation, no side effect on output.
+Safety: T2 - routing only.
 
-Related: `ControlFromFxTab`, `GetLiveControl`, `GetTimeControl`.
+Related: `ControlFromFxTab`.
 
 ### GetLiveControl
 
 Signature: `GetLiveControl`
 
-Read the current Live Control state. Per BEYOND export: zero
-arguments, no comment. **Verified to NOT redirect subsequent Live
-Control writes** - `GetLiveControl / Brightness 75` after a
-`ControlMaster / Brightness 50` baseline left `Master.Brightness
-= 75`, confirming the routing register is unchanged. The output
-is most likely a Talk-bus reply.
+**Deprecated.** Despite the `Get` prefix, BEYOND documents this
+command as equivalent to `ControlFromLcTab`. It binds Live Control
+routing to the Live Control tab's current destination. New scripts
+should use `ControlFromLcTab` directly.
 
 Example:
 
-    GetLiveControl // observe LC control state
+    GetLiveControl // deprecated; use ControlFromLcTab instead
 
-Safety: T0 - read operation, no side effect on output.
+Safety: T2 - routing only.
 
-Related: `ControlFromLcTab`, `GetFxControl`, `GetTimeControl`.
+Related: `ControlFromLcTab`.
 
 ### GetPage
 
 Signature: `GetPage`
 
-Read the current active page. Per BEYOND export: zero arguments,
-no comment. Which page (Grid1 page, Grid2 page, master page, or
-all of them) is unverified. **Verified to NOT populate a built-in
-PangoScript variable** - `Page`, `$Page`, `Master.Page`, and
-`ActGridFocusedCue.Page` all read as 0 with or without a
-preceding `GetPage` call. Most likely a Talk-bus reply.
+**Deprecated.** BEYOND documents this as a legacy stub kept only
+so very old scripts do not fail syntax checks. It is not a
+supported page query and does not expose current page state. Use
+Object Tree page readback paths for page state, or `SetGrid1Page`
+and `SetGrid2Page` when changing visible pages.
 
 Example:
 
-    GetPage // observe current page
+    GetPage // deprecated legacy stub; do not use in new scripts
 
 Safety: T0 - read operation, no side effect on output.
 
@@ -379,16 +375,15 @@ Related: `SetPage`, `SetGrid1Page`, `SetGrid2Page` (all in
 
 Signature: `GetTimeControl`
 
-Read the current TimeControl state. Per BEYOND export: zero
-arguments, no comment. Inferred to share the GetLiveControl
-output behavior (Talk-bus reply, no PangoScript-side effect) - 
-not directly probed for this specific command but consistent with
-the family.
+**Deprecated.** Despite the `Get` prefix, BEYOND documents this
+command as equivalent to `ControlFromTcTab`. It binds Live Control
+routing to the Time Control tab's current destination. New scripts
+should use `ControlFromTcTab` directly.
 
 Example:
 
-    GetTimeControl // observe TC control state
+    GetTimeControl // deprecated; use ControlFromTcTab instead
 
-Safety: T0 - read operation, no side effect on output.
+Safety: T2 - routing only.
 
-Related: `ControlFromTcTab`, `GetFxControl`, `GetLiveControl`.
+Related: `ControlFromTcTab`.

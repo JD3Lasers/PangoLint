@@ -4719,7 +4719,7 @@
     },
     "GetFxControl": {
       "canonical": "GetFxControl",
-      "description": "**DEPRECATED.** BEYOND documentation says: 'Depreciated. Same as ControlFromFxTab.' This is NOT a Talk-bus readback command (the prior overlay claim was wrong) - it's a deprecated routing-setter alias of `ControlFromFxTab`. New scripts should use `ControlFromFxTab` directly. Earlier runtime observation that GetLiveControl didn't appear to change the routing register may have been a fall-through case (no LC tab destination configured to redirect to).",
+      "description": "**DEPRECATED.** Despite the `Get` prefix, BEYOND documents this command as equivalent to `ControlFromFxTab`. It binds Live Control routing to the QuickFX tab's current destination. New scripts should use `ControlFromFxTab` directly.",
       "evidenceLevel": "documented",
       "confidence": "high",
       "safetyTier": "T2",
@@ -4739,12 +4739,12 @@
         "status": "no-direct-property",
         "evidenceLevel": "documented",
         "safetyTier": "T2",
-        "notes": "Getter/query command. It does not write an object property; no durable result property is exposed in the bundled Object Tree index."
+        "notes": "Deprecated Live Control routing alias. It changes where subsequent Live Control commands land, but the routing register itself has no stable object-property path in the bundled Object Tree index."
       }
     },
     "GetLiveControl": {
       "canonical": "GetLiveControl",
-      "description": "**DEPRECATED.** BEYOND documentation says: 'Depreciated. Same as ControlFromLcTab.' This is NOT a Talk-bus readback command (the prior overlay claim was wrong) - it's a deprecated routing-setter alias of `ControlFromLcTab`. New scripts should use `ControlFromLcTab` directly.",
+      "description": "**DEPRECATED.** Despite the `Get` prefix, BEYOND documents this command as equivalent to `ControlFromLcTab`. It binds Live Control routing to the Live Control tab's current destination. New scripts should use `ControlFromLcTab` directly.",
       "evidenceLevel": "documented",
       "confidence": "high",
       "safetyTier": "T2",
@@ -4764,12 +4764,12 @@
         "status": "no-direct-property",
         "evidenceLevel": "documented",
         "safetyTier": "T2",
-        "notes": "Getter/query command. It does not write an object property; no durable result property is exposed in the bundled Object Tree index."
+        "notes": "Deprecated Live Control routing alias. It changes where subsequent Live Control commands land, but the routing register itself has no stable object-property path in the bundled Object Tree index."
       }
     },
     "GetPage": {
       "canonical": "GetPage",
-      "description": "**DEPRECATED.** BEYOND documentation says: 'This command is deprecated. Please do not use it. It remains enabled only to avoid syntax check failures in very old scripts.' Earlier overlay's 'Talk-bus reply' hypothesis was wrong - the command is documented as a no-op-style legacy stub, not a readback.",
+      "description": "**DEPRECATED.** BEYOND documents this as a legacy stub kept only so very old scripts do not fail syntax checks. It is not a supported page query and does not expose current page state. Use Object Tree page readback paths for page state, or `SetGrid1Page` and `SetGrid2Page` when changing visible pages.",
       "evidenceLevel": "documented",
       "confidence": "high",
       "safetyTier": "T0",
@@ -4789,12 +4789,12 @@
         "status": "no-direct-property",
         "evidenceLevel": "documented",
         "safetyTier": "T0",
-        "notes": "Getter/query command. It does not write an object property; no durable result property is exposed in the bundled Object Tree index."
+        "notes": "Deprecated legacy syntax stub. It does not write an object property and does not expose a durable result property in the bundled Object Tree index."
       }
     },
     "GetTimeControl": {
       "canonical": "GetTimeControl",
-      "description": "**DEPRECATED.** BEYOND documentation says: 'Depreciated. Same as ControlFromTcTab.' This is NOT a Talk-bus readback command (the prior overlay claim was wrong) - it's a deprecated routing-setter alias of `ControlFromTcTab`. New scripts should use `ControlFromTcTab` directly.",
+      "description": "**DEPRECATED.** Despite the `Get` prefix, BEYOND documents this command as equivalent to `ControlFromTcTab`. It binds Live Control routing to the Time Control tab's current destination. New scripts should use `ControlFromTcTab` directly.",
       "evidenceLevel": "documented",
       "confidence": "high",
       "safetyTier": "T2",
@@ -4814,7 +4814,7 @@
         "status": "no-direct-property",
         "evidenceLevel": "documented",
         "safetyTier": "T2",
-        "notes": "Getter/query command. It does not write an object property; no durable result property is exposed in the bundled Object Tree index."
+        "notes": "Deprecated Live Control routing alias. It changes where subsequent Live Control commands land, but the routing register itself has no stable object-property path in the bundled Object Tree index."
       }
     },
     "GoGridMode": {
@@ -14162,7 +14162,7 @@
     },
     "SetEffectChannelAction": {
       "canonical": "SetEffectChannelAction",
-      "description": "Set the effect-channel action parameter for a channel. BEYOND documentation says: 'Defines channel action parameter which impact channel calculation.' Important corrections from the prior overlay: (1) the parameter order is `<value>, <index>`, NOT `<action>, <value>` as previously documented; (2) the value 0..100 is a channel-effect intensity / parameter, NOT an enum selector; (3) the BEYOND documentation's claim of `index 0..7` is **wrong for current builds** - actual valid index range is `1..8` (1-based) matching `Master.EffectChannelAction1..8` properties. Index 0, negatives, and values > 8 are silently dropped.",
+      "description": "Set the effect-channel action intensity for a channel. BEYOND documentation says: 'Defines channel action parameter which impact channel calculation.' Current builds use parameter order `<value>, <index>`: value is a 0..100 channel-effect intensity, and index is 1..8 matching `Master.EffectChannelAction1..8` properties. Index 0, negatives, and values > 8 are silently dropped.",
       "evidenceLevel": "observed",
       "confidence": "high",
       "safetyTier": "T2",
@@ -15639,7 +15639,7 @@
     },
     "SetLimiterPerZone": {
       "canonical": "SetLimiterPerZone",
-      "description": "Maximum number of cues per projection zone in the active limiter profile. Cue-count cap, range 1..30. Keep values in reasonable limits. This is not an output-value limiter; prior overlay description corrected.",
+      "description": "Set the maximum number of concurrent cues per projection zone in the active limiter profile. Range 1..30. This controls cue count per zone, not output-value limiting.",
       "evidenceLevel": "documented",
       "confidence": "high",
       "safetyTier": "T2",

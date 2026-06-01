@@ -756,12 +756,10 @@ BEYOND documentation: "Defines channel action parameter
 which impact channel calculation." The parameter is a numeric
 intensity / mix amount, not an enum selector.
 
-**Important corrections from earlier overlay** (verified at runtime
-in BEYOND 2030):
+**Observed runtime behavior** (verified in BEYOND 2030):
 
 - The parameter order is **`(value, index)`**, NOT
- `(action, value)`. Earlier overlay had this backwards - scripts
- that used the old order were sending value as the index.
+ `(action, value)`.
 - The documentation lists the index range as "0 to 7", but **runtime
  requires `1..8`** (1-based). Index 0, negatives, and values > 8
  are all silently dropped.
