@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.7.64] - 2026-06-01
+
+### Fixed
+
+- Rewrite command catalog and reference descriptions that exposed maintainer
+  iteration notes instead of current BEYOND command behavior.
+
 ## [0.7.63] - 2026-05-30
 
 ### Fixed
@@ -593,7 +600,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.63...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.64...HEAD
+[0.7.64]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.63...v0.7.64
 [0.7.63]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.62...v0.7.63
 [0.7.62]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.61...v0.7.62
 [0.7.61]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.60...v0.7.61

@@ -516,10 +516,10 @@ These commands shift BEYOND's internal clock or metronome reference
 by a fixed offset. Useful for syncing to an external time source
 that's running ahead/behind.
 
-**Verified write targets (2026-05-06)** - note that the existing
-prior overlay claims for `Master.ClockShift` and `Master.MetroShift`
-were INCORRECT (those properties don't exist; the prior
-"verifications" were silent-zero false-positives). Real targets:
+**Verified write targets (2026-05-06)**: the writable paths differ
+from the obvious `Master.ClockShift` and `Master.MetroShift` names.
+Those properties are not exposed as durable readback paths. Runtime
+readback shows these targets:
 
 | Command | Real readback path | Unit (input → stored) |
 | --- | --- | --- |
