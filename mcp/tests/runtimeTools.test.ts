@@ -10,6 +10,7 @@ import type { McpConfig } from "../src/config";
 import { checkTalkConnection } from "../src/tools/checkTalkConnection";
 import { healthCheck } from "../src/tools/healthCheck";
 import { readBeyondProperty } from "../src/tools/readBeyondProperty";
+import { readReceivedOscMessages } from "../src/tools/readReceivedOscMessages";
 import { runScript } from "../src/tools/runScript";
 
 const readEnabledConfig: McpConfig = {
@@ -286,6 +287,90 @@ describe("readBeyondProperty", () => {
     if (!result.ok) expect(result.error).toContain("Invalid property path");
     expect(sendTalk).not.toHaveBeenCalled();
     expect(listenForOsc).not.toHaveBeenCalled();
+  });
+});
+
+describe("readReceivedOscMessages", () => {
+  it("returns blocked when runtime is disabled", async () => {
+    const result = await readReceivedOscMessages({ addressPrefix: "/pangolint/" }, disabledConfig);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.blocked).toBe(true);
+      expect(result.error).toContain("PANGOLINT_MCP_RUNTIME_READ=enabled");
+    }
+  });
+
+  it("waits for matching OSC messages on the configured listen address", async () => {
+    const result = await readReceivedOscMessages(
+      {
+        addresses: ["/pangolint/feedback/zone"],
+        addressPrefix: "/pangolint/feedback/",
+        timeoutMs: 50,
+        maxMessages: 3,
+      },
+      readEnabledConfig,
+      {
+        startCapture: async (options) => {
+          expect(options).toEqual({
+            listenHost: "0.0.0.0",
+            listenPort: 7000,
+            timeoutMs: 50,
+            addresses: ["/pangolint/feedback/zone"],
+            addressPrefix: "/pangolint/feedback/",
+            expectedSourceHost: "127.0.0.1",
+            maxMessages: 3,
+          });
+          return {
+            ready: Promise.resolve(),
+            done: Promise.resolve({
+              ok: true,
+              timedOut: false,
+              messages: [
+                {
+                  address: "/pangolint/feedback/zone",
+                  typeTags: "sff",
+                  args: ["run-1", 100, 0.5],
+                  sourceAddress: "127.0.0.1",
+                  sourcePort: 777,
+                },
+              ],
+            }),
+            stop: vi.fn(),
+          };
+        },
+      },
+    );
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.data.ok).toBe(true);
+      expect(result.data.listenHost).toBe("0.0.0.0");
+      expect(result.data.listenPort).toBe(7000);
+      expect(result.data.timedOut).toBe(false);
+      expect(result.data.messageCount).toBe(1);
+      expect(result.data.messages[0]).toMatchObject({
+        address: "/pangolint/feedback/zone",
+        typeTags: "sff",
+        args: ["run-1", 100, 0.5],
+        sourceAddress: "127.0.0.1",
+        sourcePort: 777,
+      });
+    }
+  });
+
+  it("rejects non-printable OSC address filters before binding the listener", async () => {
+    const startCapture = vi.fn();
+    const result = await readReceivedOscMessages(
+      {
+        addresses: ["/pangolint/good", "/pangolint/bad\n"],
+      },
+      readEnabledConfig,
+      { startCapture },
+    );
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.error).toContain("OSC address filters must be printable ASCII paths");
+    expect(startCapture).not.toHaveBeenCalled();
   });
 });
 

@@ -31,7 +31,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.64.tgz
+npm install -g ./pangolint-mcp-0.8.0.tgz
 which pangolint-mcp
 ```
 
@@ -40,7 +40,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.64.tgz
+npm install -g ./mcp/pangolint-mcp-0.8.0.tgz
 which pangolint-mcp
 ```
 
@@ -76,6 +76,7 @@ script-send capability.
 | `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND UDP target. Does not verify BEYOND accepts commands. |
 | `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, configured `Echo` mode, `Hello`, and `Version` replies. |
 | `readBeyondProperty` | T1 read | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (e.g. `Master.Brightness`). Talk TCP readbacks use the configured `Echo` mode. |
+| `readReceivedOscMessages` | T1 read | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Listens on the configured OSC callback port for a bounded receive window and returns decoded OSC messages, with optional exact-address or prefix matching. |
 | `runScript` | T2+ | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints; refuses on any error-severity diagnostic; otherwise sends via configured Talk transport. Talk TCP reports BEYOND replies with the configured `Echo` mode; UDP fallback is send-only. |
 
 `runScript`'s lint-before-run gate is the load-bearing developer
@@ -118,7 +119,7 @@ calling individual tools.
 
 | Variable | Default | Description |
 |---|---|---|
-| `PANGOLINT_MCP_RUNTIME_READ` | (off) | Set to `enabled` (or `1` / `true`) to enable read runtime tools: `healthCheck`, `checkTalkConnection`, and `readBeyondProperty`. |
+| `PANGOLINT_MCP_RUNTIME_READ` | (off) | Set to `enabled` (or `1` / `true`) to enable read runtime tools: `healthCheck`, `checkTalkConnection`, `readBeyondProperty`, and `readReceivedOscMessages`. |
 | `PANGOLINT_MCP_RUNTIME_WRITE` | (off) | Set to `enabled` (or `1` / `true`) to enable `runScript`. Also enables read runtime tools. |
 | `PANGOLINT_MCP_RUNTIME` | (off) | Legacy alias for read runtime only. Does not enable `runScript`. |
 | `PANGOLINT_MCP_BEYOND_TALK_TRANSPORT` | `auto` | `auto`, `tcp`, or `udp`. Auto tries Talk TCP first and only uses UDP when fallback is explicitly allowed. |

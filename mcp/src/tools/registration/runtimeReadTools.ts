@@ -4,6 +4,7 @@ import { PANGO_ANALYSIS_LIMITS } from "../../../../src/language/mcpLanguageExpor
 import { checkTalkConnection } from "../checkTalkConnection";
 import { healthCheck } from "../healthCheck";
 import { readBeyondProperty } from "../readBeyondProperty";
+import { readReceivedOscMessages } from "../readReceivedOscMessages";
 import { MCP_TOOL_IDS, RUNTIME_READ_TOOL_ANNOTATIONS } from "../toolDefinitions";
 import { asTextResult } from "./toolRegistrationResult";
 import type { RegisterToolsContext } from "./toolRegistrationTypes";
@@ -46,5 +47,41 @@ export function registerRuntimeReadTools(server: McpServer, ctx: RegisterToolsCo
       annotations: RUNTIME_READ_TOOL_ANNOTATIONS,
     },
     async ({ path, typeTag }) => asTextResult(await readBeyondProperty({ path, typeTag }, ctx.config)),
+  );
+
+  server.registerTool(
+    MCP_TOOL_IDS.readReceivedOscMessages,
+    {
+      description:
+        "Listen on the configured BEYOND OSC callback port for a bounded receive window and return decoded OSC messages. READ RUNTIME ONLY. Use after RegisterOscFeedback or an operator action to inspect received OSC feedback without sending Talk commands.",
+      inputSchema: {
+        addresses: z
+          .array(z.string().max(PANGO_ANALYSIS_LIMITS.maxMcpNameChars))
+          .max(64)
+          .optional()
+          .describe("Exact OSC address paths to receive, e.g. ['/pangolint/feedback/zone']."),
+        addressPrefix: z
+          .string()
+          .max(PANGO_ANALYSIS_LIMITS.maxMcpNameChars)
+          .optional()
+          .describe("OSC address prefix to receive, e.g. '/pangolint/' or '/b/Zone/'."),
+        timeoutMs: z
+          .number()
+          .int()
+          .positive()
+          .optional()
+          .describe("Receive window in milliseconds. Cannot exceed PANGOLINT_MCP_READBACK_TIMEOUT_MS."),
+        maxMessages: z
+          .number()
+          .int()
+          .positive()
+          .max(256)
+          .optional()
+          .describe("Maximum matching OSC packets to return."),
+      },
+      annotations: RUNTIME_READ_TOOL_ANNOTATIONS,
+    },
+    async ({ addresses, addressPrefix, timeoutMs, maxMessages }) =>
+      asTextResult(await readReceivedOscMessages({ addresses, addressPrefix, timeoutMs, maxMessages }, ctx.config)),
   );
 }

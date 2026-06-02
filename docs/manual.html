@@ -759,7 +759,7 @@
 <body>
 
 <header class="cover">
-  <div class="cover-eyebrow">PangoLint v0.7.64</div>
+  <div class="cover-eyebrow">PangoLint v0.8.0</div>
   <div class="cover-grid">
     <div>
       <h1 class="cover-title">PangoLint <em>User Manual</em></h1>
@@ -1495,13 +1495,13 @@
 which pangolint-mcp</code></pre>
     <p>Or install the <code>pangolint-mcp</code> tarball attached to a
       GitHub Release:</p>
-    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.7.64.tgz
+    <pre data-lang="bash"><code>npm install -g ./pangolint-mcp-0.8.0.tgz
 which pangolint-mcp</code></pre>
 
     <p>For local development, build the same tarball from this
     repo:</p>
     <pre data-lang="bash"><code>npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.64.tgz
+npm install -g ./mcp/pangolint-mcp-0.8.0.tgz
 which pangolint-mcp</code></pre>
 
     <p>Wire it into your MCP-aware client by adding a stdio entry:</p>
@@ -1590,7 +1590,7 @@ codex mcp get PangoLint</code></pre>
     </div>
 
     <h3 id="runtime-tools">Runtime tools (opt-in)</h3>
-    <p>Four tools that talk to the configured BEYOND host. Read
+    <p>Five tools that talk to the configured BEYOND host. Read
     runtime and write runtime are separate opt-ins. Each tool returns
     <code>{ ok: false, blocked: true }</code> unless the matching
     runtime tier was enabled at server startup.</p>
@@ -1601,6 +1601,7 @@ codex mcp get PangoLint</code></pre>
         <tr><td><code>healthCheck</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. DNS + UDP-socket reachability of the configured BEYOND UDP target. Doesn't verify BEYOND accepts commands.</td></tr>
         <tr><td><code>checkTalkConnection</code></td><td>T0</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Opens Talk TCP and checks greeting, configured <code>Echo</code> mode, <code>Hello</code>, and <code>Version</code> replies.</td></tr>
         <tr><td><code>readBeyondProperty</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Single readback of a property path (<code>Master.Brightness</code>, <code>Zone.0.Red</code>, …) and returns the value. Talk TCP readbacks use the configured <code>Echo</code> mode.</td></tr>
+        <tr><td><code>readReceivedOscMessages</code></td><td>T1 (read)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code>. Listens on the configured OSC callback port for a bounded receive window and returns decoded OSC messages with optional exact-address or prefix filters.</td></tr>
         <tr><td><code>runScript</code></td><td>T2+ (write)</td><td>Requires <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code>. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. Talk TCP reports the selected <code>Echo</code> mode.</td></tr>
       </tbody>
     </table>
@@ -1848,7 +1849,8 @@ codex mcp get PangoLint</code></pre>
     <code>{ ok: false, blocked: true }</code>.</h4>
     <p>The server was started without the required runtime tier. Add
     <code>PANGOLINT_MCP_RUNTIME_READ=enabled</code> for
-    <code>healthCheck</code> / <code>readBeyondProperty</code>, or
+    <code>healthCheck</code>, <code>readBeyondProperty</code>, or
+    <code>readReceivedOscMessages</code>, or
     <code>PANGOLINT_MCP_RUNTIME_WRITE=enabled</code> for
     <code>runScript</code>, then restart the client. The agent is
     instructed not to retry - it should tell you how to enable runtime
@@ -1879,9 +1881,9 @@ codex mcp get PangoLint</code></pre>
     </p>
   </div>
   <div class="doc-footer-meta">
-    PangoLint &nbsp;·&nbsp; v0.7.64<br>
+    PangoLint &nbsp;·&nbsp; v0.8.0<br>
     Command catalog 529 entries<br>
-    Document revised 2026-05-26
+    Document revised 2026-06-02
   </div>
 </footer>
 

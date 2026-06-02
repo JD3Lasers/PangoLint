@@ -33,7 +33,7 @@ which pangolint-mcp   # confirm the binary is on PATH
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.64.tgz
+npm install -g ./pangolint-mcp-0.8.0.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -43,7 +43,7 @@ checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.64.tgz
+npm install -g ./mcp/pangolint-mcp-0.8.0.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -124,8 +124,8 @@ Only after the knowledge-only configuration works.
    `runtimeEnabled` and `runtimeReadEnabled` should now be `true`,
    `runtimeWriteEnabled` should still be `false`, and the
    available-tools list should include `healthCheck`,
-   `checkTalkConnection`, and `readBeyondProperty` but not
-   `runScript`.
+   `checkTalkConnection`, `readBeyondProperty`, and
+   `readReceivedOscMessages` but not `runScript`.
 
 5. `healthCheck` first. Expected `reachable: true` with the resolved
    UDP fallback address. If `reachable: false`, the server cannot
@@ -142,12 +142,17 @@ Only after the knowledge-only configuration works.
    at the network layer but not responding to OSC; check the
    listen-port settings on both sides.
 
-8. Only when operator-supervised script sending is in scope, add
+8. `readReceivedOscMessages` with `addressPrefix: "/pangolint/"` and a
+   short `timeoutMs`. Expected `ok: true` with `timedOut: true` and an
+   empty `messages` array when no feedback arrives, or decoded messages
+   when matching OSC feedback is received.
+
+9. Only when operator-supervised script sending is in scope, add
    `"PANGOLINT_MCP_RUNTIME_WRITE": "enabled"` to the same `env` block,
    restart the client, and confirm `getServerConfig` reports
    `runtimeWriteEnabled: true`.
 
-9. `runScript` with a known-good straight-line command such as
+10. `runScript` with a known-good straight-line command such as
    `OscOutTTS "/pangolint/mcp/smoke", "s", "manual-smoke"`.
    Expected lint-clean, `transport: "tcp"`, `talkStatus: "ok"`, and
    `linesSent: 1`, with the callback visible in the configured OSC

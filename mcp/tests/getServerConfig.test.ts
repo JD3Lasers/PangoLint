@@ -47,6 +47,7 @@ describe("getServerConfig", () => {
       expect(result.data.runtimeWriteEnabled).toBe(false);
       expect(result.data.availableTools).not.toContain("runScript");
       expect(result.data.availableTools).toContain("readBeyondProperty");
+      expect(result.data.availableTools).toContain("readReceivedOscMessages");
       expect(result.data.availableTools).toContain("healthCheck");
       expect(result.data.availableTools).toContain("checkTalkConnection");
     }
@@ -61,6 +62,7 @@ describe("getServerConfig", () => {
       expect(result.data.runtimeWriteEnabled).toBe(true);
       expect(result.data.availableTools).toContain("runScript");
       expect(result.data.availableTools).toContain("readBeyondProperty");
+      expect(result.data.availableTools).toContain("readReceivedOscMessages");
       expect(result.data.availableTools).toContain("healthCheck");
       expect(result.data.availableTools).toContain("checkTalkConnection");
     }
