@@ -139,7 +139,7 @@ describe("registerKnowledgeTools annotations contract", () => {
     "getServerConfig",
   ] as const;
 
-  it("registers all 15 tools", () => {
+  it("registers every declared MCP tool", () => {
     expect(tools.map((t) => t.name).sort()).toEqual(MCP_TOOL_DEFINITIONS.map((tool) => tool.id).sort());
   });
 
@@ -161,7 +161,12 @@ describe("registerKnowledgeTools annotations contract", () => {
   });
 
   it("runtime read tools carry RUNTIME_READ_TOOL_ANNOTATIONS", () => {
-    for (const name of ["healthCheck", "checkTalkConnection", "readBeyondProperty"] as const) {
+    for (const name of [
+      "healthCheck",
+      "checkTalkConnection",
+      "readBeyondProperty",
+      "readReceivedOscMessages",
+    ] as const) {
       const tool = tools.find((t) => t.name === name);
       expect(tool?.config.annotations).toEqual(RUNTIME_READ_TOOL_ANNOTATIONS);
     }

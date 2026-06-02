@@ -34,6 +34,7 @@ export const MCP_TOOL_IDS = {
   healthCheck: "healthCheck",
   checkTalkConnection: "checkTalkConnection",
   readBeyondProperty: "readBeyondProperty",
+  readReceivedOscMessages: "readReceivedOscMessages",
   runScript: "runScript",
 } as const;
 
@@ -63,6 +64,7 @@ export const MCP_TOOL_DEFINITIONS: readonly McpToolDefinition[] = [
   { id: MCP_TOOL_IDS.healthCheck, availability: "runtimeRead", annotations: RUNTIME_READ_TOOL_ANNOTATIONS },
   { id: MCP_TOOL_IDS.checkTalkConnection, availability: "runtimeRead", annotations: RUNTIME_READ_TOOL_ANNOTATIONS },
   { id: MCP_TOOL_IDS.readBeyondProperty, availability: "runtimeRead", annotations: RUNTIME_READ_TOOL_ANNOTATIONS },
+  { id: MCP_TOOL_IDS.readReceivedOscMessages, availability: "runtimeRead", annotations: RUNTIME_READ_TOOL_ANNOTATIONS },
   { id: MCP_TOOL_IDS.runScript, availability: "runtimeWrite", annotations: RUNTIME_WRITE_TOOL_ANNOTATIONS },
 ] as const;
 

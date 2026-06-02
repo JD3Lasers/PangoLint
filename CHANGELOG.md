@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-06-02
+
+### Added
+
+- Add MCP `readReceivedOscMessages` as a read-runtime tool for bounded OSC
+  receive windows with exact-address and prefix filters.
+
 ## [0.7.64] - 2026-06-01
 
 ### Fixed
@@ -600,7 +607,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.64...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.64...v0.8.0
 [0.7.64]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.63...v0.7.64
 [0.7.63]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.62...v0.7.63
 [0.7.62]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.61...v0.7.62

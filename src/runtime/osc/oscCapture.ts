@@ -4,11 +4,12 @@ import type { OscMessage } from "./osc";
 import { decodeOscPacket, sourceMatchesExpectedHost } from "./osc";
 import { acquireOscPortLock } from "./oscPortLock";
 
-interface OscCaptureOptions {
+export interface OscCaptureOptions {
   listenHost: string;
   listenPort: number;
   timeoutMs: number;
-  addresses: readonly string[];
+  addresses?: readonly string[];
+  addressPrefix?: string;
   expectedSourceHost?: string;
   maxMessages?: number;
 }
@@ -33,7 +34,7 @@ export const startOscCapture: StartOscCapture = async (options) => {
   const socket = dgram.createSocket("udp4");
   const ready = createDeferred<void>();
   const done = createDeferred<OscCaptureResult>();
-  const addresses = new Set(options.addresses);
+  const addresses = new Set(options.addresses ?? []);
   const messages: OscMessage[] = [];
   const timeoutMs = Math.max(1, options.timeoutMs);
   const maxMessages = Math.max(1, options.maxMessages ?? 64);
@@ -83,7 +84,7 @@ export const startOscCapture: StartOscCapture = async (options) => {
     } catch {
       return;
     }
-    if (!addresses.has(decoded.address)) {
+    if (!oscCaptureAcceptsAddress(decoded.address, addresses, options.addressPrefix)) {
       return;
     }
     if (!sourceMatchesExpectedHost(decoded, options.expectedSourceHost)) {
@@ -103,6 +104,17 @@ export const startOscCapture: StartOscCapture = async (options) => {
     stop: () => finish({ ok: true, messages: [...messages], timedOut: false }),
   };
 };
+
+export function oscCaptureAcceptsAddress(
+  address: string,
+  addresses: ReadonlySet<string>,
+  addressPrefix: string | undefined,
+): boolean {
+  if (addresses.size === 0 && !addressPrefix) {
+    return true;
+  }
+  return addresses.has(address) || Boolean(addressPrefix && address.startsWith(addressPrefix));
+}
 
 interface Deferred<T> {
   promise: Promise<T>;

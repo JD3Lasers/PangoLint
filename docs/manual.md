@@ -474,7 +474,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.7.64.tgz
+npm install -g ./pangolint-mcp-0.8.0.tgz
 which pangolint-mcp
 ```
 
@@ -482,7 +482,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.7.64.tgz
+npm install -g ./mcp/pangolint-mcp-0.8.0.tgz
 which pangolint-mcp
 ```
 
@@ -586,7 +586,7 @@ Eleven offline tools the agent can call without any opt-in:
 
 ### Runtime tools (opt-in)
 
-Four tools that talk to the configured BEYOND host. Read runtime and
+Five tools that talk to the configured BEYOND host. Read runtime and
 write runtime are separate opt-ins. Each tool returns
 `{ ok: false, blocked: true }` unless the matching runtime tier was
 enabled at server startup.
@@ -596,6 +596,7 @@ enabled at server startup.
 | `healthCheck` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. DNS + UDP-socket reachability of the configured BEYOND UDP target. Doesn't verify BEYOND accepts commands. |
 | `checkTalkConnection` | T0 | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Opens Talk TCP and checks greeting, configured `Echo` mode, `Hello`, and `Version` replies. |
 | `readBeyondProperty` | T1 (read) | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Single readback of a property path (`Master.Brightness`, `Zone.0.Red`, …) and returns the value. Talk TCP readbacks use the configured `Echo` mode. |
+| `readReceivedOscMessages` | T1 (read) | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Listens on the configured OSC callback port for a bounded receive window and returns decoded OSC messages with optional exact-address or prefix filters. |
 | `runScript` | T2+ (write) | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. Talk TCP reports the selected `Echo` mode. |
 
 `runScript`'s lint-before-send gate is the **load-bearing developer
@@ -778,10 +779,11 @@ universes from sibling files.
 
 **MCP runtime tool returns `{ ok: false, blocked: true }`.**
 The server was started without the required runtime tier. Add
-`PANGOLINT_MCP_RUNTIME_READ=enabled` for `healthCheck` /
-`readBeyondProperty`, or `PANGOLINT_MCP_RUNTIME_WRITE=enabled` for
-`runScript`, then restart the client. The agent is instructed not to
-retry - it should tell you how to enable runtime instead.
+`PANGOLINT_MCP_RUNTIME_READ=enabled` for `healthCheck`,
+`readBeyondProperty`, or `readReceivedOscMessages`, or
+`PANGOLINT_MCP_RUNTIME_WRITE=enabled` for `runScript`, then restart
+the client. The agent is instructed not to retry - it should tell you
+how to enable runtime instead.
 
 **Markdown reference link from `Why?` doesn't open.**
 The bundled diagnostics doc lives inside the VSIX. Reload the VS Code
