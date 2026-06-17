@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-06-17
+
+### Fixed
+
+- Bump locked `esbuild`, `vite`, and `hono` dependency versions to resolve
+  active security advisories for the development toolchain and MCP runtime.
+
 ## [0.8.1] - 2026-06-05
 
 ### Fixed
@@ -615,7 +622,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.2...HEAD
+[0.8.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.64...v0.8.0
 [0.7.64]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.63...v0.7.64
