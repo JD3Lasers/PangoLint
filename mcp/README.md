@@ -31,7 +31,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.8.1.tgz
+npm install -g ./pangolint-mcp-0.8.2.tgz
 which pangolint-mcp
 ```
 
@@ -40,7 +40,7 @@ For local development, build the same tarball from a repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.8.1.tgz
+npm install -g ./mcp/pangolint-mcp-0.8.2.tgz
 which pangolint-mcp
 ```
 
