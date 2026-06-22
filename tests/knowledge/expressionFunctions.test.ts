@@ -34,8 +34,8 @@ describe("expression function knowledge", () => {
         .canonical,
     ).toBe("GetTimelineTabName");
     expect(
-      expressionFunctionAtPosition(timelineReadbackLine, timelineReadbackLine.indexOf("GetTimelineTabIndex") + 2)
-        ?.entry.canonical,
+      expressionFunctionAtPosition(timelineReadbackLine, timelineReadbackLine.indexOf("GetTimelineTabIndex") + 2)?.entry
+        .canonical,
     ).toBe("GetTimelineTabIndex");
   });
 
