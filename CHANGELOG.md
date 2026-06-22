@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-06-22
+
+### Added
+
+- Add Timeline editor tab readback expressions `GetTimelineTabName` and
+  `GetTimelineTabIndex`, including marker import guidance for selecting a tab,
+  confirming readback, and then sending `TimelineMarker` commands.
+
 ## [0.8.2] - 2026-06-17
 
 ### Fixed
@@ -603,7 +611,7 @@ Initial public release.
 - PangoLint sidebar with Commands, Objects, Diagnostics, and BEYOND Watcher
   views.
 - Offline PangoScript reference site bundled into the VSIX.
-- Curated command knowledge for 529 PangoScript commands plus expression
+- Curated command knowledge for 529 PangoScript commands plus 9 expression
   functions and Object Tree runtime indexes.
 - Optional BEYOND runtime readback and property tools, gated by trusted
   workspace checks, explicit settings, and per-run confirmation for writes.
@@ -622,7 +630,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.2...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.2...v0.9.0
 [0.8.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.7.64...v0.8.0

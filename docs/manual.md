@@ -237,7 +237,7 @@ the BEYOND Watcher.
 
 ### Commands view
 
-A webview browser over 521 browsable PangoScript commands plus 7 expression
+A webview browser over 521 browsable PangoScript commands plus 9 expression
 functions. Prototype, internal, and do-not-use commands remain known for
 diagnostics and direct lookup, but stay out of the browsable list.
 
@@ -474,7 +474,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.8.2.tgz
+npm install -g ./pangolint-mcp-0.9.0.tgz
 which pangolint-mcp
 ```
 
@@ -482,7 +482,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.8.2.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.0.tgz
 which pangolint-mcp
 ```
 

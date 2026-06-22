@@ -1,8 +1,10 @@
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { lookupCommand } from "../../src/knowledge/catalog";
 import { analyzeCatalogGaps } from "../../src/knowledge/catalogGaps";
 import { loadCategoryTree, resolveCategoryMap, resolveCommandCategory } from "../../src/knowledge/categoryResolution";
 import {
+  commandCatalogFromKnowledgeBase,
   mergeKnowledgeBase,
   overlayCategoriesByCanonical,
   type PangoKnowledgeBase,
@@ -70,9 +72,9 @@ describe("checked-in PangoScript command knowledge data", () => {
 
     // generated/ comes from the upstream BEYOND command export (521 commands).
     // merged/ adds overlay-only commands documented after that export:
-    // currently 8 prototype/
-    // internal entries (Chat, LoadCueFromBlob, LoadZoneFromBlob, Pub,
-    // PubObject, SubCmd, SubJson, SubProp).
+    // currently 8 entries: prototype/internal entries (Chat,
+    // LoadCueFromBlob, LoadZoneFromBlob, Pub, PubObject, SubCmd,
+    // SubJson, SubProp).
     expect(Object.keys(generated.commands)).toHaveLength(521);
     expect(Object.keys(checkedInMerged.commands).length).toBeGreaterThanOrEqual(521);
     expect(checkedInMerged.commands.OscOutTTS.confidence).toBe("high");
@@ -2805,6 +2807,22 @@ describe("checked-in PangoScript command knowledge data", () => {
     }
   });
 
+  it("ships timeline tab selection and marker import metadata", () => {
+    const merged = readJson<PangoKnowledgeBase>("commands.merged.json");
+
+    expect(merged.commands.GetTimelineTabName).toBeUndefined();
+    expect(merged.commands.GetTimelineTabIndex).toBeUndefined();
+    const catalog = commandCatalogFromKnowledgeBase(merged);
+    expect(lookupCommand(catalog, "GetTimelineTabName")).toBeUndefined();
+    expect(lookupCommand(catalog, "GetTimelineTabIndex")).toBeUndefined();
+
+    expect(String(merged.commands.TimelineSetTabName?.description)).toContain("Talk OK does not prove");
+    expect(String(merged.commands.TimelineSetTabName?.verification?.[0]?.expectedCallback)).toContain(
+      "missing tab name returned Talk OK",
+    );
+    expect(String(merged.commands.TimelineMarker?.description)).toContain("selected Timeline editor tab");
+  });
+
   it("ships timeline, playlist, and player position range metadata", () => {
     const merged = readJson<PangoKnowledgeBase>("commands.merged.json");
     const findParam = (commandName: string, signature: string, paramName: string) =>
@@ -2825,6 +2843,21 @@ describe("checked-in PangoScript command knowledge data", () => {
       },
     });
 
+    const timelineSetTabIndex = findParam("TimelineSetTabIndex", "TimelineSetTabIndex <index>", "index");
+    expect(merged.commands.TimelineSetTabIndex?.description).toContain("one-based index");
+    expect(timelineSetTabIndex).toMatchObject({
+      type: "integer",
+      range:
+        ">=1 observed; setter is one-based while GetTimelineTabIndex is zero-based; 0 observed as no-op; maximum depends on open timeline tabs",
+      valueRange: {
+        min: 1,
+        unit: "one-based timeline tab selector",
+        boundaryBehavior: "no-op",
+        evidenceLevel: "observed",
+      },
+    });
+    expect(String(timelineSetTabIndex?.valueRange?.notes)).toContain("getter indexes 0, 1, and 2");
+
     for (const [commandName, signature, paramName, unit, range] of [
       [
         "TimelineSetPos",
@@ -2839,13 +2872,6 @@ describe("checked-in PangoScript command knowledge data", () => {
         "seconds",
         "seconds delta",
         "no readable range evidence; representative writes sent for -5, 1, and 100000",
-      ],
-      [
-        "TimelineSetTabIndex",
-        "TimelineSetTabIndex <index>",
-        "index",
-        "tab index",
-        "no readable range evidence; representative writes sent for 0, 1, and 1000",
       ],
       [
         "TimelineShiftViewRange",

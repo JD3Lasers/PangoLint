@@ -9,6 +9,7 @@ import {
   validateDocHeadingsInCatalog,
   validateOverlayCategories,
 } from "../../src/knowledge/categoryResolution";
+import { EXPRESSION_FUNCTIONS } from "../../src/knowledge/expressionFunctions";
 import {
   loadJsonFile,
   mergeKnowledgeBase,
@@ -68,6 +69,10 @@ console.log(`[categories] resolved ${categoryMap.size} commands`);
 // (where RestartCell is a documented alias) do not fail the gate.
 const catalogNames = new Set(canonicalList);
 for (const entry of Object.values(merged.commands)) {
+  for (const alias of entry.aliases ?? []) catalogNames.add(alias);
+}
+for (const entry of EXPRESSION_FUNCTIONS) {
+  catalogNames.add(entry.canonical);
   for (const alias of entry.aliases ?? []) catalogNames.add(alias);
 }
 const headingErrors = validateDocHeadingsInCatalog(docDir, catalogNames);
