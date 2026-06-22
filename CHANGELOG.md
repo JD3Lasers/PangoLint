@@ -6,6 +6,20 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-06-22
+
+### Fixed
+
+- Refresh VSIX packaging dependencies so the locked transitive `undici`
+  package resolves to `7.28.0`, clearing active Dependabot alerts for
+  GHSA-vmh5-mc38-953g, GHSA-pr7r-676h-xcf6, GHSA-p88m-4jfj-68fv,
+  GHSA-hm92-r4w5-c3mj, GHSA-35p6-xmwp-9g52, and GHSA-g8m3-5g58-fq7m.
+
+### Changed
+
+- Update low-risk development tooling patches used by linting, tests, and
+  package verification.
+
 ## [0.9.0] - 2026-06-22
 
 ### Added
@@ -630,7 +644,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.1...HEAD
+[0.9.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.2...v0.9.0
 [0.8.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.0...v0.8.1
