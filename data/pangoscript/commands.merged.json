@@ -25003,8 +25003,8 @@
       "aliases": [
         "TimelineMarker"
       ],
-      "description": "Add a marker to the Timeline. Three documented forms: no-args = current position with current color; one arg = current position with specified color; two args = specified color at specified time.",
-      "evidenceLevel": "documented",
+      "description": "Add a marker to the selected Timeline editor tab. Three documented forms: no-args = current position with current color; one arg = current position with specified color; two args = specified color at specified time. Marker import workflows should select the tab, verify with `GetTimelineTabName` or `GetTimelineTabIndex`, then send marker commands.",
+      "evidenceLevel": "observed",
       "confidence": "high",
       "safetyTier": "T1",
       "category": "Timeline editor",
@@ -25047,18 +25047,29 @@
           ]
         }
       ],
+      "verification": [
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T1",
+          "verificationScript": "Select visible Timeline editor tabs and send TimelineMarker 6, 13.579 and TimelineMarker 7, 14.681.",
+          "expectedCallback": "Operator confirmed markers were added on the selected Timeline editor tabs.",
+          "cleanup": "operatorReset",
+          "operatorRequired": true,
+          "notes": "For unattended marker import, verify selected tab readback with GetTimelineTabName or GetTimelineTabIndex before sending marker writes."
+        }
+      ],
       "tags": [
         "timeline",
         "marker"
       ],
       "propertyMappingCoverage": {
         "status": "deferred",
-        "evidenceLevel": "documented",
+        "evidenceLevel": "observed",
         "safetyTier": "T1",
-        "notes": "File or timeline-workspace mutation. Deferred until a safe fixture and restore path exists; do not classify as a direct property setter from general documentation alone."
+        "notes": "File or timeline-workspace mutation. Operator confirmed marker creation on selected Timeline editor tabs, but this is not a direct Object Tree property write. Deferred until a safe fixture and restore path exists."
       },
-      "notes": [],
-      "verification": []
+      "notes": []
     },
     "TimelineNextEditPoint": {
       "canonical": "TimelineNextEditPoint",
@@ -25432,7 +25443,7 @@
       "aliases": [
         "TimelineSetTabIndex"
       ],
-      "description": "Switch to a specific timeline tab by index. BEYOND documentation says: 'Go to timeline/tab by index.' Single integer arg. Companion `TimelineSetTabName` selects by name. No readable tab-index property exposes stored value or clamp behavior.",
+      "description": "Switch to a specific Timeline editor tab by one-based index. BEYOND documentation says: 'Go to timeline/tab by index.' `GetTimelineTabIndex` returns the selected tab as a zero-based integer, so setter argument 1 reads back as getter index 0.",
       "evidenceLevel": "observed",
       "confidence": "high",
       "safetyTier": "T2",
@@ -25443,20 +25454,21 @@
         },
         {
           "signature": "TimelineSetTabIndex <index>",
-          "description": "Select timeline tab by index.",
+          "description": "Select Timeline editor tab by one-based index.",
           "parameters": [
             {
               "name": "index",
               "type": "integer",
               "required": true,
-              "range": "no readable range evidence; representative writes sent for 0, 1, and 1000",
+              "range": ">=1 observed; setter is one-based while GetTimelineTabIndex is zero-based; 0 observed as no-op; maximum depends on open timeline tabs",
               "valueRange": {
-                "unit": "tab index",
-                "boundaryBehavior": "unknown",
-                "evidenceLevel": "unverified",
-                "notes": "No timeline tab-index readback property exposes stored value or clamp behavior."
+                "min": 1,
+                "unit": "one-based timeline tab selector",
+                "boundaryBehavior": "no-op",
+                "evidenceLevel": "observed",
+                "notes": "TimelineSetTabIndex 0 returned Talk OK but did not change selected tab. TimelineSetTabIndex 1, 2, and 3 selected getter indexes 0, 1, and 2. Upper bound depends on open timeline tabs and was not enumerated."
               },
-              "description": "Timeline tab index. The BEYOND documentation example uses `1`, but indexing base and maximum tab count are not readable through current tools."
+              "description": "One-based Timeline editor tab selector. Add 1 to `GetTimelineTabIndex` before using this setter."
             }
           ]
         }
@@ -25466,8 +25478,9 @@
           "status": "observed",
           "method": "operatorSupervised",
           "safetyTier": "T2",
-          "verificationScript": "Search Object Tree paths for timeline tab readback; run TimelineSetTabIndex 0, TimelineSetTabIndex 1, TimelineSetTabIndex 1000, TimelineSetTabIndex 1, and TimelineFirstTab.",
-          "expectedCallback": "No timeline tab-index readback property was found. Representative write probes were transmitted without PangoLint errors, but stored tab index and clamp behavior remain unobservable through current readback tools.",
+          "verificationScript": "Run TimelineSetTabIndex 0, TimelineSetTabIndex 1, TimelineSetTabIndex 2, and TimelineSetTabIndex 3, reading GetTimelineTabName and GetTimelineTabIndex after each command.",
+          "expectedCallback": "TimelineSetTabIndex 0 returned Talk OK but did not change the selected tab. TimelineSetTabIndex 1 selected getter index 0, TimelineSetTabIndex 2 selected getter index 1, and TimelineSetTabIndex 3 selected getter index 2.",
+          "restoreScript": "TimelineSetTabIndex 3",
           "cleanup": "restoreScript",
           "operatorRequired": true
         }
@@ -25480,7 +25493,7 @@
         "status": "no-direct-property",
         "evidenceLevel": "observed",
         "safetyTier": "T2",
-        "notes": "Timeline editor action. The Object Tree exposes Master.AllowTimeline* configuration and Universe timeline-button controls, but no timeline cursor, tab, marker, playing, view-range, or ShowItNow state property for this command family."
+        "notes": "Timeline editor action. Selected tab readback is available through GetTimelineTabName and GetTimelineTabIndex expressions, not as a stable Object Tree property."
       },
       "notes": []
     },
@@ -25489,8 +25502,8 @@
       "aliases": [
         "TimelineSetTabName"
       ],
-      "description": "Switch to a specific timeline tab by name. The published description text appears to have been copied from TimelineSetTabIndex despite the by-name behavior. Example: `TimelineSetTabName \"MyShow\"`.",
-      "evidenceLevel": "documented",
+      "description": "Switch to a specific Timeline editor tab by name. The published description text appears to have been copied from TimelineSetTabIndex despite the by-name behavior. Talk OK does not prove the named tab matched, so verify with `GetTimelineTabName` before marker import workflows continue.",
+      "evidenceLevel": "observed",
       "confidence": "high",
       "safetyTier": "T2",
       "category": "Timeline editor",
@@ -25507,15 +25520,27 @@
         },
         {
           "signature": "TimelineSetTabName \"<name>\"",
-          "description": "Select timeline tab by name.",
+          "description": "Select Timeline editor tab by name.",
           "parameters": [
             {
               "name": "name",
               "type": "string",
               "required": true,
-              "description": "Tab name as configured in BEYOND."
+              "description": "Tab name as configured in BEYOND. Missing names can return Talk OK without changing the selected tab."
             }
           ]
+        }
+      ],
+      "verification": [
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T2",
+          "verificationScript": "Run TimelineSetTabName with an existing tab name, read GetTimelineTabName and GetTimelineTabIndex, then run TimelineSetTabName with a missing tab name and read again.",
+          "expectedCallback": "An existing tab name selected that tab. A missing tab name returned Talk OK but readback stayed on the previous tab.",
+          "restoreScript": "TimelineSetTabIndex 3",
+          "cleanup": "restoreScript",
+          "operatorRequired": true
         }
       ],
       "tags": [
@@ -25524,12 +25549,11 @@
       ],
       "propertyMappingCoverage": {
         "status": "no-direct-property",
-        "evidenceLevel": "documented",
+        "evidenceLevel": "observed",
         "safetyTier": "T2",
-        "notes": "Timeline editor action. The Object Tree exposes Master.AllowTimeline* configuration and Universe timeline-button controls, but no timeline cursor, tab, marker, playing, view-range, or ShowItNow state property for this command family."
+        "notes": "Timeline editor action. Selected tab readback is available through GetTimelineTabName and GetTimelineTabIndex expressions, not as a stable Object Tree property. A missing name can return Talk OK without changing the selected tab."
       },
-      "notes": [],
-      "verification": []
+      "notes": []
     },
     "TimelineSetViewRange": {
       "canonical": "TimelineSetViewRange",
@@ -29834,6 +29858,106 @@
       "aliases": [],
       "notes": [],
       "verification": []
+    },
+    "GetTimelineTabIndex": {
+      "canonical": "GetTimelineTabIndex",
+      "evidenceLevel": "observed",
+      "confidence": "high",
+      "category": "Timeline editor",
+      "description": "Return the selected Timeline editor tab index as a zero-based integer expression. Use without parentheses. `TimelineSetTabIndex` uses a one-based argument, so add 1 before sending it back to the setter.",
+      "safetyTier": "T0",
+      "forms": [
+        {
+          "signature": "GetTimelineTabIndex",
+          "description": "Read the selected Timeline editor tab index as a zero-based integer expression.",
+          "parameters": []
+        }
+      ],
+      "verification": [
+        {
+          "status": "observed",
+          "method": "oscOutTTS",
+          "safetyTier": "T0",
+          "verificationScript": "OscOutTTS \"/pangolint/timeline-tab/current\", \"si\", GetTimelineTabName, GetTimelineTabIndex",
+          "expectedCallback": "OSC callback /pangolint/timeline-tab/current returned type tags si and args [\"Untitled\", 2] on the selected tab. `GetTimelineTabIndex()` with parentheses returned Invalid expression.",
+          "cleanup": "none",
+          "operatorRequired": false
+        },
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T2",
+          "verificationScript": "Read GetTimelineTabIndex, then run TimelineSetTabIndex 1, TimelineSetTabIndex 2, and TimelineSetTabIndex 3 with readback after each command.",
+          "expectedCallback": "Readback showed TimelineSetTabIndex 1 selected getter index 0, TimelineSetTabIndex 2 selected getter index 1, and TimelineSetTabIndex 3 selected getter index 2.",
+          "restoreScript": "TimelineSetTabIndex 3",
+          "cleanup": "restoreScript",
+          "operatorRequired": true
+        }
+      ],
+      "tags": [
+        "timeline",
+        "tab",
+        "readback",
+        "expression"
+      ],
+      "propertyMappingCoverage": {
+        "status": "no-direct-property",
+        "evidenceLevel": "observed",
+        "safetyTier": "T0",
+        "notes": "Timeline tab readback expression. It does not write an Object Tree property, and no stable Object Tree property has been found for selected Timeline editor tab state."
+      },
+      "aliases": [],
+      "notes": []
+    },
+    "GetTimelineTabName": {
+      "canonical": "GetTimelineTabName",
+      "evidenceLevel": "observed",
+      "confidence": "high",
+      "category": "Timeline editor",
+      "description": "Return the selected Timeline editor tab name as a string expression. Use without parentheses. This can validate `TimelineSetTabName` and `TimelineSetTabIndex` before marker import workflows call `TimelineMarker`.",
+      "safetyTier": "T0",
+      "forms": [
+        {
+          "signature": "GetTimelineTabName",
+          "description": "Read the selected Timeline editor tab name as a string expression.",
+          "parameters": []
+        }
+      ],
+      "verification": [
+        {
+          "status": "observed",
+          "method": "oscOutTTS",
+          "safetyTier": "T0",
+          "verificationScript": "OscOutTTS \"/pangolint/timeline-tab/current\", \"si\", GetTimelineTabName, GetTimelineTabIndex",
+          "expectedCallback": "OSC callback /pangolint/timeline-tab/current returned type tags si and args [\"Untitled\", 2] on the selected tab. `GetTimelineTabName()` with parentheses returned Invalid expression.",
+          "cleanup": "none",
+          "operatorRequired": false
+        },
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T2",
+          "verificationScript": "Run TimelineSetTabName with an existing tab name, read GetTimelineTabName, then run TimelineSetTabName with a missing tab name and read GetTimelineTabName again.",
+          "expectedCallback": "An existing tab name selected that tab. A missing tab name returned Talk OK but readback stayed on the previous tab.",
+          "restoreScript": "TimelineSetTabIndex 3",
+          "cleanup": "restoreScript",
+          "operatorRequired": true
+        }
+      ],
+      "tags": [
+        "timeline",
+        "tab",
+        "readback",
+        "expression"
+      ],
+      "propertyMappingCoverage": {
+        "status": "no-direct-property",
+        "evidenceLevel": "observed",
+        "safetyTier": "T0",
+        "notes": "Timeline tab readback expression. It does not write an Object Tree property, and no stable Object Tree property has been found for selected Timeline editor tab state."
+      },
+      "aliases": [],
+      "notes": []
     },
     "LoadCueFromBlob": {
       "canonical": "LoadCueFromBlob",

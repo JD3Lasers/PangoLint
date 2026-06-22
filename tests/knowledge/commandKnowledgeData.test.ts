@@ -70,9 +70,10 @@ describe("checked-in PangoScript command knowledge data", () => {
 
     // generated/ comes from the upstream BEYOND command export (521 commands).
     // merged/ adds overlay-only commands documented after that export:
-    // currently 8 prototype/
-    // internal entries (Chat, LoadCueFromBlob, LoadZoneFromBlob, Pub,
-    // PubObject, SubCmd, SubJson, SubProp).
+    // currently 10 entries: timeline tab readback expressions
+    // (GetTimelineTabIndex, GetTimelineTabName) plus prototype/internal
+    // entries (Chat, LoadCueFromBlob, LoadZoneFromBlob, Pub, PubObject,
+    // SubCmd, SubJson, SubProp).
     expect(Object.keys(generated.commands)).toHaveLength(521);
     expect(Object.keys(checkedInMerged.commands).length).toBeGreaterThanOrEqual(521);
     expect(checkedInMerged.commands.OscOutTTS.confidence).toBe("high");
@@ -101,7 +102,7 @@ describe("checked-in PangoScript command knowledge data", () => {
     const commandNames = Object.keys(merged.commands).sort();
 
     expect(ledger.schemaVersion).toBe(1);
-    expect(ledger.summary.total).toBe(529);
+    expect(ledger.summary.total).toBe(531);
     expect(ledger.summary.total).toBe(commandNames.length);
     expect(
       ledger.summary.mapped + ledger.summary.noDirectProperty + ledger.summary.deferred + ledger.summary.unknown,
@@ -2780,6 +2781,8 @@ describe("checked-in PangoScript command knowledge data", () => {
       "RestorePlayer",
       "SetTransitionTime",
       "StopTimeline",
+      "GetTimelineTabIndex",
+      "GetTimelineTabName",
       "TimelineFirstTab",
       "TimelineJumpDelta",
       "TimelineJumpToEnd",
@@ -2805,6 +2808,66 @@ describe("checked-in PangoScript command knowledge data", () => {
     }
   });
 
+  it("ships timeline tab readback expression metadata", () => {
+    const merged = readJson<PangoKnowledgeBase>("commands.merged.json");
+
+    expect(merged.commands.GetTimelineTabName).toMatchObject({
+      evidenceLevel: "observed",
+      safetyTier: "T0",
+      category: "Timeline editor",
+      propertyMappingCoverage: {
+        status: "no-direct-property",
+        evidenceLevel: "observed",
+        safetyTier: "T0",
+      },
+    });
+    expect(merged.commands.GetTimelineTabName?.forms).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          signature: "GetTimelineTabName",
+          parameters: [],
+        }),
+      ]),
+    );
+    expect(merged.commands.GetTimelineTabName?.tags).toEqual(
+      expect.arrayContaining(["timeline", "tab", "readback", "expression"]),
+    );
+    expect(String(merged.commands.GetTimelineTabName?.description)).toContain("without parentheses");
+    expect(String(merged.commands.GetTimelineTabName?.verification?.[0]?.expectedCallback)).toContain(
+      "GetTimelineTabName()",
+    );
+
+    expect(merged.commands.GetTimelineTabIndex).toMatchObject({
+      evidenceLevel: "observed",
+      safetyTier: "T0",
+      category: "Timeline editor",
+      propertyMappingCoverage: {
+        status: "no-direct-property",
+        evidenceLevel: "observed",
+        safetyTier: "T0",
+      },
+    });
+    expect(String(merged.commands.GetTimelineTabIndex?.description)).toContain("zero-based integer");
+    expect(String(merged.commands.GetTimelineTabIndex?.description)).toContain("one-based argument");
+    expect(merged.commands.GetTimelineTabIndex?.forms).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          signature: "GetTimelineTabIndex",
+          parameters: [],
+        }),
+      ]),
+    );
+    expect(merged.commands.GetTimelineTabIndex?.tags).toEqual(
+      expect.arrayContaining(["timeline", "tab", "readback", "expression"]),
+    );
+
+    expect(String(merged.commands.TimelineSetTabName?.description)).toContain("Talk OK does not prove");
+    expect(String(merged.commands.TimelineSetTabName?.verification?.[0]?.expectedCallback)).toContain(
+      "missing tab name returned Talk OK",
+    );
+    expect(String(merged.commands.TimelineMarker?.description)).toContain("selected Timeline editor tab");
+  });
+
   it("ships timeline, playlist, and player position range metadata", () => {
     const merged = readJson<PangoKnowledgeBase>("commands.merged.json");
     const findParam = (commandName: string, signature: string, paramName: string) =>
@@ -2825,6 +2888,21 @@ describe("checked-in PangoScript command knowledge data", () => {
       },
     });
 
+    const timelineSetTabIndex = findParam("TimelineSetTabIndex", "TimelineSetTabIndex <index>", "index");
+    expect(merged.commands.TimelineSetTabIndex?.description).toContain("one-based index");
+    expect(timelineSetTabIndex).toMatchObject({
+      type: "integer",
+      range:
+        ">=1 observed; setter is one-based while GetTimelineTabIndex is zero-based; 0 observed as no-op; maximum depends on open timeline tabs",
+      valueRange: {
+        min: 1,
+        unit: "one-based timeline tab selector",
+        boundaryBehavior: "no-op",
+        evidenceLevel: "observed",
+      },
+    });
+    expect(String(timelineSetTabIndex?.valueRange?.notes)).toContain("getter indexes 0, 1, and 2");
+
     for (const [commandName, signature, paramName, unit, range] of [
       [
         "TimelineSetPos",
@@ -2839,13 +2917,6 @@ describe("checked-in PangoScript command knowledge data", () => {
         "seconds",
         "seconds delta",
         "no readable range evidence; representative writes sent for -5, 1, and 100000",
-      ],
-      [
-        "TimelineSetTabIndex",
-        "TimelineSetTabIndex <index>",
-        "index",
-        "tab index",
-        "no readable range evidence; representative writes sent for 0, 1, and 1000",
       ],
       [
         "TimelineShiftViewRange",

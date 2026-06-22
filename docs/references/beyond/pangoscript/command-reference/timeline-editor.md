@@ -118,8 +118,63 @@ Related: `TimelineJumpToStart`.
 
 ## Tab navigation
 
-The Timeline editor groups shows into tabs. These six commands
-navigate between them.
+The Timeline editor groups shows into tabs. These commands navigate
+between tabs, select a tab directly, and read the selected tab.
+
+### GetTimelineTabName
+
+Signature: `GetTimelineTabName`
+
+`GetTimelineTabName` returns the selected Timeline editor tab name as
+a string expression. Use it without parentheses:
+`GetTimelineTabName()` is an invalid expression.
+
+Example:
+
+    WriteLn "tab=", GetTimelineTabName
+    OscOutTTS "/pangolint/timeline-tab/current", "s", GetTimelineTabName
+
+Safety: T0 for the expression itself. The surrounding selection and
+marker commands have their own safety notes.
+
+Related: `GetTimelineTabIndex`, `TimelineSetTabName`,
+`TimelineMarker`.
+
+### GetTimelineTabIndex
+
+Signature: `GetTimelineTabIndex`
+
+`GetTimelineTabIndex` returns the selected Timeline editor tab as a
+zero-based integer expression. Use it without parentheses:
+`GetTimelineTabIndex()` is an invalid expression.
+
+The index readback is zero-based, but `TimelineSetTabIndex` takes a
+one-based argument. For example, a selected tab that reads back as
+index `2` is selected by `TimelineSetTabIndex 3`.
+
+Examples:
+
+    WriteLn "tab=", GetTimelineTabName, " index=", GetTimelineTabIndex
+    OscOutTTS "/pangolint/timeline-tab/current", "si", GetTimelineTabName, GetTimelineTabIndex
+
+Safety: T0 for the expression itself. The surrounding selection and
+marker commands have their own safety notes.
+
+Related: `GetTimelineTabName`, `TimelineSetTabIndex`,
+`TimelineMarker`.
+
+### Timeline tab validation workflow
+
+Use these readback expressions to validate marker import workflows:
+
+1. Select the intended timeline tab with `TimelineSetTabName` or
+   `TimelineSetTabIndex`.
+2. Read `GetTimelineTabName` and `GetTimelineTabIndex`.
+3. Confirm the readback matches the intended song or tab.
+4. Send `TimelineMarker` commands.
+
+Related: `TimelineSetTabName`, `TimelineSetTabIndex`,
+`TimelineMarker`.
 
 ### TimelineJumpDelta
 
@@ -219,6 +274,10 @@ Add a marker to the Timeline. Three forms per documentation:
  position.
 - **Two args** - add marker with specified color at specified time.
 
+Markers are added to the selected Timeline editor tab. For an app that
+imports song markers, select the intended tab first, verify it with
+`GetTimelineTabName` or `GetTimelineTabIndex`, then send markers.
+
 Parameters:
 - color (integer, 1..10): color index.
 - time (number): time in seconds (floating point).
@@ -228,14 +287,20 @@ Example:
     TimelineMarker // current position, current color
     TimelineMarker 3 // current position, color 3
     TimelineMarker 5, 12.5 // color 5 at 12.5 seconds
+    TimelineSetTabName "Song Name"
+    OscOutTTS "/app/timeline/selected", "si", GetTimelineTabName, GetTimelineTabIndex
+    TimelineMarker 5, 12.5
 
 Safety: T1 - adds an editor marker; doesn't affect playback or
 output.
 
-Related: `PlayTimeline`.
+Related: `PlayTimeline`, `GetTimelineTabName`,
+`GetTimelineTabIndex`, `TimelineSetTabName`.
 
-Marker creation mutates the timeline document. Coverage is deferred
-until a disposable timeline fixture and restore path are available.
+Marker creation mutates the timeline document. Operator-supervised
+testing confirmed markers were added on selected Timeline editor tabs.
+Automated coverage is still deferred until a disposable timeline
+fixture and restore path are available.
 
 ## PlayList transport
 
@@ -409,27 +474,32 @@ Related: `TimelineFirstTab`.
 
 Signature: `TimelineSetTabIndex <index>`
 
-Switch to a specific timeline tab by index. Per the BEYOND
-export the example signature shows no parameter, suggesting either
-the export is incomplete or the command takes the index implicitly.
+Switch to a specific Timeline editor tab by one-based index. This
+differs from `GetTimelineTabIndex`, which reads the selected tab as a
+zero-based integer.
 
-Object Tree search found no readable timeline tab-index property, so
-stored value and clamp behavior are not currently observable through
-MCP readback. Representative writes for `0`, `1`, and `1000` were
-transmitted without PangoLint errors, then reset with
-`TimelineFirstTab`.
+Observed behavior:
+
+- `TimelineSetTabIndex 0` returned Talk OK but did not change the
+  selected tab.
+- `TimelineSetTabIndex 1` selected getter index `0`.
+- `TimelineSetTabIndex 2` selected getter index `1`.
+- `TimelineSetTabIndex 3` selected getter index `2`.
 
 Parameters:
-- index (integer): tab index. Range evidence is unverified because
- no direct readback path exposes the selected tab.
+- index (integer, >=1 observed): one-based tab selector. The maximum
+ tab count depends on the open Timeline editor tabs and has not been
+ enumerated.
 
 Example:
 
     TimelineSetTabIndex 3
+    OscOutTTS "/app/timeline/selected", "si", GetTimelineTabName, GetTimelineTabIndex
 
 Safety: T2: visible tab change.
 
-Related: `TimelineSetTabName`, `TimelineFirstTab`.
+Related: `TimelineSetTabName`, `TimelineFirstTab`,
+`GetTimelineTabIndex`.
 
 ### TimelineSetTabName
 
@@ -438,16 +508,22 @@ Signature: `TimelineSetTabName "<name>"`
 Switch to a specific timeline tab by name. Per the BEYOND export
 example: `TimelineSetTabName "MyShow"`.
 
+Talk OK does not prove the name matched an open tab. An observed
+missing name returned Talk OK and left the selected tab unchanged. Use
+`GetTimelineTabName` or `GetTimelineTabIndex` after this command when
+the selected tab matters.
+
 Parameters:
 - name (string): tab name as configured in BEYOND.
 
 Example:
 
     TimelineSetTabName "MyShow"
+    OscOutTTS "/app/timeline/selected", "si", GetTimelineTabName, GetTimelineTabIndex
 
 Safety: T2 - visible tab change.
 
-Related: `TimelineSetTabIndex`.
+Related: `TimelineSetTabIndex`, `GetTimelineTabName`.
 
 ## Markers
 

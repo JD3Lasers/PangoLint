@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "generatedAt": "2026-05-03T00:00:00.000Z",
   "summary": {
-    "total": 529,
+    "total": 531,
     "mapped": 203,
-    "noDirectProperty": 293,
+    "noDirectProperty": 295,
     "deferred": 33,
     "unknown": 0
   },
@@ -1097,6 +1097,22 @@
       "evidenceLevel": "documented",
       "safetyTier": "T2",
       "notes": "Deprecated Live Control routing alias. It changes where subsequent Live Control commands land, but the routing register itself has no stable object-property path in the bundled Object Tree index."
+    },
+    "GetTimelineTabIndex": {
+      "canonical": "GetTimelineTabIndex",
+      "category": "Timeline editor",
+      "status": "no-direct-property",
+      "evidenceLevel": "observed",
+      "safetyTier": "T0",
+      "notes": "Timeline tab readback expression. It does not write an Object Tree property, and no stable Object Tree property has been found for selected Timeline editor tab state."
+    },
+    "GetTimelineTabName": {
+      "canonical": "GetTimelineTabName",
+      "category": "Timeline editor",
+      "status": "no-direct-property",
+      "evidenceLevel": "observed",
+      "safetyTier": "T0",
+      "notes": "Timeline tab readback expression. It does not write an Object Tree property, and no stable Object Tree property has been found for selected Timeline editor tab state."
     },
     "GoGridMode": {
       "canonical": "GoGridMode",
@@ -4167,9 +4183,9 @@
       "canonical": "TimelineMarker",
       "category": "Timeline editor",
       "status": "deferred",
-      "evidenceLevel": "documented",
+      "evidenceLevel": "observed",
       "safetyTier": "T1",
-      "notes": "File or timeline-workspace mutation. Deferred until a safe fixture and restore path exists; do not classify as a direct property setter from general documentation alone."
+      "notes": "File or timeline-workspace mutation. Operator confirmed marker creation on selected Timeline editor tabs, but this is not a direct Object Tree property write. Deferred until a safe fixture and restore path exists."
     },
     "TimelineNextEditPoint": {
       "canonical": "TimelineNextEditPoint",
@@ -4257,15 +4273,15 @@
       "status": "no-direct-property",
       "evidenceLevel": "observed",
       "safetyTier": "T2",
-      "notes": "Timeline editor action. The Object Tree exposes Master.AllowTimeline* configuration and Universe timeline-button controls, but no timeline cursor, tab, marker, playing, view-range, or ShowItNow state property for this command family."
+      "notes": "Timeline editor action. Selected tab readback is available through GetTimelineTabName and GetTimelineTabIndex expressions, not as a stable Object Tree property."
     },
     "TimelineSetTabName": {
       "canonical": "TimelineSetTabName",
       "category": "Timeline editor",
       "status": "no-direct-property",
-      "evidenceLevel": "documented",
+      "evidenceLevel": "observed",
       "safetyTier": "T2",
-      "notes": "Timeline editor action. The Object Tree exposes Master.AllowTimeline* configuration and Universe timeline-button controls, but no timeline cursor, tab, marker, playing, view-range, or ShowItNow state property for this command family."
+      "notes": "Timeline editor action. Selected tab readback is available through GetTimelineTabName and GetTimelineTabIndex expressions, not as a stable Object Tree property. A missing name can return Talk OK without changing the selected tab."
     },
     "TimelineSetViewRange": {
       "canonical": "TimelineSetViewRange",
