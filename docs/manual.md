@@ -237,7 +237,7 @@ the BEYOND Watcher.
 
 ### Commands view
 
-A webview browser over 521 browsable PangoScript commands plus 7 expression
+A webview browser over 521 browsable PangoScript commands plus 9 expression
 functions. Prototype, internal, and do-not-use commands remain known for
 diagnostics and direct lookup, but stay out of the browsable list.
 

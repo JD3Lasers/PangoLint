@@ -1,8 +1,10 @@
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { lookupCommand } from "../../src/knowledge/catalog";
 import { analyzeCatalogGaps } from "../../src/knowledge/catalogGaps";
 import { loadCategoryTree, resolveCategoryMap, resolveCommandCategory } from "../../src/knowledge/categoryResolution";
 import {
+  commandCatalogFromKnowledgeBase,
   mergeKnowledgeBase,
   overlayCategoriesByCanonical,
   type PangoKnowledgeBase,
@@ -70,10 +72,9 @@ describe("checked-in PangoScript command knowledge data", () => {
 
     // generated/ comes from the upstream BEYOND command export (521 commands).
     // merged/ adds overlay-only commands documented after that export:
-    // currently 10 entries: timeline tab readback expressions
-    // (GetTimelineTabIndex, GetTimelineTabName) plus prototype/internal
-    // entries (Chat, LoadCueFromBlob, LoadZoneFromBlob, Pub, PubObject,
-    // SubCmd, SubJson, SubProp).
+    // currently 8 entries: prototype/internal entries (Chat,
+    // LoadCueFromBlob, LoadZoneFromBlob, Pub, PubObject, SubCmd,
+    // SubJson, SubProp).
     expect(Object.keys(generated.commands)).toHaveLength(521);
     expect(Object.keys(checkedInMerged.commands).length).toBeGreaterThanOrEqual(521);
     expect(checkedInMerged.commands.OscOutTTS.confidence).toBe("high");
@@ -102,7 +103,7 @@ describe("checked-in PangoScript command knowledge data", () => {
     const commandNames = Object.keys(merged.commands).sort();
 
     expect(ledger.schemaVersion).toBe(1);
-    expect(ledger.summary.total).toBe(531);
+    expect(ledger.summary.total).toBe(529);
     expect(ledger.summary.total).toBe(commandNames.length);
     expect(
       ledger.summary.mapped + ledger.summary.noDirectProperty + ledger.summary.deferred + ledger.summary.unknown,
@@ -2781,8 +2782,6 @@ describe("checked-in PangoScript command knowledge data", () => {
       "RestorePlayer",
       "SetTransitionTime",
       "StopTimeline",
-      "GetTimelineTabIndex",
-      "GetTimelineTabName",
       "TimelineFirstTab",
       "TimelineJumpDelta",
       "TimelineJumpToEnd",
@@ -2808,58 +2807,14 @@ describe("checked-in PangoScript command knowledge data", () => {
     }
   });
 
-  it("ships timeline tab readback expression metadata", () => {
+  it("ships timeline tab selection and marker import metadata", () => {
     const merged = readJson<PangoKnowledgeBase>("commands.merged.json");
 
-    expect(merged.commands.GetTimelineTabName).toMatchObject({
-      evidenceLevel: "observed",
-      safetyTier: "T0",
-      category: "Timeline editor",
-      propertyMappingCoverage: {
-        status: "no-direct-property",
-        evidenceLevel: "observed",
-        safetyTier: "T0",
-      },
-    });
-    expect(merged.commands.GetTimelineTabName?.forms).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          signature: "GetTimelineTabName",
-          parameters: [],
-        }),
-      ]),
-    );
-    expect(merged.commands.GetTimelineTabName?.tags).toEqual(
-      expect.arrayContaining(["timeline", "tab", "readback", "expression"]),
-    );
-    expect(String(merged.commands.GetTimelineTabName?.description)).toContain("without parentheses");
-    expect(String(merged.commands.GetTimelineTabName?.verification?.[0]?.expectedCallback)).toContain(
-      "GetTimelineTabName()",
-    );
-
-    expect(merged.commands.GetTimelineTabIndex).toMatchObject({
-      evidenceLevel: "observed",
-      safetyTier: "T0",
-      category: "Timeline editor",
-      propertyMappingCoverage: {
-        status: "no-direct-property",
-        evidenceLevel: "observed",
-        safetyTier: "T0",
-      },
-    });
-    expect(String(merged.commands.GetTimelineTabIndex?.description)).toContain("zero-based integer");
-    expect(String(merged.commands.GetTimelineTabIndex?.description)).toContain("one-based argument");
-    expect(merged.commands.GetTimelineTabIndex?.forms).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          signature: "GetTimelineTabIndex",
-          parameters: [],
-        }),
-      ]),
-    );
-    expect(merged.commands.GetTimelineTabIndex?.tags).toEqual(
-      expect.arrayContaining(["timeline", "tab", "readback", "expression"]),
-    );
+    expect(merged.commands.GetTimelineTabName).toBeUndefined();
+    expect(merged.commands.GetTimelineTabIndex).toBeUndefined();
+    const catalog = commandCatalogFromKnowledgeBase(merged);
+    expect(lookupCommand(catalog, "GetTimelineTabName")).toBeUndefined();
+    expect(lookupCommand(catalog, "GetTimelineTabIndex")).toBeUndefined();
 
     expect(String(merged.commands.TimelineSetTabName?.description)).toContain("Talk OK does not prove");
     expect(String(merged.commands.TimelineSetTabName?.verification?.[0]?.expectedCallback)).toContain(

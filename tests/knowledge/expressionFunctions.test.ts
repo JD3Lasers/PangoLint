@@ -11,10 +11,16 @@ describe("expression function knowledge", () => {
     expect(registryNames()).toEqual(expect.arrayContaining(["deltavalue", "extdelta", "extvalue", "round"]));
   });
 
+  it("includes Timeline editor tab readbacks", () => {
+    expect(registryNames()).toEqual(expect.arrayContaining(["gettimelinetabindex", "gettimelinetabname"]));
+  });
+
   it("matches known expression functions in command/property argument positions", () => {
     const deltaValueLine = "Master.PhFriction deltavalue (-1,1)";
     const extDeltaLine = "SetBpmDelta extdelta (-1)";
     const roundLine = "shift = round(extvalue(0,2)*10)/10";
+    const timelineReadbackLine =
+      'OscOutTTS "/pangolint/timeline-tab/current", "si", GetTimelineTabName, GetTimelineTabIndex';
 
     expect(
       expressionFunctionAtPosition(deltaValueLine, deltaValueLine.indexOf("deltavalue") + 2)?.entry.canonical,
@@ -23,6 +29,20 @@ describe("expression function knowledge", () => {
       "ExtDelta",
     );
     expect(expressionFunctionAtPosition(roundLine, roundLine.indexOf("round") + 2)?.entry.canonical).toBe("round");
+    expect(
+      expressionFunctionAtPosition(timelineReadbackLine, timelineReadbackLine.indexOf("GetTimelineTabName") + 2)?.entry
+        .canonical,
+    ).toBe("GetTimelineTabName");
+    expect(
+      expressionFunctionAtPosition(timelineReadbackLine, timelineReadbackLine.indexOf("GetTimelineTabIndex") + 2)
+        ?.entry.canonical,
+    ).toBe("GetTimelineTabIndex");
+  });
+
+  it("does not match Timeline editor tab readbacks with parentheses", () => {
+    const invalidLine = 'OscOutTTS "/pangolint/timeline-tab/current", "s", GetTimelineTabName()';
+
+    expect(expressionFunctionAtPosition(invalidLine, invalidLine.indexOf("GetTimelineTabName") + 2)).toBeUndefined();
   });
 
   it("records observed ExtDelta editor-default behavior without overstating trigger support", () => {
@@ -76,5 +96,38 @@ describe("expression function knowledge", () => {
     expect(EXPRESSION_FUNCTIONS.find((entry) => entry.canonical === "max")?.notes?.[0]?.text).toContain(
       "callback value 8",
     );
+  });
+
+  it("records Timeline editor tab readback evidence without modeling the readbacks as commands", () => {
+    const tabName = EXPRESSION_FUNCTIONS.find((entry) => entry.canonical === "GetTimelineTabName");
+    const tabIndex = EXPRESSION_FUNCTIONS.find((entry) => entry.canonical === "GetTimelineTabIndex");
+
+    expect(tabName).toMatchObject({
+      evidenceLevel: "observed",
+      confidence: "high",
+      forms: [
+        expect.objectContaining({
+          signature: "GetTimelineTabName",
+          parameters: [],
+        }),
+      ],
+      tags: expect.arrayContaining(["timeline", "tab", "readback"]),
+    });
+    expect(tabName?.description).toContain("without parentheses");
+    expect(tabName?.notes?.[0]?.text).toContain("GetTimelineTabName()");
+
+    expect(tabIndex).toMatchObject({
+      evidenceLevel: "observed",
+      confidence: "high",
+      forms: [
+        expect.objectContaining({
+          signature: "GetTimelineTabIndex",
+          parameters: [],
+        }),
+      ],
+      tags: expect.arrayContaining(["timeline", "tab", "readback"]),
+    });
+    expect(tabIndex?.description).toContain("zero-based integer");
+    expect(tabIndex?.notes?.[1]?.text).toContain("one-based argument");
   });
 });

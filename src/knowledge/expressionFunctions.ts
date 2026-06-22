@@ -105,6 +105,51 @@ export const EXPRESSION_FUNCTIONS: ExpressionFunctionEntry[] = [
     tags: ["expression", "external-input", "delta"],
   },
   {
+    canonical: "GetTimelineTabName",
+    description: "Return the selected Timeline editor tab name as a string expression. Use without parentheses.",
+    evidenceLevel: "observed",
+    confidence: "high",
+    forms: [
+      {
+        signature: "GetTimelineTabName",
+        description: "Read the selected Timeline editor tab name in command arguments such as OscOutTTS.",
+        parameters: [],
+      },
+    ],
+    notes: [
+      {
+        text: 'Observed with OscOutTTS "/pangolint/timeline-tab/current", "si", GetTimelineTabName, GetTimelineTabIndex returning type tags si and args ["Untitled", 2]. GetTimelineTabName() with parentheses returned Invalid expression.',
+      },
+      {
+        text: "Use after TimelineSetTabName or TimelineSetTabIndex before marker import workflows call TimelineMarker.",
+      },
+    ],
+    tags: ["expression", "timeline", "tab", "readback"],
+  },
+  {
+    canonical: "GetTimelineTabIndex",
+    description:
+      "Return the selected Timeline editor tab index as a zero-based integer expression. Use without parentheses.",
+    evidenceLevel: "observed",
+    confidence: "high",
+    forms: [
+      {
+        signature: "GetTimelineTabIndex",
+        description: "Read the selected Timeline editor tab index as a zero-based integer.",
+        parameters: [],
+      },
+    ],
+    notes: [
+      {
+        text: 'Observed with OscOutTTS "/pangolint/timeline-tab/current", "si", GetTimelineTabName, GetTimelineTabIndex returning type tags si and args ["Untitled", 2]. GetTimelineTabIndex() with parentheses returned Invalid expression.',
+      },
+      {
+        text: "TimelineSetTabIndex takes a one-based argument: setter arguments 1, 2, and 3 selected getter indexes 0, 1, and 2.",
+      },
+    ],
+    tags: ["expression", "timeline", "tab", "readback"],
+  },
+  {
     canonical: "int",
     description: "Convert a numeric expression to an integer.",
     evidenceLevel: "observed",
@@ -220,7 +265,38 @@ export function expressionFunctionAtPosition(
     if (column < start || column > end) continue;
     if (isInsideString(code, start)) continue;
     const entry = byName.get(name.toLowerCase());
+    if (entry && !isBareExpressionEntry(entry)) return { entry, start, end };
+  }
+
+  const bareByName = buildExpressionFunctionMap(functions.filter(isBareExpressionEntry));
+  const barePattern = /\b([A-Za-z_][A-Za-z0-9_]*)\b/g;
+  for (;;) {
+    const match = barePattern.exec(code);
+    if (!match) break;
+    const name = match[1];
+    if (!name) continue;
+    const start = match.index;
+    const end = start + name.length;
+    if (column < start || column > end) continue;
+    if (isInsideString(code, start)) continue;
+    if (nextCodeChar(code, end) === "(") continue;
+    const entry = bareByName.get(name.toLowerCase());
     if (entry) return { entry, start, end };
+  }
+  return undefined;
+}
+
+function isBareExpressionEntry(entry: ExpressionFunctionEntry): boolean {
+  return entry.forms.some((form) => {
+    const signature = form.signature.trim();
+    return signature.length > 0 && !signature.includes("(");
+  });
+}
+
+function nextCodeChar(lineText: string, column: number): string | undefined {
+  for (let index = column; index < lineText.length; index += 1) {
+    const char = lineText[index];
+    if (char && /\S/.test(char)) return char;
   }
   return undefined;
 }

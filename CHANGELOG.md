@@ -611,7 +611,7 @@ Initial public release.
 - PangoLint sidebar with Commands, Objects, Diagnostics, and BEYOND Watcher
   views.
 - Offline PangoScript reference site bundled into the VSIX.
-- Curated command knowledge for 529 PangoScript commands plus expression
+- Curated command knowledge for 529 PangoScript commands plus 9 expression
   functions and Object Tree runtime indexes.
 - Optional BEYOND runtime readback and property tools, gated by trusted
   workspace checks, explicit settings, and per-run confirmation for writes.
