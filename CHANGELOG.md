@@ -17,8 +17,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Security
 
-- Update patched transitive dependencies for MCP production packages and
-  development-time brace expansion.
+- Keep the MCP SDK as a bundled build dependency so published MCP installs do
+  not include its unused HTTP dependency tree, and update development-time
+  brace expansion to patched releases.
 
 ## [0.9.1] - 2026-06-22
 

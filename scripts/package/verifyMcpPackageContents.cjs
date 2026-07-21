@@ -10,6 +10,16 @@ const {
 
 const repoRoot = path.resolve(__dirname, "..", "..");
 const mcpRoot = path.join(repoRoot, "mcp");
+const mcpPackageJson = JSON.parse(fs.readFileSync(path.join(mcpRoot, "package.json"), "utf8"));
+
+if (mcpPackageJson.dependencies?.["@modelcontextprotocol/sdk"]) {
+  throw new Error(
+    "The bundled MCP server must keep @modelcontextprotocol/sdk as a build-time dependency, not an installed runtime dependency.",
+  );
+}
+if (!mcpPackageJson.devDependencies?.["@modelcontextprotocol/sdk"]) {
+  throw new Error("The MCP build is missing its @modelcontextprotocol/sdk development dependency.");
+}
 
 const forbiddenPublicTextPatterns = [
   ["private doc cache label", /\bdoc[- ]cache\b/i],
