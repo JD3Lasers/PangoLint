@@ -15,6 +15,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Record focused Build 2060 Talk, OSC, and Timeline compatibility results and
   clarify the upstream export count versus PangoLint's merged command count.
 
+### Security
+
+- Update patched transitive dependencies for MCP production packages and
+  development-time brace expansion.
+
 ## [0.9.1] - 2026-06-22
 
 ### Fixed
