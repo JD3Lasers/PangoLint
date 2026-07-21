@@ -25057,6 +25057,16 @@
           "cleanup": "operatorReset",
           "operatorRequired": true,
           "notes": "For unattended marker import, verify selected tab readback with GetTimelineTabName or GetTimelineTabIndex before sending marker writes."
+        },
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T2",
+          "verificationScript": "On BEYOND 5.5.0.2060, confirm an unsaved Timeline tab with GetTimelineTabName and GetTimelineTabIndex, send TimelineMarker 6, 13.579 over Talk TCP Echo 2, then read the selected tab again.",
+          "expectedCallback": "Talk TCP returned OK for TimelineMarker 6, 13.579 on the unsaved Untitled tab, and selected-tab readback remained Untitled at index 0.",
+          "cleanup": "operatorReset",
+          "operatorRequired": true,
+          "notes": "Build 2060 regression check on 2026-07-21. Discard the unsaved Timeline fixture after the check."
         }
       ],
       "tags": [
@@ -25541,6 +25551,16 @@
           "restoreScript": "TimelineSetTabIndex 3",
           "cleanup": "restoreScript",
           "operatorRequired": true
+        },
+        {
+          "status": "observed",
+          "method": "operatorSupervised",
+          "safetyTier": "T2",
+          "verificationScript": "On BEYOND 5.5.0.2060, read GetTimelineTabName and GetTimelineTabIndex, run TimelineSetTabName with a unique missing name, then read both expressions again.",
+          "expectedCallback": "TimelineSetTabName returned Talk TCP OK, while readback stayed on the Untitled tab at index 0.",
+          "cleanup": "none",
+          "operatorRequired": true,
+          "notes": "Build 2060 regression check on 2026-07-21; the missing-name command did not change selection."
         }
       ],
       "tags": [

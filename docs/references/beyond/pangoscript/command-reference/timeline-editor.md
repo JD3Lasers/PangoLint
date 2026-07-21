@@ -176,6 +176,24 @@ Use these readback expressions to validate marker import workflows:
 Related: `TimelineSetTabName`, `TimelineSetTabIndex`,
 `TimelineMarker`.
 
+### Native marker files in BEYOND Build 2060
+
+BEYOND 5.5 Build 2060 adds native Timeline marker CSV import and export for
+normal time values and FPS-style marker values used by tools such as Reaper
+and Cuepoints. The native path also handles common frame rates and markers
+that share a time position. See Pangolin's
+[Build 2060 release notes](https://wiki.pangolin.com/software/changelog/#build-2060).
+
+Prefer BEYOND's native CSV workflow when exchanging marker files. Use the
+PangoScript workflow above when an integration generates markers directly or
+needs to verify the selected Timeline tab before each command batch.
+
+Build 2060 was checked on 2026-07-21 through Talk TCP. `Version` returned
+`5.5.0.2060`; `GetTimelineTabName` and `GetTimelineTabIndex` returned the
+selected `Untitled` tab and index `0`; a missing `TimelineSetTabName` target
+returned `OK` without changing that selection; and `TimelineMarker 6, 13.579`
+returned `OK` on the unsaved tab.
+
 ### TimelineJumpDelta
 
 Signature: `TimelineJumpDelta <seconds>`
@@ -275,7 +293,7 @@ Add a marker to the Timeline. Three forms per documentation:
 - **Two args** - add marker with specified color at specified time.
 
 Markers are added to the selected Timeline editor tab. For an app that
-imports song markers, select the intended tab first, verify it with
+generates song markers directly, select the intended tab first, verify it with
 `GetTimelineTabName` or `GetTimelineTabIndex`, then send markers.
 
 Parameters:

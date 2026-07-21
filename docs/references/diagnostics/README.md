@@ -51,10 +51,11 @@ RGBA-style arg lists this often means a missing closing paren.
 
 **Severity:** warning.
 
-The line begins with an identifier that isn't in the curated BEYOND
-command catalog (521 commands as of build 2044) and isn't a recognized
-control-flow keyword (`for`, `next`, `if`, `goto`, `var`, `globalvar`,
-`exit`).
+The line begins with an identifier that isn't in PangoLint's merged BEYOND
+command catalog (529 commands) and isn't a recognized control-flow keyword
+(`for`, `next`, `if`, `goto`, `var`, `globalvar`, `exit`). The merged catalog
+starts from a 521-command upstream BEYOND export last compared with Build 2060
+and adds curated commands backed by documentation or runtime evidence.
 
 **How to fix:**
 

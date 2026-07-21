@@ -186,6 +186,25 @@ Available modes:
 Range spot checks should stay in a separate issue and manual profile. Use this
 workflow to prove the bench is reachable before running curated range canaries.
 
+### Build 2060 compatibility check
+
+The public BEYOND 5.5 Build 2060 was checked on 2026-07-21 with a same-machine,
+loopback-only setup:
+
+- Talk TCP `Hello` and `Version` passed, with `Version` returning
+  `5.5.0.2060`.
+- A unique `OscOutTTS` callback sent over Talk TCP was received on the
+  configured OSC Out listener.
+- `GetTimelineTabName` and `GetTimelineTabIndex` returned `Untitled` and `0`
+  for the selected unsaved Timeline tab.
+- `TimelineSetTabName "__pangolint_issue_169_missing__"` returned `OK` and the
+  selected tab remained `Untitled` at index `0`.
+- `TimelineMarker 6, 13.579` returned `OK` on that unsaved tab, and the tab
+  readback remained `Untitled` at index `0`.
+
+These results confirm the scoped connection and Timeline contracts only. They
+do not relabel earlier Build 2030 or Build 2044 runtime evidence.
+
 ## Zone Identity Readback Check
 
 Use a request-id suffix unique to the run.

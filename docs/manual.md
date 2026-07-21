@@ -474,7 +474,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.1.tgz
+npm install -g ./pangolint-mcp-0.9.2.tgz
 which pangolint-mcp
 ```
 
@@ -482,7 +482,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.1.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.2.tgz
 which pangolint-mcp
 ```
 
@@ -763,7 +763,9 @@ Check whether the script uses control flow (`label:` / `goto` / `if` /
 loops / waits / `exit`). BEYOND Talk is for straight-line command batches
 only, paste full scripts directly into BEYOND's PangoScript editor.
 The `BEYOND Notification Center` (in BEYOND itself) is the runtime
-oracle for failed sends; check it when a probe inexplicably no-ops.
+oracle for failed sends; check it when a probe inexplicably no-ops. In
+BEYOND Build 2060 and later, muting Notification Center prevents it from
+opening automatically, so open its tab manually while troubleshooting.
 
 **Pasted script collapsed into one line.**
 BEYOND's paste path treats LF-only clipboard text as one logical line.
