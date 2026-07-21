@@ -6,6 +6,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.2] - 2026-07-21
+
+### Changed
+
+- Document BEYOND Build 2060 native Timeline marker interchange and
+  Notification Center mute behavior.
+- Record focused Build 2060 Talk, OSC, and Timeline compatibility results and
+  clarify the upstream export count versus PangoLint's merged command count.
+
 ## [0.9.1] - 2026-06-22
 
 ### Fixed
@@ -644,7 +653,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.2...HEAD
+[0.9.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.2...v0.9.0
 [0.8.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.8.1...v0.8.2

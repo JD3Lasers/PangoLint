@@ -2821,6 +2821,16 @@ describe("checked-in PangoScript command knowledge data", () => {
       "missing tab name returned Talk OK",
     );
     expect(String(merged.commands.TimelineMarker?.description)).toContain("selected Timeline editor tab");
+    expect(
+      merged.commands.TimelineSetTabName?.verification?.some((entry) =>
+        String(entry.verificationScript).includes("BEYOND 5.5.0.2060"),
+      ),
+    ).toBe(true);
+    expect(
+      merged.commands.TimelineMarker?.verification?.some((entry) =>
+        String(entry.verificationScript).includes("BEYOND 5.5.0.2060"),
+      ),
+    ).toBe(true);
   });
 
   it("ships timeline, playlist, and player position range metadata", () => {
