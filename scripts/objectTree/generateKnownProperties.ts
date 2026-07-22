@@ -54,6 +54,7 @@ const HARDCODED_SCHEMAS: KnownObjectSchema[] = [
 // Injected (in sort order) into the named auto-generated schema.
 const PROPERTY_ADDITIONS: Record<string, string[]> = {
   Master: ["ShowShift"],
+  Projector: ["Count"],
 };
 
 // Per-root property filters. Universe mixes N.* (generic numeric index, the

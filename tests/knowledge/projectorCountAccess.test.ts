@@ -12,6 +12,14 @@ const indexPath = path.join(
   "runtime-indexes",
   "object-property-index.json",
 );
+const knownPropertiesPath = path.join(
+  process.cwd(),
+  "data",
+  "pangoscript",
+  "object-tree",
+  "runtime-indexes",
+  "known-properties.json",
+);
 
 describe("Projector count access metadata", () => {
   it("distinguishes the PangoScript expression from the OSC object-bus-only status path", () => {
@@ -48,5 +56,15 @@ describe("Projector count access metadata", () => {
         evidenceLevel: "observed",
       },
     });
+  });
+
+  it("includes Count in the Projector object schema", () => {
+    const knownProperties = JSON.parse(readFileSync(knownPropertiesPath, "utf8")) as {
+      schemas: Array<{ object: string; propertyCount: number; properties: string[] }>;
+    };
+    const projector = knownProperties.schemas.find((schema) => schema.object === "Projector");
+
+    expect(projector?.properties).toContain("Count");
+    expect(projector?.propertyCount).toBe(projector?.properties.length);
   });
 });
