@@ -1,6 +1,6 @@
 # Agent Integration Runbook
 
-Last updated: 2026-05-19
+Last updated: 2026-07-22
 
 ## Purpose
 
@@ -14,7 +14,9 @@ fast feedback. Live-show control is out of scope.
 
 ## Pre-flight
 
-1. Node.js 18+ installed (the published tarball is an ESM bundle).
+1. Node.js 18+ installed to run the published package. Building the package
+   from a repository checkout requires Node.js 20+ because of development
+   dependency requirements.
 2. An MCP-aware client.
 3. (Optional, for runtime tools) a dev BEYOND instance reachable
    over the LAN with Talk TCP enabled. Defaults are `127.0.0.1:16063`
@@ -33,17 +35,17 @@ which pangolint-mcp   # confirm the binary is on PATH
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.4.tgz
+npm install -g ./pangolint-mcp-0.9.5.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
-For local development, build the same tarball from a PangoLint repository
-checkout:
+For local development with Node.js 20+, build the same tarball from a PangoLint
+repository checkout:
 
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.4.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.5.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
