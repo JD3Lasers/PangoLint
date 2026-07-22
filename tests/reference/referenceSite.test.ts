@@ -62,7 +62,22 @@ describe("standalone reference site build", () => {
     expect(html).not.toContain("sourceRefs");
     expect(html).not.toContain("generatedFrom");
     expect(html).not.toContain("Catalog build \u2014");
-    expect(html).toContain("topbar__meta-short");
+    expect(html).toContain('<h1 class="topbar__title">PangoScript Reference</h1>');
+    expect(html).not.toContain("topbar__subtitle");
+    expect(html).not.toContain("topbar__meta-short");
+  });
+
+  it("uses restrained technical-tool typography and color tokens", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain("--paper: #090a0c;");
+    expect(html).toContain("--accent: #aeb4be;");
+    expect(html).not.toContain("rgba(90, 167, 255");
+    expect(html).toContain('--font-body: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;');
+    expect(html).toContain('--font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;');
+    expect(html).not.toContain("--font-display");
+    expect(html).not.toContain("radial-gradient");
+    expect(html).toContain(".detail {\n  max-width: 960px;");
   });
 
   it("keeps the sticky detail header paint flush with the detail scroll top", () => {
@@ -80,14 +95,21 @@ describe("standalone reference site build", () => {
     expect(html).not.toContain("Generated 2026-");
   });
 
-  it("keeps mobile toolbar search and clear controls aligned", () => {
+  it("keeps search and its compact clear control aligned", () => {
     const html = readReferenceHtml();
 
-    expect(html).toContain(".toolbar__search {\n  grid-column: 1 / -1;");
-    expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;");
+    expect(html).toContain(".toolbar__search {\n  grid-column: 1;");
+    expect(html).toContain(".toolbar__clear {\n  grid-column: 2;");
     expect(html).toContain("min-height: 2.35rem;");
-    expect(html).toContain(".toolbar__clear {\n  grid-column: 1 / -1;\n  background: transparent;");
+    expect(html).toContain('"aria-label":"Clear all filters"');
     expect(html).toContain(".toolbar__clear[hidden]");
+  });
+
+  it("highlights search matches without separating command-name fragments", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain(".hl {\n  background: rgba(255, 255, 255, 0.16);");
+    expect(html).toContain("border-radius: 2px;\n  padding: 0;\n}");
   });
 
   it("recomposes the reference layout for mobile browse and detail panels", () => {

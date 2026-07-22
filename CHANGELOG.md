@@ -6,6 +6,19 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.6] - 2026-07-22
+
+### Changed
+
+- Refresh the PangoScript reference browser with a neutral near-black palette,
+  system UI typography, restrained gray interaction accents, a compact filter-clear
+  control, and a simplified header.
+- Keep command and Object Tree detail content readable with a bounded content
+  width while preserving the existing three-pane desktop and focused mobile
+  navigation.
+- Keep command and object identifiers visually intact when highlighting search
+  matches instead of splitting matched names into separate text runs.
+
 ## [0.9.5] - 2026-07-22
 
 ### Security
@@ -695,7 +708,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.6...HEAD
+[0.9.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...v0.9.6
 [0.9.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...v0.9.5
 [0.9.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.3...v0.9.4
 [0.9.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.2...v0.9.3

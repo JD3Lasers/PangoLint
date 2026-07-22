@@ -82,7 +82,7 @@ function renderObjectReferenceRow(
   if (selected) li.classList.add("is-selected");
 
   const name = el("div", { className: "list__name" });
-  name.append(highlight(row.label, query));
+  name.append(highlight(row.label, query, true));
   li.append(name);
 
   if (row.description) {

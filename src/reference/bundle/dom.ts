@@ -51,27 +51,43 @@ export function debounce<A extends unknown[]>(fn: (...args: A) => void, wait: nu
   };
 }
 
-/** Highlight a substring match (case-insensitive) inside a string. */
-export function highlight(text: string, query: string): DocumentFragment {
-  const frag = document.createDocumentFragment();
-  if (!query) {
-    frag.append(text);
-    return frag;
-  }
+export interface HighlightSegment {
+  text: string;
+  matched: boolean;
+}
+
+export function buildHighlightSegments(text: string, query: string, wholeMatch = false): HighlightSegment[] {
+  if (!query) return [{ text, matched: false }];
   const needle = query.toLowerCase();
   const haystack = text.toLowerCase();
+  if (wholeMatch) return [{ text, matched: haystack.includes(needle) }];
+
+  const segments: HighlightSegment[] = [];
   let cursor = 0;
   while (cursor < text.length) {
     const idx = haystack.indexOf(needle, cursor);
     if (idx === -1) {
-      frag.append(text.slice(cursor));
+      segments.push({ text: text.slice(cursor), matched: false });
       break;
     }
-    if (idx > cursor) frag.append(text.slice(cursor, idx));
-    const mark = el("mark", { className: "hl" });
-    mark.textContent = text.slice(idx, idx + query.length);
-    frag.append(mark);
+    if (idx > cursor) segments.push({ text: text.slice(cursor, idx), matched: false });
+    segments.push({ text: text.slice(idx, idx + query.length), matched: true });
     cursor = idx + query.length;
+  }
+  return segments;
+}
+
+/** Highlight a case-insensitive match inside a string. */
+export function highlight(text: string, query: string, wholeMatch = false): DocumentFragment {
+  const frag = document.createDocumentFragment();
+  for (const segment of buildHighlightSegments(text, query, wholeMatch)) {
+    if (!segment.matched) {
+      frag.append(segment.text);
+      continue;
+    }
+    const mark = el("mark", { className: "hl" });
+    mark.textContent = segment.text;
+    frag.append(mark);
   }
   return frag;
 }
