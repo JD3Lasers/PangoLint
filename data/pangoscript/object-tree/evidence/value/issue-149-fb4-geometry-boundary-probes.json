@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "parentIssue": 216,
+  "batchIssue": 149,
+  "runtime": {
+    "observedAt": "2026-07-21",
+    "beyondVersion": "5.5.0.2060",
+    "operatorSupervised": true,
+    "notes": "Operator confirmed one FB3 and one FB4 controller connected and explicitly approved bounded geometry writes. Talk TCP Echo 2 SetProp and WriteLn batches restored every baseline immediately. No output-enable, mute, zoning, or test-frame commands were sent. The concrete hardware identifier and network endpoints are redacted from public evidence."
+  },
+  "entries": [
+    {
+      "objectPath": "FB4_XXXXX.PositionX",
+      "probePath": "FB4_XXXXX.PositionX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.PositionX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4_XXXXX.PositionX to its observed baseline after every sample and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.PositionX passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PositionY",
+      "probePath": "FB4_XXXXX.PositionY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "projector coordinate",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.PositionY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4_XXXXX.PositionY to its observed baseline after every sample and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.PositionY passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PostRotation",
+      "probePath": "FB4_XXXXX.PostRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.PostRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4_XXXXX.PostRotation to its observed baseline after every sample and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.PostRotation passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.PreRotation",
+      "probePath": "FB4_XXXXX.PreRotation",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 0
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "degrees",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.PreRotation\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 0,
+        "notes": "The probe restored FB4_XXXXX.PreRotation to its observed baseline after every sample and verified final readback 0."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.PreRotation passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.SizeX",
+      "probePath": "FB4_XXXXX.SizeX",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.SizeX\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored FB4_XXXXX.SizeX to its observed baseline after every sample and verified final readback 50."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.SizeX passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    },
+    {
+      "objectPath": "FB4_XXXXX.SizeY",
+      "probePath": "FB4_XXXXX.SizeY",
+      "probeMode": "command-write-readback",
+      "shipsMetadata": true,
+      "valueType": "number",
+      "evidenceLevel": "observed",
+      "boundaryBehavior": "mixed",
+      "baseline": {
+        "value": 50
+      },
+      "valueRange": {
+        "min": -1000000,
+        "max": 1000000,
+        "unit": "percent",
+        "minInclusive": true,
+        "maxInclusive": true
+      },
+      "testedValues": [
+        {
+          "input": -1000001,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", -1000001",
+          "readback": -1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -1000000,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", -1000000",
+          "readback": -1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000000,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", 1000000",
+          "readback": 1000000,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 1000001,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", 1000001",
+          "readback": 1000001,
+          "behavior": "pass-through"
+        },
+        {
+          "input": -2147483649,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", -2147483649",
+          "readback": -2147483648,
+          "behavior": "clamp"
+        },
+        {
+          "input": -2147483648,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", -2147483648",
+          "readback": -2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483647,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", 2147483647",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483648,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", 2147483648",
+          "readback": 2147483648,
+          "behavior": "pass-through"
+        },
+        {
+          "input": 2147483649,
+          "command": "SetProp \"FB4_XXXXX.SizeY\", 2147483649",
+          "readback": 2147483648,
+          "behavior": "clamp"
+        }
+      ],
+      "restore": {
+        "strategy": "command-restore",
+        "restoredValue": 50,
+        "notes": "The probe restored FB4_XXXXX.SizeY to its observed baseline after every sample and verified final readback 50."
+      },
+      "evidenceNote": "Runtime Talk TCP Echo 2 SetProp and WriteLn readbacks on 2026-07-21 issue #149 confirmed FB4_XXXXX.SizeY passes through immediately outside the shipped -1000000..1000000 span. Signed-edge samples read back at the nearest 32-bit float edge, so boundary behavior is mixed.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "hardware-instance",
+        "populationDependent": true,
+        "concreteContext": "Connected FB4 hardware root with identifier redacted",
+        "notes": "The probe used one connected FB4 controller. Public evidence keeps the normalized FB4_XXXXX placeholder."
+      }
+    }
+  ]
+}

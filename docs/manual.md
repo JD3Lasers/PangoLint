@@ -474,7 +474,7 @@ which pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.3.tgz
+npm install -g ./pangolint-mcp-0.9.4.tgz
 which pangolint-mcp
 ```
 
@@ -482,7 +482,7 @@ For local development, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.3.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.4.tgz
 which pangolint-mcp
 ```
 

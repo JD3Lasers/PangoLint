@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.4] - 2026-07-21
+
+### Changed
+
+- Classify `FB4_XXXXX.PositionX`, `PositionY`, `PostRotation`, `PreRotation`,
+  `SizeX`, and `SizeY` with observed mixed boundary behavior from operator-
+  supervised BEYOND Build 2060 write/readback probes.
+- Complete the Object Tree boundary audit with zero remaining unknown boundary
+  behavior rows.
+
 ## [0.9.3] - 2026-07-21
 
 ### Fixed
@@ -673,7 +683,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.3...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...HEAD
+[0.9.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.3...v0.9.4
 [0.9.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.2...v0.9.3
 [0.9.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.0...v0.9.1

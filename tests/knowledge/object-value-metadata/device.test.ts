@@ -857,6 +857,9 @@ describe("checked-in Object Tree device value metadata data", () => {
     const issue149GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
       "object-range-evidence/issue-149-geometry-boundary-probes.json",
     );
+    const issue149Fb4GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
+      "object-range-evidence/issue-149-fb4-geometry-boundary-probes.json",
+    );
 
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const roots = ["FB3_XXXXX", "FB4_XXXXX"];
@@ -921,8 +924,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       ] as const) {
         expectedValueEntries.set(`${root}.${property}`, {
           ...expected,
-          boundaryBehavior:
-            root === "FB3_XXXXX" && fbGeometryProperties.has(property) ? "mixed" : expected.boundaryBehavior,
+          boundaryBehavior: fbGeometryProperties.has(property) ? "mixed" : expected.boundaryBehavior,
         });
       }
       for (const property of [
@@ -961,6 +963,9 @@ describe("checked-in Object Tree device value metadata data", () => {
       if (entry.objectPath.startsWith("FB3_XXXXX.") && fbGeometryProperties.has(propertyName)) {
         evidenceByPath.set(entry.objectPath, entry);
       }
+    }
+    for (const entry of issue149Fb4GeometryEvidence.entries) {
+      evidenceByPath.set(entry.objectPath, entry);
     }
 
     expect(fbEvidence.runtime.notes).toContain("Object Tree surfaces match Projector.N property-for-property");
