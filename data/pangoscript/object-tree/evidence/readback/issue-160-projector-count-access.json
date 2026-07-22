@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "batchIssue": 160,
+  "runtime": {
+    "observedAt": "2026-07-21",
+    "beyondVersion": "BEYOND 5.5.0.2060",
+    "operatorSupervised": true,
+    "notes": "Same-machine loopback-only T1 readback probes. No writes were sent."
+  },
+  "entries": [
+    {
+      "objectPath": "Projector.Count",
+      "probePath": "Projector.Count",
+      "probeMode": "readback-only",
+      "accessMechanism": "pangoscript-expression",
+      "probeResult": "accepted",
+      "valueType": "integer",
+      "baseline": {
+        "value": 1,
+        "typeTag": "i"
+      },
+      "evidenceNote": "OscOutTTS evaluated Projector.Count and returned the configured projector roster size.",
+      "locationAware": true,
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "concreteContext": "Configured projector roster",
+        "notes": "The loaded BEYOND configuration contained one projector."
+      },
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Readback-only probe sent no writes."
+      }
+    },
+    {
+      "objectPath": "Status.Projector.Count",
+      "probePath": "Status.Projector.Count",
+      "probeMode": "readback-only",
+      "accessMechanism": "pangoscript-expression",
+      "probeResult": "rejected",
+      "errorMessage": "Unknown function, undeclared or not initialized variable: status.projector.count",
+      "valueType": "integer",
+      "baseline": {
+        "value": null
+      },
+      "evidenceNote": "BEYOND rejected Status.Projector.Count as a PangoScript expression and emitted no OSC callback.",
+      "locationAware": false,
+      "restore": {
+        "strategy": "not-needed",
+        "notes": "Rejected readback-only probe sent no writes."
+      }
+    }
+  ]
+}

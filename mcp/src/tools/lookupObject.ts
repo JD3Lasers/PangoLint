@@ -81,7 +81,7 @@ function toLookupData(
   objectTree: ObjectTreeRootSummary | undefined,
 ): LookupObjectData {
   const objectName = schema?.object ?? objectTree?.root ?? "";
-  const properties = schema ? [...schema.properties] : (objectTree?.properties ?? []);
+  const properties = schema ? [...(schema.rootProperties ?? []), ...schema.properties] : (objectTree?.properties ?? []);
   const sources: LookupObjectSource[] = [];
   if (schema) sources.push("canonical-schema");
   if (objectTree) sources.push("object-property-index");
@@ -91,6 +91,7 @@ function toLookupData(
     isArray: schema?.isArray ?? objectTree?.isArrayRoot ?? false,
     propertyCount: schema?.propertyCount ?? objectTree?.propertyCount ?? properties.length,
     properties,
+    rootProperties: schema?.rootProperties ? [...schema.rootProperties] : undefined,
     sharedWithAliases: schema?.sharedWithAliases ?? 0,
     arrayIndices: schema?.arrayIndices ? [...schema.arrayIndices] : undefined,
     inheritedFrom: schema?.inheritedFrom,

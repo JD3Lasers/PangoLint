@@ -70,6 +70,7 @@ interface ReferenceObjectValueMetadata {
 
 interface ReferenceObjectReadbackMetadata {
   readable: true;
+  accessMechanism?: string;
   valueType?: string;
   probePath: string;
   probeMode: "readback-only";
@@ -233,6 +234,7 @@ interface ReferenceObjectValueSummary {
 
 interface ReferenceObjectReadbackSummary {
   status: string;
+  accessMechanism?: string;
   probePath?: string;
   valueType?: string;
   typeTag?: string;

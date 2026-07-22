@@ -84,6 +84,7 @@ export interface ObjectSummary {
 
 export interface ObjectDetail extends ObjectSummary {
   properties: string[];
+  rootProperties?: string[];
   arrayIndices?: string[];
   perIndexSchemas?: Record<string, string>;
 }

@@ -153504,6 +153504,47 @@
       }
     },
     {
+      "path": "Projector.Count",
+      "normalizedPath": "Projector.Count",
+      "root": "Projector",
+      "property": "Count",
+      "kind": "object",
+      "confidence": "observed",
+      "searchText": "projector count configured roster size pangoscript expression readback integer only i observed beyond 5 0 2060 evaluated in an oscouttts and returned the no writes were sent so writable versus read behavior remains unverified indexed root changes when projectors are added to or removed from configuration population dependent populated slot location aware 1 classification access mode unknown computed status not tested as a direct property authorized for issue #160 until bounded write probe is approved",
+      "variantCount": 1,
+      "variants": [
+        {
+          "path": "Projector.Count"
+        }
+      ],
+      "readbackMetadata": {
+        "readable": true,
+        "accessMechanism": "pangoscript-expression",
+        "valueType": "integer",
+        "probePath": "Projector.Count",
+        "probeMode": "readback-only",
+        "observedValue": 1,
+        "typeTag": "i",
+        "evidenceLevel": "observed",
+        "observedAt": "2026-07-21",
+        "notes": "BEYOND 5.5.0.2060 evaluated Projector.Count in an OscOutTTS readback and returned the configured projector roster size. No writes were sent, so writable versus read-only behavior remains unverified.",
+        "locationContext": {
+          "kind": "indexed-root",
+          "populationDependent": true,
+          "indexBasis": "configured projector roster",
+          "notes": "The count changes when projectors are added to or removed from the BEYOND configuration."
+        }
+      },
+      "classification": {
+        "accessMode": "unknown",
+        "behaviorKind": "computed-status",
+        "writeTestStatus": "not-tested",
+        "readbackStatus": "readback-tested",
+        "evidenceLevel": "unverified",
+        "notes": "BEYOND 5.5.0.2060 evaluated Projector.Count as a PangoScript expression and returned the configured projector roster size. Direct property writes were not authorized for issue #160, so access behavior remains unknown until a bounded write/readback probe is approved."
+      }
+    },
+    {
       "path": "Projector.N.ColorShift",
       "normalizedPath": "Projector.N.ColorShift",
       "root": "Projector",
@@ -222091,7 +222132,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Status/Projector/Count",
-      "searchText": "status projector count b readback integer only i observed runtime setprop write evidence on 2026 05 16 issue #298 confirmed sampled writes to did not change the this row remains after attempts 0 behavior classification access mode read computed no op tested for so is classified as in metadata",
+      "searchText": "status projector count b readback osc object bus integer only i observed issue #298 used setprop command write probes for and 0 with sampled writes behaving as no op the exported tree maps that row to a beyond 5 2060 pangoscript expression probe on 2026 07 21 failed an unknown variable so consumers must use mapped route this direct behavior was not independently probed classification access mode computed tested returned did change it while rejects therefore evidence remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -222101,22 +222142,23 @@
       ],
       "readbackMetadata": {
         "readable": true,
+        "accessMechanism": "osc-object-bus",
         "valueType": "integer",
-        "probePath": "Status.Projector.Count",
+        "probePath": "/b/Status/Projector/Count",
         "probeMode": "readback-only",
         "observedValue": 0,
         "typeTag": "i",
         "evidenceLevel": "observed",
         "observedAt": "2026-05-16",
-        "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.Count did not change the status readback. This row remains readback-only after write attempts."
+        "notes": "Issue #298 used SetProp command/write/readback probes for Status.Projector.Count and observed integer readback 0 with sampled writes behaving as no-op. The exported Object Tree maps that row to /b/Status/Projector/Count. A BEYOND 5.5.0.2060 PangoScript expression probe on 2026-07-21 failed as an unknown variable, so consumers must use the mapped OSC object-bus route for this row; direct /b/ behavior was not independently probed."
       },
       "classification": {
-        "accessMode": "read-only",
+        "accessMode": "object-bus-only",
         "behaviorKind": "computed-status",
         "writeTestStatus": "write-no-op-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed",
-        "notes": "Write attempts for Status.Projector.Count did not change the readback, so this row is classified as read-only computed status. Readback evidence remains in readback metadata."
+        "notes": "Issue #298 SetProp command/write/readback probes returned this computed status and sampled SetProp writes did not change it. The exported Object Tree maps the row to /b/Status/Projector/Count, while BEYOND 5.5.0.2060 rejects Status.Projector.Count as a PangoScript expression. Consumers therefore use the mapped OSC object-bus route; direct /b/ behavior was not independently probed. Readback evidence remains in readback metadata."
       }
     },
     {

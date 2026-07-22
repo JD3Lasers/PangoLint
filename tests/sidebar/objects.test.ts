@@ -20,8 +20,9 @@ const fixture: PropertyIndexFile = {
     {
       object: "Zone",
       isArray: true,
-      propertyCount: 3,
+      propertyCount: 4,
       properties: ["Active", "Geometry.X", "Geometry.Y"],
+      rootProperties: ["Count"],
       sharedWithAliases: 0,
       arrayIndices: ["0", "1", "2", "3"],
     },
@@ -48,6 +49,7 @@ describe("sidebar objects", () => {
     const detail = getObjectDetail(objects, "zone");
     expect(detail?.isArray).toBe(true);
     expect(detail?.properties).toEqual(["Active", "Geometry.X", "Geometry.Y"]);
+    expect(detail?.rootProperties).toEqual(["Count"]);
     expect(detail?.arrayIndices).toEqual(["0", "1", "2", "3"]);
   });
 
@@ -67,7 +69,7 @@ describe("sidebar objects", () => {
     const objects = buildSidebarObjects(buildPropertyIndex(fixture));
     const detail = getObjectDetail(objects, "zone");
     assert(detail !== undefined);
-    expect(getPropertyPaths(detail)).toEqual(["Zone.N.Active", "Zone.N.Geometry.X", "Zone.N.Geometry.Y"]);
+    expect(getPropertyPaths(detail)).toEqual(["Zone.Count", "Zone.N.Active", "Zone.N.Geometry.X", "Zone.N.Geometry.Y"]);
   });
 
   it("formats object paths as BEYOND OSC addresses", () => {

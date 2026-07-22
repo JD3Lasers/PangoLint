@@ -38,14 +38,23 @@ describe("sidebar webview accessibility contracts", () => {
     const source = readSource("src/sidebar/view/webview/objects-bundle/main.ts");
     const propItemBlock = extractFunction(source, "propItem");
 
-    expect(propItemBlock).toContain("showContextMenu(e, path, commands)");
+    expect(propItemBlock).toContain("showContextMenu(e, path, commands, propertyCard)");
     expect(source).toContain("function showContextMenu");
     expect(source).toContain("Copy path");
-    expect(source).toContain('type: "copyPath", text: displayPath(path)');
+    expect(source).toContain('type: "copyPath", text: displayPath(path, propertyCard)');
     expect(source).toContain("Insert as SetProp");
     expect(source).toContain("toSetPropSnippet(path)");
     expect(source).toContain('role", "menu"');
     expect(source).toContain('e.key === "Escape"');
+  });
+
+  it("does not invent OSC paths for expression-only object properties", () => {
+    const source = readSource("src/sidebar/view/webview/objects-bundle/main.ts");
+    const verifiedOscPathBlock = extractFunction(source, "verifiedOscPath");
+    const displayPathBlock = extractFunction(source, "displayPath");
+
+    expect(verifiedOscPathBlock).toContain("return propertyCard.osc");
+    expect(displayPathBlock).toContain("verifiedOscPath(path, propertyCard) ?? path");
   });
 
   it("preserves section context when collecting searchable object leaves", () => {

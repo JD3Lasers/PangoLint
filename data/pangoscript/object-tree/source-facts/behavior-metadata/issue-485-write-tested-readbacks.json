@@ -1884,12 +1884,12 @@
     },
     {
       "path": "Status.Projector.Count",
-      "accessMode": "read-only",
+      "accessMode": "object-bus-only",
       "behaviorKind": "computed-status",
       "writeTestStatus": "write-no-op-tested",
       "readbackStatus": "readback-tested",
       "evidenceLevel": "observed",
-      "notes": "Write attempts for Status.Projector.Count did not change the readback, so this row is classified as read-only computed status. Readback evidence remains in readback metadata."
+      "notes": "Issue #298 SetProp command/write/readback probes returned this computed status and sampled SetProp writes did not change it. The exported Object Tree maps the row to /b/Status/Projector/Count, while BEYOND 5.5.0.2060 rejects Status.Projector.Count as a PangoScript expression. Consumers therefore use the mapped OSC object-bus route; direct /b/ behavior was not independently probed. Readback evidence remains in readback metadata."
     },
     {
       "path": "Status.Projector.N.Connected",

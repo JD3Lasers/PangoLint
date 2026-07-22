@@ -19,6 +19,11 @@ export interface KnownObjectSchema {
   propertyCount: number;
   /** Sorted list of property paths under the object root. */
   properties: string[];
+  /**
+   * Direct properties on a root that otherwise uses indexed access.
+   * For example, Projector.Count is direct while Projector.N.Name is indexed.
+   */
+  rootProperties?: string[];
   /** How many other root names share this exact schema fingerprint. */
   sharedWithAliases: number;
   /**

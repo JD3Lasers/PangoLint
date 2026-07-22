@@ -98756,6 +98756,64 @@
       }
     },
     {
+      "path": "Projector.Count",
+      "label": "Count",
+      "root": "Projector",
+      "property": "Count",
+      "kind": "object",
+      "confidence": "observed",
+      "coverage": {
+        "hasObjectContext": true,
+        "hasObjectBusPath": false,
+        "hasPangoScriptCommand": false,
+        "hasOscCommandRoute": false,
+        "hasRangeSeed": false
+      },
+      "objectTree": {
+        "path": "Projector.Count",
+        "normalizedPath": "Projector.Count",
+        "variantCount": 1,
+        "contextCount": 0,
+        "contexts": [],
+        "objectBusPathCount": 0,
+        "objectBusPaths": []
+      },
+      "readback": {
+        "status": "readable",
+        "accessMechanism": "pangoscript-expression",
+        "probePath": "Projector.Count",
+        "valueType": "integer",
+        "typeTag": "i",
+        "evidenceLevel": "observed",
+        "observedValue": 1,
+        "locationKind": "indexed-root"
+      },
+      "behavior": {
+        "accessMode": "unknown",
+        "behaviorKind": "computed-status",
+        "writeTestStatus": "not-tested",
+        "readbackStatus": "readback-tested",
+        "evidenceLevel": "unverified"
+      },
+      "pangoScript": {
+        "commandCount": 0,
+        "commands": [],
+        "parameterRangeCount": 0,
+        "parameterRanges": []
+      },
+      "osc": {
+        "routeCount": 0,
+        "routes": []
+      },
+      "detailAvailable": {
+        "objectContexts": 0,
+        "objectBusPaths": 0,
+        "commands": 0,
+        "oscRoutes": 0,
+        "parameterRanges": 0
+      }
+    },
+    {
       "path": "Projector.N.ColorShift",
       "label": "ColorShift",
       "root": "Projector",
@@ -207303,14 +207361,15 @@
       },
       "readback": {
         "status": "readable",
-        "probePath": "Status.Projector.Count",
+        "accessMechanism": "osc-object-bus",
+        "probePath": "/b/Status/Projector/Count",
         "valueType": "integer",
         "typeTag": "i",
         "evidenceLevel": "observed",
         "observedValue": 0
       },
       "behavior": {
-        "accessMode": "read-only",
+        "accessMode": "object-bus-only",
         "behaviorKind": "computed-status",
         "writeTestStatus": "write-no-op-tested",
         "readbackStatus": "readback-tested",

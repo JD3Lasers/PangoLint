@@ -50,10 +50,15 @@ const HARDCODED_SCHEMAS: KnownObjectSchema[] = [
   },
 ];
 
-// Runtime-observed properties not present in Object Tree source facts.
+// Runtime-observed indexed properties not present in Object Tree source facts.
 // Injected (in sort order) into the named auto-generated schema.
-const PROPERTY_ADDITIONS: Record<string, string[]> = {
+const INDEXED_PROPERTY_ADDITIONS: Record<string, string[]> = {
   Master: ["ShowShift"],
+};
+
+// Runtime-observed direct properties on roots that otherwise use indexed access.
+const ROOT_PROPERTY_ADDITIONS: Record<string, string[]> = {
+  Projector: ["Count"],
 };
 
 // Per-root property filters. Universe mixes N.* (generic numeric index, the
@@ -120,7 +125,7 @@ for (const [root, normalizedPaths] of byRoot) {
   const properties = [...props].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
 
   // Inject runtime-observed properties that are absent from Object Tree source facts.
-  for (const extra of PROPERTY_ADDITIONS[root] ?? []) {
+  for (const extra of INDEXED_PROPERTY_ADDITIONS[root] ?? []) {
     if (!properties.includes(extra)) {
       const idx = properties.findIndex((p) => p.localeCompare(extra, undefined, { sensitivity: "base" }) > 0);
       if (idx === -1) properties.push(extra);
@@ -131,8 +136,9 @@ for (const [root, normalizedPaths] of byRoot) {
   generated.push({
     object: root,
     isArray,
-    propertyCount: properties.length,
+    propertyCount: properties.length + (ROOT_PROPERTY_ADDITIONS[root]?.length ?? 0),
     properties,
+    ...(ROOT_PROPERTY_ADDITIONS[root] ? { rootProperties: ROOT_PROPERTY_ADDITIONS[root] } : {}),
     sharedWithAliases: 0, // filled below
   });
 }
@@ -141,12 +147,16 @@ for (const [root, normalizedPaths] of byRoot) {
 // sorted property fingerprint (exact same property set).
 const fpCount = new Map<string, number>();
 for (const schema of generated) {
-  const fp = schema.properties.join("|");
+  const fp = schemaFingerprint(schema);
   fpCount.set(fp, (fpCount.get(fp) ?? 0) + 1);
 }
 for (const schema of generated) {
-  const fp = schema.properties.join("|");
+  const fp = schemaFingerprint(schema);
   schema.sharedWithAliases = (fpCount.get(fp) ?? 1) - 1;
+}
+
+function schemaFingerprint(schema: KnownObjectSchema): string {
+  return `${schema.properties.join("|")}::root=${(schema.rootProperties ?? []).join("|")}`;
 }
 
 // Merge: auto-generated + preserved manual + hardcoded. Hardcoded wins on name
@@ -172,10 +182,10 @@ if (shared.length > 0) {
   console.log("Shared-fingerprint groups:");
   const seen = new Set<string>();
   for (const s of shared) {
-    const fp = s.properties.join("|");
+    const fp = schemaFingerprint(s);
     if (seen.has(fp)) continue;
     seen.add(fp);
-    const group = generated.filter((g) => g.properties.join("|") === fp).map((g) => g.object);
+    const group = generated.filter((g) => schemaFingerprint(g) === fp).map((g) => g.object);
     console.log(`  ${group.join(", ")} (${s.propertyCount} props each)`);
   }
 }

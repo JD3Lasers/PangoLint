@@ -57,6 +57,7 @@ const entry: ObjectPropertyEntry = {
   },
   readbackMetadata: {
     readable: true,
+    accessMechanism: "pangoscript-expression",
     valueType: "float",
     probePath: "FX.0.0.0.Oscillator.Period",
     probeMode: "readback-only",
@@ -108,6 +109,7 @@ describe("Object Tree property cards", () => {
     });
     expect(card.readbackSummary).toEqual({
       status: "readable",
+      accessMechanism: "pangoscript-expression",
       probePath: "FX.0.0.0.Oscillator.Period",
       valueType: "float",
       typeTag: "f",

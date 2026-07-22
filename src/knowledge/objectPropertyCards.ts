@@ -54,6 +54,7 @@ interface ObjectPropertyValueSummary {
 
 interface ObjectPropertyReadbackSummary {
   status: string;
+  accessMechanism?: string;
   probePath?: string;
   valueType?: string;
   typeTag?: string;
@@ -294,6 +295,7 @@ function summarizeReadbackMetadata(
   if (metadata) {
     return {
       status: "readable",
+      accessMechanism: metadata.accessMechanism,
       probePath: metadata.probePath,
       valueType: metadata.valueType,
       typeTag: metadata.typeTag,

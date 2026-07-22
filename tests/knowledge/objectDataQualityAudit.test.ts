@@ -27,8 +27,8 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.classifiedEntries).toBe(index.entries.filter((entry) => entry.classification).length);
     expect(report.summary.unclassifiedEntries).toBe(0);
     expect(report.summary.hardViolationCount).toBe(0);
-    expect(report.summary.warningCount).toBe(3);
-    expect(report.summary.unverifiedUnknownRows).toBe(0);
+    expect(report.summary.warningCount).toBe(4);
+    expect(report.summary.unverifiedUnknownRows).toBe(1);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
     expect(report.summary.readMostlyRowsWithoutValueMetadata).toBe(30);
     expect(report.summary.unknownBoundaryBehaviorRows).toBe(6);
@@ -40,6 +40,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.behaviorSourceFactDuplicateRows).toBe(0);
     expect(report.summary.behaviorSourceFactsMissingIndexRows).toBe(0);
     expect(report.summary.sharedControlReferenceObjectRows).toBe(sharedControlReferenceObjectRows);
+    expect(report.summary.controlReferenceMissingIndexRows).toBe(0);
     expect(report.summary.controlReferenceBehaviorMismatches).toBe(0);
     expect(report.summary.metadataMutualExclusionViolations).toBe(0);
     expect(report.summary.writeTestedRowsMissingOutputMetadata).toBe(0);
@@ -55,10 +56,11 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["behavior-source-fact-duplicates", "error", "pass", 0],
       ["behavior-source-facts-reach-index", "error", "pass", 0],
+      ["mcp-control-index-parity", "error", "pass", 0],
       ["mcp-control-behavior-parity", "error", "pass", 0],
       ["metadata-kind-exclusive", "error", "pass", 0],
       ["write-tested-has-output-metadata", "error", "pass", 0],
-      ["unverified-unknown-readback-only", "warning", "pass", 0],
+      ["unverified-unknown-readback-only", "warning", "warn", 1],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
       ["read-mostly-value-metadata-review", "warning", "warn", 30],
       ["unknown-boundary-behavior", "warning", "warn", 6],
@@ -70,9 +72,9 @@ describe("final Object Tree data quality audit", () => {
       (bucket) => bucket.id === "read-mostly-value-metadata-review",
     );
     const unknownBoundary = report.reviewBuckets.find((bucket) => bucket.id === "unknown-boundary-behavior");
-    expect(unverifiedFx?.count).toBe(0);
-    expect(unverifiedFx?.roots).toEqual([]);
-    expect(unverifiedFx?.examples).toEqual([]);
+    expect(unverifiedFx?.count).toBe(1);
+    expect(unverifiedFx?.roots).toEqual([{ root: "Projector", count: 1 }]);
+    expect(unverifiedFx?.examples).toEqual(["Projector.Count"]);
     expect(readOnlyDomain?.count).toBe(9);
     expect(readOnlyDomain?.examples).toContain("ColorChannel.Count");
     expect(readOnlyDomain?.examples).toContain("PlayListState.Position");
@@ -171,6 +173,7 @@ interface DataQualityReport {
     behaviorSourceFactDuplicateRows: number;
     behaviorSourceFactsMissingIndexRows: number;
     sharedControlReferenceObjectRows: number;
+    controlReferenceMissingIndexRows: number;
     controlReferenceBehaviorMismatches: number;
     metadataMutualExclusionViolations: number;
     writeTestedRowsMissingOutputMetadata: number;

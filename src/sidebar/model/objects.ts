@@ -36,7 +36,10 @@ export function getObjectDetail(objects: SidebarObjects, name: string): ObjectDe
 
 export function getPropertyPaths(detail: ObjectDetail): string[] {
   const prefix = detail.isArray ? `${detail.name}.N` : detail.name;
-  return detail.properties.map((p) => `${prefix}.${p}`);
+  return [
+    ...(detail.rootProperties ?? []).map((property) => `${detail.name}.${property}`),
+    ...detail.properties.map((property) => `${prefix}.${property}`),
+  ];
 }
 
 function toSummary(schema: KnownObjectSchema): ObjectSummary {
@@ -55,6 +58,7 @@ function toDetail(schema: KnownObjectSchema): ObjectDetail {
     propertyCount: schema.propertyCount,
     inheritedFrom: schema.inheritedFrom,
     properties: [...schema.properties],
+    rootProperties: schema.rootProperties ? [...schema.rootProperties] : undefined,
     arrayIndices: schema.arrayIndices ? [...schema.arrayIndices] : undefined,
     perIndexSchemas: schema.perIndexSchemas ? { ...schema.perIndexSchemas } : undefined,
   };

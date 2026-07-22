@@ -41,9 +41,39 @@ const vscodeMock = vi.hoisted(() => {
     }
   }
 
+  class CompletionItem {
+    detail?: string;
+    insertText?: string;
+
+    constructor(
+      readonly label: string,
+      readonly kind: number,
+    ) {}
+  }
+
+  class MarkdownString {
+    value = "";
+    isTrusted = false;
+
+    appendMarkdown(value: string): void {
+      this.value += value;
+    }
+  }
+
+  class Hover {
+    constructor(
+      readonly contents: MarkdownString,
+      readonly range: Range,
+    ) {}
+  }
+
   return {
     CodeAction,
     CodeActionKind: { QuickFix: "quickfix", SourceFixAll: "source.fixAll" },
+    CompletionItem,
+    CompletionItemKind: { Property: 10, Module: 9, Value: 12, EnumMember: 19 },
+    Hover,
+    MarkdownString,
     Range,
     WorkspaceEdit,
   };
@@ -51,9 +81,48 @@ const vscodeMock = vi.hoisted(() => {
 
 vi.mock("vscode", () => vscodeMock);
 
-import { quickFixesForPropertyTypos, quickFixesForUnknownCommand } from "../../src/language/propertyProviders";
+import { buildPropertyIndex } from "../../src/knowledge/propertyIndex";
+import {
+  hoverForPropertyPath,
+  propertyCompletionsForPrefix,
+  quickFixesForPropertyTypos,
+  quickFixesForUnknownCommand,
+} from "../../src/language/propertyProviders";
 
 describe("propertyProviders quick fixes", () => {
+  it("keeps direct root properties separate from indexed properties", () => {
+    const index = buildPropertyIndex({
+      schemaVersion: 1,
+      schemas: [
+        {
+          object: "Projector",
+          isArray: true,
+          propertyCount: 2,
+          properties: ["Name"],
+          rootProperties: ["Count"],
+          sharedWithAliases: 0,
+        },
+      ],
+    });
+
+    expect(propertyCompletionsForPrefix("Projector.", index)?.map((item) => item.label)).toEqual(["Count", "0"]);
+    expect(propertyCompletionsForPrefix("Projector.0.", index)?.map((item) => item.label)).toEqual(["Name"]);
+    expect(propertyCompletionsForPrefix("Projector.Count.", index)).toEqual([]);
+    expect(propertyCompletionsForPrefix("Projector.count.", index)).toEqual([]);
+
+    const hover = hoverForPropertyPath("Projector.Count", 12, index, 0) as unknown as {
+      contents: { value: string };
+    };
+    expect(hover.contents.value).toContain("Verified direct property on **Projector**.");
+    expect(hover.contents.value).not.toContain("(indexed)");
+
+    const nestedHover = hoverForPropertyPath("Projector.Count.Name", 20, index, 0) as unknown as {
+      contents: { value: string };
+    };
+    expect(nestedHover.contents.value).toContain("is a direct property with no nested path");
+    expect(nestedHover.contents.value).toContain("is not valid");
+  });
+
   it("ranks unknown-command quick fixes against the full bundled command catalog", () => {
     const catalog = commandCatalog([
       command("Exit"),

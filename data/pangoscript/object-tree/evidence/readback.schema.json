@@ -87,6 +87,16 @@
         "probeMode": {
           "const": "readback-only"
         },
+        "accessMechanism": {
+          "enum": ["pangoscript-expression", "osc-object-bus"]
+        },
+        "probeResult": {
+          "enum": ["accepted", "rejected"]
+        },
+        "errorMessage": {
+          "type": "string",
+          "minLength": 1
+        },
         "valueType": {
           "enum": ["number", "integer", "float", "string", "boolean", "enum", "unknown"]
         },
@@ -107,6 +117,21 @@
           "$ref": "#/$defs/restore"
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "probeResult": {
+                "const": "rejected"
+              }
+            },
+            "required": ["probeResult"]
+          },
+          "then": {
+            "required": ["errorMessage"]
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "baseline": {

@@ -228,9 +228,23 @@ describe("object readback card summary text", () => {
   });
 
   it("summarizes readback data without exposing observed test values", () => {
-    expect(objectReadbackCardSummary({ status: "readable", valueType: "float", observedValue: 1.5 })).toBe(
-      "readback; float",
-    );
+    expect(
+      objectReadbackCardSummary({
+        status: "readable",
+        accessMechanism: "osc-object-bus",
+        valueType: "float",
+        observedValue: 1.5,
+      }),
+    ).toBe("readback; OSC object bus; float");
+  });
+
+  it("shows an access mechanism when no value or location metadata is present", () => {
+    expect(
+      objectReadbackCardSummary({
+        status: "readable",
+        accessMechanism: "pangoscript-expression",
+      }),
+    ).toBe("readback; PangoScript expression");
   });
 
   it("does not show observed readback values without a public value shape", () => {

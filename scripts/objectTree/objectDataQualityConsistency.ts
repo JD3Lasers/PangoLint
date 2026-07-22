@@ -7,6 +7,7 @@ export interface AuditIssue {
 
 export interface ObjectIndexEntryForConsistency {
   path: string;
+  normalizedPath?: string;
   valueMetadata?: unknown;
   readbackMetadata?: unknown;
   contextValueMetadata?: unknown[];
@@ -18,6 +19,7 @@ export interface ObjectDataQualityConsistency {
   behaviorSourceFactDuplicateRows: AuditIssue[];
   behaviorSourceFactIndexIssues: AuditIssue[];
   sharedControlReferenceObjectRows: number;
+  controlReferenceMissingIndexRows: AuditIssue[];
   controlReferenceBehaviorMismatches: AuditIssue[];
   metadataMutualExclusionRows: AuditIssue[];
   writeTestedRowsMissingOutputMetadata: AuditIssue[];
@@ -57,6 +59,7 @@ interface BehaviorSourceFact extends BehaviorSourceFactEntry {
 
 interface ControlReferenceParity {
   sharedObjectRows: number;
+  missingIndexRows: AuditIssue[];
   mismatches: AuditIssue[];
 }
 
@@ -98,6 +101,7 @@ export function buildObjectDataQualityConsistency(
     behaviorSourceFactDuplicateRows: findDuplicateBehaviorSourceFactRows(behaviorSourceFacts),
     behaviorSourceFactIndexIssues: findBehaviorSourceFactIndexIssues(behaviorSourceFacts, entries),
     sharedControlReferenceObjectRows: controlReferenceParity.sharedObjectRows,
+    controlReferenceMissingIndexRows: controlReferenceParity.missingIndexRows,
     controlReferenceBehaviorMismatches: controlReferenceParity.mismatches,
     metadataMutualExclusionRows: entries.filter((entry) => hasValueMetadata(entry) && Boolean(entry.readbackMetadata)),
     writeTestedRowsMissingOutputMetadata: entries.filter(isWriteTestedWithoutOutputMetadata),
@@ -171,6 +175,9 @@ function findControlReferenceBehaviorMismatches(
   currentEntries: ObjectIndexEntryForConsistency[],
 ): ControlReferenceParity {
   const entryByPath = new Map(currentEntries.map((entry) => [entry.path, entry]));
+  const controlPathSet = new Set(
+    controlEntries.flatMap((entry) => [entry.path.toLowerCase(), normalizeNumericSegments(entry.path).toLowerCase()]),
+  );
   const mismatches: AuditIssue[] = [];
   let sharedObjectRows = 0;
   for (const controlEntry of controlEntries) {
@@ -194,8 +201,24 @@ function findControlReferenceBehaviorMismatches(
   }
   return {
     sharedObjectRows,
+    missingIndexRows: currentEntries
+      .filter(
+        (entry) =>
+          !controlPathSet.has(entry.path.toLowerCase()) &&
+          !controlPathSet.has((entry.normalizedPath ?? entry.path).toLowerCase()) &&
+          !controlPathSet.has(normalizeNumericSegments(entry.normalizedPath ?? entry.path).toLowerCase()),
+      )
+      .map((entry) => ({ path: `${entry.path} missing from MCP control reference` }))
+      .sort(compareAuditIssues),
     mismatches: mismatches.sort(compareAuditIssues),
   };
+}
+
+function normalizeNumericSegments(pathValue: string): string {
+  return pathValue
+    .split(".")
+    .map((segment, index) => (index > 0 && /^\d+$/.test(segment) ? "N" : segment))
+    .join(".");
 }
 
 function hasValueMetadata(entry: ObjectIndexEntryForConsistency): boolean {

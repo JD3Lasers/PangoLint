@@ -28,14 +28,15 @@
     {
       "path": "Status.Projector.Count",
       "readable": true,
+      "accessMechanism": "osc-object-bus",
       "valueType": "integer",
-      "probePath": "Status.Projector.Count",
+      "probePath": "/b/Status/Projector/Count",
       "probeMode": "readback-only",
       "observedValue": 0,
       "typeTag": "i",
       "evidenceLevel": "observed",
       "observedAt": "2026-05-16",
-      "notes": "Runtime SetProp write/readback evidence on 2026-05-16 issue #298 confirmed sampled writes to Status.Projector.Count did not change the status readback. This row remains readback-only after write attempts."
+      "notes": "Issue #298 used SetProp command/write/readback probes for Status.Projector.Count and observed integer readback 0 with sampled writes behaving as no-op. The exported Object Tree maps that row to /b/Status/Projector/Count. A BEYOND 5.5.0.2060 PangoScript expression probe on 2026-07-21 failed as an unknown variable, so consumers must use the mapped OSC object-bus route for this row; direct /b/ behavior was not independently probed."
     },
     {
       "path": "Status.Projector.N.Connected",

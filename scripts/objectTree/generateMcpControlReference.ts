@@ -130,6 +130,7 @@ interface McpPropertyControlEntry {
   };
   readback?: {
     status: string;
+    accessMechanism?: string;
     probePath?: string;
     valueType?: string;
     typeTag?: string;
@@ -225,7 +226,8 @@ function compactValueMetadata(
   if (!metadata) return undefined;
   const range = metadata.valueRange;
   const isStatusDomain =
-    classification?.accessMode === "read-only" && classification.behaviorKind === "computed-status";
+    (classification?.accessMode === "read-only" || classification?.accessMode === "object-bus-only") &&
+    classification.behaviorKind === "computed-status";
   return {
     ...(isStatusDomain ? { role: "status-domain" as const } : {}),
     valueType: metadata.valueType,
@@ -253,6 +255,7 @@ function compactReadbackMetadata(
   if (metadata) {
     return {
       status: "readable",
+      accessMechanism: metadata.accessMechanism,
       probePath: metadata.probePath,
       valueType: metadata.valueType,
       typeTag: metadata.typeTag,
@@ -405,6 +408,46 @@ function buildEntry(row: CrosswalkRow, maps: ReturnType<typeof buildObjectProper
   };
 }
 
+function appendObjectIndexOnlyRows(crosswalkRows: CrosswalkRow[], indexFile: ObjectPropertyIndexFile): CrosswalkRow[] {
+  const rows = [...crosswalkRows];
+  const representedPaths = new Set(
+    rows.flatMap((row) => [
+      row.normalizedPropertyPattern.toLowerCase(),
+      ...(row.objectIndexEntries ?? []).flatMap((entry) => [
+        entry.path.toLowerCase(),
+        entry.normalizedPath.toLowerCase(),
+      ]),
+    ]),
+  );
+  for (const entry of indexFile.entries ?? []) {
+    if (representedPaths.has(entry.path.toLowerCase()) || representedPaths.has(entry.normalizedPath.toLowerCase())) {
+      continue;
+    }
+    representedPaths.add(entry.normalizedPath.toLowerCase());
+    rows.push({
+      normalizedPropertyPattern: entry.normalizedPath,
+      leafName: entry.property.split(".").at(-1) ?? entry.property,
+      coverage: {
+        hasObjectContext: true,
+        hasObjectBusPath: Boolean(entry.osc),
+        hasPangoScriptCommand: false,
+        hasOscCommandRoute: false,
+        hasRangeSeed: false,
+      },
+      objectContexts: [],
+      objectBusPaths: entry.osc ? [entry.osc] : [],
+      objectIndexEntries: [entry],
+      commands: [],
+      oscCommandRoutes: [],
+      rangeSeeds: {
+        objectPropertyRanges: [],
+        commandParameterRanges: [],
+      },
+    });
+  }
+  return rows;
+}
+
 function writeReadme(): void {
   const lines = [
     "# MCP Control Reference",
@@ -426,8 +469,9 @@ function writeReadme(): void {
 }
 
 const crosswalkRows = readJson<CrosswalkRow[]>(crosswalkPath);
-const objectPropertyMaps = buildObjectPropertyEntryMaps(readJson<ObjectPropertyIndexFile>(objectPropertyIndexPath));
-const entries = crosswalkRows
+const objectPropertyIndex = readJson<ObjectPropertyIndexFile>(objectPropertyIndexPath);
+const objectPropertyMaps = buildObjectPropertyEntryMaps(objectPropertyIndex);
+const entries = appendObjectIndexOnlyRows(crosswalkRows, objectPropertyIndex)
   .map((row) => buildEntry(row, objectPropertyMaps))
   .sort((left, right) => left.path.localeCompare(right.path));
 

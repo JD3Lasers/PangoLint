@@ -8,24 +8,25 @@
     "behaviorMetadata": "data/pangoscript/object-tree/source-facts/behavior-metadata/"
   },
   "summary": {
-    "totalEntries": 5375,
-    "classifiedEntries": 5375,
+    "totalEntries": 5376,
+    "classifiedEntries": 5376,
     "unclassifiedEntries": 0,
     "entriesWithValueMetadata": 3684,
-    "entriesWithReadbackMetadata": 1691,
+    "entriesWithReadbackMetadata": 1692,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "hardViolationCount": 0,
-    "warningCount": 3,
-    "unverifiedUnknownRows": 0,
+    "warningCount": 4,
+    "unverifiedUnknownRows": 1,
     "readOnlyRowsWithDomainMetadata": 9,
     "readMostlyRowsWithoutValueMetadata": 30,
     "unknownBoundaryBehaviorRows": 6,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0,
-    "behaviorSourceFactEntries": 5375,
+    "behaviorSourceFactEntries": 5376,
     "behaviorSourceFactDuplicateRows": 0,
     "behaviorSourceFactsMissingIndexRows": 0,
-    "sharedControlReferenceObjectRows": 5030,
+    "sharedControlReferenceObjectRows": 5031,
+    "controlReferenceMissingIndexRows": 0,
     "controlReferenceBehaviorMismatches": 0,
     "metadataMutualExclusionViolations": 0,
     "writeTestedRowsMissingOutputMetadata": 0
@@ -33,22 +34,30 @@
   "behaviorCounts": {
     "accessMode": [
       {
+        "value": "object-bus-only",
+        "count": 1
+      },
+      {
         "value": "read-mostly",
         "count": 33
       },
       {
         "value": "read-only",
-        "count": 1670
+        "count": 1669
       },
       {
         "value": "read-write",
         "count": 3672
+      },
+      {
+        "value": "unknown",
+        "count": 1
       }
     ],
     "behaviorKind": [
       {
         "value": "computed-status",
-        "count": 1670
+        "count": 1671
       },
       {
         "value": "enum-state",
@@ -77,6 +86,10 @@
         "count": 5
       },
       {
+        "value": "not-tested",
+        "count": 1
+      },
+      {
         "value": "write-no-op-tested",
         "count": 1665
       },
@@ -88,13 +101,17 @@
     "readbackStatus": [
       {
         "value": "readback-tested",
-        "count": 5375
+        "count": 5376
       }
     ],
     "evidenceLevel": [
       {
         "value": "observed",
         "count": 5375
+      },
+      {
+        "value": "unverified",
+        "count": 1
       }
     ]
   },
@@ -145,7 +162,7 @@
       "status": "pass",
       "count": 0,
       "examples": [],
-      "message": "Computed-status rows must be read-only in the current behavior model."
+      "message": "Computed-status rows must be read-only, object-bus-only, or explicitly unverified while access remains unknown."
     },
     {
       "id": "observed-classifications-prove-known-behavior",
@@ -161,7 +178,7 @@
       "status": "pass",
       "count": 0,
       "examples": [],
-      "message": "Control-reference crosswalk behavior classification counts must match the Object Tree index."
+      "message": "Every Object Tree row represented in the control crosswalk must carry behavior classification."
     },
     {
       "id": "behavior-source-fact-duplicates",
@@ -178,6 +195,14 @@
       "count": 0,
       "examples": [],
       "message": "Behavior source facts must reach the generated Object Tree index with matching classification fields."
+    },
+    {
+      "id": "mcp-control-index-parity",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Every Object Tree index row must have an exact or normalized path in the MCP control reference."
     },
     {
       "id": "mcp-control-behavior-parity",
@@ -206,9 +231,11 @@
     {
       "id": "unverified-unknown-readback-only",
       "severity": "warning",
-      "status": "pass",
-      "count": 0,
-      "examples": [],
+      "status": "warn",
+      "count": 1,
+      "examples": [
+        "Projector.Count"
+      ],
       "message": "Unverified unknown rows are explicit lookup-only documentation and need runtime retest before stronger wording."
     },
     {
@@ -269,10 +296,17 @@
   "reviewBuckets": [
     {
       "id": "unverified-unknown-readback-only",
-      "count": 0,
-      "roots": [],
-      "examples": [],
-      "nextAction": "No unverified unknown readback-only rows remain after the FX write/readback retest."
+      "count": 1,
+      "roots": [
+        {
+          "root": "Projector",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "Projector.Count"
+      ],
+      "nextAction": "Freshly test write/readback behavior for these unknown-access rows before documenting them as read-only or read-write."
     },
     {
       "id": "read-only-domain-metadata-review",
@@ -679,12 +713,12 @@
       "reason": "representative context-dependent computed domain row"
     },
     {
-      "path": "Projector.N.ColorShift",
+      "path": "Projector.Count",
       "root": "Projector",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "evidenceLevel": "observed",
-      "reason": "first row for root coverage"
+      "accessMode": "unknown",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "unverified",
+      "reason": "first unknown access row"
     },
     {
       "path": "ProTrack.N.Alpha",
@@ -789,6 +823,14 @@
       "behaviorKind": "computed-status",
       "evidenceLevel": "observed",
       "reason": "first row for root coverage"
+    },
+    {
+      "path": "Status.Projector.Count",
+      "root": "Status",
+      "accessMode": "object-bus-only",
+      "behaviorKind": "computed-status",
+      "evidenceLevel": "observed",
+      "reason": "first object-bus-only access row"
     },
     {
       "path": "TouchPoints.ActiveCount",

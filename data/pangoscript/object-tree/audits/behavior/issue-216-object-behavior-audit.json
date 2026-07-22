@@ -3,22 +3,22 @@
   "parentIssue": 216,
   "generatedAt": "2026-05-17T00:00:00.000Z",
   "summary": {
-    "totalEntries": 5375,
-    "classifiedEntries": 5375,
+    "totalEntries": 5376,
+    "classifiedEntries": 5376,
     "unclassifiedEntries": 0,
     "entriesWithValueMetadata": 3684,
-    "entriesWithReadbackMetadata": 1691,
+    "entriesWithReadbackMetadata": 1692,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "valueMetadataRows": 6840,
-    "readbackMetadataRows": 1691,
+    "readbackMetadataRows": 1692,
     "writeTestedReadbackRows": 1691,
-    "baselineOnlyReadbackRows": 0,
-    "accessModeKnownEntries": 5375,
-    "behaviorKnownEntries": 5375,
-    "needsWriteTestRows": 0,
+    "baselineOnlyReadbackRows": 1,
+    "accessModeKnownEntries": 5376,
+    "behaviorKnownEntries": 5376,
+    "needsWriteTestRows": 1,
     "needsActionFlagReviewRows": 0,
     "needsBoundaryProofRows": 0,
-    "contextDependentRows": 7006
+    "contextDependentRows": 7007
   },
   "byRoot": [
     {
@@ -359,15 +359,15 @@
     },
     {
       "root": "Projector",
-      "totalEntries": 46,
-      "classifiedEntries": 46,
+      "totalEntries": 47,
+      "classifiedEntries": 47,
       "valueMetadataRows": 23,
-      "readbackMetadataRows": 23,
+      "readbackMetadataRows": 24,
       "writeTestedReadbackRows": 23,
-      "baselineOnlyReadbackRows": 0,
+      "baselineOnlyReadbackRows": 1,
       "needsActionFlagReviewRows": 0,
       "needsBoundaryProofRows": 0,
-      "contextDependentRows": 46
+      "contextDependentRows": 47
     },
     {
       "root": "ProTrack",
@@ -625,9 +625,16 @@
   "trackingBuckets": [
     {
       "bucket": "baseline-readback-needs-write-test",
-      "count": 0,
-      "roots": [],
-      "examples": [],
+      "count": 1,
+      "roots": [
+        {
+          "root": "Projector",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "Projector.Count"
+      ],
       "nextAction": "Run write/readback tests before calling these rows read-only or promoting them to value metadata."
     },
     {
@@ -1161,7 +1168,7 @@
     },
     {
       "bucket": "context-dependent",
-      "count": 7006,
+      "count": 7007,
       "roots": [
         {
           "root": "WS",
@@ -1212,15 +1219,15 @@
           "count": 81
         },
         {
+          "root": "Projector",
+          "count": 47
+        },
+        {
           "root": "FB3_XXXXX",
           "count": 46
         },
         {
           "root": "FB4_XXXXX",
-          "count": 46
-        },
-        {
-          "root": "Projector",
           "count": 46
         },
         {

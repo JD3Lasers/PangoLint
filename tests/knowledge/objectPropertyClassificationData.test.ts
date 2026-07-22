@@ -179,7 +179,8 @@ describe("Object Tree behavior classification data", () => {
     expect(issue485Overlay.schemaVersion).toBe(1);
     expect(issue485Overlay.entries.map((entry) => entry.path)).toEqual(expectedRows.map((entry) => entry.path));
     expect(issue485Overlay.entries.length).toBe(284);
-    expect(issue485Overlay.entries.filter((entry) => entry.accessMode === "read-only").length).toBe(284);
+    expect(issue485Overlay.entries.filter((entry) => entry.accessMode === "read-only").length).toBe(283);
+    expect(issue485Overlay.entries.filter((entry) => entry.accessMode === "object-bus-only").length).toBe(1);
     expect(issue485Overlay.entries.filter((entry) => entry.accessMode === "unknown").length).toBe(0);
 
     const readbackByPath = new Map(expectedRows.map((entry) => [entry.path, entry.readbackMetadata]));
@@ -190,7 +191,9 @@ describe("Object Tree behavior classification data", () => {
       expect(entry.notes, entry.path).toContain("Readback evidence remains in readback metadata.");
 
       if (isStrongNoOpReadback(readbackMetadata)) {
-        expect(entry.accessMode, entry.path).toBe("read-only");
+        expect(entry.accessMode, entry.path).toBe(
+          entry.path === "Status.Projector.Count" ? "object-bus-only" : "read-only",
+        );
         expect(entry.behaviorKind, entry.path).toBe("computed-status");
         expect(entry.writeTestStatus, entry.path).toBe("write-no-op-tested");
         expect(entry.evidenceLevel, entry.path).toBe("observed");
@@ -350,7 +353,7 @@ describe("Object Tree behavior classification data", () => {
     expect(evidence.summary.rowsProbed).toBe(154);
     expect(evidence.summary.rowsClassified).toBe(154);
     expect(evidence.summary.rowsDeferred).toBe(0);
-    expect(audit.summary.unverifiedUnknownRows).toBe(0);
+    expect(audit.summary.unverifiedUnknownRows).toBe(1);
     expect(audit.summary.hardViolationCount).toBe(0);
     expect(audit.summary.entriesWithBothValueAndReadbackMetadata).toBe(0);
     expect(overlay.entries.filter((entry) => entry.accessMode === "read-write")).toHaveLength(151);

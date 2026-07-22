@@ -191,6 +191,7 @@ export interface RawSchema {
   isArray?: boolean;
   propertyCount?: number;
   properties?: string[];
+  rootProperties?: string[];
   sharedWithAliases?: string[];
 }
 

@@ -208,6 +208,26 @@ describe("bundled MCP control reference", () => {
       expect(serializedBytes(search.data)).toBeLessThan(18_000);
     }
   });
+
+  it("searches bundled controls by readback access mechanism", () => {
+    const expressionSearch = searchPropertyControls(
+      { query: "pangoscript-expression", limit: 10 },
+      knowledge.propertyControlIndex,
+    );
+    const objectBusSearch = searchPropertyControls(
+      { query: "osc-object-bus", limit: 50 },
+      knowledge.propertyControlIndex,
+    );
+
+    expect(expressionSearch.ok).toBe(true);
+    if (expressionSearch.ok) {
+      expect(expressionSearch.data.hits.map((hit) => hit.path)).toContain("Projector.Count");
+    }
+    expect(objectBusSearch.ok).toBe(true);
+    if (objectBusSearch.ok) {
+      expect(objectBusSearch.data.hits.map((hit) => hit.path)).toContain("Status.Projector.Count");
+    }
+  });
 });
 
 function serializedBytes(value: unknown): number {
