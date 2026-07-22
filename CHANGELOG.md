@@ -6,6 +6,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.5] - 2026-07-22
+
+### Security
+
+- Update the development-only `sharp` dependency to `0.35.3` and constrain
+  transitive `linkify-it`, `js-yaml`, and `@hono/node-server` dependencies to
+  patched releases, resolving Dependabot alerts GHSA-f88m-g3jw-g9cj,
+  GHSA-v245-v573-v5vm, GHSA-52cp-r559-cp3m, and GHSA-frvp-7c67-39w9.
+- Keep the MCP SDK bundled at build time so its unused Hono HTTP adapter remains
+  excluded from the published stdio MCP server.
+
 ## [0.9.4] - 2026-07-21
 
 ### Changed
@@ -683,7 +694,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...HEAD
+[0.9.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...v0.9.5
 [0.9.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.3...v0.9.4
 [0.9.3]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.2...v0.9.3
 [0.9.2]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.1...v0.9.2
