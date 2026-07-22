@@ -46,7 +46,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
     "button",
     {
       className: "toolbar__clear",
-      attrs: { type: "button", title: "Clear all filters" },
+      attrs: { type: "button", title: "Clear all filters", "aria-label": "Clear all filters" },
       on: {
         click: () => {
           search.value = "";
@@ -54,7 +54,7 @@ export function renderListColumn(state: ReferenceState): HTMLElement {
         },
       },
     },
-    "Clear",
+    "×",
   );
   toolbar.append(clearBtn);
 

@@ -12,8 +12,6 @@ function escapeForScriptTag(json: string): string {
 export function renderReferenceHtml(catalog: OutCatalog, css: string, bundle: string, iconDataUri: string): string {
   const catalogJson = escapeForScriptTag(JSON.stringify(catalog));
   const meta = catalog.meta;
-  const subtitle = `Catalog build ${meta.catalogBuild ?? "-"} - v${meta.version}`;
-  const shortSubtitle = `v${meta.version}`;
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -26,8 +24,7 @@ export function renderReferenceHtml(catalog: OutCatalog, css: string, bundle: st
     <header class="topbar">
       <img class="topbar__icon" src="${iconDataUri}" alt="" />
       <h1 class="topbar__title">PangoScript Reference</h1>
-      <span class="topbar__subtitle">PangoLint</span>
-      <span class="topbar__meta"><span class="topbar__meta-long">${subtitle}</span><span class="topbar__meta-short">${shortSubtitle}</span></span>
+      <span class="topbar__meta">v${meta.version}</span>
     </header>
     <main id="reference-root"></main>
     <script id="reference-catalog" type="application/json">${catalogJson}</script>
