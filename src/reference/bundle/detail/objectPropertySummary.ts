@@ -150,9 +150,9 @@ export function objectReadbackCardSummary(
 ): string | null {
   if (!summary) return null;
   const locationKind = visibleLocationKind(summary.locationKind);
-  if (!summary.valueType && !locationKind) return null;
-  const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   const accessMechanism = readbackAccessMechanismLabel(summary.accessMechanism);
+  if (!summary.valueType && !locationKind && !accessMechanism) return null;
+  const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
   if (accessMechanism) parts.push(accessMechanism);
   if (summary.valueType) parts.push(summary.valueType);
   if (locationKind) parts.push(locationKind);

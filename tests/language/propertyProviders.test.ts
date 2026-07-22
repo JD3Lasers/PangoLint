@@ -113,8 +113,14 @@ describe("propertyProviders quick fixes", () => {
     const hover = hoverForPropertyPath("Projector.Count", 12, index, 0) as unknown as {
       contents: { value: string };
     };
-    expect(hover.contents.value).toContain("Verified property on **Projector**.");
+    expect(hover.contents.value).toContain("Verified direct property on **Projector**.");
     expect(hover.contents.value).not.toContain("(indexed)");
+
+    const nestedHover = hoverForPropertyPath("Projector.Count.Name", 20, index, 0) as unknown as {
+      contents: { value: string };
+    };
+    expect(nestedHover.contents.value).toContain("is a direct property with no nested path");
+    expect(nestedHover.contents.value).toContain("is not valid");
   });
 
   it("ranks unknown-command quick fixes against the full bundled command catalog", () => {

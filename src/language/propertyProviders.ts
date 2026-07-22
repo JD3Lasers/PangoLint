@@ -157,7 +157,7 @@ export function hoverForPropertyPath(
     }
   }
 
-  const directRootProperty = schema.isArray && parts.length === 2 && isDirectRootProperty(schema, parts[1]);
+  const directRootProperty = schema.isArray && isDirectRootProperty(schema, parts[1]);
   if (schema.isArray && segIndex === 1 && !directRootProperty) {
     const seg = parts[1];
     if (schema.inheritedFrom === "UniversePanel") {
@@ -177,11 +177,18 @@ export function hoverForPropertyPath(
     return new vscode.Hover(md, new vscode.Range(lineNumber, containing.start, lineNumber, containing.end));
   }
 
-  const propPath = directRootProperty
-    ? parts.slice(1).join(".")
-    : schema.isArray
-      ? parts.slice(2).join(".")
-      : parts.slice(1).join(".");
+  if (directRootProperty) {
+    if (parts.length === 2) {
+      md.appendMarkdown(`Verified direct property on **${schema.object}**.`);
+    } else {
+      md.appendMarkdown(
+        `\`${schema.object}.${parts[1]}\` is a direct property with no nested path; \`${containing.text}\` is not valid.`,
+      );
+    }
+    return new vscode.Hover(md, new vscode.Range(lineNumber, containing.start, lineNumber, containing.end));
+  }
+
+  const propPath = schema.isArray ? parts.slice(2).join(".") : parts.slice(1).join(".");
   if (!propPath) return undefined;
 
   const verifyAgainst = controlSchema ?? schema;
@@ -190,12 +197,9 @@ export function hoverForPropertyPath(
     ? ` Inherits the canonical **${controlSchema.object}** schema (${controlSchema.propertyCount} properties).`
     : inheritedNote;
 
-  const isKnownProperty = directRootProperty
-    ? isDirectRootProperty(schema, propPath)
-    : verifyAgainst.properties.includes(propPath);
-  if (isKnownProperty) {
+  if (verifyAgainst.properties.includes(propPath)) {
     md.appendMarkdown(
-      `Verified property on **${schema.object}**${schema.isArray && !directRootProperty ? " (indexed)" : ""}` +
+      `Verified property on **${schema.object}**${schema.isArray ? " (indexed)" : ""}` +
         `${schema.sharedWithAliases > 0 ? ` (schema also used by ${schema.sharedWithAliases} alias root${schema.sharedWithAliases > 1 ? "s" : ""})` : ""}.${inheritedFromControl}`,
     );
   } else {

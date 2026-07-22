@@ -353,7 +353,7 @@ describe("Object Tree behavior classification data", () => {
     expect(evidence.summary.rowsProbed).toBe(154);
     expect(evidence.summary.rowsClassified).toBe(154);
     expect(evidence.summary.rowsDeferred).toBe(0);
-    expect(audit.summary.unverifiedUnknownRows).toBe(0);
+    expect(audit.summary.unverifiedUnknownRows).toBe(1);
     expect(audit.summary.hardViolationCount).toBe(0);
     expect(audit.summary.entriesWithBothValueAndReadbackMetadata).toBe(0);
     expect(overlay.entries.filter((entry) => entry.accessMode === "read-write")).toHaveLength(151);

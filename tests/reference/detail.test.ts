@@ -238,6 +238,15 @@ describe("object readback card summary text", () => {
     ).toBe("readback; OSC object bus; float");
   });
 
+  it("shows an access mechanism when no value or location metadata is present", () => {
+    expect(
+      objectReadbackCardSummary({
+        status: "readable",
+        accessMechanism: "pangoscript-expression",
+      }),
+    ).toBe("readback; PangoScript expression");
+  });
+
   it("does not show observed readback values without a public value shape", () => {
     expect(objectReadbackCardSummary({ status: "readable", observedValue: 1.5 })).toBeNull();
   });

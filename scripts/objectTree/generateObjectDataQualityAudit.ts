@@ -201,8 +201,8 @@ const report = {
       "unverified-unknown-readback-only",
       unverifiedRows,
       unverifiedRows.length > 0
-        ? "Freshly test write/readback behavior for these FX lookup-only rows before documenting them as read-only or read-write."
-        : "No unverified unknown readback-only rows remain after the FX write/readback retest.",
+        ? "Freshly test write/readback behavior for these unknown-access rows before documenting them as read-only or read-write."
+        : "No unverified unknown-access readback rows remain.",
     ),
     buildReviewBucket(
       "read-only-domain-metadata-review",
@@ -411,7 +411,6 @@ function valueRowsForEntry(entry: ObjectIndexEntry): ValueMetadata[] {
 function isUnverifiedUnknownReadbackOnly(entry: ObjectIndexEntry): boolean {
   return Boolean(
     entry.classification?.accessMode === "unknown" &&
-      entry.classification.behaviorKind === "unknown" &&
       entry.classification.writeTestStatus === "not-tested" &&
       entry.classification.readbackStatus === "readback-tested" &&
       entry.classification.evidenceLevel === "unverified" &&

@@ -15,8 +15,8 @@
     "entriesWithReadbackMetadata": 1692,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "hardViolationCount": 0,
-    "warningCount": 3,
-    "unverifiedUnknownRows": 0,
+    "warningCount": 4,
+    "unverifiedUnknownRows": 1,
     "readOnlyRowsWithDomainMetadata": 9,
     "readMostlyRowsWithoutValueMetadata": 30,
     "unknownBoundaryBehaviorRows": 6,
@@ -231,9 +231,11 @@
     {
       "id": "unverified-unknown-readback-only",
       "severity": "warning",
-      "status": "pass",
-      "count": 0,
-      "examples": [],
+      "status": "warn",
+      "count": 1,
+      "examples": [
+        "Projector.Count"
+      ],
       "message": "Unverified unknown rows are explicit lookup-only documentation and need runtime retest before stronger wording."
     },
     {
@@ -294,10 +296,17 @@
   "reviewBuckets": [
     {
       "id": "unverified-unknown-readback-only",
-      "count": 0,
-      "roots": [],
-      "examples": [],
-      "nextAction": "No unverified unknown readback-only rows remain after the FX write/readback retest."
+      "count": 1,
+      "roots": [
+        {
+          "root": "Projector",
+          "count": 1
+        }
+      ],
+      "examples": [
+        "Projector.Count"
+      ],
+      "nextAction": "Freshly test write/readback behavior for these unknown-access rows before documenting them as read-only or read-write."
     },
     {
       "id": "read-only-domain-metadata-review",
