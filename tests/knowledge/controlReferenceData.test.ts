@@ -382,6 +382,20 @@ describe("tracked BEYOND control reference data", () => {
     }
   });
 
+  it("keeps FB4 geometry boundary behavior synchronized across control-reference surfaces", () => {
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+
+    for (const property of ["PositionX", "PositionY", "PostRotation", "PreRotation", "SizeX", "SizeY"]) {
+      const propertyPath = `FB4_XXXXX.${property}`;
+      const crosswalkRow = crosswalk.find((row) => row.normalizedPropertyPattern === propertyPath);
+      const mcpRow = controls.entries.find((entry) => entry.path === propertyPath);
+
+      expect(crosswalkRow?.objectIndexEntries[0]?.valueMetadata?.valueRange?.boundaryBehavior).toBe("mixed");
+      expect(mcpRow?.value?.range?.boundaryBehavior).toBe("mixed");
+    }
+  });
+
   it("keeps Gamepad aggregate boundary behavior synchronized across control-reference surfaces", () => {
     const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
     const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");

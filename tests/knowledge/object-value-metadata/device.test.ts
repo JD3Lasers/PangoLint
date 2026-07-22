@@ -1031,7 +1031,11 @@ describe("checked-in Object Tree device value metadata data", () => {
             expect.objectContaining({ input: -1000001, readback: -1000001, behavior: "pass-through" }),
             expect.objectContaining({ input: 1000001, readback: 1000001, behavior: "pass-through" }),
             expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
-            expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "pass-through" }),
+            expect.objectContaining({
+              input: 2147483647,
+              readback: 2147483648,
+              behavior: metadata.path.startsWith("FB4_XXXXX.") ? "unknown" : "pass-through",
+            }),
             expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
           ]),
         );
