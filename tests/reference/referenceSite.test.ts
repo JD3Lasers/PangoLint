@@ -70,7 +70,9 @@ describe("standalone reference site build", () => {
   it("uses restrained technical-tool typography and color tokens", () => {
     const html = readReferenceHtml();
 
-    expect(html).toContain("--accent: #5aa7ff;");
+    expect(html).toContain("--paper: #090a0c;");
+    expect(html).toContain("--accent: #aeb4be;");
+    expect(html).not.toContain("rgba(90, 167, 255");
     expect(html).toContain('--font-body: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;');
     expect(html).toContain('--font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;');
     expect(html).not.toContain("--font-display");
@@ -101,6 +103,13 @@ describe("standalone reference site build", () => {
     expect(html).toContain("min-height: 2.35rem;");
     expect(html).toContain('"aria-label":"Clear all filters"');
     expect(html).toContain(".toolbar__clear[hidden]");
+  });
+
+  it("highlights search matches without separating command-name fragments", () => {
+    const html = readReferenceHtml();
+
+    expect(html).toContain(".hl {\n  background: rgba(255, 255, 255, 0.16);");
+    expect(html).toContain("border-radius: 2px;\n  padding: 0;\n}");
   });
 
   it("recomposes the reference layout for mobile browse and detail panels", () => {

@@ -285,7 +285,7 @@ function renderCommandRow(cmd: ReferenceCommand, state: ReferenceState, query: s
   if (cmd.canonical === state.selectedCanonical) li.classList.add("is-selected");
 
   const name = el("div", { className: "list__name" });
-  name.append(highlight(cmd.canonical, query));
+  name.append(highlight(cmd.canonical, query, true));
   if (cmd.kind === "function") {
     name.append(el("span", { className: "list__kind-chip" }, "function"));
   }
@@ -334,7 +334,7 @@ function renderObjectRow(obj: ReferenceObject, state: ReferenceState, query: str
   if (obj.name === state.selectedObject) li.classList.add("is-selected");
 
   const name = el("div", { className: "list__name" });
-  name.append(highlight(obj.name, query));
+  name.append(highlight(obj.name, query, true));
   li.append(name);
 
   const meta = el("div", { className: "list__meta" });

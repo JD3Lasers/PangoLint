@@ -10,12 +10,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Refresh the PangoScript reference browser with a neutral graphite palette,
-  system UI typography, blue interaction accents, a compact filter-clear
+- Refresh the PangoScript reference browser with a neutral near-black palette,
+  system UI typography, restrained gray interaction accents, a compact filter-clear
   control, and a simplified header.
 - Keep command and Object Tree detail content readable with a bounded content
   width while preserving the existing three-pane desktop and focused mobile
   navigation.
+- Keep command and object identifiers visually intact when highlighting search
+  matches instead of splitting matched names into separate text runs.
 
 ## [0.9.5] - 2026-07-22
 

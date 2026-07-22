@@ -3,18 +3,18 @@
    panels on narrow viewports. */
 
 :root {
-  --paper: #0e1116;
-  --paper-2: #141820;
-  --paper-3: #1a2029;
-  --ink: #e7edf5;
-  --ink-2: #c7d0dc;
-  --muted: #98a4b3;
-  --muted-2: #697586;
-  --rule: #232a34;
-  --rule-2: #2f3946;
-  --accent: #5aa7ff;
-  --accent-strong: #78b7ff;
-  --accent-bg: rgba(90, 167, 255, 0.12);
+  --paper: #090a0c;
+  --paper-2: #0f1013;
+  --paper-3: #15161a;
+  --ink: #ededf0;
+  --ink-2: #c7c8cc;
+  --muted: #92959d;
+  --muted-2: #686b73;
+  --rule: #23252b;
+  --rule-2: #343740;
+  --accent: #aeb4be;
+  --accent-strong: #d5d9df;
+  --accent-bg: rgba(255, 255, 255, 0.07);
   --safety: #f08a5d;
   --safety-bg: rgba(240, 138, 93, 0.12);
   --code-bg: #11151b;
@@ -119,7 +119,7 @@ kbd {
   align-items: center;
   gap: 0.75rem;
   padding: 0.65rem 1rem;
-  background: rgba(14, 17, 22, 0.96);
+  background: rgba(9, 10, 12, 0.97);
   border-bottom: 1px solid var(--rule);
 }
 .topbar__icon {
@@ -389,13 +389,13 @@ kbd {
     color 100ms ease;
 }
 .nav__btn:hover {
-  background: rgba(90, 167, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--ink);
 }
 .nav__btn.is-active {
   color: var(--ink);
   border-left-color: var(--accent);
-  background: rgba(90, 167, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
 }
 .nav__btn-name {
   overflow: hidden;
@@ -608,14 +608,14 @@ kbd {
   outline: none;
 }
 .list__row:hover {
-  background: rgba(90, 167, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 .list__row:focus-visible {
   border-left-color: var(--accent-strong);
-  background: rgba(90, 167, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
 }
 .list__row.is-selected {
-  background: rgba(90, 167, 255, 0.12);
+  background: rgba(255, 255, 255, 0.09);
   border-left-color: var(--accent);
 }
 .list__row--property .list__name code {
@@ -656,10 +656,10 @@ kbd {
 }
 
 .hl {
-  background: rgba(90, 167, 255, 0.24);
+  background: rgba(255, 255, 255, 0.16);
   color: inherit;
   border-radius: 2px;
-  padding: 0 0.1em;
+  padding: 0;
 }
 
 /* ──────────────  Badges  ────────────── */
@@ -721,7 +721,7 @@ kbd {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(90, 167, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--rule-2);
   border-radius: 999px;
   color: var(--ink-2);
@@ -757,7 +757,7 @@ kbd {
   background: rgba(118, 200, 147, 0.06);
 }
 .pill--category {
-  background: rgba(90, 167, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 /* ──────────────  Copy buttons  ────────────── */
@@ -782,7 +782,7 @@ kbd {
 .copy-btn:hover {
   color: var(--accent-strong);
   border-color: var(--accent);
-  background: rgba(90, 167, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 .copy-btn.is-success {
   color: var(--cov-mapped);
@@ -1158,7 +1158,7 @@ kbd {
 }
 .detail__sets-item.is-link:hover {
   border-color: var(--accent);
-  background: rgba(90, 167, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 .detail__sets-item.is-link:hover .detail__sets-path {
   color: var(--accent-strong);
@@ -1283,10 +1283,10 @@ kbd {
   }
 }
 .object__props tr:hover td {
-  background: rgba(90, 167, 255, 0.04);
+  background: rgba(255, 255, 255, 0.025);
 }
 .object__prop-row.is-focused td {
-  background: rgba(90, 167, 255, 0.09);
+  background: rgba(255, 255, 255, 0.06);
   box-shadow: inset 2px 0 0 var(--accent);
 }
 .object__prop-row:focus {
@@ -1430,7 +1430,7 @@ kbd {
   }
   .object__prop-row.is-focused {
     box-shadow: inset 2px 0 0 var(--accent);
-    background: rgba(90, 167, 255, 0.09);
+    background: rgba(255, 255, 255, 0.06);
   }
   .object__prop-cell code,
   .object__osc code,

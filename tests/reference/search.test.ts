@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { buildHighlightSegments } from "../../src/reference/bundle/dom";
 import { buildCommandListSections, objectSelectionSelectors } from "../../src/reference/bundle/list";
 import { isObjectReferenceSection } from "../../src/reference/bundle/object-tree/objectTreeListRows";
 import { buildIndex, search } from "../../src/reference/bundle/search";
@@ -21,6 +22,10 @@ function command(overrides: Partial<ReferenceCommand> & Pick<ReferenceCommand, "
 }
 
 describe("reference command search", () => {
+  it("keeps a matched command identifier in one highlighted text run", () => {
+    expect(buildHighlightSegments("BlackOut", "black", true)).toEqual([{ text: "BlackOut", matched: true }]);
+  });
+
   it("ranks spaced command-name searches before weaker description matches", () => {
     const commands = [
       command({
