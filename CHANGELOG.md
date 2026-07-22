@@ -15,7 +15,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   patched releases, resolving Dependabot alerts GHSA-f88m-g3jw-g9cj,
   GHSA-v245-v573-v5vm, GHSA-52cp-r559-cp3m, and GHSA-frvp-7c67-39w9.
 - Keep the MCP SDK bundled at build time so its unused Hono HTTP adapter remains
-  excluded from the published stdio MCP server.
+  excluded from the published stdio MCP server, and document the Node.js 20+
+  requirement for repository-source builds that install this dependency tree.
 
 ## [0.9.4] - 2026-07-21
 
