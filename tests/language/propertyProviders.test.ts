@@ -107,6 +107,8 @@ describe("propertyProviders quick fixes", () => {
 
     expect(propertyCompletionsForPrefix("Projector.", index)?.map((item) => item.label)).toEqual(["Count", "0"]);
     expect(propertyCompletionsForPrefix("Projector.0.", index)?.map((item) => item.label)).toEqual(["Name"]);
+    expect(propertyCompletionsForPrefix("Projector.Count.", index)).toEqual([]);
+    expect(propertyCompletionsForPrefix("Projector.count.", index)).toEqual([]);
 
     const hover = hoverForPropertyPath("Projector.Count", 12, index, 0) as unknown as {
       contents: { value: string };

@@ -38,8 +38,13 @@ let activeMenu: HTMLElement | null = null;
 // Path formatting
 // ============================================================
 
-function displayPath(path: string): string {
-  return oscMode ? toBeyondOscAddress(path) : path;
+function verifiedOscPath(path: string, propertyCard?: ObjectsTreeNode["propertyCard"]): string | undefined {
+  if (!propertyCard) return toBeyondOscAddress(path);
+  return propertyCard.osc;
+}
+
+function displayPath(path: string, propertyCard?: ObjectsTreeNode["propertyCard"]): string {
+  return oscMode ? (verifiedOscPath(path, propertyCard) ?? path) : path;
 }
 
 // ============================================================
@@ -101,7 +106,12 @@ function menuItem(label: string, onActivate: () => void): HTMLButtonElement {
   return button;
 }
 
-function showContextMenu(e: MouseEvent, path: string, commands?: string[]): void {
+function showContextMenu(
+  e: MouseEvent,
+  path: string,
+  commands?: string[],
+  propertyCard?: ObjectsTreeNode["propertyCard"],
+): void {
   e.preventDefault();
   e.stopPropagation();
   closeContextMenu();
@@ -111,12 +121,12 @@ function showContextMenu(e: MouseEvent, path: string, commands?: string[]): void
   menu.setAttribute("role", "menu");
   menu.appendChild(
     menuItem("Insert at cursor", () => {
-      vscode.postMessage({ type: "insertAtCursor", snippet: displayPath(path) });
+      vscode.postMessage({ type: "insertAtCursor", snippet: displayPath(path, propertyCard) });
     }),
   );
   menu.appendChild(
     menuItem("Copy path", () => {
-      vscode.postMessage({ type: "copyPath", text: displayPath(path) });
+      vscode.postMessage({ type: "copyPath", text: displayPath(path, propertyCard) });
     }),
   );
   menu.appendChild(
@@ -254,7 +264,7 @@ function propItem(
   div.style.paddingLeft = `${indent}px`;
   const pathEl = document.createElement("span");
   pathEl.className = "prop__path";
-  pathEl.textContent = displayPath(path);
+  pathEl.textContent = displayPath(path, propertyCard);
   div.appendChild(pathEl);
   const summary = metadataSummary(propertyCard?.valueSummary);
   if (summary) {
@@ -281,7 +291,7 @@ function propItem(
   div.tabIndex = 0;
   div.setAttribute("role", "button");
   const insert = (): void => {
-    vscode.postMessage({ type: "insertAtCursor", snippet: displayPath(path) });
+    vscode.postMessage({ type: "insertAtCursor", snippet: displayPath(path, propertyCard) });
   };
   div.addEventListener("click", insert);
   div.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -290,7 +300,7 @@ function propItem(
       insert();
     }
   });
-  div.addEventListener("contextmenu", (e: MouseEvent) => showContextMenu(e, path, commands));
+  div.addEventListener("contextmenu", (e: MouseEvent) => showContextMenu(e, path, commands, propertyCard));
   return div;
 }
 
@@ -345,8 +355,9 @@ function buildTreeEl(nodes: ObjectsTreeNode[]): HTMLElement {
 
 function buildFilterEl(q: string): HTMLElement {
   const lower = q.toLowerCase();
-  const matches = allLeaves.filter(({ path }) => {
-    return path.toLowerCase().includes(lower) || toBeyondOscAddress(path).toLowerCase().includes(lower);
+  const matches = allLeaves.filter(({ path, propertyCard }) => {
+    const oscPath = verifiedOscPath(path, propertyCard);
+    return path.toLowerCase().includes(lower) || Boolean(oscPath?.toLowerCase().includes(lower));
   });
 
   const wrap = document.createElement("div");

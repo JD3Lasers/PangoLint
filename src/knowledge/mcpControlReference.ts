@@ -6,6 +6,7 @@ import {
   canonicalizeObjectPropertyHardwareRootPath,
   normalizeObjectPropertyPath,
   type ObjectPropertyBehaviorClassification,
+  type ObjectPropertyReadbackAccessMechanism,
   objectPropertyPathMatchesShape,
 } from "./objectPropertyIndex";
 
@@ -91,6 +92,7 @@ export interface McpPropertyControlEntry {
   };
   readback?: {
     status: string;
+    accessMechanism?: ObjectPropertyReadbackAccessMechanism;
     probePath?: string;
     valueType?: string;
     typeTag?: string;
@@ -311,6 +313,7 @@ function buildSearchText(entry: McpPropertyControlEntry): string {
     entry.value?.range?.unit,
     entry.value?.range?.boundaryBehavior,
     entry.readback?.status,
+    entry.readback?.accessMechanism,
     entry.behavior?.accessMode,
     entry.behavior?.behaviorKind,
     ...entry.objectTree.objectBusPaths,

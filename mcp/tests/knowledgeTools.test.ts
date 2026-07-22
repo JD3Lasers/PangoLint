@@ -274,6 +274,30 @@ describe("lookupObject", () => {
     if (result.ok) expect(result.data.properties).toEqual(["Brightness"]);
   });
 
+  it("returns direct root properties alongside indexed properties", () => {
+    const index = buildPropertyIndex({
+      schemaVersion: 1,
+      schemas: [
+        {
+          object: "Projector",
+          isArray: true,
+          propertyCount: 2,
+          properties: ["Name"],
+          rootProperties: ["Count"],
+          sharedWithAliases: 0,
+        },
+      ],
+    });
+
+    const result = lookupObject({ name: "Projector" }, index);
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.data.properties).toEqual(["Count", "Name"]);
+      expect(result.data.rootProperties).toEqual(["Count"]);
+      expect(result.data.propertyCount).toBe(2);
+    }
+  });
+
   it("looks up case-insensitively", () => {
     expect(lookupObject({ name: "MASTER" }, fixturePropertyIndex).ok).toBe(true);
     expect(lookupObject({ name: "zone" }, fixturePropertyIndex).ok).toBe(true);

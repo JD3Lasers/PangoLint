@@ -49,6 +49,7 @@ export function propertyCompletionsForPrefix(
       items.push(indexCompletion);
       return items;
     }
+    if (isDirectRootProperty(schema, segments[0])) return [];
     propPrefixSegments = segments.slice(1);
   } else {
     propPrefixSegments = segments;
@@ -156,7 +157,7 @@ export function hoverForPropertyPath(
     }
   }
 
-  const directRootProperty = schema.isArray && parts.length === 2 && schema.rootProperties?.includes(parts[1]);
+  const directRootProperty = schema.isArray && parts.length === 2 && isDirectRootProperty(schema, parts[1]);
   if (schema.isArray && segIndex === 1 && !directRootProperty) {
     const seg = parts[1];
     if (schema.inheritedFrom === "UniversePanel") {
@@ -190,7 +191,7 @@ export function hoverForPropertyPath(
     : inheritedNote;
 
   const isKnownProperty = directRootProperty
-    ? schema.rootProperties?.includes(propPath)
+    ? isDirectRootProperty(schema, propPath)
     : verifyAgainst.properties.includes(propPath);
   if (isKnownProperty) {
     md.appendMarkdown(
@@ -203,6 +204,11 @@ export function hoverForPropertyPath(
     );
   }
   return new vscode.Hover(md, new vscode.Range(lineNumber, containing.start, lineNumber, containing.end));
+}
+
+function isDirectRootProperty(schema: KnownObjectSchema, property: string): boolean {
+  const propertyLower = property.toLowerCase();
+  return schema.rootProperties?.some((candidate) => candidate.toLowerCase() === propertyLower) ?? false;
 }
 
 export function codeActionsForUnknownRoot(

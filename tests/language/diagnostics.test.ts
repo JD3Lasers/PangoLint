@@ -792,6 +792,14 @@ describe("findPropertyTypoDiagnostics", () => {
         properties: ["N.Caption"],
         sharedWithAliases: 0,
       },
+      {
+        object: "Projector",
+        isArray: true,
+        propertyCount: 2,
+        properties: ["Name"],
+        rootProperties: ["Count"],
+        sharedWithAliases: 0,
+      },
     ],
   };
   const propertyIndex = buildPropertyIndex(fixture);
@@ -894,6 +902,18 @@ describe("findPropertyTypoDiagnostics", () => {
   it("stays silent for verified property paths (no false positive)", () => {
     expect(findPropertyTypoDiagnostics("v = Master.RotoAngleX", 0, propertyIndex)).toEqual([]);
     expect(findPropertyTypoDiagnostics("Zone.0.Red = 200", 0, propertyIndex)).toEqual([]);
+  });
+
+  it("accepts direct root leaves but rejects nested paths below them", () => {
+    expect(findPropertyTypoDiagnostics("v = Projector.Count", 0, propertyIndex)).toEqual([]);
+
+    const diagnostics = findPropertyTypoDiagnostics("v = Projector.Count.Name", 0, propertyIndex);
+    expect(diagnostics).toHaveLength(1);
+    expect(diagnostics[0]).toMatchObject({
+      code: "property-typo",
+      message: expect.stringContaining("Did you mean Projector.Count?"),
+    });
+    expect(findPropertyTypoDiagnostics("v = Projector.count.Name", 0, propertyIndex)).toHaveLength(1);
   });
 
   it("stays silent for unknown root objects (user-defined universes)", () => {
