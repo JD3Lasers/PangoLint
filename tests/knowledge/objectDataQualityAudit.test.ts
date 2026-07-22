@@ -27,11 +27,11 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.classifiedEntries).toBe(index.entries.filter((entry) => entry.classification).length);
     expect(report.summary.unclassifiedEntries).toBe(0);
     expect(report.summary.hardViolationCount).toBe(0);
-    expect(report.summary.warningCount).toBe(4);
+    expect(report.summary.warningCount).toBe(3);
     expect(report.summary.unverifiedUnknownRows).toBe(1);
     expect(report.summary.readOnlyRowsWithDomainMetadata).toBe(9);
     expect(report.summary.readMostlyRowsWithoutValueMetadata).toBe(30);
-    expect(report.summary.unknownBoundaryBehaviorRows).toBe(6);
+    expect(report.summary.unknownBoundaryBehaviorRows).toBe(0);
     expect(report.summary.crosswalkPropertiesWithBehaviorClassification).toBe(
       crosswalkSummary.propertiesWithBehaviorClassification,
     );
@@ -63,7 +63,7 @@ describe("final Object Tree data quality audit", () => {
       ["unverified-unknown-readback-only", "warning", "warn", 1],
       ["read-only-domain-metadata-review", "warning", "warn", 9],
       ["read-mostly-value-metadata-review", "warning", "warn", 30],
-      ["unknown-boundary-behavior", "warning", "warn", 6],
+      ["unknown-boundary-behavior", "warning", "pass", 0],
     ]);
 
     const unverifiedFx = report.reviewBuckets.find((bucket) => bucket.id === "unverified-unknown-readback-only");
@@ -89,26 +89,7 @@ describe("final Object Tree data quality audit", () => {
     expect(readMostlyValueMetadata?.examples).toContain("Universe.N.Button1.ColorOff");
     expect(readMostlyValueMetadata?.examples).toContain("FX.N.N.N.Chase.Manual");
     expect(readMostlyValueMetadata?.examples).not.toContain("PlayListState.Playing");
-    expect(unknownBoundary?.count).toBe(6);
-    expect(unknownBoundary?.roots.at(0)).toEqual({ root: "FB4_XXXXX", count: 6 });
-    expect(unknownBoundary?.roots).toHaveLength(1);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Gamepad")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "ColorChannel")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Grid")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Grid2")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Location")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "PlayListState")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Projector")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Status")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "TouchPoints")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "Zone")).toBe(false);
-    expect(unknownBoundary?.roots.some((row) => row.root === "ZoneAlias")).toBe(false);
-    expect(unknownBoundary?.examples).not.toContain("Beam.N.ColorPalette");
-    expect(unknownBoundary?.examples).not.toContain("Beam.N.RotoZ");
-    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.Connected");
-    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.InvertX");
-    expect(unknownBoundary?.examples).not.toContain("FB3_XXXXX.PositionX");
-    expect(unknownBoundary?.examples).toContain("FB4_XXXXX.PositionX");
+    expect(unknownBoundary).toMatchObject({ count: 0, roots: [], examples: [] });
 
     expect(report.spotCheckPlan.length).toBeGreaterThanOrEqual(20);
     expect(report.spotCheckPlan.map((row) => row.path)).toEqual(
@@ -133,24 +114,7 @@ describe("final Object Tree data quality audit", () => {
       }),
     );
 
-    expect(report.boundaryProbePlan).toEqual([
-      {
-        root: "FB4_XXXXX",
-        accessMode: "read-write",
-        behaviorKind: "state-value",
-        valueType: "number",
-        count: 6,
-        examples: [
-          "FB4_XXXXX.PositionX",
-          "FB4_XXXXX.PositionY",
-          "FB4_XXXXX.PostRotation",
-          "FB4_XXXXX.PreRotation",
-          "FB4_XXXXX.SizeX",
-        ],
-        nextProbe:
-          "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.",
-      },
-    ]);
+    expect(report.boundaryProbePlan).toEqual([]);
   });
 });
 

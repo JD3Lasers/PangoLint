@@ -15,11 +15,11 @@
     "entriesWithReadbackMetadata": 1692,
     "entriesWithBothValueAndReadbackMetadata": 0,
     "hardViolationCount": 0,
-    "warningCount": 4,
+    "warningCount": 3,
     "unverifiedUnknownRows": 1,
     "readOnlyRowsWithDomainMetadata": 9,
     "readMostlyRowsWithoutValueMetadata": 30,
-    "unknownBoundaryBehaviorRows": 6,
+    "unknownBoundaryBehaviorRows": 0,
     "crosswalkPropertiesWithBehaviorClassification": 5375,
     "crosswalkPropertiesMissingBehaviorClassification": 0,
     "behaviorSourceFactEntries": 5376,
@@ -280,16 +280,9 @@
     {
       "id": "unknown-boundary-behavior",
       "severity": "warning",
-      "status": "warn",
-      "count": 6,
-      "examples": [
-        "FB4_XXXXX.PositionX",
-        "FB4_XXXXX.PositionY",
-        "FB4_XXXXX.PostRotation",
-        "FB4_XXXXX.PreRotation",
-        "FB4_XXXXX.SizeX",
-        "FB4_XXXXX.SizeY"
-      ],
+      "status": "pass",
+      "count": 0,
+      "examples": [],
       "message": "Rows with unknown boundary behavior need focused range probes before boundary text can be stronger."
     }
   ],
@@ -405,21 +398,9 @@
     },
     {
       "id": "unknown-boundary-behavior",
-      "count": 6,
-      "roots": [
-        {
-          "root": "FB4_XXXXX",
-          "count": 6
-        }
-      ],
-      "examples": [
-        "FB4_XXXXX.PositionX",
-        "FB4_XXXXX.PositionY",
-        "FB4_XXXXX.PostRotation",
-        "FB4_XXXXX.PreRotation",
-        "FB4_XXXXX.SizeX",
-        "FB4_XXXXX.SizeY"
-      ],
+      "count": 0,
+      "roots": [],
+      "examples": [],
       "nextAction": "Choose a coherent root or behavior family for live boundary probes, then replace unknown boundary behavior with observed clamp, no-op, pass-through, reject, wrap, or mixed behavior."
     }
   ],
@@ -905,21 +886,5 @@
       "reason": "first row for root coverage"
     }
   ],
-  "boundaryProbePlan": [
-    {
-      "root": "FB4_XXXXX",
-      "accessMode": "read-write",
-      "behaviorKind": "state-value",
-      "valueType": "number",
-      "count": 6,
-      "examples": [
-        "FB4_XXXXX.PositionX",
-        "FB4_XXXXX.PositionY",
-        "FB4_XXXXX.PostRotation",
-        "FB4_XXXXX.PreRotation",
-        "FB4_XXXXX.SizeX"
-      ],
-      "nextProbe": "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values."
-    }
-  ]
+  "boundaryProbePlan": []
 }

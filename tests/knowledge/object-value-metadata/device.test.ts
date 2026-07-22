@@ -857,6 +857,9 @@ describe("checked-in Object Tree device value metadata data", () => {
     const issue149GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
       "object-range-evidence/issue-149-geometry-boundary-probes.json",
     );
+    const issue149Fb4GeometryEvidence = readJson<ObjectRangeEvidenceFile>(
+      "object-range-evidence/issue-149-fb4-geometry-boundary-probes.json",
+    );
 
     const byPath = new Map(objectPropertyIndex.entries.map((entry) => [entry.path, entry]));
     const roots = ["FB3_XXXXX", "FB4_XXXXX"];
@@ -921,8 +924,7 @@ describe("checked-in Object Tree device value metadata data", () => {
       ] as const) {
         expectedValueEntries.set(`${root}.${property}`, {
           ...expected,
-          boundaryBehavior:
-            root === "FB3_XXXXX" && fbGeometryProperties.has(property) ? "mixed" : expected.boundaryBehavior,
+          boundaryBehavior: fbGeometryProperties.has(property) ? "mixed" : expected.boundaryBehavior,
         });
       }
       for (const property of [
@@ -961,6 +963,9 @@ describe("checked-in Object Tree device value metadata data", () => {
       if (entry.objectPath.startsWith("FB3_XXXXX.") && fbGeometryProperties.has(propertyName)) {
         evidenceByPath.set(entry.objectPath, entry);
       }
+    }
+    for (const entry of issue149Fb4GeometryEvidence.entries) {
+      evidenceByPath.set(entry.objectPath, entry);
     }
 
     expect(fbEvidence.runtime.notes).toContain("Object Tree surfaces match Projector.N property-for-property");
@@ -1026,7 +1031,11 @@ describe("checked-in Object Tree device value metadata data", () => {
             expect.objectContaining({ input: -1000001, readback: -1000001, behavior: "pass-through" }),
             expect.objectContaining({ input: 1000001, readback: 1000001, behavior: "pass-through" }),
             expect.objectContaining({ input: -2147483649, readback: -2147483648, behavior: "clamp" }),
-            expect.objectContaining({ input: 2147483647, readback: 2147483648, behavior: "pass-through" }),
+            expect.objectContaining({
+              input: 2147483647,
+              readback: 2147483648,
+              behavior: metadata.path.startsWith("FB4_XXXXX.") ? "unknown" : "pass-through",
+            }),
             expect.objectContaining({ input: 2147483649, readback: 2147483648, behavior: "clamp" }),
           ]),
         );
