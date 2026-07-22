@@ -408,6 +408,46 @@ function buildEntry(row: CrosswalkRow, maps: ReturnType<typeof buildObjectProper
   };
 }
 
+function appendObjectIndexOnlyRows(crosswalkRows: CrosswalkRow[], indexFile: ObjectPropertyIndexFile): CrosswalkRow[] {
+  const rows = [...crosswalkRows];
+  const representedPaths = new Set(
+    rows.flatMap((row) => [
+      row.normalizedPropertyPattern.toLowerCase(),
+      ...(row.objectIndexEntries ?? []).flatMap((entry) => [
+        entry.path.toLowerCase(),
+        entry.normalizedPath.toLowerCase(),
+      ]),
+    ]),
+  );
+  for (const entry of indexFile.entries ?? []) {
+    if (representedPaths.has(entry.path.toLowerCase()) || representedPaths.has(entry.normalizedPath.toLowerCase())) {
+      continue;
+    }
+    representedPaths.add(entry.normalizedPath.toLowerCase());
+    rows.push({
+      normalizedPropertyPattern: entry.normalizedPath,
+      leafName: entry.property.split(".").at(-1) ?? entry.property,
+      coverage: {
+        hasObjectContext: true,
+        hasObjectBusPath: Boolean(entry.osc),
+        hasPangoScriptCommand: false,
+        hasOscCommandRoute: false,
+        hasRangeSeed: false,
+      },
+      objectContexts: [],
+      objectBusPaths: entry.osc ? [entry.osc] : [],
+      objectIndexEntries: [entry],
+      commands: [],
+      oscCommandRoutes: [],
+      rangeSeeds: {
+        objectPropertyRanges: [],
+        commandParameterRanges: [],
+      },
+    });
+  }
+  return rows;
+}
+
 function writeReadme(): void {
   const lines = [
     "# MCP Control Reference",
@@ -429,8 +469,9 @@ function writeReadme(): void {
 }
 
 const crosswalkRows = readJson<CrosswalkRow[]>(crosswalkPath);
-const objectPropertyMaps = buildObjectPropertyEntryMaps(readJson<ObjectPropertyIndexFile>(objectPropertyIndexPath));
-const entries = crosswalkRows
+const objectPropertyIndex = readJson<ObjectPropertyIndexFile>(objectPropertyIndexPath);
+const objectPropertyMaps = buildObjectPropertyEntryMaps(objectPropertyIndex);
+const entries = appendObjectIndexOnlyRows(crosswalkRows, objectPropertyIndex)
   .map((row) => buildEntry(row, objectPropertyMaps))
   .sort((left, right) => left.path.localeCompare(right.path));
 

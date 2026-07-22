@@ -39,7 +39,7 @@ describe("tracked BEYOND control reference data", () => {
     });
     expect(readJson<SummaryFile>("mcp-control-reference/summary.json")).toMatchObject({
       schemaVersion: 1,
-      propertyControlCount: 5379,
+      propertyControlCount: 5380,
       propertiesWithPangoScriptCommands: 184,
       propertiesWithOscRoutes: 94,
     });
@@ -320,6 +320,26 @@ describe("tracked BEYOND control reference data", () => {
     });
     expect(masterBrightness?.behavior?.accessMode).toBe("read-write");
     expect(masterBrightness?.value?.role).toBeUndefined();
+  });
+
+  it("includes Object Tree rows that have no command crosswalk entry", () => {
+    const crosswalk = readJson<PropertyControlRow[]>("control-crosswalk/property-control-index.json");
+    const controls = readJson<McpControlReferenceFile>("mcp-control-reference/property-controls.json");
+
+    expect(crosswalk.some((row) => row.normalizedPropertyPattern === "Projector.Count")).toBe(false);
+    expect(controls.entries.find((entry) => entry.path === "Projector.Count")).toMatchObject({
+      root: "Projector",
+      property: "Count",
+      readback: {
+        status: "readable",
+        accessMechanism: "pangoscript-expression",
+        probePath: "Projector.Count",
+      },
+      behavior: {
+        accessMode: "unknown",
+        behaviorKind: "computed-status",
+      },
+    });
   });
 
   it("keeps Projector boolean boundary behavior synchronized across control-reference surfaces", () => {

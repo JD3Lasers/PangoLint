@@ -183,6 +183,7 @@ const report = {
     behaviorSourceFactDuplicateRows: consistency.behaviorSourceFactDuplicateRows.length,
     behaviorSourceFactsMissingIndexRows: consistency.behaviorSourceFactIndexIssues.length,
     sharedControlReferenceObjectRows: consistency.sharedControlReferenceObjectRows,
+    controlReferenceMissingIndexRows: consistency.controlReferenceMissingIndexRows.length,
     controlReferenceBehaviorMismatches: consistency.controlReferenceBehaviorMismatches.length,
     metadataMutualExclusionViolations: consistency.metadataMutualExclusionRows.length,
     writeTestedRowsMissingOutputMetadata: consistency.writeTestedRowsMissingOutputMetadata.length,
@@ -313,6 +314,12 @@ function buildChecks(
       "error",
       consistency.behaviorSourceFactIndexIssues,
       "Behavior source facts must reach the generated Object Tree index with matching classification fields.",
+    ),
+    buildCheck(
+      "mcp-control-index-parity",
+      "error",
+      consistency.controlReferenceMissingIndexRows,
+      "Every Object Tree index row must have an exact or normalized path in the MCP control reference.",
     ),
     buildCheck(
       "mcp-control-behavior-parity",

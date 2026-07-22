@@ -25,7 +25,8 @@
     "behaviorSourceFactEntries": 5376,
     "behaviorSourceFactDuplicateRows": 0,
     "behaviorSourceFactsMissingIndexRows": 0,
-    "sharedControlReferenceObjectRows": 5030,
+    "sharedControlReferenceObjectRows": 5031,
+    "controlReferenceMissingIndexRows": 0,
     "controlReferenceBehaviorMismatches": 0,
     "metadataMutualExclusionViolations": 0,
     "writeTestedRowsMissingOutputMetadata": 0
@@ -194,6 +195,14 @@
       "count": 0,
       "examples": [],
       "message": "Behavior source facts must reach the generated Object Tree index with matching classification fields."
+    },
+    {
+      "id": "mcp-control-index-parity",
+      "severity": "error",
+      "status": "pass",
+      "count": 0,
+      "examples": [],
+      "message": "Every Object Tree index row must have an exact or normalized path in the MCP control reference."
     },
     {
       "id": "mcp-control-behavior-parity",

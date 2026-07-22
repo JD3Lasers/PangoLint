@@ -222132,7 +222132,7 @@
       "kind": "object",
       "confidence": "observed",
       "osc": "/b/Status/Projector/Count",
-      "searchText": "status projector count b readback osc object bus integer only i observed direct and write no op evidence on 2026 05 16 issue #298 confirmed this path a beyond 5 0 2060 pangoscript expression probe 07 21 failed as an unknown variable so consumers must use the for row behavior classification access mode computed tested reads return sampled writes did not change it rejects is",
+      "searchText": "status projector count b readback osc object bus integer only i observed issue #298 used setprop command write probes for and 0 with sampled writes behaving as no op the exported tree maps that row to a beyond 5 2060 pangoscript expression probe on 2026 07 21 failed an unknown variable so consumers must use mapped route this direct behavior was not independently probed classification access mode computed tested returned did change it while rejects therefore evidence remains in metadata",
       "variantCount": 1,
       "variants": [
         {
@@ -222150,7 +222150,7 @@
         "typeTag": "i",
         "evidenceLevel": "observed",
         "observedAt": "2026-05-16",
-        "notes": "Direct OSC object-bus readback and write-no-op evidence on 2026-05-16 issue #298 confirmed this status path on /b/Status/Projector/Count. A BEYOND 5.5.0.2060 PangoScript expression probe on 2026-07-21 failed as an unknown variable, so consumers must use the OSC object bus for this row."
+        "notes": "Issue #298 used SetProp command/write/readback probes for Status.Projector.Count and observed integer readback 0 with sampled writes behaving as no-op. The exported Object Tree maps that row to /b/Status/Projector/Count. A BEYOND 5.5.0.2060 PangoScript expression probe on 2026-07-21 failed as an unknown variable, so consumers must use the mapped OSC object-bus route for this row; direct /b/ behavior was not independently probed."
       },
       "classification": {
         "accessMode": "object-bus-only",
@@ -222158,7 +222158,7 @@
         "writeTestStatus": "write-no-op-tested",
         "readbackStatus": "readback-tested",
         "evidenceLevel": "observed",
-        "notes": "OSC object-bus reads return this computed status and sampled object-bus writes did not change it. BEYOND 5.5.0.2060 rejects Status.Projector.Count as a PangoScript expression, so this row is object-bus-only."
+        "notes": "Issue #298 SetProp command/write/readback probes returned this computed status and sampled SetProp writes did not change it. The exported Object Tree maps the row to /b/Status/Projector/Count, while BEYOND 5.5.0.2060 rejects Status.Projector.Count as a PangoScript expression. Consumers therefore use the mapped OSC object-bus route; direct /b/ behavior was not independently probed. Readback evidence remains in readback metadata."
       }
     },
     {

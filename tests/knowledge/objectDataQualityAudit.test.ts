@@ -40,6 +40,7 @@ describe("final Object Tree data quality audit", () => {
     expect(report.summary.behaviorSourceFactDuplicateRows).toBe(0);
     expect(report.summary.behaviorSourceFactsMissingIndexRows).toBe(0);
     expect(report.summary.sharedControlReferenceObjectRows).toBe(sharedControlReferenceObjectRows);
+    expect(report.summary.controlReferenceMissingIndexRows).toBe(0);
     expect(report.summary.controlReferenceBehaviorMismatches).toBe(0);
     expect(report.summary.metadataMutualExclusionViolations).toBe(0);
     expect(report.summary.writeTestedRowsMissingOutputMetadata).toBe(0);
@@ -55,6 +56,7 @@ describe("final Object Tree data quality audit", () => {
       ["control-crosswalk-classification-parity", "error", "pass", 0],
       ["behavior-source-fact-duplicates", "error", "pass", 0],
       ["behavior-source-facts-reach-index", "error", "pass", 0],
+      ["mcp-control-index-parity", "error", "pass", 0],
       ["mcp-control-behavior-parity", "error", "pass", 0],
       ["metadata-kind-exclusive", "error", "pass", 0],
       ["write-tested-has-output-metadata", "error", "pass", 0],
@@ -171,6 +173,7 @@ interface DataQualityReport {
     behaviorSourceFactDuplicateRows: number;
     behaviorSourceFactsMissingIndexRows: number;
     sharedControlReferenceObjectRows: number;
+    controlReferenceMissingIndexRows: number;
     controlReferenceBehaviorMismatches: number;
     metadataMutualExclusionViolations: number;
     writeTestedRowsMissingOutputMetadata: number;

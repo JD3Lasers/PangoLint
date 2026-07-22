@@ -46,6 +46,8 @@ export function findPropertyTypoDiagnostics(
     }
 
     const parts = fullPath.split(".");
+    const directRootProperty = schema.isArray && parts.length === 2 && schema.rootProperties?.includes(parts[1]);
+    if (directRootProperty) continue;
     const propParts = schema.isArray ? parts.slice(2) : parts.slice(1);
     if (propParts.length === 0) continue;
     const propPath = propParts.join(".");

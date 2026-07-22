@@ -183,7 +183,7 @@ function buildObjects(
     }
 
     if (schema) {
-      for (const property of schema.properties ?? []) {
+      for (const property of [...(schema.properties ?? []), ...(schema.rootProperties ?? [])]) {
         const path = schemaPath(name, schema, property, indexByPath);
         const indexed = indexByPath.get(path) ?? indexByPath.get(normalizeNumericSegments(path));
         addObjectProperty(propsByPath, {

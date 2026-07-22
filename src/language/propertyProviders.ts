@@ -26,18 +26,28 @@ export function propertyCompletionsForPrefix(
 
   if (schema.isArray) {
     if (segments.length === 0) {
+      const items = (schema.rootProperties ?? []).map((name) => {
+        const item = new vscode.CompletionItem(name, vscode.CompletionItemKind.Property);
+        item.detail = `${schema.object}.${name} - direct property`;
+        item.insertText = name;
+        return item;
+      });
       if (schema.arrayIndices && schema.arrayIndices.length > 0) {
-        return schema.arrayIndices.map((name) => {
-          const item = new vscode.CompletionItem(name, vscode.CompletionItemKind.EnumMember);
-          item.detail = `${schema.object}.${name} - discovered control`;
-          item.insertText = name;
-          return item;
-        });
+        items.push(
+          ...schema.arrayIndices.map((name) => {
+            const item = new vscode.CompletionItem(name, vscode.CompletionItemKind.EnumMember);
+            item.detail = `${schema.object}.${name} - discovered control`;
+            item.insertText = name;
+            return item;
+          }),
+        );
+        return items;
       }
       const indexCompletion = new vscode.CompletionItem("0", vscode.CompletionItemKind.Value);
       indexCompletion.detail = `${schema.object}.0 - index into ${schema.object}.ARRAY`;
       indexCompletion.insertText = "0";
-      return [indexCompletion];
+      items.push(indexCompletion);
+      return items;
     }
     propPrefixSegments = segments.slice(1);
   } else {
@@ -146,7 +156,8 @@ export function hoverForPropertyPath(
     }
   }
 
-  if (schema.isArray && segIndex === 1) {
+  const directRootProperty = schema.isArray && parts.length === 2 && schema.rootProperties?.includes(parts[1]);
+  if (schema.isArray && segIndex === 1 && !directRootProperty) {
     const seg = parts[1];
     if (schema.inheritedFrom === "UniversePanel") {
       const known = schema.arrayIndices?.includes(seg);
@@ -165,7 +176,11 @@ export function hoverForPropertyPath(
     return new vscode.Hover(md, new vscode.Range(lineNumber, containing.start, lineNumber, containing.end));
   }
 
-  const propPath = schema.isArray ? parts.slice(2).join(".") : parts.slice(1).join(".");
+  const propPath = directRootProperty
+    ? parts.slice(1).join(".")
+    : schema.isArray
+      ? parts.slice(2).join(".")
+      : parts.slice(1).join(".");
   if (!propPath) return undefined;
 
   const verifyAgainst = controlSchema ?? schema;
@@ -174,9 +189,12 @@ export function hoverForPropertyPath(
     ? ` Inherits the canonical **${controlSchema.object}** schema (${controlSchema.propertyCount} properties).`
     : inheritedNote;
 
-  if (verifyAgainst.properties.includes(propPath)) {
+  const isKnownProperty = directRootProperty
+    ? schema.rootProperties?.includes(propPath)
+    : verifyAgainst.properties.includes(propPath);
+  if (isKnownProperty) {
     md.appendMarkdown(
-      `Verified property on **${schema.object}**${schema.isArray ? " (indexed)" : ""}` +
+      `Verified property on **${schema.object}**${schema.isArray && !directRootProperty ? " (indexed)" : ""}` +
         `${schema.sharedWithAliases > 0 ? ` (schema also used by ${schema.sharedWithAliases} alias root${schema.sharedWithAliases > 1 ? "s" : ""})` : ""}.${inheritedFromControl}`,
     );
   } else {

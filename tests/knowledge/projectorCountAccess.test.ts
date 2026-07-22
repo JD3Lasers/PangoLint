@@ -58,13 +58,14 @@ describe("Projector count access metadata", () => {
     });
   });
 
-  it("includes Count in the Projector object schema", () => {
+  it("models Count as a direct property on the indexed Projector schema", () => {
     const knownProperties = JSON.parse(readFileSync(knownPropertiesPath, "utf8")) as {
-      schemas: Array<{ object: string; propertyCount: number; properties: string[] }>;
+      schemas: Array<{ object: string; propertyCount: number; properties: string[]; rootProperties?: string[] }>;
     };
     const projector = knownProperties.schemas.find((schema) => schema.object === "Projector");
 
-    expect(projector?.properties).toContain("Count");
-    expect(projector?.propertyCount).toBe(projector?.properties.length);
+    expect(projector?.rootProperties).toEqual(["Count"]);
+    expect(projector?.properties).not.toContain("Count");
+    expect(projector?.propertyCount).toBe((projector?.properties.length ?? 0) + 1);
   });
 });
