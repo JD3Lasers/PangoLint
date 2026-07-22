@@ -130,6 +130,7 @@ interface McpPropertyControlEntry {
   };
   readback?: {
     status: string;
+    accessMechanism?: string;
     probePath?: string;
     valueType?: string;
     typeTag?: string;
@@ -225,7 +226,8 @@ function compactValueMetadata(
   if (!metadata) return undefined;
   const range = metadata.valueRange;
   const isStatusDomain =
-    classification?.accessMode === "read-only" && classification.behaviorKind === "computed-status";
+    (classification?.accessMode === "read-only" || classification?.accessMode === "object-bus-only") &&
+    classification.behaviorKind === "computed-status";
   return {
     ...(isStatusDomain ? { role: "status-domain" as const } : {}),
     valueType: metadata.valueType,
@@ -253,6 +255,7 @@ function compactReadbackMetadata(
   if (metadata) {
     return {
       status: "readable",
+      accessMechanism: metadata.accessMechanism,
       probePath: metadata.probePath,
       valueType: metadata.valueType,
       typeTag: metadata.typeTag,

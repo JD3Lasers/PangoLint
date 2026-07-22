@@ -165,9 +165,11 @@ function renderObjectPropertyTableRow(
   row.append(behaviorCell);
 
   const valueDisplayOptions = {
-    hideUnknownBoundaryBehavior: classification?.accessMode === "read-only",
+    hideUnknownBoundaryBehavior:
+      classification?.accessMode === "read-only" || classification?.accessMode === "object-bus-only",
     showStatusDomainLabel:
-      classification?.accessMode === "read-only" && classification.behaviorKind === "computed-status",
+      (classification?.accessMode === "read-only" || classification?.accessMode === "object-bus-only") &&
+      classification.behaviorKind === "computed-status",
   };
   const valueDisplay =
     buildObjectValueCardSummaryParts(p.propertyCard?.valueSummary, valueDisplayOptions) ??

@@ -50,6 +50,15 @@ describe("checked-in Object Tree readback metadata data", () => {
         expect(entry.objectPath.trim().length, `${source.relativePath} objectPath`).toBeGreaterThan(0);
         expect(entry.probePath.trim().length, `${source.relativePath} ${entry.objectPath}`).toBeGreaterThan(0);
         expect(entry.probeMode, `${source.relativePath} ${entry.objectPath}`).toBe("readback-only");
+        if (entry.accessMechanism !== undefined) {
+          expect(["pangoscript-expression", "osc-object-bus"]).toContain(entry.accessMechanism);
+        }
+        if (entry.probeResult !== undefined) {
+          expect(["accepted", "rejected"]).toContain(entry.probeResult);
+          if (entry.probeResult === "rejected") {
+            expect(entry.errorMessage?.trim().length, `${source.relativePath} ${entry.objectPath}`).toBeGreaterThan(0);
+          }
+        }
         expect(["number", "integer", "float", "string", "boolean", "enum", "unknown"]).toContain(entry.valueType);
         expect(["string", "number", "boolean", "object"]).toContain(typeof entry.baseline.value);
         if (entry.baseline.typeTag !== undefined) expect(["f", "i", "s"]).toContain(entry.baseline.typeTag);

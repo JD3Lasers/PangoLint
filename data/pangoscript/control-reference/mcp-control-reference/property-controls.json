@@ -207303,14 +207303,15 @@
       },
       "readback": {
         "status": "readable",
-        "probePath": "Status.Projector.Count",
+        "accessMechanism": "osc-object-bus",
+        "probePath": "/b/Status/Projector/Count",
         "valueType": "integer",
         "typeTag": "i",
         "evidenceLevel": "observed",
         "observedValue": 0
       },
       "behavior": {
-        "accessMode": "read-only",
+        "accessMode": "object-bus-only",
         "behaviorKind": "computed-status",
         "writeTestStatus": "write-no-op-tested",
         "readbackStatus": "readback-tested",

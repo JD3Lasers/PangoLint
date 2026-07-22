@@ -170,11 +170,19 @@ function metadataSummary(summary: ValueSummary | undefined): string | undefined 
 function readbackSummary(summary: ReadbackSummary | undefined): string | undefined {
   if (!summary) return undefined;
   const locationLabel = visibleLocationKind(summary.locationKind);
-  if (!summary.valueType && !locationLabel) return undefined;
+  const accessMechanism = readbackAccessMechanismLabel(summary.accessMechanism);
+  if (!summary.valueType && !locationLabel && !accessMechanism) return undefined;
   const parts = [summary.status === "readable" ? "readback" : (behaviorLabel(summary.status) ?? summary.status)];
+  if (accessMechanism) parts.push(accessMechanism);
   if (summary.valueType) parts.push(summary.valueType);
   if (locationLabel) parts.push(locationLabel);
   return parts.filter(Boolean).join("; ");
+}
+
+function readbackAccessMechanismLabel(accessMechanism: string | undefined): string | undefined {
+  if (accessMechanism === "pangoscript-expression") return "PangoScript expression";
+  if (accessMechanism === "osc-object-bus") return "OSC object bus";
+  return undefined;
 }
 
 function behaviorSummary(classification: BehaviorClassification | undefined): string | undefined {

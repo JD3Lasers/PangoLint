@@ -268,6 +268,9 @@ interface ObjectReadbackEvidenceEntry {
   objectPath: string;
   probePath: string;
   probeMode: "readback-only";
+  accessMechanism?: string;
+  probeResult?: string;
+  errorMessage?: string;
   valueType: string;
   baseline: {
     value: string | number | boolean | null;
@@ -336,6 +339,7 @@ export interface ObjectPropertyValueMetadata {
 
 export interface ObjectPropertyReadbackMetadata {
   readable: true;
+  accessMechanism?: string;
   valueType?: string;
   probePath: string;
   probeMode: "readback-only";
@@ -395,6 +399,9 @@ export function assertObjectPropertyValueMetadata(metadata: ObjectPropertyValueM
 
 export function assertObjectPropertyReadbackMetadata(metadata: ObjectPropertyReadbackMetadata): void {
   expect(metadata.readable).toBe(true);
+  if (metadata.accessMechanism !== undefined) {
+    expect(["pangoscript-expression", "osc-object-bus"]).toContain(metadata.accessMechanism);
+  }
   expect(metadata.probeMode).toBe("readback-only");
   expect(metadata.probePath.trim().length).toBeGreaterThan(0);
   expect(["documented", "observed", "inferred", "unverified"]).toContain(metadata.evidenceLevel);
@@ -415,7 +422,9 @@ export function assertObjectPropertyReadbackMetadata(metadata: ObjectPropertyRea
 }
 
 export function assertObjectPropertyBehaviorClassification(metadata: ObjectPropertyBehaviorClassification): void {
-  expect(["read-write", "read-only", "write-only", "read-mostly", "unknown"]).toContain(metadata.accessMode);
+  expect(["read-write", "read-only", "write-only", "read-mostly", "object-bus-only", "unknown"]).toContain(
+    metadata.accessMode,
+  );
   expect([
     "state-value",
     "flag-state",

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "path": "Projector.Count",
+      "readable": true,
+      "accessMechanism": "pangoscript-expression",
+      "valueType": "integer",
+      "probePath": "Projector.Count",
+      "probeMode": "readback-only",
+      "observedValue": 1,
+      "typeTag": "i",
+      "evidenceLevel": "observed",
+      "observedAt": "2026-07-21",
+      "notes": "BEYOND 5.5.0.2060 evaluated Projector.Count in an OscOutTTS readback and returned the configured projector roster size. No writes were sent, so writable versus read-only behavior remains unverified.",
+      "locationContext": {
+        "kind": "indexed-root",
+        "populationDependent": true,
+        "indexBasis": "configured projector roster",
+        "notes": "The count changes when projectors are added to or removed from the BEYOND configuration."
+      }
+    }
+  ]
+}

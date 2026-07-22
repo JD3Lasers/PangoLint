@@ -24,6 +24,7 @@ interface ObjectsValueSummary {
 
 interface ObjectsReadbackSummary {
   status: string;
+  accessMechanism?: string;
   probePath?: string;
   valueType?: string;
   typeTag?: string;

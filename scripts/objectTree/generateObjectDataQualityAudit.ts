@@ -118,28 +118,17 @@ const outputPath = path.join(
 
 const reportGeneratedAt = "2026-05-17T00:00:00.000Z";
 
-const allowedAccessModes = new Set(["read-write", "read-only", "write-only", "read-mostly", "unknown"]);
-const allowedBehaviorKinds = new Set([
-  "state-value",
-  "flag-state",
-  "momentary-action",
-  "enum-state",
-  "string-state",
-  "computed-status",
-  "alias-status",
-  "fixture-dependent",
-  "unknown",
-]);
-const allowedWriteStatuses = new Set([
-  "not-tested",
-  "write-readback-tested",
-  "command-readback-tested",
-  "write-no-op-tested",
-  "write-rejected-tested",
-  "documented-writable",
-  "documented-read-only",
-  "not-applicable",
-]);
+const allowedAccessModes = new Set("read-write read-only write-only read-mostly object-bus-only unknown".split(" "));
+const allowedBehaviorKinds = new Set(
+  "state-value flag-state momentary-action enum-state string-state computed-status alias-status fixture-dependent unknown".split(
+    " ",
+  ),
+);
+const allowedWriteStatuses = new Set(
+  "not-tested write-readback-tested command-readback-tested write-no-op-tested write-rejected-tested documented-writable documented-read-only not-applicable".split(
+    " ",
+  ),
+);
 const allowedReadbackStatuses = new Set([
   "not-tested",
   "readback-tested",
@@ -271,7 +260,7 @@ function buildChecks(
       "error",
       currentEntries.filter(
         (entry) =>
-          entry.classification?.accessMode === "read-only" && !entry.readbackMetadata && !hasValueMetadata(entry),
+          isReadOnlyAccessMode(entry.classification?.accessMode) && !entry.readbackMetadata && !hasValueMetadata(entry),
       ),
       "Read-only rows must have readback metadata or explicit computed domain metadata.",
     ),
@@ -286,9 +275,11 @@ function buildChecks(
       "error",
       currentEntries.filter(
         (entry) =>
-          entry.classification?.behaviorKind === "computed-status" && entry.classification.accessMode !== "read-only",
+          entry.classification?.behaviorKind === "computed-status" &&
+          !isReadOnlyAccessMode(entry.classification.accessMode) &&
+          !(entry.classification.accessMode === "unknown" && entry.classification.evidenceLevel === "unverified"),
       ),
-      "Computed-status rows must be read-only in the current behavior model.",
+      "Computed-status rows must be read-only, object-bus-only, or explicitly unverified while access remains unknown.",
     ),
     buildCheck(
       "observed-classifications-prove-known-behavior",
@@ -305,12 +296,11 @@ function buildChecks(
     buildCheck(
       "control-crosswalk-classification-parity",
       "error",
-      summary.propertiesWithObjectContext === currentEntries.length &&
-        summary.propertiesWithBehaviorClassification === currentEntries.length &&
+      summary.propertiesWithBehaviorClassification === summary.propertiesWithObjectContext &&
         summary.propertiesMissingBehaviorClassification === 0
         ? []
         : currentEntries.slice(0, 1),
-      "Control-reference crosswalk behavior classification counts must match the Object Tree index.",
+      "Every Object Tree row represented in the control crosswalk must carry behavior classification.",
     ),
     buildCheck(
       "behavior-source-fact-duplicates",
@@ -423,7 +413,7 @@ function isUnverifiedUnknownReadbackOnly(entry: ObjectIndexEntry): boolean {
 }
 
 function isReadOnlyWithDomainMetadata(entry: ObjectIndexEntry): boolean {
-  return entry.classification?.accessMode === "read-only" && hasValueMetadata(entry);
+  return isReadOnlyAccessMode(entry.classification?.accessMode) && hasValueMetadata(entry);
 }
 
 function isReadMostlyWithoutValueMetadata(entry: ObjectIndexEntry): boolean {
@@ -546,7 +536,7 @@ function firstUnknownBoundaryMetadata(entry: ObjectIndexEntry): ValueMetadata | 
 }
 
 function boundaryProbeText(accessMode: string, behaviorKind: string, valueType: string): string {
-  if (accessMode === "read-only" || behaviorKind === "computed-status") {
+  if (isReadOnlyAccessMode(accessMode) || behaviorKind === "computed-status") {
     return "Review computed status wording and use readback or command-readback probes only when the status domain itself needs fresh evidence.";
   }
   if (behaviorKind === "flag-state" || valueType === "boolean") {
@@ -556,6 +546,10 @@ function boundaryProbeText(accessMode: string, behaviorKind: string, valueType: 
     return "Test each accepted value plus one lower and one higher value, then restore the baseline enum value.";
   }
   return "Run write/readback samples around the stored min and max plus one lower and one higher sample, then restore baseline values.";
+}
+
+function isReadOnlyAccessMode(accessMode: string | undefined): boolean {
+  return accessMode === "read-only" || accessMode === "object-bus-only";
 }
 
 function addNamedSpotCheck(

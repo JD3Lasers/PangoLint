@@ -1884,12 +1884,12 @@
     },
     {
       "path": "Status.Projector.Count",
-      "accessMode": "read-only",
+      "accessMode": "object-bus-only",
       "behaviorKind": "computed-status",
       "writeTestStatus": "write-no-op-tested",
       "readbackStatus": "readback-tested",
       "evidenceLevel": "observed",
-      "notes": "Write attempts for Status.Projector.Count did not change the readback, so this row is classified as read-only computed status. Readback evidence remains in readback metadata."
+      "notes": "OSC object-bus reads return this computed status and sampled object-bus writes did not change it. BEYOND 5.5.0.2060 rejects Status.Projector.Count as a PangoScript expression, so this row is object-bus-only. Readback evidence remains in readback metadata."
     },
     {
       "path": "Status.Projector.N.Connected",

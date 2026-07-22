@@ -3,10 +3,10 @@
   "parentIssue": 216,
   "generatedAt": "2026-05-17T00:00:00.000Z",
   "summary": {
-    "totalReadbackRows": 1691,
+    "totalReadbackRows": 1692,
     "writeTestedReadbackRows": 1691,
-    "baselineOnlyReadbackRows": 0,
-    "retestPriorityRows": 0
+    "baselineOnlyReadbackRows": 1,
+    "retestPriorityRows": 1
   },
   "bySourceFile": [
     {
@@ -64,6 +64,13 @@
       "writeTestedRows": 23,
       "baselineOnlyRows": 0,
       "retestPriorityRows": 0
+    },
+    {
+      "sourceFile": "data/pangoscript/object-tree/source-facts/readback-metadata/hardware/projector-count-readbacks.json",
+      "totalRows": 1,
+      "writeTestedRows": 0,
+      "baselineOnlyRows": 1,
+      "retestPriorityRows": 1
     },
     {
       "sourceFile": "data/pangoscript/object-tree/source-facts/readback-metadata/hardware/status-readbacks.json",
@@ -199,5 +206,17 @@
       "retestPriorityRows": 0
     }
   ],
-  "retestCandidates": []
+  "retestCandidates": [
+    {
+      "path": "Projector.Count",
+      "probePath": "Projector.Count",
+      "valueType": "integer",
+      "typeTag": "i",
+      "observedValue": 1,
+      "sourceFile": "data/pangoscript/object-tree/source-facts/readback-metadata/hardware/projector-count-readbacks.json",
+      "root": "Projector",
+      "priority": "low",
+      "reason": "Baseline-only readback. A bounded write/readback probe needs explicit operator approval before access behavior can be classified."
+    }
+  ]
 }

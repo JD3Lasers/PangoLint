@@ -76,7 +76,13 @@ describe("Object Tree readback write-test audit", () => {
     );
     expect(report.summary.baselineOnlyReadbackRows).toBe(baselineOnlyRows.length);
     expect(report.summary.retestPriorityRows).toBe(report.retestCandidates.length);
-    expect(report.summary.baselineOnlyReadbackRows).toBe(0);
+    expect(report.summary.baselineOnlyReadbackRows).toBe(1);
+    expect(report.retestCandidates).toContainEqual(
+      expect.objectContaining({
+        path: "Projector.Count",
+        priority: "low",
+      }),
+    );
 
     const sourceFiles = new Set(overlayRows.map((row) => row.sourceFile));
     expect(new Set(report.bySourceFile.map((summary) => summary.sourceFile))).toEqual(sourceFiles);

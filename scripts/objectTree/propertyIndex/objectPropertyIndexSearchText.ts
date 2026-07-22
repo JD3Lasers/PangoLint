@@ -119,6 +119,7 @@ export function valueMetadataSearchText(metadata: ObjectPropertyValueMetadata): 
 export function readbackMetadataSearchText(metadata: ObjectPropertyReadbackMetadata): string {
   return [
     "readback",
+    metadata.accessMechanism,
     metadata.valueType,
     metadata.probePath,
     metadata.probeMode,

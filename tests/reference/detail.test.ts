@@ -228,9 +228,14 @@ describe("object readback card summary text", () => {
   });
 
   it("summarizes readback data without exposing observed test values", () => {
-    expect(objectReadbackCardSummary({ status: "readable", valueType: "float", observedValue: 1.5 })).toBe(
-      "readback; float",
-    );
+    expect(
+      objectReadbackCardSummary({
+        status: "readable",
+        accessMechanism: "osc-object-bus",
+        valueType: "float",
+        observedValue: 1.5,
+      }),
+    ).toBe("readback; OSC object bus; float");
   });
 
   it("does not show observed readback values without a public value shape", () => {

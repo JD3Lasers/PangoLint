@@ -23,6 +23,25 @@ These objects exist in every BEYOND install and can have knowledge-base entries:
 OSC equivalents: `/beyond/master/...`, `/beyond/zone/#/...`,
 `/beyond/cue/#/#/...`, `/beyond/projector/#/...`, `/beyond/smart/#/...`.
 
+### PangoScript expressions and the OSC object bus are separate
+
+An Object Tree path visible through the direct `/b/` OSC object bus is not
+automatically valid as a PangoScript expression. PangoLint records the proven
+read interface in `readbackMetadata.accessMechanism` when the evidence makes
+the distinction clear:
+
+- `pangoscript-expression`: BEYOND evaluated the path in PangoScript, commonly
+  through an `OscOutTTS` readback.
+- `osc-object-bus`: the direct `/b/` OSC path returned a value, but the dotted
+  path is not claimed as a PangoScript expression.
+
+BEYOND 5.5.0.2060 confirmed the projector-count distinction. `Projector.Count`
+evaluated in PangoScript and returned the configured projector roster size.
+`Status.Projector.Count` failed as an unknown PangoScript variable; its
+observed read interface is `/b/Status/Projector/Count`. No direct write to
+`Projector.Count` was authorized in that verification, so its writable versus
+read-only access behavior remains unverified.
+
 ## User-defined / installation-specific objects
 
 When a BEYOND universe is created (e.g. `SHOWKONTROL`), BEYOND registers it as

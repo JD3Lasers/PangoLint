@@ -18,7 +18,14 @@ type ObjectPropertyLocationKind =
   | "quickfx-slot"
   | "showfile-alias"
   | "hardware-instance";
-type ObjectPropertyAccessMode = "read-write" | "read-only" | "write-only" | "read-mostly" | "unknown";
+type ObjectPropertyAccessMode =
+  | "read-write"
+  | "read-only"
+  | "write-only"
+  | "read-mostly"
+  | "object-bus-only"
+  | "unknown";
+export type ObjectPropertyReadbackAccessMechanism = "pangoscript-expression" | "osc-object-bus";
 type ObjectPropertyBehaviorKind =
   | "state-value"
   | "flag-state"
@@ -105,6 +112,8 @@ export interface ObjectPropertyValueMetadata {
 
 export interface ObjectPropertyReadbackMetadata {
   readable: true;
+  /** BEYOND interface that produced the readback. Omitted on legacy evidence that did not record it. */
+  accessMechanism?: ObjectPropertyReadbackAccessMechanism;
   valueType?: ObjectPropertyValueType;
   probePath: string;
   probeMode: "readback-only";
@@ -461,6 +470,7 @@ function buildSearchText(entry: ObjectPropertyEntry): string {
     entry.addressMetadata?.aliasOf,
     entry.addressMetadata?.componentPlaceholder,
     entry.readbackMetadata?.valueType,
+    entry.readbackMetadata?.accessMechanism,
     entry.readbackMetadata?.probePath,
     entry.readbackMetadata?.probeMode,
     entry.readbackMetadata?.typeTag,

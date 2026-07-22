@@ -213,6 +213,17 @@ function manualRuntimeEntries(existingPaths: Set<string>): OutputEntry[] {
       variantCount: 1,
       variants: [{ path: "Master.ShowShift", osc: "/b/Master/ShowShift" }],
     },
+    {
+      path: "Projector.Count",
+      normalizedPath: "Projector.Count",
+      root: "Projector",
+      property: "Count",
+      kind: "object",
+      confidence: "observed",
+      searchText: "projector count configured roster size pangoscript expression readback",
+      variantCount: 1,
+      variants: [{ path: "Projector.Count" }],
+    },
   ];
   return entries.filter((entry) => !existingPaths.has(entry.path));
 }

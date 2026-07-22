@@ -90,6 +90,8 @@ audit results.
 - `write-only`: Writes are useful, but readback is absent or not useful.
 - `read-mostly`: Some writes are accepted, but readback is derived from runtime
   state or does not reliably echo the input.
+- `object-bus-only`: The path is available through the direct `/b/` OSC object
+  bus but is not a valid PangoScript expression.
 - `unknown`: The path exists, but access behavior is not proven.
 
 `read-only` requires stronger evidence than a baseline read. A row with only a

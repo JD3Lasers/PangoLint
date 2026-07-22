@@ -12,6 +12,12 @@ export function validateReadbackMetadata(pathValue: string, metadata: ObjectProp
   if (metadata.probeMode !== "readback-only") {
     throw new Error(`${pathValue} readback metadata must use readback-only probeMode`);
   }
+  if (
+    metadata.accessMechanism !== undefined &&
+    !["pangoscript-expression", "osc-object-bus"].includes(metadata.accessMechanism)
+  ) {
+    throw new Error(`${pathValue} has invalid readback accessMechanism`);
+  }
   if (typeof metadata.probePath !== "string" || metadata.probePath.trim().length === 0) {
     throw new Error(`${pathValue} readback metadata requires a non-empty probePath`);
   }
@@ -48,7 +54,11 @@ export function validateBehaviorClassification(
   pathValue: string,
   metadata: ObjectPropertyBehaviorClassification,
 ): void {
-  if (!["read-write", "read-only", "write-only", "read-mostly", "unknown"].includes(metadata.accessMode)) {
+  if (
+    !["read-write", "read-only", "write-only", "read-mostly", "object-bus-only", "unknown"].includes(
+      metadata.accessMode,
+    )
+  ) {
     throw new Error(`${pathValue} has invalid behavior accessMode`);
   }
   if (
