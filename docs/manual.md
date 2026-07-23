@@ -686,6 +686,7 @@ User-facing commands appear in the Command Palette under **PangoLint:**.
 | `pangolint.openReferenceSite` | Open the bundled offline PangoScript reference site in the default browser. |
 | `pangolint.sidebar.revealDiagnostic` | Reveal the focused diagnostic at its source range. |
 | `pangolint.sidebar.openDiagnosticDocs` | Open the reference for the focused diagnostic. |
+| `pangolint.sidebar.showCommand` | Open a specified command in the Commands sidebar. |
 | `pangolint.sidebar.showCommandAtCursor` | View the command at the editor cursor in the Commands sidebar. |
 
 ---

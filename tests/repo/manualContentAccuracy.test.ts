@@ -59,13 +59,15 @@ describe("user manual content accuracy", () => {
   it("covers current settings, commands, version, and review date", () => {
     const manifest = JSON.parse(readRepoFile("package.json")) as PackageManifest;
 
+    for (const setting of Object.keys(manifest.contributes.configuration.properties)) {
+      expect(manualMarkdown).toContain(`\`${setting}\``);
+      expect(manualHtml).toContain(`<code>${setting}</code>`);
+    }
+    for (const command of manifest.contributes.commands) {
+      expect(manualMarkdown).toContain(`| \`${command.command}\` |`);
+      expect(manualHtml).toContain(`<code>${command.command}</code>`);
+    }
     for (const manual of publicManuals) {
-      for (const setting of Object.keys(manifest.contributes.configuration.properties)) {
-        expect(manual).toContain(setting);
-      }
-      for (const command of manifest.contributes.commands) {
-        expect(manual).toContain(command.command);
-      }
       expect(manual).toContain(manifest.version);
     }
     expect(manualHtml).toContain("<dd>2026-07-22</dd>");
