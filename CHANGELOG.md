@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.7] - 2026-07-22
+
+### Changed
+
+- Refresh the public user manual with the neutral near-black palette and
+  system typography used by the PangoScript reference browser.
+- Rewrite the manual for concise user-facing instructions and verify current
+  command, setting, diagnostic, MCP, and BEYOND runtime behavior against the
+  shipped source.
+
 ## [0.9.6] - 2026-07-22
 
 ### Changed
@@ -708,7 +718,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.6...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.7...HEAD
+[0.9.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.6...v0.9.7
 [0.9.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...v0.9.6
 [0.9.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...v0.9.5
 [0.9.4]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.3...v0.9.4

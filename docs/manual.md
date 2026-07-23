@@ -1,22 +1,17 @@
 # PangoLint User Manual
 
-PangoLint is developer tooling for **Pangolin BEYOND PangoScript**.
-This manual is the end-user reference for everything the project ships:
-the VS Code extension and the companion `pangolint-mcp` server for AI
-coding agents.
+PangoLint adds editing, validation, and optional BEYOND connections for
+**Pangolin BEYOND PangoScript**. This manual covers the VS Code extension
+and the optional `pangolint-mcp` server.
 
-> **Quick orientation.** If you write `.BeyondCode` files in VS Code,
-> install the extension. If you also work with an AI coding agent
-> (Claude, Codex, Cursor, etc) and want it to verify
-> command names against PangoLint's curated catalog and lint generated
-> PangoScript, also install the MCP server. Both ship from the same
-> repo and read the same curated knowledge base.
+> **Which component do I need?** Install the extension to edit
+> `.BeyondCode` files in VS Code. Install the MCP server only if you want
+> an AI coding tool to look up commands or lint PangoScript.
 >
-> **Reference data.** PangoLint ships a curated knowledge base of
-> command names, signatures, and object-tree property paths. It does
-> **not** redistribute Pangolin manuals, help files, BEYOND command
-> exports, OSC HTML, or any other verbatim Pangolin reference
-> material. See [Safety, privacy, and data](#safety-privacy-and-data).
+> **Reference data.** PangoLint includes command names, signatures, and
+> Object Tree property paths. It does **not** include copies of Pangolin
+> manuals, help files, command exports, or OSC HTML. See
+> [Safety, privacy, and data](#safety-privacy-and-data).
 
 ## Contents
 
@@ -64,17 +59,17 @@ coding agents.
    code --install-extension jd3lasersllc.pangolint
    ```
 
-2. Open any `.BeyondCode` file. Syntax highlighting, diagnostics,
-   completions, and the activity-bar sidebar light up automatically.
+2. Open a `.BeyondCode` file. PangoLint enables syntax highlighting,
+   diagnostics, completions, and its activity-bar sidebar.
 3. Open the **PangoLint** view container (laser-warning icon in the
    activity bar) to browse commands and objects.
-4. To enable BEYOND runtime features, configure
-   `pangolint.beyond.talkTcpHost` to point at your dev BEYOND machine
-   (and `pangolint.beyond.talkTcpPort` if needed), then run
+4. To connect to BEYOND, set `pangolint.beyond.talkTcpHost` to the
+   computer running BEYOND. Change `pangolint.beyond.talkTcpPort` if
+   needed, then run
    `PangoLint: Test BEYOND Connection` from the Command Palette.
 
-That's it for the extension. For the MCP server, see
-[The PangoLint MCP server](#the-pangolint-mcp-server) below.
+MCP setup is covered in
+[The PangoLint MCP server](#the-pangolint-mcp-server).
 
 ---
 
@@ -82,31 +77,29 @@ That's it for the extension. For the MCP server, see
 
 ### Syntax & semantic highlighting
 
-PangoLint registers `.BeyondCode` as the `pangoscript` language. You get:
+PangoLint registers `.BeyondCode` as the `pangoscript` language and provides:
 
 - TextMate grammar with scopes for labels, commands, expression
   functions, variables, object paths, operators, OSC addresses, and
   string/comment forms.
-- Semantic tokens so commands that PangoLint actually knows about render
-  differently from unknown identifiers - useful for spotting typos at a
-  glance.
+- Semantic highlighting that distinguishes known commands from unknown
+  identifiers.
 - A document outline (Outline view, breadcrumbs) generated from script
   labels.
 
 ### Diagnostics
 
-PangoLint ships **22 diagnostic codes**. The full reference with cause
-and how-to-fix lives in
-[docs/references/diagnostics/README.md](references/diagnostics/README.md);
-this is the summary.
+PangoLint includes **22 diagnostic codes**. See the
+[diagnostic reference](references/diagnostics/README.md) for causes and
+fixes; the table below is a summary.
 
 | Code | Severity | What it catches |
 |---|---|---|
-| `analysis-limited` | warning | PangoLint skipped a full-file pass or unusually long line because the input exceeds bounded-analysis limits. Runtime sends are blocked until the file can be fully checked. |
+| `analysis-limited` | warning | The file or a line is too large for a complete check. Runtime sends are blocked until PangoLint can check the full file. |
 | `unclosed-string` | error | A line opens `"` with no closing quote. |
 | `unbalanced-parentheses` | warning | Unequal `(` / `)`, or `)(` order. |
-| `unknown-command` | warning | Identifier isn't in the curated catalog and isn't a recognized control-flow keyword. |
-| `wrong-arg-count` | warning | Curated command called with the wrong number of arguments. Includes the zero-arity case (`EnableLaserOutput 1`). |
+| `unknown-command` | warning | The identifier isn't in the command catalog or recognized as control flow. |
+| `wrong-arg-count` | warning | A known command has the wrong number of arguments. Includes the zero-argument case (`EnableLaserOutput 1`). |
 | `missing-label` | warning | `Goto X` jumps to a label that doesn't exist in the file. |
 | `unsupported-quoted-goto-label` | warning | `Goto "X"` - quoted labels aren't recognized by BEYOND. |
 | `uninitialized-variable` | hint | `var` is read before any assignment. |
@@ -125,25 +118,22 @@ this is the summary.
 | `unused-label` | hint | Label declared but never `Goto`'d. |
 | `property-typo` | hint | `Object.PropertyName` doesn't match a known property; suggests the closest valid name. |
 
-PangoLint biases **permissive** - most rules are warning or hint level.
-Real errors are reserved for unambiguous syntax failures (`unclosed-string`,
-unbalanced parens). Click any diagnostic in the **Diagnostics** sidebar
-panel and use the `Why?` action to open the bundled reference scrolled
-to that rule's section.
+Most rules are warnings or hints so lightly documented BEYOND syntax remains
+usable. Errors are limited to clear syntax failures such as an unclosed
+string. In the **Diagnostics** panel, select `Why?` to open the matching
+reference section.
 
 Run **PangoLint: Validate Current Script** from the Command Palette to
-refresh diagnostics for the active `.BeyondCode` buffer and write a
-portable report to the **PangoLint: Validation** Output channel. The
-report lists severity, rule code, line / column, and the same
-human-readable explanation shown by the editor hover. The completion
-toast offers shortcuts to the Diagnostics sidebar, the Output channel,
-and the Problems panel.
+refresh diagnostics for the active `.BeyondCode` file and write a report
+to the **PangoLint: Validation** Output channel. The report lists the
+severity, rule code, location, and explanation. The notification links to
+the Diagnostics panel, Output channel, and Problems panel.
 
 ### Completions, hover, signature help
 
-- **Command completions** - type a command name and PangoLint suggests
-  matches from the bundled catalog (529 command entries). Each
-  suggestion carries a description, syntax form, and safety tier.
+- **Command completions** - type a command name to see matches from the
+  529-entry command catalog. Each result includes a description, syntax,
+  and safety tier.
 - **Property completions** - type `Master.` (or `Zone.0.`, `FX.0.`,
   etc.) and PangoLint suggests properties from the schemas.
 - **Goto label completions** - after `Goto ` or `If ... Goto `,
@@ -160,8 +150,7 @@ and the Problems panel.
 
 Click the lightbulb (or `Cmd+.` / `Ctrl+.`) on:
 
-- An `unknown-command` warning - accept a Levenshtein-ranked
-  replacement.
+- An `unknown-command` warning - accept the suggested replacement.
 - A `property-typo` hint - accept the closest valid property name.
 - An unknown property-path root - register it as a **user universe**
   (inherits `UniversePanel`), a **zone alias** (inherits `Zone`), or a
@@ -170,7 +159,7 @@ Click the lightbulb (or `Cmd+.` / `Ctrl+.`) on:
 
 ### Formatting
 
-Run **Format Document** (`Shift+Alt+F`) or wire format-on-save:
+Run **Format Document** (`Shift+Alt+F`) or enable format on save:
 
 ```jsonc
 // .vscode/settings.json
@@ -182,7 +171,7 @@ Run **Format Document** (`Shift+Alt+F`) or wire format-on-save:
 }
 ```
 
-The formatter is **intentionally conservative**:
+The formatter makes only low-risk changes:
 
 - Preserves command order, strings, comments, labels, and unknown
   syntax verbatim.
@@ -215,9 +204,9 @@ Inline color swatches appear in the gutter for:
 - `ColorRGB <hex>` literals
 - `<Object>.Color = <int>` literal assignments
 
-Click the swatch to open VS Code's color picker. The picker round-trips
-the change back into the source format (BGR stays BGR, RGB stays RGB,
-integer literals stay integer literals).
+Click the swatch to open VS Code's color picker. The picker preserves the
+source format (BGR stays BGR, RGB stays RGB, and integer literals stay
+integer literals).
 
 ### Navigation: Goto label, references, label highlighting
 
@@ -237,22 +226,21 @@ the BEYOND Watcher.
 
 ### Commands view
 
-A webview browser over 521 browsable PangoScript commands plus 9 expression
-functions. Prototype, internal, and do-not-use commands remain known for
-diagnostics and direct lookup, but stay out of the browsable list.
+Browse 521 PangoScript commands and 9 expression functions. Entries marked
+prototype, internal, or do-not-use remain available to diagnostics and exact
+lookup, but do not appear in the list.
 
-- **Full-text search** across canonical name, aliases, description, and
+- **Full-text search** across command name, aliases, description, and
   BEYOND category. Type into the search box at the top.
-- **Category strip** filters to one of the 35 categories the catalog
-  is organized around - these mirror BEYOND-style command categories.
-  Click a category chip to scope the list.
+- **Category groups** organize entries into 35 BEYOND command categories.
+  Expand a group to view its commands, or use **Expand All**.
 - Click any command row to expand the inline **detail panel** -
   signature, BEYOND category, primary example.
 - Detail-panel actions:
   - **Insert at cursor** - drops the example into the active editor.
   - **Copy signature** - copies the syntax form to clipboard.
-  - **View in full reference** - opens the bundled offline PangoScript
-    reference site in your default browser, deep-linked to that command.
+  - **View in full reference** - opens that command in the bundled
+    PangoScript reference.
 - **Keyboard insert.** With a row focused, press `Cmd+Enter` (macOS) /
   `Ctrl+Enter` (Windows / Linux) to insert the example at the cursor -
   no mouse needed.
@@ -263,8 +251,7 @@ diagnostics and direct lookup, but stay out of the browsable list.
 
 ### Objects view
 
-A webview browser over BEYOND's object surface, organized into
-three sections:
+Browse the bundled BEYOND object data in three sections:
 
 1. **FX Effects** - every visualizer FX category and effect.
 2. **Cue Types** - every cue-type code with its description.
@@ -272,7 +259,7 @@ three sections:
    DmxOutput, Projector, ProTrack, QShift, and the rest of the bundled
    schemas with their property listings.
 
-Search filters across all three sections in one pass. Right-click any
+Search covers all three sections. Right-click any
 property path:
 
 - If a setter command is mapped, **Insert** drops it at the cursor
@@ -280,10 +267,9 @@ property path:
 - **View in Commands sidebar** - jump to the matching command in the
   Commands view.
 
-The Objects view reads only bundled data - no network access, no live
-BEYOND inspection. (For live values, see
+The Objects view is offline. For live values, see
 [Live hover values](#live-hover-values) and the
-[Watcher](#watcher-pin-a-property).)
+[Watcher](#watcher-pin-a-property).
 
 ### Diagnostics view
 
@@ -291,16 +277,16 @@ Issues in the active `.BeyondCode` file, grouped by rule. Each rule
 group has:
 
 - A row per diagnostic. Click to jump to the source range.
-- A `Why?` action that opens the bundled
-  [diagnostics reference](references/diagnostics/README.md) scrolled
-  to that rule's section - works offline, no internet needed.
+- A `Why?` action that opens that rule in the bundled
+  [diagnostics reference](references/diagnostics/README.md). It works
+  offline.
 
 ---
 
 ## BEYOND runtime integration
 
-PangoLint can talk to a developer-local BEYOND for connection checks,
-property readbacks, and gated script-batch sends. **All runtime
+PangoLint can connect to BEYOND for connection checks, property reads,
+and controlled Talk batch sends. **All runtime
 features require a trusted workspace.** Readback-only features require
 an explicit command or `pangolint.beyond.liveHoverValues: true`.
 Write/script execution features additionally require
@@ -308,13 +294,11 @@ Write/script execution features additionally require
 confirmation prompt. Runtime target settings are machine-scoped so a
 workspace cannot silently repoint PangoLint at a different BEYOND host.
 
-> **Operator responsibility.** Runtime integration is intended for
-> developer-local testing only. Users remain responsible for
-> validating all scripts inside BEYOND and for following all laser
+> **Operator responsibility.** Validate scripts in BEYOND and follow all laser
 > safety, zoning, output, and show-control procedures. PangoLint's
-> lint gate is a syntax check, not a safety check - it cannot
+> lint check is not a safety check. It cannot
 > reason about beam paths, audience separation, scan-fail behavior,
-> or any other operational laser-safety concern.
+> or other operational laser-safety concerns.
 
 ### Test BEYOND connection
 
@@ -322,17 +306,17 @@ Command Palette → **PangoLint: Test BEYOND Connection**.
 
 PangoLint sends a small `OscOutTTS` ping over the configured BEYOND
 Talk path, then waits for the OSC echo on
-`oscListenHost:oscListenPort`. The status bar reports success or the
-specific failure mode (DNS lookup, bind, no callback, etc.).
-**Readback-only** - no projector, output, geometry, or zoning state is
-touched.
+`oscListenHost:oscListenPort`. A notification reports success or the
+specific failure (DNS lookup, bind, no callback, etc.).
+This check is read-only. It does not change projector, output, geometry,
+or zoning state.
 
 ### User objects (register a universe / zone alias)
 
-PangoScript code commonly references workspace-scoped identifiers like
+PangoScript files can reference workspace-specific identifiers such as
 `MyUniverse.Button1.X` or `MainStage.Brightness`. PangoLint doesn't
-know these out of the box. When such a path appears, PangoLint surfaces
-a code action lightbulb:
+know these names until you register them. Use the lightbulb action on an
+unknown root to:
 
 - **Register `<Root>` as a user universe** - inherits the
   `UniversePanel` schema, with workspace-scanned button names merged in
@@ -341,15 +325,14 @@ a code action lightbulb:
 - **Register `<Root>` as a master alias** - inherits the `Master`
   schema.
 
-Registry persists at `.pangolint/user-objects.json` (workspace-rooted).
-View / remove entries via **PangoLint: Show User Objects** and
+PangoLint stores these entries in `.pangolint/user-objects.json` at the
+workspace root. View or remove them with **PangoLint: Show User Objects** and
 **PangoLint: Remove User Object** in the Command Palette.
 
 When `pangolint.folderScopedUniverses: true` (default), PangoLint also
 auto-discovers universe panels by scanning sibling `.BeyondCode` files -
-if an unknown root appears in 2+ files in the same parent folder, it's
-treated as a universe panel without explicit classification. This
-mirrors BEYOND's workspace-scoped object visibility.
+an unknown root used in at least two files in the same folder is treated
+as a universe panel.
 
 ### Send Talk batch to BEYOND
 
@@ -361,7 +344,7 @@ Two commands send straight-line PangoScript over BEYOND Talk:
   highlighted selection. Right-click → `Send Selection as Talk Batch`
   works inside any `.BeyondCode` editor.
 
-Both gates:
+Before sending, PangoLint requires:
 
 1. `pangolint.beyond.allowScriptExecution: true` - explicit opt-in.
 2. Workspace must be **trusted**.
@@ -370,16 +353,16 @@ Both gates:
    safety.
 4. **Lint-before-send** refuses any text that fires an error-severity
    diagnostic, or any text where PangoLint's analysis limits prevent a
-   full lint pass. Hint and warning diagnostics surface in the response
+   complete lint pass. Hint and warning diagnostics appear in the response
    but don't block.
 5. **Control-flow blocked** - BEYOND Talk isn't editor-equivalent.
    PangoLint blocks labels, `goto`, `if`, loops, waits, and `exit` in
    this path. Paste full control-flow scripts directly into BEYOND's
    PangoScript editor instead.
 
-After a successful send, **PangoLint: Re-send last Talk Batch** replays
-the same batch (skips the lint, keeps the gates) - useful for tight
-iteration when nothing's changed.
+After a successful send, **PangoLint: Re-send last Talk Batch** sends the
+same batch again. It skips linting but keeps the trust, opt-in, and
+confirmation checks.
 
 Talk TCP can show BEYOND command replies and parser errors in the
 **PangoLint: Run** Output channel. Talk UDP is a valid primary transport,
@@ -393,20 +376,19 @@ datagram send status instead of BEYOND parser replies.
 
 ### Fetch / set object values
 
-- **PangoLint: Fetch object value from BEYOND** - Command Palette or
-  right-click → reads a property path you enter (e.g.
-  `Master.Brightness`). Sends `OscOutTTS` with a typed return tag,
-  awaits the OSC callback, and shows the value inline.
-- **PangoLint: Set object value on BEYOND** - Command Palette or
-  right-click → writes a value to a property path. Gated like
-  [Send Talk batch](#send-talk-batch-to-beyond). String values are
-  entered without wrapping quotes; PangoLint serializes exactly one
-  assignment line before sending.
+- **PangoLint: Fetch object value from BEYOND** - place the cursor on a
+  property path such as `Master.Brightness`, then run the command or use
+  the editor context menu. PangoLint shows the value in a notification
+  and the **PangoLint: Run** Output channel.
+- **PangoLint: Set object value on BEYOND** - place the cursor on a
+  property path, run the command, and enter the new value. The command
+  uses the same safety checks as [Send Talk batch](#send-talk-batch-to-beyond)
+  and verifies the write with a readback. Enter strings without quotes.
 
 ### Watcher: pin a property
 
-The **PangoLint Watcher** view appears in the Explorer panel when at
-least one property is pinned. Pin / unpin from the editor:
+The **BEYOND Watcher** panel in the PangoLint sidebar lists pinned
+properties. Pin or unpin properties from the editor:
 
 - Right-click a property path → **Pin property to BEYOND Watcher**.
 - Right-click a watched item in the view → **Unpin from Watcher**.
@@ -416,50 +398,44 @@ Watcher view actions:
 - **Refresh Watcher** - re-reads every pinned property in one batch.
 - **Clear all watched properties**.
 
-The watcher does **not** poll automatically - refreshes are explicit.
-This keeps network traffic predictable.
+The watcher refreshes only when requested; it does not poll.
 
 ### Validate objects in this file against BEYOND
 
 Command Palette → **PangoLint: Validate objects in this file against
 BEYOND**.
 
-PangoLint walks every property path referenced in the active file and
-issues a readback against BEYOND. Paths that resolve are cached as
-live-confirmed; paths that time out or return an error are reported in
-the **PangoLint: Run** Output channel and summarized in a notification.
-Useful as a pre-flight before sending a script, especially when you've
-added new universes / zone aliases since the last verified send.
+PangoLint finds unknown and folder-discovered object roots in the active
+file. It reads `<root>.<button>.Caption` for up to 32 candidates. Confirmed
+roots are cached for the current VS Code session; inconclusive and failed
+reads are reported in the **PangoLint: Run** Output channel and a
+notification. Bundled schemas and registered user objects are skipped.
 
 ### Live hover values
 
 Set `pangolint.beyond.liveHoverValues: true` to augment property-path
-hover tooltips with the current BEYOND value. Cached for 30 seconds per
-path. **Off by default** - generates network traffic on every hover. A
-nice quick-glance feature when actively tuning, but unnecessary the
-rest of the time.
+hover tooltips with the current BEYOND value. Values are cached for 30
+seconds per path. This setting is off by default because hovering sends
+network requests.
 
 ---
 
 ## The PangoLint MCP server
 
 `pangolint-mcp` is a [Model Context Protocol](https://modelcontextprotocol.io)
-stdio server that exposes the same curated knowledge to AI coding
-agents. It ships from the `mcp/` workspace in this repo and reads from
-the same `data/pangoscript/` knowledge base the extension uses, so
-upgrades stay in lockstep.
+stdio server for command lookup and PangoScript linting. It uses the same
+bundled data as the extension.
 
 ### When to use it
 
-- You ask Claude / Codex / Cursor / another agent to write or edit PangoScript
-  and you want command-name verification against PangoLint's curated
-  catalog, not hallucinated names from training data.
-- You want the agent to lint generated PangoScript before showing you
-  the result.
-- (Opt-in) You want the agent to send lint-clean PangoScript to a
-  developer-local BEYOND for fast visual feedback.
+- You want an AI coding tool to verify PangoScript command names against
+  PangoLint's catalog.
+- You want an AI coding tool to lint generated PangoScript before showing
+  you the result.
+- You want an AI coding tool to send linted PangoScript to BEYOND after
+  you explicitly enable runtime writes.
 
-If you don't use AI agents in your PangoScript workflow, you don't
+If you don't use an AI coding tool for PangoScript, you don't
 need the MCP server.
 
 ### Install & configure
@@ -468,25 +444,22 @@ Install the published package from npm:
 
 ```bash
 npm install -g pangolint-mcp
-which pangolint-mcp
 ```
 
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.6.tgz
-which pangolint-mcp
+npm install -g ./pangolint-mcp-0.9.7.tgz
 ```
 
 For local development with Node.js 20+, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.6.tgz
-which pangolint-mcp
+npm install -g ./mcp/pangolint-mcp-0.9.7.tgz
 ```
 
-Wire it into your MCP-aware client by adding a stdio entry:
+Add the server to your MCP client:
 
 Use `PangoLint` as the client-side server key when your client allows
 mixed-case names. Some clients show this key in tool-call UI.
@@ -501,7 +474,7 @@ mixed-case names. Some clients show this key in tool-call UI.
 }
 ```
 
-**Claude Code** (`.claude/mcp.json` or your CLI's MCP config):
+**Claude Code** (project `.mcp.json`):
 
 ```json
 {
@@ -514,7 +487,7 @@ mixed-case names. Some clients show this key in tool-call UI.
 **Codex CLI**:
 
 ```bash
-codex mcp add PangoLint -- "$(which pangolint-mcp)"
+codex mcp add PangoLint -- pangolint-mcp
 codex mcp get PangoLint
 ```
 
@@ -530,15 +503,28 @@ codex mcp add PangoLint \
   --env PANGOLINT_MCP_BEYOND_TALK_TRANSPORT=tcp \
   --env PANGOLINT_MCP_BEYOND_TALK_TCP_HOST=127.0.0.1 \
   --env PANGOLINT_MCP_BEYOND_TALK_TCP_PORT=16063 \
-  -- "$(which pangolint-mcp)"
+  -- pangolint-mcp
 ```
 
-**Cursor / VS Code (with MCP)**:
+**Cursor** (`.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "PangoLint": { "command": "pangolint-mcp" }
+  }
+}
+```
+
+**VS Code** (`.vscode/mcp.json`):
 
 ```json
 {
   "servers": {
-    "PangoLint": { "command": "pangolint-mcp" }
+    "PangoLint": {
+      "type": "stdio",
+      "command": "pangolint-mcp"
+    }
   }
 }
 ```
@@ -568,25 +554,25 @@ The full env-var list lives in [mcp/README.md](../mcp/README.md).
 
 ### Knowledge tools (always on)
 
-Eleven offline tools the agent can call without any opt-in:
+11 offline tools are always available:
 
 | Tool | What it does |
 |---|---|
-| `lookupCommand` | Curated entry for one command name (canonical or alias). |
-| `searchCommands` | Task-intent search over names, aliases, descriptions, categories, forms, parameters, notes, and tags, with optional `safetyTier` filter. |
-| `lookupObject` | Unified object lookup for canonical schemas and exact Object Tree paths (for example `WS.N.N.Caption` and `FX.N.N.N.Oscillator.Period`). |
-| `listObjects` | Object roots from canonical schemas plus Object Tree-only families such as `WS`, `FX`, and `DmxOutput`. |
+| `lookupCommand` | Catalog entry for one command name or alias. |
+| `searchCommands` | Search names, aliases, descriptions, categories, forms, parameters, notes, and tags. Can filter by `safetyTier`. |
+| `lookupObject` | Object lookup for bundled schemas and exact Object Tree paths (for example `WS.N.N.Caption` and `FX.N.N.N.Oscillator.Period`). |
+| `listObjects` | Bundled object roots and Object Tree families such as `WS`, `FX`, and `DmxOutput`. |
 | `searchObjectProperties` | Ranked search over BEYOND Object Tree property paths (e.g. `Master.ShowSpeed`, `FX.N.N.N.Oscillator.Period`). |
 | `lookupObjectProperty` | Exact lookup for a single property path. |
 | `lookupPropertyControls` | Exact property lookup with Object Tree path, direct `/b/` address, PangoScript command links, OSC routes, range data, readback, and behavior metadata. |
 | `searchPropertyControls` | Search property controls by path, OSC route, command name, context, and value metadata. |
-| `lintScript` | Run PangoLint diagnostics over text and return the structured diagnostic list. |
+| `lintScript` | Check PangoScript text and return its diagnostics. |
 | `explainDiagnostic` | Markdown documentation for one diagnostic code. |
-| `getServerConfig` | Current config and which tools are available. Agents are instructed to call this first. |
+| `getServerConfig` | Current configuration and available tools. |
 
 ### Runtime tools (opt-in)
 
-Five tools that talk to the configured BEYOND host. Read runtime and
+5 tools that talk to the configured BEYOND host. Read runtime and
 write runtime are separate opt-ins. Each tool returns
 `{ ok: false, blocked: true }` unless the matching runtime tier was
 enabled at server startup.
@@ -599,21 +585,19 @@ enabled at server startup.
 | `readReceivedOscMessages` | T1 (read) | Requires `PANGOLINT_MCP_RUNTIME_READ=enabled`. Listens on the configured OSC callback port for a bounded receive window and returns decoded OSC messages with optional exact-address or prefix filters. |
 | `runScript` | T2+ (write) | Requires `PANGOLINT_MCP_RUNTIME_WRITE=enabled`. Lints the supplied text; refuses on any error-severity diagnostic; otherwise sends via configured BEYOND Talk transport. Talk TCP reports the selected `Echo` mode. |
 
-`runScript`'s lint-before-send gate is the **load-bearing developer
-behavior**: `runScript` blocks script text that produces an
-error-severity PangoLint diagnostic before any BEYOND Talk send is
-attempted. Hint and warning diagnostics surface in the response but
-don't block the send. This is a syntax gate, not a safety gate - it
-does not validate operational laser-safety concerns.
+Before sending, `runScript` checks the script with PangoLint. An error or
+incomplete analysis blocks the send. Hints and warnings are returned but do
+not block it. This check covers syntax, not operational laser safety.
 
 ### MCP resources
 
-Eight resources for browsing the bundled knowledge base directly:
+9 bundled resources are available:
 
 | URI | Contents |
 |---|---|
 | `pangoscript://catalog/commands` | Command catalog (JSON). |
-| `pangoscript://schemas/objects` |  Object schema (JSON). |
+| `pangoscript://catalog/property-coverage` | Command-to-property mapping coverage (JSON). |
+| `pangoscript://schemas/objects` | Object schemas (JSON). |
 | `pangoscript://diagnostics/codes` | Diagnostics doc page (Markdown). |
 | `pangoscript://reference/operators` | Operator reference (Markdown). |
 | `pangoscript://reference/syntax` | Parser-shape reference (Markdown). |
@@ -621,16 +605,14 @@ Eight resources for browsing the bundled knowledge base directly:
 | `pangoscript://reference/master-object-tree` | Object Tree root reference (Markdown). |
 | `pangoscript://reference/object-model` | Object model overview (Markdown). |
 
-Each advertises a `size` hint so MCP clients can budget context before
-fetching.
+Each resource includes its byte size.
 
 ---
 
 ## Reference: settings
 
-All settings live under the `pangolint.*` namespace. The
-`pangolint.beyond.*` runtime settings are machine-scoped; configure
-them in user or machine settings, not workspace settings.
+All settings use the `pangolint.*` prefix. Runtime settings under
+`pangolint.beyond.*` are machine-scoped and cannot be set by a workspace.
 
 | Setting | Default | Purpose |
 |---|---|---|
@@ -659,8 +641,7 @@ them in user or machine settings, not workspace settings.
 
 ## Reference: commands
 
-Every command is also reachable from the Command Palette under
-**PangoLint:**.
+User-facing commands appear in the Command Palette under **PangoLint:**.
 
 ### Editor & validation
 
@@ -673,12 +654,12 @@ Every command is also reachable from the Command Palette under
 | Command | What it does |
 |---|---|
 | `pangolint.checkBeyondConnection` | Test BEYOND Connection (readback-only ping). |
-| `pangolint.runScript` | Send the current file as a Talk batch (gated). |
-| `pangolint.runSelection` | Send the current selection as a Talk batch (gated). |
+| `pangolint.runScript` | Send the current file as a Talk batch after safety checks. |
+| `pangolint.runSelection` | Send the current selection as a Talk batch after safety checks. |
 | `pangolint.replayLastScript` | Re-send the last Talk batch verbatim. |
 | `pangolint.fetchObjectValue` | Read a property path from BEYOND. |
-| `pangolint.setObjectValue` | Write a property path on BEYOND (gated). |
-| `pangolint.validateObjectsAgainstBeyond` | Walk every property path in this file and confirm it resolves on BEYOND. |
+| `pangolint.setObjectValue` | Write a property path on BEYOND after safety checks. |
+| `pangolint.validateObjectsAgainstBeyond` | Check unknown and folder-discovered object roots against BEYOND. |
 | `pangolint.pinToWatcher` | Pin a property path to the BEYOND Watcher. |
 | `pangolint.unpinFromWatcher` | Unpin a property from the Watcher. |
 | `pangolint.refreshWatcher` | Re-read every pinned property. |
@@ -688,7 +669,7 @@ Every command is also reachable from the Command Palette under
 
 | Command | What it does |
 |---|---|
-| `pangolint.addUserObject` | Internal - invoked by the code-action lightbulb. |
+| `pangolint.addUserObject` | Register a user object from a quick fix. |
 | `pangolint.removeUserObject` | Remove a registered universe / zone alias / master alias. |
 | `pangolint.showUserObjects` | List currently registered user objects. |
 
@@ -704,7 +685,8 @@ Every command is also reachable from the Command Palette under
 | `pangolint.sidebar.copySignature` | Copy the focused command's signature to the clipboard. |
 | `pangolint.openReferenceSite` | Open the bundled offline PangoScript reference site in the default browser. |
 | `pangolint.sidebar.revealDiagnostic` | Reveal the focused diagnostic at its source range. |
-| `pangolint.sidebar.openDiagnosticDocs` | Open the bundled diagnostics doc scrolled to the focused rule. |
+| `pangolint.sidebar.openDiagnosticDocs` | Open the reference for the focused diagnostic. |
+| `pangolint.sidebar.showCommand` | Open a specified command in the Commands sidebar. |
 | `pangolint.sidebar.showCommandAtCursor` | View the command at the editor cursor in the Commands sidebar. |
 
 ---
@@ -722,27 +704,25 @@ Every command is also reachable from the Command Palette under
 
 ## Safety, privacy, and data
 
-PangoLint biases conservative on three axes:
+PangoLint is offline by default and requires explicit action for network
+access or file changes:
 
-- **Network behavior.** Nothing on the network unless you've explicitly
-  configured a BEYOND host *and* invoked a runtime command.
-  - Knowledge tools, sidebar, completions, hover (without
-    `liveHoverValues`), formatting, diagnostics - all 100% offline.
+- **Network behavior.** Network requests occur only when you run a runtime
+  command or enable `pangolint.beyond.liveHoverValues`.
+  - Knowledge tools, the sidebar, completions, formatting, diagnostics, and
+    normal hover are offline.
   - `Test BEYOND Connection` is readback-only (an `OscOutTTS` ping).
   - `Send Talk Batch`, `Set object value`, and the MCP `runScript`
     require explicit opt-in (`allowScriptExecution: true` for the
     extension; `PANGOLINT_MCP_RUNTIME_WRITE=enabled` for the MCP server) and
     a trusted workspace.
-- **Workspace mutations.** PangoLint writes to two places only:
+- **File changes.** PangoLint writes to two places only:
   `.pangolint/user-objects.json` (when you accept a register-as code
   action) and the active editor (when you explicitly insert a command
   / accept a quick fix). No silent edits.
-- **What's bundled.** The repo ships a curated knowledge base derived
-  from BEYOND's published exports. Verbatim Pangolin reference
-  materials (BEYOND command export `.txt`, OSC HTML, local help) are
-  **not** in the public repo. End users get the pre-generated
-  `data/pangoscript/commands.merged.json` and do not need private
-  source inputs.
+- **Bundled data.** PangoLint includes generated command and Object Tree
+  data. The public repository does not include copies of Pangolin manuals,
+  help files, command export text, or OSC HTML.
 
 ---
 
@@ -762,10 +742,9 @@ the listener port.
 Check whether the script uses control flow (`label:` / `goto` / `if` /
 loops / waits / `exit`). BEYOND Talk is for straight-line command batches
 only, paste full scripts directly into BEYOND's PangoScript editor.
-The `BEYOND Notification Center` (in BEYOND itself) is the runtime
-oracle for failed sends; check it when a probe inexplicably no-ops. In
-BEYOND Build 2060 and later, muting Notification Center prevents it from
-opening automatically, so open its tab manually while troubleshooting.
+Check BEYOND's Notification Center for command errors. In BEYOND Build 2060
+and later, a muted Notification Center does not open automatically, so open
+its tab while troubleshooting.
 
 **Pasted script collapsed into one line.**
 BEYOND's paste path treats LF-only clipboard text as one logical line.
@@ -773,19 +752,18 @@ BEYOND's paste path treats LF-only clipboard text as one logical line.
 CRLF before copying.
 
 **Property hover says "unknown root".**
-The root identifier isn't in the canonical schemas and hasn't been
+The root identifier isn't in the bundled schemas and hasn't been
 registered as a user object yet. Click the lightbulb on the unknown
 root to register it as a universe / zone alias / master alias, or
 enable `pangolint.folderScopedUniverses` so PangoLint auto-discovers
 universes from sibling files.
 
 **MCP runtime tool returns `{ ok: false, blocked: true }`.**
-The server was started without the required runtime tier. Add
+The server started without the required runtime access. Add
 `PANGOLINT_MCP_RUNTIME_READ=enabled` for `healthCheck`,
 `readBeyondProperty`, or `readReceivedOscMessages`, or
 `PANGOLINT_MCP_RUNTIME_WRITE=enabled` for `runScript`, then restart
-the client. The agent is instructed not to retry - it should tell you
-how to enable runtime instead.
+the client. Retry after the server restarts.
 
 **Markdown reference link from `Why?` doesn't open.**
 The bundled diagnostics doc lives inside the VSIX. Reload the VS Code
