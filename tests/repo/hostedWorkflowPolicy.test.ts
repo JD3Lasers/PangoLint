@@ -3,7 +3,29 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const workflowDirectory = path.join(".github", "workflows");
-const hostedRunnerDeclaration = /^\s*runs-on: (?:ubuntu|windows|macos)-(?:latest|\d+(?:\.\d+)?(?:-[a-z0-9]+)?)$/;
+const githubHostedRunnerLabels = new Set([
+  "macos-14",
+  "macos-15",
+  "macos-15-intel",
+  "macos-26",
+  "macos-26-intel",
+  "macos-latest",
+  "ubuntu-22.04",
+  "ubuntu-22.04-arm",
+  "ubuntu-24.04",
+  "ubuntu-24.04-arm",
+  "ubuntu-26.04",
+  "ubuntu-26.04-arm",
+  "ubuntu-latest",
+  "ubuntu-slim",
+  "windows-11-arm",
+  "windows-11-vs2026-arm",
+  "windows-2022",
+  "windows-2025",
+  "windows-2025-vs2026",
+  "windows-latest",
+  "xcode-27",
+]);
 
 describe("GitHub-hosted workflow policy", () => {
   it("uses GitHub-hosted runners for every checked-in workflow", () => {
@@ -14,15 +36,19 @@ describe("GitHub-hosted workflow policy", () => {
       expect(workflow).not.toContain("self-hosted");
       expect(runnerDeclarations.length).toBeGreaterThan(0);
       for (const declaration of runnerDeclarations) {
-        expect(declaration).toMatch(hostedRunnerDeclaration);
+        const label = declaration.slice(declaration.indexOf(":") + 1).trim();
+        expect(githubHostedRunnerLabels.has(label), `${filename}: unsupported runner label ${label}`).toBe(true);
       }
     }
   });
 
-  it.each(["ubuntu-latest", "ubuntu-24.04", "windows-2025", "macos-15-intel"])(
-    "accepts the GitHub-hosted %s runner label",
-    (label) => expect(`runs-on: ${label}`).toMatch(hostedRunnerDeclaration),
-  );
+  it("accepts pinned hosted labels and rejects hosted-looking custom labels", () => {
+    expect(githubHostedRunnerLabels.has("ubuntu-24.04")).toBe(true);
+    expect(githubHostedRunnerLabels.has("windows-2025")).toBe(true);
+    expect(githubHostedRunnerLabels.has("macos-15-intel")).toBe(true);
+    expect(githubHostedRunnerLabels.has("ubuntu-0")).toBe(false);
+    expect(githubHostedRunnerLabels.has("windows-9999-custom")).toBe(false);
+  });
 
   it("keeps live BEYOND smoke local", () => {
     const packageJson = readFileSync("package.json", "utf8");
