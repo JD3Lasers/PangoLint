@@ -134,28 +134,19 @@ Expected callback:
 If the callback is missing, verify the BEYOND OSC Out destination host/port and
 the app listener bind address before testing write paths.
 
-## Manual Live Smoke Workflow
+## Operator-Supervised Local Smoke
 
-Use `.github/workflows/live-beyond-smoke.yml` for opt-in CI runs against an
-operator-supervised BEYOND bench. The workflow is `workflow_dispatch` only and
-targets a self-hosted runner with the `pangolint-live-beyond` label. It is not
-part of normal public PR CI and should not be added to branch protection.
+Run live smoke checks locally on a computer that can reach the supervised
+BEYOND bench. The smoke command checks:
 
-The hosted workflow only runs from `main`, checks out the repository default
-branch, and references the `live-beyond-smoke` GitHub Environment. Configure
-that environment with required reviewers and a deployment branch policy before
-storing live bench secrets there. The Talk TCP password is scoped to the smoke
-command step instead of being written to the job-wide environment.
-
-The workflow runs:
 - Talk TCP `Hello` and `Version` to verify parser/status readback.
 - A readback-only `OscOutTTS` ping sent over Talk TCP.
 - A harmless Object Tree readback, defaulting to `Master.Brightness`.
 - A Talk UDP `OscOutTTS` callback smoke check. This proves the datagram path and
   callback route, but Talk UDP remains send-only for parser/status reporting.
 
-Configure the bench through runner environment variables or GitHub Actions
-variables. Keep local network addresses out of checked-in files.
+Configure the bench through process environment variables. Keep local network
+addresses out of checked-in files.
 
 | Name | Purpose |
 | --- | --- |

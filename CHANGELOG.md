@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.9] - 2026-08-15
+
+### Changed
+
+- Retire the GitHub Actions workflow for the offline self-hosted BEYOND bench.
+  Keep live BEYOND smoke checks available as an operator-supervised local
+  command while all checked-in workflows use GitHub-hosted runners.
+
 ## [0.9.8] - 2026-08-15
 
 ### Security
@@ -728,7 +736,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.8...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.9...HEAD
+[0.9.9]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.8...v0.9.9
 [0.9.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.7...v0.9.8
 [0.9.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.6...v0.9.7
 [0.9.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...v0.9.6
