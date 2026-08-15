@@ -174,8 +174,9 @@ Available modes:
 - `udp`: Talk UDP callback smoke only.
 - `all`: every check above.
 
-Range spot checks should stay in a separate issue and manual profile. Use this
-workflow to prove the bench is reachable before running curated range canaries.
+Range spot checks should stay in a separate issue and manual profile. Use the
+local smoke command to prove the bench is reachable before running curated
+range canaries.
 
 ### Build 2060 compatibility check
 
