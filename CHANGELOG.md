@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.9.8] - 2026-08-15
+
+### Security
+
+- Update compatible development and MCP dependencies, refresh the lockfile,
+  and constrain transitive `brace-expansion` and `js-yaml` dependencies to
+  patched releases. This resolves the current npm audit findings in
+  `brace-expansion`, `fast-uri`, `hono`, `ip-address`, `js-yaml`, `nanoid`,
+  `postcss`, and `undici`.
+
 ## [0.9.7] - 2026-07-22
 
 ### Changed
@@ -718,7 +728,8 @@ Initial public release.
   public reference material. It does not redistribute Pangolin manuals, help
   files, BEYOND command export text, or OSC HTML.
 
-[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.7...HEAD
+[Unreleased]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.8...HEAD
+[0.9.8]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.7...v0.9.8
 [0.9.7]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.6...v0.9.7
 [0.9.6]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.5...v0.9.6
 [0.9.5]: https://github.com/JD3Lasers/PangoLint/compare/v0.9.4...v0.9.5
