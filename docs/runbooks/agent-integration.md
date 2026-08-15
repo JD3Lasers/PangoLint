@@ -35,7 +35,7 @@ which pangolint-mcp   # confirm the binary is on PATH
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.7.tgz
+npm install -g ./pangolint-mcp-0.9.8.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
@@ -45,7 +45,7 @@ repository checkout:
 ```bash
 # from the repository root
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.7.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.8.tgz
 which pangolint-mcp   # confirm the binary is on PATH
 ```
 
