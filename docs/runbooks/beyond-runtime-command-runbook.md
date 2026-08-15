@@ -155,7 +155,7 @@ addresses out of checked-in files.
 | `PANGOLINT_LIVE_BEYOND_TALK_TCP_PORT` | Talk TCP port. Defaults to `16063`. |
 | `PANGOLINT_LIVE_BEYOND_TALK_UDP_HOST` | Talk UDP host when it differs from the shared host. |
 | `PANGOLINT_LIVE_BEYOND_TALK_UDP_PORT` | Talk UDP port. Defaults to `16062`. |
-| `PANGOLINT_LIVE_BEYOND_TCP_PASSWORD` | Optional Talk TCP password, preferably a GitHub Actions secret. |
+| `PANGOLINT_LIVE_BEYOND_TCP_PASSWORD` | Optional Talk TCP password. Set it only in the local process environment and do not check it in. |
 | `PANGOLINT_LIVE_BEYOND_OSC_LISTEN_HOST` | Local listener bind host. Defaults to `0.0.0.0`. |
 | `PANGOLINT_LIVE_BEYOND_OSC_LISTEN_PORT` | Local OSC callback listener port. Defaults to `7000`. |
 | `PANGOLINT_LIVE_BEYOND_READBACK_TIMEOUT_MS` | Readback timeout. Defaults to `5000`. |
