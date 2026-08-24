@@ -449,14 +449,14 @@ npm install -g pangolint-mcp
 Or install the `pangolint-mcp` tarball attached to a GitHub Release:
 
 ```bash
-npm install -g ./pangolint-mcp-0.9.8.tgz
+npm install -g ./pangolint-mcp-0.9.9.tgz
 ```
 
 For local development with Node.js 20+, build the same tarball from this repo:
 
 ```bash
 npm run package:mcp
-npm install -g ./mcp/pangolint-mcp-0.9.8.tgz
+npm install -g ./mcp/pangolint-mcp-0.9.9.tgz
 ```
 
 Add the server to your MCP client:
